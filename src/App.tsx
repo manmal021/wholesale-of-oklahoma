@@ -40,31 +40,31 @@ export default function App() {
 
   return (
     <div className="w-full min-h-screen bg-[#f5f5f4] text-[#1f2a1d] overflow-y-auto selection:bg-[#336443]/20">
-      
+
       {/* Hero Header Section */}
       <section id="overview" className="relative w-full min-h-screen sm:h-screen overflow-hidden">
         {/* Seamless Canvas Boomerang Loop Background with original colors and natural visual form */}
-        <BoomerangVideoBg 
-          src={BG_VIDEO} 
-          className="absolute inset-0 w-full h-full" 
-          isMirrored={false} 
+        <BoomerangVideoBg
+          src={BG_VIDEO}
+          className="absolute inset-0 w-full h-full"
+          isMirrored={false}
           isColorInverted={false}
-          isClear={true} 
+          isClear={true}
           overlayOpacity={45}
         />
-        
+
         {/* Editorial Gradients & Soft Glowing Orbs */}
         <div className="absolute inset-0 bg-gradient-to-br from-[#1f2a1d] via-[#2d3a2a] to-[#1f2a1d] opacity-10 pointer-events-none z-10" />
         <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden">
           <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#85AB8B] opacity-15 blur-[120px]" />
           <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-[#336443] opacity-15 blur-[100px]" />
         </div>
-        
+
         {/* Responsive Premium Navbar */}
         <nav className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between px-4 sm:px-6 md:px-10 py-4 sm:py-6">
           <div className="flex items-center gap-2">
             <span className="text-xl sm:text-2xl font-bold tracking-tight text-white flex items-center gap-2 drop-shadow-sm select-none">
-              Wholesale of Oklahoma<sup className="text-[10px] sm:text-xs font-semibold text-[#85AB8B]">TM</sup>
+              Wholesale of OK<sup className="text-[10px] sm:text-xs font-semibold text-[#85AB8B]">TM</sup>
             </span>
           </div>
 
@@ -105,14 +105,12 @@ export default function App() {
               aria-expanded={menuOpen}
             >
               <Menu
-                className={`w-5 h-5 absolute transition-all duration-300 ${
-                  menuOpen ? 'opacity-0 rotate-90 scale-50' : 'opacity-100 rotate-0 scale-100'
-                }`}
+                className={`w-5 h-5 absolute transition-all duration-300 ${menuOpen ? 'opacity-0 rotate-90 scale-50' : 'opacity-100 rotate-0 scale-100'
+                  }`}
               />
               <X
-                className={`w-5 h-5 absolute transition-all duration-300 ${
-                  menuOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-50'
-                }`}
+                className={`w-5 h-5 absolute transition-all duration-300 ${menuOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-50'
+                  }`}
               />
             </button>
           </div>
@@ -120,9 +118,8 @@ export default function App() {
 
         {/* Mobile Backdrop Overlay Menu */}
         <div
-          className={`lg:hidden fixed inset-0 z-20 transition-opacity duration-300 ${
-            menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-          }`}
+          className={`lg:hidden fixed inset-0 z-20 transition-opacity duration-300 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+            }`}
           onClick={() => setMenuOpen(false)}
         >
           <div className="absolute inset-0 bg-[#1f2a1d]/40 backdrop-blur-sm" />
@@ -130,9 +127,8 @@ export default function App() {
 
         {/* Mobile Navigation Drawer with perfect CSS transitions */}
         <div
-          className={`lg:hidden fixed top-0 right-0 bottom-0 z-20 w-[85%] max-w-sm bg-white/95 backdrop-blur-xl shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-            menuOpen ? 'translate-x-0' : 'translate-x-full'
-          }`}
+          className={`lg:hidden fixed top-0 right-0 bottom-0 z-20 w-[85%] max-w-sm bg-white/95 backdrop-blur-xl shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? 'translate-x-0' : 'translate-x-full'
+            }`}
         >
           <div className="flex flex-col h-full pt-24 px-8 pb-8">
             <span className="text-[10px] uppercase font-bold tracking-widest text-[#85AB8B] mb-2">Navigation Links</span>
@@ -142,9 +138,8 @@ export default function App() {
                   key={link.href}
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
-                  className={`text-2xl font-semibold text-[#1f2a1d] py-4 border-b border-[#1f2a1d]/10 transition-all duration-500 ${
-                    menuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-                  }`}
+                  className={`text-2xl font-semibold text-[#1f2a1d] py-4 border-b border-[#1f2a1d]/10 transition-all duration-500 ${menuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+                    }`}
                   style={{ transitionDelay: menuOpen ? `${150 + i * 70}ms` : '0ms' }}
                 >
                   {link.label}
@@ -154,9 +149,8 @@ export default function App() {
 
             {/* Mobile specific drawer buttons */}
             <div
-              className={`mt-auto flex flex-col gap-4 transition-all duration-500 ${
-                menuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-              }`}
+              className={`mt-auto flex flex-col gap-4 transition-all duration-500 ${menuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+                }`}
               style={{ transitionDelay: menuOpen ? '400ms' : '0ms' }}
             >
               <div className="bg-neutral-50 p-4 rounded-xl space-y-2 text-xs">

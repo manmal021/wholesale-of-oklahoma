@@ -19,20 +19,6 @@ export default function BoomerangVideoBg({
 }: Props) {
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  useEffect(() => {
-    const playVideo = async () => {
-      if (videoRef.current) {
-        try {
-          videoRef.current.load();
-          videoRef.current.muted = true;
-          await videoRef.current.play();
-        } catch (err) {
-          console.log("Autoplay requested/prevented successfully in sandbox:", err);
-        }
-      }
-    };
-    playVideo();
-  }, [src]);
 
   return (
     <div className={className ?? 'absolute inset-0 w-full h-full'}>
