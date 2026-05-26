@@ -1,0 +1,6 @@
+{
+  "name": "Wholesale of Oklahoma",
+  "description": "Prestige digital storefront for Wholesale of Oklahoma, showcasing dispensaries, vape, and smoke shop selections.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
