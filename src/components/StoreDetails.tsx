@@ -1,5 +1,62 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { MapPin, Phone, Clock, Navigation, CornerDownRight, Copy, Check, MessageSquare, ShieldCheck, Mail } from 'lucide-react';
+
+const getOKCDate = () => {
+  const now = new Date();
+  const formatter = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'America/Chicago',
+    hour12: false,
+    weekday: 'long',
+    hour: 'numeric',
+    minute: 'numeric',
+    day: 'numeric',
+    month: 'numeric',
+    year: 'numeric'
+  });
+  
+  const parts = formatter.formatToParts(now);
+  const val = (type: string) => parts.find(p => p.type === type)?.value || '';
+  const hourVal = parseInt(val('hour'));
+  
+  return {
+    dayOfWeek: now.toLocaleDateString('en-US', { timeZone: 'America/Chicago', weekday: 'long' }),
+    hour: hourVal === 24 ? 0 : hourVal,
+    minute: parseInt(val('minute')),
+    displayTime: now.toLocaleTimeString('en-US', { timeZone: 'America/Chicago', hour: 'numeric', minute: '2-digit' })
+  };
+};
+
+const checkStoreStatus = (dayOfWeek: string, hour: number, minute: number) => {
+  const isSunday = dayOfWeek === 'Sunday';
+  const openHour = isSunday ? 11 : 9;
+  const closeHour = 20; // 8 PM
+  
+  const currentMinutes = hour * 60 + minute;
+  const openMinutes = openHour * 60;
+  const closeMinutes = closeHour * 60;
+  
+  const isOpen = currentMinutes >= openMinutes && currentMinutes < closeMinutes;
+  
+  let nextOpenMsg = '';
+  if (!isOpen) {
+    if (currentMinutes < openMinutes) {
+      nextOpenMsg = `Opens at ${openHour}:00 AM Today`;
+    } else {
+      const tomorrowSunday = dayOfWeek === 'Saturday';
+      const tomorrowOpenHour = tomorrowSunday ? 11 : 9;
+      nextOpenMsg = `Opens at ${tomorrowOpenHour}:00 AM Tomorrow`;
+    }
+  } else {
+    const minutesToClose = closeMinutes - currentMinutes;
+    if (minutesToClose <= 60) {
+      nextOpenMsg = `Closes soon • ${minutesToClose} min left`;
+    } else {
+      nextOpenMsg = `Closes at 8:00 PM`;
+    }
+  }
+  
+  return { isOpen, nextOpenMsg, hoursToday: `${openHour}:00 AM – 8:00 PM` };
+};
 
 export default function StoreDetails() {
   const [copied, setCopied] = useState(false);
@@ -8,14 +65,22 @@ export default function StoreDetails() {
   const [contactEmail, setContactEmail] = useState('');
   const [contactMsg, setContactMsg] = useState('');
 
+  const [timeInfo, setTimeInfo] = useState(() => getOKCDate());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setTimeInfo(getOKCDate());
+    }, 10000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const { isOpen, nextOpenMsg, hoursToday } = checkStoreStatus(timeInfo.dayOfWeek, timeInfo.hour, timeInfo.minute);
+
   const copyAddress = () => {
     navigator.clipboard.writeText('4500 S Bryant Ave, Oklahoma City, OK 73135');
     setCopied(true);
     setTimeout(() => setCopied(false), 2000);
   };
-
-  const currentDayOfWeek = new Date().getDay(); // 0 is Sunday, 6 is Saturday
-  const isSunday = currentDayOfWeek === 0;
 
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
@@ -52,8 +117,8 @@ export default function StoreDetails() {
                   <span className="text-[11px] font-bold text-[#85AB8B]">01</span>
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm text-white">Bulk Delivery Match</h4>
-                  <p className="text-[11px] text-neutral-300">Minimum 50 units total gets gratis OKC central network deliveries.</p>
+                  <h4 className="font-bold text-sm text-white">Direct Shop Delivery</h4>
+                  <p className="text-[11px] text-neutral-300">Fast, reliable delivery straight to your storefront anywhere in the OKC metro area.</p>
                 </div>
               </div>
 
@@ -180,18 +245,37 @@ export default function StoreDetails() {
               {/* Operating hours card */}
               <div className="bg-white/60 backdrop-blur-md p-4 rounded-[24px] border border-white shadow-sm flex flex-col justify-between">
                 <div>
-                  <div className="w-8 h-8 rounded-full bg-[#1f2a1d]/5 text-[#336443] flex items-center justify-center mb-2">
-                    <Clock className="w-4 h-4" />
+                  <div className="flex justify-between items-start mb-2">
+                    <div className="w-8 h-8 rounded-full bg-[#1f2a1d]/5 text-[#336443] flex items-center justify-center">
+                      <Clock className="w-4 h-4" />
+                    </div>
+                    {isOpen ? (
+                      <span className="inline-flex items-center gap-1 bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded-full">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                        Open Now
+                      </span>
+                    ) : (
+                      <span className="inline-flex items-center gap-1 bg-rose-100 text-rose-800 text-[10px] font-bold px-2 py-0.5 rounded-full">
+                        <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
+                        Closed
+                      </span>
+                    )}
                   </div>
                   <span className="text-[10px] uppercase font-bold text-neutral-400">Trading Hours</span>
                   <p className="text-xs font-bold text-[#1f2a1d] mt-1">
-                    {isSunday ? 'Opens 11 AM · Closes 8 PM' : 'Closes soon · 8:00 PM'}
+                    {nextOpenMsg}
                   </p>
-                  <p className="text-[11px] text-neutral-500">Opens 11 AM Sun</p>
+                  <p className="text-[11px] text-neutral-500 mt-0.5">Today: {hoursToday}</p>
                 </div>
-                <span className="mt-3 inline-flex self-start bg-amber-50 border border-amber-100 text-[#3d5638] text-[10px] font-semibold px-2 py-0.5 rounded">
-                  Closes 8:00 PM nightly
-                </span>
+                
+                <div className="mt-3 pt-2 border-t border-[#1f2a1d]/5 flex flex-col gap-1">
+                  <span className="text-[10px] text-neutral-500">
+                    OKC Local Time: <span className="font-semibold text-[#1f2a1d]">{timeInfo.displayTime}</span>
+                  </span>
+                  <span className="inline-flex self-start bg-neutral-100 border border-neutral-200 text-[#3d5638] text-[9px] font-semibold px-2 py-0.5 rounded">
+                    Closes 8:00 PM nightly
+                  </span>
+                </div>
               </div>
 
               {/* Secure Phone hotline card */}

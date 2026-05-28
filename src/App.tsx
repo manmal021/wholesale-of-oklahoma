@@ -64,7 +64,7 @@ export default function App() {
         <nav className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between px-4 sm:px-6 md:px-10 py-4 sm:py-6">
           <div className="flex items-center gap-2">
             <span className="text-xl sm:text-2xl font-bold tracking-tight text-white flex items-center gap-2 drop-shadow-sm select-none">
-              Wholesale of OK<sup className="text-[10px] sm:text-xs font-semibold text-[#85AB8B]">TM</sup>
+              Wholesale of Oklahoma
             </span>
           </div>
 
@@ -200,7 +200,7 @@ export default function App() {
           <div className="flex items-center gap-2 text-[#85AB8B] mb-3">
             <Sparkles className="w-4 h-4 text-[#85AB8B]" />
             <span className="text-sm font-bold tracking-wide">
-              Wholesale of OK<sup className="text-[10px]">TM</sup>
+              Wholesale of Oklahoma
             </span>
           </div>
           <p className="text-white/85 text-xs leading-relaxed mb-6 max-w-xs font-semibold">

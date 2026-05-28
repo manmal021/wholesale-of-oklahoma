@@ -24,7 +24,7 @@ export default function ReviewSlider() {
       author: 'Kathmandu guy',
       role: 'Smoke Shop Owner',
       rating: 5,
-      date: '2 weeks ago',
+      date: '3 weeks ago',
       body: 'The guy with long hair is very helpful & polite. He helped me to find new vapes. Also helped me on stacking in my vehicle. Great customer service.',
       verified: true
     },
@@ -32,8 +32,80 @@ export default function ReviewSlider() {
       author: 'Kailash Dhakal',
       role: 'Store restocker guide',
       rating: 5,
-      date: '2 weeks ago',
-      body: 'Staffs are friendly and helpful. Surprised me, they even do shippings, store setup and take order to bring products of your choice. A truly cooperative distribution partner.',
+      date: '3 weeks ago',
+      body: 'Staffs are friendly and helpful. Surprised me, they even do shippings, store setup and take order to bring products of your choice.',
+      verified: true
+    },
+    {
+      author: 'Munal Baniya',
+      role: 'Smoke Shop Owner',
+      rating: 5,
+      date: '3 weeks ago',
+      body: 'Everything was great. Great customer service and friendly nature. Products were really good at price.',
+      verified: true
+    },
+    {
+      author: 'Prasish',
+      role: 'Store Owner',
+      rating: 5,
+      date: '3 weeks ago',
+      body: 'Reliable wholesale supplier with a great selection of vapes, hookahs, glass, cigars, and accessories. Competitive prices, well-stocked inventory, and helpful staff make it a solid choice for smoke shops and convenience stores.',
+      verified: true
+    },
+    {
+      author: 'Subash Malla',
+      role: 'Convenience Store Manager',
+      rating: 5,
+      date: '3 weeks ago',
+      body: 'Excellent wholesale supplier for smoke shops, vape stores, gas stations, and convenience stores. They have a massive variety of smoke shop products including vapes, hookahs, glass pieces, rolling papers, disposables, cigars, incense, and more.',
+      verified: true
+    },
+    {
+      author: 'K R',
+      role: 'Local Guide',
+      rating: 5,
+      date: 'a month ago',
+      body: 'They have all the stuff for your retail store especially for vape/smoke shop, gas station and dispensary. They have all the flavors of foger, geekbar, Raz. Varieties of vapes with wide ranges of prices to choose from, variety of kratom product, varieties of novelties stuff.',
+      verified: true
+    },
+    {
+      author: 'Khem Raj Regmi',
+      role: 'Smoke Shop Owner',
+      rating: 5,
+      date: 'a month ago',
+      body: 'They got all the fogers flavors with good price and Geekbar with lowest price ever.',
+      verified: true
+    },
+    {
+      author: 'Ankit Dhakal',
+      role: 'Retail Partner',
+      rating: 5,
+      date: 'a month ago',
+      body: 'Wholesale of Oklahoma is a one-stop shop that truly delivers! Whether you\'re stopping for gas, browsing the smoke shop, or visiting the dispensary, the staff is incredibly knowledgeable, friendly, and welcoming every single time.',
+      verified: true
+    },
+    {
+      author: 'Roshani Shrestha',
+      role: 'Store Owner',
+      rating: 5,
+      date: 'a month ago',
+      body: 'Wholesale of Oklahoma is our go-to place because they truly have everything we need in one stop, with a huge, well-organized selection that’s always fully stocked and easy to shop. What really stands out is the staff—they are very friendly and helpful.',
+      verified: true
+    },
+    {
+      author: 'Shreeya Thapa',
+      role: 'Vape Shop Owner',
+      rating: 5,
+      date: 'a month ago',
+      body: 'Had a great experience at Wholesale of Oklahoma. The store has a huge selection, and the staff were super friendly and helpful throughout my visit. Everything felt smooth and welcoming, definitely a place I’d recommend and come back to.',
+      verified: true
+    },
+    {
+      author: 'Sujan DH',
+      role: 'Local Guide',
+      rating: 5,
+      date: 'a month ago',
+      body: 'This is the ultimate one-stop supplier for gas stations, smoke shops, and novelty stores. They offer a massive selection of smoking accessories, vapes, convenience items, and trendy novelties at competitive wholesale prices.',
       verified: true
     }
   ]);

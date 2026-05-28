@@ -16,7 +16,7 @@ interface Product {
 
 export default function ProductCatalog() {
   const [selectedCategory, setSelectedCategory] = useState<'All' | 'Geekbar' | 'Raz' | 'Foger' | 'Vozol'>('All');
-  
+
   // High-circulating products available right now (Geekbar, Raz, Foger, and Vozol)
   const products: Product[] = [
     {
@@ -38,19 +38,19 @@ export default function ProductCatalog() {
       puffs: '25,000 Puffs',
       nicotine: '5%',
       features: ['World\'s 1st 3D Curved Screen', 'Advanced Dual Core', 'Fast Charge Capable', 'Dispensary Top Pick'],
-      flavours: ['Sour Mango Pineapple', 'Limeade Ice', 'Grapevine', 'Blueberry B-Pop', 'Miami Mint'],
+      flavours: ['Sour Mango Pineapple', 'Watermelon Ice', 'Sour apple ice', 'starwberry b pop', 'Miami Mint'],
       popular: true,
       basePriceRange: '$8.20 / unit',
       pricePerUnit: 8.20,
     },
     {
       id: 'geekbar-60k',
-      name: 'Geekbar Pulse Ultra 60k',
+      name: 'Geekbar Pulse Ultra 60k (kit & pod)',
       brand: 'Geekbar',
       puffs: '60,000 Puffs',
       nicotine: '5%',
       features: ['Extended High-Capacity Tank', 'Triple Mesh Technology', 'Interactive Fluid Indicator', 'Max Hand Feel'],
-      flavours: ['Dragon Melon', 'Triple Grape Puff', 'Frost Mint Extreme', 'Peach Paradise', 'Strawberry Watermelon'],
+      flavours: ['Blue Straws', 'Triple Berry', 'Cool Mint', 'Maimi Mint', 'Strawberry Watermelon'],
       popular: true,
       basePriceRange: '$12.00 / unit',
       pricePerUnit: 12.00,
@@ -62,7 +62,7 @@ export default function ProductCatalog() {
       puffs: '25,000 Puffs',
       nicotine: '5%',
       features: ['Genuine Leather Texture Grip', 'HD Animation Screen', 'Adjustable Dual Airflow', 'Smoke Shop Classic'],
-      flavours: ['Night Crawler', 'Bango Ice', 'Georgia Peach', 'Blueberry Watermelon', 'Sour Apple Peach'],
+      flavours: ['Night Crawler', 'Mango Ice', 'Georgia Peach', 'Blueberry Watermelon', 'Blue Razz gush'],
       popular: true,
       basePriceRange: '$7.90 / unit',
       pricePerUnit: 7.90,
@@ -74,7 +74,7 @@ export default function ProductCatalog() {
       puffs: '30,000 Puffs',
       nicotine: '5%',
       features: ['Dynamic Pod Kit Setup', 'Interchangeable Cartridges', 'Eco-Boost Core Technology', 'Premium Vapor Density'],
-      flavours: ['Strawberry Watermelon', 'Blue Razz Ice', 'Peach Mango', 'Mint Ice', 'Sour Apple'],
+      flavours: ['Strawberry Watermelon', 'Blue Razz Ice', 'Gummy Bear', 'Gum Mint', 'Sour Apple Ice'],
       popular: true,
       basePriceRange: '$9.50 / unit',
       pricePerUnit: 9.50,
@@ -86,7 +86,7 @@ export default function ProductCatalog() {
       puffs: '50,000 Puffs',
       nicotine: '5%',
       features: ['Ultimate 50k High-Capacity Pack', 'Vozol Smart Air Control', 'Rapid Charge Capability', 'Dual Core Flavor Preservation'],
-      flavours: ['Watermelon Frost', 'Cool Mint', 'Grape Ice', 'Blueberry Blast', 'Cherry Cola'],
+      flavours: ['Watermelon razz rancher', 'Cool Mint', 'Hawian Pineapple paradise', 'miami mint', 'Blue raz ice'],
       popular: true,
       basePriceRange: '$11.00 / unit',
       pricePerUnit: 11.00,
@@ -129,11 +129,10 @@ export default function ProductCatalog() {
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer ${
-                  selectedCategory === cat
+                className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all cursor-pointer ${selectedCategory === cat
                     ? 'bg-[#1f2a1d] text-white shadow-sm'
                     : 'text-[#4b5b47] hover:bg-neutral-200/50'
-                }`}
+                  }`}
               >
                 {cat}
               </button>

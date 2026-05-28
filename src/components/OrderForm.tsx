@@ -35,7 +35,7 @@ export default function OrderForm() {
           <form action="https://api.web3forms.com/submit" method="POST" className="space-y-6">
 
             {/* Web3Forms Configuration */}
-            <input type="hidden" name="access_key" value="f4c8456f-9fd1-44cc-af48-fd92170b6062" />
+            <input type="hidden" name="access_key" value="1ebec85d-15fd-4f21-9513-ef05685850bc" />
             <input type="hidden" name="subject" value="New Wholesale Order Request" />
             <input type="hidden" name="from_name" value="Wholesale of Oklahoma Orders" />
             <input type="checkbox" name="botcheck" className="hidden" style={{ display: 'none' }} />
