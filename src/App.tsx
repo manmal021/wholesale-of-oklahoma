@@ -3,6 +3,7 @@ import { LogIn, UserPlus, Play, Sparkles, Menu, X, Star, MapPin, Phone } from 'l
 import BoomerangVideoBg from './components/BoomerangVideoBg';
 import ProductCatalog from './components/ProductCatalog';
 import ReviewSlider from './components/ReviewSlider';
+import GallerySlider from './components/GallerySlider';
 import StoreDetails from './components/StoreDetails';
 import OrderForm from './components/OrderForm';
 
@@ -27,6 +28,7 @@ export default function App() {
     { href: '#overview', label: 'Overview' },
     { href: '#how', label: 'Best Sellers' },
     { href: '#reviews', label: 'Reviews' },
+    { href: '#gallery', label: 'Gallery' },
     { href: '#direct-order-section', label: 'Order Now' },
     { href: '#pricing', label: 'Contact' },
   ];
@@ -239,6 +241,9 @@ export default function App() {
 
       {/* 3. Verified Maps Customer Testimonials Test Slider */}
       <ReviewSlider />
+
+      {/* 3.5 Photo Gallery */}
+      <GallerySlider />
 
       {/* 4. Complete contact directories with Map representation */}
       <StoreDetails />
