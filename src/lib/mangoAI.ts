@@ -1,0 +1,336 @@
+// ─────────────────────────────────────────────────────────────────────────────
+// mangoAI.ts
+// Intelligent Conversational AI Assistant Engine for Wholesale of Oklahoma
+// Personality: Mango 🐕, a friendly Golden Retriever store assistant.
+// ─────────────────────────────────────────────────────────────────────────────
+
+import { GoogleGenAI } from '@google/genai';
+import {
+  PRODUCTS,
+  getProduct,
+  getWholesalePrice,
+  type WholesaleProduct,
+} from './productDatabase';
+
+export interface ChatMessage {
+  id?: string;
+  role: 'user' | 'model';
+  text: string;
+  timestamp?: number;
+}
+
+export interface DraftOrderItem {
+  product: WholesaleProduct;
+  quantity: number;
+  flavor?: string;
+  pricePerUnit: number;
+  totalPrice: number;
+}
+
+export interface MangoToolResult {
+  type: 'order_summary' | 'order_updated';
+  orderItems?: DraftOrderItem[];
+  orderTotal?: number;
+}
+
+// ─── Global In-Memory Draft Order State ──────────────────────────────────────
+
+let draftOrder: DraftOrderItem[] = [];
+
+export function getDraftOrder(): DraftOrderItem[] {
+  return draftOrder;
+}
+
+export function getDraftOrderTotal(): number {
+  return (
+    Math.round(
+      draftOrder.reduce((sum, item) => sum + item.totalPrice, 0) * 100
+    ) / 100
+  );
+}
+
+export function clearDraftOrder(): void {
+  draftOrder = [];
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent('mango-cart-updated'));
+  }
+}
+
+// ─── Direct Cart Modification API (Used by Inventory & Best Sellers) ─────────
+
+export function addToOrderDirect(
+  productId: string,
+  quantity: number,
+  flavor?: string
+): { success: boolean; message: string } {
+  const product = getProduct(productId);
+  if (!product) return { success: false, message: 'Product not found.' };
+  if (!product.inStock) return { success: false, message: `${product.name} is currently out of stock.` };
+
+  const finalQty = Math.max(quantity, product.minOrderQty);
+  const pricing = getWholesalePrice(productId, finalQty);
+  if (!pricing) return { success: false, message: 'Pricing could not be calculated.' };
+
+  const existingIdx = draftOrder.findIndex(
+    (i) => i.product.id === product.id && (i.flavor || '') === (flavor || '')
+  );
+
+  if (existingIdx >= 0) {
+    const newQty = draftOrder[existingIdx].quantity + finalQty;
+    const newPricing = getWholesalePrice(productId, newQty)!;
+    draftOrder[existingIdx] = {
+      ...draftOrder[existingIdx],
+      quantity: newQty,
+      pricePerUnit: newPricing.pricePerUnit,
+      totalPrice: newPricing.totalPrice,
+    };
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('mango-cart-updated'));
+    }
+    return { success: true, message: `Updated ${product.name} to ${newQty} units.` };
+  }
+
+  draftOrder.push({
+    product,
+    quantity: finalQty,
+    flavor,
+    pricePerUnit: pricing.pricePerUnit,
+    totalPrice: pricing.totalPrice,
+  });
+
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent('mango-cart-updated'));
+  }
+
+  return { success: true, message: `Added ${finalQty}x ${product.name} to your draft order.` };
+}
+
+export function removeFromOrderDirect(productId: string): { success: boolean; message: string } {
+  const before = draftOrder.length;
+  draftOrder = draftOrder.filter((i) => i.product.id !== productId);
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent('mango-cart-updated'));
+  }
+  return draftOrder.length < before
+    ? { success: true, message: 'Removed from order.' }
+    : { success: false, message: 'Item not in order.' };
+}
+
+// ─── Local Deterministic Fallback Engine ──────────────────────────────────
+// Ensures Mango ALWAYS answers instantly without hiccups, even offline or on 503.
+
+function handleWithLocalEngine(userText: string): { text: string; toolResults: MangoToolResult[] } {
+  const q = userText.toLowerCase().trim();
+
+  // 1. Store Location / Address
+  if (
+    q.includes('address') ||
+    q.includes('location') ||
+    q.includes('where') ||
+    q.includes('located') ||
+    q.includes('directions') ||
+    q.includes('find you')
+  ) {
+    return {
+      text: `Woof woof! 🐕 We are located at:\n\n📍 **4500 S Bryant Ave, Oklahoma City, OK 73135**\n\nWe are right here in Oklahoma City! You can stop by our warehouse for same-day local pickup, or call us at **(405) 768-2975** for directions or metro delivery assistance!`,
+      toolResults: [],
+    };
+  }
+
+  // 2. Store Hours
+  if (
+    q.includes('hour') ||
+    q.includes('open') ||
+    q.includes('close') ||
+    q.includes('schedule') ||
+    q.includes('time') ||
+    q.includes('when are you')
+  ) {
+    return {
+      text: `Woof! 🐕 Here are our current store & warehouse hours:\n\n⏰ **Monday – Saturday:** 9:00 AM – 8:00 PM\n⏰ **Sunday:** 11:00 AM – 8:00 PM\n\nFeel free to call us at **(405) 768-2975** or drop in anytime during these hours!`,
+      toolResults: [],
+    };
+  }
+
+  // 3. Contact / Phone / Email
+  if (
+    q.includes('phone') ||
+    q.includes('call') ||
+    q.includes('contact') ||
+    q.includes('email') ||
+    q.includes('number') ||
+    q.includes('reach')
+  ) {
+    return {
+      text: `Woof! Here is our contact info to reach our Oklahoma team directly: 🐕\n\n📞 **Phone:** (405) 768-2975\n📧 **Email:** wholesaleofoklahoma@gmail.com\n📍 **Address:** 4500 S Bryant Ave, Oklahoma City, OK 73135\n\nGive us a call anytime during business hours for quick stock checks or volume quotes!`,
+      toolResults: [],
+    };
+  }
+
+  // 4. Pickup / Delivery / Shipping
+  if (q.includes('pickup') || q.includes('delivery') || q.includes('deliver') || q.includes('ship')) {
+    return {
+      text: `Woof! Yes, we offer fast Oklahoma fulfillment! 🐕\n\n• **Same-Day OKC Warehouse Pickup:** Available at 4500 S Bryant Ave, Oklahoma City.\n• **Oklahoma Metro Direct Delivery:** We deliver directly to dispensaries, vape shops, and smoke shops in the OKC metro area.\n• **Statewide Shipping:** Fast fulfillment across Oklahoma.\n\nCall **(405) 768-2975** to confirm immediate availability for today!`,
+      toolResults: [],
+    };
+  }
+
+  // 5. Wholesale Program / Account / How Wholesale Works / Pricing
+  if (
+    q.includes('wholesale') ||
+    q.includes('price') ||
+    q.includes('pricing') ||
+    q.includes('bulk') ||
+    q.includes('discount') ||
+    q.includes('minimum') ||
+    q.includes('account') ||
+    q.includes('tier')
+  ) {
+    return {
+      text: `Woof woof! 🐕 **Wholesale of Oklahoma** is a licensed B2B master distributor supplying dispensaries, smoke shops, and vape shops across the state!\n\n• **Tiered Volume Pricing:** The more cases you order, the higher your profit margins.\n• **No Huge Minimums:** Order from single cartons to master cases based on your store's cash flow.\n• **Phone Quotes:** Because wholesale prices fluctuate with master volume discounts, call **(405) 768-2975** for today's best rates!\n\n👉 Want to check inventory and select items? Click the **Inventory** tab above to browse and build your order!`,
+      toolResults: [],
+    };
+  }
+
+  // 6. Products / Catalog / What do you sell / Brands
+  if (
+    q.includes('product') ||
+    q.includes('catalog') ||
+    q.includes('inventory') ||
+    q.includes('brand') ||
+    q.includes('sell') ||
+    q.includes('carry') ||
+    q.includes('vape') ||
+    q.includes('disposable') ||
+    q.includes('juice') ||
+    q.includes('pipe') ||
+    q.includes('glass') ||
+    q.includes('kratom') ||
+    q.includes('thca') ||
+    q.includes('delta')
+  ) {
+    return {
+      text: `Woof! We carry full inventory across all major smoke shop and vape categories: 🐕\n\n• **Disposable Vapes:** Geekbar Pulse 15k / 25k / 60k, Raz 25k LTX, Vozol 50k, Foger 30k.\n• **Hardware & Mods:** Vaporesso XROS 4 kits, replacement pods, SMOK coils, Yocan & Cookies 510 batteries.\n• **Vape Juices:** Juice Head, Coastal Clouds, Sadboy, Twist (100ml bottles & Salt Nics).\n• **Pipes & Glass:** Heavy borosilicate beaker bongs, spoon hand pipes, silicone pipes.\n• **THCA, CBD & Delta:** THCA diamond infused pre-rolls, live resin disposables, CBD gummies.\n• **Kratom:** O.P.M.S. Gold & Black liquid extract shots, Green Maeng Da capsules.\n• **Novelties & Accessories:** 0.01g scales, grinders, torches, RAW papers, King Palm, Newport butane.\n\n👉 **To browse products with quantity selectors (1-20) and add to cart**, tap the **Inventory** tab at the top of this window, or scroll down to the **Best Sellers** section on our website!`,
+      toolResults: [],
+    };
+  }
+
+  // 7. Cart / Order Status Query
+  if (q.includes('cart') || q.includes('my order') || q.includes('order summary') || q.includes('checkout')) {
+    if (draftOrder.length === 0) {
+      return {
+        text: `Woof! Your wholesale cart is currently empty. 🐕\n\nTo add items, tap the **Inventory** tab at the top or click "Add to Cart" on the **Best Sellers** section on our website. When you're ready, you can submit your order request directly to our team!`,
+        toolResults: [],
+      };
+    }
+    const totalUnits = draftOrder.reduce((s, i) => s + i.quantity, 0);
+    return {
+      text: `Woof! You currently have **${totalUnits} units** in your draft cart across ${draftOrder.length} items. 🐕\n\nClick the **Cart** tab at the top to review your items, enter your contact information, and send your order request directly to our warehouse team!`,
+      toolResults: [
+        {
+          type: 'order_summary',
+          orderItems: [...draftOrder],
+          orderTotal: getDraftOrderTotal(),
+        },
+      ],
+    };
+  }
+
+  // 8. Greetings
+  if (
+    q.includes('hello') ||
+    q.includes('hi') ||
+    q.includes('hey') ||
+    q.includes('good morning') ||
+    q.includes('good afternoon') ||
+    q === 'yo'
+  ) {
+    return {
+      text: `Hello! Woof woof! 🐕 This is Mango AI, your virtual assistant of Wholesale of Oklahoma. How can I help you today? Ask me about our location, store hours, wholesale programs, or inventory!`,
+      toolResults: [],
+    };
+  }
+
+  // 9. Natural Friendly AI Fallback
+  return {
+    text: `Woof! I'm Mango, your Wholesale of Oklahoma assistant. 🐕 I'm happy to help with anything regarding our Oklahoma City warehouse, store hours (Mon-Sat 9am-8pm, Sun 11am-8pm), wholesale options, or product lines!\n\nWhat can I assist you with today?`,
+    toolResults: [],
+  };
+}
+
+// ─── Gemini System Prompt ──────────────────────────────────────────────────
+
+const SYSTEM_PROMPT = `You are Mango 🐕, the friendly golden retriever virtual assistant for Wholesale of Oklahoma.
+
+STORE DETAILS:
+- Business: Wholesale of Oklahoma (Licensed B2B Wholesale Distributor for smoke shops, vape shops, and dispensaries)
+- Address: 4500 S Bryant Ave, Oklahoma City, OK 73135
+- Phone: (405) 768-2975
+- Email: wholesaleofoklahoma@gmail.com
+- Hours:
+  • Monday – Saturday: 9:00 AM – 8:00 PM
+  • Sunday: 11:00 AM – 8:00 PM
+- Services: Local OKC warehouse same-day pickup, direct Oklahoma metro delivery, statewide fast fulfillment.
+- Core Inventory: Disposable Vapes (Geekbar Pulse 15k/25k/60k, Raz 25k LTX, Vozol 50k, Foger 30k), Hardware & Pods (Vaporesso XROS, SMOK coils, 510 batteries), Vape Juice (Juice Head, Coastal Clouds, Sadboy, Twist), Glass & Pipes (Borosilicate beakers, hand pipes), THCA/CBD/Delta (Diamond pre-rolls, live resin disposables), Kratom (OPMS Gold/Black liquid shots, capsules), Novelties & Accessories (Digital scales, grinders, torches, RAW papers, butane).
+
+CONVERSATION GUIDELINES:
+1. Tone: Friendly, helpful, professional, approachable, slightly playful dog persona ("Woof!", "Woof woof! 🐕").
+2. ALWAYS provide clear, natural conversational text answers.
+3. If asked about store location or address: Always clearly provide 4500 S Bryant Ave, Oklahoma City, OK 73135 and mention same-day OKC pickup.
+4. If asked about store hours: Always clearly list Monday–Saturday 9:00 AM – 8:00 PM, Sunday 11:00 AM – 8:00 PM.
+5. If asked about wholesale or pricing: Explain that we are a licensed master distributor with volume tiered pricing, and suggest calling (405) 768-2975 for direct quotes.
+6. DO NOT output raw add-to-cart product cards or UI drops in chat. If the user wants to browse products or add to cart, tell them to tap the "Inventory" tab at the top of the chat or check the "Best Sellers" section on the website.
+7. Keep responses concise, organized with clean markdown bullets, and easy to read.`;
+
+// ─── Main Chat Entrypoint ─────────────────────────────────────────────────
+
+export async function sendMangoMessage(
+  userText: string,
+  history: ChatMessage[]
+): Promise<{ text: string; toolResults: MangoToolResult[] }> {
+  const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+
+  // If no API key configured, use local engine immediately
+  if (!apiKey || apiKey === 'MY_GEMINI_API_KEY') {
+    return handleWithLocalEngine(userText);
+  }
+
+  // Try calling Gemini with a 3.5s timeout; fall back seamlessly if unavailable
+  try {
+    const ai = new GoogleGenAI({ apiKey });
+
+    const contents = [
+      ...history.slice(-4).map((msg) => ({
+        role: msg.role as 'user' | 'model',
+        parts: [{ text: msg.text }],
+      })),
+      { role: 'user' as const, parts: [{ text: userText }] },
+    ];
+
+    const timeoutPromise = new Promise<never>((_, reject) =>
+      setTimeout(() => reject(new Error('TIMEOUT')), 3500)
+    );
+
+    const apiPromise = ai.models.generateContent({
+      model: 'gemini-3.6-flash',
+      systemInstruction: SYSTEM_PROMPT,
+      contents,
+      config: {
+        temperature: 0.7,
+        maxOutputTokens: 500,
+      },
+    });
+
+    const response = await Promise.race([apiPromise, timeoutPromise]);
+    const replyText = response.text?.trim();
+
+    if (replyText) {
+      return { text: replyText, toolResults: [] };
+    }
+
+    return handleWithLocalEngine(userText);
+  } catch (err: unknown) {
+    console.warn('[Mango AI Notice] Conversational fallback active:', err);
+    return handleWithLocalEngine(userText);
+  }
+}

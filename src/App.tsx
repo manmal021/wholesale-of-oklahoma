@@ -6,6 +6,7 @@ import ReviewSlider from './components/ReviewSlider';
 import GallerySlider from './components/GallerySlider';
 import StoreDetails from './components/StoreDetails';
 import OrderForm from './components/OrderForm';
+import MangoChat from './components/MangoChat';
 
 const BG_VIDEO = '/transi.mp4';
 
@@ -258,6 +259,10 @@ export default function App() {
           </div>
         </div>
       </footer>
+
+
+      {/* Mango AI Virtual Assistant — Wholesale of Oklahoma */}
+      <MangoChat />
 
     </div>
   );

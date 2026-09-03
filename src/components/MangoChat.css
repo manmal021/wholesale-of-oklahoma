@@ -1,0 +1,165 @@
+/* ─────────────────────────────────────────────────────────────────────────────
+   MangoChat.css
+   Scoped animations and styles for the Mango AI Virtual Assistant widget.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* ── Floating Button Pulse ── */
+@keyframes mango-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(133, 171, 139, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(133, 171, 139, 0); }
+}
+
+.mango-pulse {
+  animation: mango-pulse 2.5s ease-in-out infinite;
+}
+
+/* ── Chat Window Slide-In (desktop) ── */
+@keyframes mango-slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.mango-chat-enter {
+  animation: mango-slide-up 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* ── Chat Window Slide-Out ── */
+@keyframes mango-slide-down {
+  from {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(16px) scale(0.97);
+  }
+}
+
+.mango-chat-exit {
+  animation: mango-slide-down 0.2s ease-in forwards;
+}
+
+/* ── Message Bubble Entrance ── */
+@keyframes mango-msg-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mango-msg {
+  animation: mango-msg-in 0.25s ease-out forwards;
+}
+
+/* ── Product Card Entrance (staggered) ── */
+@keyframes mango-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mango-card {
+  animation: mango-card-in 0.3s ease-out forwards;
+}
+
+.mango-card:nth-child(1) { animation-delay: 0ms; }
+.mango-card:nth-child(2) { animation-delay: 60ms; }
+.mango-card:nth-child(3) { animation-delay: 120ms; }
+.mango-card:nth-child(4) { animation-delay: 180ms; }
+
+/* ── Typing Indicator Dots ── */
+@keyframes mango-dot-bounce {
+  0%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(-6px); }
+}
+
+.mango-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background-color: #85AB8B;
+  display: inline-block;
+  animation: mango-dot-bounce 1.2s ease-in-out infinite;
+}
+
+.mango-dot:nth-child(1) { animation-delay: 0ms; }
+.mango-dot:nth-child(2) { animation-delay: 150ms; }
+.mango-dot:nth-child(3) { animation-delay: 300ms; }
+
+/* ── Avatar Wag (subtle on hover) ── */
+@keyframes mango-wag {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+.mango-avatar-btn:hover .mango-avatar-img {
+  animation: mango-wag 0.3s ease-in-out 2;
+}
+
+/* ── Order Badge Pop ── */
+@keyframes mango-badge-pop {
+  0% { transform: scale(0.5); }
+  70% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+.mango-badge-pop {
+  animation: mango-badge-pop 0.3s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+/* ── Mobile bottom sheet slide ── */
+@keyframes mango-sheet-up {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .mango-chat-enter {
+    animation: mango-sheet-up 0.35s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  }
+}
+
+/* ── Scrollbar styling for chat messages ── */
+.mango-messages-scroll::-webkit-scrollbar {
+  width: 4px;
+}
+
+.mango-messages-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.mango-messages-scroll::-webkit-scrollbar-thumb {
+  background: #d4d4d4;
+  border-radius: 2px;
+}
+
+/* ── Quick action chip hover ── */
+.mango-chip {
+  transition: all 0.15s ease;
+}
+
+.mango-chip:hover {
+  background-color: #1f2a1d;
+  color: #ffffff;
+  border-color: #1f2a1d;
+  transform: translateY(-1px);
+}
