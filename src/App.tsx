@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react';
 import { LogIn, UserPlus, Play, Sparkles, Menu, X, Star, MapPin, Phone } from 'lucide-react';
 import BoomerangVideoBg from './components/BoomerangVideoBg';
-import ProductCatalog from './components/ProductCatalog';
 import ReviewSlider from './components/ReviewSlider';
 import GallerySlider from './components/GallerySlider';
 import StoreDetails from './components/StoreDetails';
 import OrderForm from './components/OrderForm';
 import MangoChat from './components/MangoChat';
+import InventorySection from './components/inventory/InventorySection';
 
 const BG_VIDEO = '/transi.mp4';
 
@@ -27,7 +27,7 @@ export default function App() {
 
   const navLinks = [
     { href: '#overview', label: 'Overview' },
-    { href: '#how', label: 'Best Sellers' },
+    { href: '#inventory', label: 'Inventory' },
     { href: '#reviews', label: 'Reviews' },
     { href: '#gallery', label: 'Gallery' },
     { href: '#direct-order-section', label: 'Order Now' },
@@ -234,8 +234,8 @@ export default function App() {
         )}
       </section>
 
-      {/* 2. Interactive Products Grid & profit calculator panel */}
-      <ProductCatalog />
+      {/* Live Wholesale Inventory Section with Zoho Inventory Integration */}
+      <InventorySection />
 
       {/* 2.5 Separate Premium Order Now Form with customized fields */}
       <OrderForm />

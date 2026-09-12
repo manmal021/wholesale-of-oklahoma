@@ -17,6 +17,7 @@ export interface ChatMessage {
   role: 'user' | 'model';
   text: string;
   timestamp?: number;
+  toolResults?: MangoToolResult[];
 }
 
 export interface DraftOrderItem {
@@ -288,7 +289,7 @@ export async function sendMangoMessage(
   userText: string,
   history: ChatMessage[]
 ): Promise<{ text: string; toolResults: MangoToolResult[] }> {
-  const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+  const apiKey = (import.meta as any).env?.VITE_GEMINI_API_KEY;
 
   // If no API key configured, use local engine immediately
   if (!apiKey || apiKey === 'MY_GEMINI_API_KEY') {
@@ -311,8 +312,8 @@ export async function sendMangoMessage(
       setTimeout(() => reject(new Error('TIMEOUT')), 3500)
     );
 
-    const apiPromise = ai.models.generateContent({
-      model: 'gemini-3.6-flash',
+    const apiPromise = (ai.models as any).generateContent({
+      model: 'gemini-2.5-flash',
       systemInstruction: SYSTEM_PROMPT,
       contents,
       config: {
