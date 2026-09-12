@@ -109,7 +109,7 @@ function q(req: Request): Record<string, string> {
 apiApp.get(['/zoho/auth-url', '/api/zoho/auth-url'], (_req, res) => {
   try {
     const url = buildAuthorizationUrl();
-    return ok(res, { url });
+    return res.redirect(url);
   } catch (e: any) {
     return err(res, 500, e.message);
   }
