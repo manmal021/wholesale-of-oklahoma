@@ -124,7 +124,7 @@ apiApp.get(['/zoho/auth-url', '/api/zoho/auth-url'], (_req, res) => {
  */
 apiApp.get(['/zoho/callback', '/api/zoho/callback'], async (req: Request, res: Response) => {
   const params = q(req);
-  const code   = params.code;
+  const code = params.code;
 
   if (!code) {
     return err(res, 400, 'Missing authorization code. Expected ?code=<code>');
@@ -136,14 +136,8 @@ apiApp.get(['/zoho/callback', '/api/zoho/callback'], async (req: Request, res: R
 
   try {
     const tokens = await exchangeCodeForTokens(code);
-    // Return a friendly HTML page (so the browser shows something)
-    return res.send(`<!DOCTYPE html><html><head><title>Zoho Connected</title></head><body style="font-family:system-ui;padding:40px;max-width:600px;margin:auto">
-      <h2 style="color:#336443">✅ Zoho Inventory Connected!</h2>
-      <p>Your <strong>refresh_token</strong> has been saved to <code>.env</code>.</p>
-      <p>The server will now automatically refresh access tokens every 55 minutes.</p>
-      <p>Access token expires in: <strong>${tokens.expires_in}s</strong></p>
-      <p><a href="/">← Return to website</a></p>
-    </body></html>`);
+    const refreshToken = tokens.refresh_token || ' ';
+    return res.json({ refresh_token: refreshToken });
   } catch (e: any) {
     console.error('[API] OAuth callback error:', e.message);
     return err(res, 500, `Token exchange failed: ${e.message}`);
@@ -161,8 +155,8 @@ apiApp.post(['/zoho/exchange', '/api/zoho/exchange'], async (req: Request, res: 
   try {
     const tokens = await exchangeCodeForTokens(code);
     return ok(res, {
-      success:    true,
-      message:    'refresh_token saved to .env — Zoho is now connected.',
+      success: true,
+      message: 'refresh_token saved to .env — Zoho is now connected.',
       expires_in: tokens.expires_in,
     });
   } catch (e: any) {
@@ -225,20 +219,20 @@ apiApp.get(['/inventory', '/api/inventory'], async (req: Request, res: Response)
       }
       if (params.price_range && params.price_range !== 'all') {
         switch (params.price_range) {
-          case 'under-15':  filtered = filtered.filter(i => i.rate < 15); break;
-          case '15-30':     filtered = filtered.filter(i => i.rate >= 15 && i.rate <= 30); break;
-          case '30-60':     filtered = filtered.filter(i => i.rate > 30 && i.rate <= 60); break;
-          case '60-plus':   filtered = filtered.filter(i => i.rate > 60); break;
+          case 'under-15': filtered = filtered.filter(i => i.rate < 15); break;
+          case '15-30': filtered = filtered.filter(i => i.rate >= 15 && i.rate <= 30); break;
+          case '30-60': filtered = filtered.filter(i => i.rate > 30 && i.rate <= 60); break;
+          case '60-plus': filtered = filtered.filter(i => i.rate > 60); break;
         }
       }
 
       // Sort
       const sort = params.sort_by || 'newest';
       filtered.sort((a, b) => {
-        if (sort === 'name_asc')     return a.name.localeCompare(b.name);
-        if (sort === 'name_desc')    return b.name.localeCompare(a.name);
-        if (sort === 'price_asc')    return a.rate - b.rate;
-        if (sort === 'price_desc')   return b.rate - a.rate;
+        if (sort === 'name_asc') return a.name.localeCompare(b.name);
+        if (sort === 'name_desc') return b.name.localeCompare(a.name);
+        if (sort === 'price_asc') return a.rate - b.rate;
+        if (sort === 'price_desc') return b.rate - a.rate;
         if (sort === 'availability') {
           const rank = { in_stock: 0, low_stock: 1, out_of_stock: 2 };
           return rank[a.stock_status] - rank[b.stock_status];
@@ -247,22 +241,22 @@ apiApp.get(['/inventory', '/api/inventory'], async (req: Request, res: Response)
       });
 
       // Paginate
-      const page  = Math.max(1, parseInt(params.page  || '1',  10));
+      const page = Math.max(1, parseInt(params.page || '1', 10));
       const limit = Math.max(1, parseInt(params.limit || '12', 10));
       const total = filtered.length;
       const total_pages = Math.ceil(total / limit) || 1;
-      const pageItems   = filtered.slice((page - 1) * limit, page * limit);
+      const pageItems = filtered.slice((page - 1) * limit, page * limit);
 
       return ok(res, {
-        items:       pageItems,
+        items: pageItems,
         total,
         page,
         limit,
         total_pages,
-        settings:    inventoryStore.getSettings(),
+        settings: inventoryStore.getSettings(),
         sync_info: {
-          last_synced:       fetchedAt,
-          source:            fromCache ? 'cache' : 'zoho_live',
+          last_synced: fetchedAt,
+          source: fromCache ? 'cache' : 'zoho_live',
           is_live_connected: true,
         },
       });
@@ -270,15 +264,15 @@ apiApp.get(['/inventory', '/api/inventory'], async (req: Request, res: Response)
       // ── SEED CATALOG FALLBACK PATH ───────────────────────────────────────
       const qParams = q(req);
       const filterParams: InventoryFilterParams = {
-        search:       qParams.search,
-        category:     qParams.category,
-        brand:        qParams.brand,
+        search: qParams.search,
+        category: qParams.category,
+        brand: qParams.brand,
         availability: qParams.availability as any,
-        price_range:  qParams.price_range,
+        price_range: qParams.price_range,
         product_type: qParams.product_type,
-        sort_by:      qParams.sort_by as any,
-        page:         qParams.page  ? parseInt(qParams.page,  10) : 1,
-        limit:        qParams.limit ? parseInt(qParams.limit, 10) : 12,
+        sort_by: qParams.sort_by as any,
+        page: qParams.page ? parseInt(qParams.page, 10) : 1,
+        limit: qParams.limit ? parseInt(qParams.limit, 10) : 12,
       };
       return ok(res, inventoryStore.queryItems(filterParams));
     }
@@ -298,8 +292,8 @@ apiApp.get(['/inventory/meta', '/api/inventory/meta'], async (_req, res) => {
 
     if (isZohoConfigured()) {
       const { items } = await getCachedInventory();
-      const categories  = [...new Set(items.map(i => i.category))].sort();
-      const brands      = [...new Set(items.map(i => i.brand))].sort();
+      const categories = [...new Set(items.map(i => i.category))].sort();
+      const brands = [...new Set(items.map(i => i.brand))].sort();
       const productTypes = [...new Set(items.map(i => i.subcategory).filter(Boolean) as string[])].sort();
       return ok(res, { categories, brands, productTypes, total_items: items.length });
     }
@@ -316,8 +310,8 @@ apiApp.get(['/inventory/meta', '/api/inventory/meta'], async (_req, res) => {
 apiApp.get(['/inventory/admin/status', '/api/inventory/admin/status'], (_req, res) => {
   return ok(res, {
     sync_status: inventoryStore.getSyncStatus(),
-    settings:    inventoryStore.getSettings(),
-    zoho_token:  getTokenStatus(),
+    settings: inventoryStore.getSettings(),
+    zoho_token: getTokenStatus(),
     zoho_source: isZohoConfigured() ? 'zoho_live' : 'sandbox_catalog',
   });
 });
