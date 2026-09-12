@@ -23,9 +23,9 @@ import { apiRouter } from './src/server/apiRouter.js';
 import { scheduleTokenRefresh, refreshAccessToken } from './src/server/zohoAuth.js';
 
 const __filename = fileURLToPath(import.meta.url);
-const __dirname  = path.dirname(__filename);
+const __dirname = path.dirname(__filename);
 
-const app  = express();
+const app = express();
 const PORT = Number(process.env.PORT || 3000);
 
 // ── Middleware ──────────────────────────────────────────────────────────────
@@ -48,7 +48,7 @@ app.get('*', (req, res) => {
 });
 
 // ── Boot ─────────────────────────────────────────────────────────────────────
-if (process.env.NODE_ENV !== 'test') {
+if (process.env.NODE_ENV !== 'test' && !process.env.VERCEL) {
   app.listen(PORT, '0.0.0.0', () => {
     console.log(`\n🟢 Wholesale of Oklahoma server running on http://localhost:${PORT}`);
     console.log(`   NODE_ENV : ${process.env.NODE_ENV || 'development'}`);
