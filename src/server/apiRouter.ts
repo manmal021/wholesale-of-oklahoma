@@ -106,9 +106,13 @@ function q(req: Request): Record<string, string> {
  * Returns the Zoho authorization URL so you can complete the OAuth flow in a browser.
  * (Usually not needed — you use Zoho API Console Self-Client instead.)
  */
-apiApp.get(['/zoho/auth-url', '/api/zoho/auth-url'], (_req, res) => {
+apiApp.get(['/zoho/auth-url', '/api/zoho/auth-url'], (req: Request, res: Response) => {
   try {
     const url = buildAuthorizationUrl();
+    const params = q(req);
+    if (params.format === 'json' || (req.headers.accept?.includes('application/json') && !req.headers.accept?.includes('text/html'))) {
+      return ok(res, { url });
+    }
     return res.redirect(url);
   } catch (e: any) {
     return err(res, 500, e.message);
@@ -136,8 +140,61 @@ apiApp.get(['/zoho/callback', '/api/zoho/callback'], async (req: Request, res: R
 
   try {
     const tokens = await exchangeCodeForTokens(code);
-    const refreshToken = tokens.refresh_token || ' ';
-    return res.json({ refresh_token: refreshToken });
+    const refreshToken = tokens.refresh_token || process.env.ZOHO_REFRESH_TOKEN || '';
+
+    // If client requested JSON response
+    if (params.format === 'json' || (req.headers.accept?.includes('application/json') && !req.headers.accept?.includes('text/html'))) {
+      return res.json({ success: true, refresh_token: refreshToken, expires_in: tokens.expires_in });
+    }
+
+    // Render interactive, easy-to-copy HTML page
+    return res.send(`<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zoho Connected Successfully</title>
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #f8fafc; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box; }
+    .card { background: #1e293b; border: 1px solid #334155; border-radius: 16px; max-width: 580px; width: 100%; padding: 32px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); }
+    h2 { color: #10b981; margin-top: 0; display: flex; align-items: center; gap: 8px; font-size: 24px; }
+    p { color: #cbd5e1; line-height: 1.6; font-size: 14px; margin: 12px 0; }
+    .token-box { width: 100%; height: 90px; background: #0f172a; border: 1px solid #475569; border-radius: 8px; color: #38bdf8; font-family: monospace; font-size: 13px; padding: 12px; box-sizing: border-box; resize: none; word-break: break-all; }
+    .btn-group { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+    button { background: #10b981; color: #042f2e; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 14px; transition: background 0.2s; }
+    button:hover { background: #059669; color: #ffffff; }
+    a.btn { display: inline-block; background: #334155; color: #f8fafc; text-decoration: none; padding: 10px 18px; border-radius: 8px; font-size: 14px; font-weight: 500; transition: background 0.2s; }
+    a.btn:hover { background: #475569; }
+    .warning { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 8px; padding: 12px; color: #fca5a5; font-size: 13px; margin: 16px 0; }
+    code { background: #0f172a; padding: 2px 6px; border-radius: 4px; color: #38bdf8; font-family: monospace; font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h2>✅ Zoho Connected Successfully!</h2>
+    <p>Copy this refresh token and save it in Vercel as <code>ZOHO_REFRESH_TOKEN</code>:</p>
+    <textarea id="tokenBox" class="token-box" readonly>${refreshToken}</textarea>
+    <div class="btn-group">
+      <button id="copyBtn" onclick="copyToken()">📋 Copy Refresh Token</button>
+      <a href="/api/zoho/status" class="btn" target="_blank">Check Status</a>
+      <a href="/" class="btn">← Return to Store</a>
+    </div>
+    <div class="warning">
+      🔒 <b>Keep this token private.</b> Do not share it in screenshots, public chats, or commit it to GitHub.
+    </div>
+  </div>
+  <script>
+    function copyToken() {
+      const box = document.getElementById('tokenBox');
+      box.select();
+      navigator.clipboard.writeText(box.value);
+      const btn = document.getElementById('copyBtn');
+      btn.innerText = '✅ Copied!';
+      setTimeout(() => { btn.innerText = '📋 Copy Refresh Token'; }, 3000);
+    }
+  </script>
+</body>
+</html>`);
   } catch (e: any) {
     console.error('[API] OAuth callback error:', e.message);
     return err(res, 500, `Token exchange failed: ${e.message}`);
@@ -170,6 +227,11 @@ apiApp.post(['/zoho/exchange', '/api/zoho/exchange'], async (req: Request, res: 
  */
 apiApp.get(['/zoho/status', '/api/zoho/status'], (_req, res) => {
   return ok(res, {
+    has_client_id: Boolean(process.env.ZOHO_CLIENT_ID),
+    has_client_secret: Boolean(process.env.ZOHO_CLIENT_SECRET),
+    has_refresh_token: Boolean(process.env.ZOHO_REFRESH_TOKEN),
+    has_org_id: Boolean(
+      process.env.ZOHO_ORG_ID || process.env.ZOHO_ORGANIZATION_ID),
     ...getTokenStatus(),
     zoho_configured: isZohoConfigured(),
   });
@@ -190,92 +252,96 @@ apiApp.get(['/inventory', '/api/inventory'], async (req: Request, res: Response)
     res.setHeader('Cache-Control', 'public, max-age=15, stale-while-revalidate=60');
 
     if (isZohoConfigured()) {
-      // ── LIVE ZOHO PATH ──────────────────────────────────────────────────
-      const { items, fromCache, fetchedAt } = await getCachedInventory();
+      try {
+        // ── LIVE ZOHO PATH ──────────────────────────────────────────────────
+        const { items, fromCache, fetchedAt } = await getCachedInventory();
 
-      // Apply query filters in-process (same logic as inventoryStore.queryItems)
-      const params = q(req);
-      let filtered = items.filter(item => item.status === 'active');
+        // Apply query filters in-process (same logic as inventoryStore.queryItems)
+        const params = q(req);
+        let filtered = items.filter(item => item.status === 'active');
 
-      const search = params.search?.toLowerCase().trim();
-      if (search) {
-        filtered = filtered.filter(i =>
-          i.name.toLowerCase().includes(search) ||
-          i.sku.toLowerCase().includes(search) ||
-          i.brand.toLowerCase().includes(search) ||
-          i.category.toLowerCase().includes(search) ||
-          i.description.toLowerCase().includes(search)
-        );
-      }
-
-      if (params.category && params.category !== 'All') {
-        filtered = filtered.filter(i => i.category.toLowerCase() === params.category.toLowerCase());
-      }
-      if (params.brand && params.brand !== 'All') {
-        filtered = filtered.filter(i => i.brand.toLowerCase() === params.brand.toLowerCase());
-      }
-      if (params.availability && params.availability !== 'all') {
-        filtered = filtered.filter(i => i.stock_status === params.availability);
-      }
-      if (params.price_range && params.price_range !== 'all') {
-        switch (params.price_range) {
-          case 'under-15': filtered = filtered.filter(i => i.rate < 15); break;
-          case '15-30': filtered = filtered.filter(i => i.rate >= 15 && i.rate <= 30); break;
-          case '30-60': filtered = filtered.filter(i => i.rate > 30 && i.rate <= 60); break;
-          case '60-plus': filtered = filtered.filter(i => i.rate > 60); break;
+        const search = params.search?.toLowerCase().trim();
+        if (search) {
+          filtered = filtered.filter(i =>
+            i.name.toLowerCase().includes(search) ||
+            i.sku.toLowerCase().includes(search) ||
+            i.brand.toLowerCase().includes(search) ||
+            i.category.toLowerCase().includes(search) ||
+            i.description.toLowerCase().includes(search)
+          );
         }
-      }
 
-      // Sort
-      const sort = params.sort_by || 'newest';
-      filtered.sort((a, b) => {
-        if (sort === 'name_asc') return a.name.localeCompare(b.name);
-        if (sort === 'name_desc') return b.name.localeCompare(a.name);
-        if (sort === 'price_asc') return a.rate - b.rate;
-        if (sort === 'price_desc') return b.rate - a.rate;
-        if (sort === 'availability') {
-          const rank = { in_stock: 0, low_stock: 1, out_of_stock: 2 };
-          return rank[a.stock_status] - rank[b.stock_status];
+        if (params.category && params.category !== 'All') {
+          filtered = filtered.filter(i => i.category.toLowerCase() === params.category.toLowerCase());
         }
-        return 0;
-      });
+        if (params.brand && params.brand !== 'All') {
+          filtered = filtered.filter(i => i.brand.toLowerCase() === params.brand.toLowerCase());
+        }
+        if (params.availability && params.availability !== 'all') {
+          filtered = filtered.filter(i => i.stock_status === params.availability);
+        }
+        if (params.price_range && params.price_range !== 'all') {
+          switch (params.price_range) {
+            case 'under-15': filtered = filtered.filter(i => i.rate < 15); break;
+            case '15-30': filtered = filtered.filter(i => i.rate >= 15 && i.rate <= 30); break;
+            case '30-60': filtered = filtered.filter(i => i.rate > 30 && i.rate <= 60); break;
+            case '60-plus': filtered = filtered.filter(i => i.rate > 60); break;
+          }
+        }
 
-      // Paginate
-      const page = Math.max(1, parseInt(params.page || '1', 10));
-      const limit = Math.max(1, parseInt(params.limit || '12', 10));
-      const total = filtered.length;
-      const total_pages = Math.ceil(total / limit) || 1;
-      const pageItems = filtered.slice((page - 1) * limit, page * limit);
+        // Sort
+        const sort = params.sort_by || 'newest';
+        filtered.sort((a, b) => {
+          if (sort === 'name_asc') return a.name.localeCompare(b.name);
+          if (sort === 'name_desc') return b.name.localeCompare(a.name);
+          if (sort === 'price_asc') return a.rate - b.rate;
+          if (sort === 'price_desc') return b.rate - a.rate;
+          if (sort === 'availability') {
+            const rank = { in_stock: 0, low_stock: 1, out_of_stock: 2 };
+            return rank[a.stock_status] - rank[b.stock_status];
+          }
+          return 0;
+        });
 
-      return ok(res, {
-        items: pageItems,
-        total,
-        page,
-        limit,
-        total_pages,
-        settings: inventoryStore.getSettings(),
-        sync_info: {
-          last_synced: fetchedAt,
-          source: fromCache ? 'cache' : 'zoho_live',
-          is_live_connected: true,
-        },
-      });
-    } else {
-      // ── SEED CATALOG FALLBACK PATH ───────────────────────────────────────
-      const qParams = q(req);
-      const filterParams: InventoryFilterParams = {
-        search: qParams.search,
-        category: qParams.category,
-        brand: qParams.brand,
-        availability: qParams.availability as any,
-        price_range: qParams.price_range,
-        product_type: qParams.product_type,
-        sort_by: qParams.sort_by as any,
-        page: qParams.page ? parseInt(qParams.page, 10) : 1,
-        limit: qParams.limit ? parseInt(qParams.limit, 10) : 12,
-      };
-      return ok(res, inventoryStore.queryItems(filterParams));
+        // Paginate
+        const page = Math.max(1, parseInt(params.page || '1', 10));
+        const limit = Math.max(1, parseInt(params.limit || '12', 10));
+        const total = filtered.length;
+        const total_pages = Math.ceil(total / limit) || 1;
+        const pageItems = filtered.slice((page - 1) * limit, page * limit);
+
+        return ok(res, {
+          items: pageItems,
+          total,
+          page,
+          limit,
+          total_pages,
+          settings: inventoryStore.getSettings(),
+          sync_info: {
+            last_synced: fetchedAt,
+            source: fromCache ? 'cache' : 'zoho_live',
+            is_live_connected: true,
+          },
+        });
+      } catch (zohoError: any) {
+        console.warn('[API] Zoho fetch failed, falling back to seed catalog:', zohoError.message);
+      }
     }
+
+    // ── SEED CATALOG FALLBACK PATH ───────────────────────────────────────
+    const qParams = q(req);
+    const filterParams: InventoryFilterParams = {
+      search: qParams.search,
+      category: qParams.category,
+      brand: qParams.brand,
+      availability: qParams.availability as any,
+      price_range: qParams.price_range,
+      product_type: qParams.product_type,
+      sort_by: qParams.sort_by as any,
+      page: qParams.page ? parseInt(qParams.page, 10) : 1,
+      limit: qParams.limit ? parseInt(qParams.limit, 10) : 12,
+    };
+    return ok(res, inventoryStore.queryItems(filterParams));
   } catch (e: any) {
     console.error('[API] /inventory error:', e.message);
     return err(res, 500, e.message);
@@ -291,11 +357,15 @@ apiApp.get(['/inventory/meta', '/api/inventory/meta'], async (_req, res) => {
     res.setHeader('Cache-Control', 'public, max-age=120');
 
     if (isZohoConfigured()) {
-      const { items } = await getCachedInventory();
-      const categories = [...new Set(items.map(i => i.category))].sort();
-      const brands = [...new Set(items.map(i => i.brand))].sort();
-      const productTypes = [...new Set(items.map(i => i.subcategory).filter(Boolean) as string[])].sort();
-      return ok(res, { categories, brands, productTypes, total_items: items.length });
+      try {
+        const { items } = await getCachedInventory();
+        const categories = [...new Set(items.map(i => i.category))].sort();
+        const brands = [...new Set(items.map(i => i.brand))].sort();
+        const productTypes = [...new Set(items.map(i => i.subcategory).filter(Boolean) as string[])].sort();
+        return ok(res, { categories, brands, productTypes, total_items: items.length });
+      } catch (zohoError: any) {
+        console.warn('[API] Zoho meta fetch failed, falling back to catalog meta:', zohoError.message);
+      }
     }
 
     return ok(res, inventoryStore.getMetadata());
@@ -383,9 +453,12 @@ apiApp.get(['/inventory/:id', '/api/inventory/:id'], async (req: Request, res: R
   const id = req.params.id;
   try {
     if (isZohoConfigured()) {
-      const item = await getZohoItem(id);
-      if (!item) return err(res, 404, `Item ${id} not found`);
-      return ok(res, item);
+      try {
+        const item = await getZohoItem(id);
+        if (item) return ok(res, item);
+      } catch (zohoError: any) {
+        console.warn(`[API] Zoho item ${id} fetch failed, falling back to seed store:`, zohoError.message);
+      }
     }
     const item = inventoryStore.getItem(id);
     if (!item) return err(res, 404, `Item ${id} not found`);
