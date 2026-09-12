@@ -84,14 +84,14 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
 
   return (
     <div
-      className={`group relative bg-white/80 backdrop-blur-md rounded-[28px] border transition-all duration-300 flex flex-col justify-between overflow-hidden ${
+      className={`group relative bg-white rounded-[28px] border transition-all duration-300 flex flex-col justify-between overflow-hidden ${
         isOutOfStock
-          ? 'border-neutral-200/70 opacity-90'
-          : 'border-white hover:border-[#336443]/30 hover:shadow-xl shadow-sm'
+          ? 'border-slate-200 opacity-90'
+          : 'border-slate-200 hover:border-[#F97316]/50 hover:shadow-xl shadow-xs'
       }`}
     >
       {/* Top Media Preview */}
-      <div className="relative aspect-[4/3] bg-gradient-to-br from-neutral-100 to-neutral-200/80 overflow-hidden flex items-center justify-center p-3">
+      <div className="relative aspect-[4/3] bg-gradient-to-br from-slate-50 to-slate-100 overflow-hidden flex items-center justify-center p-3">
         {item.image_url && !imgError ? (
           <img
             src={item.image_url}
@@ -101,9 +101,9 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
             className="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500 ease-out"
           />
         ) : (
-          <div className="flex flex-col items-center justify-center text-neutral-400 gap-2">
+          <div className="flex flex-col items-center justify-center text-slate-400 gap-2">
             <Package className="w-10 h-10 stroke-[1.5]" />
-            <span className="text-[11px] font-semibold text-neutral-500">
+            <span className="text-[11px] font-semibold text-slate-500">
               Wholesale Stock
             </span>
           </div>
@@ -112,7 +112,7 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
         {/* Top Badges Overlay */}
         <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
           {item.badge ? (
-            <span className="bg-[#1f2a1d]/90 backdrop-blur-md text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full border border-white/10 shadow-sm">
+            <span className="bg-[#0f172A]/90 backdrop-blur-md text-white text-[10px] font-extrabold px-2.5 py-1 rounded-full border border-white/10 shadow-sm">
               {item.badge}
             </span>
           ) : (
@@ -126,11 +126,11 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
         <button
           type="button"
           onClick={() => onViewDetails(item)}
-          className="absolute inset-0 bg-[#1f2a1d]/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center gap-2 text-white font-bold text-xs uppercase tracking-wider cursor-pointer"
+          className="absolute inset-0 bg-[#0f172A]/40 backdrop-blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center gap-2 text-white font-bold text-xs uppercase tracking-wider cursor-pointer"
           aria-label={`View details for ${item.name}`}
         >
-          <span className="bg-[#1f2a1d] text-white px-4 py-2 rounded-full border border-white/20 shadow-lg flex items-center gap-1.5 hover:bg-[#336443] transition-colors">
-            <Eye className="w-3.5 h-3.5 text-[#85AB8B]" />
+          <span className="bg-[#0f172A] text-white px-4 py-2 rounded-full border border-slate-700 shadow-lg flex items-center gap-1.5 hover:bg-[#1e293b] transition-colors">
+            <Eye className="w-3.5 h-3.5 text-[#F97316]" />
             View Specifications
           </span>
         </button>
@@ -141,10 +141,10 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
         <div>
           {/* Brand & SKU Header */}
           <div className="flex items-center justify-between gap-2 mb-2">
-            <span className="text-xs uppercase font-extrabold tracking-wider text-[#85AB8B]">
+            <span className="text-xs uppercase font-extrabold tracking-wider text-[#F97316]">
               {item.brand}
             </span>
-            <span className="font-mono text-[10px] bg-neutral-100 text-neutral-600 px-2 py-0.5 rounded border border-neutral-200/80 select-all font-semibold">
+            <span className="font-mono text-[10px] bg-slate-100 text-slate-600 px-2 py-0.5 rounded border border-slate-200 select-all font-semibold">
               SKU: {item.sku}
             </span>
           </div>
@@ -152,7 +152,7 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
           {/* Product Title */}
           <h3
             onClick={() => onViewDetails(item)}
-            className="text-lg font-bold text-[#1f2a1d] leading-snug group-hover:text-[#336443] transition-colors cursor-pointer line-clamp-2"
+            className="text-lg font-bold text-[#0f172A] leading-snug group-hover:text-[#F97316] transition-colors cursor-pointer line-clamp-2"
           >
             {item.name}
           </h3>
@@ -163,25 +163,25 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
               {item.category}
             </span>
             {item.subcategory && (
-              <span className="text-[10px] font-medium bg-neutral-100 text-neutral-600 px-2 py-0.5 rounded">
+              <span className="text-[10px] font-medium bg-slate-100 text-slate-600 px-2 py-0.5 rounded">
                 {item.subcategory}
               </span>
             )}
             {item.variants && item.variants.length > 0 && (
-              <span className="text-[10px] font-medium text-neutral-500 flex items-center gap-1 ml-auto">
-                <Layers className="w-3 h-3 text-neutral-400" />
+              <span className="text-[10px] font-medium text-slate-500 flex items-center gap-1 ml-auto">
+                <Layers className="w-3 h-3 text-slate-400" />
                 {item.variants.length} flavors/variants
               </span>
             )}
           </div>
 
           {/* Wholesale Pricing Header */}
-          <div className="mt-4 pt-3 border-t border-neutral-100 flex items-baseline justify-between">
+          <div className="mt-4 pt-3 border-t border-slate-100 flex items-baseline justify-between">
             <div>
-              <span className="text-[10px] uppercase font-bold tracking-wider text-neutral-400 block">
+              <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">
                 Wholesale Unit
               </span>
-              <span className="text-xl font-black text-[#1f2a1d] tracking-tight">
+              <span className="text-xl font-black text-[#0f172A] tracking-tight">
                 ${item.rate.toFixed(2)}
               </span>
             </div>
@@ -191,7 +191,7 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
                 <span className="text-[10px] text-emerald-700 font-bold block">
                   Case Price: ${item.bulk_pricing[item.bulk_pricing.length - 1].pricePerUnit.toFixed(2)}
                 </span>
-                <span className="text-[9px] text-neutral-400">
+                <span className="text-[9px] text-slate-400">
                   {item.bulk_pricing[item.bulk_pricing.length - 1].label}
                 </span>
               </div>
@@ -204,7 +204,7 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
           <div className="flex items-center gap-2">
             {/* Quantity Stepper (disabled if Out of Stock) */}
             <div
-              className={`flex items-center gap-1 bg-white border border-neutral-200 rounded-full px-2 py-1 shadow-2xs ${
+              className={`flex items-center gap-1 bg-white border border-slate-200 rounded-full px-2 py-1 shadow-2xs ${
                 isOutOfStock ? 'opacity-40 pointer-events-none' : ''
               }`}
             >
@@ -212,7 +212,7 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
                 type="button"
                 onClick={() => setQty((q) => Math.max(1, q - 1))}
                 disabled={qty <= 1 || isOutOfStock}
-                className="w-5 h-5 rounded-full bg-neutral-100 text-[#1f2a1d] font-bold text-xs flex items-center justify-center hover:bg-neutral-200 disabled:opacity-30 transition-colors cursor-pointer"
+                className="w-5 h-5 rounded-full bg-slate-100 text-[#0f172A] font-bold text-xs flex items-center justify-center hover:bg-slate-200 disabled:opacity-30 transition-colors cursor-pointer"
               >
                 −
               </button>
@@ -221,7 +221,7 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
                 onChange={(e) => setQty(Number(e.target.value))}
                 disabled={isOutOfStock}
                 aria-label={`Select quantity for ${item.name}`}
-                className="bg-transparent text-xs font-bold text-[#1f2a1d] border-0 outline-none cursor-pointer px-1"
+                className="bg-transparent text-xs font-bold text-[#0f172A] border-0 outline-none cursor-pointer px-1"
               >
                 {Array.from({ length: 15 }, (_, i) => i + 1).map((n) => (
                   <option key={n} value={n}>
@@ -233,7 +233,7 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
                 type="button"
                 onClick={() => setQty((q) => Math.min(50, q + 1))}
                 disabled={qty >= 50 || isOutOfStock}
-                className="w-5 h-5 rounded-full bg-neutral-100 text-[#1f2a1d] font-bold text-xs flex items-center justify-center hover:bg-neutral-200 disabled:opacity-30 transition-colors cursor-pointer"
+                className="w-5 h-5 rounded-full bg-slate-100 text-[#0f172A] font-bold text-xs flex items-center justify-center hover:bg-slate-200 disabled:opacity-30 transition-colors cursor-pointer"
               >
                 +
               </button>
@@ -244,9 +244,9 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
               <button
                 type="button"
                 disabled
-                className="flex-1 py-2 bg-neutral-200 text-neutral-500 text-xs font-bold rounded-full flex items-center justify-center gap-1.5 cursor-not-allowed"
+                className="flex-1 py-2 bg-slate-200 text-slate-500 text-xs font-bold rounded-full flex items-center justify-center gap-1.5 cursor-not-allowed"
               >
-                <XCircle className="w-3.5 h-3.5 text-neutral-400" />
+                <XCircle className="w-3.5 h-3.5 text-slate-400" />
                 Out of Stock
               </button>
             ) : (
@@ -256,7 +256,7 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
                 className={`flex-1 py-2 text-white text-xs font-bold rounded-full transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm ${
                   added
                     ? 'bg-emerald-600 text-white'
-                    : 'bg-[#1f2a1d] hover:bg-[#336443] text-white'
+                    : 'bg-[#0f172A] hover:bg-[#1e293b] text-white'
                 }`}
               >
                 {added ? (
@@ -266,7 +266,7 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
                   </>
                 ) : (
                   <>
-                    <ShoppingBag className="w-3.5 h-3.5 text-[#85AB8B]" />
+                    <ShoppingBag className="w-3.5 h-3.5 text-[#F97316]" />
                     Add to Cart
                   </>
                 )}
@@ -278,7 +278,7 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
           <button
             type="button"
             onClick={() => onViewDetails(item)}
-            className="w-full py-1 text-center text-[11px] font-bold text-[#336443] hover:text-[#1f2a1d] transition-colors flex items-center justify-center gap-1 cursor-pointer"
+            className="w-full py-1 text-center text-[11px] font-bold text-[#F97316] hover:text-[#ea580c] transition-colors flex items-center justify-center gap-1 cursor-pointer"
           >
             <Eye className="w-3.5 h-3.5" />
             <span>View Specifications & Bulk Pricing</span>

@@ -42,8 +42,8 @@ export default function BoomerangVideoBg({
         style={{ opacity: overlayOpacity / 100 }}
       />
       <div className={`absolute inset-0 pointer-events-none bg-gradient-to-t transition-all duration-300 ${isClear
-        ? 'from-[#1f2a1d]/40 via-transparent to-[#1f2a1d]/10'
-        : 'from-[#1f2a1d]/85 via-transparent to-[#1f2a1d]/40'
+        ? 'from-[#0f172A]/40 via-transparent to-[#0f172A]/10'
+        : 'from-[#0f172A]/85 via-transparent to-[#0f172A]/40'
         }`} />
     </div>
   );

@@ -5,8 +5,8 @@
 
 /* ── Floating Button Pulse ── */
 @keyframes mango-pulse {
-  0%, 100% { box-shadow: 0 0 0 0 rgba(133, 171, 139, 0.4); }
-  50% { box-shadow: 0 0 0 10px rgba(133, 171, 139, 0); }
+  0%, 100% { box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.4); }
+  50% { box-shadow: 0 0 0 10px rgba(249, 115, 22, 0); }
 }
 
 .mango-pulse {
@@ -92,7 +92,7 @@
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background-color: #85AB8B;
+  background-color: #F97316;
   display: inline-block;
   animation: mango-dot-bounce 1.2s ease-in-out infinite;
 }
@@ -148,7 +148,7 @@
 }
 
 .mango-messages-scroll::-webkit-scrollbar-thumb {
-  background: #d4d4d4;
+  background: #cbd5e1;
   border-radius: 2px;
 }
 
@@ -158,8 +158,8 @@
 }
 
 .mango-chip:hover {
-  background-color: #1f2a1d;
+  background-color: #0f172A;
   color: #ffffff;
-  border-color: #1f2a1d;
+  border-color: #0f172A;
   transform: translateY(-1px);
 }

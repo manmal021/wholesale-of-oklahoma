@@ -65,11 +65,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToOrder, compac
   const [added, setAdded] = useState(false);
 
   return (
-    <div className={`mango-card bg-white rounded-2xl border border-neutral-100 shadow-sm overflow-hidden transition-all hover:border-[#85AB8B]/40 hover:shadow-md ${compact ? 'p-3' : 'p-4'}`}>
+    <div className={`mango-card bg-white rounded-2xl border border-neutral-100 shadow-sm overflow-hidden transition-all hover:border-[#F97316]/40 hover:shadow-md ${compact ? 'p-3' : 'p-4'}`}>
       {/* Top badges bar */}
       <div className="flex items-center justify-between gap-1 mb-2">
         <div className="flex items-center gap-1.5 flex-wrap">
-          <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#85AB8B]">{product.brand}</span>
+          <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#F97316]">{product.brand}</span>
           {product.badge && (
             <span className="bg-amber-100/90 border border-amber-200 text-amber-900 text-[9px] font-black px-2 py-0.5 rounded-full shadow-2xs">
               {product.badge}
@@ -82,22 +82,22 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToOrder, compac
           )}
         </div>
         <div className="text-right shrink-0">
-          <div className="text-[11px] font-extrabold text-[#336443]">Call for Price</div>
+          <div className="text-[11px] font-extrabold text-[#F97316]">Call for Price</div>
           <div className="text-[8.5px] uppercase tracking-wider text-neutral-400">Wholesale Quote</div>
         </div>
       </div>
 
       {/* Title & specs */}
       <div className="mb-1.5">
-        <h4 className="text-sm font-bold text-[#1f2a1d] leading-tight">{product.name}</h4>
+        <h4 className="text-sm font-bold text-[#0f172A] leading-tight">{product.name}</h4>
         <div className="flex flex-wrap items-center gap-1 mt-1">
           {product.puffs && (
-            <span className="bg-[#1f2a1d] text-white text-[9px] font-bold px-1.5 py-0.5 rounded uppercase">
+            <span className="bg-[#0f172A] text-white text-[9px] font-bold px-1.5 py-0.5 rounded uppercase">
               {product.puffs}
             </span>
           )}
           {product.size && (
-            <span className="bg-[#85AB8B]/20 text-[#1f2a1d] text-[9px] font-bold px-1.5 py-0.5 rounded">
+            <span className="bg-[#F97316]/20 text-[#0f172A] text-[9px] font-bold px-1.5 py-0.5 rounded">
               {product.size}
             </span>
           )}
@@ -137,7 +137,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToOrder, compac
         <div className="text-[10px] text-neutral-500 mb-2.5 flex items-center gap-1.5 flex-wrap">
           {product.features.slice(0, 2).map((feat, i) => (
             <span key={i} className="inline-flex items-center gap-1 bg-neutral-50 px-1.5 py-0.5 rounded text-[9.5px]">
-              <Check className="w-2.5 h-2.5 text-[#336443]" />
+              <Check className="w-2.5 h-2.5 text-[#F97316]" />
               {feat}
             </span>
           ))}
@@ -152,13 +152,13 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToOrder, compac
               type="button"
               onClick={() => setQty((q) => Math.max(1, q - 1))}
               disabled={qty <= 1}
-              className="w-5 h-5 rounded-full bg-white border border-neutral-200 text-[#1f2a1d] font-bold text-xs flex items-center justify-center hover:bg-neutral-100 disabled:opacity-40 transition-colors cursor-pointer"
+              className="w-5 h-5 rounded-full bg-white border border-neutral-200 text-[#0f172A] font-bold text-xs flex items-center justify-center hover:bg-neutral-100 disabled:opacity-40 transition-colors cursor-pointer"
             >−</button>
             <select
               value={qty}
               onChange={(e) => setQty(Number(e.target.value))}
               aria-label="Select quantity"
-              className="bg-transparent text-xs font-semibold text-[#1f2a1d] border-0 outline-none cursor-pointer px-1 py-0.5"
+              className="bg-transparent text-xs font-semibold text-[#0f172A] border-0 outline-none cursor-pointer px-1 py-0.5"
             >
               {Array.from({ length: 20 }, (_, i) => i + 1).map((n) => (
                 <option key={n} value={n}>
@@ -170,7 +170,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToOrder, compac
               type="button"
               onClick={() => setQty((q) => Math.min(20, q + 1))}
               disabled={qty >= 20}
-              className="w-5 h-5 rounded-full bg-white border border-neutral-200 text-[#1f2a1d] font-bold text-xs flex items-center justify-center hover:bg-neutral-100 disabled:opacity-40 transition-colors cursor-pointer"
+              className="w-5 h-5 rounded-full bg-white border border-neutral-200 text-[#0f172A] font-bold text-xs flex items-center justify-center hover:bg-neutral-100 disabled:opacity-40 transition-colors cursor-pointer"
             >+</button>
           </div>
 
@@ -182,7 +182,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToOrder, compac
               setAdded(true);
               setTimeout(() => setAdded(false), 2500);
             }}
-            className={`flex-1 py-1.5 text-white text-[11px] font-bold rounded-full transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm ${added ? 'bg-emerald-600' : 'bg-[#1f2a1d] hover:bg-[#336443]'
+            className={`flex-1 py-1.5 text-white text-[11px] font-bold rounded-full transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm ${added ? 'bg-emerald-600' : 'bg-[#0f172A] hover:bg-[#1e293b]'
               }`}
           >
             {added ? (
@@ -192,7 +192,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToOrder, compac
               </>
             ) : (
               <>
-                <ShoppingBag className="w-3.5 h-3.5" />
+                <ShoppingBag className="w-3.5 h-3.5 text-[#F97316]" />
                 Add to Cart
               </>
             )}
@@ -228,8 +228,8 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({ items, onGoToCart, onClear,
     <div className="mango-card bg-white rounded-2xl border border-neutral-100 shadow-sm overflow-hidden">
       <div className="px-4 pt-3 pb-2 border-b border-neutral-100 flex items-center justify-between">
         <div className="flex items-center gap-1.5">
-          <ShoppingBag className="w-3.5 h-3.5 text-[#336443]" />
-          <span className="text-xs font-bold text-[#1f2a1d]">Your Wholesale Draft Cart</span>
+          <ShoppingBag className="w-3.5 h-3.5 text-[#F97316]" />
+          <span className="text-xs font-bold text-[#0f172A]">Your Wholesale Draft Cart</span>
         </div>
         <button onClick={onClear} className="text-[10px] text-neutral-400 hover:text-rose-500 transition-colors flex items-center gap-0.5 cursor-pointer">
           <Trash2 className="w-3 h-3" /> Clear Cart
@@ -240,25 +240,25 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({ items, onGoToCart, onClear,
         {items.map((item, i) => (
           <div key={i} className="flex items-center justify-between gap-2 text-xs py-1.5 border-b border-neutral-50 last:border-0">
             <div className="min-w-0">
-              <span className="font-semibold text-[#1f2a1d] block truncate">{item.product.name}</span>
+              <span className="font-semibold text-[#0f172A] block truncate">{item.product.name}</span>
               {item.flavor && <span className="text-neutral-400 text-[10px]">{item.flavor}</span>}
             </div>
             <div className="text-right shrink-0">
-              <span className="font-bold text-[#336443]">{item.quantity}× units</span>
+              <span className="font-bold text-[#F97316]">{item.quantity}× units</span>
               <span className="text-neutral-400 text-[10px] block">Call for Price</span>
             </div>
           </div>
         ))}
       </div>
 
-      <div className="px-4 py-3 border-t border-neutral-100 bg-neutral-50">
+      <div className="px-4 py-3 border-t border-neutral-100 bg-slate-50">
         <div className="flex items-center justify-between mb-2">
           <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400">Total Items</span>
-          <span className="text-base font-bold text-[#1f2a1d]">{totalUnits} units</span>
+          <span className="text-base font-bold text-[#0f172A]">{totalUnits} units</span>
         </div>
 
-        <div className="text-[11px] text-[#336443] font-semibold text-center mb-3 bg-emerald-50/80 py-1 px-2 rounded-lg border border-emerald-100 flex items-center justify-center gap-1">
-          <Phone className="w-3 h-3" />
+        <div className="text-[11px] text-[#F97316] font-semibold text-center mb-3 bg-orange-50/80 py-1 px-2 rounded-lg border border-orange-100 flex items-center justify-center gap-1">
+          <Phone className="w-3 h-3 text-[#F97316]" />
           <span>Call <strong>(405) 768-2975</strong> for wholesale pricing</span>
         </div>
 
@@ -267,16 +267,16 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({ items, onGoToCart, onClear,
             <button
               type="button"
               onClick={onAddMore}
-              className="py-2 bg-white border border-neutral-200 hover:bg-neutral-100 text-[#1f2a1d] text-[11px] font-bold rounded-full transition-colors flex items-center justify-center gap-1 cursor-pointer shadow-sm"
+              className="py-2 bg-white border border-neutral-200 hover:bg-neutral-100 text-[#0f172A] text-[11px] font-bold rounded-full transition-colors flex items-center justify-center gap-1 cursor-pointer shadow-sm"
             >
-              <Plus className="w-3.5 h-3.5 text-[#336443]" />
+              <Plus className="w-3.5 h-3.5 text-[#F97316]" />
               Add More Items
             </button>
           )}
           <button
             type="button"
             onClick={onGoToCart}
-            className={`py-2 bg-[#85AB8B] hover:bg-[#97bba4] text-[#1f2a1d] text-[11px] font-bold rounded-full transition-colors flex items-center justify-center gap-1 cursor-pointer shadow-sm ${!onAddMore ? 'col-span-2' : ''
+            className={`py-2 bg-[#F97316] hover:bg-[#ea580c] text-white text-[11px] font-bold rounded-full transition-colors flex items-center justify-center gap-1 cursor-pointer shadow-sm ${!onAddMore ? 'col-span-2' : ''
               }`}
           >
             <Send className="w-3.5 h-3.5" />
@@ -342,7 +342,7 @@ const InventoryView: React.FC<InventoryViewProps> = ({ onAddToOrder, onGoToCart,
   });
 
   return (
-    <div className="flex flex-col h-full overflow-hidden bg-[#f5f5f4]">
+    <div className="flex flex-col h-full overflow-hidden bg-[#F8FAFC]">
       {/* Category Pills & Search */}
       <div className="p-3 bg-white border-b border-neutral-100 space-y-2.5 shrink-0 shadow-2xs">
         {/* Search Input */}
@@ -353,7 +353,7 @@ const InventoryView: React.FC<InventoryViewProps> = ({ onAddToOrder, onGoToCart,
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Search Geekbar, Raz, XROS, Juice Head, Glass, OPMS..."
-            className="w-full bg-neutral-50 border border-neutral-200 rounded-full pl-8 pr-3 py-1.5 text-xs text-[#1f2a1d] focus:outline-none focus:border-[#85AB8B] transition-colors"
+            className="w-full bg-neutral-50 border border-neutral-200 rounded-full pl-8 pr-3 py-1.5 text-xs text-[#0f172A] focus:outline-none focus:border-[#F97316] transition-colors"
           />
           {searchQuery && (
             <button
@@ -382,13 +382,13 @@ const InventoryView: React.FC<InventoryViewProps> = ({ onAddToOrder, onGoToCart,
                   setSelectedSubcategory('All Hardware');
                 }}
                 className={`px-3 py-1.5 rounded-full text-[11px] font-bold shrink-0 transition-all flex items-center gap-1 cursor-pointer select-none shadow-2xs ${isSelected
-                  ? 'bg-[#1f2a1d] text-white scale-[1.02]'
-                  : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200 hover:text-[#1f2a1d]'
+                  ? 'bg-[#0f172A] text-white scale-[1.02]'
+                  : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200 hover:text-[#0f172A]'
                   }`}
               >
                 <span>{cat.label}</span>
                 <span
-                  className={`text-[9px] px-1.5 py-0.2 rounded-full ${isSelected ? 'bg-[#85AB8B] text-[#1f2a1d]' : 'bg-neutral-200 text-neutral-500'
+                  className={`text-[9px] px-1.5 py-0.2 rounded-full ${isSelected ? 'bg-[#F97316] text-white' : 'bg-neutral-200 text-neutral-500'
                     }`}
                 >
                   {count}
@@ -411,7 +411,7 @@ const InventoryView: React.FC<InventoryViewProps> = ({ onAddToOrder, onGoToCart,
                   key={sub}
                   onClick={() => setSelectedSubcategory(sub)}
                   className={`px-2.5 py-0.5 rounded-md text-[10px] font-semibold shrink-0 transition-colors cursor-pointer ${isSubSelected
-                    ? 'bg-[#85AB8B] text-[#1f2a1d] font-bold'
+                    ? 'bg-[#F97316] text-white font-bold'
                     : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200'
                     }`}
                 >
@@ -425,7 +425,7 @@ const InventoryView: React.FC<InventoryViewProps> = ({ onAddToOrder, onGoToCart,
 
       {/* Category Header Label */}
       <div className="px-3 py-2 bg-neutral-100/70 border-b border-neutral-200/60 flex items-center justify-between text-[11px] text-neutral-500">
-        <span className="font-semibold text-[#1f2a1d]">
+        <span className="font-semibold text-[#0f172A]">
           {selectedCategory === 'All' ? '🔥 Top Wholesale Best Sellers' : selectedCategory}
           {selectedCategory === 'Vape Mods & Kits' && selectedSubcategory !== 'All Hardware' && ` › ${selectedSubcategory}`}
         </span>
@@ -442,7 +442,7 @@ const InventoryView: React.FC<InventoryViewProps> = ({ onAddToOrder, onGoToCart,
                 setSearchQuery('');
                 setSelectedCategory('All');
               }}
-              className="text-[#336443] font-bold underline cursor-pointer"
+              className="text-[#F97316] font-bold underline cursor-pointer"
             >
               Reset Filters
             </button>
@@ -457,13 +457,13 @@ const InventoryView: React.FC<InventoryViewProps> = ({ onAddToOrder, onGoToCart,
       {/* Sticky Bottom Cart Bar */}
       {cartItemCount > 0 && (
         <div className="p-3 bg-white border-t border-neutral-100 flex items-center justify-between gap-2 shrink-0 shadow-lg">
-          <div className="flex items-center gap-1.5 text-xs font-bold text-[#1f2a1d]">
-            <ShoppingBag className="w-4 h-4 text-[#336443]" />
+          <div className="flex items-center gap-1.5 text-xs font-bold text-[#0f172A]">
+            <ShoppingBag className="w-4 h-4 text-[#F97316]" />
             <span>{cartItemCount} item{cartItemCount !== 1 ? 's' : ''} in Cart</span>
           </div>
           <button
             onClick={onGoToCart}
-            className="py-1.5 px-4 bg-[#85AB8B] hover:bg-[#97bba4] text-[#1f2a1d] text-xs font-bold rounded-full transition-colors flex items-center gap-1 shadow cursor-pointer"
+            className="py-1.5 px-4 bg-[#F97316] hover:bg-[#ea580c] text-white text-xs font-bold rounded-full transition-colors flex items-center gap-1 shadow cursor-pointer"
           >
             <span>Review Order</span>
             <ArrowRight className="w-3.5 h-3.5" />
@@ -523,8 +523,8 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({
         {message.text && (
           <div
             className={`px-4 py-2.5 rounded-2xl text-sm leading-relaxed shadow-sm ${isUser
-              ? 'bg-[#1f2a1d] text-white rounded-br-sm'
-              : 'bg-white text-[#1f2a1d] rounded-bl-sm border border-neutral-100'
+              ? 'bg-[#0f172A] text-white rounded-br-sm'
+              : 'bg-white text-[#0f172A] rounded-bl-sm border border-neutral-100'
               }`}
             dangerouslySetInnerHTML={{
               __html: message.text
@@ -794,7 +794,7 @@ export default function MangoChat() {
           aria-label={isOpen ? 'Close Mango chat' : 'Open Mango chat'}
           aria-expanded={isOpen}
           style={{ pointerEvents: 'auto' }}
-          className={`mango-avatar-btn group relative flex items-center gap-2.5 bg-[#1f2a1d] hover:bg-[#2a3a27] text-white pl-1.5 pr-4 py-1.5 rounded-full shadow-xl border border-white/10 transition-all duration-300 cursor-pointer select-none ${
+          className={`mango-avatar-btn group relative flex items-center gap-2.5 bg-[#0f172A] hover:bg-[#1e293b] text-white pl-1.5 pr-4 py-1.5 rounded-full shadow-xl border border-white/10 transition-all duration-300 cursor-pointer select-none ${
             !isOpen ? 'mango-pulse' : ''
           }`}
         >
@@ -802,9 +802,9 @@ export default function MangoChat() {
             <img
               src="/mango-avatar.jpg"
               alt="Mango Mascot"
-              className="w-9 h-9 rounded-full object-cover border-2 border-[#85AB8B] shadow-sm group-hover:scale-105 transition-transform"
+              className="w-9 h-9 rounded-full object-cover border-2 border-[#F97316] shadow-sm group-hover:scale-105 transition-transform"
             />
-            <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-400 border-2 border-[#1f2a1d] rounded-full" />
+            <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-400 border-2 border-[#0f172A] rounded-full" />
           </div>
 
           <div className="text-left leading-tight hidden sm:block">
@@ -812,7 +812,7 @@ export default function MangoChat() {
               <span>Mango</span>
               <span className="text-[10px]">🐕</span>
             </div>
-            <div className="text-[10px] text-[#85AB8B] font-medium">Wholesale Assistant</div>
+            <div className="text-[10px] text-[#F97316] font-medium">Wholesale Assistant</div>
           </div>
 
           {isOpen && <X className="w-3.5 h-3.5 ml-0.5 text-neutral-400 group-hover:text-white transition-colors" />}
@@ -830,28 +830,28 @@ export default function MangoChat() {
             bottom-0 left-0 right-0 h-[92dvh]
             /* Desktop: positioned above button */
             sm:bottom-24 sm:right-6 sm:left-auto sm:w-[420px] sm:h-[640px] sm:max-h-[90dvh]
-            flex flex-col bg-[#f5f5f4] overflow-hidden
+            flex flex-col bg-[#F8FAFC] overflow-hidden
             /* Rounded corners */
             rounded-t-3xl sm:rounded-3xl
             shadow-2xl border border-white/20
             ${isAnimatingOut ? 'mango-chat-exit' : 'mango-chat-enter'}`}
         >
           {/* ── Chat Header ── */}
-          <div className="bg-[#1f2a1d] px-4 py-3 flex items-center gap-3 shrink-0">
+          <div className="bg-[#0f172A] px-4 py-3 flex items-center gap-3 shrink-0">
             <div className="relative">
               <img
                 src="/mango-avatar.jpg"
                 alt="Mango"
-                className="w-10 h-10 rounded-full object-cover border-2 border-[#85AB8B]/40 shadow"
+                className="w-10 h-10 rounded-full object-cover border-2 border-[#F97316]/40 shadow"
               />
-              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-400 border-2 border-[#1f2a1d] rounded-full" />
+              <span className="absolute bottom-0 right-0 w-2.5 h-2.5 bg-emerald-400 border-2 border-[#0f172A] rounded-full" />
             </div>
             <div className="flex-1 min-w-0">
               <div className="text-white font-bold text-sm flex items-center gap-1.5">
                 <span>Mango</span>
                 <span className="text-xs">🐕</span>
               </div>
-              <div className="text-[#85AB8B] text-[10px] font-medium">Wholesale of Oklahoma Assistant</div>
+              <div className="text-[#F97316] text-[10px] font-medium">Wholesale of Oklahoma Assistant</div>
             </div>
 
             <a
@@ -872,16 +872,16 @@ export default function MangoChat() {
           </div>
 
           {/* ── View Navigation Tabs ── */}
-          <div className="bg-[#1f2a1d] px-3 pb-2 flex items-center gap-1 border-b border-white/10 shrink-0">
+          <div className="bg-[#0f172A] px-3 pb-2 flex items-center gap-1 border-b border-white/10 shrink-0">
             <button
               onClick={() => setActiveTab('chat')}
               className={`flex-1 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
                 activeTab === 'chat'
                   ? 'bg-white/15 text-white shadow-sm'
-                  : 'text-neutral-400 hover:text-white hover:bg-white/5'
+                  : 'text-slate-400 hover:text-white hover:bg-white/5'
               }`}
             >
-              <MessageCircle className="w-3.5 h-3.5 text-[#85AB8B]" />
+              <MessageCircle className="w-3.5 h-3.5 text-[#F97316]" />
               <span>Chat</span>
             </button>
 
@@ -890,10 +890,10 @@ export default function MangoChat() {
               className={`flex-1 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
                 activeTab === 'inventory'
                   ? 'bg-white/15 text-white shadow-sm'
-                  : 'text-neutral-400 hover:text-white hover:bg-white/5'
+                  : 'text-slate-400 hover:text-white hover:bg-white/5'
               }`}
             >
-              <Package className="w-3.5 h-3.5 text-[#85AB8B]" />
+              <Package className="w-3.5 h-3.5 text-[#F97316]" />
               <span>Inventory</span>
             </button>
 
@@ -901,13 +901,13 @@ export default function MangoChat() {
               onClick={() => {
                 window.dispatchEvent(new CustomEvent('open-cart'));
               }}
-              className="flex-1 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer text-neutral-300 hover:text-white hover:bg-white/10"
+              className="flex-1 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer text-slate-300 hover:text-white hover:bg-white/10"
               title="Open Wholesale Shopping Cart"
             >
-              <ShoppingBag className="w-3.5 h-3.5 text-[#85AB8B]" />
+              <ShoppingBag className="w-3.5 h-3.5 text-[#F97316]" />
               <span>View Cart</span>
               {orderItemCount > 0 && (
-                <span className="bg-[#85AB8B] text-[#1f2a1d] text-[9px] font-black px-1.5 py-0.2 rounded-full ml-0.5">
+                <span className="bg-[#F97316] text-white text-[9px] font-black px-1.5 py-0.2 rounded-full ml-0.5">
                   {orderItemCount}
                 </span>
               )}
@@ -945,7 +945,7 @@ export default function MangoChat() {
                     <button
                       key={action.label}
                       onClick={() => handleQuickAction(action.prompt)}
-                      className="mango-chip flex items-center gap-1 text-[11px] font-semibold text-[#1f2a1d] bg-white border border-neutral-200 px-3 py-1.5 rounded-full shadow-sm cursor-pointer"
+                      className="mango-chip flex items-center gap-1 text-[11px] font-semibold text-[#0f172A] bg-white border border-neutral-200 px-3 py-1.5 rounded-full shadow-sm cursor-pointer"
                     >
                       <span>{action.icon}</span>
                       <span>{action.label}</span>
@@ -964,14 +964,14 @@ export default function MangoChat() {
                     onChange={(e) => setInputValue(e.target.value)}
                     onKeyDown={handleKeyDown}
                     placeholder="Ask Mango or search products..."
-                    className="flex-1 bg-neutral-50 border border-neutral-200 rounded-full px-4 py-2.5 text-xs text-[#1f2a1d] placeholder-neutral-400 focus:outline-none focus:border-[#85AB8B] transition-colors"
+                    className="flex-1 bg-neutral-50 border border-neutral-200 rounded-full px-4 py-2.5 text-xs text-[#0f172A] placeholder-neutral-400 focus:outline-none focus:border-[#F97316] transition-colors"
                   />
                   <button
                     type="submit"
                     disabled={!inputValue.trim() || isTyping}
-                    className="w-8 h-8 rounded-full bg-[#1f2a1d] hover:bg-[#336443] disabled:opacity-30 text-white flex items-center justify-center transition-colors shrink-0 cursor-pointer shadow-sm"
+                    className="w-8 h-8 rounded-full bg-[#F97316] hover:bg-[#ea580c] disabled:opacity-30 text-white flex items-center justify-center transition-colors shrink-0 cursor-pointer shadow-sm"
                   >
-                    <Send className="w-3.5 h-3.5" />
+                    <Send className="w-3.5 h-3.5 text-white" />
                   </button>
                 </form>
                 <div className="text-[9px] text-neutral-400 text-center mt-1">

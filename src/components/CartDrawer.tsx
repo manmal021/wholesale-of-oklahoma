@@ -208,26 +208,26 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
         role="dialog"
         aria-modal="true"
         aria-label="Wholesale Shopping Cart"
-        className={`fixed top-0 right-0 bottom-0 z-50 w-full sm:w-[480px] max-w-full bg-[#fbfbf9] text-[#1f2a1d] shadow-2xl flex flex-col transition-transform duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] ${
+        className={`fixed top-0 right-0 bottom-0 z-50 w-full sm:w-[480px] max-w-full bg-[#F8FAFC] text-[#0f172A] shadow-2xl flex flex-col transition-transform duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         {/* Drawer Header */}
-        <div className="bg-[#1f2a1d] text-white px-5 py-4 flex items-center justify-between shadow-md shrink-0">
+        <div className="bg-[#0f172A] text-white px-5 py-4 flex items-center justify-between shadow-md shrink-0 border-b border-slate-800">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full bg-[#85AB8B]/20 flex items-center justify-center text-[#85AB8B] border border-[#85AB8B]/30">
+            <div className="w-9 h-9 rounded-full bg-[#F97316]/20 flex items-center justify-center text-[#F97316] border border-[#F97316]/30">
               <ShoppingBag className="w-5 h-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
                 <h2 className="text-base font-bold tracking-tight text-white">Wholesale Cart</h2>
                 {totalUnits > 0 && (
-                  <span className="bg-[#85AB8B] text-[#1f2a1d] text-[10px] font-black px-2 py-0.5 rounded-full">
+                  <span className="bg-[#F97316] text-white text-[10px] font-black px-2 py-0.5 rounded-full shadow-sm">
                     {totalUnits} units
                   </span>
                 )}
               </div>
-              <p className="text-[11px] text-[#85AB8B] font-medium">
+              <p className="text-[11px] text-[#F97316] font-medium">
                 Wholesale of Oklahoma · Licensed Distributor
               </p>
             </div>
@@ -251,9 +251,9 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
             </div>
 
             <div>
-              <h3 className="text-xl font-extrabold text-[#1f2a1d]">Order Request Submitted!</h3>
+              <h3 className="text-xl font-extrabold text-[#0f172A]">Order Request Submitted!</h3>
               <p className="text-xs text-neutral-500 mt-1">
-                Reference ID: <span className="font-mono font-bold text-[#1f2a1d]">{submittedOrderId}</span>
+                Reference ID: <span className="font-mono font-bold text-[#F97316]">{submittedOrderId}</span>
               </p>
             </div>
 
@@ -261,19 +261,19 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
               Thank you, <strong>{name}</strong>! Your wholesale restock request has been sent to our dispatch team. We will call you at <strong>{phone}</strong> to confirm wholesale pricing, arrange OKC warehouse pickup, or schedule metro delivery.
             </p>
 
-            <div className="w-full bg-neutral-100 rounded-2xl p-4 text-left text-xs space-y-2 border border-neutral-200/80">
+            <div className="w-full bg-white rounded-2xl p-4 text-left text-xs space-y-2 border border-slate-200 shadow-sm">
               <div className="flex items-center justify-between">
                 <span className="font-semibold text-neutral-500">Contact Phone</span>
-                <span className="font-bold text-[#1f2a1d]">{phone}</span>
+                <span className="font-bold text-[#0f172A]">{phone}</span>
               </div>
               <div className="flex items-center justify-between">
                 <span className="font-semibold text-neutral-500">Confirmation Email</span>
-                <span className="font-bold text-[#1f2a1d] truncate max-w-[200px]">{email}</span>
+                <span className="font-bold text-[#0f172A] truncate max-w-[200px]">{email}</span>
               </div>
               {businessName && (
                 <div className="flex items-center justify-between">
                   <span className="font-semibold text-neutral-500">Business Name</span>
-                  <span className="font-bold text-[#1f2a1d]">{businessName}</span>
+                  <span className="font-bold text-[#0f172A]">{businessName}</span>
                 </div>
               )}
             </div>
@@ -281,14 +281,14 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
             <div className="flex flex-col gap-2.5 w-full pt-2">
               <a
                 href="tel:4057682975"
-                className="py-3 bg-[#1f2a1d] hover:bg-[#336443] text-white text-xs font-bold rounded-full flex items-center justify-center gap-2 shadow-lg transition-colors"
+                className="py-3 bg-[#F97316] hover:bg-[#ea580c] text-white text-xs font-bold rounded-full flex items-center justify-center gap-2 shadow-lg transition-colors"
               >
-                <Phone className="w-4 h-4 text-[#85AB8B]" />
+                <Phone className="w-4 h-4 text-white" />
                 Call Warehouse Live (405) 768-2975
               </a>
               <button
                 onClick={handleResetForm}
-                className="py-2.5 bg-white border border-neutral-300 text-[#1f2a1d] text-xs font-bold rounded-full hover:bg-neutral-50 transition-colors cursor-pointer"
+                className="py-2.5 bg-white border border-slate-300 text-[#0f172A] text-xs font-bold rounded-full hover:bg-slate-50 transition-colors cursor-pointer"
               >
                 Continue Browsing Catalog
               </button>
@@ -297,11 +297,11 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
         ) : items.length === 0 ? (
           // Empty Cart Screen
           <div className="flex-1 overflow-y-auto p-8 flex flex-col items-center justify-center text-center space-y-4">
-            <div className="w-20 h-20 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-400">
+            <div className="w-20 h-20 rounded-full bg-slate-100 flex items-center justify-center text-slate-400">
               <ShoppingBag className="w-10 h-10 stroke-[1.5]" />
             </div>
             <div>
-              <h3 className="text-base font-bold text-[#1f2a1d]">Your Wholesale Cart is Empty</h3>
+              <h3 className="text-base font-bold text-[#0f172A]">Your Wholesale Cart is Empty</h3>
               <p className="text-xs text-neutral-500 max-w-xs mt-1 leading-relaxed">
                 Add disposable vapes, pod kits, coils, juice, glass, or kratom from our live wholesale catalog to build your order request.
               </p>
@@ -309,18 +309,18 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
 
             <button
               onClick={handleBrowseInventory}
-              className="py-3 px-6 bg-[#1f2a1d] hover:bg-[#336443] text-white text-xs font-bold rounded-full transition-all flex items-center gap-2 shadow-md cursor-pointer hover:scale-105 active:scale-95"
+              className="py-3 px-6 bg-[#0f172A] hover:bg-[#1e293b] text-white text-xs font-bold rounded-full transition-all flex items-center gap-2 shadow-md cursor-pointer hover:scale-105 active:scale-95"
             >
-              <Package className="w-4 h-4 text-[#85AB8B]" />
+              <Package className="w-4 h-4 text-[#F97316]" />
               <span>Browse Live Inventory</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <ArrowRight className="w-3.5 h-3.5 text-white/70" />
             </button>
 
-            <div className="pt-8 border-t border-neutral-200/60 w-full text-center">
+            <div className="pt-8 border-t border-slate-200/80 w-full text-center">
               <p className="text-[11px] text-neutral-400 font-medium">Need immediate phone restock?</p>
               <a
                 href="tel:4057682975"
-                className="inline-flex items-center gap-1.5 text-xs font-extrabold text-[#336443] hover:underline mt-1"
+                className="inline-flex items-center gap-1.5 text-xs font-extrabold text-[#F97316] hover:underline mt-1"
               >
                 <Phone className="w-3.5 h-3.5" />
                 (405) 768-2975 · Live Dispatch
@@ -329,16 +329,16 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
           </div>
         ) : (
           // Active Cart Content
-          <div className="flex-1 overflow-y-auto flex flex-col divide-y divide-neutral-200/70">
+          <div className="flex-1 overflow-y-auto flex flex-col divide-y divide-slate-200">
             {/* Items Section */}
             <div className="p-4 sm:p-5 space-y-3">
               <div className="flex items-center justify-between pb-1">
-                <span className="text-xs font-bold uppercase tracking-wider text-neutral-500">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
                   Order Items ({items.length} product{items.length !== 1 ? 's' : ''}, {totalUnits} total units)
                 </span>
                 <button
                   onClick={handleClear}
-                  className="text-[11px] font-semibold text-neutral-400 hover:text-rose-600 transition-colors flex items-center gap-1 cursor-pointer"
+                  className="text-[11px] font-semibold text-slate-400 hover:text-rose-600 transition-colors flex items-center gap-1 cursor-pointer"
                 >
                   <Trash2 className="w-3.5 h-3.5" />
                   <span>Clear All</span>
@@ -355,10 +355,10 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                   return (
                     <div
                       key={`${item.product.id}-${item.flavor || idx}`}
-                      className="bg-white rounded-2xl p-3.5 border border-neutral-200/80 shadow-sm flex items-center gap-3 transition-all hover:border-[#85AB8B]/50"
+                      className="bg-white rounded-2xl p-3.5 border border-slate-200 shadow-sm flex items-center gap-3 transition-all hover:border-[#F97316]/50"
                     >
                       {/* Product Thumbnail or Fallback */}
-                      <div className="w-12 h-12 rounded-xl bg-neutral-100 overflow-hidden shrink-0 flex items-center justify-center border border-neutral-200/60">
+                      <div className="w-12 h-12 rounded-xl bg-slate-100 overflow-hidden shrink-0 flex items-center justify-center border border-slate-200">
                         {item.product.imageUrl ? (
                           <img
                             src={item.product.imageUrl}
@@ -369,41 +369,41 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                             }}
                           />
                         ) : (
-                          <Package className="w-6 h-6 text-neutral-400" />
+                          <Package className="w-6 h-6 text-slate-400" />
                         )}
                       </div>
 
                       {/* Product Details */}
                       <div className="flex-1 min-w-0">
-                        <h4 className="text-xs font-bold text-[#1f2a1d] leading-snug truncate">
+                        <h4 className="text-xs font-bold text-[#0f172A] leading-snug truncate">
                           {item.product.name}
                         </h4>
-                        <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[10px] text-neutral-500 mt-0.5">
+                        <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[10px] text-slate-500 mt-0.5">
                           <span>SKU: {item.product.sku}</span>
                           {item.flavor && (
-                            <span className="bg-neutral-100 text-neutral-700 px-1.5 py-0.2 rounded font-medium">
+                            <span className="bg-slate-100 text-slate-700 px-1.5 py-0.2 rounded font-medium">
                               {item.flavor}
                             </span>
                           )}
-                          <span className="font-semibold text-[#336443]">{unitPriceStr}</span>
+                          <span className="font-semibold text-[#F97316]">{unitPriceStr}</span>
                         </div>
                       </div>
 
                       {/* Quantity Controls */}
-                      <div className="flex items-center gap-1.5 bg-neutral-100 rounded-lg p-1 shrink-0 border border-neutral-200/80">
+                      <div className="flex items-center gap-1.5 bg-slate-100 rounded-lg p-1 shrink-0 border border-slate-200">
                         <button
                           onClick={() => handleQtyChange(item.product.id, item.quantity, -1, item.flavor)}
-                          className="w-6 h-6 rounded bg-white hover:bg-neutral-200 flex items-center justify-center text-neutral-700 transition-colors cursor-pointer shadow-xs"
+                          className="w-6 h-6 rounded bg-white hover:bg-slate-200 flex items-center justify-center text-[#0f172A] transition-colors cursor-pointer shadow-xs"
                           aria-label="Decrease quantity"
                         >
                           <Minus className="w-3 h-3" />
                         </button>
-                        <span className="w-7 text-center font-bold text-xs text-[#1f2a1d]">
+                        <span className="w-7 text-center font-bold text-xs text-[#0f172A]">
                           {item.quantity}
                         </span>
                         <button
                           onClick={() => handleQtyChange(item.product.id, item.quantity, 1, item.flavor)}
-                          className="w-6 h-6 rounded bg-white hover:bg-neutral-200 flex items-center justify-center text-neutral-700 transition-colors cursor-pointer shadow-xs"
+                          className="w-6 h-6 rounded bg-white hover:bg-slate-200 flex items-center justify-center text-[#0f172A] transition-colors cursor-pointer shadow-xs"
                           aria-label="Increase quantity"
                         >
                           <Plus className="w-3 h-3" />
@@ -413,7 +413,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                       {/* Remove Button */}
                       <button
                         onClick={() => handleRemove(item.product.id, item.flavor)}
-                        className="text-neutral-300 hover:text-rose-500 p-1 transition-colors cursor-pointer shrink-0"
+                        className="text-slate-300 hover:text-rose-500 p-1 transition-colors cursor-pointer shrink-0"
                         title="Remove item"
                         aria-label="Remove item from cart"
                       >
@@ -427,9 +427,9 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
               {/* Add More Items Button */}
               <button
                 onClick={handleBrowseInventory}
-                className="w-full py-2 bg-neutral-100 hover:bg-neutral-200/70 text-[#1f2a1d] text-xs font-semibold rounded-xl border border-neutral-200 transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                className="w-full py-2 bg-white hover:bg-slate-50 text-[#0f172A] text-xs font-semibold rounded-xl border border-slate-200 transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
               >
-                <Plus className="w-3.5 h-3.5 text-[#336443]" />
+                <Plus className="w-3.5 h-3.5 text-[#F97316]" />
                 <span>Add More Products from Catalog</span>
               </button>
             </div>
@@ -438,12 +438,12 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
             <div className="p-4 sm:p-5 bg-white space-y-4">
               <div>
                 <div className="flex items-center gap-1.5">
-                  <ShieldCheck className="w-4 h-4 text-[#336443]" />
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#1f2a1d]">
+                  <ShieldCheck className="w-4 h-4 text-[#F97316]" />
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#0f172A]">
                     Dispatch & Contact Information
                   </h3>
                 </div>
-                <p className="text-[11px] text-neutral-500 mt-0.5">
+                <p className="text-[11px] text-slate-500 mt-0.5">
                   Send this order request directly to our Oklahoma City warehouse team. We confirm wholesale tier rates by phone before final dispatch.
                 </p>
               </div>
@@ -457,8 +457,8 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
 
               <form onSubmit={handleSubmitOrder} className="space-y-3">
                 <div>
-                  <label className="text-[10px] font-bold uppercase tracking-wider text-neutral-600 flex items-center gap-1 mb-1">
-                    <User className="w-3 h-3 text-[#85AB8B]" />
+                  <label className="text-[10px] font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1 mb-1">
+                    <User className="w-3 h-3 text-[#F97316]" />
                     Full Name <span className="text-red-500">*</span>
                   </label>
                   <input
@@ -467,14 +467,14 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="e.g. John Smith"
-                    className="w-full bg-neutral-50 border border-neutral-200 rounded-xl px-3.5 py-2 text-xs text-[#1f2a1d] focus:outline-none focus:border-[#336443] focus:bg-white transition-all"
+                    className="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl px-3.5 py-2 text-xs text-[#0f172A] focus:outline-none focus:border-[#F97316] focus:bg-white transition-all"
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-2.5">
                   <div>
-                    <label className="text-[10px] font-bold uppercase tracking-wider text-neutral-600 flex items-center gap-1 mb-1">
-                      <Phone className="w-3 h-3 text-[#85AB8B]" />
+                    <label className="text-[10px] font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1 mb-1">
+                      <Phone className="w-3 h-3 text-[#F97316]" />
                       Phone Number <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -483,12 +483,12 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       placeholder="(405) 000-0000"
-                      className="w-full bg-neutral-50 border border-neutral-200 rounded-xl px-3.5 py-2 text-xs text-[#1f2a1d] focus:outline-none focus:border-[#336443] focus:bg-white transition-all"
+                      className="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl px-3.5 py-2 text-xs text-[#0f172A] focus:outline-none focus:border-[#F97316] focus:bg-white transition-all"
                     />
                   </div>
                   <div>
-                    <label className="text-[10px] font-bold uppercase tracking-wider text-neutral-600 flex items-center gap-1 mb-1">
-                      <Mail className="w-3 h-3 text-[#85AB8B]" />
+                    <label className="text-[10px] font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1 mb-1">
+                      <Mail className="w-3 h-3 text-[#F97316]" />
                       Email <span className="text-red-500">*</span>
                     </label>
                     <input
@@ -497,14 +497,14 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="you@store.com"
-                      className="w-full bg-neutral-50 border border-neutral-200 rounded-xl px-3.5 py-2 text-xs text-[#1f2a1d] focus:outline-none focus:border-[#336443] focus:bg-white transition-all"
+                      className="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl px-3.5 py-2 text-xs text-[#0f172A] focus:outline-none focus:border-[#F97316] focus:bg-white transition-all"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label className="text-[10px] font-bold uppercase tracking-wider text-neutral-600 flex items-center gap-1 mb-1">
-                    <Building className="w-3 h-3 text-[#85AB8B]" />
+                  <label className="text-[10px] font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1 mb-1">
+                    <Building className="w-3 h-3 text-[#F97316]" />
                     Business / Store Name (Optional)
                   </label>
                   <input
@@ -512,13 +512,13 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                     value={businessName}
                     onChange={(e) => setBusinessName(e.target.value)}
                     placeholder="e.g. OKC Smoke & Vape LLC"
-                    className="w-full bg-neutral-50 border border-neutral-200 rounded-xl px-3.5 py-2 text-xs text-[#1f2a1d] focus:outline-none focus:border-[#336443] focus:bg-white transition-all"
+                    className="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl px-3.5 py-2 text-xs text-[#0f172A] focus:outline-none focus:border-[#F97316] focus:bg-white transition-all"
                   />
                 </div>
 
                 <div>
-                  <label className="text-[10px] font-bold uppercase tracking-wider text-neutral-600 flex items-center gap-1 mb-1">
-                    <FileText className="w-3 h-3 text-[#85AB8B]" />
+                  <label className="text-[10px] font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1 mb-1">
+                    <FileText className="w-3 h-3 text-[#F97316]" />
                     Delivery & Pickup Notes / Preferences
                   </label>
                   <textarea
@@ -526,7 +526,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
                     placeholder="Same-day OKC pickup, metro delivery, flavor requests, etc."
-                    className="w-full bg-neutral-50 border border-neutral-200 rounded-xl px-3.5 py-2 text-xs text-[#1f2a1d] focus:outline-none focus:border-[#336443] focus:bg-white transition-all resize-none"
+                    className="w-full bg-[#F8FAFC] border border-slate-200 rounded-xl px-3.5 py-2 text-xs text-[#0f172A] focus:outline-none focus:border-[#F97316] focus:bg-white transition-all resize-none"
                   />
                 </div>
 
@@ -534,24 +534,24 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                 <button
                   type="submit"
                   disabled={status === 'submitting'}
-                  className="w-full py-3 bg-[#1f2a1d] hover:bg-[#336443] disabled:opacity-50 text-white text-xs font-extrabold uppercase tracking-wider rounded-full transition-all flex items-center justify-center gap-2 shadow-lg cursor-pointer mt-3 hover:scale-[1.01] active:scale-[0.99]"
+                  className="w-full py-3 bg-[#F97316] hover:bg-[#ea580c] disabled:opacity-50 text-white text-xs font-extrabold uppercase tracking-wider rounded-full transition-all flex items-center justify-center gap-2 shadow-lg cursor-pointer mt-3 hover:scale-[1.01] active:scale-[0.99]"
                 >
                   {status === 'submitting' ? (
                     <>
-                      <Loader2 className="w-4 h-4 animate-spin text-[#85AB8B]" />
+                      <Loader2 className="w-4 h-4 animate-spin text-white" />
                       <span>Submitting Order Request...</span>
                     </>
                   ) : (
                     <>
-                      <Send className="w-4 h-4 text-[#85AB8B]" />
+                      <Send className="w-4 h-4 text-white" />
                       <span>Submit Wholesale Order ({totalUnits} Units)</span>
                     </>
                   )}
                 </button>
 
-                <div className="text-[10px] text-neutral-400 text-center flex items-center justify-center gap-2">
+                <div className="text-[10px] text-slate-400 text-center flex items-center justify-center gap-2">
                   <span>Direct phone quotes:</span>
-                  <a href="tel:4057682975" className="font-bold text-[#1f2a1d] hover:underline">
+                  <a href="tel:4057682975" className="font-bold text-[#0f172A] hover:underline">
                     (405) 768-2975
                   </a>
                 </div>

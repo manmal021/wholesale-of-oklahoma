@@ -92,17 +92,17 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
       {/* Dark backdrop overlay */}
       <div
-        className="fixed inset-0 bg-[#1f2a1d]/75 backdrop-blur-md transition-opacity duration-300"
+        className="fixed inset-0 bg-[#0f172A]/80 backdrop-blur-md transition-opacity duration-300"
         onClick={onClose}
       />
 
       {/* Modal Container */}
-      <div className="relative w-full max-w-4xl bg-white rounded-[32px] shadow-2xl border border-white/40 overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200 my-auto">
+      <div className="relative w-full max-w-4xl bg-white rounded-[32px] shadow-2xl border border-slate-200 overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200 my-auto">
         {/* Header Close Button */}
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-neutral-100 hover:bg-neutral-200 text-[#1f2a1d] flex items-center justify-center transition-colors cursor-pointer"
+          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 text-[#0f172A] flex items-center justify-center transition-colors cursor-pointer"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
@@ -110,10 +110,10 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
         <div className="grid grid-cols-1 md:grid-cols-12 max-h-[90vh] overflow-y-auto">
           {/* Left Column: Image Gallery & Badges */}
-          <div className="md:col-span-5 bg-[#f8faf8] p-6 sm:p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r border-neutral-200/80">
+          <div className="md:col-span-5 bg-[#F8FAFC] p-6 sm:p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-200">
             <div>
               {/* Main Image View */}
-              <div className="relative aspect-square w-full bg-white rounded-2xl p-4 shadow-sm border border-neutral-200/60 flex items-center justify-center overflow-hidden">
+              <div className="relative aspect-square w-full bg-white rounded-2xl p-4 shadow-sm border border-slate-200 flex items-center justify-center overflow-hidden">
                 {activeImage ? (
                   <img
                     src={activeImage}
@@ -121,11 +121,11 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     className="w-full h-full object-contain"
                   />
                 ) : (
-                  <Package className="w-16 h-16 text-neutral-300" />
+                  <Package className="w-16 h-16 text-slate-300" />
                 )}
 
                 {item.badge && (
-                  <span className="absolute top-3 left-3 bg-[#1f2a1d] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
+                  <span className="absolute top-3 left-3 bg-[#0f172A] text-white text-[10px] font-extrabold px-3 py-1 rounded-full uppercase tracking-wider">
                     {item.badge}
                   </span>
                 )}
@@ -141,8 +141,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                       onClick={() => setActiveImage(img)}
                       className={`w-14 h-14 rounded-xl border-2 p-1 overflow-hidden transition-all cursor-pointer ${
                         activeImage === img
-                          ? 'border-[#336443] ring-2 ring-[#85AB8B]/30'
-                          : 'border-transparent bg-white hover:border-neutral-300'
+                          ? 'border-[#F97316] ring-2 ring-[#F97316]/30'
+                          : 'border-transparent bg-white hover:border-slate-300'
                       }`}
                     >
                       <img src={img} alt="" className="w-full h-full object-contain" />
@@ -153,17 +153,17 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             </div>
 
             {/* Wholesale Trust & Dispatch Badges */}
-            <div className="mt-6 pt-6 border-t border-neutral-200/70 space-y-2.5 text-xs text-neutral-600">
+            <div className="mt-6 pt-6 border-t border-slate-200 space-y-2.5 text-xs text-slate-600">
               <div className="flex items-center gap-2">
-                <ShieldCheck className="w-4 h-4 text-[#336443]" />
-                <span className="font-semibold text-[#1f2a1d]">Licensed Oklahoma Wholesaler</span>
+                <ShieldCheck className="w-4 h-4 text-[#F97316]" />
+                <span className="font-semibold text-[#0f172A]">Licensed Oklahoma Wholesaler</span>
               </div>
               <div className="flex items-center gap-2">
-                <Truck className="w-4 h-4 text-[#336443]" />
+                <Truck className="w-4 h-4 text-[#F97316]" />
                 <span>Immediate OKC Dispatch · 4500 S Bryant Ave</span>
               </div>
               <div className="flex items-center gap-2">
-                <Building className="w-4 h-4 text-[#336443]" />
+                <Building className="w-4 h-4 text-[#F97316]" />
                 <span>Warehouse Catalog Ref: <span className="font-mono">{item.zoho_item_id}</span></span>
               </div>
             </div>
@@ -175,11 +175,11 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               {/* Category, Brand, and Stock Status Bar */}
               <div className="flex items-center justify-between gap-2 flex-wrap">
                 <div className="flex items-center gap-2">
-                  <span className="text-xs uppercase font-extrabold tracking-widest text-[#85AB8B]">
+                  <span className="text-xs uppercase font-extrabold tracking-widest text-[#F97316]">
                     {item.brand}
                   </span>
-                  <span className="text-neutral-300">·</span>
-                  <span className="text-xs font-semibold text-neutral-500">
+                  <span className="text-slate-300">·</span>
+                  <span className="text-xs font-semibold text-slate-500">
                     {item.category}
                   </span>
                 </div>
@@ -209,15 +209,15 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
               {/* Product Title & Active SKU */}
               <div>
-                <h2 className="text-2xl sm:text-3xl font-bold text-[#1f2a1d] tracking-tight">
+                <h2 className="text-2xl sm:text-3xl font-bold text-[#0f172A] tracking-tight">
                   {item.name}
                 </h2>
                 <div className="flex items-center gap-3 mt-1.5">
-                  <span className="font-mono text-xs bg-neutral-100 text-neutral-700 px-2.5 py-0.5 rounded font-bold border border-neutral-200">
+                  <span className="font-mono text-xs bg-slate-100 text-slate-700 px-2.5 py-0.5 rounded font-bold border border-slate-200">
                     SKU: {currentSku}
                   </span>
                   {item.upc && (
-                    <span className="text-[11px] text-neutral-400 font-mono">
+                    <span className="text-[11px] text-slate-400 font-mono">
                       UPC: {item.upc}
                     </span>
                   )}
@@ -225,26 +225,26 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               </div>
 
               {/* Pricing Display */}
-              <div className="p-4 bg-emerald-50/60 rounded-2xl border border-emerald-100 flex items-center justify-between">
+              <div className="p-4 bg-orange-50/50 rounded-2xl border border-orange-100 flex items-center justify-between">
                 <div>
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-emerald-900/70 block">
+                  <span className="text-[10px] uppercase font-bold tracking-wider text-orange-950/70 block">
                     Direct Wholesale Price
                   </span>
-                  <span className="text-3xl font-black text-[#1f2a1d]">
+                  <span className="text-3xl font-black text-[#0f172A]">
                     ${currentRate.toFixed(2)}
                   </span>
-                  <span className="text-xs text-neutral-500 font-medium ml-1">/ unit</span>
+                  <span className="text-xs text-slate-500 font-medium ml-1">/ unit</span>
                 </div>
 
                 {item.retail_msrp && (
                   <div className="text-right">
-                    <span className="text-[10px] uppercase font-bold text-neutral-400 block">
+                    <span className="text-[10px] uppercase font-bold text-slate-400 block">
                       Estimated Retail MSRP
                     </span>
-                    <span className="text-sm font-semibold text-neutral-500 line-through">
+                    <span className="text-sm font-semibold text-slate-500 line-through">
                       ${item.retail_msrp.toFixed(2)}
                     </span>
-                    <span className="text-[11px] text-[#336443] font-bold block">
+                    <span className="text-[11px] text-[#F97316] font-bold block">
                       ~{Math.round(((item.retail_msrp - currentRate) / item.retail_msrp) * 100)}% Profit Margin
                     </span>
                   </div>
@@ -254,22 +254,22 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               {/* Bulk Pricing Tier Table */}
               {item.bulk_pricing && item.bulk_pricing.length > 0 && (
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-500 mb-2">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
                     Tiered Wholesale Pricing
                   </h4>
                   <div className="grid grid-cols-3 gap-2">
                     {item.bulk_pricing.map((tier, idx) => (
                       <div
                         key={idx}
-                        className="bg-white p-2.5 rounded-xl border border-neutral-200 text-center shadow-2xs"
+                        className="bg-white p-2.5 rounded-xl border border-slate-200 text-center shadow-2xs"
                       >
-                        <span className="text-[10px] text-neutral-500 block font-semibold">
+                        <span className="text-[10px] text-slate-500 block font-semibold">
                           {tier.label}
                         </span>
-                        <span className="text-sm font-black text-[#1f2a1d]">
+                        <span className="text-sm font-black text-[#0f172A]">
                           ${tier.pricePerUnit.toFixed(2)}
                         </span>
-                        <span className="text-[9px] text-emerald-700 block font-bold">
+                        <span className="text-[9px] text-[#F97316] block font-bold">
                           ea
                         </span>
                       </div>
@@ -282,11 +282,11 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               {item.variants && item.variants.length > 0 && (
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#1f2a1d]">
+                    <span className="text-xs font-bold uppercase tracking-wider text-[#0f172A]">
                       Select Flavor / Variant:
                     </span>
                     {selectedVariant && (
-                      <span className="text-xs text-[#336443] font-semibold">
+                      <span className="text-xs text-[#F97316] font-semibold">
                         {selectedVariant.variant_name} ·{' '}
                         {selectedVariant.stock_status === 'out_of_stock'
                           ? 'Out of Stock'
@@ -296,7 +296,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                       </span>
                     )}
                   </div>
-                  <div className="flex flex-wrap gap-1.5 max-h-36 overflow-y-auto p-1 bg-neutral-50 rounded-xl border border-neutral-200/70">
+                  <div className="flex flex-wrap gap-1.5 max-h-36 overflow-y-auto p-1 bg-slate-50 rounded-xl border border-slate-200">
                     {item.variants.map((v) => {
                       const isVarSelected = selectedVariant?.variant_id === v.variant_id;
                       const isVarOOS = v.stock_status === 'out_of_stock';
@@ -307,10 +307,10 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                           onClick={() => setSelectedVariant(v)}
                           className={`text-xs px-3 py-1.5 rounded-lg font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
                             isVarSelected
-                              ? 'bg-[#1f2a1d] text-white shadow-sm'
+                              ? 'bg-[#0f172A] text-white shadow-sm'
                               : isVarOOS
-                              ? 'bg-neutral-100 text-neutral-400 line-through'
-                              : 'bg-white text-neutral-700 border border-neutral-200/80 hover:border-[#336443]'
+                              ? 'bg-slate-100 text-slate-400 line-through'
+                              : 'bg-white text-slate-700 border border-slate-200 hover:border-[#F97316]'
                           }`}
                         >
                           <span
@@ -329,32 +329,32 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               {/* Product Specifications */}
               {item.specs && Object.keys(item.specs).length > 0 && (
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-neutral-500 mb-2">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
                     Specifications
                   </h4>
-                  <div className="grid grid-cols-2 gap-2 text-xs bg-[#f8faf8] p-3 rounded-xl border border-neutral-200/60">
+                  <div className="grid grid-cols-2 gap-2 text-xs bg-[#F8FAFC] p-3 rounded-xl border border-slate-200">
                     {item.specs.puffs && (
                       <div>
-                        <span className="text-neutral-400 block text-[10px]">Estimated Puffs</span>
-                        <span className="font-bold text-[#1f2a1d]">{item.specs.puffs}</span>
+                        <span className="text-slate-400 block text-[10px]">Estimated Puffs</span>
+                        <span className="font-bold text-[#0f172A]">{item.specs.puffs}</span>
                       </div>
                     )}
                     {item.specs.nicotine && (
                       <div>
-                        <span className="text-neutral-400 block text-[10px]">Nicotine Strength</span>
-                        <span className="font-bold text-[#1f2a1d]">{item.specs.nicotine}</span>
+                        <span className="text-slate-400 block text-[10px]">Nicotine Strength</span>
+                        <span className="font-bold text-[#0f172A]">{item.specs.nicotine}</span>
                       </div>
                     )}
                     {item.specs.case_pack && (
                       <div>
-                        <span className="text-neutral-400 block text-[10px]">Case Packaging</span>
-                        <span className="font-bold text-[#1f2a1d]">{item.specs.case_pack}</span>
+                        <span className="text-slate-400 block text-[10px]">Case Packaging</span>
+                        <span className="font-bold text-[#0f172A]">{item.specs.case_pack}</span>
                       </div>
                     )}
                     {item.specs.origin && (
                       <div>
-                        <span className="text-neutral-400 block text-[10px]">Distribution Origin</span>
-                        <span className="font-bold text-[#1f2a1d]">{item.specs.origin}</span>
+                        <span className="text-slate-400 block text-[10px]">Distribution Origin</span>
+                        <span className="font-bold text-[#0f172A]">{item.specs.origin}</span>
                       </div>
                     )}
                   </div>
@@ -363,11 +363,11 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             </div>
 
             {/* Bottom Actions: Quantity Selector, Add to Cart & Dispatch CTA */}
-            <div className="pt-4 border-t border-neutral-200/80 space-y-3">
+            <div className="pt-4 border-t border-slate-200 space-y-3">
               <div className="flex items-center gap-3">
                 {/* Stepper */}
                 <div
-                  className={`flex items-center gap-2 bg-neutral-50 border border-neutral-200 rounded-full px-3 py-2 ${
+                  className={`flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-full px-3 py-2 ${
                     isOutOfStock ? 'opacity-40 pointer-events-none' : ''
                   }`}
                 >
@@ -375,18 +375,18 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     type="button"
                     onClick={() => setQty((q) => Math.max(1, q - 1))}
                     disabled={qty <= 1 || isOutOfStock}
-                    className="w-7 h-7 rounded-full bg-white shadow-2xs text-[#1f2a1d] font-bold text-sm flex items-center justify-center hover:bg-neutral-100 disabled:opacity-30 transition-colors cursor-pointer"
+                    className="w-7 h-7 rounded-full bg-white shadow-2xs text-[#0f172A] font-bold text-sm flex items-center justify-center hover:bg-slate-100 disabled:opacity-30 transition-colors cursor-pointer"
                   >
                     −
                   </button>
-                  <span className="text-sm font-bold text-[#1f2a1d] px-2 min-w-[2.5rem] text-center">
+                  <span className="text-sm font-bold text-[#0f172A] px-2 min-w-[2.5rem] text-center">
                     {qty}
                   </span>
                   <button
                     type="button"
                     onClick={() => setQty((q) => Math.min(100, q + 1))}
                     disabled={qty >= 100 || isOutOfStock}
-                    className="w-7 h-7 rounded-full bg-white shadow-2xs text-[#1f2a1d] font-bold text-sm flex items-center justify-center hover:bg-neutral-100 disabled:opacity-30 transition-colors cursor-pointer"
+                    className="w-7 h-7 rounded-full bg-white shadow-2xs text-[#0f172A] font-bold text-sm flex items-center justify-center hover:bg-slate-100 disabled:opacity-30 transition-colors cursor-pointer"
                   >
                     +
                   </button>
@@ -397,9 +397,9 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                   <button
                     type="button"
                     disabled
-                    className="flex-1 py-3 bg-neutral-200 text-neutral-500 text-sm font-bold rounded-full flex items-center justify-center gap-2 cursor-not-allowed"
+                    className="flex-1 py-3 bg-slate-200 text-slate-500 text-sm font-bold rounded-full flex items-center justify-center gap-2 cursor-not-allowed"
                   >
-                    <AlertCircle className="w-4 h-4 text-neutral-400" />
+                    <AlertCircle className="w-4 h-4 text-slate-400" />
                     Currently Out of Stock
                   </button>
                 ) : (
@@ -409,17 +409,17 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     className={`flex-1 py-3 text-white text-sm font-bold rounded-full transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md ${
                       added
                         ? 'bg-emerald-600'
-                        : 'bg-[#1f2a1d] hover:bg-[#336443]'
+                        : 'bg-[#F97316] hover:bg-[#ea580c]'
                     }`}
                   >
                     {added ? (
                       <>
-                        <Check className="w-4 h-4" />
+                        <Check className="w-4 h-4 text-white" />
                         Added {qty} Units to Order Draft!
                       </>
                     ) : (
                       <>
-                        <ShoppingBag className="w-4 h-4 text-[#85AB8B]" />
+                        <ShoppingBag className="w-4 h-4 text-white" />
                         Add {qty} to Wholesale Cart · ${(currentRate * qty).toFixed(2)}
                       </>
                     )}
@@ -428,20 +428,20 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               </div>
 
               {/* Order Form Shortcut & Dispatch Phone */}
-              <div className="flex items-center justify-between text-xs text-neutral-500 pt-1">
+              <div className="flex items-center justify-between text-xs text-slate-500 pt-1">
                 <button
                   type="button"
                   onClick={handleScrollToOrder}
-                  className="text-[#336443] font-bold hover:underline cursor-pointer"
+                  className="text-[#F97316] font-bold hover:underline cursor-pointer"
                 >
                   Need pallet pricing? Submit custom batch request →
                 </button>
 
                 <a
                   href="tel:4057682975"
-                  className="font-bold text-[#1f2a1d] hover:text-[#336443] flex items-center gap-1"
+                  className="font-bold text-[#0f172A] hover:text-[#F97316] flex items-center gap-1"
                 >
-                  <Phone className="w-3.5 h-3.5 text-[#85AB8B]" />
+                  <Phone className="w-3.5 h-3.5 text-[#F97316]" />
                   (405) 768-2975
                 </a>
               </div>

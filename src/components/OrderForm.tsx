@@ -114,23 +114,23 @@ export default function OrderForm() {
   };
 
   return (
-    <section id="direct-order-section" className="py-16 md:py-24 bg-[#1f2a1d] text-white px-4 sm:px-6 md:px-10 relative overflow-hidden">
+    <section id="direct-order-section" className="py-16 md:py-24 bg-[#0f172A] text-white px-4 sm:px-6 md:px-10 relative overflow-hidden border-t border-slate-800">
       {/* Editorial aesthetic organic gradient circles */}
-      <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-[#85AB8B] opacity-10 blur-[130px] pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-5%] w-[450px] h-[450px] rounded-full bg-[#3d5638] opacity-15 blur-[110px] pointer-events-none" />
+      <div className="absolute top-[-20%] left-[-10%] w-[500px] h-[500px] rounded-full bg-[#F97316] opacity-15 blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-[-10%] right-[-5%] w-[450px] h-[450px] rounded-full bg-slate-700 opacity-25 blur-[120px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto relative z-10">
 
         {/* Header Block */}
         <div className="text-center space-y-4 mb-12">
-          <span className="inline-flex items-center gap-1.5 bg-white/10 text-[#85AB8B] text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider">
-            <Sparkles className="w-3.5 h-3.5 text-[#85AB8B]" />
+          <span className="inline-flex items-center gap-1.5 bg-white/10 text-[#F97316] text-xs font-semibold px-4 py-1.5 rounded-full uppercase tracking-wider border border-[#F97316]/30">
+            <Sparkles className="w-3.5 h-3.5 text-[#F97316]" />
             Direct Restock Request
           </span>
           <h2 className="text-3xl sm:text-5xl font-semibold tracking-tight text-white leading-tight">
             Order Now
           </h2>
-          <p className="text-neutral-300 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
+          <p className="text-slate-300 text-sm sm:text-base max-w-xl mx-auto leading-relaxed">
             Fill out your shop and batch details below. Our central OKC dispatch staff will instantly contact you to confirm pricing, delivery channels, or S Bryant Ave pickup stack.
           </p>
         </div>
@@ -138,27 +138,27 @@ export default function OrderForm() {
         {/* Order Submitted Success Card */}
         {orderSubmitted ? (
           <div className="bg-white/10 backdrop-blur-xl rounded-[32px] p-8 sm:p-12 border border-white/20 text-center space-y-5 shadow-2xl animate-in fade-in duration-300">
-            <div className="w-16 h-16 rounded-full bg-[#336443] text-[#85AB8B] flex items-center justify-center mx-auto shadow-lg">
+            <div className="w-16 h-16 rounded-full bg-[#F97316] text-white flex items-center justify-center mx-auto shadow-lg">
               <Check className="w-8 h-8" />
             </div>
             <h3 className="text-2xl sm:text-3xl font-bold text-white">
               Restock Request Received!
             </h3>
-            <p className="text-neutral-300 text-sm max-w-md mx-auto leading-relaxed">
+            <p className="text-slate-300 text-sm max-w-md mx-auto leading-relaxed">
               Your order ref <strong className="text-white font-mono">{orderSubmitted}</strong> has been logged into our warehouse dispatch system. Our live dispatcher is reviewing your batch.
             </p>
             <div className="pt-2 flex flex-col sm:flex-row items-center justify-center gap-4">
               <a
                 href="tel:4057682975"
-                className="bg-[#85AB8B] hover:bg-[#97bba4] text-[#1f2a1d] font-bold text-xs uppercase tracking-widest px-8 py-3.5 rounded-full transition-colors flex items-center gap-2 shadow"
+                className="bg-[#F97316] hover:bg-[#ea580c] text-white font-bold text-xs uppercase tracking-widest px-8 py-3.5 rounded-full transition-colors flex items-center gap-2 shadow-lg"
               >
-                <Phone className="w-4 h-4" />
+                <Phone className="w-4 h-4 text-white" />
                 Call Live Desk: (405) 768-2975
               </a>
               <button
                 type="button"
                 onClick={() => setOrderSubmitted(null)}
-                className="text-xs text-neutral-400 hover:text-white transition-colors underline cursor-pointer"
+                className="text-xs text-slate-400 hover:text-white transition-colors underline cursor-pointer"
               >
                 Place Another Request
               </button>
@@ -166,12 +166,12 @@ export default function OrderForm() {
           </div>
         ) : (
           /* Beautiful Modern Grid Form */
-          <div className="bg-white/5 backdrop-blur-md rounded-[32px] p-6 sm:p-10 border border-white/10 shadow-2xl space-y-8">
+          <div className="bg-slate-900/80 backdrop-blur-md rounded-[32px] p-6 sm:p-10 border border-slate-800 shadow-2xl space-y-8">
             {/* Real-Time Cart Review Banner if items added from Inventory */}
             {cartItems.length > 0 && (
-              <div className="bg-white/10 rounded-2xl p-5 border border-white/15 space-y-3">
+              <div className="bg-white/5 rounded-2xl p-5 border border-white/10 space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="text-xs font-bold uppercase tracking-wider text-[#85AB8B] flex items-center gap-1.5">
+                  <span className="text-xs font-bold uppercase tracking-wider text-[#F97316] flex items-center gap-1.5">
                     <ShoppingBag className="w-4 h-4" />
                     Selected Inventory Cart ({cartItems.reduce((s, i) => s + i.quantity, 0)} units)
                   </span>
@@ -179,14 +179,14 @@ export default function OrderForm() {
                     <button
                       type="button"
                       onClick={() => window.dispatchEvent(new CustomEvent('open-cart'))}
-                      className="text-[11px] font-bold text-[#85AB8B] hover:text-white flex items-center gap-1 transition-colors cursor-pointer underline"
+                      className="text-[11px] font-bold text-[#F97316] hover:text-orange-400 flex items-center gap-1 transition-colors cursor-pointer underline"
                     >
                       Edit Cart in Drawer →
                     </button>
                     <button
                       type="button"
                       onClick={() => clearDraftOrder()}
-                      className="text-[11px] text-neutral-400 hover:text-rose-400 flex items-center gap-1 transition-colors cursor-pointer"
+                      className="text-[11px] text-slate-400 hover:text-rose-400 flex items-center gap-1 transition-colors cursor-pointer"
                     >
                       <Trash2 className="w-3 h-3" />
                       Clear
@@ -199,10 +199,10 @@ export default function OrderForm() {
                     <div key={idx} className="py-2 flex items-center justify-between">
                       <div>
                         <span className="font-bold text-white block">{ci.product.name}</span>
-                        <span className="font-mono text-[10px] text-neutral-400">SKU: {ci.product.sku}</span>
+                        <span className="font-mono text-[10px] text-slate-400">SKU: {ci.product.sku}</span>
                       </div>
                       <div className="text-right">
-                        <span className="font-bold text-[#85AB8B]">{ci.quantity} units</span>
+                        <span className="font-bold text-[#F97316]">{ci.quantity} units</span>
                       </div>
                     </div>
                   ))}
@@ -215,8 +215,8 @@ export default function OrderForm() {
 
                 {/* Name */}
                 <div className="space-y-2">
-                  <label className="text-xs font-extrabold uppercase tracking-widest text-[#cbdccb] flex items-center gap-1.5">
-                    <User className="w-3.5 h-3.5 text-[#85AB8B]" />
+                  <label className="text-xs font-extrabold uppercase tracking-widest text-slate-300 flex items-center gap-1.5">
+                    <User className="w-3.5 h-3.5 text-[#F97316]" />
                     Full Name <span className="text-red-400">*</span>
                   </label>
                   <input
@@ -225,14 +225,14 @@ export default function OrderForm() {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="e.g. John Doe"
-                    className="w-full bg-[#1f2a1d]/85 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#85AB8B] transition-colors text-white placeholder-neutral-500"
+                    className="w-full bg-[#0f172A] border border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#F97316] transition-colors text-white placeholder-slate-500"
                   />
                 </div>
 
                 {/* Business Name */}
                 <div className="space-y-2">
-                  <label className="text-xs font-extrabold uppercase tracking-widest text-[#cbdccb] flex items-center gap-1.5">
-                    <Building className="w-3.5 h-3.5 text-[#85AB8B]" />
+                  <label className="text-xs font-extrabold uppercase tracking-widest text-slate-300 flex items-center gap-1.5">
+                    <Building className="w-3.5 h-3.5 text-[#F97316]" />
                     Business Name <span className="text-red-400">*</span>
                   </label>
                   <input
@@ -241,14 +241,14 @@ export default function OrderForm() {
                     value={businessName}
                     onChange={(e) => setBusinessName(e.target.value)}
                     placeholder="e.g. Oklahoma City Vape Hub"
-                    className="w-full bg-[#1f2a1d]/85 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#85AB8B] transition-colors text-white placeholder-neutral-500"
+                    className="w-full bg-[#0f172A] border border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#F97316] transition-colors text-white placeholder-slate-500"
                   />
                 </div>
 
                 {/* Phone number */}
                 <div className="space-y-2">
-                  <label className="text-xs font-extrabold uppercase tracking-widest text-[#cbdccb] flex items-center gap-1.5">
-                    <Phone className="w-3.5 h-3.5 text-[#85AB8B]" />
+                  <label className="text-xs font-extrabold uppercase tracking-widest text-slate-300 flex items-center gap-1.5">
+                    <Phone className="w-3.5 h-3.5 text-[#F97316]" />
                     Phone Number <span className="text-red-400">*</span>
                   </label>
                   <input
@@ -257,14 +257,14 @@ export default function OrderForm() {
                     value={phone}
                     onChange={(e) => setPhone(e.target.value)}
                     placeholder="e.g. (405) 555-0199"
-                    className="w-full bg-[#1f2a1d]/85 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#85AB8B] transition-colors text-white placeholder-neutral-500"
+                    className="w-full bg-[#0f172A] border border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#F97316] transition-colors text-white placeholder-slate-500"
                   />
                 </div>
 
                 {/* Email address */}
                 <div className="space-y-2">
-                  <label className="text-xs font-extrabold uppercase tracking-widest text-[#cbdccb] flex items-center gap-1.5">
-                    <Mail className="w-3.5 h-3.5 text-[#85AB8B]" />
+                  <label className="text-xs font-extrabold uppercase tracking-widest text-slate-300 flex items-center gap-1.5">
+                    <Mail className="w-3.5 h-3.5 text-[#F97316]" />
                     Email Address <span className="text-red-400">*</span>
                   </label>
                   <input
@@ -273,7 +273,7 @@ export default function OrderForm() {
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="e.g. manager@store.com"
-                    className="w-full bg-[#1f2a1d]/85 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#85AB8B] transition-colors text-white placeholder-neutral-500"
+                    className="w-full bg-[#0f172A] border border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#F97316] transition-colors text-white placeholder-slate-500"
                   />
                 </div>
 
@@ -281,8 +281,8 @@ export default function OrderForm() {
 
               {/* Details of orders */}
               <div className="space-y-2">
-                <label className="text-xs font-extrabold uppercase tracking-widest text-[#cbdccb] flex items-center gap-1.5">
-                  <FileText className="w-3.5 h-3.5 text-[#85AB8B]" />
+                <label className="text-xs font-extrabold uppercase tracking-widest text-slate-300 flex items-center gap-1.5">
+                  <FileText className="w-3.5 h-3.5 text-[#F97316]" />
                   Details of Orders <span className="text-red-400">*</span>
                 </label>
                 <textarea
@@ -291,7 +291,7 @@ export default function OrderForm() {
                   value={orderDetails}
                   onChange={(e) => setOrderDetails(e.target.value)}
                   placeholder="e.g. 50x Geekbar Pulse 15k (Sour Apple, Watermelon Ice)..."
-                  className="w-full bg-[#1f2a1d]/85 border border-white/10 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#85AB8B] transition-colors text-white resize-none placeholder-neutral-500"
+                  className="w-full bg-[#0f172A] border border-slate-700 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#F97316] transition-colors text-white resize-none placeholder-slate-500"
                 />
               </div>
 
@@ -300,7 +300,7 @@ export default function OrderForm() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="flex-1 py-4 bg-[#85AB8B] hover:bg-[#97bba4] text-[#1f2a1d] font-bold text-xs uppercase tracking-widest rounded-full transition-all duration-300 flex items-center justify-center gap-2 shadow-lg cursor-pointer select-none disabled:opacity-50"
+                  className="flex-1 py-4 bg-[#F97316] hover:bg-[#ea580c] text-white font-bold text-xs uppercase tracking-widest rounded-full transition-all duration-300 flex items-center justify-center gap-2 shadow-lg cursor-pointer select-none disabled:opacity-50"
                 >
                   <Send className="w-4 h-4" />
                   {isSubmitting ? 'Submitting to Dispatch...' : 'Submit Order Request'}
@@ -309,9 +309,9 @@ export default function OrderForm() {
                 {/* Live dial backup button */}
                 <a
                   href="tel:4057682975"
-                  className="sm:px-8 py-4 bg-white/10 hover:bg-white/20 text-[#85AB8B] border border-white/15 font-bold text-xs uppercase tracking-widest rounded-full transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer text-center"
+                  className="sm:px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/15 font-bold text-xs uppercase tracking-widest rounded-full transition-all duration-300 flex items-center justify-center gap-2 cursor-pointer text-center"
                 >
-                  <Phone className="w-4 h-4 text-white" />
+                  <Phone className="w-4 h-4 text-[#F97316]" />
                   Call Live Desk
                 </a>
               </div>

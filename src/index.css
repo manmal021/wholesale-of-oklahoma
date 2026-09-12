@@ -9,13 +9,13 @@ body,
 #root {
   min-height: 100%;
   margin: 0;
-  background-color: #f5f5f4;
-  color: #1f2a1d;
+  background-color: #F8FAFC;
+  color: #0f172A;
   font-family: 'Neue Haas Grotesk Display Pro 55 Roman', 'Neue Haas Grotesk Text Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Perfect editorial content scrolling behavior */
+/* Base background */
 body {
-  background-color: #f5f5f4;
+  background-color: #F8FAFC;
 }
