@@ -77,8 +77,6 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
     if (onAddedToCart) {
       onAddedToCart(itemName, qty);
     }
-    // Automatically open the cart drawer so customer sees item immediately
-    window.dispatchEvent(new CustomEvent('open-cart'));
     setTimeout(() => setAdded(false), 2500);
   };
 

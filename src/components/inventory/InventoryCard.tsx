@@ -40,8 +40,6 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
     if (onAddedToCart) {
       onAddedToCart(item.name, qty);
     }
-    // Automatically open the cart drawer so customer sees item immediately
-    window.dispatchEvent(new CustomEvent('open-cart'));
     setTimeout(() => setAdded(false), 2200);
   };
 

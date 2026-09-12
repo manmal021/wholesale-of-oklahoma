@@ -48,7 +48,6 @@ const CatalogCard: React.FC<CatalogCardProps> = ({ prod, onAdded }) => {
     addToOrderDirect(prod, qty);
     setAdded(true);
     onAdded(prod.name, qty);
-    window.dispatchEvent(new CustomEvent('open-cart'));
     setTimeout(() => setAdded(false), 2500);
   };
 
