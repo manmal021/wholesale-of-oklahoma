@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { LogIn, UserPlus, Play, Sparkles, Menu, X, Star, MapPin, Phone, ShoppingBag, Package, ArrowRight } from 'lucide-react';
+import { LogIn, UserPlus, Play, Sparkles, Menu, X, Star, MapPin, Phone, ShoppingBag, Package, ArrowRight, AlertTriangle } from 'lucide-react';
 import BoomerangVideoBg from './components/BoomerangVideoBg';
 import ReviewSlider from './components/ReviewSlider';
 import GallerySlider from './components/GallerySlider';
@@ -12,7 +12,11 @@ import { getDraftOrder } from './lib/mangoAI';
 
 const BG_VIDEO = '/transi.mp4';
 
+// Temporary disclaimer active for 15 days, expiring at 9-28-2026 (Oklahoma CDT)
+const DISCLAIMER_EXPIRATION = new Date('2026-09-28T00:00:00-05:00').getTime();
+
 export default function App() {
+  const [showDisclaimer] = useState(() => Date.now() < DISCLAIMER_EXPIRATION);
   const [menuOpen, setMenuOpen] = useState(false);
   const [quickContactMsg, setQuickContactMsg] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -80,14 +84,33 @@ export default function App() {
   return (
     <div className="w-full min-h-screen bg-[#F8FAFC] text-[#0f172A] selection:bg-[#F97316]/20 relative">
 
-      {/* Responsive Premium Navbar — Smooth sticky transition on scroll */}
-      <nav
-        className={`fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-4 sm:px-6 md:px-10 transition-all duration-300 ${
-          scrolled
-            ? 'bg-[#0f172A]/92 backdrop-blur-md py-3 shadow-xl border-b border-white/10'
-            : 'bg-transparent py-4 sm:py-6'
-        }`}
-      >
+      {/* Top Header with Construction Notice & Navbar */}
+      <header className="fixed top-0 left-0 right-0 z-40">
+        {/* Temporary Construction Notice Banner — Automatically disappears at 9-28-2026 */}
+        {showDisclaimer && (
+          <aside
+            role="alert"
+            aria-label="Website notice"
+            className="w-full bg-[#0f172A] border-b border-[#F97316]/60 text-white px-3 sm:px-6 py-2 sm:py-2.5 shadow-lg flex items-center justify-center gap-2 sm:gap-3 text-center"
+          >
+            <span className="inline-flex items-center gap-1.5 bg-[#F97316] text-white text-[10px] sm:text-xs font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-sm shrink-0">
+              <AlertTriangle className="w-3.5 h-3.5 text-white" />
+              Notice
+            </span>
+            <p className="text-xs sm:text-sm font-semibold tracking-wide text-white drop-shadow-sm">
+              Website under construction. Prices may not accurately reflect the original price.
+            </p>
+          </aside>
+        )}
+
+        {/* Responsive Premium Navbar — Smooth sticky transition on scroll */}
+        <nav
+          className={`w-full flex items-center justify-between px-4 sm:px-6 md:px-10 transition-all duration-300 ${
+            scrolled
+              ? 'bg-[#0f172A]/92 backdrop-blur-md py-3 shadow-xl border-b border-white/10'
+              : 'bg-transparent py-4 sm:py-6'
+          }`}
+        >
         <div className="flex items-center gap-2">
           <a
             href="#overview"
@@ -161,6 +184,7 @@ export default function App() {
           </button>
         </div>
       </nav>
+    </header>
 
       {/* Mobile Backdrop Overlay Menu */}
       <div
@@ -272,7 +296,7 @@ export default function App() {
         </div>
 
         {/* Central Display Hero Copy */}
-        <div className="relative z-10 flex flex-col items-center text-center pt-24 sm:pt-28 md:pt-32 px-4 sm:px-6">
+        <div className={`relative z-10 flex flex-col items-center text-center ${showDisclaimer ? 'pt-28 sm:pt-36 md:pt-40' : 'pt-24 sm:pt-28 md:pt-32'} px-4 sm:px-6`}>
           <div className="inline-flex items-center gap-1.5 bg-black/55 backdrop-blur-md text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-8 border border-white/10 shadow-sm">
             <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
             <span className="font-extrabold text-[11px] uppercase tracking-wider">Licensed Oklahoma Wholesaler · 5.0 Star</span>
