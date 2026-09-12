@@ -91,13 +91,13 @@ export default function App() {
           <aside
             role="alert"
             aria-label="Website notice"
-            className="w-full bg-[#0f172A] border-b border-[#F97316]/60 text-white px-3 sm:px-6 py-2 sm:py-2.5 shadow-lg flex items-center justify-center gap-2 sm:gap-3 text-center"
+            className="w-full bg-[#0f172A] border-b-2 border-[#F97316] text-white px-4 sm:px-8 py-3 sm:py-3.5 shadow-2xl flex items-center justify-center gap-2.5 sm:gap-3.5 text-center"
           >
-            <span className="inline-flex items-center gap-1.5 bg-[#F97316] text-white text-[10px] sm:text-xs font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full shadow-sm shrink-0">
-              <AlertTriangle className="w-3.5 h-3.5 text-white" />
+            <span className="inline-flex items-center gap-1.5 bg-[#F97316] text-white text-xs sm:text-sm font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-md shrink-0">
+              <AlertTriangle className="w-4 h-4 text-white" />
               Notice
             </span>
-            <p className="text-xs sm:text-sm font-semibold tracking-wide text-white drop-shadow-sm">
+            <p className="text-sm sm:text-base md:text-lg font-bold tracking-wide text-white drop-shadow">
               Website under construction. Prices may not accurately reflect the original price.
             </p>
           </aside>
@@ -296,7 +296,7 @@ export default function App() {
         </div>
 
         {/* Central Display Hero Copy */}
-        <div className={`relative z-10 flex flex-col items-center text-center ${showDisclaimer ? 'pt-28 sm:pt-36 md:pt-40' : 'pt-24 sm:pt-28 md:pt-32'} px-4 sm:px-6`}>
+        <div className={`relative z-10 flex flex-col items-center text-center ${showDisclaimer ? 'pt-32 sm:pt-40 md:pt-44' : 'pt-24 sm:pt-28 md:pt-32'} px-4 sm:px-6`}>
           <div className="inline-flex items-center gap-1.5 bg-black/55 backdrop-blur-md text-white text-xs font-semibold px-4 py-1.5 rounded-full mb-8 border border-white/10 shadow-sm">
             <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
             <span className="font-extrabold text-[11px] uppercase tracking-wider">Licensed Oklahoma Wholesaler · 5.0 Star</span>
