@@ -171,14 +171,23 @@ export default function OrderForm() {
                     <ShoppingBag className="w-4 h-4" />
                     Selected Inventory Cart ({cartItems.reduce((s, i) => s + i.quantity, 0)} units)
                   </span>
-                  <button
-                    type="button"
-                    onClick={() => clearDraftOrder()}
-                    className="text-[11px] text-neutral-400 hover:text-rose-400 flex items-center gap-1 transition-colors cursor-pointer"
-                  >
-                    <Trash2 className="w-3 h-3" />
-                    Clear Cart
-                  </button>
+                  <div className="flex items-center gap-3">
+                    <button
+                      type="button"
+                      onClick={() => window.dispatchEvent(new CustomEvent('open-cart'))}
+                      className="text-[11px] font-bold text-[#85AB8B] hover:text-white flex items-center gap-1 transition-colors cursor-pointer underline"
+                    >
+                      Edit Cart in Drawer →
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => clearDraftOrder()}
+                      className="text-[11px] text-neutral-400 hover:text-rose-400 flex items-center gap-1 transition-colors cursor-pointer"
+                    >
+                      <Trash2 className="w-3 h-3" />
+                      Clear
+                    </button>
+                  </div>
                 </div>
 
                 <div className="divide-y divide-white/10 text-xs">
@@ -189,7 +198,7 @@ export default function OrderForm() {
                         <span className="font-mono text-[10px] text-neutral-400">SKU: {ci.product.sku}</span>
                       </div>
                       <div className="text-right">
-                        <span className="font-bold text-[#85AB8B]">{ci.quantity} boxes</span>
+                        <span className="font-bold text-[#85AB8B]">{ci.quantity} units</span>
                       </div>
                     </div>
                   ))}

@@ -60,6 +60,10 @@ function readEnvKey(key: string): string | null {
 /** Upsert a key=value pair in the .env file without destroying other entries. */
 function writeEnvKey(key: string, value: string): void {
   try {
+    // 1. Immediately update process.env in memory so the current runtime picks it up
+    process.env[key] = value;
+
+    // 2. Persist to .env on disk if filesystem is writable
     let content = '';
     if (fs.existsSync(ENV_FILE)) {
       content = fs.readFileSync(ENV_FILE, 'utf-8');
@@ -74,12 +78,14 @@ function writeEnvKey(key: string, value: string): void {
       content = content.trimEnd() + '\n' + line + '\n';
     }
 
-    fs.writeFileSync(ENV_FILE, content, 'utf-8');
-    // Also update process.env so the running process picks it up immediately
-    process.env[key] = value;
-    console.log(`[ZohoAuth] ✅ ${key} written to .env`);
+    try {
+      fs.writeFileSync(ENV_FILE, content, 'utf-8');
+      console.log(`[ZohoAuth] ✅ ${key} written to .env`);
+    } catch (fsErr) {
+      console.warn(`[ZohoAuth] ℹ Could not persist ${key} to disk (expected in serverless/read-only environments)`);
+    }
   } catch (err) {
-    console.error(`[ZohoAuth] ❌ Failed to write ${key} to .env:`, err);
+    console.error(`[ZohoAuth] ❌ Failed to update ${key}:`, err);
   }
 }
 

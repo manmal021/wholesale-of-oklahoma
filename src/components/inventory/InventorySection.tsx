@@ -214,8 +214,15 @@ export const InventorySection: React.FC = () => {
             </p>
           </div>
 
-          {/* Dispatch Phone Link */}
-          <div className="flex items-center gap-3 self-start md:self-end">
+          {/* Dispatch Phone Link & Cart */}
+          <div className="flex items-center gap-3 self-start md:self-end flex-wrap">
+            <button
+              onClick={() => window.dispatchEvent(new CustomEvent('open-cart'))}
+              className="inline-flex items-center gap-2 bg-[#85AB8B] hover:bg-[#97bba4] text-[#1f2a1d] text-xs font-bold px-5 py-2.5 rounded-full shadow transition-all hover:scale-105 active:scale-95 cursor-pointer"
+            >
+              <ShoppingBag className="w-3.5 h-3.5 text-[#1f2a1d]" />
+              <span>Wholesale Cart</span>
+            </button>
             <a
               href="tel:4057682975"
               className="inline-flex items-center gap-2 bg-[#1f2a1d] hover:bg-[#336443] text-white text-xs font-bold px-5 py-2.5 rounded-full shadow transition-colors"
@@ -556,18 +563,21 @@ export const InventorySection: React.FC = () => {
 
       {/* Cart Toast Notification */}
       {cartToast && (
-        <div className="fixed bottom-6 right-6 z-50 bg-[#1f2a1d] text-white px-5 py-3.5 rounded-2xl shadow-2xl border border-white/20 flex items-center gap-3 animate-in slide-in-from-bottom-5 duration-300">
-          <div className="w-7 h-7 rounded-full bg-[#336443] flex items-center justify-center text-[#85AB8B]">
+        <div className="fixed top-24 right-4 sm:right-6 z-50 bg-[#1f2a1d] text-white px-4 py-3 rounded-2xl shadow-2xl border border-[#85AB8B]/30 flex items-center gap-3 animate-in slide-in-from-top-4 duration-300">
+          <div className="w-8 h-8 rounded-full bg-[#336443] flex items-center justify-center text-[#85AB8B] shrink-0">
             <ShoppingBag className="w-4 h-4" />
           </div>
           <div>
-            <p className="text-xs font-bold">{cartToast}</p>
-            <a
-              href="#direct-order-section"
-              className="text-[11px] text-[#85AB8B] hover:underline font-semibold"
+            <p className="text-xs font-bold text-white">{cartToast}</p>
+            <button
+              onClick={() => {
+                setCartToast(null);
+                window.dispatchEvent(new CustomEvent('open-cart'));
+              }}
+              className="text-[11px] text-[#85AB8B] hover:text-white hover:underline font-semibold flex items-center gap-1 cursor-pointer mt-0.5"
             >
-              View draft order form →
-            </a>
+              <span>View Wholesale Cart →</span>
+            </button>
           </div>
         </div>
       )}

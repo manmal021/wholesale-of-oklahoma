@@ -34,9 +34,31 @@ export interface MangoToolResult {
   orderTotal?: number;
 }
 
-// ─── Global In-Memory Draft Order State ──────────────────────────────────────
+// ─── Global In-Memory & LocalStorage Draft Order State ────────────────────────
 
-let draftOrder: DraftOrderItem[] = [];
+const CART_STORAGE_KEY = 'woo_wholesale_cart';
+
+function loadCartFromStorage(): DraftOrderItem[] {
+  if (typeof window === 'undefined') return [];
+  try {
+    const raw = localStorage.getItem(CART_STORAGE_KEY);
+    if (!raw) return [];
+    return JSON.parse(raw);
+  } catch {
+    return [];
+  }
+}
+
+function persistCart(items: DraftOrderItem[]) {
+  if (typeof window === 'undefined') return;
+  try {
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items));
+  } catch {
+    // ignore storage quota errors
+  }
+}
+
+let draftOrder: DraftOrderItem[] = loadCartFromStorage();
 
 export function getDraftOrder(): DraftOrderItem[] {
   return draftOrder;
@@ -52,8 +74,16 @@ export function getDraftOrderTotal(): number {
 
 export function clearDraftOrder(): void {
   draftOrder = [];
+  persistCart(draftOrder);
   if (typeof window !== 'undefined') {
     window.dispatchEvent(new CustomEvent('mango-cart-updated'));
+  }
+}
+
+export function openWebpageCart(): void {
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent('open-cart'));
+    window.dispatchEvent(new CustomEvent('open-mango-cart'));
   }
 }
 
@@ -85,6 +115,7 @@ export function addToOrderDirect(
       pricePerUnit: newPricing.pricePerUnit,
       totalPrice: newPricing.totalPrice,
     };
+    persistCart(draftOrder);
     if (typeof window !== 'undefined') {
       window.dispatchEvent(new CustomEvent('mango-cart-updated'));
     }
@@ -99,6 +130,8 @@ export function addToOrderDirect(
     totalPrice: pricing.totalPrice,
   });
 
+  persistCart(draftOrder);
+
   if (typeof window !== 'undefined') {
     window.dispatchEvent(new CustomEvent('mango-cart-updated'));
   }
@@ -106,9 +139,49 @@ export function addToOrderDirect(
   return { success: true, message: `Added ${finalQty}x ${product.name} to your draft order.` };
 }
 
+export function updateOrderItemQuantity(
+  productId: string,
+  quantity: number,
+  flavor?: string
+): { success: boolean; message: string } {
+  const existingIdx = draftOrder.findIndex(
+    (i) => i.product.id === productId && (i.flavor || '') === (flavor || '')
+  );
+
+  if (existingIdx < 0) {
+    return { success: false, message: 'Item not in order.' };
+  }
+
+  if (quantity <= 0) {
+    draftOrder.splice(existingIdx, 1);
+    persistCart(draftOrder);
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('mango-cart-updated'));
+    }
+    return { success: true, message: 'Removed from order.' };
+  }
+
+  const pricing = getWholesalePrice(productId, quantity);
+  draftOrder[existingIdx] = {
+    ...draftOrder[existingIdx],
+    quantity,
+    pricePerUnit: pricing ? pricing.pricePerUnit : draftOrder[existingIdx].pricePerUnit,
+    totalPrice: pricing ? pricing.totalPrice : draftOrder[existingIdx].pricePerUnit * quantity,
+  };
+
+  persistCart(draftOrder);
+
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent('mango-cart-updated'));
+  }
+
+  return { success: true, message: `Updated quantity to ${quantity}.` };
+}
+
 export function removeFromOrderDirect(productId: string): { success: boolean; message: string } {
   const before = draftOrder.length;
   draftOrder = draftOrder.filter((i) => i.product.id !== productId);
+  persistCart(draftOrder);
   if (typeof window !== 'undefined') {
     window.dispatchEvent(new CustomEvent('mango-cart-updated'));
   }
@@ -226,7 +299,7 @@ function handleWithLocalEngine(userText: string): { text: string; toolResults: M
     }
     const totalUnits = draftOrder.reduce((s, i) => s + i.quantity, 0);
     return {
-      text: `Woof! You currently have **${totalUnits} units** in your draft cart across ${draftOrder.length} items. 🐕\n\nClick the **Cart** tab at the top to review your items, enter your contact information, and send your order request directly to our warehouse team!`,
+      text: `Woof! You currently have **${totalUnits} units** in your draft cart across ${draftOrder.length} items. 🐕\n\nClick **View Cart** below (or tap the **Cart** button floating on your screen) to review items, adjust quantities, and send your wholesale order request directly to our dispatch team!`,
       toolResults: [
         {
           type: 'order_summary',

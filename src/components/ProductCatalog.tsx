@@ -260,6 +260,7 @@ export default function ProductCatalog() {
   };
 
   const handleOpenMangoCart = () => {
+    window.dispatchEvent(new CustomEvent('open-cart'));
     window.dispatchEvent(new CustomEvent('open-mango-cart'));
   };
 

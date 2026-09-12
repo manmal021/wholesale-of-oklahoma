@@ -474,299 +474,6 @@ const InventoryView: React.FC<InventoryViewProps> = ({ onAddToOrder, onGoToCart,
   );
 };
 
-// ─── In-Chat Cart & Order Submission View ──────────────────────────────────
-
-interface CartViewProps {
-  draftItems: DraftOrderItem[];
-  onRemoveItem: (productId: string) => void;
-  onClearOrder: () => void;
-  onBackToInventory: () => void;
-  onOrderSubmitted: (name: string, phone: string) => void;
-}
-
-const CartView: React.FC<CartViewProps> = ({
-  draftItems,
-  onRemoveItem,
-  onClearOrder,
-  onBackToInventory,
-  onOrderSubmitted,
-}) => {
-  const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
-  const [email, setEmail] = useState('');
-  const [businessName, setBusinessName] = useState('');
-  const [notes, setNotes] = useState('');
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState('');
-
-  const totalUnits = draftItems.reduce((sum, item) => sum + item.quantity, 0);
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (draftItems.length === 0) return;
-    setStatus('submitting');
-    setErrorMessage('');
-
-    // Format detailed order breakdown
-    const orderDetails = draftItems
-      .map(
-        (i, idx) =>
-          `${idx + 1}. ${i.product.name} (SKU: ${i.product.sku}) - ${i.quantity} units ${i.flavor ? `[Flavor: ${i.flavor}]` : ''
-          }`
-      )
-      .join('\n');
-
-    try {
-      const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          Accept: 'application/json',
-        },
-        body: JSON.stringify({
-          access_key: '1ebec85d-15fd-4f21-9513-ef05685850bc',
-          subject: `New Mango AI Wholesale Order: ${name} (${totalUnits} units)`,
-          from_name: 'Mango AI Assistant - Wholesale of Oklahoma',
-          Name: name,
-          Phone: phone,
-          Email: email,
-          'Business Name': businessName || 'Not Provided',
-          'Total Units': `${totalUnits} units`,
-          'Order Details': orderDetails,
-          'Customer Notes': notes || 'None',
-        }),
-      });
-
-      const result = await response.json();
-      if (result.success) {
-        setStatus('success');
-        onOrderSubmitted(name, phone);
-      } else {
-        setStatus('error');
-        setErrorMessage(result.message || 'Could not submit request. Please call (405) 768-2975.');
-      }
-    } catch {
-      setStatus('error');
-      setErrorMessage('Network error. Please try again or call us at (405) 768-2975.');
-    }
-  };
-
-  if (status === 'success') {
-    return (
-      <div className="p-6 flex flex-col items-center justify-center text-center h-full space-y-4">
-        <div className="w-14 h-14 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 shadow-sm animate-bounce">
-          <CheckCircle2 className="w-8 h-8" />
-        </div>
-        <h3 className="text-lg font-bold text-[#1f2a1d]">Order Request Sent! 🐕</h3>
-        <p className="text-xs text-neutral-600 leading-relaxed max-w-xs">
-          Woof! Thank you, <strong>{name}</strong>! Your order request has been sent to our dispatch team. We will call you at <strong>{phone}</strong> to confirm wholesale pricing and arrange pickup or delivery.
-        </p>
-        <div className="w-full bg-neutral-50 rounded-xl p-3 border border-neutral-200 text-left text-xs space-y-1">
-          <div className="font-bold text-[#1f2a1d]">{totalUnits} units ordered</div>
-          <div className="text-[10px] text-neutral-400">Confirmation sent to: {email}</div>
-        </div>
-        <div className="flex flex-col gap-2 w-full pt-2">
-          <a
-            href="tel:4057682975"
-            className="py-2.5 bg-[#1f2a1d] text-white text-xs font-bold rounded-full flex items-center justify-center gap-1.5 shadow"
-          >
-            <Phone className="w-3.5 h-3.5 text-[#85AB8B]" />
-            Call (405) 768-2975
-          </a>
-          <button
-            onClick={onBackToInventory}
-            className="py-2 bg-white border border-neutral-200 text-[#1f2a1d] text-xs font-semibold rounded-full hover:bg-neutral-50 transition-colors"
-          >
-            Start Another Order
-          </button>
-        </div>
-      </div>
-    );
-  }
-
-  if (draftItems.length === 0) {
-    return (
-      <div className="p-6 flex flex-col items-center justify-center text-center h-full space-y-3">
-        <div className="w-12 h-12 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-400">
-          <ShoppingBag className="w-6 h-6" />
-        </div>
-        <h3 className="text-sm font-bold text-[#1f2a1d]">Your Cart is Empty</h3>
-        <p className="text-xs text-neutral-400 max-w-xs">
-          Browse our Disposables and Vape Juices to add items to your wholesale order request.
-        </p>
-        <button
-          onClick={onBackToInventory}
-          className="py-2 px-5 bg-[#1f2a1d] text-white text-xs font-bold rounded-full transition-colors hover:bg-[#336443] flex items-center gap-1 cursor-pointer"
-        >
-          <Package className="w-3.5 h-3.5" />
-          Browse Inventory
-        </button>
-      </div>
-    );
-  }
-
-  return (
-    <div className="flex flex-col h-full overflow-y-auto p-4 space-y-4 mango-messages-scroll">
-      {/* Header Cart Summary */}
-      <div className="bg-white rounded-2xl p-4 border border-neutral-100 shadow-sm">
-        <div className="flex items-center justify-between pb-2 border-b border-neutral-100">
-          <div className="flex items-center gap-1.5 font-bold text-xs text-[#1f2a1d]">
-            <ShoppingBag className="w-3.5 h-3.5 text-[#336443]" />
-            <span>Items in Cart ({totalUnits} units)</span>
-          </div>
-          <button
-            onClick={onClearOrder}
-            className="text-[10px] text-neutral-400 hover:text-rose-500 transition-colors flex items-center gap-0.5 cursor-pointer"
-          >
-            <Trash2 className="w-3 h-3" /> Clear
-          </button>
-        </div>
-
-        <div className="divide-y divide-neutral-50 max-h-36 overflow-y-auto mango-messages-scroll">
-          {draftItems.map((item, idx) => (
-            <div key={idx} className="py-2 flex items-center justify-between gap-2 text-xs">
-              <div className="min-w-0 flex-1">
-                <div className="font-semibold text-[#1f2a1d] truncate">{item.product.name}</div>
-                <div className="text-[10px] text-neutral-400">{item.quantity} units · Call for Price</div>
-              </div>
-              <button
-                onClick={() => onRemoveItem(item.product.id)}
-                className="text-neutral-300 hover:text-rose-500 transition-colors p-1"
-                title="Remove item"
-              >
-                ✕
-              </button>
-            </div>
-          ))}
-        </div>
-
-        <div className="pt-2 border-t border-neutral-100 flex items-center justify-between">
-          <button
-            type="button"
-            onClick={onBackToInventory}
-            className="text-[11px] font-bold text-[#336443] hover:underline flex items-center gap-1"
-          >
-            <Plus className="w-3 h-3" />
-            Add More Items
-          </button>
-          <span className="text-xs font-bold text-[#1f2a1d]">{totalUnits} total units</span>
-        </div>
-      </div>
-
-      {/* Direct Submission Form */}
-      <div className="bg-white rounded-2xl p-4 border border-neutral-100 shadow-sm space-y-3">
-        <div>
-          <h4 className="text-xs font-bold text-[#1f2a1d] uppercase tracking-wider">Contact & Dispatch Info</h4>
-          <p className="text-[10px] text-neutral-400">
-            Submit your order request directly to our Oklahoma City warehouse team.
-          </p>
-        </div>
-
-        {status === 'error' && (
-          <div className="p-2.5 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-[11px] flex items-center gap-2">
-            <AlertCircle className="w-4 h-4 shrink-0" />
-            <span>{errorMessage}</span>
-          </div>
-        )}
-
-        <form onSubmit={handleSubmit} className="space-y-2.5">
-          <div>
-            <label className="text-[10px] font-bold uppercase tracking-wider text-neutral-500 flex items-center gap-1 mb-1">
-              <User className="w-3 h-3 text-[#85AB8B]" />
-              Full Name <span className="text-red-500">*</span>
-            </label>
-            <input
-              type="text"
-              required
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              placeholder="e.g. John Smith"
-              className="w-full bg-neutral-50 border border-neutral-200 rounded-xl px-3 py-2 text-xs text-[#1f2a1d] focus:outline-none focus:border-[#85AB8B] transition-colors"
-            />
-          </div>
-
-          <div className="grid grid-cols-2 gap-2">
-            <div>
-              <label className="text-[10px] font-bold uppercase tracking-wider text-neutral-500 flex items-center gap-1 mb-1">
-                <Phone className="w-3 h-3 text-[#85AB8B]" />
-                Phone <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="tel"
-                required
-                value={phone}
-                onChange={(e) => setPhone(e.target.value)}
-                placeholder="(405) 000-0000"
-                className="w-full bg-neutral-50 border border-neutral-200 rounded-xl px-3 py-2 text-xs text-[#1f2a1d] focus:outline-none focus:border-[#85AB8B] transition-colors"
-              />
-            </div>
-            <div>
-              <label className="text-[10px] font-bold uppercase tracking-wider text-neutral-500 flex items-center gap-1 mb-1">
-                <Mail className="w-3 h-3 text-[#85AB8B]" />
-                Email <span className="text-red-500">*</span>
-              </label>
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="you@email.com"
-                className="w-full bg-neutral-50 border border-neutral-200 rounded-xl px-3 py-2 text-xs text-[#1f2a1d] focus:outline-none focus:border-[#85AB8B] transition-colors"
-              />
-            </div>
-          </div>
-
-          <div>
-            <label className="text-[10px] font-bold uppercase tracking-wider text-neutral-500 flex items-center gap-1 mb-1">
-              <Building className="w-3 h-3 text-[#85AB8B]" />
-              Business / Store Name (Optional)
-            </label>
-            <input
-              type="text"
-              value={businessName}
-              onChange={(e) => setBusinessName(e.target.value)}
-              placeholder="e.g. OKC Vape Lounge"
-              className="w-full bg-neutral-50 border border-neutral-200 rounded-xl px-3 py-2 text-xs text-[#1f2a1d] focus:outline-none focus:border-[#85AB8B] transition-colors"
-            />
-          </div>
-
-          <div>
-            <label className="text-[10px] font-bold uppercase tracking-wider text-neutral-500 flex items-center gap-1 mb-1">
-              <FileText className="w-3 h-3 text-[#85AB8B]" />
-              Notes / Delivery Preference
-            </label>
-            <textarea
-              rows={2}
-              value={notes}
-              onChange={(e) => setNotes(e.target.value)}
-              placeholder="Flavors requested, same-day OKC pickup, metro delivery, etc."
-              className="w-full bg-neutral-50 border border-neutral-200 rounded-xl px-3 py-2 text-xs text-[#1f2a1d] focus:outline-none focus:border-[#85AB8B] transition-colors resize-none"
-            />
-          </div>
-
-          <button
-            type="submit"
-            disabled={status === 'submitting'}
-            className="w-full py-2.5 bg-[#1f2a1d] hover:bg-[#336443] disabled:opacity-50 text-white text-xs font-bold rounded-full transition-colors flex items-center justify-center gap-1.5 shadow-md cursor-pointer mt-2"
-          >
-            {status === 'submitting' ? (
-              <>
-                <Loader2 className="w-3.5 h-3.5 animate-spin" />
-                Sending Order to Dispatch...
-              </>
-            ) : (
-              <>
-                <Send className="w-3.5 h-3.5" />
-                Submit Wholesale Order Request
-              </>
-            )}
-          </button>
-        </form>
-      </div>
-    </div>
-  );
-};
-
 // ─── Quick Actions ─────────────────────────────────────────────────────────
 
 const QUICK_ACTIONS = [
@@ -854,7 +561,7 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({
 export default function MangoChat() {
   const [isOpen, setIsOpen] = useState(false);
   const [isAnimatingOut, setIsAnimatingOut] = useState(false);
-  const [activeTab, setActiveTab] = useState<'chat' | 'inventory' | 'cart'>('chat');
+  const [activeTab, setActiveTab] = useState<'chat' | 'inventory'>('chat');
   const [messages, setMessages] = useState<ChatMessage[]>([
     {
       role: 'model',
@@ -892,16 +599,9 @@ export default function MangoChat() {
   useEffect(() => {
     syncDraftOrder();
     const handleCartUpdated = () => syncDraftOrder();
-    const handleOpenCart = () => {
-      setIsOpen(true);
-      setIsAnimatingOut(false);
-      setActiveTab('cart');
-    };
     window.addEventListener('mango-cart-updated', handleCartUpdated);
-    window.addEventListener('open-mango-cart', handleOpenCart);
     return () => {
       window.removeEventListener('mango-cart-updated', handleCartUpdated);
-      window.removeEventListener('open-mango-cart', handleOpenCart);
     };
   }, [syncDraftOrder]);
 
@@ -980,7 +680,7 @@ export default function MangoChat() {
   }, []);
 
   const handleGoToCart = useCallback(() => {
-    setActiveTab('cart');
+    window.dispatchEvent(new CustomEvent('open-cart'));
   }, []);
 
   const handleOrderSubmitted = useCallback(
@@ -1088,22 +788,15 @@ export default function MangoChat() {
         className="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-2"
         style={{ pointerEvents: 'none' }}
       >
-        {/* Order badge teaser (when order has items and chat is closed) */}
-        {!isOpen && orderItemCount > 0 && (
-          <div className="mango-badge-pop bg-[#1f2a1d] text-white text-[10px] font-bold px-3 py-1.5 rounded-full shadow-lg border border-white/10 flex items-center gap-1.5 pointer-events-auto">
-            <ShoppingBag className="w-3 h-3 text-[#85AB8B]" />
-            {orderItemCount} item{orderItemCount !== 1 ? 's' : ''} in order
-          </div>
-        )}
-
         <button
           id="mango-chat-trigger"
           onClick={isOpen ? handleClose : handleOpen}
           aria-label={isOpen ? 'Close Mango chat' : 'Open Mango chat'}
           aria-expanded={isOpen}
           style={{ pointerEvents: 'auto' }}
-          className={`mango-avatar-btn group relative flex items-center gap-2.5 bg-[#1f2a1d] hover:bg-[#2a3a27] text-white pl-1.5 pr-4 py-1.5 rounded-full shadow-xl border border-white/10 transition-all duration-300 cursor-pointer select-none ${!isOpen ? 'mango-pulse' : ''
-            }`}
+          className={`mango-avatar-btn group relative flex items-center gap-2.5 bg-[#1f2a1d] hover:bg-[#2a3a27] text-white pl-1.5 pr-4 py-1.5 rounded-full shadow-xl border border-white/10 transition-all duration-300 cursor-pointer select-none ${
+            !isOpen ? 'mango-pulse' : ''
+          }`}
         >
           <div className="relative">
             <img
@@ -1121,12 +814,6 @@ export default function MangoChat() {
             </div>
             <div className="text-[10px] text-[#85AB8B] font-medium">Wholesale Assistant</div>
           </div>
-
-          {orderItemCount > 0 && (
-            <span className="ml-1 bg-[#85AB8B] text-[#1f2a1d] text-[10px] font-black w-4 h-4 rounded-full flex items-center justify-center shrink-0">
-              {orderItemCount}
-            </span>
-          )}
 
           {isOpen && <X className="w-3.5 h-3.5 ml-0.5 text-neutral-400 group-hover:text-white transition-colors" />}
         </button>
@@ -1188,10 +875,11 @@ export default function MangoChat() {
           <div className="bg-[#1f2a1d] px-3 pb-2 flex items-center gap-1 border-b border-white/10 shrink-0">
             <button
               onClick={() => setActiveTab('chat')}
-              className={`flex-1 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${activeTab === 'chat'
-                ? 'bg-white/15 text-white shadow-sm'
-                : 'text-neutral-400 hover:text-white hover:bg-white/5'
-                }`}
+              className={`flex-1 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                activeTab === 'chat'
+                  ? 'bg-white/15 text-white shadow-sm'
+                  : 'text-neutral-400 hover:text-white hover:bg-white/5'
+              }`}
             >
               <MessageCircle className="w-3.5 h-3.5 text-[#85AB8B]" />
               <span>Chat</span>
@@ -1199,24 +887,25 @@ export default function MangoChat() {
 
             <button
               onClick={() => setActiveTab('inventory')}
-              className={`flex-1 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${activeTab === 'inventory'
-                ? 'bg-white/15 text-white shadow-sm'
-                : 'text-neutral-400 hover:text-white hover:bg-white/5'
-                }`}
+              className={`flex-1 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
+                activeTab === 'inventory'
+                  ? 'bg-white/15 text-white shadow-sm'
+                  : 'text-neutral-400 hover:text-white hover:bg-white/5'
+              }`}
             >
               <Package className="w-3.5 h-3.5 text-[#85AB8B]" />
               <span>Inventory</span>
             </button>
 
             <button
-              onClick={() => setActiveTab('cart')}
-              className={`flex-1 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${activeTab === 'cart'
-                ? 'bg-white/15 text-white shadow-sm'
-                : 'text-neutral-400 hover:text-white hover:bg-white/5'
-                }`}
+              onClick={() => {
+                window.dispatchEvent(new CustomEvent('open-cart'));
+              }}
+              className="flex-1 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer text-neutral-300 hover:text-white hover:bg-white/10"
+              title="Open Wholesale Shopping Cart"
             >
               <ShoppingBag className="w-3.5 h-3.5 text-[#85AB8B]" />
-              <span>Cart</span>
+              <span>View Cart</span>
               {orderItemCount > 0 && (
                 <span className="bg-[#85AB8B] text-[#1f2a1d] text-[9px] font-black px-1.5 py-0.2 rounded-full ml-0.5">
                   {orderItemCount}
@@ -1298,17 +987,6 @@ export default function MangoChat() {
               onAddToOrder={handleAddToOrder}
               onGoToCart={handleGoToCart}
               cartItemCount={orderItemCount}
-            />
-          )}
-
-          {/* ── TAB CONTENT: CART & ORDER REQUEST ── */}
-          {activeTab === 'cart' && (
-            <CartView
-              draftItems={draftItems}
-              onRemoveItem={handleRemoveItem}
-              onClearOrder={handleClearOrder}
-              onBackToInventory={handleAddMore}
-              onOrderSubmitted={handleOrderSubmitted}
             />
           )}
         </div>

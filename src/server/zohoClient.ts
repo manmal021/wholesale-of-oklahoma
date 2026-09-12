@@ -38,7 +38,7 @@ export class ZohoInventoryClient {
       clientId: config?.clientId || process.env.ZOHO_CLIENT_ID,
       clientSecret: config?.clientSecret || process.env.ZOHO_CLIENT_SECRET,
       refreshToken: config?.refreshToken || process.env.ZOHO_REFRESH_TOKEN,
-      organizationId: config?.organizationId || process.env.ZOHO_ORGANIZATION_ID,
+      organizationId: config?.organizationId || process.env.ZOHO_ORG_ID || process.env.ZOHO_ORGANIZATION_ID,
       dc: config?.dc || process.env.ZOHO_DC || 'com',
     };
   }
@@ -51,32 +51,33 @@ export class ZohoInventoryClient {
 
   public getConfig(): { clientId?: string; organizationId?: string; dc?: string; isConfigured: boolean } {
     return {
-      clientId: this.config.clientId ? `${this.config.clientId.slice(0, 6)}...` : undefined,
-      organizationId: this.config.organizationId,
-      dc: this.config.dc,
+      clientId: (this.config.clientId || process.env.ZOHO_CLIENT_ID) ? `${(this.config.clientId || process.env.ZOHO_CLIENT_ID)!.slice(0, 6)}...` : undefined,
+      organizationId: this.getOrganizationId(),
+      dc: this.config.dc || process.env.ZOHO_DC || 'com',
       isConfigured: this.isConfigured(),
     };
   }
 
   public isConfigured(): boolean {
-    return Boolean(
-      this.config.clientId &&
-      this.config.clientSecret &&
-      this.config.refreshToken &&
-      this.config.organizationId
-    );
+    const clientId = this.config.clientId || process.env.ZOHO_CLIENT_ID;
+    const clientSecret = this.config.clientSecret || process.env.ZOHO_CLIENT_SECRET;
+    const refreshToken = this.config.refreshToken || process.env.ZOHO_REFRESH_TOKEN;
+    const organizationId = this.config.organizationId || process.env.ZOHO_ORG_ID || process.env.ZOHO_ORGANIZATION_ID;
+    return Boolean(clientId && clientSecret && refreshToken && organizationId);
   }
 
   public getOrganizationId(): string | undefined {
-    return this.config.organizationId;
+    return this.config.organizationId || process.env.ZOHO_ORG_ID || process.env.ZOHO_ORGANIZATION_ID;
   }
 
   private getAccountsUrl(): string {
-    return `https://accounts.zoho.${this.config.dc || 'com'}/oauth/v2/token`;
+    const dc = this.config.dc || process.env.ZOHO_DC || 'com';
+    return `https://accounts.zoho.${dc}/oauth/v2/token`;
   }
 
   private getApiBaseUrl(): string {
-    return `https://www.zohoapis.${this.config.dc || 'com'}/inventory/v1`;
+    const dc = this.config.dc || process.env.ZOHO_DC || 'com';
+    return `https://www.zohoapis.${dc}/inventory/v1`;
   }
 
   /**
@@ -92,10 +93,14 @@ export class ZohoInventoryClient {
       throw new Error('Zoho Inventory API credentials are not fully configured in environment variables.');
     }
 
+    const refreshToken = this.config.refreshToken || process.env.ZOHO_REFRESH_TOKEN;
+    const clientId = this.config.clientId || process.env.ZOHO_CLIENT_ID;
+    const clientSecret = this.config.clientSecret || process.env.ZOHO_CLIENT_SECRET;
+
     const params = new URLSearchParams({
-      refresh_token: this.config.refreshToken!,
-      client_id: this.config.clientId!,
-      client_secret: this.config.clientSecret!,
+      refresh_token: refreshToken!,
+      client_id: clientId!,
+      client_secret: clientSecret!,
       grant_type: 'refresh_token',
     });
 
@@ -126,8 +131,9 @@ export class ZohoInventoryClient {
    */
   public async fetchZohoItems(page = 1, perPage = 200): Promise<{ items: any[]; hasMore: boolean; total: number }> {
     const token = await this.getValidAccessToken();
+    const orgId = this.getOrganizationId();
     const url = new URL(`${this.getApiBaseUrl()}/items`);
-    url.searchParams.set('organization_id', this.config.organizationId!);
+    url.searchParams.set('organization_id', orgId!);
     url.searchParams.set('page', String(page));
     url.searchParams.set('per_page', String(perPage));
 
@@ -135,7 +141,7 @@ export class ZohoInventoryClient {
       method: 'GET',
       headers: {
         Authorization: `Zoho-oauthtoken ${token}`,
-        'X-com-zoho-inventory-organizationid': this.config.organizationId!,
+        'X-com-zoho-inventory-organizationid': orgId!,
       },
     });
 
@@ -161,13 +167,14 @@ export class ZohoInventoryClient {
    */
   public async fetchZohoItemDetail(itemId: string): Promise<any> {
     const token = await this.getValidAccessToken();
-    const url = `${this.getApiBaseUrl()}/items/${encodeURIComponent(itemId)}?organization_id=${this.config.organizationId}`;
+    const orgId = this.getOrganizationId();
+    const url = `${this.getApiBaseUrl()}/items/${encodeURIComponent(itemId)}?organization_id=${orgId}`;
 
     const response = await fetch(url, {
       method: 'GET',
       headers: {
         Authorization: `Zoho-oauthtoken ${token}`,
-        'X-com-zoho-inventory-organizationid': this.config.organizationId!,
+        'X-com-zoho-inventory-organizationid': orgId!,
       },
     });
 
@@ -196,7 +203,8 @@ export class ZohoInventoryClient {
     }>;
   }): Promise<any> {
     const token = await this.getValidAccessToken();
-    const url = `${this.getApiBaseUrl()}/salesorders?organization_id=${this.config.organizationId}`;
+    const orgId = this.getOrganizationId();
+    const url = `${this.getApiBaseUrl()}/salesorders?organization_id=${orgId}`;
 
     const payload = {
       customer_name: orderData.businessName || orderData.customerName,
@@ -215,7 +223,7 @@ export class ZohoInventoryClient {
       method: 'POST',
       headers: {
         Authorization: `Zoho-oauthtoken ${token}`,
-        'X-com-zoho-inventory-organizationid': this.config.organizationId!,
+        'X-com-zoho-inventory-organizationid': orgId!,
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(payload),

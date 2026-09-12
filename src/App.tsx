@@ -1,18 +1,52 @@
 import { useState, useEffect } from 'react';
-import { LogIn, UserPlus, Play, Sparkles, Menu, X, Star, MapPin, Phone } from 'lucide-react';
+import { LogIn, UserPlus, Play, Sparkles, Menu, X, Star, MapPin, Phone, ShoppingBag, Package, ArrowRight } from 'lucide-react';
 import BoomerangVideoBg from './components/BoomerangVideoBg';
 import ReviewSlider from './components/ReviewSlider';
 import GallerySlider from './components/GallerySlider';
 import StoreDetails from './components/StoreDetails';
 import OrderForm from './components/OrderForm';
 import MangoChat from './components/MangoChat';
+import CartDrawer from './components/CartDrawer';
 import InventorySection from './components/inventory/InventorySection';
+import { getDraftOrder } from './lib/mangoAI';
 
 const BG_VIDEO = '/transi.mp4';
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [quickContactMsg, setQuickContactMsg] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const [cartUnits, setCartUnits] = useState(0);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 40);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const syncCartUnits = () => {
+    const items = getDraftOrder();
+    setCartUnits(items.reduce((sum, item) => sum + item.quantity, 0));
+  };
+
+  useEffect(() => {
+    syncCartUnits();
+    const handleCartUpdate = () => syncCartUnits();
+    const handleOpenCart = () => setIsCartOpen(true);
+
+    window.addEventListener('mango-cart-updated', handleCartUpdate);
+    window.addEventListener('open-cart', handleOpenCart);
+    window.addEventListener('open-mango-cart', handleOpenCart);
+
+    return () => {
+      window.removeEventListener('mango-cart-updated', handleCartUpdate);
+      window.removeEventListener('open-cart', handleOpenCart);
+      window.removeEventListener('open-mango-cart', handleOpenCart);
+    };
+  }, []);
 
   useEffect(() => {
     if (menuOpen) {
@@ -42,7 +76,179 @@ export default function App() {
   };
 
   return (
-    <div className="w-full min-h-screen bg-[#f5f5f4] text-[#1f2a1d] overflow-y-auto selection:bg-[#336443]/20">
+    <div className="w-full min-h-screen bg-[#f5f5f4] text-[#1f2a1d] selection:bg-[#336443]/20 relative">
+
+      {/* Responsive Premium Navbar — Smooth sticky transition on scroll */}
+      <nav
+        className={`fixed top-0 left-0 right-0 z-40 flex items-center justify-between px-4 sm:px-6 md:px-10 transition-all duration-300 ${
+          scrolled
+            ? 'bg-[#1f2a1d]/92 backdrop-blur-md py-3 shadow-xl border-b border-white/10'
+            : 'bg-transparent py-4 sm:py-6'
+        }`}
+      >
+        <div className="flex items-center gap-2">
+          <a
+            href="#overview"
+            className="text-xl sm:text-2xl font-bold tracking-tight text-white flex items-center gap-2 drop-shadow-sm select-none hover:text-[#85AB8B] transition-colors"
+          >
+            Wholesale of Oklahoma
+          </a>
+        </div>
+
+        {/* Desktop Central Pill Nav */}
+        <div className="hidden lg:flex items-center gap-1 bg-black/45 backdrop-blur-md rounded-full pl-6 pr-1 py-1 shadow-md border border-white/10">
+          {navLinks.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-sm px-3.5 py-2 font-semibold text-white/90 hover:text-white transition-colors"
+            >
+              {link.label}
+            </a>
+          ))}
+          <a
+            href="#direct-order-section"
+            className="ml-2 bg-[#85AB8B] hover:bg-[#97bba4] text-[#1f2a1d] text-xs font-bold px-5 py-2.5 rounded-full transition-colors uppercase tracking-wider shadow"
+          >
+            Order Now
+          </a>
+        </div>
+
+        {/* Right Action Links */}
+        <div className="flex items-center gap-3 sm:gap-4">
+          {/* Desktop & Mobile Cart Trigger in Header */}
+          <button
+            onClick={() => setIsCartOpen(true)}
+            className="flex items-center gap-2 text-xs font-bold text-white hover:text-[#85AB8B] transition-colors cursor-pointer bg-black/45 backdrop-blur-sm px-3.5 py-2 rounded-full border border-white/10 shadow-sm hover:bg-black/60"
+            aria-label={`Open Cart (${cartUnits} units)`}
+          >
+            <ShoppingBag className="w-4 h-4 text-[#85AB8B]" />
+            <span className="hidden sm:inline">Cart</span>
+            {cartUnits > 0 && (
+              <span className="bg-[#85AB8B] text-[#1f2a1d] text-[10px] font-black px-1.5 py-0.2 rounded-full">
+                {cartUnits}
+              </span>
+            )}
+          </button>
+
+          <a
+            href="tel:4057682975"
+            className="hidden sm:flex items-center gap-2 text-xs font-extrabold text-[#85AB8B] hover:text-white transition-colors cursor-pointer bg-black/35 backdrop-blur-sm px-4 py-2 rounded-full border border-white/10"
+          >
+            <LogIn className="w-4 h-4 text-white" />
+            (405) 768-2975
+          </a>
+
+          {/* Mobile Toggler Button using requested CSS transitions */}
+          <button
+            onClick={() => setMenuOpen((v) => !v)}
+            className="lg:hidden relative flex items-center justify-center w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white transition-all duration-300 hover:bg-black/60"
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
+          >
+            <Menu
+              className={`w-5 h-5 absolute transition-all duration-300 ${
+                menuOpen ? 'opacity-0 rotate-90 scale-50' : 'opacity-100 rotate-0 scale-100'
+              }`}
+            />
+            <X
+              className={`w-5 h-5 absolute transition-all duration-300 ${
+                menuOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-50'
+              }`}
+            />
+          </button>
+        </div>
+      </nav>
+
+      {/* Mobile Backdrop Overlay Menu */}
+      <div
+        className={`lg:hidden fixed inset-0 z-40 transition-opacity duration-300 ${
+          menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={() => setMenuOpen(false)}
+      >
+        <div className="absolute inset-0 bg-[#1f2a1d]/60 backdrop-blur-sm" />
+      </div>
+
+      {/* Mobile Navigation Drawer with perfect CSS transitions */}
+      <div
+        className={`lg:hidden fixed top-0 right-0 bottom-0 z-50 w-[85%] max-w-sm bg-white/95 backdrop-blur-xl shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          menuOpen ? 'translate-x-0' : 'translate-x-full'
+        }`}
+      >
+        <div className="flex flex-col h-full pt-20 px-8 pb-8">
+          <div className="flex items-center justify-between pb-4 border-b border-[#1f2a1d]/10 mb-2">
+            <span className="text-[10px] uppercase font-bold tracking-widest text-[#85AB8B]">
+              Navigation Links
+            </span>
+            <button
+              onClick={() => setMenuOpen(false)}
+              className="w-8 h-8 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-600 cursor-pointer"
+            >
+              <X className="w-4 h-4" />
+            </button>
+          </div>
+          <div className="flex flex-col gap-1">
+            {navLinks.map((link, i) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={() => setMenuOpen(false)}
+                className={`text-2xl font-semibold text-[#1f2a1d] py-3.5 border-b border-[#1f2a1d]/10 transition-all duration-500 ${
+                  menuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+                }`}
+                style={{ transitionDelay: menuOpen ? `${150 + i * 70}ms` : '0ms' }}
+              >
+                {link.label}
+              </a>
+            ))}
+
+            {/* Wholesale Cart direct item in mobile menu */}
+            <button
+              onClick={() => {
+                setMenuOpen(false);
+                setIsCartOpen(true);
+              }}
+              className="w-full text-left text-2xl font-semibold text-[#1f2a1d] py-4 border-b border-[#1f2a1d]/10 flex items-center justify-between transition-colors hover:text-[#336443]"
+            >
+              <span className="flex items-center gap-2.5">
+                <ShoppingBag className="w-5 h-5 text-[#336443]" />
+                Wholesale Cart
+              </span>
+              {cartUnits > 0 && (
+                <span className="bg-[#85AB8B] text-[#1f2a1d] text-xs font-black px-2.5 py-0.5 rounded-full">
+                  {cartUnits} units
+                </span>
+              )}
+            </button>
+          </div>
+
+          {/* Mobile specific drawer buttons */}
+          <div
+            className={`mt-auto flex flex-col gap-3 transition-all duration-500 ${
+              menuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
+            }`}
+            style={{ transitionDelay: menuOpen ? '400ms' : '0ms' }}
+          >
+            <div className="bg-neutral-50 p-4 rounded-xl space-y-1.5 text-xs">
+              <p className="font-semibold text-[#1f2a1d]">Central OKC Warehouse:</p>
+              <p className="text-neutral-500">4500 S Bryant Ave, OKC, OK 73135</p>
+              <p className="text-neutral-600 font-semibold">(405) 768-2975 · Mon–Sat 9AM–8PM</p>
+            </div>
+
+            <button
+              onClick={() => {
+                setMenuOpen(false);
+                window.location.href = 'tel:4057682975';
+              }}
+              className="bg-[#1f2a1d] hover:bg-[#2a3827] text-white text-sm font-semibold px-5 py-3 rounded-full transition-colors flex items-center justify-center gap-2 shadow"
+            >
+              <Phone className="w-4 h-4 text-[#85AB8B]" />
+              Call Live Dispatcher
+            </button>
+          </div>
+        </div>
+      </div>
 
       {/* Hero Header Section */}
       <section id="overview" className="relative w-full min-h-screen sm:h-screen overflow-hidden">
@@ -61,118 +267,6 @@ export default function App() {
         <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden">
           <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#85AB8B] opacity-15 blur-[120px]" />
           <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-[#336443] opacity-15 blur-[100px]" />
-        </div>
-
-        {/* Responsive Premium Navbar */}
-        <nav className="absolute top-0 left-0 right-0 z-30 flex items-center justify-between px-4 sm:px-6 md:px-10 py-4 sm:py-6">
-          <div className="flex items-center gap-2">
-            <span className="text-xl sm:text-2xl font-bold tracking-tight text-white flex items-center gap-2 drop-shadow-sm select-none">
-              Wholesale of Oklahoma
-            </span>
-          </div>
-
-          {/* Desktop Central Pill Nav */}
-          <div className="hidden lg:flex items-center gap-1 bg-black/45 backdrop-blur-md rounded-full pl-6 pr-1 py-1 shadow-md border border-white/10">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-sm px-3.5 py-2 font-semibold text-white/90 hover:text-white transition-colors"
-              >
-                {link.label}
-              </a>
-            ))}
-            <a
-              href="#direct-order-section"
-              className="ml-2 bg-[#85AB8B] hover:bg-[#97bba4] text-[#1f2a1d] text-xs font-bold px-5 py-2.5 rounded-full transition-colors uppercase tracking-wider shadow"
-            >
-              Order Now
-            </a>
-          </div>
-
-          {/* Right Action Links */}
-          <div className="flex items-center gap-3 sm:gap-6">
-            <a
-              href="tel:4057682975"
-              className="hidden sm:flex items-center gap-2 text-xs font-extrabold text-[#85AB8B] hover:text-white transition-colors cursor-pointer bg-black/35 backdrop-blur-sm px-4 py-2 rounded-full border border-white/10"
-            >
-              <LogIn className="w-4 h-4 text-white" />
-              (405) 768-2975
-            </a>
-
-            {/* Mobile Toggler Button using requested CSS transitions */}
-            <button
-              onClick={() => setMenuOpen((v) => !v)}
-              className="lg:hidden relative flex items-center justify-center w-10 h-10 rounded-full bg-black/40 backdrop-blur-md border border-white/10 text-white transition-all duration-300 hover:bg-black/60"
-              aria-label={menuOpen ? 'Close menu' : 'Open menu'}
-              aria-expanded={menuOpen}
-            >
-              <Menu
-                className={`w-5 h-5 absolute transition-all duration-300 ${menuOpen ? 'opacity-0 rotate-90 scale-50' : 'opacity-100 rotate-0 scale-100'
-                  }`}
-              />
-              <X
-                className={`w-5 h-5 absolute transition-all duration-300 ${menuOpen ? 'opacity-100 rotate-0 scale-100' : 'opacity-0 -rotate-90 scale-50'
-                  }`}
-              />
-            </button>
-          </div>
-        </nav>
-
-        {/* Mobile Backdrop Overlay Menu */}
-        <div
-          className={`lg:hidden fixed inset-0 z-20 transition-opacity duration-300 ${menuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
-            }`}
-          onClick={() => setMenuOpen(false)}
-        >
-          <div className="absolute inset-0 bg-[#1f2a1d]/40 backdrop-blur-sm" />
-        </div>
-
-        {/* Mobile Navigation Drawer with perfect CSS transitions */}
-        <div
-          className={`lg:hidden fixed top-0 right-0 bottom-0 z-20 w-[85%] max-w-sm bg-white/95 backdrop-blur-xl shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${menuOpen ? 'translate-x-0' : 'translate-x-full'
-            }`}
-        >
-          <div className="flex flex-col h-full pt-24 px-8 pb-8">
-            <span className="text-[10px] uppercase font-bold tracking-widest text-[#85AB8B] mb-2">Navigation Links</span>
-            <div className="flex flex-col gap-1">
-              {navLinks.map((link, i) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMenuOpen(false)}
-                  className={`text-2xl font-semibold text-[#1f2a1d] py-4 border-b border-[#1f2a1d]/10 transition-all duration-500 ${menuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-                    }`}
-                  style={{ transitionDelay: menuOpen ? `${150 + i * 70}ms` : '0ms' }}
-                >
-                  {link.label}
-                </a>
-              ))}
-            </div>
-
-            {/* Mobile specific drawer buttons */}
-            <div
-              className={`mt-auto flex flex-col gap-4 transition-all duration-500 ${menuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
-                }`}
-              style={{ transitionDelay: menuOpen ? '400ms' : '0ms' }}
-            >
-              <div className="bg-neutral-50 p-4 rounded-xl space-y-2 text-xs">
-                <p className="font-semibold text-[#1f2a1d]">Warehouse Contact:</p>
-                <p className="text-neutral-500">4500 S Bryant Ave, OKC</p>
-                <p className="text-neutral-600 font-semibold">(405) 768-2975</p>
-              </div>
-
-              <button
-                onClick={() => {
-                  setMenuOpen(false);
-                  window.location.href = 'tel:4057682975';
-                }}
-                className="bg-[#1f2a1d] hover:bg-[#2a3827] text-white text-sm font-semibold px-5 py-3 rounded-full transition-colors flex items-center justify-center gap-2"
-              >
-                Call Live Dispatcher
-              </button>
-            </div>
-          </div>
         </div>
 
         {/* Central Display Hero Copy */}
@@ -196,10 +290,58 @@ export default function App() {
           <p className="mt-8 text-white/90 text-sm sm:text-base md:text-lg font-medium leading-relaxed max-w-xl mx-auto px-2 drop-shadow-sm">
             Excellent wholesale company with a strong product selection for dispensaries, vape stores, hookahs, and gas stations. Fast communication, smooth ordering, and dependable delivery.
           </p>
+
+          {/* Central Hero Action Buttons */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4 z-10">
+            <a
+              href="#inventory"
+              className="bg-[#85AB8B] hover:bg-[#97bba4] text-[#1f2a1d] text-xs sm:text-sm font-extrabold px-7 py-3.5 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2 uppercase tracking-wider"
+            >
+              <Package className="w-4 h-4" />
+              <span>Browse Live Inventory</span>
+            </a>
+
+            <button
+              onClick={() => setIsCartOpen(true)}
+              className="bg-black/55 hover:bg-black/75 backdrop-blur-md text-white text-xs sm:text-sm font-bold px-6 py-3.5 rounded-full border border-white/20 transition-all duration-300 shadow-md hover:scale-105 active:scale-95 flex items-center gap-2 cursor-pointer"
+            >
+              <ShoppingBag className="w-4 h-4 text-[#85AB8B]" />
+              <span>Wholesale Cart</span>
+              {cartUnits > 0 && (
+                <span className="bg-[#85AB8B] text-[#1f2a1d] text-[10px] font-black px-2 py-0.5 rounded-full">
+                  {cartUnits} units
+                </span>
+              )}
+            </button>
+
+            <a
+              href="tel:4057682975"
+              className="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white text-xs sm:text-sm font-bold px-6 py-3.5 rounded-full border border-white/15 transition-all duration-300 shadow-md flex items-center gap-2"
+            >
+              <Phone className="w-4 h-4 text-[#85AB8B]" />
+              <span>(405) 768-2975</span>
+            </a>
+          </div>
+
+          {/* Trust Value Badges */}
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-[11px] font-semibold text-white/80">
+            <span className="bg-black/40 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 flex items-center gap-1.5">
+              ⚡ Same-Day OKC Pickup
+            </span>
+            <span className="bg-black/40 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 flex items-center gap-1.5">
+              📦 Tiered Volume Pricing
+            </span>
+            <span className="bg-black/40 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 flex items-center gap-1.5">
+              🔒 Licensed Master Distributor
+            </span>
+            <span className="bg-black/40 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-white/10 flex items-center gap-1.5">
+              🚚 Statewide Metro Dispatch
+            </span>
+          </div>
         </div>
 
         {/* Bottom-left customized corporate profile badge */}
-        <div className="absolute left-4 right-4 sm:right-auto sm:left-6 md:left-10 bottom-6 sm:bottom-8 md:bottom-10 z-10 max-w-sm bg-black/55 backdrop-blur-md border border-white/10 p-5 rounded-[24px] shadow-lg">
+        <div className="hidden xl:block absolute left-6 md:left-10 bottom-6 sm:bottom-8 md:bottom-10 z-10 max-w-sm bg-black/55 backdrop-blur-md border border-white/10 p-5 rounded-[24px] shadow-lg">
           <div className="flex items-center gap-2 text-[#85AB8B] mb-3">
             <Sparkles className="w-4 h-4 text-[#85AB8B]" />
             <span className="text-sm font-bold tracking-wide">
@@ -260,6 +402,81 @@ export default function App() {
         </div>
       </footer>
 
+
+      {/* Persistent Sticky Floating Cart Button — Stays visible as user scrolls */}
+      <div className="fixed bottom-20 sm:bottom-24 right-6 z-40">
+        <button
+          id="floating-cart-trigger"
+          onClick={() => setIsCartOpen(true)}
+          aria-label={`Open Wholesale Cart (${cartUnits} units)`}
+          className={`group relative flex items-center gap-2.5 bg-[#1f2a1d] hover:bg-[#2a3a27] text-white px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full shadow-2xl border border-[#85AB8B]/40 transition-all duration-300 cursor-pointer select-none hover:scale-105 active:scale-95 ${
+            cartUnits > 0 ? 'ring-2 ring-[#85AB8B]/60 shadow-emerald-950/40' : ''
+          }`}
+        >
+          <div className="relative flex items-center justify-center">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#336443]/70 flex items-center justify-center text-[#85AB8B] border border-[#85AB8B]/30 group-hover:scale-110 transition-transform">
+              <ShoppingBag className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+            </div>
+            {cartUnits > 0 && (
+              <span className="absolute -top-1.5 -right-1.5 bg-[#85AB8B] text-[#1f2a1d] text-[10px] font-black min-w-4 h-4 px-1 rounded-full flex items-center justify-center shadow-md animate-pulse">
+                {cartUnits}
+              </span>
+            )}
+          </div>
+
+          <div className="text-left leading-tight hidden sm:block">
+            <div className="text-xs font-bold text-white flex items-center gap-1">
+              <span>Wholesale Cart</span>
+            </div>
+            <div className="text-[10px] text-[#85AB8B] font-medium">
+              {cartUnits > 0 ? `${cartUnits} unit${cartUnits !== 1 ? 's' : ''} ready` : '0 items'}
+            </div>
+          </div>
+
+          {cartUnits > 0 && (
+            <span className="sm:hidden text-xs font-bold text-[#85AB8B] pr-0.5">
+              {cartUnits}
+            </span>
+          )}
+        </button>
+      </div>
+
+      {/* Floating Bottom Wholesale Order Bar — Appears when items are in cart */}
+      {cartUnits > 0 && (
+        <div className="fixed bottom-0 left-0 right-0 z-30 pointer-events-none p-3 sm:p-4 flex justify-center">
+          <div className="bg-[#1f2a1d]/95 backdrop-blur-xl border border-[#85AB8B]/40 shadow-2xl rounded-2xl sm:rounded-full px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between gap-4 max-w-xl w-full pointer-events-auto animate-in slide-in-from-bottom-5 duration-300">
+            <div className="flex items-center gap-3 min-w-0">
+              <div className="w-8 h-8 rounded-full bg-[#336443] flex items-center justify-center text-[#85AB8B] shrink-0 shadow-sm">
+                <ShoppingBag className="w-4 h-4" />
+              </div>
+              <div className="min-w-0">
+                <div className="text-xs font-bold text-white flex items-center gap-1.5 truncate">
+                  <span>Wholesale Order Draft</span>
+                  <span className="bg-[#85AB8B] text-[#1f2a1d] text-[9px] font-black px-2 py-0.5 rounded-full">
+                    {cartUnits} units
+                  </span>
+                </div>
+                <div className="text-[10px] text-[#85AB8B] truncate">
+                  Ready to send to dispatch for volume tiered quote
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-2 shrink-0">
+              <button
+                onClick={() => setIsCartOpen(true)}
+                className="bg-[#85AB8B] hover:bg-[#97bba4] text-[#1f2a1d] text-xs font-bold px-4 py-2 rounded-full transition-all shadow hover:scale-105 active:scale-95 flex items-center gap-1 cursor-pointer"
+              >
+                <span>Review & Submit</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Standalone Wholesale Cart Drawer on Webpage */}
+      <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
 
       {/* Mango AI Virtual Assistant — Wholesale of Oklahoma */}
       <MangoChat />
