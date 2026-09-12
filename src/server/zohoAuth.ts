@@ -101,11 +101,12 @@ export function buildAuthorizationUrl(): string {
   }
 
   const params = new URLSearchParams({
-    scope: 'ZohoInventory.fullaccess.all',
+    scope: 'ZohoInventory.FullAccess.All',
     client_id: clientId,
     redirect_uri: redirectUri,
     response_type: 'code',
     access_type: 'offline', // ensures Zoho returns a refresh_token
+    prompt: 'consent',
   });
 
   return `${ZOHO_ACCOUNTS_BASE}/oauth/v2/auth?${params.toString()}`;
