@@ -240,7 +240,7 @@ export const InventoryAdminModal: React.FC<InventoryAdminModalProps> = ({
                     Exact Available Quantity
                   </div>
                   <span className="text-[11px] text-neutral-400">
-                    Displays exact units in warehouse (e.g. "184 in stock in OKC").
+                    Displays exact units in warehouse (e.g. "50 in stock in OKC").
                   </span>
                 </button>
               </div>

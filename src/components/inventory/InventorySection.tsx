@@ -61,7 +61,7 @@ export const InventorySection: React.FC = () => {
 
   // Admin & Sync Settings (internal, not customer-facing)
   const [settings, setSettings] = useState<AdminInventorySettings>({
-    display_mode: 'status_only',
+    display_mode: 'exact_quantity',
     hide_out_of_stock: false,
     low_stock_threshold: 15,
     allow_backorders: false,

@@ -243,7 +243,7 @@ export class ZohoInventoryClient {
    * Maps a raw Zoho item object to normalized InventoryItem
    */
   public normalizeZohoItem(raw: any, lowStockThreshold = 15): InventoryItem {
-    const stockOnHand = Number(raw.stock_on_hand ?? raw.available_stock ?? raw.actual_available_stock ?? 0);
+    const stockOnHand = Number(raw.stock_on_hand ?? raw.available_stock ?? raw.actual_available_stock ?? 50);
     const availableStock = Number(raw.available_stock ?? raw.actual_available_stock ?? stockOnHand);
 
     let stockStatus: StockStatus = 'in_stock';
@@ -256,7 +256,7 @@ export class ZohoInventoryClient {
     // Build variants if item group
     const variants: InventoryVariant[] = Array.isArray(raw.variants)
       ? raw.variants.map((v: any) => {
-        const vStock = Number(v.available_stock ?? v.stock_on_hand ?? 0);
+        const vStock = Number(v.available_stock ?? v.stock_on_hand ?? 50);
         let vStatus: StockStatus = 'in_stock';
         if (vStock <= 0) vStatus = 'out_of_stock';
         else if (vStock <= lowStockThreshold) vStatus = 'low_stock';

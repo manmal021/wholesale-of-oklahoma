@@ -64,35 +64,37 @@ const PRODUCT_RATES: Record<string, number> = {
   'raw-black-cones-1-14': 26.5,
 };
 
-// Seed stock values to demonstrate 🟢 In Stock, 🟡 Low Stock, and 🔴 Out of Stock
+// All items configured to exactly 50 units
+const DEFAULT_STOCK = 50;
+
 const SEED_STOCK_MAP: Record<string, number> = {
-  'geekbar-15k': 184, // In stock
-  'geekbar-25k': 92, // In stock
-  'geekbar-60k': 8, // Low stock!
-  'lostmary-mt15000': 145, // In stock
-  'lostmary-os5000': 0, // Out of stock!
-  'raz-dc25000': 64, // In stock
-  'raz-tn9000': 12, // Low stock!
-  'smok-novo5': 38, // In stock
-  'smok-nord5': 0, // Out of stock!
-  'vaporesso-xros4': 52, // In stock
-  'coastal-clouds-60ml': 120, // In stock
-  'naked100-60ml': 6, // Low stock!
-  'beaker-bong-12': 18, // In stock
-  'honeycomb-perc-14': 4, // Low stock!
-  'thca-indoor-flower-35g': 75, // In stock
-  'delta9-live-rosin-gummies': 42, // In stock
-  'opms-gold-capsules': 29, // In stock
-  'opms-black-shot': 0, // Out of stock!
-  'raw-classic-king-slim': 85, // In stock
-  'raw-black-cones-1-14': 60, // In stock
+  'geekbar-15k': 50,
+  'geekbar-25k': 50,
+  'geekbar-60k': 50,
+  'lostmary-mt15000': 50,
+  'lostmary-os5000': 50,
+  'raz-dc25000': 50,
+  'raz-tn9000': 50,
+  'smok-novo5': 50,
+  'smok-nord5': 50,
+  'vaporesso-xros4': 50,
+  'coastal-clouds-60ml': 50,
+  'naked100-60ml': 50,
+  'beaker-bong-12': 50,
+  'honeycomb-perc-14': 50,
+  'thca-indoor-flower-35g': 50,
+  'delta9-live-rosin-gummies': 50,
+  'opms-gold-capsules': 50,
+  'opms-black-shot': 50,
+  'raw-classic-king-slim': 50,
+  'raw-black-cones-1-14': 50,
 };
 
 export class InventoryStore {
   private zohoClient: ZohoInventoryClient;
   private items: Map<string, InventoryItem> = new Map();
   private settings: AdminInventorySettings = {
-    display_mode: 'status_only',
+    display_mode: 'exact_quantity',
     hide_out_of_stock: false,
     low_stock_threshold: 15,
     allow_backorders: false,
@@ -118,13 +120,8 @@ export class InventoryStore {
     let zohoCounter = 12800000001001;
 
     PRODUCTS.forEach((p: WholesaleProduct) => {
-      const stock = SEED_STOCK_MAP[p.id] ?? (p.inStock ? 45 : 0);
-      let status: StockStatus = 'in_stock';
-      if (stock <= 0) {
-        status = 'out_of_stock';
-      } else if (stock <= this.settings.low_stock_threshold) {
-        status = 'low_stock';
-      }
+      const stock = SEED_STOCK_MAP[p.id] ?? DEFAULT_STOCK;
+      const status: StockStatus = stock <= 0 ? 'out_of_stock' : stock <= this.settings.low_stock_threshold ? 'low_stock' : 'in_stock';
 
       const zohoItemId = String(zohoCounter++);
       const image = PRODUCT_IMAGES[p.id] || '/gallery/img_(1).jpg';
@@ -133,10 +130,8 @@ export class InventoryStore {
       // Create variants if product has flavors or options
       const variants = p.flavours && p.flavours.length > 0
         ? p.flavours.map((flv, idx) => {
-          const vStock = Math.max(0, Math.floor(stock / p.flavours.length) + (idx === 0 ? 5 : 0));
-          let vStatus: StockStatus = 'in_stock';
-          if (vStock <= 0) vStatus = 'out_of_stock';
-          else if (vStock <= 5) vStatus = 'low_stock';
+          const vStock = DEFAULT_STOCK;
+          const vStatus: StockStatus = 'in_stock';
 
           const variantSku = `${p.sku}-${flv.replace(/[^A-Za-z0-9]/g, '').toUpperCase().slice(0, 4)}`;
           return {

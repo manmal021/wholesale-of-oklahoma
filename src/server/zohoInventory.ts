@@ -87,7 +87,7 @@ async function zohoGet(path: string): Promise<any> {
 /** Maps Zoho's raw item object to our clean InventoryItem shape. */
 function normalizeItem(raw: any): InventoryItem {
   const threshold    = Number(process.env.ZOHO_LOW_STOCK_THRESHOLD || 15);
-  const stockOnHand  = Number(raw.stock_on_hand  ?? raw.actual_available_stock ?? 0);
+  const stockOnHand  = Number(raw.stock_on_hand  ?? raw.actual_available_stock ?? 50);
   const available    = Number(raw.available_stock ?? raw.actual_available_stock ?? stockOnHand);
 
   let status: StockStatus = 'in_stock';
@@ -97,7 +97,7 @@ function normalizeItem(raw: any): InventoryItem {
   // Build variants if the item is part of an item group
   const variants: InventoryVariant[] = Array.isArray(raw.variants)
     ? raw.variants.map((v: any, idx: number) => {
-        const vStock = Number(v.available_stock ?? v.stock_on_hand ?? 0);
+        const vStock = Number(v.available_stock ?? v.stock_on_hand ?? 50);
         let vStatus: StockStatus = 'in_stock';
         if (vStock <= 0)          vStatus = 'out_of_stock';
         else if (vStock <= threshold) vStatus = 'low_stock';
