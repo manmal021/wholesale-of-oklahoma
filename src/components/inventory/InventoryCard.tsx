@@ -35,11 +35,13 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
 
   const handleAddToCart = () => {
     if (isOutOfStock) return;
-    addToOrderDirect(item.id, qty);
+    addToOrderDirect(item, qty);
     setAdded(true);
     if (onAddedToCart) {
       onAddedToCart(item.name, qty);
     }
+    // Automatically open the cart drawer so customer sees item immediately
+    window.dispatchEvent(new CustomEvent('open-cart'));
     setTimeout(() => setAdded(false), 2200);
   };
 

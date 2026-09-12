@@ -48,11 +48,22 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
     setItems([...getDraftOrder()]);
   };
 
+  // Synchronize cart whenever drawer opens
+  useEffect(() => {
+    if (isOpen) {
+      syncCart();
+    }
+  }, [isOpen]);
+
   useEffect(() => {
     syncCart();
     const handleUpdate = () => syncCart();
     window.addEventListener('mango-cart-updated', handleUpdate);
-    return () => window.removeEventListener('mango-cart-updated', handleUpdate);
+    window.addEventListener('storage', handleUpdate);
+    return () => {
+      window.removeEventListener('mango-cart-updated', handleUpdate);
+      window.removeEventListener('storage', handleUpdate);
+    };
   }, []);
 
   // Close on Escape key
@@ -86,8 +97,8 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
     updateOrderItemQuantity(productId, newQty, flavor);
   };
 
-  const handleRemove = (productId: string) => {
-    removeFromOrderDirect(productId);
+  const handleRemove = (productId: string, flavor?: string) => {
+    removeFromOrderDirect(productId, flavor);
   };
 
   const handleClear = () => {
@@ -401,7 +412,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
 
                       {/* Remove Button */}
                       <button
-                        onClick={() => handleRemove(item.product.id)}
+                        onClick={() => handleRemove(item.product.id, item.flavor)}
                         className="text-neutral-300 hover:text-rose-500 p-1 transition-colors cursor-pointer shrink-0"
                         title="Remove item"
                         aria-label="Remove item from cart"

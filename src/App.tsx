@@ -38,11 +38,13 @@ export default function App() {
     const handleOpenCart = () => setIsCartOpen(true);
 
     window.addEventListener('mango-cart-updated', handleCartUpdate);
+    window.addEventListener('storage', handleCartUpdate);
     window.addEventListener('open-cart', handleOpenCart);
     window.addEventListener('open-mango-cart', handleOpenCart);
 
     return () => {
       window.removeEventListener('mango-cart-updated', handleCartUpdate);
+      window.removeEventListener('storage', handleCartUpdate);
       window.removeEventListener('open-cart', handleOpenCart);
       window.removeEventListener('open-mango-cart', handleOpenCart);
     };

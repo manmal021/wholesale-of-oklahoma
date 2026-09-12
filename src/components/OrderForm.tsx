@@ -44,7 +44,11 @@ export default function OrderForm() {
     syncCart();
     const handleCartUpdate = () => syncCart();
     window.addEventListener('mango-cart-updated', handleCartUpdate);
-    return () => window.removeEventListener('mango-cart-updated', handleCartUpdate);
+    window.addEventListener('storage', handleCartUpdate);
+    return () => {
+      window.removeEventListener('mango-cart-updated', handleCartUpdate);
+      window.removeEventListener('storage', handleCartUpdate);
+    };
   }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {

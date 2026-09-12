@@ -40,6 +40,7 @@ export interface WholesaleProduct {
   inStock: boolean;
   minOrderQty: number;
   bulkPricing: BulkPricingTier[];
+  imageUrl?: string;
 }
 
 // ─── Main Product Catalog (Best Sellers Across All Core Categories) ──────────

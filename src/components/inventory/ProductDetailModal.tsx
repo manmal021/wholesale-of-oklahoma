@@ -71,11 +71,14 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
     const itemName = selectedVariant
       ? `${item.name} (${selectedVariant.variant_name})`
       : item.name;
-    addToOrderDirect(item.id, qty);
+    const chosenRate = selectedVariant?.rate || item.rate;
+    addToOrderDirect(item, qty, selectedVariant?.variant_name, chosenRate);
     setAdded(true);
     if (onAddedToCart) {
       onAddedToCart(itemName, qty);
     }
+    // Automatically open the cart drawer so customer sees item immediately
+    window.dispatchEvent(new CustomEvent('open-cart'));
     setTimeout(() => setAdded(false), 2500);
   };
 

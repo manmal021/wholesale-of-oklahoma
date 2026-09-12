@@ -11,6 +11,7 @@ import {
   getWholesalePrice,
   type WholesaleProduct,
 } from './productDatabase';
+import type { InventoryItem } from '../types/inventory';
 
 export interface ChatMessage {
   id?: string;
@@ -90,45 +91,130 @@ export function openWebpageCart(): void {
 // ─── Direct Cart Modification API (Used by Inventory & Best Sellers) ─────────
 
 export function addToOrderDirect(
-  productId: string,
+  productOrId: string | WholesaleProduct | InventoryItem,
   quantity: number,
-  flavor?: string
+  flavor?: string,
+  priceOverride?: number,
+  imageOverride?: string
 ): { success: boolean; message: string } {
-  const product = getProduct(productId);
-  if (!product) return { success: false, message: 'Product not found.' };
-  if (!product.inStock) return { success: false, message: `${product.name} is currently out of stock.` };
+  let product: WholesaleProduct | undefined;
+  let pricePerUnit = priceOverride ?? 0;
+  let imageUrl = imageOverride;
 
-  const finalQty = Math.max(quantity, product.minOrderQty);
-  const pricing = getWholesalePrice(productId, finalQty);
-  if (!pricing) return { success: false, message: 'Pricing could not be calculated.' };
+  if (typeof productOrId === 'string') {
+    product = getProduct(productOrId);
+    if (!product) {
+      const q = productOrId.toLowerCase().trim();
+      product = PRODUCTS.find(
+        (p) =>
+          p.id.toLowerCase() === q ||
+          p.sku.toLowerCase() === q ||
+          p.name.toLowerCase() === q
+      );
+    }
+  } else if ('rate' in productOrId) {
+    const invItem = productOrId as InventoryItem;
+    const match =
+      getProduct(invItem.id) ||
+      getProduct(invItem.sku) ||
+      PRODUCTS.find((p) => p.name.toLowerCase() === invItem.name.toLowerCase());
+
+    pricePerUnit =
+      priceOverride !== undefined && priceOverride > 0
+        ? priceOverride
+        : invItem.rate > 0
+        ? invItem.rate
+        : match?.pricePerUnit || 0;
+
+    imageUrl = imageOverride || invItem.image_url || match?.imageUrl;
+
+    product = {
+      id: invItem.id || invItem.sku,
+      sku: invItem.sku,
+      name: invItem.name,
+      brand: invItem.brand || match?.brand || 'Wholesale of OK',
+      category: (match?.category || invItem.category || 'General') as any,
+      subcategory: (match?.subcategory || invItem.subcategory || 'General') as any,
+      features: invItem.features || match?.features || [],
+      flavours: invItem.variants
+        ? invItem.variants.map((v) => v.variant_name)
+        : match?.flavours || [],
+      popular: match?.popular ?? true,
+      pricePerUnit: pricePerUnit,
+      basePriceRange:
+        match?.basePriceRange ||
+        (pricePerUnit > 0 ? `$${pricePerUnit.toFixed(2)}` : 'Call for Price'),
+      inStock:
+        invItem.stock_status !== 'out_of_stock' &&
+        (invItem.available_stock === undefined || invItem.available_stock > 0),
+      minOrderQty: invItem.min_order_qty || match?.minOrderQty || 1,
+      bulkPricing: invItem.bulk_pricing || match?.bulkPricing || [
+        { minQty: 1, pricePerUnit: pricePerUnit, label: '1+ units' },
+      ],
+      imageUrl: imageUrl,
+    };
+  } else {
+    product = productOrId as WholesaleProduct;
+    if (priceOverride !== undefined && priceOverride > 0) {
+      pricePerUnit = priceOverride;
+    }
+    if (imageOverride) {
+      imageUrl = imageOverride;
+    } else if (product.imageUrl) {
+      imageUrl = product.imageUrl;
+    }
+  }
+
+  if (!product) {
+    return { success: false, message: 'Product could not be resolved.' };
+  }
+
+  const finalQty = Math.max(1, quantity, product.minOrderQty || 1);
+
+  // Determine pricing
+  let finalUnitPrice = pricePerUnit > 0 ? pricePerUnit : product.pricePerUnit;
+  if (!finalUnitPrice && product.bulkPricing && product.bulkPricing.length > 0) {
+    const applicableTiers = product.bulkPricing.filter((t) => finalQty >= t.minQty);
+    const tier =
+      applicableTiers.length > 0
+        ? applicableTiers[applicableTiers.length - 1]
+        : product.bulkPricing[0];
+    finalUnitPrice = tier.pricePerUnit;
+  }
+
+  const totalPrice = Math.round(finalUnitPrice * finalQty * 100) / 100;
 
   const existingIdx = draftOrder.findIndex(
-    (i) => i.product.id === product.id && (i.flavor || '') === (flavor || '')
+    (i) =>
+      (i.product.id === product!.id || i.product.sku === product!.sku) &&
+      (i.flavor || '') === (flavor || '')
   );
 
   if (existingIdx >= 0) {
     const newQty = draftOrder[existingIdx].quantity + finalQty;
-    const newPricing = getWholesalePrice(productId, newQty)!;
+    const newTotalPrice = Math.round(finalUnitPrice * newQty * 100) / 100;
     draftOrder[existingIdx] = {
       ...draftOrder[existingIdx],
       quantity: newQty,
-      pricePerUnit: newPricing.pricePerUnit,
-      totalPrice: newPricing.totalPrice,
+      pricePerUnit: finalUnitPrice,
+      totalPrice: newTotalPrice,
+      product: {
+        ...draftOrder[existingIdx].product,
+        imageUrl: imageUrl || draftOrder[existingIdx].product.imageUrl,
+      },
     };
-    persistCart(draftOrder);
-    if (typeof window !== 'undefined') {
-      window.dispatchEvent(new CustomEvent('mango-cart-updated'));
-    }
-    return { success: true, message: `Updated ${product.name} to ${newQty} units.` };
+  } else {
+    draftOrder.push({
+      product: {
+        ...product,
+        imageUrl: imageUrl || product.imageUrl,
+      },
+      quantity: finalQty,
+      flavor,
+      pricePerUnit: finalUnitPrice,
+      totalPrice: totalPrice,
+    });
   }
-
-  draftOrder.push({
-    product,
-    quantity: finalQty,
-    flavor,
-    pricePerUnit: pricing.pricePerUnit,
-    totalPrice: pricing.totalPrice,
-  });
 
   persistCart(draftOrder);
 
@@ -136,7 +222,10 @@ export function addToOrderDirect(
     window.dispatchEvent(new CustomEvent('mango-cart-updated'));
   }
 
-  return { success: true, message: `Added ${finalQty}x ${product.name} to your draft order.` };
+  return {
+    success: true,
+    message: `Added ${finalQty}x ${product.name}${flavor ? ` (${flavor})` : ''} to your draft order.`,
+  };
 }
 
 export function updateOrderItemQuantity(
@@ -145,7 +234,9 @@ export function updateOrderItemQuantity(
   flavor?: string
 ): { success: boolean; message: string } {
   const existingIdx = draftOrder.findIndex(
-    (i) => i.product.id === productId && (i.flavor || '') === (flavor || '')
+    (i) =>
+      (i.product.id === productId || i.product.sku === productId) &&
+      (i.flavor || '') === (flavor || '')
   );
 
   if (existingIdx < 0) {
@@ -161,12 +252,12 @@ export function updateOrderItemQuantity(
     return { success: true, message: 'Removed from order.' };
   }
 
-  const pricing = getWholesalePrice(productId, quantity);
+  const item = draftOrder[existingIdx];
+  const unitPrice = item.pricePerUnit;
   draftOrder[existingIdx] = {
-    ...draftOrder[existingIdx],
+    ...item,
     quantity,
-    pricePerUnit: pricing ? pricing.pricePerUnit : draftOrder[existingIdx].pricePerUnit,
-    totalPrice: pricing ? pricing.totalPrice : draftOrder[existingIdx].pricePerUnit * quantity,
+    totalPrice: Math.round(unitPrice * quantity * 100) / 100,
   };
 
   persistCart(draftOrder);
@@ -178,9 +269,18 @@ export function updateOrderItemQuantity(
   return { success: true, message: `Updated quantity to ${quantity}.` };
 }
 
-export function removeFromOrderDirect(productId: string): { success: boolean; message: string } {
+export function removeFromOrderDirect(
+  productId: string,
+  flavor?: string
+): { success: boolean; message: string } {
   const before = draftOrder.length;
-  draftOrder = draftOrder.filter((i) => i.product.id !== productId);
+  draftOrder = draftOrder.filter(
+    (i) =>
+      !(
+        (i.product.id === productId || i.product.sku === productId) &&
+        (flavor === undefined || (i.flavor || '') === (flavor || ''))
+      )
+  );
   persistCart(draftOrder);
   if (typeof window !== 'undefined') {
     window.dispatchEvent(new CustomEvent('mango-cart-updated'));
