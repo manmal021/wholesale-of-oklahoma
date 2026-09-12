@@ -5,7 +5,7 @@
  * caching, filtering, search, pagination, and webhook processing.
  */
 
-import { ZohoInventoryClient } from './zohoClient';
+import { ZohoInventoryClient } from './zohoClient.js';
 import type {
   InventoryItem,
   InventoryFilterParams,
@@ -13,8 +13,8 @@ import type {
   AdminInventorySettings,
   ZohoSyncStatus,
   StockStatus,
-} from '../types/inventory';
-import { PRODUCTS, type WholesaleProduct } from '../lib/productDatabase';
+} from '../types/inventory.js';
+import { PRODUCTS, type WholesaleProduct } from '../lib/productDatabase.js';
 
 // Curated stock levels and images for realistic wholesale demonstration
 const PRODUCT_IMAGES: Record<string, string> = {
@@ -133,24 +133,24 @@ export class InventoryStore {
       // Create variants if product has flavors or options
       const variants = p.flavours && p.flavours.length > 0
         ? p.flavours.map((flv, idx) => {
-            const vStock = Math.max(0, Math.floor(stock / p.flavours.length) + (idx === 0 ? 5 : 0));
-            let vStatus: StockStatus = 'in_stock';
-            if (vStock <= 0) vStatus = 'out_of_stock';
-            else if (vStock <= 5) vStatus = 'low_stock';
+          const vStock = Math.max(0, Math.floor(stock / p.flavours.length) + (idx === 0 ? 5 : 0));
+          let vStatus: StockStatus = 'in_stock';
+          if (vStock <= 0) vStatus = 'out_of_stock';
+          else if (vStock <= 5) vStatus = 'low_stock';
 
-            const variantSku = `${p.sku}-${flv.replace(/[^A-Za-z0-9]/g, '').toUpperCase().slice(0, 4)}`;
-            return {
-              variant_id: `${zohoItemId}-${idx + 1}`,
-              variant_sku: variantSku,
-              variant_name: flv,
-              attribute_name: 'Flavor',
-              attribute_value: flv,
-              stock_on_hand: vStock,
-              available_stock: vStock,
-              stock_status: vStatus,
-              rate: rate,
-            };
-          })
+          const variantSku = `${p.sku}-${flv.replace(/[^A-Za-z0-9]/g, '').toUpperCase().slice(0, 4)}`;
+          return {
+            variant_id: `${zohoItemId}-${idx + 1}`,
+            variant_sku: variantSku,
+            variant_name: flv,
+            attribute_name: 'Flavor',
+            attribute_value: flv,
+            stock_on_hand: vStock,
+            available_stock: vStock,
+            stock_status: vStatus,
+            rate: rate,
+          };
+        })
         : undefined;
 
       const item: InventoryItem = {

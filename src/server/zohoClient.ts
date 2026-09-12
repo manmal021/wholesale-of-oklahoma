@@ -10,7 +10,7 @@
  * - Resilient stale-while-revalidate fallback
  */
 
-import type { InventoryItem, InventoryVariant, StockStatus } from '../types/inventory';
+import type { InventoryItem, InventoryVariant, StockStatus } from '../types/inventory.js';
 
 export interface ZohoApiConfig {
   clientId?: string;
@@ -248,23 +248,23 @@ export class ZohoInventoryClient {
     // Build variants if item group
     const variants: InventoryVariant[] = Array.isArray(raw.variants)
       ? raw.variants.map((v: any) => {
-          const vStock = Number(v.available_stock ?? v.stock_on_hand ?? 0);
-          let vStatus: StockStatus = 'in_stock';
-          if (vStock <= 0) vStatus = 'out_of_stock';
-          else if (vStock <= lowStockThreshold) vStatus = 'low_stock';
+        const vStock = Number(v.available_stock ?? v.stock_on_hand ?? 0);
+        let vStatus: StockStatus = 'in_stock';
+        if (vStock <= 0) vStatus = 'out_of_stock';
+        else if (vStock <= lowStockThreshold) vStatus = 'low_stock';
 
-          return {
-            variant_id: String(v.item_id || v.variant_id),
-            variant_sku: String(v.sku || `${raw.sku}-${v.name}`),
-            variant_name: String(v.name || v.variant_name),
-            attribute_name: v.attribute_name || 'Option',
-            attribute_value: v.attribute_value || v.name,
-            stock_on_hand: vStock,
-            available_stock: vStock,
-            stock_status: vStatus,
-            rate: v.rate ? Number(v.rate) : Number(raw.rate || 0),
-          };
-        })
+        return {
+          variant_id: String(v.item_id || v.variant_id),
+          variant_sku: String(v.sku || `${raw.sku}-${v.name}`),
+          variant_name: String(v.name || v.variant_name),
+          attribute_name: v.attribute_name || 'Option',
+          attribute_value: v.attribute_value || v.name,
+          stock_on_hand: vStock,
+          available_stock: vStock,
+          stock_status: vStatus,
+          rate: v.rate ? Number(v.rate) : Number(raw.rate || 0),
+        };
+      })
       : [];
 
     return {
