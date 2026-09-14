@@ -100,6 +100,8 @@ function sanitizeItemForClient(item: any, hasPricingAccess: boolean) {
   if (hasPricingAccess) {
     return {
       ...item,
+      bulk_pricing: [],
+      bulkPricing: [],
       has_pricing_access: true,
     };
   }
