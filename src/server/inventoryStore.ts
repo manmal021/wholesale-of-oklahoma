@@ -15,30 +15,8 @@ import type {
   StockStatus,
 } from '../types/inventory.js';
 import { PRODUCTS, type WholesaleProduct } from '../lib/productDatabase.js';
+import { productImageRegistry } from './productImageRegistry.js';
 
-// Curated stock levels and images for realistic wholesale demonstration
-const PRODUCT_IMAGES: Record<string, string> = {
-  'geekbar-15k': '/gallery/Screenshot_1.png',
-  'geekbar-25k': '/gallery/Screenshot_2.png',
-  'geekbar-60k': '/gallery/Screenshot_3.png',
-  'lostmary-mt15000': '/gallery/Screenshot_4.png',
-  'lostmary-os5000': '/gallery/Screenshot_5.png',
-  'raz-dc25000': '/gallery/Screenshot_6.png',
-  'raz-tn9000': '/gallery/Screenshot_7.png',
-  'smok-novo5': '/gallery/img_(1).jpg',
-  'smok-nord5': '/gallery/img_(2).jpg',
-  'vaporesso-xros4': '/gallery/img_(3).jpg',
-  'coastal-clouds-60ml': '/gallery/img_(4).jpg',
-  'naked100-60ml': '/gallery/img_(5).jpg',
-  'beaker-bong-12': '/gallery/img_(6).jpg',
-  'honeycomb-perc-14': '/gallery/img_(7).jpg',
-  'thca-indoor-flower-35g': '/gallery/img_(8).jpg',
-  'delta9-live-rosin-gummies': '/gallery/img_(9).jpg',
-  'opms-gold-capsules': '/gallery/img_(10).jpg',
-  'opms-black-shot': '/gallery/img_(11).jpg',
-  'raw-classic-king-slim': '/gallery/img_(12).jpg',
-  'raw-black-cones-1-14': '/gallery/img_(13).jpg',
-};
 
 // Seed pricing for wholesale B2B display
 const PRODUCT_RATES: Record<string, number> = {
@@ -124,7 +102,8 @@ export class InventoryStore {
       const status: StockStatus = stock <= 0 ? 'out_of_stock' : stock <= this.settings.low_stock_threshold ? 'low_stock' : 'in_stock';
 
       const zohoItemId = String(zohoCounter++);
-      const image = PRODUCT_IMAGES[p.id] || '/gallery/img_(1).jpg';
+      const verifiedImage = productImageRegistry.getVerifiedImageUrl(p.id);
+      const image = verifiedImage || '';
       const rate = PRODUCT_RATES[p.id] || (p.pricePerUnit > 0 ? p.pricePerUnit : 15.0);
 
       // Create variants if product has flavors or options
@@ -158,11 +137,7 @@ export class InventoryStore {
         subcategory: p.subcategory,
         description: `${p.name} supplied directly from Wholesale of Oklahoma central OKC warehouse. High commercial turnover for dispensaries, smoke shops, and convenience stores.`,
         image_url: image,
-        gallery_images: [
-          image,
-          '/gallery/Screenshot_1.png',
-          '/gallery/img_(14).jpg',
-        ],
+        gallery_images: image ? [image] : [],
         rate: rate,
         retail_msrp: Number((rate * 1.65).toFixed(2)),
         purchase_rate: Number((rate * 0.65).toFixed(2)),

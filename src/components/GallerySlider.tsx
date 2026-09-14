@@ -83,24 +83,24 @@ export default function GallerySlider() {
   const visibleSlides = getVisibleSlides();
 
   return (
-    <section id="gallery" className="py-16 md:py-24 bg-[#F8FAFC] px-4 sm:px-6 md:px-10 overflow-hidden border-t border-slate-200">
+    <section id="gallery" className="py-16 md:py-24 bg-[#15191F] text-[#F7F7F5] px-4 sm:px-6 md:px-10 overflow-hidden border-t border-[#2A3038]">
       <div className="max-w-7xl mx-auto">
 
         {/* Header */}
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
           <div>
-            <div className="inline-flex items-center gap-1.5 bg-[#F97316]/10 text-[#F97316] border border-[#F97316]/20 text-xs font-semibold px-3 py-1 rounded-full mb-3">
+            <div className="inline-flex items-center gap-1.5 bg-[#FF6B00]/10 text-[#FF6B00] border border-[#FF6B00]/30 text-xs font-semibold px-3 py-1 rounded-full mb-3">
               <Images className="w-3.5 h-3.5" />
               STORE GALLERY
             </div>
-            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[#0f172A] leading-tight">
-              Inside Our <span className="text-[#F97316]">Warehouse</span>
+            <h2 className="text-3xl sm:text-5xl font-bold tracking-tight text-[#F7F7F5] leading-tight">
+              Inside Our <span className="text-[#FF6B00]">Warehouse</span>
             </h2>
-            <p className="text-slate-600 text-sm mt-2 max-w-md">
+            <p className="text-[#B8BDC5] text-sm mt-2 max-w-md">
               A look inside Wholesale of Oklahoma — our products, shelves, and what makes us the go-to supplier for smoke shops across OKC.
             </p>
           </div>
-          <span className="text-xs text-slate-400 font-semibold self-start sm:self-end">
+          <span className="text-xs text-[#858C96] font-semibold self-start sm:self-end">
             {activeIdx + 1} / {images.length}
           </span>
         </div>

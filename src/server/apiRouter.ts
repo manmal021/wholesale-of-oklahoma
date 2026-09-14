@@ -41,6 +41,7 @@ import { inventoryStore } from './inventoryStore.js';
 import { wholesaleStore } from './wholesaleStore.js';
 import { authStore, type UserRole, type SessionRecord } from './authStore.js';
 import { documentStore } from './documentStore.js';
+import { productImageRegistry } from './productImageRegistry.js';
 import { PRODUCTS } from '../lib/productDatabase.js';
 import type { InventoryFilterParams } from '../types/inventory.js';
 
@@ -1101,6 +1102,42 @@ apiApp.post(['/wholesale/admin/review', '/api/wholesale/admin/review'], requireA
 
   console.log(`[API /wholesale/admin/review] Application ${id} updated to ${status} by admin.`);
   return ok(res, { success: true, application: updated });
+});
+
+/**
+ * GET /api/inventory/admin/images
+ * Returns audit records for all product images, confidence levels, and licensing metadata.
+ * Guarded by timing-safe admin authorization.
+ */
+apiApp.get(['/inventory/admin/images', '/api/inventory/admin/images'], requireAdminAuth, (_req: Request, res: Response) => {
+  const audits = productImageRegistry.getAllAudits();
+  return ok(res, {
+    total: audits.length,
+    exact_verified: audits.filter(a => a.confidence === 'EXACT_VERIFIED').length,
+    high_confidence: audits.filter(a => a.confidence === 'HIGH_CONFIDENCE').length,
+    review_required: audits.filter(a => a.confidence === 'IMAGE_REVIEW_REQUIRED').length,
+    no_match: audits.filter(a => a.confidence === 'NO_MATCH').length,
+    audits,
+  });
+});
+
+/**
+ * POST /api/inventory/admin/images/review
+ * Approves, rejects, updates URL, or removes an image from a product with an audit trail note.
+ * Guarded by timing-safe admin authorization.
+ */
+apiApp.post(['/inventory/admin/images/review', '/api/inventory/admin/images/review'], requireAdminAuth, (req: Request, res: Response) => {
+  const { productId, action, imageUrl, notes } = req.body || {};
+  if (!productId || !action) {
+    return err(res, 400, 'productId and action ("APPROVE" | "REJECT" | "UPDATE_URL" | "REMOVE") are required.');
+  }
+
+  const updated = productImageRegistry.reviewProductImage(productId, action, imageUrl, notes);
+  if (!updated) {
+    return err(res, 404, `Product ${productId} not found in image registry.`);
+  }
+
+  return ok(res, { success: true, audit: updated });
 });
 
 export const apiRouter = apiApp;
