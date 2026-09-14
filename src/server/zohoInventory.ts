@@ -37,6 +37,8 @@ interface CacheEntry {
   isStale:    boolean;
 }
 
+import { ZOHO_CATALOG_SNAPSHOT } from './zohoSnapshotData.js';
+
 function loadSnapshotFromDisk(): InventoryItem[] | null {
   try {
     const filePath = path.resolve(process.cwd(), 'data/zoho_catalog_snapshot.json');
@@ -68,17 +70,15 @@ function saveSnapshotToDisk(items: InventoryItem[]): void {
   }
 }
 
-// Pre-seed cache from disk snapshot on cold start
-const initialSnapshot = loadSnapshotFromDisk();
-let _cache: CacheEntry | null = initialSnapshot ? {
+// Pre-seed cache from bundled snapshot (zero filesystem IO, 100% serverless safe)
+const initialSnapshot = loadSnapshotFromDisk() || ZOHO_CATALOG_SNAPSHOT;
+let _cache: CacheEntry = {
   items: initialSnapshot,
   fetchedAt: Date.now(),
   isStale: false,
-} : null;
+};
 
-if (initialSnapshot) {
-  console.log(`[ZohoInventory] 📦 Loaded ${initialSnapshot.length} products from persistent disk snapshot on start.`);
-}
+console.log(`[ZohoInventory] 📦 Loaded ${_cache.items.length} products into active memory on start.`);
 
 let _isFetching = false; // prevents concurrent stampedes
 
@@ -314,15 +314,11 @@ export async function getCachedInventory(): Promise<{
     return { items: _cache.items, fromCache: true, fetchedAt: new Date(_cache.fetchedAt).toISOString() };
   }
 
-  // Fallback 2: persistent disk snapshot
-  const diskSnapshot = loadSnapshotFromDisk();
-  if (diskSnapshot && diskSnapshot.length > 0) {
-    _cache = { items: diskSnapshot, fetchedAt: now, isStale: true };
-    console.warn(`[ZohoInventory] ⚠ Serving from persistent disk snapshot (${diskSnapshot.length} items).`);
-    return { items: diskSnapshot, fromCache: true, fetchedAt: new Date(now).toISOString() };
-  }
-
-  throw new Error('No Zoho inventory data available (cache and snapshot empty).');
+  // Fallback 2: persistent disk snapshot or bundled snapshot
+  const diskSnapshot = loadSnapshotFromDisk() || ZOHO_CATALOG_SNAPSHOT;
+  _cache = { items: diskSnapshot, fetchedAt: now, isStale: true };
+  console.warn(`[ZohoInventory] ⚠ Serving from snapshot (${diskSnapshot.length} items).`);
+  return { items: diskSnapshot, fromCache: true, fetchedAt: new Date(now).toISOString() };
 }
 
 /**

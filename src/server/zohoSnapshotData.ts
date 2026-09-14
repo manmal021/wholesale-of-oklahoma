@@ -1,4 +1,6 @@
-[
+import type { InventoryItem } from '../types/inventory.js';
+
+export const ZOHO_CATALOG_SNAPSHOT: InventoryItem[] = [
   {
     "id": "geekbar-15k",
     "zoho_item_id": "geekbar-15k",
@@ -22,12 +24,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -38,7 +40,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -46,7 +48,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.761Z"
   },
   {
@@ -72,12 +74,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -88,7 +90,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -96,7 +98,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.761Z"
   },
   {
@@ -122,12 +124,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -138,7 +140,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -146,7 +148,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.761Z"
   },
   {
@@ -172,12 +174,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -188,7 +190,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -196,7 +198,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.761Z"
   },
   {
@@ -222,12 +224,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -238,7 +240,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -246,7 +248,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.761Z"
   },
   {
@@ -272,12 +274,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -288,7 +290,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -296,7 +298,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.761Z"
   },
   {
@@ -322,12 +324,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -338,7 +340,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -346,7 +348,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -372,12 +374,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -388,7 +390,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -396,7 +398,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -422,12 +424,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -438,7 +440,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -446,7 +448,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -472,12 +474,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -488,7 +490,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -496,7 +498,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -522,12 +524,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -538,7 +540,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -546,7 +548,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -572,12 +574,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -588,7 +590,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -596,7 +598,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -622,12 +624,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -638,7 +640,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -646,7 +648,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -672,12 +674,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -688,7 +690,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -696,7 +698,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -722,12 +724,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -738,7 +740,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -746,7 +748,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -772,12 +774,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -788,7 +790,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -796,7 +798,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -822,12 +824,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -838,7 +840,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -846,7 +848,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -872,12 +874,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -888,7 +890,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -896,7 +898,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -922,12 +924,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -938,7 +940,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -946,7 +948,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -972,12 +974,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -988,7 +990,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -996,7 +998,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -1022,12 +1024,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -1038,7 +1040,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -1046,7 +1048,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -1072,12 +1074,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -1088,7 +1090,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -1096,7 +1098,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -1122,12 +1124,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -1138,7 +1140,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -1146,7 +1148,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -1172,12 +1174,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -1188,7 +1190,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -1196,7 +1198,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -1222,12 +1224,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -1238,7 +1240,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -1246,7 +1248,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -1272,12 +1274,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -1288,7 +1290,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -1296,7 +1298,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -1322,12 +1324,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -1338,7 +1340,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -1346,7 +1348,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -1372,12 +1374,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.72,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -1388,7 +1390,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -1396,7 +1398,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -1422,12 +1424,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.72,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -1438,7 +1440,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -1446,7 +1448,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -1472,12 +1474,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.72,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -1488,7 +1490,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -1496,7 +1498,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -1522,12 +1524,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.72,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -1538,7 +1540,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -1546,7 +1548,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -1572,12 +1574,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.72,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -1588,7 +1590,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -1596,7 +1598,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -1622,12 +1624,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.72,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -1638,7 +1640,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -1646,7 +1648,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -1672,12 +1674,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.72,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -1688,7 +1690,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -1696,7 +1698,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -1722,12 +1724,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.72,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -1738,7 +1740,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -1746,7 +1748,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -1772,12 +1774,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.72,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -1788,7 +1790,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -1796,7 +1798,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -1822,12 +1824,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.72,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -1838,7 +1840,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -1846,7 +1848,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -1872,12 +1874,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.72,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -1888,7 +1890,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -1896,7 +1898,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -1922,12 +1924,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.72,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -1938,7 +1940,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -1946,7 +1948,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -1972,12 +1974,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.72,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -1988,7 +1990,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -1996,7 +1998,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -2022,12 +2024,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.72,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -2038,7 +2040,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -2046,7 +2048,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -2072,12 +2074,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.72,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -2088,7 +2090,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -2096,7 +2098,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -2122,12 +2124,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.72,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -2138,7 +2140,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -2146,7 +2148,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -2172,12 +2174,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.72,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -2188,7 +2190,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -2196,7 +2198,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -2222,12 +2224,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.72,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -2238,7 +2240,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -2246,7 +2248,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -2272,12 +2274,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.72,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -2288,7 +2290,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -2296,7 +2298,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -2322,12 +2324,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.72,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -2338,7 +2340,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -2346,7 +2348,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -2372,12 +2374,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.72,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -2388,7 +2390,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -2396,7 +2398,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -2422,12 +2424,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.72,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -2438,7 +2440,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -2446,7 +2448,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -2472,12 +2474,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.72,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -2488,7 +2490,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -2496,7 +2498,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -2522,12 +2524,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.72,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -2538,7 +2540,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -2546,7 +2548,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -2572,12 +2574,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.72,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -2588,7 +2590,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -2596,7 +2598,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -2622,12 +2624,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 17.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.28,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -2638,7 +2640,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "60,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -2671,12 +2673,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 17.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.28,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -2687,7 +2689,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "60,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -2720,12 +2722,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 17.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.28,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -2736,7 +2738,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "60,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -2769,12 +2771,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 17.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.28,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -2785,7 +2787,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "60,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -2818,12 +2820,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 17.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.28,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -2834,7 +2836,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "60,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -2867,12 +2869,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 17.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.28,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -2883,7 +2885,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "60,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -2916,12 +2918,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 17.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.28,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -2932,7 +2934,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "60,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -2965,12 +2967,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 17.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.28,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -2981,7 +2983,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "60,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -3014,12 +3016,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 17.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.28,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -3030,7 +3032,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "60,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -3063,12 +3065,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 17.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.28,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -3079,7 +3081,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "60,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -3112,12 +3114,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 17.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.28,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -3128,7 +3130,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "60,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -3161,12 +3163,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 17.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.28,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -3177,7 +3179,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "60,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -3210,12 +3212,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 17.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.28,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -3226,7 +3228,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "60,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -3259,12 +3261,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 17.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.28,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -3275,7 +3277,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "60,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -3308,12 +3310,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 17.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.28,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -3324,7 +3326,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "60,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -3357,12 +3359,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.25,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -3373,7 +3375,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -3406,12 +3408,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.25,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -3422,7 +3424,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -3455,12 +3457,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.25,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -3471,7 +3473,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -3504,12 +3506,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.25,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -3520,7 +3522,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -3553,12 +3555,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.25,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -3569,7 +3571,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -3602,12 +3604,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.25,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -3618,7 +3620,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -3651,12 +3653,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.25,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -3667,7 +3669,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -3700,12 +3702,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.25,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -3716,7 +3718,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -3749,12 +3751,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.25,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -3765,7 +3767,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -3798,12 +3800,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.25,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -3814,7 +3816,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -3847,12 +3849,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.25,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -3863,7 +3865,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -3896,12 +3898,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.25,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -3912,7 +3914,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -3945,12 +3947,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.25,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -3961,7 +3963,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -3994,12 +3996,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.25,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -4010,7 +4012,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -4043,12 +4045,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.25,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -4059,7 +4061,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -4092,12 +4094,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -4108,7 +4110,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -4141,12 +4143,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -4157,7 +4159,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -4190,12 +4192,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -4206,7 +4208,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -4239,12 +4241,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -4255,7 +4257,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -4288,12 +4290,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -4304,7 +4306,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -4337,12 +4339,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -4353,7 +4355,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -4386,12 +4388,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -4402,7 +4404,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -4435,12 +4437,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -4451,7 +4453,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -4484,12 +4486,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -4500,7 +4502,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -4533,12 +4535,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -4549,7 +4551,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -4582,12 +4584,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -4598,7 +4600,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -4631,12 +4633,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -4647,7 +4649,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -4680,12 +4682,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -4696,7 +4698,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -4729,12 +4731,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -4745,7 +4747,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -4778,12 +4780,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -4794,7 +4796,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -4827,12 +4829,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -4843,7 +4845,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs/Pod",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -4876,12 +4878,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -4892,7 +4894,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs/Pod",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -4925,12 +4927,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -4941,7 +4943,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs/Pod",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -4974,12 +4976,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -4990,7 +4992,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs/Pod",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -5023,12 +5025,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -5039,7 +5041,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs/Pod",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -5072,12 +5074,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -5088,7 +5090,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs/Pod",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -5121,12 +5123,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -5137,7 +5139,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs/Pod",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -5170,12 +5172,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -5186,7 +5188,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs/Pod",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -5219,12 +5221,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -5235,7 +5237,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs/Pod",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -5268,12 +5270,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -5284,7 +5286,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs/Pod",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -5317,12 +5319,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -5333,7 +5335,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs/Pod",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -5366,12 +5368,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -5382,7 +5384,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs/Pod",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -5415,12 +5417,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -5431,7 +5433,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs/Pod",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -5464,12 +5466,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -5480,7 +5482,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs/Pod",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -5513,12 +5515,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -5529,7 +5531,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs/Pod",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -5562,12 +5564,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -5578,7 +5580,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -5586,7 +5588,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -5612,12 +5614,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -5628,7 +5630,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -5636,7 +5638,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -5662,12 +5664,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -5678,7 +5680,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -5686,7 +5688,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -5712,12 +5714,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -5728,7 +5730,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -5736,7 +5738,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -5762,12 +5764,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -5778,7 +5780,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -5786,7 +5788,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -5812,12 +5814,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -5828,7 +5830,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -5836,7 +5838,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -5862,12 +5864,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -5878,7 +5880,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -5886,7 +5888,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.762Z"
   },
   {
@@ -5912,12 +5914,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -5928,7 +5930,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -5936,7 +5938,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.763Z"
   },
   {
@@ -5962,12 +5964,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -5978,7 +5980,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -5986,7 +5988,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.763Z"
   },
   {
@@ -6012,12 +6014,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -6028,7 +6030,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -6036,7 +6038,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.763Z"
   },
   {
@@ -6062,12 +6064,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -6078,7 +6080,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -6086,7 +6088,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.763Z"
   },
   {
@@ -6112,12 +6114,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -6128,7 +6130,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -6136,7 +6138,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.763Z"
   },
   {
@@ -6162,12 +6164,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -6178,7 +6180,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -6186,7 +6188,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.763Z"
   },
   {
@@ -6212,12 +6214,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -6228,7 +6230,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -6236,7 +6238,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.763Z"
   },
   {
@@ -6262,12 +6264,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -6278,7 +6280,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -6286,7 +6288,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.763Z"
   },
   {
@@ -6312,12 +6314,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -6328,7 +6330,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -6336,7 +6338,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.763Z"
   },
   {
@@ -6362,12 +6364,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -6378,7 +6380,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -6386,7 +6388,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.763Z"
   },
   {
@@ -6412,12 +6414,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -6428,7 +6430,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -6436,7 +6438,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.763Z"
   },
   {
@@ -6462,12 +6464,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -6478,7 +6480,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -6486,7 +6488,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.763Z"
   },
   {
@@ -6512,12 +6514,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -6528,7 +6530,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -6536,7 +6538,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.763Z"
   },
   {
@@ -6562,12 +6564,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -6578,7 +6580,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -6586,7 +6588,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.763Z"
   },
   {
@@ -6612,12 +6614,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -6628,7 +6630,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -6636,7 +6638,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.763Z"
   },
   {
@@ -6662,12 +6664,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -6678,7 +6680,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -6686,7 +6688,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.763Z"
   },
   {
@@ -6712,12 +6714,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -6728,7 +6730,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -6736,7 +6738,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.763Z"
   },
   {
@@ -6762,12 +6764,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -6778,7 +6780,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -6786,7 +6788,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.763Z"
   },
   {
@@ -6812,12 +6814,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.6,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -6828,7 +6830,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -6861,12 +6863,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.6,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -6877,7 +6879,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -6910,12 +6912,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.6,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -6926,7 +6928,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -6959,12 +6961,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.6,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -6975,7 +6977,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -7008,12 +7010,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.6,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -7024,7 +7026,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -7057,12 +7059,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.6,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -7073,7 +7075,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -7106,12 +7108,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.6,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -7122,7 +7124,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -7155,12 +7157,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.6,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -7171,7 +7173,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -7204,12 +7206,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.6,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -7220,7 +7222,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -7253,12 +7255,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.6,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -7269,7 +7271,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -7302,12 +7304,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.6,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -7318,7 +7320,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -7351,12 +7353,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.6,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -7367,7 +7369,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -7400,12 +7402,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.6,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -7416,7 +7418,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -7449,12 +7451,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.6,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -7465,7 +7467,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -7498,12 +7500,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.6,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -7514,7 +7516,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -7547,12 +7549,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.6,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -7563,7 +7565,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -7596,12 +7598,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.6,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -7612,7 +7614,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -7645,12 +7647,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.6,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -7661,7 +7663,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -7694,12 +7696,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.6,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -7710,7 +7712,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -7743,12 +7745,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.6,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -7759,7 +7761,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -7792,12 +7794,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -7808,7 +7810,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -7841,12 +7843,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -7857,7 +7859,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -7890,12 +7892,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -7906,7 +7908,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -7939,12 +7941,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -7955,7 +7957,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -7988,12 +7990,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -8004,7 +8006,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -8037,12 +8039,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -8053,7 +8055,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -8086,12 +8088,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -8102,7 +8104,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -8135,12 +8137,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -8151,7 +8153,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -8184,12 +8186,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -8200,7 +8202,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -8233,12 +8235,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -8249,7 +8251,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -8282,12 +8284,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -8298,7 +8300,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -8331,12 +8333,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -8347,7 +8349,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -8380,12 +8382,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -8396,7 +8398,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -8429,12 +8431,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -8445,7 +8447,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -8478,12 +8480,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -8494,7 +8496,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -8527,12 +8529,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -8543,7 +8545,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -8576,12 +8578,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -8592,7 +8594,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -8625,12 +8627,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -8641,7 +8643,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -8674,12 +8676,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -8690,7 +8692,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -8723,12 +8725,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -8739,7 +8741,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -8772,12 +8774,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -8788,7 +8790,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -8821,12 +8823,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -8837,7 +8839,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -8870,12 +8872,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -8886,7 +8888,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -8919,12 +8921,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -8935,7 +8937,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -8968,12 +8970,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -8984,7 +8986,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -9017,12 +9019,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -9033,7 +9035,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -9066,12 +9068,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -9082,7 +9084,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -9115,12 +9117,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -9131,7 +9133,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -9164,12 +9166,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -9180,7 +9182,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -9213,12 +9215,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -9229,7 +9231,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -9262,12 +9264,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -9278,7 +9280,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -9311,12 +9313,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -9327,7 +9329,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -9360,12 +9362,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -9376,7 +9378,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -9409,12 +9411,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -9425,7 +9427,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -9458,12 +9460,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -9474,7 +9476,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -9507,12 +9509,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -9523,7 +9525,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -9556,12 +9558,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -9572,7 +9574,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -9605,12 +9607,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -9621,7 +9623,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -9654,12 +9656,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -9670,7 +9672,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -9703,12 +9705,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -9719,7 +9721,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -9752,12 +9754,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -9768,7 +9770,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -9801,12 +9803,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -9817,7 +9819,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -9850,12 +9852,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -9866,7 +9868,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -9899,12 +9901,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -9915,7 +9917,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -9948,12 +9950,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -9964,7 +9966,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -9997,12 +9999,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -10013,7 +10015,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -10046,12 +10048,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -10062,7 +10064,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -10095,12 +10097,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -10111,7 +10113,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -10144,12 +10146,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -10160,7 +10162,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -10193,12 +10195,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -10209,7 +10211,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -10242,12 +10244,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -10258,7 +10260,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -10291,12 +10293,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -10307,7 +10309,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -10340,12 +10342,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -10356,7 +10358,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -10389,12 +10391,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -10405,7 +10407,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -10438,12 +10440,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -10454,7 +10456,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -10487,12 +10489,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -10503,7 +10505,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -10536,12 +10538,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -10552,7 +10554,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -10585,12 +10587,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -10601,7 +10603,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -10634,12 +10636,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -10650,7 +10652,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -10683,12 +10685,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -10699,7 +10701,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -10732,12 +10734,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -10748,7 +10750,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -10781,12 +10783,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -10797,7 +10799,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -10830,12 +10832,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -10846,7 +10848,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -10879,12 +10881,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -10895,7 +10897,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -10928,12 +10930,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -10944,7 +10946,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -10977,12 +10979,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -10993,7 +10995,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -11026,12 +11028,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -11042,7 +11044,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -11075,12 +11077,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -11091,7 +11093,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -11124,12 +11126,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -11140,7 +11142,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -11173,12 +11175,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -11189,7 +11191,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "9,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -11222,12 +11224,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.95,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -11238,7 +11240,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -11271,12 +11273,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.95,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -11287,7 +11289,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -11320,12 +11322,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.95,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -11336,7 +11338,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -11369,12 +11371,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.95,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -11385,7 +11387,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -11418,12 +11420,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.95,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -11434,7 +11436,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -11467,12 +11469,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.95,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -11483,7 +11485,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -11516,12 +11518,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.95,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -11532,7 +11534,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -11565,12 +11567,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.95,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -11581,7 +11583,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -11614,12 +11616,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.95,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -11630,7 +11632,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -11663,12 +11665,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.95,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -11679,7 +11681,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -11712,12 +11714,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.95,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -11728,7 +11730,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -11761,12 +11763,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.95,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -11777,7 +11779,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -11810,12 +11812,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.95,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -11826,7 +11828,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -11859,12 +11861,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.95,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -11875,7 +11877,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -11908,12 +11910,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.95,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -11924,7 +11926,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "25,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -11957,12 +11959,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -11973,7 +11975,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -12006,12 +12008,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -12022,7 +12024,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -12055,12 +12057,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -12071,7 +12073,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -12104,12 +12106,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -12120,7 +12122,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -12153,12 +12155,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -12169,7 +12171,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -12202,12 +12204,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -12218,7 +12220,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -12251,12 +12253,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -12267,7 +12269,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -12300,12 +12302,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -12316,7 +12318,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -12349,12 +12351,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -12365,7 +12367,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -12398,12 +12400,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -12414,7 +12416,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -12447,12 +12449,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -12463,7 +12465,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -12496,12 +12498,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -12512,7 +12514,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -12545,12 +12547,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -12561,7 +12563,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -12594,12 +12596,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -12610,7 +12612,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -12643,12 +12645,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.39,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -12659,7 +12661,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -12692,12 +12694,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.39,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -12708,7 +12710,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -12741,12 +12743,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.39,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -12757,7 +12759,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -12790,12 +12792,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.39,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -12806,7 +12808,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -12839,12 +12841,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.39,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -12855,7 +12857,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -12888,12 +12890,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.39,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -12904,7 +12906,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -12937,12 +12939,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.39,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -12953,7 +12955,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -12986,12 +12988,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.39,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -13002,7 +13004,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -13035,12 +13037,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.39,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -13051,7 +13053,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -13084,12 +13086,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.39,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -13100,7 +13102,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -13133,12 +13135,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.39,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -13149,7 +13151,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -13182,12 +13184,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.39,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -13198,7 +13200,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -13231,12 +13233,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.39,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -13247,7 +13249,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -13280,12 +13282,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.39,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -13296,7 +13298,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -13329,12 +13331,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.39,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -13345,7 +13347,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -13378,12 +13380,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.39,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -13394,7 +13396,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -13427,12 +13429,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.39,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -13443,7 +13445,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -13476,12 +13478,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.39,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -13492,7 +13494,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -13525,12 +13527,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.39,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -13541,7 +13543,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -13574,12 +13576,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.39,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -13590,7 +13592,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -13623,12 +13625,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.39,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -13639,7 +13641,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -13672,12 +13674,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.39,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -13688,7 +13690,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -13721,12 +13723,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.39,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -13737,7 +13739,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -13770,12 +13772,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.39,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -13786,7 +13788,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -13819,12 +13821,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.39,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -13835,7 +13837,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -13868,12 +13870,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -13884,7 +13886,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -13917,12 +13919,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -13933,7 +13935,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -13966,12 +13968,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -13982,7 +13984,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -14015,12 +14017,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -14031,7 +14033,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -14064,12 +14066,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -14080,7 +14082,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -14113,12 +14115,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -14129,7 +14131,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -14162,12 +14164,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -14178,7 +14180,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -14211,12 +14213,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -14227,7 +14229,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -14260,12 +14262,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -14276,7 +14278,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -14309,12 +14311,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -14325,7 +14327,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -14358,12 +14360,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -14374,7 +14376,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -14407,12 +14409,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -14423,7 +14425,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -14456,12 +14458,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -14472,7 +14474,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -14505,12 +14507,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -14521,7 +14523,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -14554,12 +14556,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -14570,7 +14572,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -14603,12 +14605,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -14619,7 +14621,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -14652,12 +14654,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -14668,7 +14670,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -14701,12 +14703,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -14717,7 +14719,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -14750,12 +14752,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -14766,7 +14768,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -14799,12 +14801,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -14815,7 +14817,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -14848,12 +14850,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -14864,7 +14866,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -14897,12 +14899,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -14913,7 +14915,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -14946,12 +14948,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -14962,7 +14964,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -14995,12 +14997,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -15011,7 +15013,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -15044,12 +15046,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -15060,7 +15062,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -15093,12 +15095,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -15109,7 +15111,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -15142,12 +15144,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -15158,7 +15160,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -15191,12 +15193,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -15207,7 +15209,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -15240,12 +15242,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -15256,7 +15258,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -15289,12 +15291,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -15305,7 +15307,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -15338,12 +15340,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -15354,7 +15356,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -15387,12 +15389,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -15403,7 +15405,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -15436,12 +15438,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -15452,7 +15454,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -15485,12 +15487,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -15501,7 +15503,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -15534,12 +15536,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -15550,7 +15552,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -15583,12 +15585,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -15599,7 +15601,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -15632,12 +15634,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -15648,7 +15650,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -15681,12 +15683,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -15697,7 +15699,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -15730,12 +15732,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -15746,7 +15748,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -15779,12 +15781,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -15795,7 +15797,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -15828,12 +15830,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.84,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -15844,7 +15846,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -15877,12 +15879,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.84,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -15893,7 +15895,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -15926,12 +15928,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.84,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -15942,7 +15944,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -15975,12 +15977,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.84,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -15991,7 +15993,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -16024,12 +16026,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.84,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -16040,7 +16042,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -16073,12 +16075,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.84,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -16089,7 +16091,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -16122,12 +16124,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.84,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -16138,7 +16140,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -16171,12 +16173,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.84,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -16187,7 +16189,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -16220,12 +16222,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.84,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -16236,7 +16238,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -16269,12 +16271,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.84,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -16285,7 +16287,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -16318,12 +16320,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -16334,7 +16336,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -16367,12 +16369,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -16383,7 +16385,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -16416,12 +16418,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -16432,7 +16434,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -16465,12 +16467,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -16481,7 +16483,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -16514,12 +16516,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -16530,7 +16532,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -16563,12 +16565,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -16579,7 +16581,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -16612,12 +16614,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -16628,7 +16630,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -16661,12 +16663,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -16677,7 +16679,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -16710,12 +16712,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -16726,7 +16728,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -16759,12 +16761,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -16775,7 +16777,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -16808,12 +16810,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -16824,7 +16826,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -16857,12 +16859,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -16873,7 +16875,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -16906,12 +16908,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -16922,7 +16924,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -16955,12 +16957,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -16971,7 +16973,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -17004,12 +17006,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -17020,7 +17022,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -17053,12 +17055,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -17069,7 +17071,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -17102,12 +17104,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -17118,7 +17120,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -17151,12 +17153,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -17167,7 +17169,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -17200,12 +17202,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -17216,7 +17218,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -17249,12 +17251,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -17265,7 +17267,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -17298,12 +17300,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -17314,7 +17316,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -17347,12 +17349,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -17363,7 +17365,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -17396,12 +17398,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -17412,7 +17414,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -17445,12 +17447,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -17461,7 +17463,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -17494,12 +17496,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -17510,7 +17512,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -17543,12 +17545,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 16,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.88,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -17559,7 +17561,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -17592,12 +17594,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 16,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.88,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -17608,7 +17610,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -17641,12 +17643,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 16,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.88,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -17657,7 +17659,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -17690,12 +17692,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 16,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.88,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -17706,7 +17708,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -17739,12 +17741,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 16,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.88,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -17755,7 +17757,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -17788,12 +17790,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 16,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.88,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -17804,7 +17806,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -17837,12 +17839,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 16,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.88,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -17853,7 +17855,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -17886,12 +17888,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 16,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.88,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -17902,7 +17904,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -17935,12 +17937,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 16,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.88,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -17951,7 +17953,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -17984,12 +17986,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 16,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.88,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -18000,7 +18002,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -18033,12 +18035,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 16,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.88,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -18049,7 +18051,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -18082,12 +18084,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 16,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.88,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -18098,7 +18100,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -18131,12 +18133,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 16,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.88,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -18147,7 +18149,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -18180,12 +18182,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 16,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.88,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -18196,7 +18198,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -18229,12 +18231,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 16,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.88,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -18245,7 +18247,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -18278,12 +18280,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 16,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.88,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -18294,7 +18296,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -18327,12 +18329,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 16,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.88,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -18343,7 +18345,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -18376,12 +18378,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 16,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.88,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -18392,7 +18394,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -18425,12 +18427,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 16,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.88,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -18441,7 +18443,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -18474,12 +18476,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 16,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.88,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -18490,7 +18492,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "50,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -18523,12 +18525,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -18539,7 +18541,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -18572,12 +18574,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -18588,7 +18590,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -18621,12 +18623,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -18637,7 +18639,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -18670,12 +18672,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -18686,7 +18688,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -18719,12 +18721,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -18735,7 +18737,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -18768,12 +18770,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -18784,7 +18786,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -18817,12 +18819,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -18833,7 +18835,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -18866,12 +18868,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -18882,7 +18884,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -18915,12 +18917,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -18931,7 +18933,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -18964,12 +18966,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -18980,7 +18982,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -19013,12 +19015,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -19029,7 +19031,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -19062,12 +19064,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -19078,7 +19080,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -19111,12 +19113,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -19127,7 +19129,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -19160,12 +19162,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -19176,7 +19178,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -19209,12 +19211,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -19225,7 +19227,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -19258,12 +19260,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -19274,7 +19276,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -19307,12 +19309,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -19323,7 +19325,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -19356,12 +19358,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -19372,7 +19374,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -19405,12 +19407,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -19421,7 +19423,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -19454,12 +19456,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -19470,7 +19472,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -19503,12 +19505,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -19519,7 +19521,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -19552,12 +19554,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -19568,7 +19570,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -19601,12 +19603,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -19617,7 +19619,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -19650,12 +19652,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -19666,7 +19668,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -19699,12 +19701,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -19715,7 +19717,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -19748,12 +19750,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -19764,7 +19766,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -19797,12 +19799,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -19813,7 +19815,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -19846,12 +19848,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -19862,7 +19864,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -19895,12 +19897,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -19911,7 +19913,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -19944,12 +19946,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -19960,7 +19962,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -19993,12 +19995,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -20009,7 +20011,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -20042,12 +20044,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -20058,7 +20060,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -20091,12 +20093,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -20107,7 +20109,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -20140,12 +20142,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -20156,7 +20158,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -20189,12 +20191,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -20205,7 +20207,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -20238,12 +20240,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -20254,7 +20256,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -20262,7 +20264,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.766Z"
   },
   {
@@ -20288,12 +20290,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -20304,7 +20306,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -20312,7 +20314,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.766Z"
   },
   {
@@ -20338,12 +20340,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -20354,7 +20356,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -20362,7 +20364,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.766Z"
   },
   {
@@ -20388,12 +20390,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -20404,7 +20406,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -20412,7 +20414,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.766Z"
   },
   {
@@ -20438,12 +20440,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -20454,7 +20456,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -20462,7 +20464,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.766Z"
   },
   {
@@ -20488,12 +20490,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -20504,7 +20506,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -20512,7 +20514,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.766Z"
   },
   {
@@ -20538,12 +20540,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -20554,7 +20556,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -20562,7 +20564,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.766Z"
   },
   {
@@ -20588,12 +20590,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -20604,7 +20606,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -20612,7 +20614,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.766Z"
   },
   {
@@ -20638,12 +20640,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -20654,7 +20656,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -20662,7 +20664,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.766Z"
   },
   {
@@ -20688,12 +20690,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -20704,7 +20706,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -20712,7 +20714,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.766Z"
   },
   {
@@ -20738,12 +20740,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -20754,7 +20756,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -20762,7 +20764,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.766Z"
   },
   {
@@ -20788,12 +20790,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -20804,7 +20806,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -20812,7 +20814,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.766Z"
   },
   {
@@ -20838,12 +20840,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -20854,7 +20856,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -20862,7 +20864,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.766Z"
   },
   {
@@ -20888,12 +20890,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -20904,7 +20906,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -20912,7 +20914,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.766Z"
   },
   {
@@ -20938,12 +20940,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -20954,7 +20956,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -20962,7 +20964,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.766Z"
   },
   {
@@ -20988,12 +20990,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -21004,7 +21006,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -21012,7 +21014,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.766Z"
   },
   {
@@ -21038,12 +21040,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -21054,7 +21056,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -21062,7 +21064,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.766Z"
   },
   {
@@ -21088,12 +21090,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -21104,7 +21106,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -21112,7 +21114,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.766Z"
   },
   {
@@ -21138,12 +21140,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -21154,7 +21156,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -21162,7 +21164,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.766Z"
   },
   {
@@ -21188,12 +21190,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -21204,7 +21206,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -21212,7 +21214,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.766Z"
   },
   {
@@ -21238,12 +21240,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -21254,7 +21256,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -21262,7 +21264,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.766Z"
   },
   {
@@ -21288,12 +21290,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -21304,7 +21306,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -21312,7 +21314,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.766Z"
   },
   {
@@ -21338,12 +21340,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -21354,7 +21356,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -21362,7 +21364,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.766Z"
   },
   {
@@ -21388,12 +21390,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -21404,7 +21406,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -21412,7 +21414,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.766Z"
   },
   {
@@ -21438,12 +21440,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -21454,7 +21456,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "30,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -21462,7 +21464,7 @@
       "Same-Day OKC Warehouse Pickup Available",
       "Tiered Case Breakdown Discounts"
     ],
-    "badge": "🔥 High Velocity",
+    "badge": "ðŸ”¥ High Velocity",
     "last_modified_time": "2026-09-14T22:19:13.766Z"
   },
   {
@@ -21488,12 +21490,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -21504,7 +21506,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -21537,12 +21539,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -21553,7 +21555,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -21586,12 +21588,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -21602,7 +21604,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -21635,12 +21637,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -21651,7 +21653,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -21684,12 +21686,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -21700,7 +21702,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -21733,12 +21735,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -21749,7 +21751,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -21782,12 +21784,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -21798,7 +21800,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -21831,12 +21833,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -21847,7 +21849,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -21880,12 +21882,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -21896,7 +21898,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -21929,12 +21931,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -21945,7 +21947,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -21978,12 +21980,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -21994,7 +21996,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -22027,12 +22029,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -22043,7 +22045,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -22076,12 +22078,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -22092,7 +22094,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -22125,12 +22127,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -22141,7 +22143,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -22174,12 +22176,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -22190,7 +22192,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -22223,12 +22225,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -22239,7 +22241,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -22272,12 +22274,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -22288,7 +22290,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -22321,12 +22323,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -22337,7 +22339,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -22370,12 +22372,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -22386,7 +22388,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -22419,12 +22421,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -22435,7 +22437,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -22468,12 +22470,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -22484,7 +22486,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -22517,12 +22519,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -22533,7 +22535,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -22566,12 +22568,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -22582,7 +22584,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -22615,12 +22617,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -22631,7 +22633,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -22664,12 +22666,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -22680,7 +22682,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "10,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -22713,12 +22715,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -22729,7 +22731,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -22762,12 +22764,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -22778,7 +22780,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -22811,12 +22813,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -22827,7 +22829,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -22860,12 +22862,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -22876,7 +22878,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -22909,12 +22911,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -22925,7 +22927,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -22958,12 +22960,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -22974,7 +22976,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -23007,12 +23009,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -23023,7 +23025,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -23056,12 +23058,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -23072,7 +23074,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -23105,12 +23107,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -23121,7 +23123,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -23154,12 +23156,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -23170,7 +23172,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -23203,12 +23205,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -23219,7 +23221,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -23252,12 +23254,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -23268,7 +23270,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -23301,12 +23303,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -23317,7 +23319,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -23350,12 +23352,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -23366,7 +23368,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -23399,12 +23401,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -23415,7 +23417,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "6,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -23448,12 +23450,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -23464,7 +23466,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "2,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -23497,12 +23499,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -23513,7 +23515,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "2,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -23546,12 +23548,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -23562,7 +23564,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "2,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -23595,12 +23597,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -23611,7 +23613,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "2,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -23644,12 +23646,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -23660,7 +23662,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "2,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -23693,12 +23695,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -23709,7 +23711,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "2,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -23742,12 +23744,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -23758,7 +23760,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "2,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -23791,12 +23793,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -23807,7 +23809,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "2,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -23840,12 +23842,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -23856,7 +23858,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "2,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -23889,12 +23891,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -23905,7 +23907,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "2,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -23938,12 +23940,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -23954,7 +23956,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "2,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -23987,12 +23989,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -24003,7 +24005,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "2,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -24036,12 +24038,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -24052,7 +24054,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "2,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -24085,12 +24087,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -24101,7 +24103,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "2,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -24134,12 +24136,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -24150,7 +24152,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "2,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -24183,12 +24185,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -24199,7 +24201,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -24232,12 +24234,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -24248,7 +24250,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -24281,12 +24283,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -24297,7 +24299,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -24330,12 +24332,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -24346,7 +24348,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -24379,12 +24381,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -24395,7 +24397,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -24428,12 +24430,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -24444,7 +24446,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -24477,12 +24479,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -24493,7 +24495,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -24526,12 +24528,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -24542,7 +24544,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -24575,12 +24577,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -24591,7 +24593,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -24624,12 +24626,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -24640,7 +24642,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -24673,12 +24675,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -24689,7 +24691,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -24722,12 +24724,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -24738,7 +24740,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -24771,12 +24773,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -24787,7 +24789,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -24820,12 +24822,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -24836,7 +24838,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -24869,12 +24871,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -24885,7 +24887,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -24918,12 +24920,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -24934,7 +24936,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -24967,12 +24969,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -24983,7 +24985,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -25016,12 +25018,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -25032,7 +25034,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -25065,12 +25067,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -25081,7 +25083,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -25114,12 +25116,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -25130,7 +25132,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -25163,12 +25165,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -25179,7 +25181,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -25212,12 +25214,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -25228,7 +25230,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -25261,12 +25263,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -25277,7 +25279,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -25310,12 +25312,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -25326,7 +25328,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -25359,12 +25361,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -25375,7 +25377,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "5,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -25408,12 +25410,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.16,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -25424,7 +25426,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "12,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -25457,12 +25459,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.16,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -25473,7 +25475,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "12,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -25506,12 +25508,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.16,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -25522,7 +25524,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "12,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -25555,12 +25557,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.16,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -25571,7 +25573,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "12,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -25604,12 +25606,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.16,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -25620,7 +25622,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "12,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -25653,12 +25655,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.16,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -25669,7 +25671,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "12,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -25702,12 +25704,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.16,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -25718,7 +25720,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "12,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -25751,12 +25753,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.16,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -25767,7 +25769,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "12,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -25800,12 +25802,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.16,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -25816,7 +25818,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "12,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -25849,12 +25851,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.16,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -25865,7 +25867,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "12,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -25898,12 +25900,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.16,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -25914,7 +25916,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "12,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -25947,12 +25949,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.16,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -25963,7 +25965,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "12,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -25996,12 +25998,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.16,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -26012,7 +26014,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "12,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -26045,12 +26047,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.16,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -26061,7 +26063,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "12,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -26094,12 +26096,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.16,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -26110,7 +26112,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "12,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -26143,12 +26145,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.16,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -26159,7 +26161,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "12,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -26192,12 +26194,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.16,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -26208,7 +26210,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "12,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -26241,12 +26243,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.16,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -26257,7 +26259,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "12,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -26290,12 +26292,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.16,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -26306,7 +26308,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "12,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -26339,12 +26341,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.16,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -26355,7 +26357,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "12,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -26388,12 +26390,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -26404,7 +26406,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -26437,12 +26439,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -26453,7 +26455,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -26486,12 +26488,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -26502,7 +26504,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -26535,12 +26537,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -26551,7 +26553,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -26584,12 +26586,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -26600,7 +26602,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -26633,12 +26635,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -26649,7 +26651,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -26682,12 +26684,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -26698,7 +26700,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -26731,12 +26733,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -26747,7 +26749,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -26780,12 +26782,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -26796,7 +26798,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -26829,12 +26831,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -26845,7 +26847,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -26878,12 +26880,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.32,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -26894,7 +26896,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -26927,12 +26929,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.32,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -26943,7 +26945,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -26976,12 +26978,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.32,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -26992,7 +26994,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -27025,12 +27027,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.32,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -27041,7 +27043,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -27074,12 +27076,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.32,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -27090,7 +27092,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -27123,12 +27125,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.32,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -27139,7 +27141,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -27172,12 +27174,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.32,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -27188,7 +27190,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -27221,12 +27223,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.32,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -27237,7 +27239,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -27270,12 +27272,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.32,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -27286,7 +27288,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -27319,12 +27321,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.32,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -27335,7 +27337,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -27368,12 +27370,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.32,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -27384,7 +27386,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -27417,12 +27419,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.32,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -27433,7 +27435,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -27466,12 +27468,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.32,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -27482,7 +27484,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -27515,12 +27517,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.32,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -27531,7 +27533,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -27564,12 +27566,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.32,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -27580,7 +27582,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -27613,12 +27615,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.32,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -27629,7 +27631,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -27662,12 +27664,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.32,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -27678,7 +27680,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -27711,12 +27713,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.32,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -27727,7 +27729,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -27760,12 +27762,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.32,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -27776,7 +27778,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -27809,12 +27811,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.32,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -27825,7 +27827,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "20,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -27858,12 +27860,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -27874,7 +27876,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -27907,12 +27909,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -27923,7 +27925,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -27956,12 +27958,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -27972,7 +27974,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -28005,12 +28007,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -28021,7 +28023,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -28054,12 +28056,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -28070,7 +28072,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -28103,12 +28105,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -28119,7 +28121,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -28152,12 +28154,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -28168,7 +28170,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -28201,12 +28203,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -28217,7 +28219,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -28250,12 +28252,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -28266,7 +28268,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -28299,12 +28301,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -28315,7 +28317,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -28348,12 +28350,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -28364,7 +28366,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -28397,12 +28399,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -28413,7 +28415,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -28446,12 +28448,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -28462,7 +28464,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -28495,12 +28497,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -28511,7 +28513,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -28544,12 +28546,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -28560,7 +28562,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -28593,12 +28595,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -28609,7 +28611,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -28642,12 +28644,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -28658,7 +28660,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -28691,12 +28693,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -28707,7 +28709,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -28740,12 +28742,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -28756,7 +28758,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -28789,12 +28791,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -28805,7 +28807,7 @@
     "specs": {
       "nicotine": "5%",
       "puffs": "15,000 Puffs",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -28838,12 +28840,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 18.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -28852,7 +28854,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -28885,12 +28887,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 18.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -28899,7 +28901,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -28932,12 +28934,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 18.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -28946,7 +28948,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -28979,12 +28981,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 18.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -28993,7 +28995,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -29026,12 +29028,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 18.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -29040,7 +29042,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -29073,12 +29075,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 18.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -29087,7 +29089,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -29120,12 +29122,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 18.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -29134,7 +29136,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -29167,12 +29169,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 18.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -29181,7 +29183,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -29214,12 +29216,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 23.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 21.86,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -29228,7 +29230,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -29261,12 +29263,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 23.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 21.86,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -29275,7 +29277,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -29308,12 +29310,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 23.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 21.86,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -29322,7 +29324,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -29355,12 +29357,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 23.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 21.86,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -29369,7 +29371,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -29402,12 +29404,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -29416,7 +29418,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -29449,12 +29451,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -29463,7 +29465,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -29496,12 +29498,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -29510,7 +29512,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -29543,12 +29545,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -29557,7 +29559,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -29590,12 +29592,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.07,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -29604,7 +29606,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -29637,12 +29639,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 34,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 31.62,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -29651,7 +29653,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -29684,12 +29686,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 34,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 31.62,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -29698,7 +29700,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -29731,12 +29733,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 34,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 31.62,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -29745,7 +29747,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -29778,12 +29780,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 34,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 31.62,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -29792,7 +29794,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -29825,12 +29827,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 34,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 31.62,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -29839,7 +29841,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -29872,12 +29874,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 18,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -29886,7 +29888,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -29919,12 +29921,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 18,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -29933,7 +29935,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -29966,12 +29968,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 18,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -29980,7 +29982,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -30013,12 +30015,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 18,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -30027,7 +30029,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -30060,12 +30062,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 18,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -30074,7 +30076,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -30107,12 +30109,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 18,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -30121,7 +30123,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -30154,12 +30156,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 18,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -30168,7 +30170,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -30201,12 +30203,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 18,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -30215,7 +30217,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -30248,12 +30250,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 24.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 22.79,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -30262,7 +30264,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -30295,12 +30297,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 24.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 22.79,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -30309,7 +30311,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -30342,12 +30344,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 24.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 22.79,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -30356,7 +30358,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -30389,12 +30391,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 24.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 22.79,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -30403,7 +30405,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -30436,12 +30438,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 24.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 22.79,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -30450,7 +30452,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -30483,12 +30485,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 24.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 22.79,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -30497,7 +30499,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -30530,12 +30532,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 24.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 22.79,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -30544,7 +30546,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -30577,12 +30579,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -30591,7 +30593,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -30624,12 +30626,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -30638,7 +30640,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -30671,12 +30673,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -30685,7 +30687,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -30718,12 +30720,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -30732,7 +30734,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -30765,12 +30767,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -30779,7 +30781,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -30812,12 +30814,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -30826,7 +30828,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -30859,12 +30861,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -30873,7 +30875,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -30906,12 +30908,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -30920,7 +30922,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -30953,12 +30955,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -30967,7 +30969,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -31000,12 +31002,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -31014,7 +31016,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -31047,12 +31049,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 42,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 39.06,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -31061,7 +31063,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -31094,12 +31096,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 42,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 39.06,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -31108,7 +31110,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -31141,12 +31143,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 42,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 39.06,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -31155,7 +31157,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -31188,12 +31190,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 42,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 39.06,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -31202,7 +31204,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -31235,12 +31237,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 42,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 39.06,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -31249,7 +31251,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -31282,12 +31284,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 17.67,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -31296,7 +31298,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -31329,12 +31331,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 17.67,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -31343,7 +31345,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -31376,12 +31378,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 17.67,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -31390,7 +31392,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -31423,12 +31425,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 17.67,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -31437,7 +31439,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -31470,12 +31472,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 17.67,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -31484,7 +31486,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -31517,12 +31519,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -31531,7 +31533,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -31564,12 +31566,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -31578,7 +31580,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -31611,12 +31613,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -31625,7 +31627,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -31658,12 +31660,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -31672,7 +31674,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -31705,12 +31707,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -31719,7 +31721,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -31752,12 +31754,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 48,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 44.64,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -31766,7 +31768,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -31799,12 +31801,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 48,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 44.64,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -31813,7 +31815,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -31846,12 +31848,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 48,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 44.64,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -31860,7 +31862,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -31893,12 +31895,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 48,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 44.64,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -31907,7 +31909,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -31940,12 +31942,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 48,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 44.64,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -31954,7 +31956,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -31987,12 +31989,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 48,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 44.64,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -32001,7 +32003,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -32034,12 +32036,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 48,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 44.64,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -32048,7 +32050,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -32081,12 +32083,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 48,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 44.64,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -32095,7 +32097,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -32128,12 +32130,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -32142,7 +32144,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -32175,12 +32177,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -32189,7 +32191,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -32222,12 +32224,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -32236,7 +32238,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -32269,12 +32271,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -32283,7 +32285,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -32316,12 +32318,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 15.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 14.42,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -32330,7 +32332,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -32363,12 +32365,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.16,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -32377,7 +32379,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -32410,12 +32412,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.16,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -32424,7 +32426,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -32457,12 +32459,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.16,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -32471,7 +32473,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -32504,12 +32506,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.16,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -32518,7 +32520,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -32551,12 +32553,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.16,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -32565,7 +32567,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -32598,12 +32600,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.98,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -32614,7 +32616,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -32647,12 +32649,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.98,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -32663,7 +32665,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -32696,12 +32698,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.98,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -32712,7 +32714,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -32745,12 +32747,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.98,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -32761,7 +32763,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -32794,12 +32796,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.98,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -32810,7 +32812,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -32843,12 +32845,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.98,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -32859,7 +32861,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -32892,12 +32894,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.98,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -32908,7 +32910,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -32941,12 +32943,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.98,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -32957,7 +32959,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -32990,12 +32992,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.98,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -33006,7 +33008,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -33039,12 +33041,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.98,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -33055,7 +33057,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -33088,12 +33090,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.98,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -33104,7 +33106,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -33137,12 +33139,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.98,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -33153,7 +33155,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -33186,12 +33188,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.98,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -33202,7 +33204,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -33235,12 +33237,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.98,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -33251,7 +33253,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -33284,12 +33286,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.98,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -33300,7 +33302,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -33333,12 +33335,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.98,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -33349,7 +33351,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -33382,12 +33384,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.98,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -33398,7 +33400,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -33431,12 +33433,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.98,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -33447,7 +33449,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -33480,12 +33482,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.98,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -33496,7 +33498,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -33529,12 +33531,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.98,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -33545,7 +33547,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -33578,12 +33580,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.98,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -33594,7 +33596,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -33627,12 +33629,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.98,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -33643,7 +33645,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -33676,12 +33678,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.98,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -33692,7 +33694,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -33725,12 +33727,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.98,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -33741,7 +33743,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -33774,12 +33776,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -33790,7 +33792,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -33823,12 +33825,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -33839,7 +33841,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -33872,12 +33874,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -33888,7 +33890,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -33921,12 +33923,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -33937,7 +33939,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -33970,12 +33972,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -33986,7 +33988,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -34019,12 +34021,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -34035,7 +34037,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -34068,12 +34070,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -34084,7 +34086,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -34117,12 +34119,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -34133,7 +34135,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -34166,12 +34168,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -34182,7 +34184,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -34215,12 +34217,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -34231,7 +34233,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -34264,12 +34266,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -34280,7 +34282,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -34313,12 +34315,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -34329,7 +34331,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -34362,12 +34364,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -34378,7 +34380,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -34411,12 +34413,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -34427,7 +34429,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -34460,12 +34462,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -34476,7 +34478,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -34509,12 +34511,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -34525,7 +34527,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -34558,12 +34560,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -34574,7 +34576,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -34607,12 +34609,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -34623,7 +34625,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -34656,12 +34658,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -34672,7 +34674,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -34705,12 +34707,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -34721,7 +34723,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -34754,12 +34756,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -34770,7 +34772,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -34803,12 +34805,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -34819,7 +34821,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -34852,12 +34854,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -34868,7 +34870,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -34901,12 +34903,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -34917,7 +34919,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -34950,12 +34952,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -34966,7 +34968,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -34999,12 +35001,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -35015,7 +35017,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -35048,12 +35050,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -35064,7 +35066,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -35097,12 +35099,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -35113,7 +35115,7 @@
     "specs": {
       "size": "60ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -35146,12 +35148,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.51,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -35162,7 +35164,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -35195,12 +35197,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.51,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -35211,7 +35213,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -35244,12 +35246,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.51,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -35260,7 +35262,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -35293,12 +35295,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.51,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -35309,7 +35311,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -35342,12 +35344,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.51,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -35358,7 +35360,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -35391,12 +35393,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.51,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -35407,7 +35409,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -35440,12 +35442,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.51,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -35456,7 +35458,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -35489,12 +35491,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.51,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -35505,7 +35507,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -35538,12 +35540,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.51,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -35554,7 +35556,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -35587,12 +35589,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.51,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -35603,7 +35605,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -35636,12 +35638,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -35652,7 +35654,7 @@
     "specs": {
       "size": "100ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -35685,12 +35687,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -35701,7 +35703,7 @@
     "specs": {
       "size": "100ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -35734,12 +35736,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -35750,7 +35752,7 @@
     "specs": {
       "size": "100ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -35783,12 +35785,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -35799,7 +35801,7 @@
     "specs": {
       "size": "100ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -35832,12 +35834,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -35848,7 +35850,7 @@
     "specs": {
       "size": "100ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -35881,12 +35883,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -35897,7 +35899,7 @@
     "specs": {
       "size": "100ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -35930,12 +35932,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -35946,7 +35948,7 @@
     "specs": {
       "size": "100ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -35979,12 +35981,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -35995,7 +35997,7 @@
     "specs": {
       "size": "100ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -36028,12 +36030,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -36044,7 +36046,7 @@
     "specs": {
       "size": "100ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -36077,12 +36079,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -36093,7 +36095,7 @@
     "specs": {
       "size": "100ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -36126,12 +36128,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -36142,7 +36144,7 @@
     "specs": {
       "size": "100ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -36175,12 +36177,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -36191,7 +36193,7 @@
     "specs": {
       "size": "100ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -36224,12 +36226,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -36240,7 +36242,7 @@
     "specs": {
       "size": "100ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -36273,12 +36275,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -36289,7 +36291,7 @@
     "specs": {
       "size": "100ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -36322,12 +36324,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -36338,7 +36340,7 @@
     "specs": {
       "size": "100ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -36371,12 +36373,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -36387,7 +36389,7 @@
     "specs": {
       "size": "100ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -36420,12 +36422,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -36436,7 +36438,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -36469,12 +36471,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -36485,7 +36487,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -36518,12 +36520,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -36534,7 +36536,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -36567,12 +36569,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -36583,7 +36585,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -36616,12 +36618,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -36632,7 +36634,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -36665,12 +36667,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -36681,7 +36683,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -36714,12 +36716,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -36730,7 +36732,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -36763,12 +36765,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -36779,7 +36781,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -36812,12 +36814,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -36828,7 +36830,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -36861,12 +36863,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 7.25,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 6.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -36877,7 +36879,7 @@
     "specs": {
       "size": "30ml",
       "nicotine": "35mg / 50mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -36910,12 +36912,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.84,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -36926,7 +36928,7 @@
     "specs": {
       "size": "120ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -36959,12 +36961,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.84,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -36975,7 +36977,7 @@
     "specs": {
       "size": "120ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -37008,12 +37010,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.84,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -37024,7 +37026,7 @@
     "specs": {
       "size": "120ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -37057,12 +37059,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.84,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -37073,7 +37075,7 @@
     "specs": {
       "size": "120ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -37106,12 +37108,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.84,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -37122,7 +37124,7 @@
     "specs": {
       "size": "120ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -37155,12 +37157,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.84,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -37171,7 +37173,7 @@
     "specs": {
       "size": "120ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -37204,12 +37206,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.84,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -37220,7 +37222,7 @@
     "specs": {
       "size": "120ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -37253,12 +37255,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.84,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -37269,7 +37271,7 @@
     "specs": {
       "size": "120ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -37302,12 +37304,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.84,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -37318,7 +37320,7 @@
     "specs": {
       "size": "120ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -37351,12 +37353,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.84,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -37367,7 +37369,7 @@
     "specs": {
       "size": "120ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -37400,12 +37402,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.84,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -37416,7 +37418,7 @@
     "specs": {
       "size": "120ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -37449,12 +37451,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.84,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -37465,7 +37467,7 @@
     "specs": {
       "size": "120ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -37498,12 +37500,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.84,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -37514,7 +37516,7 @@
     "specs": {
       "size": "120ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -37547,12 +37549,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 9.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 8.84,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -37563,7 +37565,7 @@
     "specs": {
       "size": "120ml",
       "nicotine": "3mg / 6mg",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -37596,12 +37598,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -37611,7 +37613,7 @@
     ],
     "specs": {
       "size": "8.8ml",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -37644,12 +37646,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -37659,7 +37661,7 @@
     ],
     "specs": {
       "size": "8.8ml",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -37692,12 +37694,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 11.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 10.7,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -37707,7 +37709,7 @@
     ],
     "specs": {
       "size": "8.8ml",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -37740,12 +37742,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.86,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -37755,7 +37757,7 @@
     ],
     "specs": {
       "size": "8.8ml",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -37788,12 +37790,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.86,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -37803,7 +37805,7 @@
     ],
     "specs": {
       "size": "8.8ml",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -37836,12 +37838,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.75,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.86,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -37851,7 +37853,7 @@
     ],
     "specs": {
       "size": "8.8ml",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -37884,12 +37886,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 17.67,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -37898,7 +37900,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -37931,12 +37933,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 17.67,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -37945,7 +37947,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -37978,12 +37980,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 17.67,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -37992,7 +37994,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -38025,12 +38027,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 17.67,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -38039,7 +38041,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -38072,12 +38074,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 17.67,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -38086,7 +38088,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -38119,12 +38121,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 17.67,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -38133,7 +38135,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -38166,12 +38168,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 21.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -38180,7 +38182,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -38213,12 +38215,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 21.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -38227,7 +38229,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -38260,12 +38262,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 21.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -38274,7 +38276,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -38307,12 +38309,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 21.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -38321,7 +38323,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -38354,12 +38356,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 21.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -38368,7 +38370,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -38401,12 +38403,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 21.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -38415,7 +38417,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -38448,12 +38450,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -38462,7 +38464,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -38495,12 +38497,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -38509,7 +38511,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -38542,12 +38544,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -38556,7 +38558,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -38589,12 +38591,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -38603,7 +38605,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -38636,12 +38638,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -38650,7 +38652,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -38683,12 +38685,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -38697,7 +38699,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -38730,12 +38732,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -38744,7 +38746,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -38777,12 +38779,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -38791,7 +38793,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -38824,12 +38826,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -38838,7 +38840,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -38871,12 +38873,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -38885,7 +38887,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -38918,12 +38920,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -38932,7 +38934,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -38965,12 +38967,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 10.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 9.77,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -38979,7 +38981,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -39012,12 +39014,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -39026,7 +39028,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -39059,12 +39061,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -39073,7 +39075,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -39106,12 +39108,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -39120,7 +39122,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -39153,12 +39155,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -39167,7 +39169,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -39200,12 +39202,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -39214,7 +39216,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -39247,12 +39249,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.49,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -39261,7 +39263,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -39294,12 +39296,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -39309,7 +39311,7 @@
     ],
     "specs": {
       "size": "3 Grams",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -39342,12 +39344,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -39357,7 +39359,7 @@
     ],
     "specs": {
       "size": "3 Grams",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -39390,12 +39392,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -39405,7 +39407,7 @@
     ],
     "specs": {
       "size": "3 Grams",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -39438,12 +39440,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -39453,7 +39455,7 @@
     ],
     "specs": {
       "size": "3 Grams",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -39486,12 +39488,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -39501,7 +39503,7 @@
     ],
     "specs": {
       "size": "3 Grams",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -39534,12 +39536,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -39549,7 +39551,7 @@
     ],
     "specs": {
       "size": "3 Grams",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -39582,12 +39584,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -39597,7 +39599,7 @@
     ],
     "specs": {
       "size": "3 Grams",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -39630,12 +39632,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -39645,7 +39647,7 @@
     ],
     "specs": {
       "size": "3 Grams",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -39678,12 +39680,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -39693,7 +39695,7 @@
     ],
     "specs": {
       "size": "3 Grams",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -39726,12 +39728,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.56,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -39741,7 +39743,7 @@
     ],
     "specs": {
       "size": "3 Grams",
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -39774,12 +39776,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.02,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -39788,7 +39790,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -39821,12 +39823,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.02,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -39835,7 +39837,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -39868,12 +39870,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.02,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -39882,7 +39884,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -39915,12 +39917,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.02,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -39929,7 +39931,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -39962,12 +39964,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.02,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -39976,7 +39978,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -40009,12 +40011,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.02,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -40023,7 +40025,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -40056,12 +40058,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 14,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 13.02,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -40070,7 +40072,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -40103,12 +40105,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -40117,7 +40119,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -40150,12 +40152,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -40164,7 +40166,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -40197,12 +40199,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -40211,7 +40213,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -40244,12 +40246,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -40258,7 +40260,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -40291,12 +40293,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -40305,7 +40307,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -40338,12 +40340,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -40352,7 +40354,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -40385,12 +40387,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -40399,7 +40401,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -40432,12 +40434,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 12.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 11.63,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -40446,7 +40448,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -40479,12 +40481,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -40493,7 +40495,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -40526,12 +40528,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -40540,7 +40542,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -40573,12 +40575,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -40587,7 +40589,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -40620,12 +40622,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -40634,7 +40636,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -40667,12 +40669,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -40681,7 +40683,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -40714,12 +40716,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -40728,7 +40730,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -40761,12 +40763,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -40775,7 +40777,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -40808,12 +40810,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 13,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 12.09,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -40822,7 +40824,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -40855,12 +40857,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 28,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 26.04,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -40869,7 +40871,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -40902,12 +40904,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 28,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 26.04,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -40916,7 +40918,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -40949,12 +40951,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 28,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 26.04,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -40963,7 +40965,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -40996,12 +40998,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 28,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 26.04,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -41010,7 +41012,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -41043,12 +41045,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 28,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 26.04,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -41057,7 +41059,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -41090,12 +41092,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 28,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 26.04,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -41104,7 +41106,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -41137,12 +41139,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 28,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 26.04,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -41151,7 +41153,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -41184,12 +41186,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 28,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 26.04,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -41198,7 +41200,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -41231,12 +41233,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 28,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 26.04,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -41245,7 +41247,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -41278,12 +41280,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 28,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 26.04,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -41292,7 +41294,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -41325,12 +41327,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -41339,7 +41341,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -41372,12 +41374,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -41386,7 +41388,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -41419,12 +41421,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -41433,7 +41435,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -41466,12 +41468,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -41480,7 +41482,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -41513,12 +41515,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -41527,7 +41529,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -41560,12 +41562,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -41574,7 +41576,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -41607,12 +41609,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -41621,7 +41623,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -41654,12 +41656,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 8.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 7.91,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -41668,7 +41670,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -41701,12 +41703,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -41715,7 +41717,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -41748,12 +41750,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -41762,7 +41764,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -41795,12 +41797,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -41809,7 +41811,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -41842,12 +41844,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -41856,7 +41858,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -41889,12 +41891,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -41903,7 +41905,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -41936,12 +41938,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -41950,7 +41952,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -41983,12 +41985,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -41997,7 +41999,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -42030,12 +42032,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -42044,7 +42046,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -42077,12 +42079,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -42091,7 +42093,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -42124,12 +42126,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.93,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -42138,7 +42140,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -42171,12 +42173,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -42185,7 +42187,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -42218,12 +42220,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -42232,7 +42234,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -42265,12 +42267,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -42279,7 +42281,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -42312,12 +42314,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -42326,7 +42328,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -42359,12 +42361,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -42373,7 +42375,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -42406,12 +42408,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -42420,7 +42422,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -42453,12 +42455,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -42467,7 +42469,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -42500,12 +42502,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -42514,7 +42516,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -42547,12 +42549,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -42561,7 +42563,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -42594,12 +42596,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -42608,7 +42610,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -42641,12 +42643,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -42655,7 +42657,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -42688,12 +42690,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -42702,7 +42704,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -42735,12 +42737,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -42749,7 +42751,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -42782,12 +42784,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 22,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 20.46,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -42796,7 +42798,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -42829,12 +42831,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 18.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -42843,7 +42845,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -42876,12 +42878,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 18.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -42890,7 +42892,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -42923,12 +42925,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 18.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -42937,7 +42939,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -42970,12 +42972,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 18.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -42984,7 +42986,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -43017,12 +43019,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 18.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -43031,7 +43033,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -43064,12 +43066,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 18.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -43078,7 +43080,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -43111,12 +43113,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 18.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -43125,7 +43127,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -43158,12 +43160,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 18.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -43172,7 +43174,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -43205,12 +43207,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 19.5,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 18.14,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -43219,7 +43221,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -43252,12 +43254,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 18,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -43266,7 +43268,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -43299,12 +43301,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 18,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -43313,7 +43315,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -43346,12 +43348,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 18,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -43360,7 +43362,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -43393,12 +43395,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 18,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -43407,7 +43409,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -43440,12 +43442,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 18,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -43454,7 +43456,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -43487,12 +43489,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 18,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -43501,7 +43503,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -43534,12 +43536,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 18,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -43548,7 +43550,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -43581,12 +43583,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 18,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -43595,7 +43597,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -43628,12 +43630,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 18,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -43642,7 +43644,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -43675,12 +43677,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 18,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -43689,7 +43691,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -43722,12 +43724,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 18,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -43736,7 +43738,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -43769,12 +43771,12 @@
       {
         "minQty": 1,
         "pricePerUnit": 18,
-        "label": "1–24 units"
+        "label": "1â€“24 units"
       },
       {
         "minQty": 25,
         "pricePerUnit": 16.74,
-        "label": "25–99 units (Case)"
+        "label": "25â€“99 units (Case)"
       },
       {
         "minQty": 100,
@@ -43783,7 +43785,7 @@
       }
     ],
     "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
+      "origin": "USA Distributed Â· Licensed OK Warehouse"
     },
     "features": [
       "Factory Sealed Case Master Packaging",
@@ -43793,4 +43795,4 @@
     ],
     "last_modified_time": "2026-09-14T22:19:13.772Z"
   }
-]
+];

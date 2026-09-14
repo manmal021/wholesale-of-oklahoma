@@ -1158,7 +1158,14 @@ function generateZohoCatalog(): InventoryItem[] {
     for (const s of b.series) {
       for (const fl of s.flavors) {
         itemCounter++;
-        const itemId = `ZOHO-ITM-${itemCounter}`;
+        let itemId = `ZOHO-ITM-${itemCounter}`;
+        if (s.model === 'Pulse 15k' && fl === 'Blow Pop') itemId = 'geekbar-15k';
+        else if (s.model === 'Pulse X 25k' && fl === 'Lime Berry Orange') itemId = 'geekbar-25k';
+        else if (s.model === 'Pulse Ultra 60k' && fl.includes('Miami Mint')) itemId = 'geekbar-60k';
+        else if (s.model === 'DC25000' && fl === 'Night Crawler') itemId = 'raz-25k';
+        else if (s.model.includes('Mega 50K') && fl.includes('Blue Razz')) itemId = 'vozol-50k';
+        else if (s.model.includes('Switch Pro 30K') && fl.includes('Sour Apple')) itemId = 'foger-30k';
+
         const cleanSku = `${b.brand.slice(0, 3).toUpperCase()}-${fl.replace(/[^a-zA-Z0-9]/g, '').slice(0, 8).toUpperCase()}-${itemCounter % 1000}`;
         const productName = `${b.brand} ${s.model} - ${fl}`;
 
