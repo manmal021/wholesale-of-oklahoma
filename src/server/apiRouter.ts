@@ -521,6 +521,33 @@ apiApp.get(['/inventory/admin/status', '/api/inventory/admin/status'], (_req, re
 });
 
 /**
+ * GET /api/inventory/admin/images
+ * Returns audit records and verified image metadata for all catalog items.
+ */
+apiApp.get(['/inventory/admin/images', '/api/inventory/admin/images'], (_req, res) => {
+  return ok(res, {
+    audits: productImageRegistry.getAllAudits(),
+    total: productImageRegistry.getAllAudits().length,
+  });
+});
+
+/**
+ * POST /api/inventory/admin/images/review
+ * Allows admin to review, approve, update URL, or remove image assignments.
+ */
+apiApp.post(['/inventory/admin/images/review', '/api/inventory/admin/images/review'], requireAdminAuth, (req, res) => {
+  const { productId, action, imageUrl, notes } = req.body || {};
+  if (!productId || !action) {
+    return err(res, 400, 'Missing productId or action (APPROVE | REJECT | UPDATE_URL | REMOVE)');
+  }
+  const updated = productImageRegistry.reviewProductImage(productId, action, imageUrl, notes);
+  if (!updated) {
+    return err(res, 404, `Product ${productId} not found in image registry`);
+  }
+  return ok(res, { success: true, audit: updated });
+});
+
+/**
  * POST /api/inventory/sync
  * Invalidates cache + immediately re-fetches from Zoho.
  * Guarded by administrative authorization and rate limit.
