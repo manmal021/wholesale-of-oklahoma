@@ -124,9 +124,9 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
     const orderDetailsSummary = items
       .map(
         (i, idx) =>
-          `${idx + 1}. ${i.product.name} (SKU: ${i.product.sku}) — ${i.quantity} units ${
+          `${idx + 1}. ${i.product.name} (SKU: ${i.product.sku}) — Qty: ${i.quantity} ${
             i.flavor ? `[Flavor: ${i.flavor}]` : ''
-          }${i.pricePerUnit > 0 ? ` @ $${i.pricePerUnit.toFixed(2)}/ea` : ' (Tier Pricing)'}`
+          }${i.pricePerUnit > 0 ? ` @ $${i.pricePerUnit.toFixed(2)}` : ''}`
       )
       .join('\n');
 
@@ -334,7 +334,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
             <div className="p-4 sm:p-5 space-y-3">
               <div className="flex items-center justify-between pb-1">
                 <span className="text-xs font-bold uppercase tracking-wider text-[#858C96]">
-                  Order Items ({items.length} product{items.length !== 1 ? 's' : ''}, {totalUnits} total units)
+                  Order Items ({items.length} product{items.length !== 1 ? 's' : ''}, {totalUnits} total items)
                 </span>
                 <button
                   onClick={handleClear}
@@ -349,8 +349,8 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                 {items.map((item, idx) => {
                   const unitPriceStr =
                     item.pricePerUnit > 0
-                      ? `$${item.pricePerUnit.toFixed(2)}/ea`
-                      : 'Volume Tier Pricing';
+                      ? `$${item.pricePerUnit.toFixed(2)}`
+                      : 'Wholesale Pricing';
 
                   return (
                     <div

@@ -22,7 +22,7 @@ async function verifyLiveSite() {
   console.log('Login success:', loginData.success, 'User:', loginData.user?.businessName, 'Role:', loginData.user?.role);
   const token = loginData.token;
 
-  console.log('\n=== 4. VERIFYING AUTHENTICATED INVENTORY ACCESS WITH TIERED PRICING ===');
+  console.log('\n=== 4. VERIFYING AUTHENTICATED INVENTORY ACCESS WITH EXACT ZOHO PRICING ===');
   const authedInvRes = await fetch('https://www.wholesaleofoklahoma.com/api/inventory?limit=5', {
     headers: {
       'x-session-token': token,
@@ -35,9 +35,8 @@ async function verifyLiveSite() {
   for (let i = 0; i < authedInv.items.length; i++) {
     const item = authedInv.items[i];
     console.log(`[Item ${i + 1}] ${item.brand} - ${item.name}`);
-    console.log(`   Rate: $${item.rate} / unit | MSRP: $${item.retail_msrp}`);
+    console.log(`   Wholesale Price: $${item.rate} | MSRP: $${item.retail_msrp}`);
     console.log(`   Image: ${item.image_url}`);
-    console.log(`   Bulk Tiers:`, item.bulk_pricing);
   }
 
   console.log('\n=== 5. VERIFYING BRAND IMAGES EXIST IN PUBLIC /products/ ===');

@@ -148,11 +148,7 @@ export class InventoryStore {
         upc: `85001${String(zohoCounter).slice(-7)}`,
         unit: 'Box',
         min_order_qty: p.minOrderQty || 1,
-        bulk_pricing: [
-          { minQty: 1, pricePerUnit: rate, label: '1 - 9 units' },
-          { minQty: 10, pricePerUnit: Number((rate * 0.92).toFixed(2)), label: '10 - 24 units' },
-          { minQty: 25, pricePerUnit: Number((rate * 0.85).toFixed(2)), label: 'Master Case (25+)' },
-        ],
+        bulk_pricing: [],
         specs: {
           puffs: p.puffs,
           nicotine: p.nicotine,
@@ -468,7 +464,11 @@ export class InventoryStore {
   }) {
     // 1. Deduct stock from local inventory store
     for (const item of order.lineItems) {
-      const found = item.sku ? this.items.get(item.sku) : undefined;
+      const found =
+        (item.sku ? this.items.get(item.sku) : undefined) ||
+        Array.from(this.items.values()).find(
+          (i) => (item.id && i.id === item.id) || (item.sku && i.sku === item.sku)
+        );
       if (found) {
         found.available_stock = Math.max(0, found.available_stock - item.quantity);
         found.stock_on_hand = Math.max(0, found.stock_on_hand - item.quantity);

@@ -728,23 +728,23 @@ apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(10, 5 * 60
       (p) => p.id === idOrSku || p.sku === idOrSku || p.name.toLowerCase() === item.name?.toLowerCase()
     );
 
+    const { items: allCatalogItems } = await getCachedInventory();
+    const zohoItem = allCatalogItems.find(
+      (z) => z.id === idOrSku || z.sku === idOrSku || z.zoho_item_id === idOrSku || z.name.toLowerCase() === item.name?.toLowerCase()
+    );
+
     let unitPrice = 15.0; // fallback baseline
     let officialName = item.name || 'Wholesale Product';
     let officialSku = item.sku || '';
 
-    if (resolvedProduct) {
+    if (zohoItem && typeof zohoItem.rate === 'number' && zohoItem.rate > 0) {
+      officialName = zohoItem.name;
+      officialSku = resolvedProduct?.sku || zohoItem.sku;
+      unitPrice = zohoItem.rate;
+    } else if (resolvedProduct) {
       officialName = resolvedProduct.name;
       officialSku = resolvedProduct.sku;
       unitPrice = resolvedProduct.pricePerUnit;
-
-      // Apply volume pricing tier if applicable
-      if (resolvedProduct.bulkPricing && resolvedProduct.bulkPricing.length > 0) {
-        const sortedTiers = [...resolvedProduct.bulkPricing].sort((a, b) => b.minQty - a.minQty);
-        const matchedTier = sortedTiers.find((t) => qty >= t.minQty);
-        if (matchedTier) {
-          unitPrice = matchedTier.pricePerUnit;
-        }
-      }
     }
 
     verifiedLineItems.push({

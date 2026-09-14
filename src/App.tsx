@@ -582,7 +582,7 @@ export default function App() {
                 ⚡ Same-Day OKC Pickup
               </span>
               <span className="bg-[#15191F]/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#2A3038] flex items-center gap-1.5">
-                📦 Tiered Volume Pricing
+                📦 Direct Wholesale Pricing
               </span>
               <span className="bg-[#15191F]/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#2A3038] flex items-center gap-1.5">
                 🔒 Licensed Master Distributor

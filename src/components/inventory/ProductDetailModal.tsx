@@ -287,60 +287,30 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
               {/* Pricing Display */}
               {hasPricingAccess && typeof currentRate === 'number' ? (
-                <>
-                  <div className="p-4 bg-[#15191F] rounded-2xl border border-[#2A3038] flex items-center justify-between">
-                    <div>
-                      <span className="text-[10px] uppercase font-bold tracking-wider text-[#FF6B00] block">
-                        Direct Wholesale Price
-                      </span>
-                      <span className="text-3xl font-black text-[#F7F7F5]">
-                        ${currentRate.toFixed(2)}
-                      </span>
-                      <span className="text-xs text-[#858C96] font-medium ml-1">/ unit</span>
-                    </div>
-
-                    {item.retail_msrp && (
-                      <div className="text-right">
-                        <span className="text-[10px] uppercase font-bold text-[#858C96] block">
-                          Estimated Retail MSRP
-                        </span>
-                        <span className="text-sm font-semibold text-[#858C96] line-through">
-                          ${item.retail_msrp.toFixed(2)}
-                        </span>
-                        <span className="text-[11px] text-[#FF6B00] font-bold block">
-                          ~{Math.round(((item.retail_msrp - currentRate) / item.retail_msrp) * 100)}% Profit Margin
-                        </span>
-                      </div>
-                    )}
+                <div className="p-4 bg-[#15191F] rounded-2xl border border-[#2A3038] flex items-center justify-between">
+                  <div>
+                    <span className="text-[10px] uppercase font-bold tracking-wider text-[#FF6B00] block">
+                      Wholesale Price
+                    </span>
+                    <span className="text-3xl font-black text-[#F7F7F5]">
+                      ${currentRate.toFixed(2)}
+                    </span>
                   </div>
 
-                  {/* Bulk Pricing Tier Table */}
-                  {item.bulk_pricing && item.bulk_pricing.length > 0 && (
-                    <div>
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-[#858C96] mb-2">
-                        Tiered Wholesale Pricing
-                      </h4>
-                      <div className="grid grid-cols-3 gap-2">
-                        {item.bulk_pricing.map((tier, idx) => (
-                          <div
-                            key={idx}
-                            className="bg-[#0B0D10] p-2.5 rounded-xl border border-[#2A3038] text-center"
-                          >
-                            <span className="text-[10px] text-[#858C96] block font-semibold">
-                              {tier.label}
-                            </span>
-                            <span className="text-sm font-black text-[#F7F7F5]">
-                              ${tier.pricePerUnit.toFixed(2)}
-                            </span>
-                            <span className="text-[9px] text-[#FF6B00] block font-bold">
-                              ea
-                            </span>
-                          </div>
-                        ))}
-                      </div>
+                  {item.retail_msrp && (
+                    <div className="text-right">
+                      <span className="text-[10px] uppercase font-bold text-[#858C96] block">
+                        Estimated Retail MSRP
+                      </span>
+                      <span className="text-sm font-semibold text-[#858C96] line-through">
+                        ${item.retail_msrp.toFixed(2)}
+                      </span>
+                      <span className="text-[11px] text-[#FF6B00] font-bold block">
+                        ~{Math.round(((item.retail_msrp - currentRate) / item.retail_msrp) * 100)}% Profit Margin
+                      </span>
                     </div>
                   )}
-                </>
+                </div>
               ) : (
                 <div className="p-5 bg-[#15191F] rounded-2xl border border-[#2A3038] text-[#F7F7F5]">
                   <div className="flex items-center gap-2.5 mb-2">

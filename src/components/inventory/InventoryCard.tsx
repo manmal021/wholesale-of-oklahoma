@@ -208,20 +208,18 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
             <div className="mt-4 pt-3 border-t border-[#2A3038] flex items-baseline justify-between">
               <div>
                 <span className="text-[10px] uppercase font-bold tracking-wider text-[#858C96] block">
-                  Wholesale Unit
+                  Wholesale Price
                 </span>
                 <span className="text-xl font-black text-[#F7F7F5] tracking-tight">
                   ${item.rate.toFixed(2)}
                 </span>
               </div>
 
-              {item.bulk_pricing && item.bulk_pricing.length > 1 && (
+              {item.retail_msrp && (
                 <div className="text-right">
-                  <span className="text-[10px] text-emerald-400 font-bold block">
-                    Case Price: ${item.bulk_pricing[item.bulk_pricing.length - 1].pricePerUnit.toFixed(2)}
-                  </span>
-                  <span className="text-[9px] text-[#858C96]">
-                    {item.bulk_pricing[item.bulk_pricing.length - 1].label}
+                  <span className="text-[10px] text-[#858C96] block">MSRP</span>
+                  <span className="text-xs text-[#858C96] line-through font-semibold">
+                    ${item.retail_msrp.toFixed(2)}
                   </span>
                 </div>
               )}

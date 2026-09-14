@@ -206,11 +206,7 @@ function normalizeItem(raw: any): InventoryItem {
     upc:               raw.upc || raw.ean || raw.isbn || undefined,
     unit:              raw.unit || 'Pack',
     min_order_qty:     Number(raw.reorder_level || 1),
-    bulk_pricing:      [
-      { minQty: 1, pricePerUnit: rate, label: '1–24 units' },
-      { minQty: 25, pricePerUnit: Math.round((rate * 0.93) * 100) / 100, label: '25–99 units (Case)' },
-      { minQty: 100, pricePerUnit: Math.round((rate * 0.88) * 100) / 100, label: '100+ units (Master)' },
-    ],
+    bulk_pricing:      [],
     specs:             {
       size:     raw.cf_size     || undefined,
       nicotine: raw.cf_nicotine || (rawCategory.includes('Dispos') ? '5%' : undefined),
@@ -220,8 +216,7 @@ function normalizeItem(raw: any): InventoryItem {
     features:          [
       'Factory Sealed Case Master Packaging',
       'Authentic Verification QR Codes',
-      'Same-Day OKC Warehouse Pickup Available',
-      'Tiered Case Breakdown Discounts'
+      'Same-Day OKC Warehouse Pickup Available'
     ],
     variants:          variants.length > 0 ? variants : undefined,
     badge:             raw.cf_badge || undefined,

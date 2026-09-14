@@ -171,16 +171,7 @@ export function addToOrderDirect(
   const finalQty = Math.max(1, quantity, product.minOrderQty || 1);
 
   // Determine pricing
-  let finalUnitPrice = pricePerUnit > 0 ? pricePerUnit : product.pricePerUnit;
-  if (!finalUnitPrice && product.bulkPricing && product.bulkPricing.length > 0) {
-    const applicableTiers = product.bulkPricing.filter((t) => finalQty >= t.minQty);
-    const tier =
-      applicableTiers.length > 0
-        ? applicableTiers[applicableTiers.length - 1]
-        : product.bulkPricing[0];
-    finalUnitPrice = tier.pricePerUnit;
-  }
-
+  const finalUnitPrice = pricePerUnit > 0 ? pricePerUnit : product.pricePerUnit;
   const totalPrice = Math.round(finalUnitPrice * finalQty * 100) / 100;
 
   const existingIdx = draftOrder.findIndex(

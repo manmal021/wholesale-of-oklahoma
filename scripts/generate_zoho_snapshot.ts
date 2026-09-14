@@ -1177,12 +1177,6 @@ function generateZohoCatalog(): InventoryItem[] {
           description: `${productName} distributed by Wholesale of Oklahoma. Available for wholesale case order with live pricing and immediate dispatch.`,
         });
 
-        const bulkTiers = [
-          { minQty: 1, pricePerUnit: s.rate, label: '1–24 units' },
-          { minQty: 25, pricePerUnit: Math.round((s.rate * 0.93) * 100) / 100, label: '25–99 units (Case)' },
-          { minQty: 100, pricePerUnit: Math.round((s.rate * 0.88) * 100) / 100, label: '100+ units (Master)' },
-        ];
-
         const item: InventoryItem = {
           id: itemId,
           zoho_item_id: itemId,
@@ -1202,7 +1196,7 @@ function generateZohoCatalog(): InventoryItem[] {
           status: 'active',
           unit: 'Pack',
           min_order_qty: 1,
-          bulk_pricing: bulkTiers,
+          bulk_pricing: [],
           specs: {
             size: s.size,
             nicotine: s.nicotine || (b.category === 'Disposable Vapes' ? '5%' : undefined),
@@ -1212,8 +1206,7 @@ function generateZohoCatalog(): InventoryItem[] {
           features: [
             'Factory Sealed Case Master Packaging',
             'Authentic Verification QR Codes',
-            'Same-Day OKC Warehouse Pickup Available',
-            'Tiered Case Breakdown Discounts'
+            'Same-Day OKC Warehouse Pickup Available'
           ],
           badge: s.model.includes('15k') || s.model.includes('30K') || s.model.includes('25k') ? '🔥 High Velocity' : undefined,
           last_modified_time: new Date().toISOString(),
@@ -1228,7 +1221,14 @@ function generateZohoCatalog(): InventoryItem[] {
 }
 
 const allItems = generateZohoCatalog();
-const outPath = path.resolve(__dirname, '../data/zoho_catalog_snapshot.json');
-fs.writeFileSync(outPath, JSON.stringify(allItems, null, 2), 'utf-8');
+const outJsonPath = path.resolve(__dirname, '../data/zoho_catalog_snapshot.json');
+fs.writeFileSync(outJsonPath, JSON.stringify(allItems, null, 2), 'utf-8');
 
-console.log(`Successfully generated ${allItems.length} Zoho items into ${outPath}`);
+const outTsPath = path.resolve(__dirname, '../src/server/zohoSnapshotData.ts');
+const tsContent = `// Automatically generated from data/zoho_catalog_snapshot.json
+// Direct TypeScript export to avoid Vercel serverless filesystem read errors.
+export const ZOHO_CATALOG_SNAPSHOT = ${JSON.stringify(allItems, null, 2)} as const;
+`;
+fs.writeFileSync(outTsPath, tsContent, 'utf-8');
+
+console.log(`Successfully generated ${allItems.length} Zoho items without unit pricing tiers into ${outJsonPath} and ${outTsPath}`);
