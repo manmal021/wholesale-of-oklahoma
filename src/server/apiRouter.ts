@@ -30,6 +30,7 @@ import {
   getTokenStatus,
   scheduleTokenRefresh,
   refreshAccessToken,
+  getValidToken,
 } from './zohoAuth.js';
 import {
   getCachedInventory,
@@ -346,7 +347,44 @@ apiApp.post(['/zoho/exchange', '/api/zoho/exchange'], async (req: Request, res: 
  * GET /api/zoho/status
  * Returns token health. Safe to expose — no secrets included.
  */
-apiApp.get(['/zoho/status', '/api/zoho/status'], (_req, res) => {
+apiApp.get(['/zoho/status', '/api/zoho/status'], async (_req, res) => {
+  let zohoFetchError: string | null = null;
+  let zohoItemCount: number | null = null;
+  let zohoRawStatus: number | null = null;
+  let zohoSampleItem: any = null;
+
+  if (isZohoConfigured()) {
+    try {
+      const token = await getValidToken();
+      const orgId = process.env.ZOHO_ORG_ID || process.env.ZOHO_ORGANIZATION_ID || '';
+      const dc = process.env.ZOHO_DC || 'com';
+      const testRes = await fetch(`https://www.zohoapis.${dc}/inventory/v1/items?organization_id=${orgId}&page=1&per_page=5`, {
+        headers: {
+          Authorization: `Zoho-oauthtoken ${token}`,
+          'X-com-zoho-inventory-organizationid': orgId,
+          Accept: 'application/json',
+        },
+      });
+      zohoRawStatus = testRes.status;
+      const testData = await testRes.json() as any;
+      if (!testRes.ok || (typeof testData.code === 'number' && testData.code !== 0)) {
+        zohoFetchError = `Code ${testData.code}: ${testData.message || JSON.stringify(testData)}`;
+      } else {
+        zohoItemCount = testData.page_context?.total || testData.items?.length || 0;
+        if (testData.items && testData.items.length > 0) {
+          zohoSampleItem = {
+            name: testData.items[0].name,
+            sku: testData.items[0].sku,
+            item_id: testData.items[0].item_id,
+            status: testData.items[0].status,
+          };
+        }
+      }
+    } catch (e: any) {
+      zohoFetchError = e.message;
+    }
+  }
+
   return ok(res, {
     has_client_id: Boolean(process.env.ZOHO_CLIENT_ID),
     has_client_secret: Boolean(process.env.ZOHO_CLIENT_SECRET),
@@ -355,6 +393,10 @@ apiApp.get(['/zoho/status', '/api/zoho/status'], (_req, res) => {
       process.env.ZOHO_ORG_ID || process.env.ZOHO_ORGANIZATION_ID),
     ...getTokenStatus(),
     zoho_configured: isZohoConfigured(),
+    zoho_raw_http_status: zohoRawStatus,
+    zoho_item_count: zohoItemCount,
+    zoho_sample_item: zohoSampleItem,
+    zoho_fetch_error: zohoFetchError,
   });
 });
 
