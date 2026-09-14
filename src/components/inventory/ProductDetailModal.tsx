@@ -179,6 +179,60 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           {/* Right Column: Product Info & Wholesale Ordering */}
           <div className="md:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-6">
             <div className="space-y-4">
+              {/* Breadcrumb Hierarchy: Home > Inventory > Brands > [Brand] > [Product] */}
+              <nav aria-label="Product Breadcrumbs" className="flex items-center gap-1.5 text-xs text-[#858C96] pb-2 border-b border-[#2A3038]/60 flex-wrap">
+                <a
+                  href="#overview"
+                  onClick={onClose}
+                  className="hover:text-[#FF6B00] transition-colors font-medium"
+                >
+                  Home
+                </a>
+                <span className="text-[#353C46]">/</span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    onClose();
+                    window.dispatchEvent(new CustomEvent('woo-select-brand', { detail: 'All' }));
+                    const el = document.getElementById('inventory');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="hover:text-[#FF6B00] transition-colors cursor-pointer font-medium"
+                >
+                  Inventory
+                </button>
+                <span className="text-[#353C46]">/</span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    onClose();
+                    window.dispatchEvent(new CustomEvent('woo-select-brand', { detail: 'All' }));
+                    const el = document.getElementById('inventory');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="hover:text-[#FF6B00] transition-colors cursor-pointer font-medium"
+                >
+                  Brands
+                </button>
+                <span className="text-[#353C46]">/</span>
+                <button
+                  type="button"
+                  onClick={() => {
+                    onClose();
+                    window.dispatchEvent(new CustomEvent('woo-select-brand', { detail: item.brand }));
+                    const el = document.getElementById('inventory');
+                    if (el) el.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="text-[#FF6B00] font-bold hover:underline cursor-pointer"
+                >
+                  {item.brand}
+                </button>
+                <span className="text-[#353C46]">/</span>
+                <span className="text-[#F7F7F5] font-semibold truncate max-w-[180px] sm:max-w-[240px]">
+                  {item.name}
+                </span>
+              </nav>
+
               {/* Category, Brand, and Stock Status Bar */}
               <div className="flex items-center justify-between gap-2 flex-wrap">
                 <div className="flex items-center gap-2">

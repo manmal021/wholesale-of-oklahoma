@@ -43,7 +43,7 @@ export const InventorySection: React.FC = () => {
   const [totalItems, setTotalItems] = useState<number>(0);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const [totalPages, setTotalPages] = useState<number>(1);
-  const [pageSize, setPageSize] = useState<number>(12);
+  const [pageSize, setPageSize] = useState<number>(100);
   const [loading, setLoading] = useState<boolean>(true);
 
   // Filters state
@@ -128,6 +128,14 @@ export const InventorySection: React.FC = () => {
           );
           if (match) setSelectedCategory(match);
         });
+      } else if (path.startsWith('/brands/')) {
+        const brandSlug = decodeURIComponent(path.replace('/brands/', '').trim()).toLowerCase();
+        fetchInventoryMeta().then((meta) => {
+          const match = meta.brands.find(
+            (b) => b.toLowerCase().replace(/[^a-z0-9]+/g, '-') === brandSlug
+          );
+          if (match) setSelectedBrand(match);
+        });
       }
     };
 
@@ -152,14 +160,24 @@ export const InventorySection: React.FC = () => {
       }
     };
 
+    const handleBrandSelect = (e: Event) => {
+      const customEvent = e as CustomEvent<string>;
+      if (customEvent.detail) {
+        setSelectedBrand(customEvent.detail);
+        setCurrentPage(1);
+      }
+    };
+
     window.addEventListener('popstate', handleRoute);
     window.addEventListener('open-product-modal', handleCustomOpen);
     window.addEventListener('woo-select-category', handleCategorySelect);
+    window.addEventListener('woo-select-brand', handleBrandSelect);
 
     return () => {
       window.removeEventListener('popstate', handleRoute);
       window.removeEventListener('open-product-modal', handleCustomOpen);
       window.removeEventListener('woo-select-category', handleCategorySelect);
+      window.removeEventListener('woo-select-brand', handleBrandSelect);
     };
   }, []);
 
@@ -244,6 +262,47 @@ export const InventorySection: React.FC = () => {
     selectedPriceRange !== 'all' ||
     selectedProductType !== 'All';
 
+  // Group items by brand for structured brand display
+  const brandGroups = React.useMemo(() => {
+    const map = new Map<string, InventoryItem[]>();
+    for (const item of items) {
+      const b = item.brand || 'Other Brands';
+      if (!map.has(b)) map.set(b, []);
+      map.get(b)!.push(item);
+    }
+    // Priority order for notable wholesale brands
+    const priority = [
+      'Geekbar',
+      'Raz',
+      'Vozol',
+      'Foger',
+      'Vaporesso',
+      'SMOK',
+      'Yocan',
+      'Juice Head',
+      'Coastal Clouds',
+      'Sadboy',
+      'Twist',
+      'OPMS',
+      'RAW',
+      'Cookies',
+      'King Palm',
+      'Eyce',
+    ];
+    const sortedBrands = Array.from(map.keys()).sort((a, b) => {
+      const idxA = priority.indexOf(a);
+      const idxB = priority.indexOf(b);
+      if (idxA !== -1 && idxB !== -1) return idxA - idxB;
+      if (idxA !== -1) return -1;
+      if (idxB !== -1) return 1;
+      return a.localeCompare(b);
+    });
+    return sortedBrands.map((brand) => ({
+      brand,
+      items: map.get(brand)!,
+    }));
+  }, [items]);
+
   return (
     <section id="inventory" className="py-16 sm:py-24 bg-[#0B0D10] text-[#F7F7F5] relative overflow-hidden">
       {/* Decorative subtle background gradient glows */}
@@ -251,6 +310,50 @@ export const InventorySection: React.FC = () => {
       <div className="absolute bottom-10 right-[-5%] w-[500px] h-[500px] rounded-full bg-slate-800/10 blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Breadcrumbs Navigation Hierarchy: Home > Inventory > Brands > [Brand] */}
+        <nav aria-label="Inventory Breadcrumbs" className="mb-6 flex items-center gap-2 text-xs text-[#858C96] flex-wrap">
+          <a
+            href="#overview"
+            className="hover:text-[#FF6B00] transition-colors flex items-center gap-1 font-medium"
+          >
+            <span>Home</span>
+          </a>
+          <ChevronRight className="w-3.5 h-3.5 text-[#353C46]" />
+          <button
+            type="button"
+            onClick={() => {
+              setSelectedBrand('All');
+              setSelectedCategory('All');
+              setCurrentPage(1);
+            }}
+            className={`hover:text-[#FF6B00] transition-colors cursor-pointer font-medium ${
+              selectedBrand === 'All' && selectedCategory === 'All' ? 'text-[#F7F7F5] font-bold' : ''
+            }`}
+          >
+            Inventory
+          </button>
+          <ChevronRight className="w-3.5 h-3.5 text-[#353C46]" />
+          <button
+            type="button"
+            onClick={() => {
+              setSelectedBrand('All');
+              setCurrentPage(1);
+            }}
+            className={`hover:text-[#FF6B00] transition-colors cursor-pointer font-medium ${
+              selectedBrand === 'All' ? 'text-[#FF6B00] font-bold' : ''
+            }`}
+          >
+            Brands
+          </button>
+          {selectedBrand !== 'All' && (
+            <>
+              <ChevronRight className="w-3.5 h-3.5 text-[#353C46]" />
+              <span className="inline-flex items-center gap-1.5 bg-[#FF6B00]/15 text-[#FF6B00] px-2.5 py-0.5 rounded-md font-bold text-xs border border-[#FF6B00]/30">
+                {selectedBrand}
+              </span>
+            </>
+          )}
+        </nav>
         {/* Header Block */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#2A3038]">
           <div className="space-y-3">
@@ -375,6 +478,66 @@ export const InventorySection: React.FC = () => {
                 </button>
               );
             })}
+          </div>
+
+          {/* Shop by Brand Pills Toolbar */}
+          <div className="space-y-2 pt-1">
+            <div className="flex items-center justify-between text-xs font-bold text-[#858C96]">
+              <span className="uppercase tracking-wider flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]" />
+                Shop by Brand Directory
+              </span>
+              {selectedBrand !== 'All' && (
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSelectedBrand('All');
+                    setCurrentPage(1);
+                  }}
+                  className="text-[#FF6B00] hover:underline cursor-pointer flex items-center gap-1 font-semibold"
+                >
+                  <span>View All Brands</span>
+                  <ChevronRight className="w-3 h-3" />
+                </button>
+              )}
+            </div>
+            <div className="flex items-center gap-2 overflow-x-auto pb-2 scrollbar-none">
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedBrand('All');
+                  setCurrentPage(1);
+                }}
+                className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 cursor-pointer shrink-0 ${
+                  selectedBrand === 'All'
+                    ? 'bg-[#FF6B00] text-white shadow-md'
+                    : 'bg-[#15191F] hover:bg-[#1B2027] text-[#B8BDC5] hover:text-[#F7F7F5] border border-[#2A3038] hover:border-[#353C46]'
+                }`}
+              >
+                <span>🏷️</span>
+                <span>All Brands</span>
+              </button>
+              {brandsList.map((brand) => {
+                const active = selectedBrand === brand;
+                return (
+                  <button
+                    key={brand}
+                    type="button"
+                    onClick={() => {
+                      setSelectedBrand(brand);
+                      setCurrentPage(1);
+                    }}
+                    className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 cursor-pointer shrink-0 ${
+                      active
+                        ? 'bg-[#FF6B00] text-white shadow-md'
+                        : 'bg-[#15191F] hover:bg-[#1B2027] text-[#B8BDC5] hover:text-[#F7F7F5] border border-[#2A3038] hover:border-[#353C46]'
+                    }`}
+                  >
+                    <span>{brand}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
           {/* Advanced Filter Toolbar (Brand, Availability, Price Range, Product Type, Sorting) */}
@@ -508,7 +671,7 @@ export const InventorySection: React.FC = () => {
 
           <div className="flex items-center gap-2">
             <span>Per page:</span>
-            {[12, 24, 48].map((size) => (
+            {[24, 48, 100].map((size) => (
               <button
                 key={size}
                 type="button"
@@ -557,22 +720,136 @@ export const InventorySection: React.FC = () => {
             <button
               type="button"
               onClick={handleResetFilters}
-              className="btn-primary text-xs py-2 px-6 rounded-full"
+              className="btn-primary text-xs py-2 px-6 rounded-full cursor-pointer"
             >
               Reset All Filters
             </button>
           </div>
-        ) : (
-          <div className="mt-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {items.map((item) => (
-              <InventoryCard
-                key={item.sku}
-                item={item}
-                displayMode={settings.display_mode}
-                onViewDetails={(prod) => setDetailItem(prod)}
-                onAddedToCart={handleAddedToCart}
-              />
+        ) : selectedBrand === 'All' ? (
+          /* All Brands View: Arranged inside each brand (Home > Inventory > Brands > Product) */
+          <div className="mt-8 space-y-12">
+            {brandGroups.map((group) => (
+              <div
+                key={group.brand}
+                id={`brand-group-${group.brand.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
+                className="bg-[#111419]/95 rounded-3xl p-6 sm:p-8 border border-[#2A3038] shadow-xl space-y-6"
+              >
+                {/* Brand Header */}
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-[#2A3038]">
+                  <div className="space-y-1">
+                    <div className="flex items-center gap-2.5 flex-wrap">
+                      <span className="text-[10px] font-black uppercase tracking-widest text-[#FF6B00] bg-[#FF6B00]/10 px-2.5 py-0.5 rounded-full border border-[#FF6B00]/30">
+                        Brand Directory
+                      </span>
+                      <span className="text-xs font-semibold text-[#858C96] bg-[#1B2027] px-2.5 py-0.5 rounded-full border border-[#2A3038]">
+                        {group.items.length} {group.items.length === 1 ? 'Product' : 'Products'} in stock
+                      </span>
+                    </div>
+                    <h3 className="text-xl sm:text-2xl font-black text-[#F7F7F5] tracking-tight">
+                      {group.brand}
+                    </h3>
+                    <p className="text-xs text-[#858C96]">
+                      Home <span className="text-[#353C46] font-bold">/</span> Inventory <span className="text-[#353C46] font-bold">/</span> Brands <span className="text-[#353C46] font-bold">/</span> <strong className="text-[#F7F7F5]">{group.brand} Products</strong>
+                    </p>
+                  </div>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedBrand(group.brand);
+                      setCurrentPage(1);
+                      const el = document.getElementById('inventory');
+                      if (el) el.scrollIntoView({ behavior: 'smooth' });
+                    }}
+                    className="self-start sm:self-center text-xs font-bold text-[#FF6B00] hover:text-[#FFA04D] bg-[#1B2027] hover:bg-[#222832] border border-[#2A3038] hover:border-[#FF6B00]/40 px-4 py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 shrink-0 shadow-sm"
+                  >
+                    <span>View Only {group.brand} ({group.items.length})</span>
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+
+                {/* Product Grid for Brand */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                  {group.items.map((item) => (
+                    <InventoryCard
+                      key={item.sku}
+                      item={item}
+                      displayMode={settings.display_mode}
+                      onViewDetails={(prod) => setDetailItem(prod)}
+                      onAddedToCart={handleAddedToCart}
+                    />
+                  ))}
+                </div>
+              </div>
             ))}
+          </div>
+        ) : (
+          /* Specific Brand View: Home > Inventory > Brands > [Selected Brand] */
+          <div className="mt-8 space-y-6">
+            {/* Active Brand Showcase Banner */}
+            <div className="bg-[#111419] rounded-3xl p-6 sm:p-8 border border-[#FF6B00]/30 shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div>
+                <div className="flex items-center gap-2 text-xs text-[#858C96] mb-1 font-medium">
+                  <span>Home</span>
+                  <span>/</span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedBrand('All');
+                      setSelectedCategory('All');
+                      setCurrentPage(1);
+                    }}
+                    className="hover:text-[#FF6B00]"
+                  >
+                    Inventory
+                  </button>
+                  <span>/</span>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setSelectedBrand('All');
+                      setCurrentPage(1);
+                    }}
+                    className="hover:text-[#FF6B00] underline"
+                  >
+                    Brands
+                  </button>
+                  <span>/</span>
+                  <span className="text-[#FF6B00] font-bold">{selectedBrand}</span>
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-black text-[#F7F7F5] tracking-tight">
+                  {selectedBrand} Products
+                </h3>
+                <p className="text-xs sm:text-sm text-[#858C96] mt-1">
+                  Showing {items.length} verified {selectedBrand} {items.length === 1 ? 'product' : 'products'} from our Oklahoma City wholesale warehouse.
+                </p>
+              </div>
+
+              <button
+                type="button"
+                onClick={() => {
+                  setSelectedBrand('All');
+                  setCurrentPage(1);
+                }}
+                className="self-start sm:self-center text-xs font-bold text-[#F7F7F5] bg-[#1B2027] hover:bg-[#222832] border border-[#2A3038] hover:border-[#FF6B00] px-4 py-2.5 rounded-xl transition-all cursor-pointer flex items-center gap-2 shrink-0"
+              >
+                <ChevronLeft className="w-4 h-4 text-[#FF6B00]" />
+                <span>← Back to All Brands</span>
+              </button>
+            </div>
+
+            {/* Grid of items for this Brand */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {items.map((item) => (
+                <InventoryCard
+                  key={item.sku}
+                  item={item}
+                  displayMode={settings.display_mode}
+                  onViewDetails={(prod) => setDetailItem(prod)}
+                  onAddedToCart={handleAddedToCart}
+                />
+              ))}
+            </div>
           </div>
         )}
 

@@ -17,6 +17,7 @@ import {
   CheckCircle2,
   Clock,
   Layers,
+  ExternalLink,
 } from 'lucide-react';
 import BoomerangVideoBg from './components/BoomerangVideoBg';
 import ReviewSlider from './components/ReviewSlider';
@@ -638,50 +639,233 @@ export default function App() {
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 space-y-8">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-xs">
-            <div className="space-y-3 md:col-span-2">
-              <h4 className="text-sm font-bold text-[#F7F7F5] uppercase tracking-wider">
-                Wholesale of Oklahoma LLC
-              </h4>
-              <p className="text-[#858C96] leading-relaxed max-w-md">
-                B2B wholesale distributor serving licensed convenience stores, retail dispensaries, and smoke shops across Oklahoma. Strictly commercial wholesale accounts only. Valid Oklahoma Sales Tax Permit and Tobacco/Vapor License required.
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 space-y-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 text-xs">
+            {/* Col 1: Wholesale of Oklahoma Hub */}
+            <div className="space-y-3.5 sm:col-span-2 lg:col-span-1">
+              <div className="flex items-center gap-2">
+                <span className="w-6 h-6 rounded-lg bg-[#FF6B00] flex items-center justify-center text-white font-black text-xs">
+                  W
+                </span>
+                <h4 className="text-sm font-black text-[#F7F7F5] uppercase tracking-wider">
+                  Wholesale of OK
+                </h4>
+              </div>
+              <p className="text-[#858C96] leading-relaxed">
+                Premier Oklahoma B2B master distributor supplying verified dispensaries, smoke shops, and convenience stores with direct manufacturer inventory.
               </p>
-              <div className="flex items-center gap-2 text-[#FF6B00] font-bold">
-                <ShieldCheck className="w-4 h-4" />
-                <span>Oklahoma Master Distributor · OKC Hub</span>
+              <div className="space-y-1.5 pt-1 text-[#B8BDC5]">
+                <p className="flex items-center gap-1.5 text-[11px]">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#FF6B00] shrink-0" />
+                  <span className="font-semibold text-[#F7F7F5]">Oklahoma Licensed Wholesaler</span>
+                </p>
+                <p className="text-[11px] text-[#858C96]">
+                  4500 S Bryant Ave, OKC, OK 73135
+                </p>
+                <p className="text-[11px] text-[#FF6B00] font-bold">
+                  (405) 768-2975
+                </p>
+                <p className="text-[10px] text-[#858C96]">
+                  Mon–Sat: 9AM–8PM · Sun: 11AM–8PM
+                </p>
               </div>
             </div>
 
-            <div className="space-y-2">
-              <h4 className="text-xs font-bold text-[#F7F7F5] uppercase tracking-wider">
-                Quick Navigation
+            {/* Col 2: Brand Directory */}
+            <div className="space-y-3">
+              <h4 className="text-xs font-black text-[#F7F7F5] uppercase tracking-widest text-[#FF6B00]">
+                Brand Directory
               </h4>
               <ul className="space-y-1.5 text-[#858C96]">
-                <li><a href="#overview" className="hover:text-[#FF6B00] transition-colors">Overview</a></li>
-                <li><a href="#brands" className="hover:text-[#FF6B00] transition-colors">Featured Brands</a></li>
-                <li><a href="#categories" className="hover:text-[#FF6B00] transition-colors">Product Categories</a></li>
-                <li><a href="#inventory" className="hover:text-[#FF6B00] transition-colors">Products Catalog</a></li>
-                <li><a href="#why-us" className="hover:text-[#FF6B00] transition-colors">Why Wholesale OK</a></li>
-                <li><a href="#direct-order-section" className="hover:text-[#FF6B00] transition-colors">Order Now</a></li>
+                {[
+                  'Geekbar',
+                  'Raz',
+                  'Vozol',
+                  'Foger',
+                  'Vaporesso',
+                  'SMOK',
+                  'Yocan',
+                  'Juice Head',
+                  'Coastal Clouds',
+                  'OPMS',
+                  'RAW',
+                ].map((brand) => (
+                  <li key={brand}>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        window.dispatchEvent(new CustomEvent('woo-select-brand', { detail: brand }));
+                        const el = document.getElementById('inventory');
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      className="hover:text-[#FF6B00] transition-colors cursor-pointer text-left font-medium"
+                    >
+                      {brand}
+                    </button>
+                  </li>
+                ))}
               </ul>
             </div>
 
-            <div className="space-y-2">
-              <h4 className="text-xs font-bold text-[#F7F7F5] uppercase tracking-wider">
-                Warehouse & Dispatch
+            {/* Col 3: Category Directory */}
+            <div className="space-y-3">
+              <h4 className="text-xs font-black text-[#F7F7F5] uppercase tracking-widest text-[#FF6B00]">
+                Categories
               </h4>
-              <p className="text-[#858C96]">4500 S Bryant Ave, Oklahoma City, OK 73135</p>
-              <p className="text-[#F7F7F5] font-bold">Phone: (405) 768-2975</p>
-              <p className="text-[#858C96]">Mon–Sat: 9:00 AM – 8:00 PM</p>
-              <p className="text-[#858C96]">Sun: 11:00 AM – 8:00 PM</p>
+              <ul className="space-y-1.5 text-[#858C96]">
+                {[
+                  { label: 'Disposable Vapes', id: 'Disposable Vapes' },
+                  { label: 'Vape Mods & Kits', id: 'Vape Mods & Kits' },
+                  { label: 'Vape Juices & Salts', id: 'Vape Juice' },
+                  { label: 'Pipes & Glassware', id: 'Pipes & Glass' },
+                  { label: 'THCA & Hemp', id: 'THCA, CBD & Delta' },
+                  { label: 'Premium Kratom', id: 'Kratom' },
+                  { label: 'Rolling Papers & Cones', id: 'Accessories' },
+                  { label: 'Smoke Shop Novelties', id: 'Novelties' },
+                ].map((cat) => (
+                  <li key={cat.id}>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        window.dispatchEvent(new CustomEvent('woo-select-category', { detail: cat.id }));
+                        const el = document.getElementById('inventory');
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      className="hover:text-[#FF6B00] transition-colors cursor-pointer text-left font-medium"
+                    >
+                      {cat.label}
+                    </button>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Col 4: Retailer Portals & Orders */}
+            <div className="space-y-3">
+              <h4 className="text-xs font-black text-[#F7F7F5] uppercase tracking-widest text-[#FF6B00]">
+                Retailer Tools
+              </h4>
+              <ul className="space-y-1.5 text-[#858C96]">
+                <li>
+                  <a href="#inventory" className="hover:text-[#FF6B00] transition-colors">
+                    Wholesale Catalog
+                  </a>
+                </li>
+                <li>
+                  <a href="#direct-order-section" className="hover:text-[#FF6B00] transition-colors">
+                    Direct Order Form
+                  </a>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    onClick={() => setIsCartOpen(true)}
+                    className="hover:text-[#FF6B00] transition-colors cursor-pointer text-left"
+                  >
+                    Wholesale Cart ({cartUnits})
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    onClick={() => setIsWholesaleModalOpen(true)}
+                    className="hover:text-[#FF6B00] transition-colors cursor-pointer text-left"
+                  >
+                    Apply for Wholesale
+                  </button>
+                </li>
+                <li>
+                  <button
+                    type="button"
+                    onClick={() => setIsLoginModalOpen(true)}
+                    className="hover:text-[#FF6B00] transition-colors cursor-pointer text-left"
+                  >
+                    Retailer Portal Login
+                  </button>
+                </li>
+                <li>
+                  <a href="#why-us" className="hover:text-[#FF6B00] transition-colors">
+                    Why Wholesale of OK
+                  </a>
+                </li>
+                <li>
+                  <a href="#overview" className="hover:text-[#FF6B00] transition-colors">
+                    OKC Warehouse Hub
+                  </a>
+                </li>
+                <li>
+                  <a href="tel:4057682975" className="hover:text-[#FF6B00] transition-colors font-semibold text-[#F7F7F5]">
+                    Dispatch: (405) 768-2975
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Col 5: Sitemap & Compliance */}
+            <div className="space-y-3">
+              <h4 className="text-xs font-black text-[#F7F7F5] uppercase tracking-widest text-[#FF6B00]">
+                Sitemap & Legal
+              </h4>
+              <ul className="space-y-1.5 text-[#858C96]">
+                <li>
+                  <a
+                    href="/sitemap.xml"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#FF6B00] transition-colors flex items-center gap-1.5 font-medium"
+                  >
+                    <span>XML Sitemap</span>
+                    <ExternalLink className="w-3 h-3 text-[#FF6B00]" />
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/robots.txt"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#FF6B00] transition-colors flex items-center gap-1.5 font-medium"
+                  >
+                    <span>Robots.txt</span>
+                    <ExternalLink className="w-3 h-3 text-[#FF6B00]" />
+                  </a>
+                </li>
+                <li>
+                  <span className="text-[#858C96] hover:text-[#F7F7F5] cursor-default">
+                    Oklahoma 21+ Age Verification
+                  </span>
+                </li>
+                <li>
+                  <span className="text-[#858C96] hover:text-[#F7F7F5] cursor-default">
+                    Wholesale Terms of Service
+                  </span>
+                </li>
+                <li>
+                  <span className="text-[#858C96] hover:text-[#F7F7F5] cursor-default">
+                    Privacy Policy & Data Rights
+                  </span>
+                </li>
+                <li>
+                  <span className="text-[#858C96] hover:text-[#F7F7F5] cursor-default">
+                    Oklahoma Tax Permit (Form OK-500)
+                  </span>
+                </li>
+                <li>
+                  <span className="text-[#858C96] hover:text-[#F7F7F5] cursor-default">
+                    PACT Act Compliance
+                  </span>
+                </li>
+              </ul>
             </div>
           </div>
 
           <div className="pt-8 border-t border-[#2A3038] flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-[#858C96]">
             <p>© 2026 Wholesale of Oklahoma™ LLC. All Rights Reserved. Oklahoma Business Entity.</p>
-            <div className="flex items-center gap-4">
-              <span>Strictly 21+ B2B Retail Partners</span>
+            <div className="flex items-center gap-4 flex-wrap justify-center">
+              <span className="text-[#FF6B00] font-bold">Strictly 21+ B2B Retail Partners</span>
+              <span>•</span>
+              <a href="/sitemap.xml" target="_blank" rel="noopener noreferrer" className="hover:text-[#FF6B00] transition-colors">
+                Sitemap
+              </a>
               <span>•</span>
               <button
                 type="button"
