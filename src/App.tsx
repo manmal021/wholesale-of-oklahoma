@@ -87,7 +87,13 @@ export default function App() {
 
   const fetchCurrentUser = useCallback(async () => {
     try {
-      const res = await fetch('/api/auth/me', { credentials: 'include' });
+      const token = typeof window !== 'undefined' ? localStorage.getItem('woo_session_token') : null;
+      const headers: Record<string, string> = { Accept: 'application/json' };
+      if (token) {
+        headers['Authorization'] = `Bearer ${token}`;
+        headers['x-session-token'] = token;
+      }
+      const res = await fetch('/api/auth/me', { credentials: 'include', headers });
       if (res.ok) {
         const data = await res.json();
         if (data.authenticated && data.user) {
@@ -147,6 +153,10 @@ export default function App() {
     } catch (e) {
       console.error('Logout error:', e);
     }
+    try {
+      localStorage.removeItem('woo_session_token');
+      localStorage.removeItem('woo_user');
+    } catch (_) {}
     setCurrentUser(null);
     window.dispatchEvent(new CustomEvent('woo-auth-changed'));
     window.location.reload();

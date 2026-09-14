@@ -14,6 +14,18 @@ import type {
 
 const BASE_URL = '/api/inventory';
 
+function getAuthHeaders(): HeadersInit {
+  const headers: Record<string, string> = { Accept: 'application/json' };
+  if (typeof window !== 'undefined') {
+    const token = localStorage.getItem('woo_session_token');
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+      headers['x-session-token'] = token;
+    }
+  }
+  return headers;
+}
+
 export async function fetchInventory(params: InventoryFilterParams = {}): Promise<InventoryResponse> {
   const query = new URLSearchParams();
 
@@ -28,7 +40,10 @@ export async function fetchInventory(params: InventoryFilterParams = {}): Promis
   if (params.limit) query.set('limit', String(params.limit));
 
   const url = `${BASE_URL}?${query.toString()}`;
-  const response = await fetch(url);
+  const response = await fetch(url, {
+    credentials: 'include',
+    headers: getAuthHeaders(),
+  });
   if (!response.ok) {
     throw new Error(`Failed to load inventory: ${response.statusText}`);
   }
@@ -36,7 +51,10 @@ export async function fetchInventory(params: InventoryFilterParams = {}): Promis
 }
 
 export async function fetchInventoryItem(idOrSku: string): Promise<InventoryItem> {
-  const response = await fetch(`${BASE_URL}/${encodeURIComponent(idOrSku)}`);
+  const response = await fetch(`${BASE_URL}/${encodeURIComponent(idOrSku)}`, {
+    credentials: 'include',
+    headers: getAuthHeaders(),
+  });
   if (!response.ok) {
     throw new Error(`Product ${idOrSku} not found`);
   }
