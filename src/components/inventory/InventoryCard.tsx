@@ -9,6 +9,9 @@ import {
   Sparkles,
   Tag,
   Layers,
+  Lock,
+  LogIn,
+  UserCheck,
 } from 'lucide-react';
 import type { InventoryItem, QuantityDisplayMode } from '../../types/inventory';
 import { addToOrderDirect } from '../../lib/mangoAI';
@@ -198,114 +201,160 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
           </div>
 
           {/* Wholesale Pricing Header */}
-          <div className="mt-4 pt-3 border-t border-slate-100 flex items-baseline justify-between">
-            <div>
-              <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">
-                Wholesale Unit
-              </span>
-              <span className="text-xl font-black text-[#0f172A] tracking-tight">
-                ${item.rate.toFixed(2)}
-              </span>
-            </div>
-
-            {item.bulk_pricing && item.bulk_pricing.length > 1 && (
-              <div className="text-right">
-                <span className="text-[10px] text-emerald-700 font-bold block">
-                  Case Price: ${item.bulk_pricing[item.bulk_pricing.length - 1].pricePerUnit.toFixed(2)}
+          {item.has_pricing_access && typeof item.rate === 'number' ? (
+            <div className="mt-4 pt-3 border-t border-slate-100 flex items-baseline justify-between">
+              <div>
+                <span className="text-[10px] uppercase font-bold tracking-wider text-slate-400 block">
+                  Wholesale Unit
                 </span>
-                <span className="text-[9px] text-slate-400">
-                  {item.bulk_pricing[item.bulk_pricing.length - 1].label}
+                <span className="text-xl font-black text-[#0f172A] tracking-tight">
+                  ${item.rate.toFixed(2)}
                 </span>
               </div>
-            )}
-          </div>
+
+              {item.bulk_pricing && item.bulk_pricing.length > 1 && (
+                <div className="text-right">
+                  <span className="text-[10px] text-emerald-700 font-bold block">
+                    Case Price: ${item.bulk_pricing[item.bulk_pricing.length - 1].pricePerUnit.toFixed(2)}
+                  </span>
+                  <span className="text-[9px] text-slate-400">
+                    {item.bulk_pricing[item.bulk_pricing.length - 1].label}
+                  </span>
+                </div>
+              )}
+            </div>
+          ) : (
+            <div className="mt-4 pt-3 border-t border-slate-100">
+              <div className="bg-slate-50 border border-slate-200/80 rounded-2xl p-2.5 text-center">
+                <span className="inline-flex items-center justify-center gap-1.5 text-xs font-bold text-[#0f172A]">
+                  <Lock className="w-3.5 h-3.5 text-[#F97316]" />
+                  Login to View Wholesale Pricing
+                </span>
+                <span className="text-[10px] text-slate-500 block mt-0.5">
+                  Wholesale pricing restricted to verified retailers
+                </span>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Action Controls Footer */}
-        <div className="mt-5 space-y-2.5">
-          <div className="flex items-center gap-2">
-            {/* Quantity Stepper (disabled if Out of Stock) */}
-            <div
-              className={`flex items-center gap-1 bg-white border border-slate-200 rounded-full px-2 py-1 shadow-2xs ${
-                isOutOfStock ? 'opacity-40 pointer-events-none' : ''
-              }`}
+        {item.has_pricing_access && typeof item.rate === 'number' ? (
+          <div className="mt-5 space-y-2.5">
+            <div className="flex items-center gap-2">
+              {/* Quantity Stepper (disabled if Out of Stock) */}
+              <div
+                className={`flex items-center gap-1 bg-white border border-slate-200 rounded-full px-2 py-1 shadow-2xs ${
+                  isOutOfStock ? 'opacity-40 pointer-events-none' : ''
+                }`}
+              >
+                <button
+                  type="button"
+                  onClick={() => setQty((q) => Math.max(1, q - 1))}
+                  disabled={qty <= 1 || isOutOfStock}
+                  className="w-5 h-5 rounded-full bg-slate-100 text-[#0f172A] font-bold text-xs flex items-center justify-center hover:bg-slate-200 disabled:opacity-30 transition-colors cursor-pointer"
+                >
+                  −
+                </button>
+                <select
+                  value={qty}
+                  onChange={(e) => setQty(Number(e.target.value))}
+                  disabled={isOutOfStock}
+                  aria-label={`Select quantity for ${item.name}`}
+                  className="bg-transparent text-xs font-bold text-[#0f172A] border-0 outline-none cursor-pointer px-1"
+                >
+                  {Array.from({ length: 15 }, (_, i) => i + 1).map((n) => (
+                    <option key={n} value={n}>
+                      {n} {n === 1 ? 'box' : 'boxes'}
+                    </option>
+                  ))}
+                </select>
+                <button
+                  type="button"
+                  onClick={() => setQty((q) => Math.min(50, q + 1))}
+                  disabled={qty >= 50 || isOutOfStock}
+                  className="w-5 h-5 rounded-full bg-slate-100 text-[#0f172A] font-bold text-xs flex items-center justify-center hover:bg-slate-200 disabled:opacity-30 transition-colors cursor-pointer"
+                >
+                  +
+                </button>
+              </div>
+
+              {/* Add to Cart or Out of Stock Button */}
+              {isOutOfStock ? (
+                <button
+                  type="button"
+                  disabled
+                  className="flex-1 py-2 bg-slate-200 text-slate-500 text-xs font-bold rounded-full flex items-center justify-center gap-1.5 cursor-not-allowed"
+                >
+                  <XCircle className="w-3.5 h-3.5 text-slate-400" />
+                  Out of Stock
+                </button>
+              ) : (
+                <button
+                  type="button"
+                  onClick={handleAddToCart}
+                  className={`flex-1 py-2 text-white text-xs font-bold rounded-full transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm ${
+                    added
+                      ? 'bg-emerald-600 text-white'
+                      : 'bg-[#0f172A] hover:bg-[#1e293b] text-white'
+                  }`}
+                >
+                  {added ? (
+                    <>
+                      <Check className="w-3.5 h-3.5" />
+                      Added {qty}!
+                    </>
+                  ) : (
+                    <>
+                      <ShoppingBag className="w-3.5 h-3.5 text-[#F97316]" />
+                      Add to Cart
+                    </>
+                  )}
+                </button>
+              )}
+            </div>
+
+            {/* View Product Details Link */}
+            <button
+              type="button"
+              onClick={() => onViewDetails(item)}
+              className="w-full py-1 text-center text-[11px] font-bold text-[#F97316] hover:text-[#ea580c] transition-colors flex items-center justify-center gap-1 cursor-pointer"
             >
+              <Eye className="w-3.5 h-3.5" />
+              <span>View Specifications & Bulk Pricing</span>
+            </button>
+          </div>
+        ) : (
+          <div className="mt-4 space-y-2">
+            <div className="grid grid-cols-2 gap-2">
               <button
                 type="button"
-                onClick={() => setQty((q) => Math.max(1, q - 1))}
-                disabled={qty <= 1 || isOutOfStock}
-                className="w-5 h-5 rounded-full bg-slate-100 text-[#0f172A] font-bold text-xs flex items-center justify-center hover:bg-slate-200 disabled:opacity-30 transition-colors cursor-pointer"
+                onClick={() => window.dispatchEvent(new CustomEvent('open-login-modal'))}
+                className="py-2.5 px-2 bg-[#0f172A] hover:bg-[#1e293b] text-white text-xs font-bold rounded-full transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
               >
-                −
+                <LogIn className="w-3.5 h-3.5 text-[#F97316]" />
+                <span>Login to View Pricing</span>
               </button>
-              <select
-                value={qty}
-                onChange={(e) => setQty(Number(e.target.value))}
-                disabled={isOutOfStock}
-                aria-label={`Select quantity for ${item.name}`}
-                className="bg-transparent text-xs font-bold text-[#0f172A] border-0 outline-none cursor-pointer px-1"
-              >
-                {Array.from({ length: 15 }, (_, i) => i + 1).map((n) => (
-                  <option key={n} value={n}>
-                    {n} {n === 1 ? 'box' : 'boxes'}
-                  </option>
-                ))}
-              </select>
               <button
                 type="button"
-                onClick={() => setQty((q) => Math.min(50, q + 1))}
-                disabled={qty >= 50 || isOutOfStock}
-                className="w-5 h-5 rounded-full bg-slate-100 text-[#0f172A] font-bold text-xs flex items-center justify-center hover:bg-slate-200 disabled:opacity-30 transition-colors cursor-pointer"
+                onClick={() => window.dispatchEvent(new CustomEvent('open-wholesale-application'))}
+                className="py-2.5 px-2 bg-[#F97316] hover:bg-[#ea580c] text-white text-xs font-bold rounded-full transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
               >
-                +
+                <UserCheck className="w-3.5 h-3.5" />
+                <span>Apply for Account</span>
               </button>
             </div>
 
-            {/* Add to Cart or Out of Stock Button */}
-            {isOutOfStock ? (
-              <button
-                type="button"
-                disabled
-                className="flex-1 py-2 bg-slate-200 text-slate-500 text-xs font-bold rounded-full flex items-center justify-center gap-1.5 cursor-not-allowed"
-              >
-                <XCircle className="w-3.5 h-3.5 text-slate-400" />
-                Out of Stock
-              </button>
-            ) : (
-              <button
-                type="button"
-                onClick={handleAddToCart}
-                className={`flex-1 py-2 text-white text-xs font-bold rounded-full transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm ${
-                  added
-                    ? 'bg-emerald-600 text-white'
-                    : 'bg-[#0f172A] hover:bg-[#1e293b] text-white'
-                }`}
-              >
-                {added ? (
-                  <>
-                    <Check className="w-3.5 h-3.5" />
-                    Added {qty}!
-                  </>
-                ) : (
-                  <>
-                    <ShoppingBag className="w-3.5 h-3.5 text-[#F97316]" />
-                    Add to Cart
-                  </>
-                )}
-              </button>
-            )}
+            <button
+              type="button"
+              onClick={() => onViewDetails(item)}
+              className="w-full py-1 text-center text-[11px] font-bold text-slate-600 hover:text-[#0f172A] transition-colors flex items-center justify-center gap-1 cursor-pointer"
+            >
+              <Eye className="w-3.5 h-3.5 text-[#F97316]" />
+              <span>View Specifications & Pack Info</span>
+            </button>
           </div>
-
-          {/* View Product Details Link */}
-          <button
-            type="button"
-            onClick={() => onViewDetails(item)}
-            className="w-full py-1 text-center text-[11px] font-bold text-[#F97316] hover:text-[#ea580c] transition-colors flex items-center justify-center gap-1 cursor-pointer"
-          >
-            <Eye className="w-3.5 h-3.5" />
-            <span>View Specifications & Bulk Pricing</span>
-          </button>
-        </div>
+        )}
       </div>
     </div>
   );

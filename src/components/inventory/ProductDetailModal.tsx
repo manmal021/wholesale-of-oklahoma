@@ -13,6 +13,9 @@ import {
   AlertCircle,
   Truck,
   Building,
+  Lock,
+  LogIn,
+  UserCheck,
 } from 'lucide-react';
 import type { InventoryItem, InventoryVariant, QuantityDisplayMode } from '../../types/inventory';
 import { addToOrderDirect } from '../../lib/mangoAI';
@@ -62,17 +65,17 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
   const currentStock = selectedVariant ? selectedVariant.available_stock : item.available_stock;
   const currentStatus = selectedVariant ? selectedVariant.stock_status : item.stock_status;
   const currentSku = selectedVariant ? selectedVariant.variant_sku : item.sku;
-  const currentRate = selectedVariant?.rate || item.rate;
+  const currentRate = selectedVariant?.rate ?? item.rate;
+  const hasPricingAccess = item.has_pricing_access === true && typeof currentRate === 'number';
   const isOutOfStock = currentStatus === 'out_of_stock' || currentStock <= 0;
   const isLowStock = currentStatus === 'low_stock';
 
   const handleAddToCart = () => {
-    if (isOutOfStock) return;
+    if (isOutOfStock || !hasPricingAccess || typeof currentRate !== 'number') return;
     const itemName = selectedVariant
       ? `${item.name} (${selectedVariant.variant_name})`
       : item.name;
-    const chosenRate = selectedVariant?.rate || item.rate;
-    addToOrderDirect(item, qty, selectedVariant?.variant_name, chosenRate);
+    addToOrderDirect(item, qty, selectedVariant?.variant_name, currentRate);
     setAdded(true);
     if (onAddedToCart) {
       onAddedToCart(itemName, qty);
@@ -223,55 +226,98 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               </div>
 
               {/* Pricing Display */}
-              <div className="p-4 bg-orange-50/50 rounded-2xl border border-orange-100 flex items-center justify-between">
-                <div>
-                  <span className="text-[10px] uppercase font-bold tracking-wider text-orange-950/70 block">
-                    Direct Wholesale Price
-                  </span>
-                  <span className="text-3xl font-black text-[#0f172A]">
-                    ${currentRate.toFixed(2)}
-                  </span>
-                  <span className="text-xs text-slate-500 font-medium ml-1">/ unit</span>
-                </div>
+              {hasPricingAccess && typeof currentRate === 'number' ? (
+                <>
+                  <div className="p-4 bg-orange-50/50 rounded-2xl border border-orange-100 flex items-center justify-between">
+                    <div>
+                      <span className="text-[10px] uppercase font-bold tracking-wider text-orange-950/70 block">
+                        Direct Wholesale Price
+                      </span>
+                      <span className="text-3xl font-black text-[#0f172A]">
+                        ${currentRate.toFixed(2)}
+                      </span>
+                      <span className="text-xs text-slate-500 font-medium ml-1">/ unit</span>
+                    </div>
 
-                {item.retail_msrp && (
-                  <div className="text-right">
-                    <span className="text-[10px] uppercase font-bold text-slate-400 block">
-                      Estimated Retail MSRP
-                    </span>
-                    <span className="text-sm font-semibold text-slate-500 line-through">
-                      ${item.retail_msrp.toFixed(2)}
-                    </span>
-                    <span className="text-[11px] text-[#F97316] font-bold block">
-                      ~{Math.round(((item.retail_msrp - currentRate) / item.retail_msrp) * 100)}% Profit Margin
-                    </span>
-                  </div>
-                )}
-              </div>
-
-              {/* Bulk Pricing Tier Table */}
-              {item.bulk_pricing && item.bulk_pricing.length > 0 && (
-                <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
-                    Tiered Wholesale Pricing
-                  </h4>
-                  <div className="grid grid-cols-3 gap-2">
-                    {item.bulk_pricing.map((tier, idx) => (
-                      <div
-                        key={idx}
-                        className="bg-white p-2.5 rounded-xl border border-slate-200 text-center shadow-2xs"
-                      >
-                        <span className="text-[10px] text-slate-500 block font-semibold">
-                          {tier.label}
+                    {item.retail_msrp && (
+                      <div className="text-right">
+                        <span className="text-[10px] uppercase font-bold text-slate-400 block">
+                          Estimated Retail MSRP
                         </span>
-                        <span className="text-sm font-black text-[#0f172A]">
-                          ${tier.pricePerUnit.toFixed(2)}
+                        <span className="text-sm font-semibold text-slate-500 line-through">
+                          ${item.retail_msrp.toFixed(2)}
                         </span>
-                        <span className="text-[9px] text-[#F97316] block font-bold">
-                          ea
+                        <span className="text-[11px] text-[#F97316] font-bold block">
+                          ~{Math.round(((item.retail_msrp - currentRate) / item.retail_msrp) * 100)}% Profit Margin
                         </span>
                       </div>
-                    ))}
+                    )}
+                  </div>
+
+                  {/* Bulk Pricing Tier Table */}
+                  {item.bulk_pricing && item.bulk_pricing.length > 0 && (
+                    <div>
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
+                        Tiered Wholesale Pricing
+                      </h4>
+                      <div className="grid grid-cols-3 gap-2">
+                        {item.bulk_pricing.map((tier, idx) => (
+                          <div
+                            key={idx}
+                            className="bg-white p-2.5 rounded-xl border border-slate-200 text-center shadow-2xs"
+                          >
+                            <span className="text-[10px] text-slate-500 block font-semibold">
+                              {tier.label}
+                            </span>
+                            <span className="text-sm font-black text-[#0f172A]">
+                              ${tier.pricePerUnit.toFixed(2)}
+                            </span>
+                            <span className="text-[9px] text-[#F97316] block font-bold">
+                              ea
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  )}
+                </>
+              ) : (
+                <div className="p-5 bg-gradient-to-br from-slate-900 to-[#0f172A] rounded-2xl border border-slate-800 text-white shadow-md">
+                  <div className="flex items-center gap-2.5 mb-2">
+                    <div className="w-8 h-8 rounded-full bg-[#F97316]/20 flex items-center justify-center text-[#F97316]">
+                      <Lock className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <h4 className="text-sm font-bold text-white">Login to View Wholesale Pricing</h4>
+                      <span className="text-[11px] text-slate-400">Restricted to verified wholesale retail accounts</span>
+                    </div>
+                  </div>
+                  <p className="text-xs text-slate-300 leading-relaxed mt-2">
+                    Case quantity tiers, profit margin calculators, and online ordering require an approved Wholesale of Oklahoma retail partner account.
+                  </p>
+                  <div className="grid grid-cols-2 gap-2 mt-4">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        onClose();
+                        window.dispatchEvent(new CustomEvent('open-login-modal'));
+                      }}
+                      className="py-2.5 px-3 bg-white hover:bg-slate-100 text-[#0f172A] font-bold text-xs rounded-xl transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+                    >
+                      <LogIn className="w-3.5 h-3.5 text-[#F97316]" />
+                      Login to View Pricing
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        onClose();
+                        window.dispatchEvent(new CustomEvent('open-wholesale-application'));
+                      }}
+                      className="py-2.5 px-3 bg-[#F97316] hover:bg-[#ea580c] text-white font-bold text-xs rounded-xl transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+                    >
+                      <UserCheck className="w-3.5 h-3.5" />
+                      Apply for Account
+                    </button>
                   </div>
                 </div>
               )}
@@ -362,68 +408,95 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
             {/* Bottom Actions: Quantity Selector, Add to Cart & Dispatch CTA */}
             <div className="pt-4 border-t border-slate-200 space-y-3">
-              <div className="flex items-center gap-3">
-                {/* Stepper */}
-                <div
-                  className={`flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-full px-3 py-2 ${
-                    isOutOfStock ? 'opacity-40 pointer-events-none' : ''
-                  }`}
-                >
-                  <button
-                    type="button"
-                    onClick={() => setQty((q) => Math.max(1, q - 1))}
-                    disabled={qty <= 1 || isOutOfStock}
-                    className="w-7 h-7 rounded-full bg-white shadow-2xs text-[#0f172A] font-bold text-sm flex items-center justify-center hover:bg-slate-100 disabled:opacity-30 transition-colors cursor-pointer"
-                  >
-                    −
-                  </button>
-                  <span className="text-sm font-bold text-[#0f172A] px-2 min-w-[2.5rem] text-center">
-                    {qty}
-                  </span>
-                  <button
-                    type="button"
-                    onClick={() => setQty((q) => Math.min(100, q + 1))}
-                    disabled={qty >= 100 || isOutOfStock}
-                    className="w-7 h-7 rounded-full bg-white shadow-2xs text-[#0f172A] font-bold text-sm flex items-center justify-center hover:bg-slate-100 disabled:opacity-30 transition-colors cursor-pointer"
-                  >
-                    +
-                  </button>
-                </div>
-
-                {/* Add to Cart Button */}
-                {isOutOfStock ? (
-                  <button
-                    type="button"
-                    disabled
-                    className="flex-1 py-3 bg-slate-200 text-slate-500 text-sm font-bold rounded-full flex items-center justify-center gap-2 cursor-not-allowed"
-                  >
-                    <AlertCircle className="w-4 h-4 text-slate-400" />
-                    Currently Out of Stock
-                  </button>
-                ) : (
-                  <button
-                    type="button"
-                    onClick={handleAddToCart}
-                    className={`flex-1 py-3 text-white text-sm font-bold rounded-full transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md ${
-                      added
-                        ? 'bg-emerald-600'
-                        : 'bg-[#F97316] hover:bg-[#ea580c]'
+              {hasPricingAccess && typeof currentRate === 'number' ? (
+                <div className="flex items-center gap-3">
+                  {/* Stepper */}
+                  <div
+                    className={`flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-full px-3 py-2 ${
+                      isOutOfStock ? 'opacity-40 pointer-events-none' : ''
                     }`}
                   >
-                    {added ? (
-                      <>
-                        <Check className="w-4 h-4 text-white" />
-                        Added {qty} Units to Order Draft!
-                      </>
-                    ) : (
-                      <>
-                        <ShoppingBag className="w-4 h-4 text-white" />
-                        Add {qty} to Wholesale Cart · ${(currentRate * qty).toFixed(2)}
-                      </>
-                    )}
+                    <button
+                      type="button"
+                      onClick={() => setQty((q) => Math.max(1, q - 1))}
+                      disabled={qty <= 1 || isOutOfStock}
+                      className="w-7 h-7 rounded-full bg-white shadow-2xs text-[#0f172A] font-bold text-sm flex items-center justify-center hover:bg-slate-100 disabled:opacity-30 transition-colors cursor-pointer"
+                    >
+                      −
+                    </button>
+                    <span className="text-sm font-bold text-[#0f172A] px-2 min-w-[2.5rem] text-center">
+                      {qty}
+                    </span>
+                    <button
+                      type="button"
+                      onClick={() => setQty((q) => Math.min(100, q + 1))}
+                      disabled={qty >= 100 || isOutOfStock}
+                      className="w-7 h-7 rounded-full bg-white shadow-2xs text-[#0f172A] font-bold text-sm flex items-center justify-center hover:bg-slate-100 disabled:opacity-30 transition-colors cursor-pointer"
+                    >
+                      +
+                    </button>
+                  </div>
+
+                  {/* Add to Cart Button */}
+                  {isOutOfStock ? (
+                    <button
+                      type="button"
+                      disabled
+                      className="flex-1 py-3 bg-slate-200 text-slate-500 text-sm font-bold rounded-full flex items-center justify-center gap-2 cursor-not-allowed"
+                    >
+                      <AlertCircle className="w-4 h-4 text-slate-400" />
+                      Currently Out of Stock
+                    </button>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={handleAddToCart}
+                      className={`flex-1 py-3 text-white text-sm font-bold rounded-full transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md ${
+                        added
+                          ? 'bg-emerald-600'
+                          : 'bg-[#F97316] hover:bg-[#ea580c]'
+                      }`}
+                    >
+                      {added ? (
+                        <>
+                          <Check className="w-4 h-4 text-white" />
+                          Added {qty} Units to Order Draft!
+                        </>
+                      ) : (
+                        <>
+                          <ShoppingBag className="w-4 h-4 text-white" />
+                          Add {qty} to Wholesale Cart · ${(currentRate * qty).toFixed(2)}
+                        </>
+                      )}
+                    </button>
+                  )}
+                </div>
+              ) : (
+                <div className="flex flex-col sm:flex-row items-center gap-2.5">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onClose();
+                      window.dispatchEvent(new CustomEvent('open-login-modal'));
+                    }}
+                    className="w-full sm:flex-1 py-3.5 bg-[#0f172A] hover:bg-[#1e293b] text-white text-sm font-bold rounded-full transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                  >
+                    <LogIn className="w-4 h-4 text-[#F97316]" />
+                    Login to View Wholesale Pricing
                   </button>
-                )}
-              </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      onClose();
+                      window.dispatchEvent(new CustomEvent('open-wholesale-application'));
+                    }}
+                    className="w-full sm:flex-1 py-3.5 bg-[#F97316] hover:bg-[#ea580c] text-white text-sm font-bold rounded-full transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                  >
+                    <UserCheck className="w-4 h-4" />
+                    Apply for Wholesale Account
+                  </button>
+                </div>
+              )}
 
               {/* Order Form Shortcut & Dispatch Phone */}
               <div className="flex items-center justify-between text-xs text-slate-500 pt-1">

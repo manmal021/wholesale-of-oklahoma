@@ -48,8 +48,8 @@ app.use((_req, res, next) => {
 });
 
 // ── Parsing Middleware ──────────────────────────────────────────────────────
-app.use(express.json({ limit: '2mb' }));
-app.use(express.urlencoded({ extended: true }));
+app.use(express.json({ limit: '15mb' }));
+app.use(express.urlencoded({ extended: true, limit: '15mb' }));
 
 // ── API Routes ──────────────────────────────────────────────────────────────
 // /api/inventory/*, /api/zoho/*, /api/chat
@@ -99,9 +99,8 @@ app.get('*', (req, res) => {
         },
         offers: {
           '@type': 'Offer',
-          priceCurrency: 'USD',
-          price: product.pricePerUnit || 15.0,
           availability: product.inStock ? 'https://schema.org/InStock' : 'https://schema.org/OutOfStock',
+          description: 'Wholesale pricing restricted to verified business accounts. Login to view pricing.',
           seller: {
             '@type': 'Organization',
             name: 'Wholesale of Oklahoma',
@@ -112,14 +111,14 @@ app.get('*', (req, res) => {
       const schemaTag = `<script type="application/ld+json">${JSON.stringify(productSchema)}</script>`;
       html = html.replace('</head>', `  ${schemaTag}\n  </head>`);
 
-      // Pre-rendered semantic crawler fallback inside root
+      // Pre-rendered semantic crawler fallback inside root (Zero price leakage to public HTML)
       const crawlerBlock = `
         <noscript>
           <article style="max-width:800px;margin:2rem auto;padding:1rem;font-family:sans-serif;">
             <h1>${product.name}</h1>
             <p><strong>Brand:</strong> ${product.brand} | <strong>SKU:</strong> ${product.sku} | <strong>Category:</strong> ${product.category}</p>
             <p>${product.features.join('. ')}</p>
-            <p><strong>Wholesale Price:</strong> $${product.pricePerUnit.toFixed(2)}</p>
+            <p><strong>Wholesale Pricing:</strong> Restricted to licensed retailers. Login or apply for an account to view pricing.</p>
             <nav aria-label="Breadcrumb">
               <a href="/">Home</a> &gt; <a href="/categories/${product.category.toLowerCase().replace(/[^a-z0-9]+/g, '-')}">${product.category}</a> &gt; ${product.name}
             </nav>

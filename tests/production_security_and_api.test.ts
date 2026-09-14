@@ -242,3 +242,166 @@ test('Caching: Sensitive admin status is not cached with public CDN max-age', as
   const cacheControl = res.headers.get('cache-control') || '';
   assert.ok(!cacheControl.includes('public, max-age=31536000'), 'Admin endpoints must never be aggressively cached');
 });
+
+// ---------------------------------------------------------------------------
+// 8. Zero Wholesale Pricing Leakage for Unauthenticated Visitors (Req 2 & 25)
+// ---------------------------------------------------------------------------
+test('Pricing Security: Unauthenticated GET /api/inventory strips all wholesale rates', async () => {
+  const res = await fetch(`${baseUrl}/api/inventory`);
+  assert.equal(res.status, 200);
+  const data = await res.json();
+  assert.equal(data.has_pricing_access, false, 'Unauthenticated caller must have has_pricing_access=false');
+  assert.ok(Array.isArray(data.items), 'Must return items array');
+  assert.ok(data.items.length > 0, 'Catalog should return items');
+
+  for (const item of data.items) {
+    assert.equal(item.rate, null, `Item ${item.id} must have null rate for unauthenticated caller`);
+    assert.equal(item.has_pricing_access, false);
+    assert.deepEqual(item.bulk_pricing, [], `Item ${item.id} must have empty bulk pricing`);
+  }
+});
+
+test('Pricing Security: Unauthenticated GET /api/inventory/:id strips wholesale rates', async () => {
+  const res = await fetch(`${baseUrl}/api/inventory/geekbar-15k`);
+  assert.equal(res.status, 200);
+  const item = await res.json();
+  assert.equal(item.rate, null, 'Direct item query must have null rate without authorization');
+  assert.equal(item.has_pricing_access, false);
+  assert.deepEqual(item.bulk_pricing, []);
+});
+
+// ---------------------------------------------------------------------------
+// 9. B2B Authentication, Sessions, and Role-Based Access Control (Req 3, 7, 8)
+// ---------------------------------------------------------------------------
+test('Auth: Login with approved retailer credentials sets session cookie and unlocks pricing', async () => {
+  const loginRes = await fetch(`${baseUrl}/api/auth/login`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email: 'retailer@okcvapor.com',
+      password: 'WholesaleOK2026!',
+    }),
+  });
+
+  assert.equal(loginRes.status, 200);
+  const loginData = await loginRes.json();
+  assert.equal(loginData.success, true);
+  assert.equal(loginData.user.role, 'approved_customer');
+  assert.equal(loginData.user.has_pricing_access, true);
+
+  // Extract session cookie
+  const setCookieHeader = loginRes.headers.get('set-cookie');
+  assert.ok(setCookieHeader, 'Must set woo_session cookie');
+  assert.ok(setCookieHeader.includes('woo_session='), 'Cookie name must be woo_session');
+  assert.ok(setCookieHeader.includes('HttpOnly'), 'Session cookie must be HttpOnly');
+
+  const cookieVal = setCookieHeader.split(';')[0];
+
+  // Verify /api/auth/me with session cookie
+  const meRes = await fetch(`${baseUrl}/api/auth/me`, {
+    headers: { Cookie: cookieVal },
+  });
+  assert.equal(meRes.status, 200);
+  const meData = await meRes.json();
+  assert.equal(meData.authenticated, true);
+  assert.equal(meData.user.role, 'approved_customer');
+  assert.equal(meData.user.has_pricing_access, true);
+
+  // Verify that GET /api/inventory WITH approved session cookie returns real wholesale pricing
+  const authedInvRes = await fetch(`${baseUrl}/api/inventory`, {
+    headers: { Cookie: cookieVal },
+  });
+  assert.equal(authedInvRes.status, 200);
+  const authedInvData = await authedInvRes.json();
+  assert.equal(authedInvData.has_pricing_access, true);
+
+  const testItem = authedInvData.items.find((i: any) => i.id === 'geekbar-15k');
+  assert.ok(testItem, 'Item must exist');
+  assert.ok(typeof testItem.rate === 'number' && testItem.rate > 0, `Expected numeric wholesale rate, got ${testItem.rate}`);
+});
+
+test('Auth: Invalid credentials return 401 and do not set session', async () => {
+  const res = await fetch(`${baseUrl}/api/auth/login`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email: 'retailer@okcvapor.com',
+      password: 'WrongPassword!',
+    }),
+  });
+  assert.equal(res.status, 401);
+});
+
+// ---------------------------------------------------------------------------
+// 10. Document Upload Security & Magic Byte Validation (Req 6 & 19)
+// ---------------------------------------------------------------------------
+test('Upload Security: Rejects non-document files or text masquerading as PDF', async () => {
+  // Fake PDF content (text string, missing %PDF magic bytes)
+  const fakePdfBase64 = Buffer.from('Hello this is a plain text file pretending to be pdf').toString('base64');
+  const res = await fetch(`${baseUrl}/api/wholesale/upload`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      filename: 'tax_permit.pdf',
+      documentType: 'resale_certificate',
+      fileBase64: fakePdfBase64,
+    }),
+  });
+
+  assert.equal(res.status, 400, 'Invalid magic bytes must be rejected with 400');
+  const data = await res.json();
+  assert.ok(
+    data.error.includes('Invalid file type') ||
+    data.error.includes('magic bytes') ||
+    data.error.includes('signature')
+  );
+});
+
+test('Upload Security: Accepts valid PDF buffer with true magic bytes (%PDF)', async () => {
+  // Minimal valid PDF header buffer
+  const validPdfHeader = Buffer.from('%PDF-1.4\n%âãÏÓ\n1 0 obj\n<<>>\nendobj\ntrailer\n<<>>\n%%EOF');
+  const res = await fetch(`${baseUrl}/api/wholesale/upload`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      filename: 'oklahoma_sales_tax_permit.pdf',
+      documentType: 'resale_certificate',
+      fileBase64: validPdfHeader.toString('base64'),
+    }),
+  });
+
+  assert.equal(res.status, 200, 'Valid PDF buffer must be accepted');
+  const data = await res.json();
+  assert.equal(data.success, true);
+  assert.ok(data.documentId);
+  assert.equal(data.fileType, 'application/pdf');
+
+  // Verify Document Retrieval Security:
+  // 1. Unauthenticated retrieval must return 401
+  const unauthDocRes = await fetch(`${baseUrl}/api/wholesale/documents/${data.documentId}`);
+  assert.equal(unauthDocRes.status, 401, 'Unauthenticated document retrieval must be rejected');
+
+  // 2. Admin retrieval with x-admin-key must return 200 and correct Content-Type
+  const adminDocRes = await fetch(`${baseUrl}/api/wholesale/documents/${data.documentId}`, {
+    headers: { 'x-admin-key': TEST_ADMIN_KEY },
+  });
+  assert.equal(adminDocRes.status, 200, 'Admin can securely retrieve private customer document');
+  assert.equal(adminDocRes.headers.get('content-type'), 'application/pdf');
+});
+
+test('Upload Security: Rejects files exceeding 10MB limit', async () => {
+  // Real binary buffer exceeding 10MB limit
+  const oversizedBase64 = Buffer.alloc(11 * 1024 * 1024).toString('base64');
+  const res = await fetch(`${baseUrl}/api/wholesale/upload`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      filename: 'huge.pdf',
+      documentType: 'resale_certificate',
+      fileBase64: oversizedBase64,
+    }),
+  });
+
+  assert.equal(res.status, 413, 'Oversized file must be rejected with 413');
+});
+

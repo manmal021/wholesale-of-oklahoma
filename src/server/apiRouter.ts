@@ -39,11 +39,13 @@ import {
 } from './zohoInventory.js';
 import { inventoryStore } from './inventoryStore.js';
 import { wholesaleStore } from './wholesaleStore.js';
+import { authStore, type UserRole, type SessionRecord } from './authStore.js';
+import { documentStore } from './documentStore.js';
 import { PRODUCTS } from '../lib/productDatabase.js';
 import type { InventoryFilterParams } from '../types/inventory.js';
 
 export const apiApp = express();
-apiApp.use(express.json());
+apiApp.use(express.json({ limit: '15mb' }));
 
 // ---------------------------------------------------------------------------
 // Helper – uniform JSON response
@@ -53,6 +55,59 @@ function ok(res: Response, data: object) {
 }
 function err(res: Response, status: number, message: string) {
   return res.status(status).json({ error: message });
+}
+
+// ---------------------------------------------------------------------------
+// Session & Wholesale Pricing Authorization (OWASP A01 / Rules 2, 3, 12)
+// ---------------------------------------------------------------------------
+function getSessionUser(req: Request): SessionRecord | null {
+  let token = '';
+  const cookieHeader = req.headers.cookie || '';
+  const match = cookieHeader.match(/woo_session=([^;]+)/);
+  if (match) {
+    token = match[1];
+  } else if (req.headers.authorization?.startsWith('Bearer ')) {
+    token = req.headers.authorization.slice(7).trim();
+  } else if (typeof req.headers['x-session-token'] === 'string') {
+    token = req.headers['x-session-token'];
+  }
+  return authStore.validateSession(token);
+}
+
+function hasApprovedPricingAccess(req: Request): boolean {
+  const session = getSessionUser(req);
+  return session?.role === 'approved_customer' || session?.role === 'admin';
+}
+
+function sanitizeItemForClient(item: any, hasPricingAccess: boolean) {
+  if (hasPricingAccess) {
+    return {
+      ...item,
+      has_pricing_access: true,
+    };
+  }
+  const safe = { ...item };
+  delete safe.rate;
+  delete safe.pricePerUnit;
+  delete safe.bulk_pricing;
+  delete safe.bulkPricing;
+  delete safe.purchase_rate;
+  delete safe.retail_msrp;
+  if (Array.isArray(safe.variants)) {
+    safe.variants = safe.variants.map((v: any) => {
+      const vSafe = { ...v };
+      delete vSafe.rate;
+      return { ...vSafe, rate: null };
+    });
+  }
+  return {
+    ...safe,
+    rate: null,
+    bulk_pricing: [],
+    bulkPricing: [],
+    has_pricing_access: false,
+    pricing_notice: 'Login to View Wholesale Pricing',
+  };
 }
 
 // ---------------------------------------------------------------------------
@@ -96,7 +151,7 @@ setInterval(() => {
 // ---------------------------------------------------------------------------
 // Administrative Authorization Middleware (OWASP A01 / Rule 12 & 14)
 // ---------------------------------------------------------------------------
-function requireAdminAuth(req: Request, res: Response, next: () => void) {
+function validateAdminKey(req: Request): boolean {
   const secret = process.env.ADMIN_SECRET_KEY;
   const rawProvided = req.headers['x-admin-key'] || req.headers['authorization'];
   const provided = typeof rawProvided === 'string' ? rawProvided.replace(/^Bearer\s+/i, '').trim() : '';
@@ -105,8 +160,20 @@ function requireAdminAuth(req: Request, res: Response, next: () => void) {
     const bufProvided = Buffer.from(provided);
     const bufSecret = Buffer.from(secret);
     if (bufProvided.length === bufSecret.length && crypto.timingSafeEqual(bufProvided, bufSecret)) {
-      return next();
+      return true;
     }
+  }
+  return false;
+}
+
+function requireAdminAuth(req: Request, res: Response, next: () => void) {
+  if (validateAdminKey(req)) {
+    return next();
+  }
+
+  const session = getSessionUser(req);
+  if (session?.role === 'admin') {
+    return next();
   }
 
   // In non-production environments allow localhost without admin key
@@ -361,7 +428,10 @@ apiApp.get(['/inventory', '/api/inventory'], async (req: Request, res: Response)
         const limit = Math.max(1, parseInt(params.limit || '12', 10));
         const total = filtered.length;
         const total_pages = Math.ceil(total / limit) || 1;
-        const pageItems = filtered.slice((page - 1) * limit, page * limit);
+        const hasPricingAccess = hasApprovedPricingAccess(req);
+        const pageItems = filtered
+          .slice((page - 1) * limit, page * limit)
+          .map((item) => sanitizeItemForClient(item, hasPricingAccess));
 
         return ok(res, {
           items: pageItems,
@@ -369,6 +439,7 @@ apiApp.get(['/inventory', '/api/inventory'], async (req: Request, res: Response)
           page,
           limit,
           total_pages,
+          has_pricing_access: hasPricingAccess,
           settings: inventoryStore.getSettings(),
           sync_info: {
             last_synced: fetchedAt,
@@ -394,7 +465,13 @@ apiApp.get(['/inventory', '/api/inventory'], async (req: Request, res: Response)
       page: qParams.page ? parseInt(qParams.page, 10) : 1,
       limit: qParams.limit ? parseInt(qParams.limit, 10) : 12,
     };
-    return ok(res, inventoryStore.queryItems(filterParams));
+    const hasPricingAccess = hasApprovedPricingAccess(req);
+    const result = inventoryStore.queryItems(filterParams);
+    return ok(res, {
+      ...result,
+      has_pricing_access: hasPricingAccess,
+      items: result.items.map((item) => sanitizeItemForClient(item, hasPricingAccess)),
+    });
   } catch (e: any) {
     console.error('[API] /inventory error:', e.message);
     return err(res, 500, e.message);
@@ -510,18 +587,19 @@ apiApp.post(['/inventory/webhook', '/api/inventory/webhook'], (req, res) => {
  */
 apiApp.get(['/inventory/:id', '/api/inventory/:id'], async (req: Request, res: Response) => {
   const id = req.params.id;
+  const hasPricingAccess = hasApprovedPricingAccess(req);
   try {
     if (isZohoConfigured()) {
       try {
         const item = await getZohoItem(id);
-        if (item) return ok(res, item);
+        if (item) return ok(res, sanitizeItemForClient(item, hasPricingAccess));
       } catch (zohoError: any) {
         console.warn(`[API] Zoho item ${id} fetch failed, falling back to seed store:`, zohoError.message);
       }
     }
     const item = inventoryStore.getItem(id);
     if (!item) return err(res, 404, `Item ${id} not found`);
-    return ok(res, item);
+    return ok(res, sanitizeItemForClient(item, hasPricingAccess));
   } catch (e: any) {
     return err(res, 500, e.message);
   }
@@ -696,6 +774,164 @@ apiApp.post(['/chat', '/api/chat'], async (req: Request, res: Response) => {
 });
 
 // ============================================================================
+// AUTHENTICATION ROUTES — /api/auth/*
+// ============================================================================
+
+/**
+ * POST /api/auth/login
+ * Authenticates user credentials and establishes a secure HttpOnly session cookie.
+ * Rate limited to 5 attempts per 5 minutes per IP.
+ */
+apiApp.post(['/auth/login', '/api/auth/login'], rateLimit(5, 5 * 60 * 1000), (req: Request, res: Response) => {
+  const { email, password } = req.body || {};
+
+  if (!email || !password) {
+    return err(res, 400, 'Email and password are required.');
+  }
+
+  try {
+    const { user, token } = authStore.login(String(email), String(password));
+
+    // Set secure HttpOnly session cookie
+    const isProd = process.env.NODE_ENV === 'production' || Boolean(process.env.VERCEL);
+    res.setHeader(
+      'Set-Cookie',
+      `woo_session=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=604800${isProd ? '; Secure' : ''}`
+    );
+
+    return ok(res, {
+      success: true,
+      user: {
+        ...user,
+        has_pricing_access: user.role === 'approved_customer' || user.role === 'admin',
+      },
+      token,
+      message: 'Login successful.',
+    });
+  } catch (loginErr: any) {
+    return err(res, 401, loginErr.message || 'Invalid email or password.');
+  }
+});
+
+/**
+ * POST /api/auth/logout
+ * Terminates user session and clears session cookie.
+ */
+apiApp.post(['/auth/logout', '/api/auth/logout'], (req: Request, res: Response) => {
+  const session = getSessionUser(req);
+  if (session) {
+    authStore.revokeSession(session.token);
+  }
+
+  res.setHeader('Set-Cookie', 'woo_session=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0');
+  return ok(res, { success: true, message: 'Logged out successfully.' });
+});
+
+/**
+ * GET /api/auth/me
+ * Returns current authenticated user and role.
+ */
+apiApp.get(['/auth/me', '/api/auth/me'], (req: Request, res: Response) => {
+  const session = getSessionUser(req);
+  if (!session) {
+    return ok(res, {
+      authenticated: false,
+      role: 'visitor',
+      has_pricing_access: false,
+      user: null,
+    });
+  }
+
+  const hasAccess = session.role === 'approved_customer' || session.role === 'admin';
+
+  return ok(res, {
+    authenticated: true,
+    user: {
+      userId: session.userId,
+      id: session.userId,
+      email: session.email,
+      role: session.role,
+      businessName: session.businessName,
+      contactName: session.contactName,
+      has_pricing_access: hasAccess,
+    },
+    has_pricing_access: hasAccess,
+  });
+});
+
+// ============================================================================
+// DOCUMENT UPLOAD & PRIVATE RETRIEVAL — /api/wholesale/upload
+// ============================================================================
+
+/**
+ * POST /api/wholesale/upload
+ * Handles base64 encoded document uploads with magic byte checking.
+ * Rate limited to 25 uploads per 15 minutes per IP.
+ */
+apiApp.post(['/wholesale/upload', '/api/wholesale/upload'], rateLimit(25, 15 * 60 * 1000), (req: Request, res: Response) => {
+  const { fileBase64, filename, documentType } = req.body || {};
+
+  if (!fileBase64 || !filename) {
+    return err(res, 400, 'Missing file payload or filename.');
+  }
+
+  try {
+    const rawBase64 = String(fileBase64).replace(/^data:[^;]+;base64,/, '');
+
+    if (rawBase64.length > 14 * 1024 * 1024) {
+      return err(res, 413, 'File exceeds the maximum allowed size of 10MB.');
+    }
+
+    const buffer = Buffer.from(rawBase64, 'base64');
+    if (buffer.length > 10 * 1024 * 1024) {
+      return err(res, 413, 'File exceeds the maximum allowed size of 10MB.');
+    }
+
+    const validDocTypes = ['resale_certificate', 'business_license', 'other'];
+    const sanitizedType = validDocTypes.includes(documentType) ? documentType : 'other';
+
+    const record = documentStore.saveDocument(buffer, String(filename), sanitizedType as any);
+
+    return ok(res, {
+      success: true,
+      documentId: record.id,
+      filename: record.originalName,
+      size: record.size,
+      mimeType: record.mimeType,
+      fileType: record.mimeType,
+      message: 'Document uploaded and verified successfully.',
+    });
+  } catch (uploadErr: any) {
+    const msg = uploadErr.message || 'Document upload failed.';
+    if (msg.includes('10MB')) {
+      return err(res, 413, msg);
+    }
+    return err(res, 400, msg);
+  }
+});
+
+/**
+ * GET /api/wholesale/documents/:id
+ * Private retrieval for authorized administrators only.
+ */
+apiApp.get(['/wholesale/documents/:id', '/api/wholesale/documents/:id'], requireAdminAuth, (req: Request, res: Response) => {
+  const docId = req.params.id;
+  if (!docId || typeof docId !== 'string' || docId.includes('..') || docId.includes('/') || docId.includes('\\')) {
+    return err(res, 400, 'Invalid document ID');
+  }
+
+  const doc = documentStore.getDocumentBuffer(docId);
+  if (!doc) {
+    return err(res, 404, 'Document not found.');
+  }
+
+  res.setHeader('Content-Type', doc.record.mimeType);
+  res.setHeader('Content-Disposition', `inline; filename="${doc.record.originalName}"`);
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  return res.send(doc.buffer);
+});
+
+// ============================================================================
 // WHOLESALE APPLICATION & COMPLIANCE ROUTES — /api/wholesale/*
 // ============================================================================
 
@@ -716,6 +952,8 @@ apiApp.post(['/wholesale/apply', '/api/wholesale/apply'], rateLimit(5, 15 * 60 *
     address,
     ageCertified,
     taxExemptCertified,
+    documents,
+    password,
   } = req.body || {};
 
   // Server-side input validation (OWASP A01 / Rule 16)
@@ -742,6 +980,24 @@ apiApp.post(['/wholesale/apply', '/api/wholesale/apply'], rateLimit(5, 15 * 60 *
   const validBusinessTypes = ['vape_shop', 'smoke_shop', 'dispensary', 'c_store', 'distributor', 'other'];
   const sanitizedBusinessType = (validBusinessTypes.includes(businessType) ? businessType : 'other') as any;
 
+  // Create pending customer account in authStore if password provided
+  if (password && typeof password === 'string' && password.length >= 6) {
+    try {
+      authStore.register({
+        email: email.trim(),
+        password,
+        businessName: businessName.trim(),
+        contactName: contactName.trim(),
+        phone: phone.trim(),
+        fein: fein.trim(),
+        licenseNumber: String(licenseNumber || '').trim(),
+        role: 'pending_customer',
+      });
+    } catch (regErr: any) {
+      // Account may already exist, which is fine
+    }
+  }
+
   const newApp = wholesaleStore.createApplication({
     businessName: businessName.trim().slice(0, 150),
     contactName: contactName.trim().slice(0, 100),
@@ -758,6 +1014,7 @@ apiApp.post(['/wholesale/apply', '/api/wholesale/apply'], rateLimit(5, 15 * 60 *
     },
     ageCertified: Boolean(ageCertified),
     taxExemptCertified: Boolean(taxExemptCertified),
+    documents: Array.isArray(documents) ? documents : [],
   });
 
   console.log(`[API /wholesale/apply] 🟢 New wholesale application registered: ${newApp.id} for "${newApp.businessName}"`);
@@ -766,7 +1023,7 @@ apiApp.post(['/wholesale/apply', '/api/wholesale/apply'], rateLimit(5, 15 * 60 *
     success: true,
     applicationId: newApp.id,
     status: newApp.status,
-    message: 'Wholesale application submitted successfully. Our compliance team will review your business license within 1 business day.',
+    message: 'Your Wholesale of Oklahoma account application has been received and is pending review.',
   });
 });
 
@@ -825,6 +1082,12 @@ apiApp.post(['/wholesale/admin/review', '/api/wholesale/admin/review'], requireA
   const updated = wholesaleStore.reviewApplication(id, status, reviewNotes);
   if (!updated) {
     return err(res, 404, `Application ${id} not found`);
+  }
+
+  // If approved, update user account role in authStore to approved_customer
+  if (status === 'APPROVED') {
+    authStore.updateUserRole(updated.email, 'approved_customer');
+    console.log(`[API /wholesale/admin/review] User ${updated.email} promoted to approved_customer.`);
   }
 
   console.log(`[API /wholesale/admin/review] Application ${id} updated to ${status} by admin.`);

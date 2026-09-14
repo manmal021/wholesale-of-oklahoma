@@ -22,6 +22,11 @@ export interface WholesaleApplication {
   };
   ageCertified: boolean;
   taxExemptCertified: boolean;
+  documents?: Array<{
+    documentId: string;
+    documentType: string;
+    filename: string;
+  }>;
   status: 'PENDING_REVIEW' | 'APPROVED' | 'REJECTED';
   reviewNotes?: string;
   reviewedAt?: string;

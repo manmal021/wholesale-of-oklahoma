@@ -31,7 +31,8 @@ export interface InventoryItem {
   description: string;
   image_url: string;
   gallery_images?: string[];
-  rate: number; // Wholesale unit price
+  rate: number | null; // Wholesale unit price (null if unauthorized)
+  has_pricing_access?: boolean;
   retail_msrp?: number;
   purchase_rate?: number;
   available_stock: number;
@@ -76,6 +77,8 @@ export interface InventoryResponse {
   limit: number;
   total_pages: number;
   settings: AdminInventorySettings;
+  has_pricing_access?: boolean;
+  user_role?: string;
   sync_info: {
     last_synced: string;
     source: 'zoho_live' | 'cache' | 'sandbox_catalog';
