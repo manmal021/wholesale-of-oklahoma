@@ -175,6 +175,14 @@ class AuthStore {
     return safeUser;
   }
 
+  private getSessionSecret(): string {
+    return process.env.ADMIN_SECRET_KEY || process.env.SESSION_SECRET || 'woo_wholesale_oklahoma_hmac_secret_2026';
+  }
+
+  private signSessionPayload(payloadStr: string): string {
+    return crypto.createHmac('sha256', this.getSessionSecret()).update(payloadStr).digest('hex');
+  }
+
   public createSession(
     userOrId: UserRecord | string,
     email?: string,
@@ -182,35 +190,54 @@ class AuthStore {
     businessName?: string,
     contactName?: string
   ): SessionRecord {
-    const token = crypto.randomBytes(32).toString('hex');
     const now = Date.now();
     const expiresAt = now + 7 * 24 * 60 * 60 * 1000; // 7 days
 
-    let session: SessionRecord;
+    let userId: string;
+    let userEmail: string;
+    let userRole: UserRole;
+    let bName: string;
+    let cName: string;
+
     if (typeof userOrId === 'object') {
-      session = {
-        token,
-        userId: userOrId.id,
-        email: userOrId.email,
-        role: userOrId.role,
-        businessName: userOrId.businessName,
-        contactName: userOrId.contactName,
-        createdAt: now,
-        expiresAt,
-      };
+      userId = userOrId.id;
+      userEmail = userOrId.email;
+      userRole = userOrId.role;
+      bName = userOrId.businessName;
+      cName = userOrId.contactName;
     } else {
       const user = email ? this.users.get(email.toLowerCase().trim()) : undefined;
-      session = {
-        token,
-        userId: userOrId,
-        email: email || user?.email || '',
-        role: role || user?.role || 'visitor',
-        businessName: businessName || user?.businessName || '',
-        contactName: contactName || user?.contactName || '',
-        createdAt: now,
-        expiresAt,
-      };
+      userId = userOrId;
+      userEmail = email || user?.email || '';
+      userRole = role || user?.role || 'visitor';
+      bName = businessName || user?.businessName || '';
+      cName = contactName || user?.contactName || '';
     }
+
+    // Generate cryptographic HMAC-signed session token for serverless multi-instance resilience
+    const payloadObj = {
+      u: userId,
+      e: userEmail,
+      r: userRole,
+      b: bName,
+      c: cName,
+      exp: expiresAt,
+      rnd: crypto.randomBytes(8).toString('hex'),
+    };
+    const payloadJson = Buffer.from(JSON.stringify(payloadObj)).toString('base64url');
+    const signature = this.signSessionPayload(payloadJson);
+    const token = `${payloadJson}.${signature}`;
+
+    const session: SessionRecord = {
+      token,
+      userId,
+      email: userEmail,
+      role: userRole,
+      businessName: bName,
+      contactName: cName,
+      createdAt: now,
+      expiresAt,
+    };
 
     this.sessions.set(token, session);
     return session;
@@ -225,22 +252,62 @@ class AuthStore {
   }
 
   public validateSession(token: string): SessionRecord | null {
-    if (!token) return null;
-    const session = this.sessions.get(token);
-    if (!session) return null;
+    if (!token || typeof token !== 'string') return null;
 
-    if (Date.now() > session.expiresAt) {
-      this.sessions.delete(token);
+    // 1. Check local session cache if present
+    const cachedSession = this.sessions.get(token);
+    if (cachedSession) {
+      if (Date.now() > cachedSession.expiresAt) {
+        this.sessions.delete(token);
+        return null;
+      }
+      const user = this.users.get(cachedSession.email);
+      if (user) {
+        cachedSession.role = user.role;
+      }
+      return cachedSession;
+    }
+
+    // 2. Validate HMAC-signed token across serverless lambda instances
+    const parts = token.split('.');
+    if (parts.length !== 2) return null;
+
+    const [payloadB64, providedSig] = parts;
+    try {
+      const expectedSig = this.signSessionPayload(payloadB64);
+      const bufProvided = Buffer.from(providedSig, 'hex');
+      const bufExpected = Buffer.from(expectedSig, 'hex');
+
+      if (bufProvided.length !== bufExpected.length || !crypto.timingSafeEqual(bufProvided, bufExpected)) {
+        return null;
+      }
+
+      const decodedJson = Buffer.from(payloadB64, 'base64url').toString('utf8');
+      const payload = JSON.parse(decodedJson);
+
+      if (!payload.exp || Date.now() > payload.exp) {
+        return null;
+      }
+
+      const user = payload.e ? this.users.get(payload.e.toLowerCase().trim()) : undefined;
+      const effectiveRole: UserRole = user ? user.role : (payload.r as UserRole);
+
+      const reconstructed: SessionRecord = {
+        token,
+        userId: payload.u || '',
+        email: payload.e || '',
+        role: effectiveRole,
+        businessName: user?.businessName || payload.b || '',
+        contactName: user?.contactName || payload.c || '',
+        createdAt: payload.exp - 7 * 24 * 60 * 60 * 1000,
+        expiresAt: payload.exp,
+      };
+
+      this.sessions.set(token, reconstructed);
+      return reconstructed;
+    } catch {
       return null;
     }
-
-    // Refresh role from user in case it was approved by admin
-    const user = this.users.get(session.email);
-    if (user) {
-      session.role = user.role;
-    }
-
-    return session;
   }
 
   public revokeSession(token: string) {

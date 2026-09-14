@@ -368,8 +368,13 @@ apiApp.get(['/zoho/status', '/api/zoho/status'], (_req, res) => {
  */
 apiApp.get(['/inventory', '/api/inventory'], async (req: Request, res: Response) => {
   try {
-    // Set cache headers
-    res.setHeader('Cache-Control', 'public, max-age=15, stale-while-revalidate=60');
+    const hasPricingAccess = hasApprovedPricingAccess(req);
+    res.setHeader('Vary', 'Cookie, Authorization, Accept');
+    if (hasPricingAccess) {
+      res.setHeader('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+    } else {
+      res.setHeader('Cache-Control', 'public, max-age=15, stale-while-revalidate=60');
+    }
 
     if (isZohoConfigured()) {
       try {
@@ -428,7 +433,6 @@ apiApp.get(['/inventory', '/api/inventory'], async (req: Request, res: Response)
         const limit = Math.max(1, parseInt(params.limit || '12', 10));
         const total = filtered.length;
         const total_pages = Math.ceil(total / limit) || 1;
-        const hasPricingAccess = hasApprovedPricingAccess(req);
         const pageItems = filtered
           .slice((page - 1) * limit, page * limit)
           .map((item) => sanitizeItemForClient(item, hasPricingAccess));
@@ -465,7 +469,6 @@ apiApp.get(['/inventory', '/api/inventory'], async (req: Request, res: Response)
       page: qParams.page ? parseInt(qParams.page, 10) : 1,
       limit: qParams.limit ? parseInt(qParams.limit, 10) : 12,
     };
-    const hasPricingAccess = hasApprovedPricingAccess(req);
     const result = inventoryStore.queryItems(filterParams);
     return ok(res, {
       ...result,
@@ -588,6 +591,12 @@ apiApp.post(['/inventory/webhook', '/api/inventory/webhook'], (req, res) => {
 apiApp.get(['/inventory/:id', '/api/inventory/:id'], async (req: Request, res: Response) => {
   const id = req.params.id;
   const hasPricingAccess = hasApprovedPricingAccess(req);
+  res.setHeader('Vary', 'Cookie, Authorization, Accept');
+  if (hasPricingAccess) {
+    res.setHeader('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  } else {
+    res.setHeader('Cache-Control', 'public, max-age=15, stale-while-revalidate=60');
+  }
   try {
     if (isZohoConfigured()) {
       try {
