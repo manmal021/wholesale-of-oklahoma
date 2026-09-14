@@ -210,16 +210,34 @@ export default function OrderForm() {
               </div>
             )}
 
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 p-4 bg-white/5 border border-white/10 rounded-2xl">
+              <div className="flex items-center gap-2.5">
+                <ShieldCheck className="w-5 h-5 text-[#F97316]" />
+                <div className="text-xs">
+                  <span className="font-bold text-white block">Licensed B2B Wholesale Distributor</span>
+                  <span className="text-slate-400">Tax-exempt resale pricing available for verified retail shops.</span>
+                </div>
+              </div>
+              <button
+                type="button"
+                onClick={() => window.dispatchEvent(new CustomEvent('open-wholesale-application'))}
+                className="text-xs font-bold text-[#F97316] hover:text-orange-400 underline cursor-pointer shrink-0"
+              >
+                Apply for Wholesale Account →
+              </button>
+            </div>
+
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
                 {/* Name */}
                 <div className="space-y-2">
-                  <label className="text-xs font-extrabold uppercase tracking-widest text-slate-300 flex items-center gap-1.5">
+                  <label htmlFor="order-name" className="text-xs font-extrabold uppercase tracking-widest text-slate-300 flex items-center gap-1.5">
                     <User className="w-3.5 h-3.5 text-[#F97316]" />
                     Full Name <span className="text-red-400">*</span>
                   </label>
                   <input
+                    id="order-name"
                     type="text"
                     required
                     value={name}
@@ -231,11 +249,12 @@ export default function OrderForm() {
 
                 {/* Business Name */}
                 <div className="space-y-2">
-                  <label className="text-xs font-extrabold uppercase tracking-widest text-slate-300 flex items-center gap-1.5">
+                  <label htmlFor="order-business-name" className="text-xs font-extrabold uppercase tracking-widest text-slate-300 flex items-center gap-1.5">
                     <Building className="w-3.5 h-3.5 text-[#F97316]" />
                     Business Name <span className="text-red-400">*</span>
                   </label>
                   <input
+                    id="order-business-name"
                     type="text"
                     required
                     value={businessName}
@@ -247,11 +266,12 @@ export default function OrderForm() {
 
                 {/* Phone number */}
                 <div className="space-y-2">
-                  <label className="text-xs font-extrabold uppercase tracking-widest text-slate-300 flex items-center gap-1.5">
+                  <label htmlFor="order-phone" className="text-xs font-extrabold uppercase tracking-widest text-slate-300 flex items-center gap-1.5">
                     <Phone className="w-3.5 h-3.5 text-[#F97316]" />
                     Phone Number <span className="text-red-400">*</span>
                   </label>
                   <input
+                    id="order-phone"
                     type="tel"
                     required
                     value={phone}
@@ -263,11 +283,12 @@ export default function OrderForm() {
 
                 {/* Email address */}
                 <div className="space-y-2">
-                  <label className="text-xs font-extrabold uppercase tracking-widest text-slate-300 flex items-center gap-1.5">
+                  <label htmlFor="order-email" className="text-xs font-extrabold uppercase tracking-widest text-slate-300 flex items-center gap-1.5">
                     <Mail className="w-3.5 h-3.5 text-[#F97316]" />
                     Email Address <span className="text-red-400">*</span>
                   </label>
                   <input
+                    id="order-email"
                     type="email"
                     required
                     value={email}
@@ -281,11 +302,12 @@ export default function OrderForm() {
 
               {/* Details of orders */}
               <div className="space-y-2">
-                <label className="text-xs font-extrabold uppercase tracking-widest text-slate-300 flex items-center gap-1.5">
+                <label htmlFor="order-details" className="text-xs font-extrabold uppercase tracking-widest text-slate-300 flex items-center gap-1.5">
                   <FileText className="w-3.5 h-3.5 text-[#F97316]" />
                   Details of Orders <span className="text-red-400">*</span>
                 </label>
                 <textarea
+                  id="order-details"
                   required
                   rows={4}
                   value={orderDetails}

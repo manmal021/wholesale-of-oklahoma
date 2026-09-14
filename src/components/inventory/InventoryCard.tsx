@@ -90,22 +90,37 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
     >
       {/* Top Media Preview */}
       <div className="relative aspect-[4/3] bg-gradient-to-br from-slate-50 to-slate-100 overflow-hidden flex items-center justify-center p-3">
-        {item.image_url && !imgError ? (
-          <img
-            src={item.image_url}
-            alt={item.name}
-            onError={() => setImgError(true)}
-            loading="lazy"
-            className="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500 ease-out"
-          />
-        ) : (
-          <div className="flex flex-col items-center justify-center text-slate-400 gap-2">
-            <Package className="w-10 h-10 stroke-[1.5]" />
-            <span className="text-[11px] font-semibold text-slate-500">
-              Wholesale Stock
-            </span>
-          </div>
-        )}
+        <a
+          href={`/products/${item.id || item.sku}`}
+          onClick={(e) => {
+            if (!e.ctrlKey && !e.metaKey && !e.shiftKey && e.button === 0) {
+              e.preventDefault();
+              onViewDetails(item);
+              window.history.pushState({}, '', `/products/${item.id || item.sku}`);
+            }
+          }}
+          className="w-full h-full flex items-center justify-center cursor-pointer"
+          aria-label={`View details for ${item.name}`}
+        >
+          {item.image_url && !imgError ? (
+            <img
+              src={item.image_url}
+              alt={item.name}
+              width={400}
+              height={300}
+              onError={() => setImgError(true)}
+              loading="lazy"
+              className="w-full h-full object-cover rounded-2xl group-hover:scale-105 transition-transform duration-500 ease-out"
+            />
+          ) : (
+            <div className="flex flex-col items-center justify-center text-slate-400 gap-2">
+              <Package className="w-10 h-10 stroke-[1.5]" />
+              <span className="text-[11px] font-semibold text-slate-500">
+                Wholesale Stock
+              </span>
+            </div>
+          )}
+        </a>
 
         {/* Top Badges Overlay */}
         <div className="absolute top-3 left-3 right-3 flex items-center justify-between pointer-events-none">
@@ -148,11 +163,20 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
           </div>
 
           {/* Product Title */}
-          <h3
-            onClick={() => onViewDetails(item)}
-            className="text-lg font-bold text-[#0f172A] leading-snug group-hover:text-[#F97316] transition-colors cursor-pointer line-clamp-2"
-          >
-            {item.name}
+          <h3 className="text-lg font-bold text-[#0f172A] leading-snug group-hover:text-[#F97316] transition-colors line-clamp-2">
+            <a
+              href={`/products/${item.id || item.sku}`}
+              onClick={(e) => {
+                if (!e.ctrlKey && !e.metaKey && !e.shiftKey && e.button === 0) {
+                  e.preventDefault();
+                  onViewDetails(item);
+                  window.history.pushState({}, '', `/products/${item.id || item.sku}`);
+                }
+              }}
+              className="hover:underline focus:outline-none focus:ring-2 focus:ring-[#F97316]/40 rounded"
+            >
+              {item.name}
+            </a>
           </h3>
 
           {/* Category & Attributes Tag Row */}

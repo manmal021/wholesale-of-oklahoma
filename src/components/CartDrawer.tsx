@@ -457,11 +457,12 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
 
               <form onSubmit={handleSubmitOrder} className="space-y-3">
                 <div>
-                  <label className="text-[10px] font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1 mb-1">
+                  <label htmlFor="drawer-name" className="text-[10px] font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1 mb-1">
                     <User className="w-3 h-3 text-[#F97316]" />
                     Full Name <span className="text-red-500">*</span>
                   </label>
                   <input
+                    id="drawer-name"
                     type="text"
                     required
                     value={name}
@@ -473,11 +474,12 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
 
                 <div className="grid grid-cols-2 gap-2.5">
                   <div>
-                    <label className="text-[10px] font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1 mb-1">
+                    <label htmlFor="drawer-phone" className="text-[10px] font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1 mb-1">
                       <Phone className="w-3 h-3 text-[#F97316]" />
                       Phone Number <span className="text-red-500">*</span>
                     </label>
                     <input
+                      id="drawer-phone"
                       type="tel"
                       required
                       value={phone}
@@ -487,11 +489,12 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                     />
                   </div>
                   <div>
-                    <label className="text-[10px] font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1 mb-1">
+                    <label htmlFor="drawer-email" className="text-[10px] font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1 mb-1">
                       <Mail className="w-3 h-3 text-[#F97316]" />
                       Email <span className="text-red-500">*</span>
                     </label>
                     <input
+                      id="drawer-email"
                       type="email"
                       required
                       value={email}
@@ -503,11 +506,12 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                 </div>
 
                 <div>
-                  <label className="text-[10px] font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1 mb-1">
+                  <label htmlFor="drawer-business-name" className="text-[10px] font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1 mb-1">
                     <Building className="w-3 h-3 text-[#F97316]" />
                     Business / Store Name (Optional)
                   </label>
                   <input
+                    id="drawer-business-name"
                     type="text"
                     value={businessName}
                     onChange={(e) => setBusinessName(e.target.value)}
@@ -517,11 +521,12 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                 </div>
 
                 <div>
-                  <label className="text-[10px] font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1 mb-1">
+                  <label htmlFor="drawer-notes" className="text-[10px] font-bold uppercase tracking-wider text-slate-600 flex items-center gap-1 mb-1">
                     <FileText className="w-3 h-3 text-[#F97316]" />
                     Delivery & Pickup Notes / Preferences
                   </label>
                   <textarea
+                    id="drawer-notes"
                     rows={2}
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}

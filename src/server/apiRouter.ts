@@ -23,6 +23,7 @@
  */
 
 import express, { type Request, type Response } from 'express';
+import crypto from 'crypto';
 import {
   buildAuthorizationUrl,
   exchangeCodeForTokens,
@@ -37,6 +38,8 @@ import {
   fetchAllZohoItems,
 } from './zohoInventory.js';
 import { inventoryStore } from './inventoryStore.js';
+import { wholesaleStore } from './wholesaleStore.js';
+import { PRODUCTS } from '../lib/productDatabase.js';
 import type { InventoryFilterParams } from '../types/inventory.js';
 
 export const apiApp = express();
@@ -50,6 +53,69 @@ function ok(res: Response, data: object) {
 }
 function err(res: Response, status: number, message: string) {
   return res.status(status).json({ error: message });
+}
+
+// ---------------------------------------------------------------------------
+// Rate Limiter Middleware (OWASP A04 / A10 / Rule 22)
+// ---------------------------------------------------------------------------
+interface RateLimitRecord {
+  count: number;
+  resetAt: number;
+}
+const rateLimitMap = new Map<string, RateLimitRecord>();
+
+function rateLimit(limit: number, windowMs: number) {
+  return (req: Request, res: Response, next: () => void) => {
+    const ip = req.ip || req.socket?.remoteAddress || 'client';
+    const key = `${req.path}:${ip}`;
+    const now = Date.now();
+
+    const record = rateLimitMap.get(key);
+    if (!record || now > record.resetAt) {
+      rateLimitMap.set(key, { count: 1, resetAt: now + windowMs });
+      return next();
+    }
+
+    if (record.count >= limit) {
+      res.setHeader('Retry-After', Math.ceil((record.resetAt - now) / 1000));
+      return res.status(429).json({ error: 'Too many requests. Please slow down.' });
+    }
+
+    record.count++;
+    return next();
+  };
+}
+
+setInterval(() => {
+  const now = Date.now();
+  for (const [k, v] of rateLimitMap.entries()) {
+    if (now > v.resetAt) rateLimitMap.delete(k);
+  }
+}, 60000).unref();
+
+// ---------------------------------------------------------------------------
+// Administrative Authorization Middleware (OWASP A01 / Rule 12 & 14)
+// ---------------------------------------------------------------------------
+function requireAdminAuth(req: Request, res: Response, next: () => void) {
+  const secret = process.env.ADMIN_SECRET_KEY;
+  const rawProvided = req.headers['x-admin-key'] || req.headers['authorization'];
+  const provided = typeof rawProvided === 'string' ? rawProvided.replace(/^Bearer\s+/i, '').trim() : '';
+
+  if (secret && provided) {
+    const bufProvided = Buffer.from(provided);
+    const bufSecret = Buffer.from(secret);
+    if (bufProvided.length === bufSecret.length && crypto.timingSafeEqual(bufProvided, bufSecret)) {
+      return next();
+    }
+  }
+
+  // In non-production environments allow localhost without admin key
+  const clientIp = req.socket?.remoteAddress || req.ip || '';
+  if (process.env.NODE_ENV !== 'production' && (clientIp === '127.0.0.1' || clientIp === '::1' || clientIp.includes('127.0.0.1'))) {
+    return next();
+  }
+
+  return err(res, 401, 'Unauthorized: Administrative key required');
 }
 
 // ---------------------------------------------------------------------------
@@ -140,14 +206,17 @@ apiApp.get(['/zoho/callback', '/api/zoho/callback'], async (req: Request, res: R
 
   try {
     const tokens = await exchangeCodeForTokens(code);
-    const refreshToken = tokens.refresh_token || process.env.ZOHO_REFRESH_TOKEN || '';
 
     // If client requested JSON response
     if (params.format === 'json' || (req.headers.accept?.includes('application/json') && !req.headers.accept?.includes('text/html'))) {
-      return res.json({ success: true, refresh_token: refreshToken, expires_in: tokens.expires_in });
+      return res.json({
+        success: true,
+        message: 'Zoho connected and authorized successfully. Token is stored server-side.',
+        expires_in: tokens.expires_in,
+      });
     }
 
-    // Render interactive, easy-to-copy HTML page
+    // Render clean confirmation HTML page (NEVER output raw secret tokens)
     return res.send(`<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -156,43 +225,27 @@ apiApp.get(['/zoho/callback', '/api/zoho/callback'], async (req: Request, res: R
   <title>Zoho Connected Successfully</title>
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0f172a; color: #f8fafc; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 20px; box-sizing: border-box; }
-    .card { background: #1e293b; border: 1px solid #334155; border-radius: 16px; max-width: 580px; width: 100%; padding: 32px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); }
-    h2 { color: #10b981; margin-top: 0; display: flex; align-items: center; gap: 8px; font-size: 24px; }
-    p { color: #cbd5e1; line-height: 1.6; font-size: 14px; margin: 12px 0; }
-    .token-box { width: 100%; height: 90px; background: #0f172a; border: 1px solid #475569; border-radius: 8px; color: #38bdf8; font-family: monospace; font-size: 13px; padding: 12px; box-sizing: border-box; resize: none; word-break: break-all; }
-    .btn-group { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
-    button { background: #10b981; color: #042f2e; border: none; padding: 10px 18px; border-radius: 8px; font-weight: 600; cursor: pointer; font-size: 14px; transition: background 0.2s; }
-    button:hover { background: #059669; color: #ffffff; }
-    a.btn { display: inline-block; background: #334155; color: #f8fafc; text-decoration: none; padding: 10px 18px; border-radius: 8px; font-size: 14px; font-weight: 500; transition: background 0.2s; }
-    a.btn:hover { background: #475569; }
-    .warning { background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.2); border-radius: 8px; padding: 12px; color: #fca5a5; font-size: 13px; margin: 16px 0; }
-    code { background: #0f172a; padding: 2px 6px; border-radius: 4px; color: #38bdf8; font-family: monospace; font-weight: 600; }
+    .card { background: #1e293b; border: 1px solid #334155; border-radius: 16px; max-width: 580px; width: 100%; padding: 32px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5); text-align: center; }
+    h2 { color: #10b981; margin-top: 0; display: flex; align-items: center; justify-content: center; gap: 8px; font-size: 24px; }
+    p { color: #cbd5e1; line-height: 1.6; font-size: 14px; margin: 16px 0; }
+    .status-badge { display: inline-block; background: rgba(16, 185, 129, 0.15); border: 1px solid #10b981; color: #34d399; font-weight: 600; padding: 6px 14px; rounded: 9999px; font-size: 13px; border-radius: 9999px; }
+    .btn-group { display: flex; gap: 10px; margin-top: 24px; justify-content: center; flex-wrap: wrap; }
+    a.btn { display: inline-block; background: #f97316; color: #ffffff; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-size: 14px; font-weight: 600; transition: background 0.2s; }
+    a.btn:hover { background: #ea580c; }
+    a.btn-secondary { background: #334155; color: #f8fafc; }
+    a.btn-secondary:hover { background: #475569; }
   </style>
 </head>
 <body>
   <div class="card">
     <h2>✅ Zoho Connected Successfully!</h2>
-    <p>Copy this refresh token and save it in Vercel as <code>ZOHO_REFRESH_TOKEN</code>:</p>
-    <textarea id="tokenBox" class="token-box" readonly>${refreshToken}</textarea>
+    <div class="status-badge">OAuth 2.0 Credentials Authenticated</div>
+    <p>Your server has securely completed the authorization flow. Live inventory synchronization is now active and tokens are secured server-side.</p>
     <div class="btn-group">
-      <button id="copyBtn" onclick="copyToken()">📋 Copy Refresh Token</button>
-      <a href="/api/zoho/status" class="btn" target="_blank">Check Status</a>
-      <a href="/" class="btn">← Return to Store</a>
-    </div>
-    <div class="warning">
-      🔒 <b>Keep this token private.</b> Do not share it in screenshots, public chats, or commit it to GitHub.
+      <a href="/api/zoho/status" class="btn btn-secondary">Verify API Health</a>
+      <a href="/" class="btn">Return to Store</a>
     </div>
   </div>
-  <script>
-    function copyToken() {
-      const box = document.getElementById('tokenBox');
-      box.select();
-      navigator.clipboard.writeText(box.value);
-      const btn = document.getElementById('copyBtn');
-      btn.innerText = '✅ Copied!';
-      setTimeout(() => { btn.innerText = '📋 Copy Refresh Token'; }, 3000);
-    }
-  </script>
 </body>
 </html>`);
   } catch (e: any) {
@@ -389,8 +442,9 @@ apiApp.get(['/inventory/admin/status', '/api/inventory/admin/status'], (_req, re
 /**
  * POST /api/inventory/sync
  * Invalidates cache + immediately re-fetches from Zoho.
+ * Guarded by administrative authorization and rate limit.
  */
-apiApp.post(['/inventory/sync', '/api/inventory/sync'], async (_req, res) => {
+apiApp.post(['/inventory/sync', '/api/inventory/sync'], requireAdminAuth, rateLimit(5, 10 * 60 * 1000), async (_req, res) => {
   try {
     invalidateCache();
     if (isZohoConfigured()) {
@@ -407,8 +461,9 @@ apiApp.post(['/inventory/sync', '/api/inventory/sync'], async (_req, res) => {
 /**
  * POST /api/inventory/settings
  * Updates display settings (hide out-of-stock, low stock threshold, etc.)
+ * Guarded by administrative authorization.
  */
-apiApp.post(['/inventory/settings', '/api/inventory/settings'], (req, res) => {
+apiApp.post(['/inventory/settings', '/api/inventory/settings'], requireAdminAuth, (req, res) => {
   try {
     const updated = inventoryStore.updateSettings(req.body);
     return ok(res, { success: true, settings: updated });
@@ -420,28 +475,32 @@ apiApp.post(['/inventory/settings', '/api/inventory/settings'], (req, res) => {
 /**
  * POST /api/inventory/webhook
  * Receives real-time stock update pushes from Zoho Inventory Automation.
- * Configure in Zoho: Settings → Webhooks → URL: https://yoursite.com/api/inventory/webhook
+ * Protected by timing-safe signature comparison.
  */
 apiApp.post(['/inventory/webhook', '/api/inventory/webhook'], (req, res) => {
   try {
-    // Optional webhook secret validation
     const secret = process.env.ZOHO_WEBHOOK_SECRET;
-    if (secret) {
-      const header = req.headers['x-zoho-webhook-secret'] || req.headers['authorization'];
-      if (header !== secret && header !== `Bearer ${secret}`) {
-        return err(res, 401, 'Invalid webhook secret');
-      }
+    if (!secret) {
+      return err(res, 500, 'Webhook secret not configured on server');
+    }
+
+    const rawHeader = req.headers['x-zoho-webhook-secret'] || req.headers['authorization'];
+    const header = typeof rawHeader === 'string' ? rawHeader.replace(/^Bearer\s+/i, '').trim() : '';
+
+    const bufProvided = Buffer.from(header);
+    const bufSecret = Buffer.from(secret);
+
+    if (bufProvided.length !== bufSecret.length || !crypto.timingSafeEqual(bufProvided, bufSecret)) {
+      return err(res, 401, 'Invalid webhook secret');
     }
 
     // Invalidate cache so next request fetches fresh data
     invalidateCache();
-
-    // Also update the seed store for backward compatibility
     inventoryStore.handleZohoWebhook(req.body);
 
     return ok(res, { success: true, timestamp: new Date().toISOString() });
   } catch (e: any) {
-    return err(res, 400, e.message);
+    return err(res, 400, 'Invalid webhook request');
   }
 });
 
@@ -470,38 +529,306 @@ apiApp.get(['/inventory/:id', '/api/inventory/:id'], async (req: Request, res: R
 
 /**
  * POST /api/inventory/orders
- * Submits a wholesale order into Zoho Inventory as a Sales Order.
+ * Submits a wholesale order request into Zoho Inventory.
+ * Strictly derives and verifies authoritative prices server-side (Rule 16, 17 / OWASP A06).
  */
-apiApp.post(['/inventory/orders', '/api/inventory/orders'], async (req: Request, res: Response) => {
-  const { customerName, businessName, email, phone, notes, lineItems } = req.body;
+apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(10, 5 * 60 * 1000), async (req: Request, res: Response) => {
+  const { customerName, businessName, email, phone, notes, lineItems } = req.body || {};
 
-  if (!customerName || !phone || !Array.isArray(lineItems) || lineItems.length === 0) {
-    return err(res, 400, 'Missing required fields: customerName, phone, lineItems[]');
+  if (!customerName || typeof customerName !== 'string' || customerName.trim().length < 2) {
+    return err(res, 400, 'Customer name is required');
+  }
+  if (!phone || typeof phone !== 'string' || phone.trim().length < 7) {
+    return err(res, 400, 'Valid phone number is required for dispatch confirmation');
+  }
+  if (!Array.isArray(lineItems) || lineItems.length === 0 || lineItems.length > 100) {
+    return err(res, 400, 'Order must contain between 1 and 100 items');
+  }
+
+  // Server-side authoritative price verification & input bounding
+  const verifiedLineItems = [];
+  for (const item of lineItems) {
+    const qty = Math.max(1, Math.min(10000, parseInt(item.quantity, 10) || 1));
+    const idOrSku = String(item.id || item.sku || item.zoho_item_id || item.name || '').trim();
+
+    const resolvedProduct = PRODUCTS.find(
+      (p) => p.id === idOrSku || p.sku === idOrSku || p.name.toLowerCase() === item.name?.toLowerCase()
+    );
+
+    let unitPrice = 15.0; // fallback baseline
+    let officialName = item.name || 'Wholesale Product';
+    let officialSku = item.sku || '';
+
+    if (resolvedProduct) {
+      officialName = resolvedProduct.name;
+      officialSku = resolvedProduct.sku;
+      unitPrice = resolvedProduct.pricePerUnit;
+
+      // Apply volume pricing tier if applicable
+      if (resolvedProduct.bulkPricing && resolvedProduct.bulkPricing.length > 0) {
+        const sortedTiers = [...resolvedProduct.bulkPricing].sort((a, b) => b.minQty - a.minQty);
+        const matchedTier = sortedTiers.find((t) => qty >= t.minQty);
+        if (matchedTier) {
+          unitPrice = matchedTier.pricePerUnit;
+        }
+      }
+    }
+
+    verifiedLineItems.push({
+      id: resolvedProduct?.id || idOrSku,
+      sku: officialSku,
+      name: officialName,
+      quantity: qty,
+      pricePerUnit: unitPrice,
+      totalPrice: Math.round(unitPrice * qty * 100) / 100,
+      zoho_item_id: item.zoho_item_id,
+    });
   }
 
   try {
     const result = await inventoryStore.processWholesaleOrder({
-      customerName, businessName: businessName || '', email: email || '',
-      phone, notes: notes || '', lineItems,
+      customerName: customerName.trim().slice(0, 100),
+      businessName: String(businessName || '').trim().slice(0, 150),
+      email: String(email || '').trim().slice(0, 120),
+      phone: phone.trim().slice(0, 30),
+      notes: String(notes || '').trim().slice(0, 500),
+      lineItems: verifiedLineItems,
     });
     return ok(res, result);
   } catch (e: any) {
-    return err(res, 500, e.message);
+    console.error('[API /orders] Order submission failure:', e.message);
+    return err(res, 500, 'Unable to submit wholesale order. Please contact central dispatch.');
   }
 });
 
-// Config routes (kept for backward compatibility)
-apiApp.get(['/inventory/zoho-config', '/api/inventory/zoho-config'], (_req, res) => {
+// Config routes — Guarded by administrative authorization
+apiApp.get(['/inventory/zoho-config', '/api/inventory/zoho-config'], requireAdminAuth, (_req, res) => {
   return ok(res, inventoryStore.getZohoConfig());
 });
 
-apiApp.post(['/inventory/zoho-config', '/api/inventory/zoho-config'], (req, res) => {
+apiApp.post(['/inventory/zoho-config', '/api/inventory/zoho-config'], requireAdminAuth, (req, res) => {
   try {
     const config = inventoryStore.updateZohoConfig(req.body);
     return ok(res, { success: true, config });
   } catch (e: any) {
-    return err(res, 400, e.message);
+    return err(res, 400, 'Failed to update Zoho configuration');
   }
+});
+
+const MANGO_SYSTEM_PROMPT = `You are Mango 🐕, the friendly golden retriever virtual assistant for Wholesale of Oklahoma.
+
+STORE DETAILS:
+- Business: Wholesale of Oklahoma (Licensed B2B Wholesale Distributor for smoke shops, vape shops, and dispensaries)
+- Address: 4500 S Bryant Ave, Oklahoma City, OK 73135
+- Phone: (405) 768-2975
+- Email: wholesaleofoklahoma@gmail.com
+- Hours:
+  • Monday – Saturday: 9:00 AM – 8:00 PM
+  • Sunday: 11:00 AM – 8:00 PM
+- Services: Local OKC warehouse same-day pickup, direct Oklahoma metro delivery, statewide fast fulfillment.
+- Core Inventory: Disposable Vapes (Geekbar Pulse 15k/25k/60k, Raz 25k LTX, Vozol 50k, Foger 30k), Hardware & Pods (Vaporesso XROS, SMOK coils, 510 batteries), Vape Juice (Juice Head, Coastal Clouds, Sadboy, Twist), Glass & Pipes (Borosilicate beakers, hand pipes), THCA/CBD/Delta (Diamond pre-rolls, live resin disposables), Kratom (OPMS Gold/Black liquid shots, capsules), Novelties & Accessories (Digital scales, grinders, torches, RAW papers, butane).
+
+CONVERSATION GUIDELINES:
+1. Tone: Friendly, helpful, professional, approachable, slightly playful dog persona ("Woof!", "Woof woof! 🐕").
+2. ALWAYS provide clear, natural conversational text answers.
+3. If asked about store location or address: Always clearly provide 4500 S Bryant Ave, Oklahoma City, OK 73135 and mention same-day OKC pickup.
+4. If asked about store hours: Always clearly list Monday–Saturday 9:00 AM – 8:00 PM, Sunday 11:00 AM – 8:00 PM.
+5. If asked about wholesale or pricing: Explain that we are a licensed master distributor with volume tiered pricing, and suggest calling (405) 768-2975 for direct quotes.
+6. DO NOT output raw add-to-cart product cards or UI drops in chat. If the user wants to browse products or add to cart, tell them to tap the "Inventory" tab at the top of the chat or check the "Best Sellers" section on the website.
+7. Keep responses concise, organized with clean markdown bullets, and easy to read.`;
+
+/**
+ * POST /api/chat
+ * Server-side proxy for Gemini AI Mango assistant.
+ * Securely uses process.env.GEMINI_API_KEY without exposing it to the browser.
+ */
+apiApp.post(['/chat', '/api/chat'], async (req: Request, res: Response) => {
+  const { message, history } = req.body || {};
+  if (!message || typeof message !== 'string') {
+    return err(res, 400, 'Missing or invalid "message" string');
+  }
+
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey || apiKey === 'your_gemini_api_key_here') {
+    return ok(res, { fallback: true, message: 'Gemini API key not configured' });
+  }
+
+  try {
+    const { GoogleGenAI } = await import('@google/genai');
+    const ai = new GoogleGenAI({ apiKey });
+    const formattedHistory = Array.isArray(history)
+      ? history.slice(-4).map((msg: any) => ({
+          role: msg.role === 'model' ? ('model' as const) : ('user' as const),
+          parts: [{ text: String(msg.text || '').slice(0, 1000) }],
+        }))
+      : [];
+
+    const contents = [
+      ...formattedHistory,
+      { role: 'user' as const, parts: [{ text: String(message).slice(0, 1000) }] },
+    ];
+
+    const timeoutPromise = new Promise<never>((_, reject) =>
+      setTimeout(() => reject(new Error('TIMEOUT')), 4000)
+    );
+
+    const apiPromise = (ai.models as any).generateContent({
+      model: 'gemini-2.5-flash',
+      systemInstruction: MANGO_SYSTEM_PROMPT,
+      contents,
+      config: {
+        temperature: 0.7,
+        maxOutputTokens: 500,
+      },
+    });
+
+    const response = (await Promise.race([apiPromise, timeoutPromise])) as any;
+    const replyText = response?.text?.trim();
+
+    if (replyText) {
+      return ok(res, { success: true, text: replyText });
+    }
+    return ok(res, { fallback: true });
+  } catch (chatError: any) {
+    console.warn('[API /chat] Gemini call failed, returning fallback:', chatError.message);
+    return ok(res, { fallback: true, error: 'AI unavailable' });
+  }
+});
+
+// ============================================================================
+// WHOLESALE APPLICATION & COMPLIANCE ROUTES — /api/wholesale/*
+// ============================================================================
+
+/**
+ * POST /api/wholesale/apply
+ * Handles wholesale customer applications with business verification (FEIN, tobacco license, 21+).
+ * Rate limited to 5 requests per 15 minutes to prevent spam/abuse (Rule 22).
+ */
+apiApp.post(['/wholesale/apply', '/api/wholesale/apply'], rateLimit(5, 15 * 60 * 1000), (req: Request, res: Response) => {
+  const {
+    businessName,
+    contactName,
+    email,
+    phone,
+    fein,
+    licenseNumber,
+    businessType,
+    address,
+    ageCertified,
+    taxExemptCertified,
+  } = req.body || {};
+
+  // Server-side input validation (OWASP A01 / Rule 16)
+  if (!businessName || typeof businessName !== 'string' || businessName.trim().length < 2) {
+    return err(res, 400, 'Legal Business Name is required (minimum 2 characters)');
+  }
+  if (!contactName || typeof contactName !== 'string' || contactName.trim().length < 2) {
+    return err(res, 400, 'Authorized Representative / Contact Name is required');
+  }
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!email || typeof email !== 'string' || !emailRegex.test(email.trim())) {
+    return err(res, 400, 'A valid business email address is required');
+  }
+  if (!phone || typeof phone !== 'string' || phone.trim().length < 7) {
+    return err(res, 400, 'A valid phone number is required');
+  }
+  if (!fein || typeof fein !== 'string' || fein.trim().length < 4) {
+    return err(res, 400, 'Federal Employer ID (FEIN) or State Tax ID is required for wholesale account approval');
+  }
+  if (!ageCertified) {
+    return err(res, 400, 'You must certify that you are at least 21 years of age and authorized to purchase for this business entity');
+  }
+
+  const validBusinessTypes = ['vape_shop', 'smoke_shop', 'dispensary', 'c_store', 'distributor', 'other'];
+  const sanitizedBusinessType = (validBusinessTypes.includes(businessType) ? businessType : 'other') as any;
+
+  const newApp = wholesaleStore.createApplication({
+    businessName: businessName.trim().slice(0, 150),
+    contactName: contactName.trim().slice(0, 100),
+    email: email.trim().toLowerCase().slice(0, 120),
+    phone: phone.trim().slice(0, 30),
+    fein: fein.trim().slice(0, 30),
+    licenseNumber: String(licenseNumber || '').trim().slice(0, 50),
+    businessType: sanitizedBusinessType,
+    address: {
+      street: String(address?.street || '').trim().slice(0, 150),
+      city: String(address?.city || '').trim().slice(0, 60),
+      state: String(address?.state || 'OK').trim().slice(0, 20),
+      zip: String(address?.zip || '').trim().slice(0, 10),
+    },
+    ageCertified: Boolean(ageCertified),
+    taxExemptCertified: Boolean(taxExemptCertified),
+  });
+
+  console.log(`[API /wholesale/apply] 🟢 New wholesale application registered: ${newApp.id} for "${newApp.businessName}"`);
+
+  return ok(res, {
+    success: true,
+    applicationId: newApp.id,
+    status: newApp.status,
+    message: 'Wholesale application submitted successfully. Our compliance team will review your business license within 1 business day.',
+  });
+});
+
+/**
+ * GET /api/wholesale/status?id=WOA-APP-XXXXX&email=...
+ * Prevents IDOR by strictly requiring both matching application ID and email.
+ */
+apiApp.get(['/wholesale/status', '/api/wholesale/status'], rateLimit(20, 5 * 60 * 1000), (req: Request, res: Response) => {
+  const params = q(req);
+  const id = params.id || params.applicationId;
+  const email = params.email;
+
+  if (!id || !email) {
+    return err(res, 400, 'Both application ID and contact email are required to check status');
+  }
+
+  const app = wholesaleStore.getApplication(String(id).trim());
+  if (!app || app.email.toLowerCase() !== String(email).trim().toLowerCase()) {
+    return err(res, 404, 'Application not found or email does not match our records');
+  }
+
+  return ok(res, {
+    applicationId: app.id,
+    businessName: app.businessName,
+    status: app.status,
+    submittedAt: app.submittedAt,
+    reviewedAt: app.reviewedAt,
+    reviewNotes: app.reviewNotes,
+  });
+});
+
+/**
+ * GET /api/wholesale/admin/applications
+ * Administrative list of all wholesale applications.
+ * Guarded by timing-safe administrative authorization (Rule 12 & 14).
+ */
+apiApp.get(['/wholesale/admin/applications', '/api/wholesale/admin/applications'], requireAdminAuth, (req: Request, res: Response) => {
+  const params = q(req);
+  const statusFilter = params.status;
+  const list = wholesaleStore.listApplications(statusFilter);
+  return ok(res, { total: list.length, applications: list });
+});
+
+/**
+ * POST /api/wholesale/admin/review
+ * Approves or rejects a wholesale application.
+ * Guarded by timing-safe administrative authorization (Rule 12 & 14).
+ */
+apiApp.post(['/wholesale/admin/review', '/api/wholesale/admin/review'], requireAdminAuth, (req: Request, res: Response) => {
+  const { id, status, reviewNotes } = req.body || {};
+
+  if (!id || (status !== 'APPROVED' && status !== 'REJECTED')) {
+    return err(res, 400, 'Invalid request. "id" and status ("APPROVED" | "REJECTED") are required');
+  }
+
+  const updated = wholesaleStore.reviewApplication(id, status, reviewNotes);
+  if (!updated) {
+    return err(res, 404, `Application ${id} not found`);
+  }
+
+  console.log(`[API /wholesale/admin/review] Application ${id} updated to ${status} by admin.`);
+  return ok(res, { success: true, application: updated });
 });
 
 export const apiRouter = apiApp;

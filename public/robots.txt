@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+Allow: /products/
+Allow: /categories/
+Allow: /brands/
+Disallow: /api/
+Disallow: /admin
+Disallow: /orders
+Disallow: /orders/
+Disallow: /account
+Disallow: /dashboard
+
+Sitemap: https://www.wholesaleofoklahoma.com/sitemap.xml

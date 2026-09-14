@@ -83,7 +83,19 @@ const CatalogCard: React.FC<CatalogCardProps> = ({ prod, onAdded }) => {
       {/* Main Details */}
       <div className="flex-1">
         <h3 className="text-xl sm:text-2xl font-bold text-[#0f172A] leading-snug group-hover:text-[#F97316] transition-colors">
-          {prod.name}
+          <a
+            href={`/products/${prod.id || prod.sku}`}
+            onClick={(e) => {
+              if (!e.ctrlKey && !e.metaKey && !e.shiftKey && e.button === 0) {
+                e.preventDefault();
+                window.history.pushState({}, '', `/products/${prod.id || prod.sku}`);
+                window.dispatchEvent(new CustomEvent('open-product-modal', { detail: prod.id || prod.sku }));
+              }
+            }}
+            className="hover:underline focus:outline-none focus:ring-2 focus:ring-[#F97316]/40 rounded"
+          >
+            {prod.name}
+          </a>
         </h3>
 
         {/* Spec badges */}

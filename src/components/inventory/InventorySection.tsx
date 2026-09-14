@@ -18,6 +18,7 @@ import type {
 } from '../../types/inventory';
 import {
   fetchInventory,
+  fetchInventoryItem,
   fetchInventoryMeta,
   fetchAdminStatus,
 } from '../../lib/inventoryApi';
@@ -102,6 +103,52 @@ export const InventorySection: React.FC = () => {
         setSyncStatus(data.sync_status);
       })
       .catch((err) => console.error('Error fetching admin status:', err));
+
+    // Handle deep-link URLs (/products/:slug, /categories/:cat) and browser history popstate
+    const handleRoute = () => {
+      const path = window.location.pathname;
+      if (path.startsWith('/products/')) {
+        const idOrSku = decodeURIComponent(path.replace('/products/', '').trim());
+        if (idOrSku) {
+          fetchInventoryItem(idOrSku)
+            .then((item) => {
+              if (item) setDetailItem(item);
+            })
+            .catch(() => {
+              // Product not found or network issue
+            });
+        }
+      } else if (path.startsWith('/categories/')) {
+        const catSlug = decodeURIComponent(path.replace('/categories/', '').trim()).toLowerCase();
+        fetchInventoryMeta().then((meta) => {
+          const match = meta.categories.find(
+            (c) => c.toLowerCase().replace(/[^a-z0-9]+/g, '-') === catSlug
+          );
+          if (match) setSelectedCategory(match);
+        });
+      }
+    };
+
+    handleRoute();
+
+    const handleCustomOpen = (e: Event) => {
+      const customEvent = e as CustomEvent<string>;
+      if (customEvent.detail) {
+        fetchInventoryItem(customEvent.detail)
+          .then((item) => {
+            if (item) setDetailItem(item);
+          })
+          .catch(() => {});
+      }
+    };
+
+    window.addEventListener('popstate', handleRoute);
+    window.addEventListener('open-product-modal', handleCustomOpen);
+
+    return () => {
+      window.removeEventListener('popstate', handleRoute);
+      window.removeEventListener('open-product-modal', handleCustomOpen);
+    };
   }, []);
 
   const [isRefreshing, setIsRefreshing] = useState<boolean>(false);
@@ -555,7 +602,12 @@ export const InventorySection: React.FC = () => {
         <ProductDetailModal
           item={detailItem}
           displayMode={settings.display_mode}
-          onClose={() => setDetailItem(null)}
+          onClose={() => {
+            setDetailItem(null);
+            if (window.location.pathname.startsWith('/products/')) {
+              window.history.pushState({}, '', '/');
+            }
+          }}
           onAddedToCart={handleAddedToCart}
         />
       )}

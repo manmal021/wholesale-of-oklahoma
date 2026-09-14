@@ -10,7 +10,8 @@
     "start": "tsx server.ts",
     "start:prod": "npm run build && tsx server.ts",
     "clean": "rimraf dist",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "test": "tsx --test tests/**/*.test.ts"
   },
   "dependencies": {
     "@google/genai": "^2.4.0",

@@ -8,6 +8,7 @@ import OrderForm from './components/OrderForm';
 import MangoChat from './components/MangoChat';
 import CartDrawer from './components/CartDrawer';
 import InventorySection from './components/inventory/InventorySection';
+import WholesaleApplicationModal from './components/WholesaleApplicationModal';
 import { getDraftOrder } from './lib/mangoAI';
 
 const BG_VIDEO = '/transi.mp4';
@@ -20,6 +21,7 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [quickContactMsg, setQuickContactMsg] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isWholesaleModalOpen, setIsWholesaleModalOpen] = useState(false);
   const [cartUnits, setCartUnits] = useState(0);
   const [scrolled, setScrolled] = useState(false);
 
@@ -40,17 +42,20 @@ export default function App() {
     syncCartUnits();
     const handleCartUpdate = () => syncCartUnits();
     const handleOpenCart = () => setIsCartOpen(true);
+    const handleOpenWholesale = () => setIsWholesaleModalOpen(true);
 
     window.addEventListener('mango-cart-updated', handleCartUpdate);
     window.addEventListener('storage', handleCartUpdate);
     window.addEventListener('open-cart', handleOpenCart);
     window.addEventListener('open-mango-cart', handleOpenCart);
+    window.addEventListener('open-wholesale-application', handleOpenWholesale);
 
     return () => {
       window.removeEventListener('mango-cart-updated', handleCartUpdate);
       window.removeEventListener('storage', handleCartUpdate);
       window.removeEventListener('open-cart', handleOpenCart);
       window.removeEventListener('open-mango-cart', handleOpenCart);
+      window.removeEventListener('open-wholesale-application', handleOpenWholesale);
     };
   }, []);
 
@@ -83,6 +88,14 @@ export default function App() {
 
   return (
     <div className="w-full min-h-screen bg-[#F8FAFC] text-[#0f172A] selection:bg-[#F97316]/20 relative">
+
+      {/* WCAG 2.2 AA Skip Navigation Link */}
+      <a
+        href="#main-content"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:px-4 focus:py-2.5 focus:bg-[#F97316] focus:text-white focus:font-bold focus:rounded-lg focus:shadow-2xl focus:outline-none"
+      >
+        Skip to main content
+      </a>
 
       {/* Top Header with Construction Notice & Navbar */}
       <header className="fixed top-0 left-0 right-0 z-40">
@@ -137,6 +150,12 @@ export default function App() {
           >
             Order Now
           </a>
+          <button
+            onClick={() => setIsWholesaleModalOpen(true)}
+            className="ml-1 text-xs font-bold text-white/90 hover:text-[#F97316] px-3.5 py-2 rounded-full transition-colors cursor-pointer border border-white/20 hover:border-[#F97316]/60"
+          >
+            Apply for Account
+          </button>
         </div>
 
         {/* Right Action Links */}
@@ -247,6 +266,21 @@ export default function App() {
                 </span>
               )}
             </button>
+
+            {/* Apply for Wholesale Account Button */}
+            <button
+              onClick={() => {
+                setMenuOpen(false);
+                setIsWholesaleModalOpen(true);
+              }}
+              className="w-full mt-3 bg-[#0f172A] hover:bg-slate-800 text-white text-sm font-bold px-4 py-3 rounded-xl transition-colors cursor-pointer flex items-center justify-between border border-slate-700 shadow-sm"
+            >
+              <span className="flex items-center gap-2">
+                <UserPlus className="w-4 h-4 text-[#F97316]" />
+                Apply for Wholesale Account
+              </span>
+              <ArrowRight className="w-4 h-4 text-[#F97316]" />
+            </button>
           </div>
 
           {/* Mobile specific drawer buttons */}
@@ -276,8 +310,10 @@ export default function App() {
         </div>
       </div>
 
-      {/* Hero Header Section */}
-      <section id="overview" className="relative w-full min-h-screen sm:h-screen overflow-hidden">
+      {/* Main Content Landmark (WCAG 2.2 AA) */}
+      <main id="main-content">
+        {/* Hero Header Section */}
+        <section id="overview" className="relative w-full min-h-screen sm:h-screen overflow-hidden">
         {/* Seamless Canvas Boomerang Loop Background with original colors and natural visual form */}
         <BoomerangVideoBg
           src={BG_VIDEO}
@@ -414,8 +450,9 @@ export default function App() {
       {/* 3.5 Photo Gallery */}
       <GallerySlider />
 
-      {/* 4. Complete contact directories with Map representation */}
-      <StoreDetails />
+        {/* 4. Complete contact directories with Map representation */}
+        <StoreDetails />
+      </main>
 
       {/* Tiny footer */}
       <footer className="bg-[#0f172A] border-t border-slate-800 py-8 text-slate-400 text-center px-4 text-xs">
@@ -503,6 +540,12 @@ export default function App() {
 
       {/* Standalone Wholesale Cart Drawer on Webpage */}
       <CartDrawer isOpen={isCartOpen} onClose={() => setIsCartOpen(false)} />
+
+      {/* Wholesale Account Verification & Application Modal */}
+      <WholesaleApplicationModal
+        isOpen={isWholesaleModalOpen}
+        onClose={() => setIsWholesaleModalOpen(false)}
+      />
 
       {/* Mango AI Virtual Assistant — Wholesale of Oklahoma */}
       <MangoChat />

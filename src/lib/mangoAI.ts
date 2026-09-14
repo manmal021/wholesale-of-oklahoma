@@ -4,7 +4,6 @@
 // Personality: Mango 🐕, a friendly Golden Retriever store assistant.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import { GoogleGenAI } from '@google/genai';
 import {
   PRODUCTS,
   getProduct,
@@ -462,49 +461,28 @@ export async function sendMangoMessage(
   userText: string,
   history: ChatMessage[]
 ): Promise<{ text: string; toolResults: MangoToolResult[] }> {
-  const apiKey = (import.meta as any).env?.VITE_GEMINI_API_KEY;
-
-  // If no API key configured, use local engine immediately
-  if (!apiKey || apiKey === 'MY_GEMINI_API_KEY') {
-    return handleWithLocalEngine(userText);
-  }
-
-  // Try calling Gemini with a 3.5s timeout; fall back seamlessly if unavailable
   try {
-    const ai = new GoogleGenAI({ apiKey });
-
-    const contents = [
-      ...history.slice(-4).map((msg) => ({
-        role: msg.role as 'user' | 'model',
-        parts: [{ text: msg.text }],
-      })),
-      { role: 'user' as const, parts: [{ text: userText }] },
-    ];
-
-    const timeoutPromise = new Promise<never>((_, reject) =>
-      setTimeout(() => reject(new Error('TIMEOUT')), 3500)
-    );
-
-    const apiPromise = (ai.models as any).generateContent({
-      model: 'gemini-2.5-flash',
-      systemInstruction: SYSTEM_PROMPT,
-      contents,
-      config: {
-        temperature: 0.7,
-        maxOutputTokens: 500,
-      },
+    const res = await fetch('/api/chat', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        message: userText,
+        history: history.slice(-4).map((msg) => ({
+          role: msg.role,
+          text: msg.text,
+        })),
+      }),
     });
 
-    const response = await Promise.race([apiPromise, timeoutPromise]);
-    const replyText = response.text?.trim();
-
-    if (replyText) {
-      return { text: replyText, toolResults: [] };
+    if (res.ok) {
+      const data = await res.json();
+      if (data.success && data.text) {
+        return { text: data.text, toolResults: [] };
+      }
     }
-
-    return handleWithLocalEngine(userText);
   } catch (err: unknown) {
-    console.warn('[Mango AI Notice] Conversational fallback active:', err);
-    return handleWithLocalEngine(userText);
+    // Network or server error - gracefully fall through to local engine
   }
+
+  return handleWithLocalEngine(userText);
 }
