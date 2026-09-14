@@ -134,7 +134,15 @@ app.get('*', (req, res) => {
 });
 
 // ── Boot ─────────────────────────────────────────────────────────────────────
-if (process.env.NODE_ENV !== 'test' && !process.env.VERCEL) {
+const isServerless = Boolean(
+  process.env.VERCEL ||
+  process.env.VERCEL_ENV ||
+  process.env.NOW_REGION ||
+  process.env.AWS_LAMBDA_FUNCTION_NAME ||
+  process.env.LAMBDA_TASK_ROOT
+);
+
+if (process.env.NODE_ENV !== 'test' && !isServerless) {
   app.listen(PORT, '0.0.0.0', () => {
     console.log(`\n🟢 Wholesale of Oklahoma server running on http://localhost:${PORT}`);
     console.log(`   NODE_ENV : ${process.env.NODE_ENV || 'development'}`);

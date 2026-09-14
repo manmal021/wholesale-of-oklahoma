@@ -13,6 +13,8 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 
+import os from 'os';
+
 export interface DocumentRecord {
   id: string;
   originalName: string;
@@ -23,15 +25,22 @@ export interface DocumentRecord {
   uploadedAt: string;
 }
 
-const STORAGE_DIR = path.resolve(process.cwd(), 'storage', 'documents');
+const STORAGE_DIR = process.env.VERCEL
+  ? path.join(os.tmpdir(), 'storage', 'documents')
+  : path.resolve(process.cwd(), 'storage', 'documents');
 
-// Ensure private storage directory exists
-if (!fs.existsSync(STORAGE_DIR)) {
-  fs.mkdirSync(STORAGE_DIR, { recursive: true });
+// Ensure private storage directory exists without crashing on read-only environments
+try {
+  if (!fs.existsSync(STORAGE_DIR)) {
+    fs.mkdirSync(STORAGE_DIR, { recursive: true });
+  }
+} catch (e) {
+  console.warn('[DocumentStore] Storage directory init skipped (read-only filesystem):', e);
 }
 
 class DocumentStore {
   private documents: Map<string, DocumentRecord> = new Map();
+  private fileBuffers: Map<string, Buffer> = new Map();
 
   /**
    * Validates file buffer magic bytes to ensure file content matches allowed types.
@@ -82,8 +91,16 @@ class DocumentStore {
     const safeFilename = `${docId}.${validation.ext}`;
     const targetPath = path.join(STORAGE_DIR, safeFilename);
 
-    // 4. Save to private directory
-    fs.writeFileSync(targetPath, buffer);
+    // 4. Save to private directory if writable, and always hold in memory cache
+    this.fileBuffers.set(docId, buffer);
+    try {
+      if (!fs.existsSync(STORAGE_DIR)) {
+        fs.mkdirSync(STORAGE_DIR, { recursive: true });
+      }
+      fs.writeFileSync(targetPath, buffer);
+    } catch (e) {
+      console.warn('[DocumentStore] Could not persist to disk, holding in memory buffer:', e);
+    }
 
     const docRecord: DocumentRecord = {
       id: docId,
@@ -105,11 +122,22 @@ class DocumentStore {
 
   public getDocumentBuffer(id: string): { record: DocumentRecord; buffer: Buffer } | null {
     const record = this.documents.get(id);
-    if (!record || !fs.existsSync(record.storedPath)) {
-      return null;
+    if (!record) return null;
+
+    if (this.fileBuffers.has(id)) {
+      return { record, buffer: this.fileBuffers.get(id)! };
     }
-    const buffer = fs.readFileSync(record.storedPath);
-    return { record, buffer };
+
+    try {
+      if (fs.existsSync(record.storedPath)) {
+        const buffer = fs.readFileSync(record.storedPath);
+        return { record, buffer };
+      }
+    } catch (e) {
+      console.warn('[DocumentStore] Failed to read stored document:', e);
+    }
+
+    return null;
   }
 }
 
