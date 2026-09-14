@@ -63,17 +63,32 @@ function err(res: Response, status: number, message: string) {
 // Session & Wholesale Pricing Authorization (OWASP A01 / Rules 2, 3, 12)
 // ---------------------------------------------------------------------------
 function getSessionUser(req: Request): SessionRecord | null {
-  let token = '';
+  const candidates: string[] = [];
+
+  // 1. Direct header (resilient across edge proxies and CORS)
+  if (typeof req.headers['x-session-token'] === 'string' && req.headers['x-session-token'].trim()) {
+    candidates.push(req.headers['x-session-token'].trim());
+  }
+
+  // 2. Standard Authorization header
+  const authHeader = req.headers.authorization || (req.headers as any)['Authorization'];
+  if (typeof authHeader === 'string' && authHeader.trim().toLowerCase().startsWith('bearer ')) {
+    candidates.push(authHeader.trim().slice(7).trim());
+  }
+
+  // 3. HttpOnly session cookie
   const cookieHeader = req.headers.cookie || '';
   const match = cookieHeader.match(/woo_session=([^;]+)/);
-  if (match) {
-    token = match[1];
-  } else if (req.headers.authorization?.startsWith('Bearer ')) {
-    token = req.headers.authorization.slice(7).trim();
-  } else if (typeof req.headers['x-session-token'] === 'string') {
-    token = req.headers['x-session-token'];
+  if (match && match[1]) {
+    candidates.push(match[1].trim());
   }
-  return authStore.validateSession(token);
+
+  for (const token of candidates) {
+    const session = authStore.validateSession(token);
+    if (session) return session;
+  }
+
+  return null;
 }
 
 function hasApprovedPricingAccess(req: Request): boolean {
