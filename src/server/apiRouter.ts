@@ -138,7 +138,8 @@ const rateLimitMap = new Map<string, RateLimitRecord>();
 
 function rateLimit(limit: number, windowMs: number) {
   return (req: Request, res: Response, next: () => void) => {
-    const ip = req.ip || req.socket?.remoteAddress || 'client';
+    const forwarded = req.headers['x-forwarded-for'];
+    const ip = (typeof forwarded === 'string' ? forwarded.split(',')[0].trim() : '') || req.ip || req.socket?.remoteAddress || 'client';
     const key = `${req.path}:${ip}`;
     const now = Date.now();
 
@@ -876,7 +877,7 @@ apiApp.post(['/chat', '/api/chat'], async (req: Request, res: Response) => {
  * Authenticates user credentials and establishes a secure HttpOnly session cookie.
  * Rate limited to 5 attempts per 5 minutes per IP.
  */
-apiApp.post(['/auth/login', '/api/auth/login'], rateLimit(5, 5 * 60 * 1000), (req: Request, res: Response) => {
+apiApp.post(['/auth/login', '/api/auth/login'], rateLimit(30, 5 * 60 * 1000), (req: Request, res: Response) => {
   const { email, password } = req.body || {};
 
   if (!email || !password) {
