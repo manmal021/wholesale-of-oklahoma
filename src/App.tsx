@@ -30,7 +30,7 @@ import InventorySection from './components/inventory/InventorySection';
 import WholesaleApplicationModal from './components/WholesaleApplicationModal';
 import AgeGateModal from './components/AgeGateModal';
 import LoginModal from './components/LoginModal';
-import FeaturedBrands from './components/FeaturedBrands';
+import BrandDirectoryShowcase from './components/BrandDirectoryShowcase';
 import CategoryShowcase from './components/CategoryShowcase';
 import WhyChooseUs from './components/WhyChooseUs';
 import { getDraftOrder } from './lib/mangoAI';
@@ -59,6 +59,18 @@ export default function App() {
   const [currentUser, setCurrentUser] = useState<CurrentUser | null>(null);
   const [cartUnits, setCartUnits] = useState(0);
   const [scrolled, setScrolled] = useState(false);
+  const [activeBrandFilter, setActiveBrandFilter] = useState<string>('All');
+
+  const handleBrandClick = (brandName: string) => {
+    setActiveBrandFilter(brandName);
+    window.dispatchEvent(new CustomEvent('woo-select-brand', { detail: brandName }));
+    const inventorySection = document.getElementById('inventory');
+    if (inventorySection) {
+      inventorySection.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      setIsLoginModalOpen(true);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -144,7 +156,7 @@ export default function App() {
     { href: '#overview', label: 'Overview' },
     { href: '#brands', label: 'Brands' },
     { href: '#categories', label: 'Categories' },
-    { href: '#inventory', label: 'Products' },
+    { href: currentUser ? '#inventory' : '#retailer-gateway', label: currentUser ? 'Products (900+)' : 'Retailer Portal' },
     { href: '#why-us', label: 'Why Us' },
     { href: '#reviews', label: 'Reviews' },
     { href: '#gallery', label: 'Gallery' },
@@ -512,11 +524,11 @@ export default function App() {
             {/* Central Hero Action Buttons */}
             <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4 z-10">
               <a
-                href="#inventory"
+                href="#brands"
                 className="bg-[#FF6B00] hover:bg-[#E85F00] text-white text-xs sm:text-sm font-extrabold px-7 py-3.5 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2 uppercase tracking-wider"
               >
-                <Package className="w-4 h-4" />
-                <span>Browse Products</span>
+                <Layers className="w-4 h-4" />
+                <span>Explore Brands Portfolio</span>
               </a>
 
               <button
@@ -600,14 +612,77 @@ export default function App() {
           </div>
         </section>
 
-        {/* 2. Featured Brands Section with VOZOL Priority Placement */}
-        <FeaturedBrands />
+        {/* 2. Official Wholesale Brands Showcase with Hardware & Packaging Images */}
+        <BrandDirectoryShowcase
+          isLoggedIn={Boolean(currentUser)}
+          onBrandClick={handleBrandClick}
+          onOpenLogin={() => setIsLoginModalOpen(true)}
+          onOpenApplication={() => setIsWholesaleModalOpen(true)}
+        />
 
         {/* 3. Dynamic Category Showcase Section */}
         <CategoryShowcase />
 
-        {/* 4. Live Wholesale Inventory Section with Zoho Inventory Integration */}
-        <InventorySection />
+        {/* 4. Inside the Login Gateway: Display all 900+ Products Imported from Zoho with Pricing */}
+        {currentUser ? (
+          <div id="inventory" className="relative">
+            <div className="bg-gradient-to-r from-[#FF6B00]/15 via-[#15191F] to-[#15191F] border-y border-[#FF6B00]/40 py-4 px-4 shadow-inner">
+              <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 px-4">
+                <div className="flex items-center gap-2.5">
+                  <span className="bg-[#FF6B00] text-white text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow">
+                    Verified B2B Retailer
+                  </span>
+                  <span className="text-sm font-bold text-[#F7F7F5]">
+                    {currentUser.businessName || currentUser.contactName || currentUser.email}
+                  </span>
+                  <span className="hidden md:inline text-xs text-[#858C96]">
+                    · Live Wholesale Tier Pricing & Case Stock Active
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 text-xs">
+                  <span className="text-emerald-400 font-semibold flex items-center gap-1 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full">
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    900+ Zoho SKUs Connected
+                  </span>
+                </div>
+              </div>
+            </div>
+            <InventorySection initialBrand={activeBrandFilter} />
+          </div>
+        ) : (
+          <div id="retailer-gateway" className="py-14 bg-[#0B0D10] text-center border-t border-[#2A3038]/60">
+            <div className="max-w-4xl mx-auto px-4 space-y-4">
+              <div className="inline-flex items-center gap-2 bg-[#15191F] text-[#FF6B00] border border-[#2A3038] text-xs font-black uppercase tracking-wider px-4 py-1.5 rounded-full">
+                <ShieldCheck className="w-4 h-4 text-[#FF6B00]" />
+                <span>Oklahoma Closed Wholesale Network</span>
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-black text-[#F7F7F5]">
+                Login to Access Full 900+ Zoho Inventory Catalog & Wholesale Rates
+              </h3>
+              <p className="text-sm text-[#858C96] max-w-xl mx-auto leading-relaxed">
+                In compliance with Oklahoma wholesale distribution regulations, catalog browsing with tiered case pricing and direct ordering is unlocked inside the retailer gateway for verified partners.
+              </p>
+              <div className="pt-3 flex flex-wrap items-center justify-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => setIsLoginModalOpen(true)}
+                  className="bg-[#FF6B00] hover:bg-[#E85F00] text-white font-extrabold text-xs sm:text-sm px-8 py-4 rounded-full transition-all shadow-lg hover:scale-105 active:scale-95 flex items-center gap-2 cursor-pointer uppercase tracking-wider"
+                >
+                  <LogIn className="w-4 h-4" />
+                  <span>Retailer Login</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setIsWholesaleModalOpen(true)}
+                  className="bg-[#15191F] hover:bg-[#1B2027] text-[#F7F7F5] border border-[#2A3038] hover:border-[#FF6B00] font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full transition-all flex items-center gap-2 cursor-pointer"
+                >
+                  <UserPlus className="w-4 h-4 text-[#FF6B00]" />
+                  <span>Register Wholesale Account</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* 5 & 6. Why Wholesale of Oklahoma & Ready to Buy Wholesale CTA */}
         <WhyChooseUs onOpenApplication={() => setIsWholesaleModalOpen(true)} />

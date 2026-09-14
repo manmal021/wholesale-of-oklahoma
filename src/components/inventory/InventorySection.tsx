@@ -37,7 +37,11 @@ const CATEGORY_TABS = [
   { id: 'Novelties', label: 'Novelties', icon: '⚖️' },
 ];
 
-export const InventorySection: React.FC = () => {
+interface InventorySectionProps {
+  initialBrand?: string;
+}
+
+export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand }) => {
   // Inventory state
   const [items, setItems] = useState<InventoryItem[]>([]);
   const [totalItems, setTotalItems] = useState<number>(0);
@@ -50,7 +54,7 @@ export const InventorySection: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [debouncedSearch, setDebouncedSearch] = useState<string>('');
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
-  const [selectedBrand, setSelectedBrand] = useState<string>('All');
+  const [selectedBrand, setSelectedBrand] = useState<string>(initialBrand || 'All');
   const [selectedAvailability, setSelectedAvailability] = useState<'all' | 'in_stock' | 'low_stock' | 'out_of_stock'>('all');
   const [selectedPriceRange, setSelectedPriceRange] = useState<string>('all');
   const [selectedProductType, setSelectedProductType] = useState<string>('All');
@@ -181,6 +185,13 @@ export const InventorySection: React.FC = () => {
     };
   }, []);
 
+  useEffect(() => {
+    if (initialBrand) {
+      setSelectedBrand(initialBrand);
+      setCurrentPage(1);
+    }
+  }, [initialBrand]);
+
   const [isRefreshing, setIsRefreshing] = useState<boolean>(false);
   const [lastUpdatedTime, setLastUpdatedTime] = useState<string>('Just now');
 
@@ -227,14 +238,6 @@ export const InventorySection: React.FC = () => {
   // Initial and reactive load
   useEffect(() => {
     loadInventory(false);
-  }, [loadInventory]);
-
-  // Real-time polling every 25 seconds for live Zoho inventory updates
-  useEffect(() => {
-    const interval = setInterval(() => {
-      loadInventory(true);
-    }, 25000);
-    return () => clearInterval(interval);
   }, [loadInventory]);
 
   const handleAddedToCart = (name: string, qty: number) => {

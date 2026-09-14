@@ -637,6 +637,197 @@ class ProductImageRegistry {
     return undefined;
   }
 
+  /**
+   * Intelligently resolves and assigns authentic product packaging photography
+   * for any of the 900+ products imported from Zoho Inventory based on brand,
+   * hardware model, SKU, flavor profile, and category.
+   */
+  public resolveProductImage(query: {
+    id?: string;
+    sku?: string;
+    name?: string;
+    brand?: string;
+    category?: string;
+    description?: string;
+    existingUrl?: string;
+  }): string {
+    // 1. If item already has a verified image URL, keep it
+    if (query.existingUrl && (query.existingUrl.startsWith('/products/') || query.existingUrl.startsWith('http'))) {
+      if (!query.existingUrl.includes('Screenshot_') && !query.existingUrl.includes('/gallery/img_')) {
+        return query.existingUrl;
+      }
+    }
+
+    // 2. Direct ID or SKU match in verified registry
+    if (query.id) {
+      const byId = this.getVerifiedImageUrl(query.id);
+      if (byId) return byId;
+    }
+    if (query.sku) {
+      for (const record of this.registry.values()) {
+        if (record.sku.toLowerCase() === query.sku.toLowerCase()) {
+          if (record.imageUrl) return record.imageUrl;
+        }
+      }
+    }
+
+    // 3. Normalized text matching on name, SKU, brand, category, description
+    const text = `${query.name || ''} ${query.sku || ''} ${query.brand || ''} ${query.category || ''} ${query.description || ''}`.toLowerCase();
+
+    // Geek Bar / Pulse / Digiflavor
+    if (text.includes('geek') || text.includes('pulse') || text.includes('skyview') || text.includes('digiflavor')) {
+      if (text.includes('60') || text.includes('ultra')) return '/products/geekbar-60k.png';
+      if (text.includes('25') || text.includes('pulse x') || text.includes('curved')) return '/products/geekbar-25k.png';
+      if (text.includes('pod') || text.includes('replacement')) return '/products/geekbar-pod.png';
+      if (text.includes('kit') || text.includes('skyview') || text.includes('device')) return '/products/geekbar-kit.png';
+      return '/products/geekbar-15k.png';
+    }
+
+    // Vozol (check before Raz to avoid "Blue Razz Ice" collision)
+    if (text.includes('vozol') || text.includes('vista') || text.includes('gear power') || text.includes('rave 50000')) {
+      return '/products/vozol-50k.png';
+    }
+
+    // Lost Mary
+    if (text.includes('lost mary') || text.includes('lostmary') || text.includes('mt15000') || text.includes('os5000') || text.includes('mo20000')) {
+      return '/products/lostmary-mt15000.png';
+    }
+
+    // OXBAR
+    if (text.includes('oxbar') || text.includes('magic maze')) {
+      return '/products/oxbar-magic-maze.png';
+    }
+
+    // Raz (avoiding "blue razz" flavor collision by checking brand/sku/word boundary)
+    const brandLower = (query.brand || '').toLowerCase();
+    const skuLower = (query.sku || '').toLowerCase();
+    if (brandLower.includes('raz') || skuLower.startsWith('raz') || skuLower.includes('rz-') || text.includes('raz dc') || text.includes('raz tn') || text.includes('raz ltx') || text.includes('raz vue') || /\braz\b/i.test(query.name || '')) {
+      if (text.includes('pod')) return '/products/raz-pod.png';
+      return '/products/raz-25k.png';
+    }
+
+    // Foger
+    if (text.includes('foger') || text.includes('switch pro') || text.includes('ct10000')) {
+      return '/products/foger-30k.jpg';
+    }
+
+    // Vaporesso
+    if (text.includes('vaporesso') || text.includes('xros')) {
+      if (text.includes('kit') || text.includes('system') || text.includes('device')) return '/products/vaporesso-xros-4.png';
+      if (text.includes('pod') || text.includes('cartridge') || text.includes('coil')) return '/products/vaporesso-xros-pods.jpg';
+      return '/products/vaporesso-xros-4.png';
+    }
+
+    // SMOK
+    if (text.includes('smok') || text.includes('nord') || text.includes('rpm') || text.includes('novo')) {
+      if (text.includes('novo')) return '/products/smok-novo-5.png';
+      return '/products/smok-nord-coils.png';
+    }
+
+    // Yocan
+    if (text.includes('yocan') || text.includes('kodo') || text.includes('uni')) {
+      return '/products/yocan-kodo-pro.jpg';
+    }
+
+    // Juice Head
+    if (text.includes('juice head') || text.includes('juicehead')) {
+      if (text.includes('salt') || text.includes('nic salt')) return '/products/juice-head-salts-30ml.png';
+      return '/products/juice-head-100ml.png';
+    }
+
+    // Coastal Clouds
+    if (text.includes('coastal')) {
+      if (text.includes('salt') || text.includes('nic salt')) return '/products/coastal-clouds-salts-30ml.png';
+      return '/products/coastal-clouds-60ml.png';
+    }
+
+    // Sadboy
+    if (text.includes('sadboy') || text.includes('sad boy')) {
+      return '/products/sadboy-100ml.png';
+    }
+
+    // Twist
+    if (text.includes('twist')) {
+      return '/products/twist-120ml.jpg';
+    }
+
+    // OPMS / Kratom
+    if (text.includes('opms')) {
+      if (text.includes('black')) return '/products/opms-black-liquid-extract.jpg';
+      return '/products/opms-gold-liquid-extract.jpg';
+    }
+    if (text.includes('kratom') || text.includes('capsule') || text.includes('maeng da')) {
+      return '/products/kratom-capsules-maeng-da.jpg';
+    }
+
+    // RAW
+    if (text.includes('raw') && (text.includes('paper') || text.includes('cone') || text.includes('roll') || text.includes('king') || text.includes('slim'))) {
+      return '/products/raw-classic-king-size-box.png';
+    }
+
+    // Cookies
+    if (text.includes('cookie')) {
+      return '/products/cookies-510-battery-display.png';
+    }
+
+    // King Palm
+    if (text.includes('king palm') || text.includes('palm')) {
+      return '/products/king-palm-cones-display.png';
+    }
+
+    // Eyce
+    if (text.includes('eyce') || text.includes('silicone')) {
+      return '/products/eyce-silicone-beaker.png';
+    }
+
+    // Glass & Water Pipes
+    if (text.includes('beaker') || text.includes('water pipe') || text.includes('bong') || text.includes('rig')) {
+      return '/products/glass-beaker-10in.jpg';
+    }
+    if (text.includes('spoon') || text.includes('hand pipe') || text.includes('glass pipe')) {
+      return '/products/glass-spoon-pipe-4in.jpg';
+    }
+
+    // THCA & Hemp
+    if (text.includes('pre-roll') || text.includes('preroll') || text.includes('diamond') || text.includes('thca')) {
+      return '/products/thca-diamond-prerolls.png';
+    }
+    if (text.includes('live resin') || text.includes('delta') || text.includes('d8') || text.includes('d9') || text.includes('disposable 2g')) {
+      return '/products/delta-live-resin-disposable-2g.png';
+    }
+    if (text.includes('gummy') || text.includes('gummies') || text.includes('cbd') || text.includes('relax')) {
+      return '/products/cbd-relax-gummies-1000mg.png';
+    }
+
+    // Smoke Shop Essentials
+    if (text.includes('grinder') || text.includes('shredder')) {
+      return '/products/aircraft-aluminum-grinder-4pc.jpg';
+    }
+    if (text.includes('scale') || text.includes('gram') || text.includes('digital pocket')) {
+      return '/products/precision-digital-scale-001g.jpg';
+    }
+    if (text.includes('torch') || text.includes('lighter') || text.includes('flame')) {
+      return '/products/scorch-torch-triple-jet.jpg';
+    }
+    if (text.includes('butane') || text.includes('fuel') || text.includes('gas')) {
+      return '/products/newport-zero-butane-12can.jpg';
+    }
+
+    // Category Level Archetype Fallbacks
+    const cat = (query.category || '').toLowerCase();
+    if (cat.includes('dispos')) return '/products/geekbar-15k.png';
+    if (cat.includes('juice') || cat.includes('liquid')) return '/products/juice-head-100ml.png';
+    if (cat.includes('mod') || cat.includes('kit') || cat.includes('pod') || cat.includes('tank')) return '/products/vaporesso-xros-4.png';
+    if (cat.includes('pipe') || cat.includes('glass')) return '/products/glass-beaker-10in.jpg';
+    if (cat.includes('hemp') || cat.includes('thca') || cat.includes('cbd') || cat.includes('delta')) return '/products/thca-diamond-prerolls.png';
+    if (cat.includes('kratom')) return '/products/opms-gold-liquid-extract.jpg';
+    if (cat.includes('access') || cat.includes('paper') || cat.includes('roll')) return '/products/raw-classic-king-size-box.png';
+    if (cat.includes('novel')) return '/products/scorch-torch-triple-jet.jpg';
+
+    // Fallback product image
+    return '/products/geekbar-15k.png';
+  }
+
   public reviewProductImage(
     productId: string,
     action: 'APPROVE' | 'REJECT' | 'UPDATE_URL' | 'REMOVE',

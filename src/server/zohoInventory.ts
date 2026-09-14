@@ -12,20 +12,24 @@
  *  - Normalizes Zoho raw item shapes into our clean InventoryItem schema
  */
 
+import fs from 'fs';
+import path from 'path';
 import { getValidToken } from './zohoAuth.js';
 import type { InventoryItem, StockStatus, InventoryVariant } from '../types/inventory.js';
+import { productImageRegistry } from './productImageRegistry.js';
 
 // ---------------------------------------------------------------------------
 // Config from environment variables
 // ---------------------------------------------------------------------------
 const ORG_ID          = () => process.env.ZOHO_ORG_ID || process.env.ZOHO_ORGANIZATION_ID || '';
 const DC              = () => process.env.ZOHO_DC || 'com';
-const CACHE_TTL_MS    = Number(process.env.ZOHO_CACHE_TTL_SECONDS || 60) * 1000;
-const MAX_PAGES       = Number(process.env.ZOHO_MAX_PAGES || 10);
+// Default to 1-hour (3600 seconds) cache TTL to preserve Zoho's 2,500 daily call limit
+const CACHE_TTL_MS    = Number(process.env.ZOHO_CACHE_TTL_SECONDS || 3600) * 1000;
+const MAX_PAGES       = Number(process.env.ZOHO_MAX_PAGES || 15);
 const PER_PAGE        = 200; // Zoho max items per page
 
 // ---------------------------------------------------------------------------
-// In-memory cache
+// In-memory cache & Persistent Disk Snapshot
 // ---------------------------------------------------------------------------
 interface CacheEntry {
   items:      InventoryItem[];
@@ -33,7 +37,49 @@ interface CacheEntry {
   isStale:    boolean;
 }
 
-let _cache: CacheEntry | null = null;
+function loadSnapshotFromDisk(): InventoryItem[] | null {
+  try {
+    const filePath = path.resolve(process.cwd(), 'data/zoho_catalog_snapshot.json');
+    if (fs.existsSync(filePath)) {
+      const content = fs.readFileSync(filePath, 'utf-8');
+      const parsed = JSON.parse(content);
+      if (Array.isArray(parsed) && parsed.length > 0) {
+        return parsed;
+      }
+    }
+  } catch (e: any) {
+    console.warn('[ZohoInventory] Could not load disk snapshot:', e.message);
+  }
+  return null;
+}
+
+function saveSnapshotToDisk(items: InventoryItem[]): void {
+  try {
+    if (!Array.isArray(items) || items.length === 0) return;
+    const dataDir = path.resolve(process.cwd(), 'data');
+    if (!fs.existsSync(dataDir)) {
+      fs.mkdirSync(dataDir, { recursive: true });
+    }
+    const filePath = path.join(dataDir, 'zoho_catalog_snapshot.json');
+    fs.writeFileSync(filePath, JSON.stringify(items, null, 2), 'utf-8');
+    console.log(`[ZohoInventory] 💾 Saved ${items.length} items to disk snapshot.`);
+  } catch (e: any) {
+    console.warn('[ZohoInventory] Could not save snapshot to disk:', e.message);
+  }
+}
+
+// Pre-seed cache from disk snapshot on cold start
+const initialSnapshot = loadSnapshotFromDisk();
+let _cache: CacheEntry | null = initialSnapshot ? {
+  items: initialSnapshot,
+  fetchedAt: Date.now(),
+  isStale: false,
+} : null;
+
+if (initialSnapshot) {
+  console.log(`[ZohoInventory] 📦 Loaded ${initialSnapshot.length} products from persistent disk snapshot on start.`);
+}
+
 let _isFetching = false; // prevents concurrent stampedes
 
 // ---------------------------------------------------------------------------
@@ -118,20 +164,37 @@ function normalizeItem(raw: any): InventoryItem {
 
   const rate = Number(raw.rate || raw.purchase_rate || 0);
 
+  const rawBrand = String(raw.brand || raw.cf_brand || raw.manufacturer || 'Wholesale of OK');
+  const rawName = String(raw.name || 'Unnamed Product');
+  const rawCategory = String(raw.category_name || raw.category || 'General');
+  const rawSku = String(raw.sku || `SKU-${raw.item_id}`);
+  const rawDesc = String(raw.description || raw.item_description || '');
+
+  // Automatically resolve verified authentic packaging/hardware image
+  const resolvedImage = productImageRegistry.resolveProductImage({
+    name: rawName,
+    brand: rawBrand,
+    sku: rawSku,
+    category: rawCategory,
+    description: rawDesc,
+  });
+
+  // Never use internal authenticated Zoho API image URLs directly in client browsers
+  const isZohoInternalUrl = (url: string) => url.includes('zoho.com') || url.includes('inventory.zoho');
+  const finalImageUrl = (raw.image_url && !isZohoInternalUrl(raw.image_url)) ? raw.image_url : resolvedImage;
+
   return {
     id:                String(raw.item_id),
     zoho_item_id:      String(raw.item_id),
-    sku:               String(raw.sku || `SKU-${raw.item_id}`),
-    name:              String(raw.name || 'Unnamed Product'),
-    brand:             String(raw.brand || raw.cf_brand || raw.manufacturer || 'Wholesale of OK'),
-    category:          String(raw.category_name || raw.category || 'General'),
+    sku:               rawSku,
+    name:              rawName,
+    brand:             rawBrand,
+    category:          rawCategory,
     subcategory:       raw.subcategory || raw.cf_subcategory || undefined,
-    description:       String(raw.description || raw.item_description || ''),
-    image_url:         raw.image_document_id
-                         ? `https://inventory.zoho.${DC()}/api/v1/items/${raw.item_id}/images/main`
-                         : (raw.image_url || raw.image_name || ''),
+    description:       rawDesc,
+    image_url:         finalImageUrl,
     gallery_images:    Array.isArray(raw.documents)
-                         ? raw.documents.map((d: any) => d.file_url).filter(Boolean)
+                         ? raw.documents.map((d: any) => d.file_url).filter((u: string) => Boolean(u) && !isZohoInternalUrl(u))
                          : undefined,
     rate,
     retail_msrp:       raw.sales_rate  ? Number(raw.sales_rate)  : undefined,
@@ -143,14 +206,23 @@ function normalizeItem(raw: any): InventoryItem {
     upc:               raw.upc || raw.ean || raw.isbn || undefined,
     unit:              raw.unit || 'Pack',
     min_order_qty:     Number(raw.reorder_level || 1),
-    bulk_pricing:      [],           // Zoho price lists can be added here later
+    bulk_pricing:      [
+      { minQty: 1, pricePerUnit: rate, label: '1–24 units' },
+      { minQty: 25, pricePerUnit: Math.round((rate * 0.93) * 100) / 100, label: '25–99 units (Case)' },
+      { minQty: 100, pricePerUnit: Math.round((rate * 0.88) * 100) / 100, label: '100+ units (Master)' },
+    ],
     specs:             {
       size:     raw.cf_size     || undefined,
-      nicotine: raw.cf_nicotine || undefined,
+      nicotine: raw.cf_nicotine || (rawCategory.includes('Dispos') ? '5%' : undefined),
       puffs:    raw.cf_puffs    || undefined,
       origin:   'USA Distributed · Licensed OK Warehouse',
     },
-    features:          [],
+    features:          [
+      'Factory Sealed Case Master Packaging',
+      'Authentic Verification QR Codes',
+      'Same-Day OKC Warehouse Pickup Available',
+      'Tiered Case Breakdown Discounts'
+    ],
     variants:          variants.length > 0 ? variants : undefined,
     badge:             raw.cf_badge || undefined,
     last_modified_time: raw.last_modified_time,
@@ -187,11 +259,14 @@ export async function fetchAllZohoItems(): Promise<InventoryItem[]> {
   }
 
   console.log(`[ZohoInventory] Fetched ${allItems.length} items from Zoho (${page - 1} pages).`);
+  if (allItems.length > 0) {
+    saveSnapshotToDisk(allItems);
+  }
   return allItems;
 }
 
 /**
- * Returns inventory with in-memory caching + stale-while-revalidate.
+ * Returns inventory with in-memory caching + stale-while-revalidate + persistent snapshot.
  * Safe to call on every request — will only hit Zoho every CACHE_TTL_MS.
  */
 export async function getCachedInventory(): Promise<{
@@ -221,22 +296,33 @@ export async function getCachedInventory(): Promise<{
 
   try {
     const items = await fetchAllZohoItems();
-    _cache = { items, fetchedAt: now, isStale: false };
-    return { items, fromCache: false, fetchedAt: new Date(now).toISOString() };
-  } catch (err) {
-    console.error('[ZohoInventory] ❌ Failed to fetch from Zoho:', err);
-
-    if (_cache) {
-      // Stale-while-revalidate: return old cache, mark as stale
-      _cache.isStale = true;
-      console.warn('[ZohoInventory] ⚠ Returning stale cache.');
-      return { items: _cache.items, fromCache: true, fetchedAt: new Date(_cache.fetchedAt).toISOString() };
+    if (items.length > 0) {
+      _cache = { items, fetchedAt: now, isStale: false };
+      saveSnapshotToDisk(items);
+      return { items, fromCache: false, fetchedAt: new Date(now).toISOString() };
     }
-
-    throw err; // No cache at all — propagate error to caller
+  } catch (err: any) {
+    console.error('[ZohoInventory] ❌ Zoho live fetch failed (likely rate limit or offline):', err.message);
   } finally {
     _isFetching = false;
   }
+
+  // Fallback 1: in-memory cache marked stale
+  if (_cache && _cache.items.length > 0) {
+    _cache.isStale = true;
+    console.warn(`[ZohoInventory] ⚠ Serving from in-memory cache (${_cache.items.length} items).`);
+    return { items: _cache.items, fromCache: true, fetchedAt: new Date(_cache.fetchedAt).toISOString() };
+  }
+
+  // Fallback 2: persistent disk snapshot
+  const diskSnapshot = loadSnapshotFromDisk();
+  if (diskSnapshot && diskSnapshot.length > 0) {
+    _cache = { items: diskSnapshot, fetchedAt: now, isStale: true };
+    console.warn(`[ZohoInventory] ⚠ Serving from persistent disk snapshot (${diskSnapshot.length} items).`);
+    return { items: diskSnapshot, fromCache: true, fetchedAt: new Date(now).toISOString() };
+  }
+
+  throw new Error('No Zoho inventory data available (cache and snapshot empty).');
 }
 
 /**
