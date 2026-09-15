@@ -87,19 +87,19 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 overflow-y-auto" role="dialog" aria-modal="true" aria-labelledby="modal-product-title">
-      {/* Dark backdrop overlay */}
+      {/* Backdrop overlay */}
       <div
-        className="fixed inset-0 bg-[#0B0D10]/85 backdrop-blur-md transition-opacity duration-300"
+        className="fixed inset-0 bg-slate-900/60 backdrop-blur-xs transition-opacity duration-300"
         onClick={onClose}
       />
 
       {/* Modal Container */}
-      <div className="relative w-full max-w-4xl bg-[#1B2027] rounded-[28px] shadow-2xl border border-[#2A3038] overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200 my-auto text-[#F7F7F5]">
+      <div className="relative w-full max-w-4xl bg-white rounded-[28px] shadow-2xl border border-slate-200 overflow-hidden z-10 animate-in fade-in zoom-in-95 duration-200 my-auto text-slate-900">
         {/* Header Close Button */}
         <button
           type="button"
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-[#15191F] hover:bg-[#2A3038] text-[#B8BDC5] hover:text-[#F7F7F5] border border-[#2A3038] flex items-center justify-center transition-colors cursor-pointer"
+          className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 hover:text-slate-900 border border-slate-200 flex items-center justify-center transition-colors cursor-pointer"
           aria-label="Close modal"
         >
           <X className="w-5 h-5" />
@@ -107,10 +107,10 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
         <div className="grid grid-cols-1 md:grid-cols-12 max-h-[90vh] overflow-y-auto">
           {/* Left Column: Image Gallery & Badges */}
-          <div className="md:col-span-5 bg-[#15191F] p-6 sm:p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r border-[#2A3038]">
+          <div className="md:col-span-5 bg-slate-50 p-6 sm:p-8 flex flex-col justify-between border-b md:border-b-0 md:border-r border-slate-200">
             <div>
               {/* Main Image View */}
-              <div className="relative aspect-square w-full bg-[#0B0D10] rounded-2xl p-4 border border-[#2A3038] flex items-center justify-center overflow-hidden">
+              <div className="relative aspect-square w-full bg-white rounded-2xl p-4 border border-slate-200 flex items-center justify-center overflow-hidden shadow-xs">
                 {activeImage ? (
                   <img
                     src={activeImage}
@@ -119,14 +119,14 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                   />
                 ) : (
                   <div className="w-full h-full flex flex-col items-center justify-center text-center p-6 space-y-3">
-                    <div className="w-14 h-14 rounded-2xl bg-[#1B2027] border border-[#2A3038] flex items-center justify-center text-[#858C96]">
+                    <div className="w-14 h-14 rounded-2xl bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-400">
                       <Package className="w-7 h-7" />
                     </div>
                     <div>
                       <span className="text-xs font-bold uppercase tracking-wider text-[#FF6B00] block mb-1">
                         {item.brand}
                       </span>
-                      <p className="text-xs font-medium text-[#858C96]">Image Coming Soon</p>
+                      <p className="text-xs font-medium text-slate-500">Image Coming Soon</p>
                     </div>
                   </div>
                 )}
@@ -148,8 +148,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                       onClick={() => setActiveImage(img)}
                       className={`w-14 h-14 rounded-xl border-2 p-1 overflow-hidden transition-all cursor-pointer ${
                         activeImage === img
-                          ? 'border-[#FF6B00] ring-2 ring-[#FF6B00]/30 bg-[#0B0D10]'
-                          : 'border-[#2A3038] bg-[#0B0D10] hover:border-[#353C46]'
+                          ? 'border-[#FF6B00] ring-2 ring-[#FF6B00]/30 bg-white'
+                          : 'border-slate-200 bg-white hover:border-slate-300'
                       }`}
                     >
                       <img src={img} alt="" className="w-full h-full object-contain" />
@@ -160,10 +160,10 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             </div>
 
             {/* Wholesale Trust & Dispatch Badges */}
-            <div className="mt-6 pt-6 border-t border-[#2A3038] space-y-2.5 text-xs text-[#B8BDC5]">
+            <div className="mt-6 pt-6 border-t border-slate-200 space-y-2.5 text-xs text-slate-600">
               <div className="flex items-center gap-2">
                 <ShieldCheck className="w-4 h-4 text-[#FF6B00] shrink-0" />
-                <span className="font-semibold text-[#F7F7F5]">Licensed Oklahoma Wholesaler</span>
+                <span className="font-semibold text-slate-900">Licensed Oklahoma Wholesaler</span>
               </div>
               <div className="flex items-center gap-2">
                 <Truck className="w-4 h-4 text-[#FF6B00] shrink-0" />
@@ -171,7 +171,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               </div>
               <div className="flex items-center gap-2">
                 <Building className="w-4 h-4 text-[#FF6B00] shrink-0" />
-                <span>Catalog SKU: <span className="font-mono text-[#F7F7F5]">{currentSku}</span></span>
+                <span>Catalog SKU: <span className="font-mono text-slate-800">{currentSku}</span></span>
               </div>
             </div>
           </div>
@@ -180,7 +180,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           <div className="md:col-span-7 p-6 sm:p-8 flex flex-col justify-between space-y-6">
             <div className="space-y-4">
               {/* Breadcrumb Hierarchy: Home > Inventory > Brands > [Brand] > [Product] */}
-              <nav aria-label="Product Breadcrumbs" className="flex items-center gap-1.5 text-xs text-[#858C96] pb-2 border-b border-[#2A3038]/60 flex-wrap">
+              <nav aria-label="Product Breadcrumbs" className="flex items-center gap-1.5 text-xs text-slate-500 pb-2 border-b border-slate-200 flex-wrap">
                 <a
                   href="#overview"
                   onClick={onClose}
@@ -188,7 +188,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 >
                   Home
                 </a>
-                <span className="text-[#353C46]">/</span>
+                <span className="text-slate-300">/</span>
                 <button
                   type="button"
                   onClick={() => {
@@ -201,7 +201,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 >
                   Inventory
                 </button>
-                <span className="text-[#353C46]">/</span>
+                <span className="text-slate-300">/</span>
                 <button
                   type="button"
                   onClick={() => {
@@ -214,7 +214,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 >
                   Brands
                 </button>
-                <span className="text-[#353C46]">/</span>
+                <span className="text-slate-300">/</span>
                 <button
                   type="button"
                   onClick={() => {
@@ -227,8 +227,8 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                 >
                   {item.brand}
                 </button>
-                <span className="text-[#353C46]">/</span>
-                <span className="text-[#F7F7F5] font-semibold truncate max-w-[180px] sm:max-w-[240px]">
+                <span className="text-slate-300">/</span>
+                <span className="text-slate-900 font-semibold truncate max-w-[180px] sm:max-w-[240px]">
                   {item.name}
                 </span>
               </nav>
@@ -239,28 +239,28 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                   <span className="text-xs uppercase font-extrabold tracking-widest text-[#FF6B00]">
                     {item.brand}
                   </span>
-                  <span className="text-[#353C46]">·</span>
-                  <span className="text-xs font-semibold text-[#858C96]">
+                  <span className="text-slate-300">·</span>
+                  <span className="text-xs font-semibold text-slate-500">
                     {item.category}
                   </span>
                 </div>
 
                 {/* Stock Status Pill */}
                 {isOutOfStock ? (
-                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-rose-400 bg-rose-500/10 border border-rose-500/20 px-3 py-1 rounded-full">
-                    <span className="w-2 h-2 rounded-full bg-rose-400" />
+                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-rose-700 bg-rose-50 border border-rose-200 px-3 py-1 rounded-full">
+                    <span className="w-2 h-2 rounded-full bg-rose-500" />
                     Out of Stock
                   </span>
                 ) : isLowStock ? (
-                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-3 py-1 rounded-full">
-                    <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-amber-700 bg-amber-50 border border-amber-200 px-3 py-1 rounded-full">
+                    <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
                     {displayMode === 'exact_quantity'
                       ? `Low Stock · ${currentStock} units left`
                       : 'Low Stock'}
                   </span>
                 ) : (
-                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full">
-                    <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                  <span className="inline-flex items-center gap-1.5 text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
+                    <span className="w-2 h-2 rounded-full bg-emerald-500" />
                     {displayMode === 'exact_quantity'
                       ? `${currentStock} in stock (OKC Warehouse)`
                       : 'In Stock (OKC)'}
@@ -270,15 +270,15 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
               {/* Product Title & Active SKU */}
               <div>
-                <h2 id="modal-product-title" className="text-2xl sm:text-3xl font-bold text-[#F7F7F5] tracking-tight">
+                <h2 id="modal-product-title" className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
                   {item.name}
                 </h2>
                 <div className="flex items-center gap-3 mt-1.5 flex-wrap">
-                  <span className="font-mono text-xs bg-[#15191F] text-[#B8BDC5] px-2.5 py-0.5 rounded font-bold border border-[#2A3038]">
+                  <span className="font-mono text-xs bg-slate-100 text-slate-700 px-2.5 py-0.5 rounded font-bold border border-slate-200">
                     SKU: {currentSku}
                   </span>
                   {item.upc && (
-                    <span className="text-[11px] text-[#858C96] font-mono">
+                    <span className="text-[11px] text-slate-500 font-mono">
                       UPC: {item.upc}
                     </span>
                   )}
@@ -287,22 +287,22 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
               {/* Pricing Display */}
               {hasPricingAccess && typeof currentRate === 'number' ? (
-                <div className="p-4 bg-[#15191F] rounded-2xl border border-[#2A3038] flex items-center justify-between">
+                <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 flex items-center justify-between">
                   <div>
                     <span className="text-[10px] uppercase font-bold tracking-wider text-[#FF6B00] block">
                       Wholesale Price
                     </span>
-                    <span className="text-3xl font-black text-[#F7F7F5]">
+                    <span className="text-3xl font-black text-slate-900">
                       ${currentRate.toFixed(2)}
                     </span>
                   </div>
 
                   {item.retail_msrp && (
                     <div className="text-right">
-                      <span className="text-[10px] uppercase font-bold text-[#858C96] block">
+                      <span className="text-[10px] uppercase font-bold text-slate-500 block">
                         Estimated Retail MSRP
                       </span>
-                      <span className="text-sm font-semibold text-[#858C96] line-through">
+                      <span className="text-sm font-semibold text-slate-400 line-through">
                         ${item.retail_msrp.toFixed(2)}
                       </span>
                       <span className="text-[11px] text-[#FF6B00] font-bold block">
@@ -312,17 +312,17 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                   )}
                 </div>
               ) : (
-                <div className="p-5 bg-[#15191F] rounded-2xl border border-[#2A3038] text-[#F7F7F5]">
+                <div className="p-5 bg-slate-50 rounded-2xl border border-slate-200 text-slate-900">
                   <div className="flex items-center gap-2.5 mb-2">
                     <div className="w-8 h-8 rounded-full bg-[#FF6B00]/10 flex items-center justify-center text-[#FF6B00]">
                       <Lock className="w-4 h-4" />
                     </div>
                     <div>
-                      <h4 className="text-sm font-bold text-[#F7F7F5]">Login to View Wholesale Pricing</h4>
-                      <span className="text-[11px] text-[#858C96]">Restricted to verified wholesale retail accounts</span>
+                      <h4 className="text-sm font-bold text-slate-900">Login to View Wholesale Pricing</h4>
+                      <span className="text-[11px] text-slate-500">Restricted to verified wholesale retail accounts</span>
                     </div>
                   </div>
-                  <p className="text-xs text-[#B8BDC5] leading-relaxed mt-2">
+                  <p className="text-xs text-slate-600 leading-relaxed mt-2">
                     Case quantity tiers, profit margin calculators, and online ordering require an approved Wholesale of Oklahoma retail partner account.
                   </p>
                   <div className="grid grid-cols-2 gap-2 mt-4">
@@ -332,7 +332,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                         onClose();
                         window.dispatchEvent(new CustomEvent('open-login-modal'));
                       }}
-                      className="py-2.5 px-3 bg-[#1B2027] hover:bg-[#2A3038] text-[#F7F7F5] font-bold text-xs rounded-xl border border-[#353C46] transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
+                      className="py-2.5 px-3 bg-white hover:bg-slate-100 text-slate-800 font-bold text-xs rounded-xl border border-slate-300 transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
                     >
                       <LogIn className="w-3.5 h-3.5 text-[#FF6B00]" />
                       Login to View Pricing
@@ -356,7 +356,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               {item.variants && item.variants.length > 0 && (
                 <div>
                   <div className="flex items-center justify-between mb-2">
-                    <span className="text-xs font-bold uppercase tracking-wider text-[#F7F7F5]">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-800">
                       Select Flavor / Variant:
                     </span>
                     {selectedVariant && (
@@ -370,7 +370,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                       </span>
                     )}
                   </div>
-                  <div className="flex flex-wrap gap-1.5 max-h-36 overflow-y-auto p-1 bg-[#15191F] rounded-xl border border-[#2A3038]">
+                  <div className="flex flex-wrap gap-1.5 max-h-36 overflow-y-auto p-1.5 bg-slate-50 rounded-xl border border-slate-200">
                     {item.variants.map((v) => {
                       const isVarSelected = selectedVariant?.variant_id === v.variant_id;
                       const isVarOOS = v.stock_status === 'out_of_stock';
@@ -381,15 +381,15 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                           onClick={() => setSelectedVariant(v)}
                           className={`text-xs px-3 py-1.5 rounded-lg font-semibold transition-all flex items-center gap-1.5 cursor-pointer ${
                             isVarSelected
-                              ? 'bg-[#FF6B00] text-white shadow-sm'
+                              ? 'bg-[#FF6B00] text-white shadow-xs'
                               : isVarOOS
-                              ? 'bg-[#0B0D10] text-[#858C96]/60 line-through'
-                              : 'bg-[#0B0D10] text-[#B8BDC5] border border-[#2A3038] hover:border-[#FF6B00] hover:text-[#F7F7F5]'
+                              ? 'bg-slate-100 text-slate-400 line-through border border-slate-200'
+                              : 'bg-white text-slate-700 border border-slate-200 hover:border-[#FF6B00] hover:text-slate-900'
                           }`}
                         >
                           <span
                             className={`w-1.5 h-1.5 rounded-full ${
-                              isVarOOS ? 'bg-rose-400' : 'bg-emerald-400'
+                              isVarOOS ? 'bg-rose-400' : 'bg-emerald-500'
                             }`}
                           />
                           {v.variant_name}
@@ -403,32 +403,32 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               {/* Product Specifications */}
               {item.specs && Object.keys(item.specs).length > 0 && (
                 <div>
-                  <h4 className="text-xs font-bold uppercase tracking-wider text-[#858C96] mb-2">
+                  <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-2">
                     Specifications
                   </h4>
-                  <div className="grid grid-cols-2 gap-2 text-xs bg-[#15191F] p-3 rounded-xl border border-[#2A3038]">
+                  <div className="grid grid-cols-2 gap-2 text-xs bg-slate-50 p-3 rounded-xl border border-slate-200">
                     {item.specs.puffs && (
                       <div>
-                        <span className="text-[#858C96] block text-[10px]">Estimated Puffs</span>
-                        <span className="font-bold text-[#F7F7F5]">{item.specs.puffs}</span>
+                        <span className="text-slate-500 block text-[10px]">Estimated Puffs</span>
+                        <span className="font-bold text-slate-900">{item.specs.puffs}</span>
                       </div>
                     )}
                     {item.specs.nicotine && (
                       <div>
-                        <span className="text-[#858C96] block text-[10px]">Nicotine Strength</span>
-                        <span className="font-bold text-[#F7F7F5]">{item.specs.nicotine}</span>
+                        <span className="text-slate-500 block text-[10px]">Nicotine Strength</span>
+                        <span className="font-bold text-slate-900">{item.specs.nicotine}</span>
                       </div>
                     )}
                     {item.specs.case_pack && (
                       <div>
-                        <span className="text-[#858C96] block text-[10px]">Case Packaging</span>
-                        <span className="font-bold text-[#F7F7F5]">{item.specs.case_pack}</span>
+                        <span className="text-slate-500 block text-[10px]">Case Packaging</span>
+                        <span className="font-bold text-slate-900">{item.specs.case_pack}</span>
                       </div>
                     )}
                     {item.specs.origin && (
                       <div>
-                        <span className="text-[#858C96] block text-[10px]">Distribution Origin</span>
-                        <span className="font-bold text-[#F7F7F5]">{item.specs.origin}</span>
+                        <span className="text-slate-500 block text-[10px]">Distribution Origin</span>
+                        <span className="font-bold text-slate-900">{item.specs.origin}</span>
                       </div>
                     )}
                   </div>
@@ -437,12 +437,12 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
             </div>
 
             {/* Bottom Actions: Quantity Selector, Add to Cart & Dispatch CTA */}
-            <div className="pt-4 border-t border-[#2A3038] space-y-3">
+            <div className="pt-4 border-t border-slate-200 space-y-3">
               {hasPricingAccess && typeof currentRate === 'number' ? (
                 <div className="flex items-center gap-3">
                   {/* Stepper */}
                   <div
-                    className={`flex items-center gap-2 bg-[#15191F] border border-[#2A3038] rounded-full px-3 py-2 ${
+                    className={`flex items-center gap-2 bg-slate-50 border border-slate-200 rounded-full px-3 py-2 ${
                       isOutOfStock ? 'opacity-40 pointer-events-none' : ''
                     }`}
                   >
@@ -450,18 +450,18 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                       type="button"
                       onClick={() => setQty((q) => Math.max(1, q - 1))}
                       disabled={qty <= 1 || isOutOfStock}
-                      className="w-7 h-7 rounded-full bg-[#1B2027] text-[#F7F7F5] font-bold text-sm flex items-center justify-center hover:bg-[#2A3038] disabled:opacity-30 transition-colors cursor-pointer border border-[#2A3038]"
+                      className="w-7 h-7 rounded-full bg-white text-slate-800 font-bold text-sm flex items-center justify-center hover:bg-slate-100 disabled:opacity-30 transition-colors cursor-pointer border border-slate-300"
                     >
                       −
                     </button>
-                    <span className="text-sm font-bold text-[#F7F7F5] px-2 min-w-[2.5rem] text-center">
+                    <span className="text-sm font-bold text-slate-900 px-2 min-w-[2.5rem] text-center">
                       {qty}
                     </span>
                     <button
                       type="button"
                       onClick={() => setQty((q) => Math.min(100, q + 1))}
                       disabled={qty >= 100 || isOutOfStock}
-                      className="w-7 h-7 rounded-full bg-[#1B2027] text-[#F7F7F5] font-bold text-sm flex items-center justify-center hover:bg-[#2A3038] disabled:opacity-30 transition-colors cursor-pointer border border-[#2A3038]"
+                      className="w-7 h-7 rounded-full bg-white text-slate-800 font-bold text-sm flex items-center justify-center hover:bg-slate-100 disabled:opacity-30 transition-colors cursor-pointer border border-slate-300"
                     >
                       +
                     </button>
@@ -472,9 +472,9 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     <button
                       type="button"
                       disabled
-                      className="flex-1 py-3 bg-[#15191F] text-[#858C96] text-sm font-bold rounded-full border border-[#2A3038] flex items-center justify-center gap-2 cursor-not-allowed"
+                      className="flex-1 py-3 bg-slate-100 text-slate-400 text-sm font-bold rounded-full border border-slate-200 flex items-center justify-center gap-2 cursor-not-allowed"
                     >
-                      <AlertCircle className="w-4 h-4 text-[#858C96]" />
+                      <AlertCircle className="w-4 h-4 text-slate-400" />
                       Currently Out of Stock
                     </button>
                   ) : (
@@ -509,7 +509,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                       onClose();
                       window.dispatchEvent(new CustomEvent('open-login-modal'));
                     }}
-                    className="w-full sm:flex-1 py-3.5 bg-[#15191F] hover:bg-[#2A3038] text-[#F7F7F5] border border-[#2A3038] text-sm font-bold rounded-full transition-all flex items-center justify-center gap-2 cursor-pointer shadow-sm"
+                    className="w-full sm:flex-1 py-3.5 bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 text-sm font-bold rounded-full transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
                   >
                     <LogIn className="w-4 h-4 text-[#FF6B00]" />
                     Login to View Wholesale Pricing
@@ -529,7 +529,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               )}
 
               {/* Order Form Shortcut & Dispatch Phone */}
-              <div className="flex items-center justify-between text-xs text-[#858C96] pt-1">
+              <div className="flex items-center justify-between text-xs text-slate-500 pt-1">
                 <button
                   type="button"
                   onClick={handleScrollToOrder}
@@ -540,7 +540,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
                 <a
                   href="tel:4057682975"
-                  className="font-bold text-[#F7F7F5] hover:text-[#FF6B00] flex items-center gap-1"
+                  className="font-bold text-slate-800 hover:text-[#FF6B00] flex items-center gap-1"
                 >
                   <Phone className="w-3.5 h-3.5 text-[#FF6B00]" />
                   (405) 768-2975

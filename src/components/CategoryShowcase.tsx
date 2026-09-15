@@ -74,7 +74,7 @@ export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ onSelectCate
   if (!loading && activeCategories.length === 0) return null;
 
   return (
-    <section id="categories" className="py-20 bg-[#15191F] text-[#F7F7F5] border-t border-[#2A3038] relative overflow-hidden">
+    <section id="categories" className="py-20 bg-white text-slate-900 border-t border-slate-200 relative overflow-hidden">
       {/* Background Accent Gradients */}
       <div className="absolute -top-40 right-0 w-96 h-96 bg-[#FF6B00]/5 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -bottom-40 left-0 w-96 h-96 bg-[#FF6B00]/5 rounded-full blur-3xl pointer-events-none" />
@@ -82,14 +82,14 @@ export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ onSelectCate
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-14">
-          <div className="inline-flex items-center gap-2 bg-[#1B2027] border border-[#2A3038] text-[#FF6B00] text-xs font-black uppercase tracking-wider px-4 py-1.5 rounded-full mb-3 shadow-sm">
+          <div className="inline-flex items-center gap-2 bg-slate-50 border border-slate-200 text-[#FF6B00] text-xs font-black uppercase tracking-wider px-4 py-1.5 rounded-full mb-3 shadow-xs">
             <Layers className="w-3.5 h-3.5" />
             <span>Curated Wholesale Inventory</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-[#F7F7F5] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
             Wholesale <span className="text-[#FF6B00]">Product Categories</span>
           </h2>
-          <p className="mt-4 text-[#B8BDC5] text-base sm:text-lg leading-relaxed">
+          <p className="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed">
             Direct warehouse stock for retail convenience stores, dispensaries, and smoke shops. Only active, in-stock catalog categories are listed.
           </p>
         </div>
@@ -108,38 +108,38 @@ export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ onSelectCate
               <div
                 key={cat}
                 onClick={() => handleCategoryClick(cat)}
-                className="group bg-[#1B2027] rounded-2xl p-6 border border-[#2A3038] hover:border-[#FF6B00]/60 transition-all duration-300 hover:shadow-xl hover:bg-[#1B2027]/90 flex flex-col justify-between cursor-pointer"
+                className="group bg-slate-50 hover:bg-white rounded-2xl p-6 border border-slate-200 hover:border-[#FF6B00]/60 transition-all duration-300 hover:shadow-xl flex flex-col justify-between cursor-pointer"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <div className="w-12 h-12 rounded-xl bg-[#15191F] border border-[#2A3038] flex items-center justify-center text-[#FF6B00] group-hover:scale-110 transition-transform shadow-sm">
+                    <div className="w-12 h-12 rounded-xl bg-white border border-slate-200 flex items-center justify-center text-[#FF6B00] group-hover:scale-110 transition-transform shadow-xs">
                       <Icon className="w-6 h-6" />
                     </div>
                     {details.badge && (
-                      <span className="text-[10px] font-bold text-[#FF6B00] bg-[#FF6B00]/10 border border-[#FF6B00]/30 px-2 py-0.5 rounded-full">
+                      <span className="text-[10px] font-bold text-[#FF6B00] bg-orange-50 border border-orange-200 px-2 py-0.5 rounded-full">
                         {details.badge}
                       </span>
                     )}
                   </div>
 
-                  <h3 className="text-xl font-bold text-[#F7F7F5] group-hover:text-[#FF6B00] transition-colors">
+                  <h3 className="text-xl font-bold text-slate-900 group-hover:text-[#FF6B00] transition-colors">
                     {cat}
                   </h3>
                   <span className="text-xs font-semibold text-[#FF6B00] block mt-0.5">
                     {details.tagline}
                   </span>
 
-                  <p className="text-xs text-[#B8BDC5] mt-2.5 leading-relaxed">
+                  <p className="text-xs text-slate-600 mt-2.5 leading-relaxed">
                     {details.description}
                   </p>
                 </div>
 
-                <div className="mt-6 pt-4 border-t border-[#2A3038] flex items-center justify-between">
+                <div className="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between">
                   <span className="text-xs font-bold text-[#FF6B00] group-hover:text-[#E85F00] flex items-center gap-1 transition-colors">
                     <span>Browse {cat}</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </span>
-                  <span className="text-[10px] font-mono text-[#858C96]">OKC Stock</span>
+                  <span className="text-[10px] font-mono text-slate-500">OKC Stock</span>
                 </div>
               </div>
             );
@@ -147,7 +147,7 @@ export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ onSelectCate
         </div>
 
         {/* Category Trust Note */}
-        <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-xs text-[#858C96]">
+        <div className="mt-10 flex flex-wrap items-center justify-center gap-6 text-xs text-slate-500">
           <span className="flex items-center gap-1.5">
             <ShieldCheck className="w-4 h-4 text-[#FF6B00]" />
             Direct Factory Master Cartons

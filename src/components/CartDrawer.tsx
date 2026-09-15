@@ -391,7 +391,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
     <>
       {/* Backdrop overlay */}
       <div
-        className={`fixed inset-0 z-50 bg-[#0B0D10]/80 backdrop-blur-md transition-opacity duration-300 ${
+        className={`fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs transition-opacity duration-300 ${
           isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
         }`}
         onClick={onClose}
@@ -403,21 +403,21 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
         role="dialog"
         aria-modal="true"
         aria-label="Wholesale Shopping Cart"
-        className={`fixed top-0 right-0 bottom-0 z-50 w-full sm:w-[520px] max-w-full bg-[#15191F] text-[#F7F7F5] shadow-2xl border-l border-[#2A3038] flex flex-col transition-transform duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] ${
+        className={`fixed top-0 right-0 bottom-0 z-50 w-full sm:w-[520px] max-w-full bg-white text-slate-900 shadow-2xl border-l border-slate-200 flex flex-col transition-transform duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         {/* Drawer Header */}
-        <div className="bg-[#0B0D10] text-[#F7F7F5] px-5 py-4 flex items-center justify-between shadow-md shrink-0 border-b border-[#2A3038]">
+        <div className="bg-slate-50 text-slate-900 px-5 py-4 flex items-center justify-between shadow-xs shrink-0 border-b border-slate-200">
           <div className="flex items-center gap-3">
-            <div className="w-9 h-9 rounded-full bg-[#FF6B00]/10 flex items-center justify-center text-[#FF6B00] border border-[#FF6B00]/30">
+            <div className="w-9 h-9 rounded-full bg-orange-100 flex items-center justify-center text-[#FF6B00] border border-orange-200">
               <ShoppingBag className="w-5 h-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h2 className="text-base font-bold tracking-tight text-[#F7F7F5]">Wholesale Cart & Fulfillment</h2>
+                <h2 className="text-base font-bold tracking-tight text-slate-900">Wholesale Cart & Fulfillment</h2>
                 {totalUnits > 0 && (
-                  <span className="bg-[#FF6B00] text-white text-[10px] font-black px-2 py-0.5 rounded-full shadow-sm">
+                  <span className="bg-[#FF6B00] text-white text-[10px] font-black px-2 py-0.5 rounded-full shadow-xs">
                     {totalUnits} units
                   </span>
                 )}
@@ -430,7 +430,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
 
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-full bg-[#1B2027] hover:bg-[#2A3038] flex items-center justify-center text-[#B8BDC5] hover:text-[#F7F7F5] border border-[#2A3038] transition-colors cursor-pointer"
+            className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-500 hover:text-slate-900 border border-slate-200 transition-colors cursor-pointer"
             aria-label="Close Shopping Cart"
           >
             <X className="w-5 h-5" />
@@ -441,41 +441,41 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
         {status === 'success' ? (
           // Success Screen
           <div className="flex-1 overflow-y-auto p-6 flex flex-col items-center justify-center text-center space-y-4">
-            <div className="w-16 h-16 rounded-full bg-emerald-500/20 border border-emerald-500/30 flex items-center justify-center text-emerald-400 shadow-inner">
+            <div className="w-16 h-16 rounded-full bg-emerald-100 border border-emerald-300 flex items-center justify-center text-emerald-600 shadow-inner">
               <CheckCircle2 className="w-10 h-10" />
             </div>
 
             <div>
-              <h3 className="text-xl font-extrabold text-[#F7F7F5]">Wholesale Order Confirmed!</h3>
-              <p className="text-xs text-[#858C96] mt-1">
+              <h3 className="text-xl font-extrabold text-slate-900">Wholesale Order Confirmed!</h3>
+              <p className="text-xs text-slate-500 mt-1">
                 Order Reference: <span className="font-mono font-bold text-[#FF6B00]">{submittedOrderId}</span>
               </p>
             </div>
 
             {fulfillmentMethod === 'PICKUP' ? (
-              <div className="p-4 bg-[#1B2027] rounded-2xl border border-amber-500/30 text-left space-y-2 text-xs w-full">
-                <div className="flex items-center gap-2 text-amber-400 font-bold uppercase tracking-wider">
-                  <MapPin className="w-4 h-4" />
+              <div className="p-4 bg-amber-50 rounded-2xl border border-amber-300 text-left space-y-2 text-xs w-full">
+                <div className="flex items-center gap-2 text-amber-900 font-bold uppercase tracking-wider">
+                  <MapPin className="w-4 h-4 text-amber-600" />
                   <span>Pickup Order Registered</span>
                 </div>
-                <p className="text-[#F7F7F5] font-semibold">
+                <p className="text-slate-900 font-semibold">
                   Location: {defaultPickup.address.street}, {defaultPickup.address.city}, {defaultPickup.address.state}
                 </p>
-                <p className="text-[#858C96]">Hours: {defaultPickup.hours}</p>
-                <div className="p-2.5 rounded-xl bg-amber-500/10 text-amber-300 text-[11px] font-medium leading-relaxed">
+                <p className="text-slate-600">Hours: {defaultPickup.hours}</p>
+                <div className="p-2.5 rounded-xl bg-amber-100/70 text-amber-900 text-[11px] font-medium leading-relaxed">
                   <strong>Important:</strong> You will be notified via email when your order has been physically assembled and is ready for pickup. Please do not proceed to the warehouse until you receive your ready-for-pickup confirmation.
                 </div>
               </div>
             ) : (
-              <div className="p-4 bg-[#1B2027] rounded-2xl border border-sky-500/30 text-left space-y-2 text-xs w-full">
-                <div className="flex items-center gap-2 text-sky-400 font-bold uppercase tracking-wider">
-                  <Truck className="w-4 h-4" />
+              <div className="p-4 bg-sky-50 rounded-2xl border border-sky-300 text-left space-y-2 text-xs w-full">
+                <div className="flex items-center gap-2 text-sky-900 font-bold uppercase tracking-wider">
+                  <Truck className="w-4 h-4 text-sky-600" />
                   <span>Commercial Metro Delivery Order</span>
                 </div>
-                <p className="text-[#F7F7F5]">
+                <p className="text-slate-900 font-semibold">
                   Destination: {deliveryStreet}, {deliveryCity}, {deliveryState} {deliveryZip}
                 </p>
-                <p className="text-[#858C96]">
+                <p className="text-slate-600">
                   You will receive email notifications as our warehouse begins processing, when your shipment is out for delivery, and upon delivery completion.
                 </p>
               </div>
@@ -491,7 +491,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
               </a>
               <button
                 onClick={handleResetForm}
-                className="py-2.5 bg-[#1B2027] border border-[#2A3038] text-[#F7F7F5] text-xs font-bold rounded-full hover:bg-[#2A3038] transition-colors cursor-pointer"
+                className="py-2.5 bg-slate-100 border border-slate-300 text-slate-800 text-xs font-bold rounded-full hover:bg-slate-200 transition-colors cursor-pointer"
               >
                 Continue Browsing Wholesale Catalog
               </button>
@@ -500,12 +500,12 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
         ) : items.length === 0 ? (
           // Empty Cart Screen
           <div className="flex-1 overflow-y-auto p-8 flex flex-col items-center justify-center text-center space-y-4">
-            <div className="w-20 h-20 rounded-full bg-[#1B2027] border border-[#2A3038] flex items-center justify-center text-[#858C96]">
+            <div className="w-20 h-20 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-400">
               <ShoppingBag className="w-10 h-10 stroke-[1.5]" />
             </div>
             <div>
-              <h3 className="text-base font-bold text-[#F7F7F5]">Your Wholesale Cart is Empty</h3>
-              <p className="text-xs text-[#858C96] max-w-xs mt-1 leading-relaxed">
+              <h3 className="text-base font-bold text-slate-900">Your Wholesale Cart is Empty</h3>
+              <p className="text-xs text-slate-500 max-w-xs mt-1 leading-relaxed">
                 Add disposable vapes, pod kits, coils, juice, glass, or kratom from our live wholesale catalog to build your order.
               </p>
             </div>
@@ -521,16 +521,16 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
           </div>
         ) : (
           // Active Cart Content
-          <div className="flex-1 overflow-y-auto flex flex-col divide-y divide-[#2A3038]">
+          <div className="flex-1 overflow-y-auto flex flex-col divide-y divide-slate-200">
             {/* Items Section */}
-            <div className="p-4 sm:p-5 space-y-3">
+            <div className="p-4 sm:p-5 space-y-3 bg-white">
               <div className="flex items-center justify-between pb-1">
-                <span className="text-xs font-bold uppercase tracking-wider text-[#858C96]">
+                <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
                   Order Items ({items.length} SKU{items.length !== 1 ? 's' : ''}, {totalUnits} units)
                 </span>
                 <button
                   onClick={handleClear}
-                  className="text-[11px] font-semibold text-[#858C96] hover:text-rose-400 transition-colors flex items-center gap-1 cursor-pointer"
+                  className="text-[11px] font-semibold text-slate-500 hover:text-rose-600 transition-colors flex items-center gap-1 cursor-pointer"
                 >
                   <Trash2 className="w-3.5 h-3.5" />
                   <span>Clear All</span>
@@ -545,9 +545,9 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                   return (
                     <div
                       key={`${item.product.id}-${item.flavor || idx}`}
-                      className="bg-[#1B2027] rounded-2xl p-3.5 border border-[#2A3038] shadow-sm flex items-center gap-3 transition-all hover:border-[#FF6B00]/50"
+                      className="bg-slate-50 rounded-2xl p-3.5 border border-slate-200 shadow-xs flex items-center gap-3 transition-all hover:border-[#FF6B00]/50"
                     >
-                      <div className="w-12 h-12 rounded-xl bg-[#0B0D10] overflow-hidden shrink-0 flex items-center justify-center border border-[#2A3038]">
+                      <div className="w-12 h-12 rounded-xl bg-white overflow-hidden shrink-0 flex items-center justify-center border border-slate-200">
                         {item.product.imageUrl ? (
                           <img
                             src={item.product.imageUrl}
@@ -558,18 +558,18 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                             }}
                           />
                         ) : (
-                          <Package className="w-6 h-6 text-[#858C96]" />
+                          <Package className="w-6 h-6 text-slate-400" />
                         )}
                       </div>
 
                       <div className="flex-1 min-w-0">
-                        <h4 className="text-xs font-bold text-[#F7F7F5] leading-snug truncate">
+                        <h4 className="text-xs font-bold text-slate-900 leading-snug truncate">
                           {item.product.name}
                         </h4>
-                        <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[10px] text-[#858C96] mt-0.5">
+                        <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-[10px] text-slate-500 mt-0.5">
                           <span>SKU: {item.product.sku}</span>
                           {item.flavor && (
-                            <span className="bg-[#0B0D10] text-[#B8BDC5] px-1.5 py-0.2 rounded font-medium border border-[#2A3038]">
+                            <span className="bg-slate-200/70 text-slate-700 px-1.5 py-0.2 rounded font-medium">
                               {item.flavor}
                             </span>
                           )}
@@ -577,20 +577,20 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                         </div>
                       </div>
 
-                      <div className="flex items-center gap-1.5 bg-[#15191F] rounded-lg p-1 shrink-0 border border-[#2A3038]">
+                      <div className="flex items-center gap-1.5 bg-white rounded-lg p-1 shrink-0 border border-slate-200 shadow-xs">
                         <button
                           onClick={() => handleQtyChange(item.product.id, item.quantity, -1, item.flavor)}
-                          className="w-6 h-6 rounded bg-[#1B2027] hover:bg-[#2A3038] flex items-center justify-center text-[#F7F7F5] transition-colors cursor-pointer border border-[#2A3038]"
+                          className="w-6 h-6 rounded bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-800 transition-colors cursor-pointer border border-slate-300"
                           aria-label="Decrease quantity"
                         >
                           <Minus className="w-3 h-3" />
                         </button>
-                        <span className="w-7 text-center font-bold text-xs text-[#F7F7F5]">
+                        <span className="w-7 text-center font-bold text-xs text-slate-900">
                           {item.quantity}
                         </span>
                         <button
                           onClick={() => handleQtyChange(item.product.id, item.quantity, 1, item.flavor)}
-                          className="w-6 h-6 rounded bg-[#1B2027] hover:bg-[#2A3038] flex items-center justify-center text-[#F7F7F5] transition-colors cursor-pointer border border-[#2A3038]"
+                          className="w-6 h-6 rounded bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-800 transition-colors cursor-pointer border border-slate-300"
                           aria-label="Increase quantity"
                         >
                           <Plus className="w-3 h-3" />
@@ -599,7 +599,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
 
                       <button
                         onClick={() => handleRemove(item.product.id, item.flavor)}
-                        className="text-[#858C96] hover:text-rose-400 p-1 transition-colors cursor-pointer shrink-0"
+                        className="text-slate-400 hover:text-rose-600 p-1 transition-colors cursor-pointer shrink-0"
                         title="Remove item"
                       >
                         <X className="w-4 h-4" />
@@ -611,7 +611,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
 
               <button
                 onClick={handleBrowseInventory}
-                className="w-full py-2 bg-[#1B2027] hover:bg-[#2A3038] text-[#F7F7F5] text-xs font-semibold rounded-xl border border-[#2A3038] transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                className="w-full py-2 bg-slate-50 hover:bg-slate-100 text-slate-800 text-xs font-semibold rounded-xl border border-slate-200 transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
               >
                 <Plus className="w-3.5 h-3.5 text-[#FF6B00]" />
                 <span>Add More Products from Catalog</span>
@@ -619,12 +619,12 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
             </div>
 
             {/* PICKUP AND DELIVERY OPTIONS (Mandatory Selection) */}
-            <div className="p-4 sm:p-5 bg-[#15191F] space-y-4">
+            <div className="p-4 sm:p-5 bg-slate-50/70 space-y-4">
               <div>
-                <label className="text-xs font-black uppercase tracking-wider text-[#F7F7F5] block">
-                  How would you like to receive your order? <span className="text-rose-400">*</span>
+                <label className="text-xs font-black uppercase tracking-wider text-slate-900 block">
+                  How would you like to receive your order? <span className="text-rose-500">*</span>
                 </label>
-                <p className="text-[11px] text-[#858C96] mt-0.5">
+                <p className="text-[11px] text-slate-500 mt-0.5">
                   Select official warehouse pickup in Oklahoma City or authorized metro commercial delivery.
                 </p>
               </div>
@@ -635,19 +635,19 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                   onClick={() => setFulfillmentMethod('PICKUP')}
                   className={`p-3.5 rounded-2xl border text-left transition-all cursor-pointer flex flex-col justify-between space-y-2 ${
                     fulfillmentMethod === 'PICKUP'
-                      ? 'bg-amber-500/10 border-amber-500 text-amber-300 shadow-md shadow-amber-500/10'
-                      : 'bg-[#1B2027] border-[#2A3038] text-[#858C96] hover:text-[#F7F7F5]'
+                      ? 'bg-amber-50 border-amber-500 text-amber-900 shadow-sm'
+                      : 'bg-white border-slate-200 text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   <div className="flex items-center justify-between w-full">
-                    <MapPin className={`w-5 h-5 ${fulfillmentMethod === 'PICKUP' ? 'text-amber-400' : ''}`} />
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#0B0D10] border border-[#2A3038]">
+                    <MapPin className={`w-5 h-5 ${fulfillmentMethod === 'PICKUP' ? 'text-amber-600' : 'text-slate-400'}`} />
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700">
                       Free ($0)
                     </span>
                   </div>
                   <div>
-                    <span className="font-extrabold text-sm text-[#F7F7F5] block">PICKUP</span>
-                    <span className="text-[10px] text-[#858C96] block">Central OKC Warehouse</span>
+                    <span className="font-extrabold text-sm text-slate-900 block">PICKUP</span>
+                    <span className="text-[10px] text-slate-500 block">Central OKC Warehouse</span>
                   </div>
                 </button>
 
@@ -656,73 +656,73 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                   onClick={() => setFulfillmentMethod('DELIVERY')}
                   className={`p-3.5 rounded-2xl border text-left transition-all cursor-pointer flex flex-col justify-between space-y-2 ${
                     fulfillmentMethod === 'DELIVERY'
-                      ? 'bg-sky-500/10 border-sky-500 text-sky-300 shadow-md shadow-sky-500/10'
-                      : 'bg-[#1B2027] border-[#2A3038] text-[#858C96] hover:text-[#F7F7F5]'
+                      ? 'bg-sky-50 border-sky-500 text-sky-900 shadow-sm'
+                      : 'bg-white border-slate-200 text-slate-600 hover:text-slate-900'
                   }`}
                 >
                   <div className="flex items-center justify-between w-full">
-                    <Truck className={`w-5 h-5 ${fulfillmentMethod === 'DELIVERY' ? 'text-sky-400' : ''}`} />
-                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-[#0B0D10] border border-[#2A3038]">
+                    <Truck className={`w-5 h-5 ${fulfillmentMethod === 'DELIVERY' ? 'text-sky-600' : 'text-slate-400'}`} />
+                    <span className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full bg-slate-100 border border-slate-200 text-slate-700">
                       {subtotalAmount >= 500 ? 'Free ($500+)' : '$25 Metro'}
                     </span>
                   </div>
                   <div>
-                    <span className="font-extrabold text-sm text-[#F7F7F5] block">DELIVERY</span>
-                    <span className="text-[10px] text-[#858C96] block">Storefront / Dock Delivery</span>
+                    <span className="font-extrabold text-sm text-slate-900 block">DELIVERY</span>
+                    <span className="text-[10px] text-slate-500 block">Storefront / Dock Delivery</span>
                   </div>
                 </button>
               </div>
 
               {/* PICKUP DETAILS VIEW */}
               {fulfillmentMethod === 'PICKUP' && (
-                <div className="bg-[#1B2027] p-4 rounded-2xl border border-amber-500/40 space-y-3 text-xs">
+                <div className="bg-white p-4 rounded-2xl border border-amber-300 space-y-3 text-xs shadow-xs">
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 text-amber-400 font-bold uppercase tracking-wider">
-                      <MapPin className="w-4 h-4" />
+                    <div className="flex items-center gap-2 text-amber-800 font-bold uppercase tracking-wider">
+                      <MapPin className="w-4 h-4 text-amber-600" />
                       <span>Pickup Order Station</span>
                     </div>
-                    <span className="text-[10px] font-mono text-[#858C96]">Delivery Fee: $0.00</span>
+                    <span className="text-[10px] font-mono text-slate-500">Delivery Fee: $0.00</span>
                   </div>
 
                   <div>
-                    <p className="font-bold text-[#F7F7F5]">{defaultPickup.locationName}</p>
-                    <p className="text-[#B8BDC5]">
+                    <p className="font-bold text-slate-900">{defaultPickup.locationName}</p>
+                    <p className="text-slate-600">
                       {defaultPickup.address.street}, {defaultPickup.address.city}, {defaultPickup.address.state} {defaultPickup.address.zip}
                     </p>
                   </div>
 
-                  <div className="text-[11px] text-[#858C96] space-y-1 pt-1 border-t border-[#2A3038]">
-                    <p><strong className="text-[#B8BDC5]">Hours:</strong> {defaultPickup.hours}</p>
-                    <p><strong className="text-[#B8BDC5]">Phone:</strong> {defaultPickup.phone}</p>
-                    <p><strong className="text-[#B8BDC5]">Instructions:</strong> {defaultPickup.instructions}</p>
+                  <div className="text-[11px] text-slate-500 space-y-1 pt-1 border-t border-slate-200">
+                    <p><strong className="text-slate-700">Hours:</strong> {defaultPickup.hours}</p>
+                    <p><strong className="text-slate-700">Phone:</strong> {defaultPickup.phone}</p>
+                    <p><strong className="text-slate-700">Instructions:</strong> {defaultPickup.instructions}</p>
                   </div>
 
-                  <div className="p-3 rounded-xl bg-amber-500/10 text-amber-300 text-[11px] leading-relaxed">
+                  <div className="p-3 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-[11px] leading-relaxed">
                     <strong>Notice:</strong> You will be notified when your order is ready for pickup. Do not arrive at the warehouse until your order is assembled and marked ready.
                   </div>
 
                   {/* Optional Pickup Scheduling */}
                   <div className="grid grid-cols-2 gap-2.5 pt-1">
                     <div>
-                      <label className="text-[10px] font-bold uppercase tracking-wider text-[#858C96] block mb-1">
+                      <label className="text-[10px] font-bold uppercase tracking-wider text-slate-700 block mb-1">
                         Requested Date (Optional)
                       </label>
                       <input
                         type="date"
                         value={pickupDate}
                         onChange={(e) => setPickupDate(e.target.value)}
-                        className="w-full bg-[#0B0D10] border border-[#2A3038] rounded-xl px-3 py-1.5 text-xs text-[#F7F7F5] focus:border-[#FF6B00] outline-none"
+                        className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-1.5 text-xs text-slate-900 focus:border-[#FF6B00] outline-none"
                       />
                     </div>
                     <div>
-                      <label className="text-[10px] font-bold uppercase tracking-wider text-[#858C96] block mb-1">
+                      <label className="text-[10px] font-bold uppercase tracking-wider text-slate-700 block mb-1">
                         Requested Time (Optional)
                       </label>
                       <input
                         type="time"
                         value={pickupTime}
                         onChange={(e) => setPickupTime(e.target.value)}
-                        className="w-full bg-[#0B0D10] border border-[#2A3038] rounded-xl px-3 py-1.5 text-xs text-[#F7F7F5] focus:border-[#FF6B00] outline-none"
+                        className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-1.5 text-xs text-slate-900 focus:border-[#FF6B00] outline-none"
                       />
                     </div>
                   </div>
@@ -731,18 +731,18 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
 
               {/* DELIVERY DETAILS VIEW */}
               {fulfillmentMethod === 'DELIVERY' && (
-                <div className="bg-[#1B2027] p-4 rounded-2xl border border-sky-500/40 space-y-3 text-xs">
+                <div className="bg-white p-4 rounded-2xl border border-sky-300 space-y-3 text-xs shadow-xs">
                   <div className="flex items-center justify-between">
-                    <div className="flex items-center gap-2 text-sky-400 font-bold uppercase tracking-wider">
-                      <Truck className="w-4 h-4" />
+                    <div className="flex items-center gap-2 text-sky-800 font-bold uppercase tracking-wider">
+                      <Truck className="w-4 h-4 text-sky-600" />
                       <span>Commercial Delivery Address</span>
                     </div>
                     {isValidatingDelivery ? (
-                      <span className="text-[10px] text-[#858C96] flex items-center gap-1">
+                      <span className="text-[10px] text-slate-500 flex items-center gap-1">
                         <Loader2 className="w-3 h-3 animate-spin" /> Validating area...
                       </span>
                     ) : (
-                      <span className="text-[10px] font-mono font-bold text-sky-300">
+                      <span className="text-[10px] font-mono font-bold text-sky-700">
                         Fee: ${calculatedDeliveryFee.toFixed(2)} {calculatedDeliveryFee === 0 ? '(Free over $500)' : ''}
                       </span>
                     )}
@@ -751,13 +751,13 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                   {/* Saved Addresses Dropdown if customer has saved addresses */}
                   {savedAddresses.length > 0 && (
                     <div>
-                      <label className="text-[10px] font-bold uppercase tracking-wider text-[#858C96] block mb-1">
+                      <label className="text-[10px] font-bold uppercase tracking-wider text-slate-700 block mb-1">
                         Use Saved Delivery Address
                       </label>
                       <select
                         value={selectedAddressId}
                         onChange={(e) => handleSelectSavedAddress(e.target.value)}
-                        className="w-full bg-[#0B0D10] border border-[#2A3038] rounded-xl px-3 py-2 text-xs text-[#F7F7F5] focus:border-[#FF6B00] outline-none"
+                        className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 focus:border-[#FF6B00] outline-none"
                       >
                         <option value="new">+ Enter a new authorized delivery address</option>
                         {savedAddresses.map((addr) => (
@@ -772,8 +772,8 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                   {/* Address Inputs */}
                   <div className="space-y-2.5">
                     <div>
-                      <label className="text-[10px] font-bold uppercase tracking-wider text-[#858C96] block mb-1">
-                        Recipient / Store Contact Name <span className="text-rose-400">*</span>
+                      <label className="text-[10px] font-bold uppercase tracking-wider text-slate-700 block mb-1">
+                        Recipient / Store Contact Name <span className="text-rose-500">*</span>
                       </label>
                       <input
                         type="text"
@@ -781,14 +781,14 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                         value={deliveryRecipient}
                         onChange={(e) => setDeliveryRecipient(e.target.value)}
                         placeholder="e.g. John Doe / Store Manager"
-                        className="w-full bg-[#0B0D10] border border-[#2A3038] rounded-xl px-3 py-2 text-xs text-[#F7F7F5] focus:border-[#FF6B00] outline-none"
+                        className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 focus:border-[#FF6B00] outline-none"
                       />
                     </div>
 
                     <div className="grid grid-cols-3 gap-2">
                       <div className="col-span-2">
-                        <label className="text-[10px] font-bold uppercase tracking-wider text-[#858C96] block mb-1">
-                          Street Address <span className="text-rose-400">*</span>
+                        <label className="text-[10px] font-bold uppercase tracking-wider text-slate-700 block mb-1">
+                          Street Address <span className="text-rose-500">*</span>
                         </label>
                         <input
                           type="text"
@@ -796,11 +796,11 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                           value={deliveryStreet}
                           onChange={(e) => setDeliveryStreet(e.target.value)}
                           placeholder="e.g. 1234 N Western Ave"
-                          className="w-full bg-[#0B0D10] border border-[#2A3038] rounded-xl px-3 py-2 text-xs text-[#F7F7F5] focus:border-[#FF6B00] outline-none"
+                          className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 focus:border-[#FF6B00] outline-none"
                         />
                       </div>
                       <div>
-                        <label className="text-[10px] font-bold uppercase tracking-wider text-[#858C96] block mb-1">
+                        <label className="text-[10px] font-bold uppercase tracking-wider text-slate-700 block mb-1">
                           Suite/Unit
                         </label>
                         <input
@@ -808,15 +808,15 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                           value={deliveryUnit}
                           onChange={(e) => setDeliveryUnit(e.target.value)}
                           placeholder="B"
-                          className="w-full bg-[#0B0D10] border border-[#2A3038] rounded-xl px-3 py-2 text-xs text-[#F7F7F5] focus:border-[#FF6B00] outline-none"
+                          className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 focus:border-[#FF6B00] outline-none"
                         />
                       </div>
                     </div>
 
                     <div className="grid grid-cols-3 gap-2">
                       <div>
-                        <label className="text-[10px] font-bold uppercase tracking-wider text-[#858C96] block mb-1">
-                          City <span className="text-rose-400">*</span>
+                        <label className="text-[10px] font-bold uppercase tracking-wider text-slate-700 block mb-1">
+                          City <span className="text-rose-500">*</span>
                         </label>
                         <input
                           type="text"
@@ -824,11 +824,11 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                           value={deliveryCity}
                           onChange={(e) => setDeliveryCity(e.target.value)}
                           placeholder="Oklahoma City"
-                          className="w-full bg-[#0B0D10] border border-[#2A3038] rounded-xl px-3 py-2 text-xs text-[#F7F7F5] focus:border-[#FF6B00] outline-none"
+                          className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 focus:border-[#FF6B00] outline-none"
                         />
                       </div>
                       <div>
-                        <label className="text-[10px] font-bold uppercase tracking-wider text-[#858C96] block mb-1">
+                        <label className="text-[10px] font-bold uppercase tracking-wider text-slate-700 block mb-1">
                           State
                         </label>
                         <input
@@ -836,12 +836,12 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                           required
                           value={deliveryState}
                           onChange={(e) => setDeliveryState(e.target.value)}
-                          className="w-full bg-[#0B0D10] border border-[#2A3038] rounded-xl px-3 py-2 text-xs text-[#F7F7F5] focus:border-[#FF6B00] outline-none"
+                          className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 focus:border-[#FF6B00] outline-none"
                         />
                       </div>
                       <div>
-                        <label className="text-[10px] font-bold uppercase tracking-wider text-[#858C96] block mb-1">
-                          ZIP Code <span className="text-rose-400">*</span>
+                        <label className="text-[10px] font-bold uppercase tracking-wider text-slate-700 block mb-1">
+                          ZIP Code <span className="text-rose-500">*</span>
                         </label>
                         <input
                           type="text"
@@ -849,13 +849,13 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                           value={deliveryZip}
                           onChange={(e) => setDeliveryZip(e.target.value)}
                           placeholder="73101"
-                          className="w-full bg-[#0B0D10] border border-[#2A3038] rounded-xl px-3 py-2 text-xs text-[#F7F7F5] focus:border-[#FF6B00] outline-none"
+                          className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 focus:border-[#FF6B00] outline-none"
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label className="text-[10px] font-bold uppercase tracking-wider text-[#858C96] block mb-1">
+                      <label className="text-[10px] font-bold uppercase tracking-wider text-slate-700 block mb-1">
                         Delivery Instructions (Dock buzzer, gate codes, unloading hours)
                       </label>
                       <input
@@ -863,22 +863,22 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                         value={deliveryInstructions}
                         onChange={(e) => setDeliveryInstructions(e.target.value)}
                         placeholder="Rear commercial dock, buzzer on west door"
-                        className="w-full bg-[#0B0D10] border border-[#2A3038] rounded-xl px-3 py-2 text-xs text-[#F7F7F5] focus:border-[#FF6B00] outline-none"
+                        className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 focus:border-[#FF6B00] outline-none"
                       />
                     </div>
                   </div>
 
                   {/* Delivery Eligibility Warning / Status */}
                   {deliveryValidationResult && !deliveryValidationResult.eligible && (
-                    <div className="p-3 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-400 text-xs flex items-center gap-2">
-                      <AlertTriangle className="w-4 h-4 shrink-0" />
+                    <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs flex items-center gap-2">
+                      <AlertTriangle className="w-4 h-4 shrink-0 text-rose-600" />
                       <span>{deliveryValidationResult.reason || 'Delivery is currently unavailable to this address. Please select Pickup or contact Wholesale of Oklahoma.'}</span>
                     </div>
                   )}
 
                   {deliveryValidationResult && deliveryValidationResult.eligible && (
-                    <div className="p-2.5 rounded-xl bg-emerald-500/10 text-emerald-400 text-[11px] flex items-center gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
+                    <div className="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-[11px] flex items-center gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-600" />
                       <span>Eligible for Oklahoma City Metro commercial delivery ($150 minimum order).</span>
                     </div>
                   )}
@@ -887,21 +887,21 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
             </div>
 
             {/* Contact & Dispatch Form */}
-            <div className="p-4 sm:p-5 bg-[#15191F] space-y-4">
+            <div className="p-4 sm:p-5 bg-white space-y-4">
               <div>
                 <div className="flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-[#FF6B00]" />
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#F7F7F5]">
+                  <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900">
                     Account Contact Information
                   </h3>
                 </div>
-                <p className="text-[11px] text-[#858C96] mt-0.5">
+                <p className="text-[11px] text-slate-500 mt-0.5">
                   Order updates, ready-for-pickup notifications, and invoice records will be sent to this email.
                 </p>
               </div>
 
               {status === 'error' && (
-                <div className="p-3 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-400 text-xs flex items-center gap-2">
+                <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-xs flex items-center gap-2">
                   <AlertCircle className="w-4 h-4 shrink-0" />
                   <span>{errorMessage}</span>
                 </div>
@@ -909,9 +909,9 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
 
               <form onSubmit={handleSubmitOrder} className="space-y-3">
                 <div>
-                  <label htmlFor="drawer-name" className="text-[10px] font-bold uppercase tracking-wider text-[#B8BDC5] flex items-center gap-1 mb-1">
+                  <label htmlFor="drawer-name" className="text-[10px] font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1 mb-1">
                     <User className="w-3 h-3 text-[#FF6B00]" />
-                    Full Contact Name <span className="text-rose-400">*</span>
+                    Full Contact Name <span className="text-rose-500">*</span>
                   </label>
                   <input
                     id="drawer-name"
@@ -920,15 +920,15 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="e.g. Taylor Ross"
-                    className="w-full bg-[#0B0D10] border border-[#2A3038] rounded-xl px-3.5 py-2 text-xs text-[#F7F7F5] placeholder-[#858C96] focus:outline-none focus:border-[#FF6B00]"
+                    className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white"
                   />
                 </div>
 
                 <div className="grid grid-cols-2 gap-2.5">
                   <div>
-                    <label htmlFor="drawer-phone" className="text-[10px] font-bold uppercase tracking-wider text-[#B8BDC5] flex items-center gap-1 mb-1">
+                    <label htmlFor="drawer-phone" className="text-[10px] font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1 mb-1">
                       <Phone className="w-3 h-3 text-[#FF6B00]" />
-                      Phone Number <span className="text-rose-400">*</span>
+                      Phone Number <span className="text-rose-500">*</span>
                     </label>
                     <input
                       id="drawer-phone"
@@ -937,13 +937,13 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       placeholder="(405) 000-0000"
-                      className="w-full bg-[#0B0D10] border border-[#2A3038] rounded-xl px-3.5 py-2 text-xs text-[#F7F7F5] placeholder-[#858C96] focus:outline-none focus:border-[#FF6B00]"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white"
                     />
                   </div>
                   <div>
-                    <label htmlFor="drawer-email" className="text-[10px] font-bold uppercase tracking-wider text-[#B8BDC5] flex items-center gap-1 mb-1">
+                    <label htmlFor="drawer-email" className="text-[10px] font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1 mb-1">
                       <Mail className="w-3 h-3 text-[#FF6B00]" />
-                      Email Address <span className="text-rose-400">*</span>
+                      Email Address <span className="text-rose-500">*</span>
                     </label>
                     <input
                       id="drawer-email"
@@ -952,13 +952,13 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="you@retailer.com"
-                      className="w-full bg-[#0B0D10] border border-[#2A3038] rounded-xl px-3.5 py-2 text-xs text-[#F7F7F5] placeholder-[#858C96] focus:outline-none focus:border-[#FF6B00]"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white"
                     />
                   </div>
                 </div>
 
                 <div>
-                  <label htmlFor="drawer-business-name" className="text-[10px] font-bold uppercase tracking-wider text-[#B8BDC5] flex items-center gap-1 mb-1">
+                  <label htmlFor="drawer-business-name" className="text-[10px] font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1 mb-1">
                     <Building className="w-3 h-3 text-[#FF6B00]" />
                     Business Entity Name (Optional)
                   </label>
@@ -968,12 +968,12 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                     value={businessName}
                     onChange={(e) => setBusinessName(e.target.value)}
                     placeholder="e.g. Sooner State Smoke & Vape LLC"
-                    className="w-full bg-[#0B0D10] border border-[#2A3038] rounded-xl px-3.5 py-2 text-xs text-[#F7F7F5] placeholder-[#858C96] focus:outline-none focus:border-[#FF6B00]"
+                    className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white"
                   />
                 </div>
 
                 <div>
-                  <label htmlFor="drawer-notes" className="text-[10px] font-bold uppercase tracking-wider text-[#B8BDC5] flex items-center gap-1 mb-1">
+                  <label htmlFor="drawer-notes" className="text-[10px] font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1 mb-1">
                     <FileText className="w-3 h-3 text-[#FF6B00]" />
                     Order Notes & Special Requests
                   </label>
@@ -983,19 +983,19 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                     value={notes}
                     onChange={(e) => setNotes(e.target.value)}
                     placeholder="Special packing notes, invoice references, etc."
-                    className="w-full bg-[#0B0D10] border border-[#2A3038] rounded-xl px-3.5 py-2 text-xs text-[#F7F7F5] placeholder-[#858C96] focus:outline-none focus:border-[#FF6B00] resize-none"
+                    className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white resize-none"
                   />
                 </div>
 
                 {/* Final Order Price Breakdown */}
-                <div className="bg-[#0B0D10] p-3.5 rounded-xl border border-[#2A3038] space-y-1.5 text-xs">
-                  <div className="flex justify-between text-[#858C96]">
+                <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200 space-y-1.5 text-xs">
+                  <div className="flex justify-between text-slate-600">
                     <span>Product Subtotal</span>
-                    <span className="font-mono text-[#F7F7F5]">${subtotalAmount.toFixed(2)}</span>
+                    <span className="font-mono font-semibold text-slate-900">${subtotalAmount.toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between text-[#858C96]">
+                  <div className="flex justify-between text-slate-600">
                     <span>Fulfillment ({fulfillmentMethod || 'Unselected'})</span>
-                    <span className="font-mono text-[#F7F7F5]">
+                    <span className="font-mono font-semibold text-slate-900">
                       {fulfillmentMethod === 'PICKUP'
                         ? '$0.00'
                         : fulfillmentMethod === 'DELIVERY'
@@ -1003,7 +1003,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                         : '$0.00'}
                     </span>
                   </div>
-                  <div className="flex justify-between pt-1.5 border-t border-[#2A3038] text-sm font-black text-[#FF6B00]">
+                  <div className="flex justify-between pt-1.5 border-t border-slate-200 text-sm font-black text-[#FF6B00]">
                     <span>Estimated Total</span>
                     <span className="font-mono">${finalTotalAmount.toFixed(2)}</span>
                   </div>
@@ -1034,9 +1034,9 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                   )}
                 </button>
 
-                <div className="text-[10px] text-[#858C96] text-center flex items-center justify-center gap-2">
+                <div className="text-[10px] text-slate-500 text-center flex items-center justify-center gap-2">
                   <span>Questions or phone orders?</span>
-                  <a href="tel:4057682975" className="font-bold text-[#F7F7F5] hover:text-[#FF6B00]">
+                  <a href="tel:4057682975" className="font-bold text-slate-900 hover:text-[#FF6B00]">
                     (405) 768-2975
                   </a>
                 </div>

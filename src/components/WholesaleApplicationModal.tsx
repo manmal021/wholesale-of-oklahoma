@@ -230,33 +230,33 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-[#0B0D10]/85 backdrop-blur-md"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 overflow-y-auto bg-slate-900/60 backdrop-blur-xs"
       role="dialog"
       aria-modal="true"
       aria-labelledby="wholesale-modal-title"
     >
       <div
-        className="relative w-full max-w-2xl bg-[#15191F] rounded-3xl shadow-2xl border border-[#2A3038] overflow-hidden my-8 text-[#F7F7F5]"
+        className="relative w-full max-w-2xl bg-white rounded-3xl shadow-2xl border border-slate-200 overflow-hidden my-8 text-slate-900"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="bg-[#1B2027] text-[#F7F7F5] px-6 py-5 flex items-center justify-between border-b border-[#2A3038]">
+        <div className="bg-slate-50 text-slate-900 px-6 py-5 flex items-center justify-between border-b border-slate-200">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-[#FF6B00] flex items-center justify-center text-white shadow-md">
               <ShieldCheck className="w-5 h-5" />
             </div>
             <div>
-              <h2 id="wholesale-modal-title" className="text-lg sm:text-xl font-bold tracking-tight text-[#F7F7F5]">
+              <h2 id="wholesale-modal-title" className="text-lg sm:text-xl font-bold tracking-tight text-slate-900">
                 Apply for Wholesale Account
               </h2>
-              <p className="text-xs text-[#858C96]">
+              <p className="text-xs text-slate-500">
                 Licensed B2B Retailers • Wholesale Pricing & Compliance Portal
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-full bg-[#15191F] hover:bg-[#2A3038] text-[#B8BDC5] hover:text-[#F7F7F5] border border-[#2A3038] flex items-center justify-center transition-colors cursor-pointer"
+            className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-500 hover:text-slate-900 border border-slate-200 flex items-center justify-center transition-colors cursor-pointer"
             aria-label="Close modal"
           >
             <X className="w-4 h-4" />
@@ -268,34 +268,34 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
           {applicationSuccess ? (
             /* Prominent APPLICATION RECEIVED / ACCOUNT UNDER REVIEW Screen */
             <div className="py-4 space-y-6 text-center animate-fadeIn">
-              <div className="w-20 h-20 rounded-2xl bg-[#FF6B00]/15 text-[#FF6B00] flex items-center justify-center mx-auto border border-[#FF6B00]/30 shadow-lg">
+              <div className="w-20 h-20 rounded-2xl bg-orange-50 text-[#FF6B00] flex items-center justify-center mx-auto border border-orange-200 shadow-md">
                 <Clock className="w-11 h-11" />
               </div>
 
               <div className="space-y-3">
-                <div className="inline-flex items-center gap-1.5 bg-amber-500/15 border border-amber-500/40 text-amber-400 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
-                  <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                <div className="inline-flex items-center gap-1.5 bg-amber-50 border border-amber-300 text-amber-800 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
+                  <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
                   Application Received — Under Review
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-[#F7F7F5]">
+                <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900">
                   ACCOUNT UNDER REVIEW
                 </h3>
-                <div className="inline-block bg-[#1B2027] border border-[#2A3038] rounded-xl px-5 py-2.5 text-sm font-mono font-bold text-[#F7F7F5] shadow-inner">
+                <div className="inline-block bg-slate-50 border border-slate-200 rounded-xl px-5 py-2.5 text-sm font-mono font-bold text-slate-900 shadow-inner">
                   Reference ID: <span className="text-[#FF6B00]">{applicationSuccess.id}</span>
                 </div>
               </div>
 
-              <div className="p-6 rounded-2xl bg-[#1B2027] border border-[#2A3038] max-w-lg mx-auto text-sm text-[#B8BDC5] leading-relaxed text-left space-y-3">
-                <p className="font-semibold text-[#F7F7F5]">
+              <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 max-w-lg mx-auto text-sm text-slate-600 leading-relaxed text-left space-y-3">
+                <p className="font-semibold text-slate-900">
                   Your Wholesale of Oklahoma account application is currently under review.
                 </p>
                 <p>
                   Thank you for submitting your wholesale account application for <strong>{applicationSuccess.businessName}</strong>.
                 </p>
                 <p>
-                  Our compliance team will review your business information. If your application is approved, you will receive an email at <strong className="text-[#F7F7F5]">{applicationSuccess.email}</strong> containing a secure link with instructions to activate your account and create your login credentials.
+                  Our compliance team will review your business information. If your application is approved, you will receive an email at <strong className="text-slate-900">{applicationSuccess.email}</strong> containing a secure link with instructions to activate your account and create your login credentials.
                 </p>
-                <div className="bg-[#15191F] border border-amber-500/30 rounded-xl p-3.5 text-amber-300 text-xs font-medium">
+                <div className="bg-amber-50 border border-amber-300 rounded-xl p-3.5 text-amber-900 text-xs font-medium">
                   <strong>Notice:</strong> Please do not submit another application while your current application is under review. You do not have shopping or login access yet.
                 </div>
               </div>
@@ -304,13 +304,13 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="px-6 py-3 rounded-xl bg-[#FF6B00] hover:bg-[#E05E00] text-white font-bold text-sm transition-colors shadow-md cursor-pointer"
+                  className="px-6 py-3 rounded-xl bg-[#FF6B00] hover:bg-[#E85F00] text-white font-bold text-sm transition-colors shadow-md cursor-pointer"
                 >
                   Return to Storefront
                 </button>
               </div>
 
-              <div className="pt-2 text-xs text-[#626871]">
+              <div className="pt-2 text-xs text-slate-500">
                 Wholesale of Oklahoma • Central OKC Wholesale Warehouse • Dispatch: (405) 768-2975
               </div>
             </div>
@@ -319,12 +319,12 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
             <form onSubmit={handleSubmit} className="space-y-6">
               {/* Duplicate or Error Banner */}
               {errorMessage && (
-                <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-sm space-y-2">
+                <div className="p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-800 text-sm space-y-2">
                   <div className="flex items-center gap-2 font-bold">
                     <AlertCircle className="w-5 h-5 shrink-0" />
                     <span>Application Notice</span>
                   </div>
-                  <p className="text-xs leading-relaxed text-red-300">{errorMessage}</p>
+                  <p className="text-xs leading-relaxed text-rose-700">{errorMessage}</p>
 
                   {duplicateType === 'APPROVED' && onOpenLogin && (
                     <div className="pt-2">
@@ -334,7 +334,7 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                           onClose();
                           onOpenLogin();
                         }}
-                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#FF6B00] text-white font-bold text-xs hover:bg-[#E05E00] transition-colors cursor-pointer"
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#FF6B00] text-white font-bold text-xs hover:bg-[#E85F00] transition-colors cursor-pointer"
                       >
                         <LogIn className="w-3.5 h-3.5" /> Go to Customer Sign In
                       </button>
@@ -342,7 +342,7 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                   )}
 
                   {duplicateType === 'PENDING' && (
-                    <div className="pt-1 text-xs text-amber-300 font-medium">
+                    <div className="pt-1 text-xs text-amber-800 font-medium">
                       Our dispatch team reviews applications within 1 business day. Contact dispatch at (405) 768-2975 for urgent requests.
                     </div>
                   )}
@@ -358,7 +358,7 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="sm:col-span-2">
-                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                       Legal Business Name <span className="text-[#FF6B00]">*</span>
                     </label>
                     <input
@@ -367,31 +367,31 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                       value={businessName}
                       onChange={(e) => setBusinessName(e.target.value)}
                       placeholder="e.g. Sooner State Vapor LLC"
-                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
-                      DBA / Store Front Name <span className="text-[#626871]">(Optional)</span>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                      DBA / Store Front Name <span className="text-slate-500">(Optional)</span>
                     </label>
                     <input
                       type="text"
                       value={dba}
                       onChange={(e) => setDba(e.target.value)}
                       placeholder="e.g. Sooner Vapor"
-                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                       Business Type <span className="text-[#FF6B00]">*</span>
                     </label>
                     <select
                       value={businessType}
                       onChange={(e) => setBusinessType(e.target.value)}
-                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors cursor-pointer"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#FF6B00] focus:bg-white transition-colors cursor-pointer"
                     >
                       <option value="vape_shop">Vape & Smoke Retailer</option>
                       <option value="smoke_shop">Smoke Shop / Head Shop</option>
@@ -405,7 +405,7 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
               </div>
 
               {/* SECTION 2: AUTHORIZED CONTACT */}
-              <div className="space-y-4 pt-2 border-t border-[#2A3038]">
+              <div className="space-y-4 pt-2 border-t border-slate-200">
                 <div className="flex items-center gap-2 text-sm font-bold text-[#FF6B00] uppercase tracking-wider">
                   <User className="w-4 h-4" />
                   <span>2. Authorized Contact</span>
@@ -413,7 +413,7 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                       First Name <span className="text-[#FF6B00]">*</span>
                     </label>
                     <input
@@ -422,12 +422,12 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                       value={contactFirstName}
                       onChange={(e) => setContactFirstName(e.target.value)}
                       placeholder="Alex"
-                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                       Last Name <span className="text-[#FF6B00]">*</span>
                     </label>
                     <input
@@ -436,12 +436,12 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                       value={contactLastName}
                       onChange={(e) => setContactLastName(e.target.value)}
                       placeholder="Mercer"
-                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                       Business Email Address <span className="text-[#FF6B00]">*</span>
                     </label>
                     <input
@@ -450,12 +450,12 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="purchasing@company.com"
-                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                       Contact Phone <span className="text-[#FF6B00]">*</span>
                     </label>
                     <input
@@ -464,14 +464,14 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       placeholder="(405) 555-0199"
-                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white transition-colors"
                     />
                   </div>
                 </div>
               </div>
 
               {/* SECTION 3: PHYSICAL BUSINESS ADDRESS */}
-              <div className="space-y-4 pt-2 border-t border-[#2A3038]">
+              <div className="space-y-4 pt-2 border-t border-slate-200">
                 <div className="flex items-center gap-2 text-sm font-bold text-[#FF6B00] uppercase tracking-wider">
                   <Building2 className="w-4 h-4" />
                   <span>3. Physical Business Address</span>
@@ -479,7 +479,7 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
 
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                   <div className="sm:col-span-3">
-                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                       Street Address <span className="text-[#FF6B00]">*</span>
                     </label>
                     <input
@@ -488,12 +488,12 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                       value={street}
                       onChange={(e) => setStreet(e.target.value)}
                       placeholder="123 SW 29th St"
-                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                       City <span className="text-[#FF6B00]">*</span>
                     </label>
                     <input
@@ -502,12 +502,12 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                       value={city}
                       onChange={(e) => setCity(e.target.value)}
                       placeholder="Oklahoma City"
-                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                       State <span className="text-[#FF6B00]">*</span>
                     </label>
                     <input
@@ -516,12 +516,12 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                       value={state}
                       onChange={(e) => setState(e.target.value)}
                       placeholder="OK"
-                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                       ZIP Code <span className="text-[#FF6B00]">*</span>
                     </label>
                     <input
@@ -530,14 +530,14 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                       value={zip}
                       onChange={(e) => setZip(e.target.value)}
                       placeholder="73109"
-                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white transition-colors"
                     />
                   </div>
                 </div>
               </div>
 
               {/* SECTION 4: TAX ID & COMPLIANCE LICENSES */}
-              <div className="space-y-4 pt-2 border-t border-[#2A3038]">
+              <div className="space-y-4 pt-2 border-t border-slate-200">
                 <div className="flex items-center gap-2 text-sm font-bold text-[#FF6B00] uppercase tracking-wider">
                   <FileText className="w-4 h-4" />
                   <span>4. Tax Identification & Permits</span>
@@ -545,7 +545,7 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
                       Federal Employer ID (FEIN) / State Tax ID <span className="text-[#FF6B00]">*</span>
                     </label>
                     <input
@@ -554,54 +554,54 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                       value={fein}
                       onChange={(e) => setFein(e.target.value)}
                       placeholder="XX-XXXXXXX"
-                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
-                      Oklahoma Sales Tax / Resale Permit Number <span className="text-[#626871]">(Optional)</span>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                      Oklahoma Sales Tax / Resale Permit Number <span className="text-slate-500">(Optional)</span>
                     </label>
                     <input
                       type="text"
                       value={licenseNumber}
                       onChange={(e) => setLicenseNumber(e.target.value)}
                       placeholder="e.g. OK-RES-12345"
-                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
-                      Business Website <span className="text-[#626871]">(Optional)</span>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                      Business Website <span className="text-slate-500">(Optional)</span>
                     </label>
                     <input
                       type="url"
                       value={website}
                       onChange={(e) => setWebsite(e.target.value)}
                       placeholder="https://www.yourshop.com"
-                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
-                      Additional Notes / Inquiries <span className="text-[#626871]">(Optional)</span>
+                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
+                      Additional Notes / Inquiries <span className="text-slate-500">(Optional)</span>
                     </label>
                     <input
                       type="text"
                       value={notes}
                       onChange={(e) => setNotes(e.target.value)}
                       placeholder="Brands you are seeking, volume requests..."
-                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white transition-colors"
                     />
                   </div>
                 </div>
 
                 {/* Optional Document Uploads */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                  <div className="p-3.5 rounded-xl bg-[#1B2027] border border-[#2A3038] space-y-2">
-                    <span className="text-xs font-semibold text-[#F7F7F5] block">
+                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                    <span className="text-xs font-semibold text-slate-900 block">
                       Resale Certificate / Tax Exemption (PDF / Image)
                     </span>
                     <input
@@ -617,11 +617,11 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                     <button
                       type="button"
                       onClick={() => resaleInputRef.current?.click()}
-                      className="w-full py-2 px-3 rounded-lg bg-[#15191F] hover:bg-[#2A3038] border border-[#2A3038] text-xs font-medium text-[#B8BDC5] flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                      className="w-full py-2 px-3 rounded-lg bg-white hover:bg-slate-100 border border-slate-300 text-xs font-medium text-slate-700 flex items-center justify-center gap-2 transition-colors cursor-pointer"
                     >
                       {resaleDoc.file ? (
                         <>
-                          <FileCheck className="w-3.5 h-3.5 text-emerald-400" />
+                          <FileCheck className="w-3.5 h-3.5 text-emerald-600" />
                           <span className="truncate">{resaleDoc.file.name}</span>
                         </>
                       ) : (
@@ -633,8 +633,8 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                     </button>
                   </div>
 
-                  <div className="p-3.5 rounded-xl bg-[#1B2027] border border-[#2A3038] space-y-2">
-                    <span className="text-xs font-semibold text-[#F7F7F5] block">
+                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                    <span className="text-xs font-semibold text-slate-900 block">
                       Tobacco / Business License (PDF / Image)
                     </span>
                     <input
@@ -650,11 +650,11 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                     <button
                       type="button"
                       onClick={() => licenseInputRef.current?.click()}
-                      className="w-full py-2 px-3 rounded-lg bg-[#15191F] hover:bg-[#2A3038] border border-[#2A3038] text-xs font-medium text-[#B8BDC5] flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                      className="w-full py-2 px-3 rounded-lg bg-white hover:bg-slate-100 border border-slate-300 text-xs font-medium text-slate-700 flex items-center justify-center gap-2 transition-colors cursor-pointer"
                     >
                       {licenseDoc.file ? (
                         <>
-                          <FileCheck className="w-3.5 h-3.5 text-emerald-400" />
+                          <FileCheck className="w-3.5 h-3.5 text-emerald-600" />
                           <span className="truncate">{licenseDoc.file.name}</span>
                         </>
                       ) : (
@@ -669,36 +669,36 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
               </div>
 
               {/* SECTION 5: LEGAL CERTIFICATIONS */}
-              <div className="space-y-3 pt-2 border-t border-[#2A3038]">
-                <label className="flex items-start gap-3 p-3 rounded-xl bg-[#1B2027] border border-[#2A3038] cursor-pointer hover:border-[#FF6B00]/40 transition-colors">
+              <div className="space-y-3 pt-2 border-t border-slate-200">
+                <label className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200 cursor-pointer hover:border-[#FF6B00]/40 transition-colors">
                   <input
                     type="checkbox"
                     required
                     checked={ageCertified}
                     onChange={(e) => setAgeCertified(e.target.checked)}
-                    className="mt-0.5 rounded border-[#2A3038] text-[#FF6B00] focus:ring-[#FF6B00] cursor-pointer"
+                    className="mt-0.5 rounded border-slate-300 text-[#FF6B00] focus:ring-[#FF6B00] cursor-pointer"
                   />
-                  <span className="text-xs text-[#B8BDC5] leading-relaxed">
-                    <strong className="text-[#F7F7F5]">21+ Age Certification & Purchasing Authority:</strong> I certify that I am at least 21 years of age and an authorized representative of this retail commercial entity. <span className="text-[#FF6B00]">*</span>
+                  <span className="text-xs text-slate-600 leading-relaxed">
+                    <strong className="text-slate-900">21+ Age Certification & Purchasing Authority:</strong> I certify that I am at least 21 years of age and an authorized representative of this retail commercial entity. <span className="text-[#FF6B00]">*</span>
                   </span>
                 </label>
 
-                <label className="flex items-start gap-3 p-3 rounded-xl bg-[#1B2027] border border-[#2A3038] cursor-pointer hover:border-[#FF6B00]/40 transition-colors">
+                <label className="flex items-start gap-3 p-3 rounded-xl bg-slate-50 border border-slate-200 cursor-pointer hover:border-[#FF6B00]/40 transition-colors">
                   <input
                     type="checkbox"
                     checked={taxExemptCertified}
                     onChange={(e) => setTaxExemptCertified(e.target.checked)}
-                    className="mt-0.5 rounded border-[#2A3038] text-[#FF6B00] focus:ring-[#FF6B00] cursor-pointer"
+                    className="mt-0.5 rounded border-slate-300 text-[#FF6B00] focus:ring-[#FF6B00] cursor-pointer"
                   />
-                  <span className="text-xs text-[#B8BDC5] leading-relaxed">
-                    <strong className="text-[#F7F7F5]">Tax-Exempt Resale Certification:</strong> Products purchased under this wholesale account are intended strictly for commercial retail resale under Oklahoma and Federal regulations.
+                  <span className="text-xs text-slate-600 leading-relaxed">
+                    <strong className="text-slate-900">Tax-Exempt Resale Certification:</strong> Products purchased under this wholesale account are intended strictly for commercial retail resale under Oklahoma and Federal regulations.
                   </span>
                 </label>
               </div>
 
               {/* Submit Actions */}
-              <div className="pt-4 border-t border-[#2A3038] flex flex-col sm:flex-row items-center justify-between gap-4">
-                <div className="text-xs text-[#858C96] text-center sm:text-left">
+              <div className="pt-4 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="text-xs text-slate-500 text-center sm:text-left">
                   Applications are manually reviewed by our compliance desk.
                 </div>
 
@@ -707,14 +707,14 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                     type="button"
                     onClick={onClose}
                     disabled={isSubmitting}
-                    className="flex-1 sm:flex-none px-5 py-2.5 rounded-xl border border-[#2A3038] hover:bg-[#1B2027] text-sm font-semibold text-[#B8BDC5] hover:text-[#F7F7F5] transition-colors cursor-pointer"
+                    className="flex-1 sm:flex-none px-5 py-2.5 rounded-xl border border-slate-300 hover:bg-slate-100 text-sm font-semibold text-slate-700 hover:text-slate-900 transition-colors cursor-pointer"
                   >
                     Cancel
                   </button>
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="flex-1 sm:flex-none px-6 py-2.5 rounded-xl bg-[#FF6B00] hover:bg-[#E05E00] disabled:bg-[#FF6B00]/50 text-white font-bold text-sm shadow-md transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                    className="flex-1 sm:flex-none px-6 py-2.5 rounded-xl bg-[#FF6B00] hover:bg-[#E85F00] disabled:bg-[#FF6B00]/50 text-white font-bold text-sm shadow-md transition-colors flex items-center justify-center gap-2 cursor-pointer"
                   >
                     {isSubmitting ? (
                       <>

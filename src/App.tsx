@@ -228,7 +228,7 @@ export default function App() {
   ];
 
   return (
-    <div className="w-full min-h-screen bg-[#0B0D10] text-[#F7F7F5] selection:bg-[#FF6B00]/30 selection:text-white relative font-sans">
+    <div className="w-full min-h-screen bg-[#F8FAFC] text-[#0F172A] selection:bg-[#FF6B00]/30 selection:text-white relative font-sans">
       {/* 21+ Age Gate Modal (Regulatory Compliance) */}
       <AgeGateModal />
 
@@ -247,13 +247,13 @@ export default function App() {
           <aside
             role="alert"
             aria-label="Website notice"
-            className="w-full bg-[#0B0D10] border-b-2 border-[#FF6B00] text-[#F7F7F5] px-4 sm:px-8 py-3 sm:py-3.5 shadow-2xl flex items-center justify-center gap-2.5 sm:gap-3.5 text-center"
+            className="w-full bg-amber-50 border-b-2 border-amber-300 text-amber-950 px-4 sm:px-8 py-3 sm:py-3.5 shadow-sm flex items-center justify-center gap-2.5 sm:gap-3.5 text-center"
           >
-            <span className="inline-flex items-center gap-1.5 bg-[#FF6B00] text-white text-xs sm:text-sm font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-md shrink-0">
+            <span className="inline-flex items-center gap-1.5 bg-[#FF6B00] text-white text-xs sm:text-sm font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-sm shrink-0">
               <AlertTriangle className="w-4 h-4 text-white" />
               Notice
             </span>
-            <p className="text-sm sm:text-base md:text-lg font-bold tracking-wide text-[#F7F7F5] drop-shadow">
+            <p className="text-sm sm:text-base md:text-lg font-bold tracking-wide text-amber-950">
               Website under construction. Prices may not accurately reflect the original price.
             </p>
           </aside>
@@ -263,26 +263,26 @@ export default function App() {
         <nav
           className={`w-full flex items-center justify-between px-4 sm:px-6 md:px-10 transition-all duration-300 ${
             scrolled
-              ? 'bg-[#0B0D10]/95 backdrop-blur-md py-3 shadow-xl border-b border-[#2A3038]'
-              : 'bg-transparent py-4 sm:py-6'
+              ? 'bg-white/95 backdrop-blur-md py-3 shadow-sm border-b border-slate-200 text-slate-900'
+              : 'bg-white/80 backdrop-blur-xs py-4 sm:py-6 border-b border-slate-200/50 text-slate-900'
           }`}
         >
           <div className="flex items-center gap-2">
             <a
               href="#overview"
-              className="text-xl sm:text-2xl font-black tracking-tight text-[#F7F7F5] flex items-center gap-2 select-none hover:text-[#FF6B00] transition-colors"
+              className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 flex items-center gap-2 select-none hover:text-[#FF6B00] transition-colors"
             >
               <span>Wholesale of Oklahoma</span>
             </a>
           </div>
 
           {/* Desktop Central Navigation Pill */}
-          <div className="hidden lg:flex items-center gap-1 bg-[#15191F]/90 backdrop-blur-md rounded-full pl-6 pr-2 py-1 shadow-md border border-[#2A3038]">
+          <div className="hidden lg:flex items-center gap-1 bg-white/90 backdrop-blur-md rounded-full pl-6 pr-2 py-1 shadow-sm border border-slate-200">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-xs px-3 py-2 font-semibold text-[#B8BDC5] hover:text-[#FF6B00] transition-colors"
+                className="text-xs px-3 py-2 font-semibold text-slate-600 hover:text-[#FF6B00] transition-colors"
               >
                 {link.label}
               </a>
@@ -296,7 +296,7 @@ export default function App() {
 
             {/* Auth-Aware Desktop Buttons */}
             {currentUser ? (
-              <div className="flex items-center gap-2 ml-2 pl-2 border-l border-[#2A3038]">
+              <div className="flex items-center gap-2 ml-2 pl-2 border-l border-slate-200">
                 {currentUser.role === 'admin' && (
                   <a
                     href="/admin"
@@ -309,22 +309,22 @@ export default function App() {
                 {currentUser.role === 'approved_customer' && (
                   <a
                     href="/account"
-                    className="text-xs font-bold text-emerald-400 hover:text-white bg-emerald-500/10 hover:bg-emerald-600 px-3 py-1.5 rounded-full border border-emerald-500/30 transition-colors flex items-center gap-1"
+                    className="text-xs font-bold text-emerald-600 hover:text-white bg-emerald-50 hover:bg-emerald-600 px-3 py-1.5 rounded-full border border-emerald-200 transition-colors flex items-center gap-1"
                   >
                     <CheckCircle2 className="w-3.5 h-3.5" />
                     My Account
                   </a>
                 )}
                 {currentUser.role === 'pending_customer' && (
-                  <span className="text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 bg-amber-500/20 text-amber-300 border border-amber-400/40">
-                    <Clock className="w-3 h-3 text-amber-400" />
+                  <span className="text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 bg-amber-50 text-amber-800 border border-amber-200">
+                    <Clock className="w-3 h-3 text-amber-600" />
                     Pending Review
                   </span>
                 )}
                 <button
                   type="button"
                   onClick={handleLogout}
-                  className="text-xs font-semibold text-[#858C96] hover:text-[#F7F7F5] px-2.5 py-1.5 rounded-full transition-colors flex items-center gap-1 cursor-pointer"
+                  className="text-xs font-semibold text-slate-500 hover:text-slate-900 px-2.5 py-1.5 rounded-full transition-colors flex items-center gap-1 cursor-pointer"
                   title="Logout from wholesale portal"
                 >
                   <LogOut className="w-3.5 h-3.5" />
@@ -332,18 +332,18 @@ export default function App() {
                 </button>
               </div>
             ) : (
-              <div className="flex items-center gap-1 ml-2 pl-2 border-l border-[#2A3038]">
+              <div className="flex items-center gap-1 ml-2 pl-2 border-l border-slate-200">
                 <button
                   type="button"
                   onClick={() => setIsWholesaleModalOpen(true)}
-                  className="text-xs font-bold text-[#B8BDC5] hover:text-[#FF6B00] px-3 py-1.5 rounded-full transition-colors cursor-pointer"
+                  className="text-xs font-bold text-slate-600 hover:text-[#FF6B00] px-3 py-1.5 rounded-full transition-colors cursor-pointer"
                 >
                   Apply
                 </button>
                 <button
                   type="button"
                   onClick={() => setIsLoginModalOpen(true)}
-                  className="text-xs font-bold text-[#F7F7F5] bg-[#1B2027] hover:bg-[#2A3038] px-3.5 py-1.5 rounded-full transition-colors cursor-pointer border border-[#2A3038] flex items-center gap-1.5"
+                  className="text-xs font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 px-3.5 py-1.5 rounded-full transition-colors cursor-pointer border border-slate-300 flex items-center gap-1.5"
                 >
                   <LogIn className="w-3.5 h-3.5 text-[#FF6B00]" />
                   Login
@@ -357,7 +357,7 @@ export default function App() {
             {/* Desktop & Mobile Cart Trigger in Header */}
             <button
               onClick={() => setIsCartOpen(true)}
-              className="flex items-center gap-2 text-xs font-bold text-[#F7F7F5] hover:text-[#FF6B00] transition-colors cursor-pointer bg-[#15191F]/80 backdrop-blur-sm px-3.5 py-2 rounded-full border border-[#2A3038] shadow-sm hover:bg-[#1B2027]"
+              className="flex items-center gap-2 text-xs font-bold text-slate-800 hover:text-[#FF6B00] transition-colors cursor-pointer bg-white hover:bg-slate-50 px-3.5 py-2 rounded-full border border-slate-300 shadow-sm"
               aria-label={`Open Cart (${cartUnits} units)`}
             >
               <ShoppingBag className="w-4 h-4 text-[#FF6B00]" />
@@ -371,7 +371,7 @@ export default function App() {
 
             <a
               href="tel:4057682975"
-              className="hidden sm:flex items-center gap-1.5 text-xs font-extrabold text-[#FF6B00] hover:text-[#F7F7F5] transition-colors cursor-pointer bg-[#15191F]/80 backdrop-blur-sm px-4 py-2 rounded-full border border-[#2A3038]"
+              className="hidden sm:flex items-center gap-1.5 text-xs font-extrabold text-[#FF6B00] hover:text-[#E85F00] transition-colors cursor-pointer bg-white hover:bg-slate-50 px-4 py-2 rounded-full border border-slate-300 shadow-sm"
             >
               <Phone className="w-3.5 h-3.5 text-[#FF6B00]" />
               (405) 768-2975
@@ -380,7 +380,7 @@ export default function App() {
             {/* Mobile Menu Toggler Button */}
             <button
               onClick={() => setMenuOpen((v) => !v)}
-              className="lg:hidden relative flex items-center justify-center w-10 h-10 rounded-full bg-[#15191F]/90 backdrop-blur-md border border-[#2A3038] text-[#F7F7F5] transition-all duration-300 hover:bg-[#1B2027]"
+              className="lg:hidden relative flex items-center justify-center w-10 h-10 rounded-full bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 transition-all duration-300 shadow-sm"
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={menuOpen}
             >
@@ -406,23 +406,23 @@ export default function App() {
         }`}
         onClick={() => setMenuOpen(false)}
       >
-        <div className="absolute inset-0 bg-[#0B0D10]/80 backdrop-blur-sm" />
+        <div className="absolute inset-0 bg-slate-900/50 backdrop-blur-xs" />
       </div>
 
       {/* Mobile Navigation Drawer */}
       <div
-        className={`lg:hidden fixed top-0 right-0 bottom-0 z-50 w-[85%] max-w-sm bg-[#15191F] border-l border-[#2A3038] text-[#F7F7F5] shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+        className={`lg:hidden fixed top-0 right-0 bottom-0 z-50 w-[85%] max-w-sm bg-white border-l border-slate-200 text-slate-900 shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
           menuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <div className="flex flex-col h-full pt-20 px-8 pb-8">
-          <div className="flex items-center justify-between pb-4 border-b border-[#2A3038] mb-2">
+          <div className="flex items-center justify-between pb-4 border-b border-slate-200 mb-2">
             <span className="text-[10px] uppercase font-bold tracking-widest text-[#FF6B00]">
               Navigation Links
             </span>
             <button
               onClick={() => setMenuOpen(false)}
-              className="w-8 h-8 rounded-full bg-[#1B2027] border border-[#2A3038] flex items-center justify-center text-[#B8BDC5] hover:text-[#F7F7F5] cursor-pointer"
+              className="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 hover:text-slate-900 cursor-pointer"
             >
               <X className="w-4 h-4" />
             </button>
@@ -433,7 +433,7 @@ export default function App() {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMenuOpen(false)}
-                className={`text-lg font-semibold text-[#F7F7F5] py-2.5 border-b border-[#2A3038] transition-all duration-500 hover:text-[#FF6B00] ${
+                className={`text-lg font-semibold text-slate-800 py-2.5 border-b border-slate-100 transition-all duration-500 hover:text-[#FF6B00] ${
                   menuOpen ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
                 }`}
                 style={{ transitionDelay: menuOpen ? `${150 + i * 40}ms` : '0ms' }}
@@ -448,7 +448,7 @@ export default function App() {
                 setMenuOpen(false);
                 setIsCartOpen(true);
               }}
-              className="w-full text-left text-lg font-semibold text-[#F7F7F5] py-3 border-b border-[#2A3038] flex items-center justify-between transition-colors hover:text-[#FF6B00]"
+              className="w-full text-left text-lg font-semibold text-slate-800 py-3 border-b border-slate-100 flex items-center justify-between transition-colors hover:text-[#FF6B00]"
             >
               <span className="flex items-center gap-2.5">
                 <ShoppingBag className="w-5 h-5 text-[#FF6B00]" />
@@ -463,12 +463,12 @@ export default function App() {
 
             {/* Auth Actions in Mobile Menu */}
             {currentUser ? (
-              <div className="mt-3 p-3 bg-[#1B2027] rounded-xl border border-[#2A3038] space-y-2">
-                <div className="text-xs text-[#B8BDC5]">
-                  Logged in as: <strong className="text-[#F7F7F5]">{currentUser.email}</strong>
+              <div className="mt-3 p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+                <div className="text-xs text-slate-600">
+                  Logged in as: <strong className="text-slate-900">{currentUser.email}</strong>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-[11px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                  <span className="text-[11px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200">
                     Role: {currentUser.role.replace('_', ' ')}
                   </span>
                   <button
@@ -476,7 +476,7 @@ export default function App() {
                       setMenuOpen(false);
                       handleLogout();
                     }}
-                    className="text-xs text-rose-400 font-bold hover:underline flex items-center gap-1 cursor-pointer"
+                    className="text-xs text-rose-600 font-bold hover:underline flex items-center gap-1 cursor-pointer"
                   >
                     <LogOut className="w-3.5 h-3.5" />
                     Log Out
@@ -490,7 +490,7 @@ export default function App() {
                     setMenuOpen(false);
                     setIsLoginModalOpen(true);
                   }}
-                  className="py-2.5 bg-[#1B2027] hover:bg-[#2A3038] text-[#F7F7F5] border border-[#2A3038] text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="py-2.5 bg-slate-100 hover:bg-slate-200 text-slate-800 border border-slate-200 text-xs font-bold rounded-xl flex items-center justify-center gap-1.5 cursor-pointer"
                 >
                   <LogIn className="w-3.5 h-3.5 text-[#FF6B00]" />
                   Login
@@ -516,9 +516,9 @@ export default function App() {
             }`}
             style={{ transitionDelay: menuOpen ? '350ms' : '0ms' }}
           >
-            <div className="bg-[#1B2027] p-3 rounded-xl space-y-1 text-xs border border-[#2A3038]">
-              <p className="font-semibold text-[#F7F7F5]">Central OKC Warehouse:</p>
-              <p className="text-[#858C96]">4500 S Bryant Ave, OKC, OK 73135</p>
+            <div className="bg-slate-50 p-3 rounded-xl space-y-1 text-xs border border-slate-200">
+              <p className="font-semibold text-slate-900">Central OKC Warehouse:</p>
+              <p className="text-slate-600">4500 S Bryant Ave, OKC, OK 73135</p>
               <p className="text-[#FF6B00] font-semibold">(405) 768-2975 · Mon–Sat 9AM–8PM</p>
             </div>
 
@@ -539,7 +539,7 @@ export default function App() {
       {/* Main Content Landmark (WCAG 2.2 AA) */}
       <main id="main-content">
         {/* 1. Hero Header Section */}
-        <section id="overview" className="relative w-full min-h-screen sm:h-screen overflow-hidden bg-[#0B0D10]">
+        <section id="overview" className="relative w-full min-h-screen sm:h-screen overflow-hidden bg-[#F8FAFC]">
           {/* Seamless Canvas Boomerang Loop Background */}
           <BoomerangVideoBg
             src={BG_VIDEO}
@@ -547,11 +547,12 @@ export default function App() {
             isMirrored={false}
             isColorInverted={false}
             isClear={true}
-            overlayOpacity={60}
+            overlayOpacity={25}
+            overlayTheme="light"
           />
 
-          {/* Editorial Dark Gradients & Soft Glowing Orbs */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0B0D10]/80 via-[#0B0D10]/60 to-[#0B0D10] pointer-events-none z-10" />
+          {/* Editorial Light Gradients & Soft Warm Glowing Orbs */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-[#F8FAFC]/70 to-[#F8FAFC] pointer-events-none z-10" />
           <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden">
             <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#FF6B00] opacity-10 blur-[140px]" />
             <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-[#FF6B00] opacity-10 blur-[120px]" />
@@ -559,14 +560,14 @@ export default function App() {
 
           {/* Central Display Hero Copy */}
           <div className={`relative z-10 flex flex-col items-center text-center ${showDisclaimer ? 'pt-32 sm:pt-40 md:pt-44' : 'pt-24 sm:pt-28 md:pt-32'} px-4 sm:px-6`}>
-            <div className="inline-flex items-center gap-1.5 bg-[#15191F]/90 backdrop-blur-md text-[#F7F7F5] text-xs font-semibold px-4 py-1.5 rounded-full mb-6 border border-[#2A3038] shadow-sm">
+            <div className="inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-md text-slate-800 text-xs font-semibold px-4 py-1.5 rounded-full mb-6 border border-slate-200 shadow-sm">
               <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
               <span className="font-extrabold text-[11px] uppercase tracking-wider text-[#FF6B00]">Licensed Oklahoma Wholesaler · 5.0 Star</span>
             </div>
 
             {/* Headline */}
             <h1
-              className="font-extrabold leading-[0.95] text-[#F7F7F5] text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.75rem] xl:text-[5.5rem] tracking-[-0.04em] max-w-5xl drop-shadow"
+              className="font-extrabold leading-[0.95] text-slate-900 text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.75rem] xl:text-[5.5rem] tracking-[-0.04em] max-w-5xl drop-shadow-xs"
               style={{
                 fontFamily: '"Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
               }}
@@ -578,7 +579,7 @@ export default function App() {
             </h1>
 
             {/* Supporting Text */}
-            <p className="mt-6 text-[#B8BDC5] text-sm sm:text-base md:text-lg font-medium leading-relaxed max-w-2xl mx-auto px-2 drop-shadow-sm">
+            <p className="mt-6 text-slate-600 text-sm sm:text-base md:text-lg font-medium leading-relaxed max-w-2xl mx-auto px-2">
               Leading brands, competitive wholesale pricing, and reliable service for qualified retailers.
             </p>
 
@@ -595,7 +596,7 @@ export default function App() {
               <button
                 type="button"
                 onClick={() => setIsWholesaleModalOpen(true)}
-                className="bg-[#15191F] hover:bg-[#1B2027] text-[#F7F7F5] text-xs sm:text-sm font-bold px-7 py-3.5 rounded-full border border-[#2A3038] transition-all duration-300 shadow-md hover:scale-105 active:scale-95 flex items-center gap-2 cursor-pointer"
+                className="bg-white hover:bg-slate-50 text-slate-900 text-xs sm:text-sm font-bold px-7 py-3.5 rounded-full border border-slate-300 transition-all duration-300 shadow-sm hover:scale-105 active:scale-95 flex items-center gap-2 cursor-pointer"
               >
                 <UserCheck className="w-4 h-4 text-[#FF6B00]" />
                 <span>Apply for Wholesale Account</span>
@@ -605,7 +606,7 @@ export default function App() {
                 <button
                   type="button"
                   onClick={() => setIsCartOpen(true)}
-                  className="bg-[#15191F] hover:bg-[#1B2027] text-[#F7F7F5] text-xs sm:text-sm font-bold px-6 py-3.5 rounded-full border border-[#2A3038] transition-all duration-300 shadow-md hover:scale-105 active:scale-95 flex items-center gap-2 cursor-pointer"
+                  className="bg-white hover:bg-slate-50 text-slate-900 text-xs sm:text-sm font-bold px-6 py-3.5 rounded-full border border-slate-300 transition-all duration-300 shadow-sm hover:scale-105 active:scale-95 flex items-center gap-2 cursor-pointer"
                 >
                   <ShoppingBag className="w-4 h-4 text-[#FF6B00]" />
                   <span>Wholesale Cart</span>
@@ -619,7 +620,7 @@ export default function App() {
                 <button
                   type="button"
                   onClick={() => setIsLoginModalOpen(true)}
-                  className="bg-[#15191F] hover:bg-[#1B2027] text-[#F7F7F5] text-xs sm:text-sm font-bold px-6 py-3.5 rounded-full border border-[#2A3038] transition-all duration-300 shadow-md hover:scale-105 active:scale-95 flex items-center gap-2 cursor-pointer"
+                  className="bg-white hover:bg-slate-50 text-slate-900 text-xs sm:text-sm font-bold px-6 py-3.5 rounded-full border border-slate-300 transition-all duration-300 shadow-sm hover:scale-105 active:scale-95 flex items-center gap-2 cursor-pointer"
                 >
                   <LogIn className="w-4 h-4 text-[#FF6B00]" />
                   <span>Customer Login</span>
@@ -628,31 +629,31 @@ export default function App() {
             </div>
 
             {/* Trust Value Badges */}
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-[11px] font-semibold text-[#B8BDC5]">
-              <span className="bg-[#15191F]/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#2A3038] flex items-center gap-1.5">
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-[11px] font-semibold text-slate-700">
+              <span className="bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-200 shadow-xs flex items-center gap-1.5">
                 ⚡ Same-Day OKC Pickup
               </span>
-              <span className="bg-[#15191F]/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#2A3038] flex items-center gap-1.5">
+              <span className="bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-200 shadow-xs flex items-center gap-1.5">
                 📦 Direct Wholesale Pricing
               </span>
-              <span className="bg-[#15191F]/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#2A3038] flex items-center gap-1.5">
+              <span className="bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-200 shadow-xs flex items-center gap-1.5">
                 🔒 Licensed Master Distributor
               </span>
-              <span className="bg-[#15191F]/90 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-[#2A3038] flex items-center gap-1.5">
+              <span className="bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-200 shadow-xs flex items-center gap-1.5">
                 🚚 Statewide Metro Dispatch
               </span>
             </div>
           </div>
 
           {/* Bottom-left corporate profile badge */}
-          <div className="hidden xl:block absolute left-6 md:left-10 bottom-6 sm:bottom-8 md:bottom-10 z-10 max-w-sm bg-[#15191F]/90 backdrop-blur-md border border-[#2A3038] p-5 rounded-[24px] shadow-lg">
+          <div className="hidden xl:block absolute left-6 md:left-10 bottom-6 sm:bottom-8 md:bottom-10 z-10 max-w-sm bg-white/95 backdrop-blur-md border border-slate-200 p-5 rounded-[24px] shadow-lg text-slate-800">
             <div className="flex items-center gap-2 text-[#FF6B00] mb-3">
               <Sparkles className="w-4 h-4 text-[#FF6B00]" />
               <span className="text-sm font-bold tracking-wide">
                 Wholesale of Oklahoma
               </span>
             </div>
-            <p className="text-[#B8BDC5] text-xs leading-relaxed mb-5 max-w-xs font-medium">
+            <p className="text-slate-600 text-xs leading-relaxed mb-5 max-w-xs font-medium">
               Wholesale of Oklahoma supplies qualified dispensaries, vape stores, and smoke shops with direct warehouse inventory and dedicated retail service.
             </p>
             <div className="flex gap-3">
@@ -665,7 +666,7 @@ export default function App() {
               <button
                 type="button"
                 onClick={() => setIsWholesaleModalOpen(true)}
-                className="border border-[#2A3038] text-[#F7F7F5] text-xs font-bold px-5 py-2.5 rounded-full hover:bg-[#1B2027] transition-colors cursor-pointer"
+                className="border border-slate-300 text-slate-800 text-xs font-bold px-5 py-2.5 rounded-full hover:bg-slate-100 transition-colors cursor-pointer"
               >
                 Apply for Account
               </button>
@@ -687,21 +688,21 @@ export default function App() {
         {/* 4. Inside the Login Gateway: Display all 900+ Products Imported from Zoho with Pricing */}
         {currentUser ? (
           <div id="inventory" className="relative">
-            <div className="bg-gradient-to-r from-[#FF6B00]/15 via-[#15191F] to-[#15191F] border-y border-[#FF6B00]/40 py-4 px-4 shadow-inner">
+            <div className="bg-gradient-to-r from-[#FF6B00]/10 via-orange-50/50 to-orange-50/20 border-y border-orange-200 py-4 px-4 shadow-xs">
               <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 px-4">
                 <div className="flex items-center gap-2.5">
-                  <span className="bg-[#FF6B00] text-white text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow">
+                  <span className="bg-[#FF6B00] text-white text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-xs">
                     Verified B2B Retailer
                   </span>
-                  <span className="text-sm font-bold text-[#F7F7F5]">
+                  <span className="text-sm font-bold text-slate-900">
                     {currentUser.businessName || currentUser.contactName || currentUser.email}
                   </span>
-                  <span className="hidden md:inline text-xs text-[#858C96]">
+                  <span className="hidden md:inline text-xs text-slate-500">
                     · Live Wholesale Tier Pricing & Case Stock Active
                   </span>
                 </div>
                 <div className="flex items-center gap-2 text-xs">
-                  <span className="text-emerald-400 font-semibold flex items-center gap-1 bg-emerald-500/10 border border-emerald-500/20 px-3 py-1 rounded-full">
+                  <span className="text-emerald-700 font-semibold flex items-center gap-1 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
                     <CheckCircle2 className="w-3.5 h-3.5" />
                     900+ Zoho SKUs Connected
                   </span>
@@ -711,23 +712,23 @@ export default function App() {
             <InventorySection initialBrand={activeBrandFilter} />
           </div>
         ) : (
-          <div id="retailer-gateway" className="py-14 bg-[#0B0D10] text-center border-t border-[#2A3038]/60">
+          <div id="retailer-gateway" className="py-14 bg-slate-50 text-center border-t border-slate-200">
             <div className="max-w-4xl mx-auto px-4 space-y-4">
-              <div className="inline-flex items-center gap-2 bg-[#15191F] text-[#FF6B00] border border-[#2A3038] text-xs font-black uppercase tracking-wider px-4 py-1.5 rounded-full">
+              <div className="inline-flex items-center gap-2 bg-white text-[#FF6B00] border border-slate-200 text-xs font-black uppercase tracking-wider px-4 py-1.5 rounded-full shadow-xs">
                 <ShieldCheck className="w-4 h-4 text-[#FF6B00]" />
                 <span>Oklahoma Closed Wholesale Network</span>
               </div>
-              <h3 className="text-2xl sm:text-3xl font-black text-[#F7F7F5]">
+              <h3 className="text-2xl sm:text-3xl font-black text-slate-900">
                 Login to Access Full 900+ Zoho Inventory Catalog & Wholesale Rates
               </h3>
-              <p className="text-sm text-[#858C96] max-w-xl mx-auto leading-relaxed">
+              <p className="text-sm text-slate-600 max-w-xl mx-auto leading-relaxed">
                 In compliance with Oklahoma wholesale distribution regulations, catalog browsing with tiered case pricing and direct ordering is unlocked inside the retailer gateway for verified partners.
               </p>
               <div className="pt-3 flex flex-wrap items-center justify-center gap-3">
                 <button
                   type="button"
                   onClick={() => setIsLoginModalOpen(true)}
-                  className="bg-[#FF6B00] hover:bg-[#E85F00] text-white font-extrabold text-xs sm:text-sm px-8 py-4 rounded-full transition-all shadow-lg hover:scale-105 active:scale-95 flex items-center gap-2 cursor-pointer uppercase tracking-wider"
+                  className="bg-[#FF6B00] hover:bg-[#E85F00] text-white font-extrabold text-xs sm:text-sm px-8 py-4 rounded-full transition-all shadow-md hover:scale-105 active:scale-95 flex items-center gap-2 cursor-pointer uppercase tracking-wider"
                 >
                   <LogIn className="w-4 h-4" />
                   <span>Retailer Login</span>
@@ -735,7 +736,7 @@ export default function App() {
                 <button
                   type="button"
                   onClick={() => setIsWholesaleModalOpen(true)}
-                  className="bg-[#15191F] hover:bg-[#1B2027] text-[#F7F7F5] border border-[#2A3038] hover:border-[#FF6B00] font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full transition-all flex items-center gap-2 cursor-pointer"
+                  className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 hover:border-[#FF6B00] font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full transition-all flex items-center gap-2 cursor-pointer shadow-xs"
                 >
                   <UserPlus className="w-4 h-4 text-[#FF6B00]" />
                   <span>Register Wholesale Account</span>
@@ -762,14 +763,14 @@ export default function App() {
       </main>
 
       {/* Regulatory Warning & Comprehensive Compliance Footer */}
-      <footer className="bg-[#0B0D10] border-t border-[#2A3038] text-[#858C96]">
+      <footer className="bg-slate-50 border-t border-slate-200 text-slate-600">
         {/* FDA / State Nicotine Regulatory Warning Banner */}
-        <div className="bg-[#15191F] border-b border-[#2A3038] py-4 px-4 text-center">
+        <div className="bg-amber-50/80 border-b border-amber-200/80 py-4 px-4 text-center">
           <div className="max-w-5xl mx-auto flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-3 text-xs">
-            <span className="bg-rose-500/15 text-rose-400 border border-rose-500/30 text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full">
+            <span className="bg-rose-50 text-rose-700 border border-rose-200 text-[10px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full">
               Regulatory Warning
             </span>
-            <p className="text-[#B8BDC5] font-semibold text-[11px] sm:text-xs leading-relaxed">
+            <p className="text-slate-700 font-semibold text-[11px] sm:text-xs leading-relaxed">
               WARNING: Products sold by Wholesale of Oklahoma contain nicotine. Nicotine is an addictive chemical. 21+ only.
             </p>
           </div>
@@ -783,25 +784,25 @@ export default function App() {
                 <span className="w-6 h-6 rounded-lg bg-[#FF6B00] flex items-center justify-center text-white font-black text-xs">
                   W
                 </span>
-                <h4 className="text-sm font-black text-[#F7F7F5] uppercase tracking-wider">
+                <h4 className="text-sm font-black text-slate-900 uppercase tracking-wider">
                   Wholesale of OK
                 </h4>
               </div>
-              <p className="text-[#858C96] leading-relaxed">
+              <p className="text-slate-500 leading-relaxed">
                 Premier Oklahoma B2B master distributor supplying verified dispensaries, smoke shops, and convenience stores with direct manufacturer inventory.
               </p>
-              <div className="space-y-1.5 pt-1 text-[#B8BDC5]">
+              <div className="space-y-1.5 pt-1 text-slate-600">
                 <p className="flex items-center gap-1.5 text-[11px]">
                   <ShieldCheck className="w-3.5 h-3.5 text-[#FF6B00] shrink-0" />
-                  <span className="font-semibold text-[#F7F7F5]">Oklahoma Licensed Wholesaler</span>
+                  <span className="font-semibold text-slate-900">Oklahoma Licensed Wholesaler</span>
                 </p>
-                <p className="text-[11px] text-[#858C96]">
+                <p className="text-[11px] text-slate-500">
                   4500 S Bryant Ave, OKC, OK 73135
                 </p>
                 <p className="text-[11px] text-[#FF6B00] font-bold">
                   (405) 768-2975
                 </p>
-                <p className="text-[10px] text-[#858C96]">
+                <p className="text-[10px] text-slate-500">
                   Mon–Sat: 9AM–8PM · Sun: 11AM–8PM
                 </p>
               </div>
@@ -809,10 +810,10 @@ export default function App() {
 
             {/* Col 2: Brand Directory */}
             <div className="space-y-3">
-              <h4 className="text-xs font-black text-[#F7F7F5] uppercase tracking-widest text-[#FF6B00]">
+              <h4 className="text-xs font-black text-slate-900 uppercase tracking-widest text-[#FF6B00]">
                 Brand Directory
               </h4>
-              <ul className="space-y-1.5 text-[#858C96]">
+              <ul className="space-y-1.5 text-slate-600">
                 {[
                   'Geekbar',
                   'Raz',
@@ -845,10 +846,10 @@ export default function App() {
 
             {/* Col 3: Category Directory */}
             <div className="space-y-3">
-              <h4 className="text-xs font-black text-[#F7F7F5] uppercase tracking-widest text-[#FF6B00]">
+              <h4 className="text-xs font-black text-slate-900 uppercase tracking-widest text-[#FF6B00]">
                 Categories
               </h4>
-              <ul className="space-y-1.5 text-[#858C96]">
+              <ul className="space-y-1.5 text-slate-600">
                 {[
                   { label: 'Disposable Vapes', id: 'Disposable Vapes' },
                   { label: 'Vape Mods & Kits', id: 'Vape Mods & Kits' },
@@ -878,10 +879,10 @@ export default function App() {
 
             {/* Col 4: Retailer Portals & Orders */}
             <div className="space-y-3">
-              <h4 className="text-xs font-black text-[#F7F7F5] uppercase tracking-widest text-[#FF6B00]">
+              <h4 className="text-xs font-black text-slate-900 uppercase tracking-widest text-[#FF6B00]">
                 Retailer Tools
               </h4>
-              <ul className="space-y-1.5 text-[#858C96]">
+              <ul className="space-y-1.5 text-slate-600">
                 <li>
                   <a href="#inventory" className="hover:text-[#FF6B00] transition-colors">
                     Wholesale Catalog
@@ -930,7 +931,7 @@ export default function App() {
                   </a>
                 </li>
                 <li>
-                  <a href="tel:4057682975" className="hover:text-[#FF6B00] transition-colors font-semibold text-[#F7F7F5]">
+                  <a href="tel:4057682975" className="hover:text-[#FF6B00] transition-colors font-semibold text-slate-900">
                     Dispatch: (405) 768-2975
                   </a>
                 </li>
@@ -939,10 +940,10 @@ export default function App() {
 
             {/* Col 5: Sitemap & Compliance */}
             <div className="space-y-3">
-              <h4 className="text-xs font-black text-[#F7F7F5] uppercase tracking-widest text-[#FF6B00]">
+              <h4 className="text-xs font-black text-slate-900 uppercase tracking-widest text-[#FF6B00]">
                 Sitemap & Legal
               </h4>
-              <ul className="space-y-1.5 text-[#858C96]">
+              <ul className="space-y-1.5 text-slate-600">
                 <li>
                   <a
                     href="/sitemap.xml"
@@ -966,27 +967,27 @@ export default function App() {
                   </a>
                 </li>
                 <li>
-                  <span className="text-[#858C96] hover:text-[#F7F7F5] cursor-default">
+                  <span className="text-slate-500 hover:text-slate-900 cursor-default">
                     Oklahoma 21+ Age Verification
                   </span>
                 </li>
                 <li>
-                  <span className="text-[#858C96] hover:text-[#F7F7F5] cursor-default">
+                  <span className="text-slate-500 hover:text-slate-900 cursor-default">
                     Wholesale Terms of Service
                   </span>
                 </li>
                 <li>
-                  <span className="text-[#858C96] hover:text-[#F7F7F5] cursor-default">
+                  <span className="text-slate-500 hover:text-slate-900 cursor-default">
                     Privacy Policy & Data Rights
                   </span>
                 </li>
                 <li>
-                  <span className="text-[#858C96] hover:text-[#F7F7F5] cursor-default">
+                  <span className="text-slate-500 hover:text-slate-900 cursor-default">
                     Oklahoma Tax Permit (Form OK-500)
                   </span>
                 </li>
                 <li>
-                  <span className="text-[#858C96] hover:text-[#F7F7F5] cursor-default">
+                  <span className="text-slate-500 hover:text-slate-900 cursor-default">
                     PACT Act Compliance
                   </span>
                 </li>
@@ -994,7 +995,7 @@ export default function App() {
             </div>
           </div>
 
-          <div className="pt-8 border-t border-[#2A3038] flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-[#858C96]">
+          <div className="pt-8 border-t border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
             <p>© 2026 Wholesale of Oklahoma™ LLC. All Rights Reserved. Oklahoma Business Entity.</p>
             <div className="flex items-center gap-4 flex-wrap justify-center">
               <span className="text-[#FF6B00] font-bold">Strictly 21+ B2B Retail Partners</span>
@@ -1029,12 +1030,12 @@ export default function App() {
           id="floating-cart-trigger"
           onClick={() => setIsCartOpen(true)}
           aria-label={`Open Wholesale Cart (${cartUnits} units)`}
-          className={`group relative flex items-center gap-2.5 bg-[#15191F] hover:bg-[#1B2027] text-[#F7F7F5] px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full shadow-2xl border border-[#FF6B00]/40 transition-all duration-300 cursor-pointer select-none hover:scale-105 active:scale-95 ${
+          className={`group relative flex items-center gap-2.5 bg-white hover:bg-slate-50 text-slate-900 px-3.5 py-2 sm:px-4 sm:py-2.5 rounded-full shadow-xl border border-[#FF6B00]/40 transition-all duration-300 cursor-pointer select-none hover:scale-105 active:scale-95 ${
             cartUnits > 0 ? 'ring-2 ring-[#FF6B00]/60' : ''
           }`}
         >
           <div className="relative flex items-center justify-center">
-            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#FF6B00]/15 flex items-center justify-center text-[#FF6B00] border border-[#FF6B00]/30 group-hover:scale-110 transition-transform">
+            <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#FF6B00]/10 flex items-center justify-center text-[#FF6B00] border border-[#FF6B00]/30 group-hover:scale-110 transition-transform">
               <ShoppingBag className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </div>
             {cartUnits > 0 && (
@@ -1045,7 +1046,7 @@ export default function App() {
           </div>
 
           <div className="text-left leading-tight hidden sm:block">
-            <div className="text-xs font-bold text-[#F7F7F5] flex items-center gap-1">
+            <div className="text-xs font-bold text-slate-900 flex items-center gap-1">
               <span>Wholesale Cart</span>
             </div>
             <div className="text-[10px] text-[#FF6B00] font-medium">
@@ -1064,19 +1065,19 @@ export default function App() {
       {/* Floating Bottom Wholesale Order Bar */}
       {cartUnits > 0 && (
         <div className="fixed bottom-0 left-0 right-0 z-30 pointer-events-none p-3 sm:p-4 flex justify-center">
-          <div className="bg-[#15191F]/95 backdrop-blur-xl border border-[#FF6B00]/40 shadow-2xl rounded-2xl sm:rounded-full px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between gap-4 max-w-xl w-full pointer-events-auto animate-in slide-in-from-bottom-5 duration-300">
+          <div className="bg-white/95 backdrop-blur-xl border border-[#FF6B00]/40 shadow-2xl rounded-2xl sm:rounded-full px-4 sm:px-6 py-2.5 sm:py-3 flex items-center justify-between gap-4 max-w-xl w-full pointer-events-auto animate-in slide-in-from-bottom-5 duration-300">
             <div className="flex items-center gap-3 min-w-0">
-              <div className="w-8 h-8 rounded-full bg-[#FF6B00]/20 flex items-center justify-center text-[#FF6B00] shrink-0 shadow-sm border border-[#FF6B00]/30">
+              <div className="w-8 h-8 rounded-full bg-[#FF6B00]/15 flex items-center justify-center text-[#FF6B00] shrink-0 shadow-xs border border-[#FF6B00]/30">
                 <ShoppingBag className="w-4 h-4" />
               </div>
               <div className="min-w-0">
-                <div className="text-xs font-bold text-[#F7F7F5] flex items-center gap-1.5 truncate">
+                <div className="text-xs font-bold text-slate-900 flex items-center gap-1.5 truncate">
                   <span>Wholesale Order Draft</span>
                   <span className="bg-[#FF6B00] text-white text-[9px] font-black px-2 py-0.5 rounded-full">
                     {cartUnits} units
                   </span>
                 </div>
-                <div className="text-[10px] text-[#858C96] truncate">
+                <div className="text-[10px] text-slate-500 truncate">
                   Ready to send to dispatch for volume tiered quote
                 </div>
               </div>

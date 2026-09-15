@@ -35,30 +35,30 @@ export default function AgeGateModal() {
 
   return (
     <aside
-      className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 bg-[#0B0D10]/95 backdrop-blur-xl"
+      className="fixed inset-0 z-[9999] flex items-center justify-center p-4 sm:p-6 bg-slate-900/70 backdrop-blur-md"
       aria-label="Age verification required"
     >
-      <div className="relative w-full max-w-lg bg-[#15191F] border-2 border-[#FF6B00]/60 rounded-3xl shadow-2xl overflow-hidden p-6 sm:p-10 text-center space-y-6 text-[#F7F7F5]">
+      <div className="relative w-full max-w-lg bg-white border-2 border-[#FF6B00]/40 rounded-3xl shadow-2xl overflow-hidden p-6 sm:p-10 text-center space-y-6 text-slate-900">
         {/* Glow effect */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-[#FF6B00]/15 blur-3xl pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-64 h-32 bg-[#FF6B00]/10 blur-3xl pointer-events-none" />
 
         {underAgeLockout ? (
           /* Under 21 Lockout State */
           <div className="space-y-6 py-4 animate-in fade-in duration-300">
-            <div className="w-16 h-16 rounded-full bg-rose-500/20 border border-rose-500/40 text-rose-400 flex items-center justify-center mx-auto shadow-lg">
+            <div className="w-16 h-16 rounded-full bg-rose-50 border border-rose-200 text-rose-600 flex items-center justify-center mx-auto shadow-lg">
               <Ban className="w-8 h-8" />
             </div>
 
             <div className="space-y-2">
-              <h2 className="text-2xl sm:text-3xl font-bold text-[#F7F7F5] tracking-tight">
+              <h2 className="text-2xl sm:text-3xl font-bold text-slate-900 tracking-tight">
                 Access Denied
               </h2>
-              <p className="text-[#B8BDC5] text-sm leading-relaxed max-w-sm mx-auto">
+              <p className="text-slate-600 text-sm leading-relaxed max-w-sm mx-auto">
                 You must be 21 years of age or older to enter Wholesale of Oklahoma. Products in this portal are strictly age-restricted and regulated by state and federal law.
               </p>
             </div>
 
-            <div className="p-4 rounded-xl bg-[#0B0D10] border border-[#2A3038] text-xs text-[#858C96]">
+            <div className="p-4 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600">
               Please close this browser window or navigate away from this site.
             </div>
           </div>
@@ -66,27 +66,27 @@ export default function AgeGateModal() {
           /* 21+ Age Gate Question */
           <>
             {/* Header Badge */}
-            <div className="inline-flex items-center gap-2 bg-[#FF6B00]/10 border border-[#FF6B00]/30 text-[#FF6B00] text-xs font-black uppercase tracking-widest px-4 py-1.5 rounded-full">
+            <div className="inline-flex items-center gap-2 bg-orange-50 border border-orange-200 text-[#FF6B00] text-xs font-black uppercase tracking-widest px-4 py-1.5 rounded-full">
               <ShieldAlert className="w-4 h-4" />
               <span>Age Verification Required</span>
             </div>
 
             <div className="space-y-3">
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#F7F7F5] tracking-tight leading-tight">
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-900 tracking-tight leading-tight">
                 Are you 21 years of age or older?
               </h2>
-              <p className="text-[#B8BDC5] text-xs sm:text-sm leading-relaxed max-w-md mx-auto">
+              <p className="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-md mx-auto">
                 Wholesale of Oklahoma is a licensed B2B distributor of age-restricted vapor, tobacco alternatives, and accessories intended solely for qualified commercial retailers.
               </p>
             </div>
 
             {/* Regulatory Notice Banner */}
-            <div className="bg-[#0B0D10] border border-[#2A3038] rounded-2xl p-4 text-left space-y-1">
+            <div className="bg-orange-50/70 border border-orange-200 rounded-2xl p-4 text-left space-y-1">
               <div className="flex items-center gap-2 text-[#FF6B00] text-[11px] font-bold uppercase tracking-wider">
                 <AlertTriangle className="w-3.5 h-3.5" />
                 <span>Oklahoma & Federal Compliance:</span>
               </div>
-              <p className="text-[11px] text-[#858C96] leading-snug">
+              <p className="text-[11px] text-slate-600 leading-snug">
                 Sales are restricted strictly to legal adults 21+ holding valid retail business credentials. Falsifying age or business identity is prohibited by law.
               </p>
             </div>
@@ -105,13 +105,13 @@ export default function AgeGateModal() {
               <button
                 type="button"
                 onClick={handleVerifyNo}
-                className="sm:w-44 py-4 bg-[#1B2027] hover:bg-[#2A3038] text-[#B8BDC5] hover:text-[#F7F7F5] font-bold text-xs uppercase tracking-widest rounded-full transition-colors cursor-pointer border border-[#2A3038]"
+                className="sm:w-44 py-4 bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 font-bold text-xs uppercase tracking-widest rounded-full transition-colors cursor-pointer border border-slate-300"
               >
                 NO, I AM UNDER 21
               </button>
             </div>
 
-            <p className="text-[10px] text-[#858C96] pt-1">
+            <p className="text-[10px] text-slate-500 pt-1">
               By clicking YES, you certify under penalty of law that you are at least 21 years of age.
             </p>
           </>

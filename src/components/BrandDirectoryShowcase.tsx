@@ -251,25 +251,25 @@ export const BrandDirectoryShowcase: React.FC<BrandDirectoryShowcaseProps> = ({
   };
 
   return (
-    <section id="brands" className="py-20 bg-[#0B0D10] text-[#F7F7F5] relative overflow-hidden border-t border-[#2A3038]">
+    <section id="brands" className="py-20 bg-[#F8FAFC] text-slate-900 relative overflow-hidden border-t border-slate-200">
       {/* Ambient glowing backdrop */}
-      <div className="absolute top-1/4 -left-64 w-[500px] h-[500px] bg-[#FF6B00]/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-64 w-[500px] h-[500px] bg-[#FF6B00]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/4 -left-64 w-[500px] h-[500px] bg-[#FF6B00]/5 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-1/4 -right-64 w-[500px] h-[500px] bg-[#FF6B00]/5 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <div className="inline-flex items-center gap-2 bg-[#15191F] border border-[#2A3038] text-[#FF6B00] text-xs font-black uppercase tracking-wider px-4 py-1.5 rounded-full shadow-sm">
+          <div className="inline-flex items-center gap-2 bg-white border border-slate-200 text-[#FF6B00] text-xs font-black uppercase tracking-wider px-4 py-1.5 rounded-full shadow-xs">
             <Award className="w-4 h-4 text-[#FF6B00]" />
             <span>Oklahoma Wholesale Brand Directory</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#F7F7F5] tracking-tight">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
             Official Wholesale <span className="text-[#FF6B00]">Brands & Hardware</span>
           </h2>
 
-          <p className="text-[#B8BDC5] text-sm sm:text-base md:text-lg leading-relaxed">
+          <p className="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed">
             Direct warehouse distribution for Oklahoma’s highest-velocity smoke and vape brands.
             Explore authentic manufacturer product lines with guaranteed batch verification and direct OKC warehouse dispatch.
           </p>
@@ -283,8 +283,8 @@ export const BrandDirectoryShowcase: React.FC<BrandDirectoryShowcaseProps> = ({
                 onClick={() => setSelectedFilter(cat)}
                 className={`px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
                   selectedFilter === cat
-                    ? 'bg-[#FF6B00] text-white shadow-lg scale-105'
-                    : 'bg-[#15191F] hover:bg-[#1B2027] text-[#858C96] hover:text-[#F7F7F5] border border-[#2A3038]'
+                    ? 'bg-[#FF6B00] text-white shadow-md scale-105'
+                    : 'bg-white hover:bg-slate-50 text-slate-600 hover:text-slate-900 border border-slate-200'
                 }`}
               >
                 {cat}
@@ -298,48 +298,48 @@ export const BrandDirectoryShowcase: React.FC<BrandDirectoryShowcaseProps> = ({
           {filteredBrands.map((brand) => (
             <div
               key={brand.slug}
-              className="group bg-[#15191F] rounded-3xl border border-[#2A3038] hover:border-[#FF6B00]/70 transition-all duration-300 shadow-xl hover:shadow-2xl hover:bg-[#181D24] flex flex-col justify-between overflow-hidden"
+              className="group bg-white rounded-3xl border border-slate-200 hover:border-[#FF6B00]/70 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col justify-between overflow-hidden"
             >
               {/* Card Header with Badges */}
-              <div className="p-6 pb-4 border-b border-[#2A3038]/60 space-y-3">
+              <div className="p-6 pb-4 border-b border-slate-100 space-y-3">
                 <div className="flex items-center justify-between gap-2">
-                  <span className="text-[11px] font-bold text-[#858C96] bg-[#0B0D10] px-3 py-1 rounded-full border border-[#2A3038]">
+                  <span className="text-[11px] font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
                     {brand.category}
                   </span>
                   {brand.badge && (
-                    <span className="text-[10px] font-black text-[#FF6B00] bg-[#FF6B00]/10 border border-[#FF6B00]/30 px-2.5 py-0.5 rounded-full flex items-center gap-1">
+                    <span className="text-[10px] font-black text-[#FF6B00] bg-orange-50 border border-orange-200 px-2.5 py-0.5 rounded-full flex items-center gap-1">
                       {brand.badge}
                     </span>
                   )}
                 </div>
 
                 <div>
-                  <h3 className="text-2xl font-black text-[#F7F7F5] group-hover:text-[#FF6B00] transition-colors">
+                  <h3 className="text-2xl font-black text-slate-900 group-hover:text-[#FF6B00] transition-colors">
                     {brand.name}
                   </h3>
-                  <p className="text-xs text-[#858C96] mt-1 line-clamp-2">
+                  <p className="text-xs text-slate-500 mt-1 line-clamp-2">
                     {brand.tagline}
                   </p>
                 </div>
               </div>
 
               {/* Product Visual Showcase Renders */}
-              <div className="px-6 py-6 bg-gradient-to-b from-[#0B0D10]/60 to-[#15191F] flex items-center justify-center relative min-h-[220px]">
+              <div className="px-6 py-6 bg-slate-50/60 flex items-center justify-center relative min-h-[220px]">
                 {/* Visual Glow */}
-                <div className="absolute inset-0 bg-radial from-[#FF6B00]/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute inset-0 bg-radial from-[#FF6B00]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
 
                 <div className="flex items-center justify-center gap-3 z-10">
                   {brand.galleryImages.map((imgSrc, idx) => (
                     <div
                       key={idx}
-                      className={`relative rounded-2xl bg-[#0B0D10] border border-[#2A3038] p-3 shadow-md transition-transform duration-300 group-hover:scale-105 ${
+                      className={`relative rounded-2xl bg-white border border-slate-200 p-3 shadow-xs transition-transform duration-300 group-hover:scale-105 ${
                         idx === 0 ? 'w-36 h-36 sm:w-40 sm:h-40' : 'w-24 h-24 hidden sm:flex'
                       } flex items-center justify-center`}
                     >
                       <img
                         src={imgSrc}
                         alt={`${brand.name} product`}
-                        className="max-h-full max-w-full object-contain filter drop-shadow-lg"
+                        className="max-h-full max-w-full object-contain filter drop-shadow-sm"
                         loading="lazy"
                         onError={(e) => {
                           // Fallback to geekbar-15k if not found
@@ -355,7 +355,7 @@ export const BrandDirectoryShowcase: React.FC<BrandDirectoryShowcaseProps> = ({
               <div className="p-6 pt-4 space-y-4">
                 <div className="space-y-2">
                   <div className="flex items-center justify-between text-xs">
-                    <span className="text-[#858C96] font-bold uppercase tracking-wider text-[10px]">
+                    <span className="text-slate-500 font-bold uppercase tracking-wider text-[10px]">
                       Top Wholesale Models:
                     </span>
                     <span className="text-[#FF6B00] font-mono text-[11px] font-bold">
@@ -367,7 +367,7 @@ export const BrandDirectoryShowcase: React.FC<BrandDirectoryShowcaseProps> = ({
                     {brand.specs.topModels.map((model, idx) => (
                       <span
                         key={idx}
-                        className="bg-[#0B0D10] text-[#B8BDC5] border border-[#2A3038] text-[11px] font-semibold px-2.5 py-1 rounded-lg"
+                        className="bg-slate-100 text-slate-700 border border-slate-200 text-[11px] font-semibold px-2.5 py-1 rounded-lg"
                       >
                         {model}
                       </span>
@@ -376,7 +376,7 @@ export const BrandDirectoryShowcase: React.FC<BrandDirectoryShowcaseProps> = ({
                 </div>
 
                 {/* Key Advantages */}
-                <div className="pt-2 border-t border-[#2A3038]/60 grid grid-cols-2 gap-2 text-[11px] text-[#858C96]">
+                <div className="pt-2 border-t border-slate-100 grid grid-cols-2 gap-2 text-[11px] text-slate-500">
                   {brand.specs.highlights.slice(0, 2).map((h, idx) => (
                     <span key={idx} className="flex items-center gap-1.5 truncate">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#FF6B00] shrink-0" />
@@ -390,7 +390,7 @@ export const BrandDirectoryShowcase: React.FC<BrandDirectoryShowcaseProps> = ({
                   <button
                     type="button"
                     onClick={() => handleBrandSelect(brand.name)}
-                    className="w-full bg-[#1B2027] hover:bg-[#FF6B00] text-[#F7F7F5] hover:text-white border border-[#2A3038] hover:border-[#FF6B00] text-xs font-bold py-3 px-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-sm cursor-pointer group/btn"
+                    className="w-full bg-slate-100 hover:bg-[#FF6B00] text-slate-800 hover:text-white border border-slate-200 hover:border-[#FF6B00] text-xs font-bold py-3 px-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-xs cursor-pointer group/btn"
                   >
                     {isLoggedIn ? (
                       <>
@@ -413,26 +413,26 @@ export const BrandDirectoryShowcase: React.FC<BrandDirectoryShowcaseProps> = ({
         </div>
 
         {/* B2B Retailer Gateway Call-to-Action Card */}
-        <div className="bg-gradient-to-r from-[#15191F] via-[#1B2027] to-[#15191F] rounded-3xl p-8 sm:p-12 border-2 border-[#FF6B00]/40 shadow-2xl relative overflow-hidden">
-          <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-[#FF6B00]/15 rounded-full blur-3xl pointer-events-none" />
+        <div className="bg-gradient-to-r from-orange-50/90 via-white to-orange-50/50 rounded-3xl p-8 sm:p-12 border-2 border-orange-200 shadow-xl relative overflow-hidden text-slate-900">
+          <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-[#FF6B00]/10 rounded-full blur-3xl pointer-events-none" />
 
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
             <div className="lg:col-span-8 space-y-4">
-              <div className="inline-flex items-center gap-2 bg-[#FF6B00]/20 text-[#FF6B00] border border-[#FF6B00]/40 text-xs font-black uppercase tracking-wider px-3.5 py-1 rounded-full">
+              <div className="inline-flex items-center gap-2 bg-orange-100 text-[#FF6B00] border border-orange-200 text-xs font-black uppercase tracking-wider px-3.5 py-1 rounded-full">
                 <Lock className="w-3.5 h-3.5" />
                 <span>Verified Retailer Gateway</span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#F7F7F5]">
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900">
                 Access All <span className="text-[#FF6B00]">900+ Products</span> Imported from Zoho with Live Tier Pricing
               </h3>
 
-              <p className="text-[#B8BDC5] text-sm sm:text-base leading-relaxed max-w-2xl">
+              <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl">
                 Wholesale of Oklahoma operates a closed wholesale distribution network exclusively for licensed dispensaries, vape stores, smoke shops, and retailers. 
                 Log in to your account to instantly browse full Zoho inventory stock levels, master case rates, and volume discounts.
               </p>
 
-              <div className="flex flex-wrap gap-4 pt-2 text-xs font-semibold text-[#858C96]">
+              <div className="flex flex-wrap gap-4 pt-2 text-xs font-semibold text-slate-600">
                 <span className="flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-[#FF6B00]" />
                   Oklahoma Licensed Wholesaler
@@ -452,7 +452,7 @@ export const BrandDirectoryShowcase: React.FC<BrandDirectoryShowcaseProps> = ({
               {isLoggedIn ? (
                 <a
                   href="#inventory"
-                  className="w-full bg-[#FF6B00] hover:bg-[#E85F00] text-white text-sm font-extrabold py-4 px-6 rounded-2xl transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 text-center uppercase tracking-wider flex items-center justify-center gap-2"
+                  className="w-full bg-[#FF6B00] hover:bg-[#E85F00] text-white text-sm font-extrabold py-4 px-6 rounded-2xl transition-all shadow-md hover:shadow-lg hover:scale-105 active:scale-95 text-center uppercase tracking-wider flex items-center justify-center gap-2"
                 >
                   <Package className="w-5 h-5" />
                   <span>Browse 900+ Inventory Items</span>
@@ -462,7 +462,7 @@ export const BrandDirectoryShowcase: React.FC<BrandDirectoryShowcaseProps> = ({
                   <button
                     type="button"
                     onClick={onOpenLogin}
-                    className="w-full bg-[#FF6B00] hover:bg-[#E85F00] text-white text-sm font-extrabold py-4 px-6 rounded-2xl transition-all shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 text-center uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full bg-[#FF6B00] hover:bg-[#E85F00] text-white text-sm font-extrabold py-4 px-6 rounded-2xl transition-all shadow-md hover:shadow-lg hover:scale-105 active:scale-95 text-center uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Lock className="w-5 h-5" />
                     <span>Customer Login</span>
@@ -471,7 +471,7 @@ export const BrandDirectoryShowcase: React.FC<BrandDirectoryShowcaseProps> = ({
                   <button
                     type="button"
                     onClick={onOpenApplication}
-                    className="w-full bg-[#0B0D10] hover:bg-[#1B2027] text-[#F7F7F5] border border-[#2A3038] hover:border-[#FF6B00] text-sm font-bold py-3.5 px-6 rounded-2xl transition-all text-center flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 hover:border-[#FF6B00] text-sm font-bold py-3.5 px-6 rounded-2xl transition-all text-center flex items-center justify-center gap-2 cursor-pointer shadow-xs"
                   >
                     <UserCheck className="w-4 h-4 text-[#FF6B00]" />
                     <span>Apply for Wholesale Account</span>
@@ -479,7 +479,7 @@ export const BrandDirectoryShowcase: React.FC<BrandDirectoryShowcaseProps> = ({
 
                   <a
                     href="tel:4057682975"
-                    className="text-center text-xs text-[#858C96] hover:text-[#FF6B00] transition-colors flex items-center justify-center gap-1.5 pt-1"
+                    className="text-center text-xs text-slate-500 hover:text-[#FF6B00] transition-colors flex items-center justify-center gap-1.5 pt-1"
                   >
                     <Phone className="w-3.5 h-3.5 text-[#FF6B00]" />
                     <span>Need immediate onboarding? (405) 768-2975</span>

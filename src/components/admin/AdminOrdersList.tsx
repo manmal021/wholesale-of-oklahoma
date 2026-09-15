@@ -64,42 +64,42 @@ export default function AdminOrdersList() {
   const outDeliveryCount = orders.filter((o) => o.status === 'OUT_FOR_DELIVERY').length;
 
   return (
-    <div className="min-h-screen bg-[#0B0D10] text-[#F7F7F5]">
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-900">
       {/* Top Admin Bar */}
-      <header className="bg-[#15191F] border-b border-[#2A3038] px-4 sm:px-8 py-4 sticky top-0 z-30 shadow-md">
+      <header className="bg-white border-b border-slate-200 px-4 sm:px-8 py-4 sticky top-0 z-30 shadow-xs">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
             <a
               href="/admin"
-              className="p-2 rounded-xl bg-[#1B2027] hover:bg-[#2A3038] text-[#B8BDC5] hover:text-[#F7F7F5] border border-[#2A3038] transition-colors"
+              className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 border border-slate-200 transition-colors cursor-pointer"
               title="Back to Admin Dashboard"
             >
               <ArrowLeft className="w-4 h-4" />
             </a>
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="font-extrabold text-base sm:text-lg tracking-tight text-[#F7F7F5]">
+                <h1 className="font-extrabold text-base sm:text-lg tracking-tight text-slate-900">
                   Wholesale Order Fulfillment
                 </h1>
-                <span className="bg-[#FF6B00]/20 text-[#FF6B00] border border-[#FF6B00]/30 text-[10px] font-black px-2 py-0.5 rounded-full uppercase">
+                <span className="bg-orange-50 text-[#FF6B00] border border-orange-200 text-[10px] font-black px-2 py-0.5 rounded-full uppercase">
                   Admin Dispatch Portal
                 </span>
               </div>
-              <p className="text-xs text-[#858C96]">Warehouse order preparation, physical checks & dispatch</p>
+              <p className="text-xs text-slate-500">Warehouse order preparation, physical checks & dispatch</p>
             </div>
           </div>
 
           <div className="flex items-center gap-2.5">
             <a
               href="/admin/inventory-mismatches"
-              className="px-3.5 py-2 rounded-xl bg-[#1B2027] hover:bg-[#2A3038] text-[#B8BDC5] hover:text-[#F7F7F5] font-bold text-xs border border-[#2A3038] transition-colors flex items-center gap-1.5"
+              className="px-3.5 py-2 rounded-xl bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 font-bold text-xs border border-slate-300 transition-colors flex items-center gap-1.5 shadow-xs"
             >
-              <AlertTriangle className="w-3.5 h-3.5 text-amber-400" />
+              <AlertTriangle className="w-3.5 h-3.5 text-amber-600" />
               <span>Inventory Mismatches</span>
             </a>
             <button
               onClick={loadOrders}
-              className="p-2 rounded-xl bg-[#1B2027] hover:bg-[#2A3038] text-[#B8BDC5] hover:text-[#F7F7F5] border border-[#2A3038] transition-colors cursor-pointer"
+              className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 border border-slate-200 transition-colors cursor-pointer"
               title="Refresh Queue"
             >
               <RefreshCw className="w-4 h-4" />
@@ -114,75 +114,75 @@ export default function AdminOrdersList() {
         <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
           <div
             onClick={() => { setFulfillmentFilter('ALL'); setStatusFilter('ALL'); }}
-            className="bg-[#15191F] p-4 rounded-2xl border border-[#2A3038] hover:border-[#FF6B00] transition-colors cursor-pointer"
+            className="bg-white p-4 rounded-2xl border border-slate-200 hover:border-[#FF6B00] transition-colors cursor-pointer shadow-xs"
           >
-            <span className="text-[10px] font-bold text-[#858C96] uppercase tracking-wider block">Total Orders</span>
-            <span className="text-xl font-black text-[#F7F7F5] font-mono mt-1 block">{orders.length}</span>
+            <span className="text-[10px] font-bold text-slate-500 uppercase tracking-wider block">Total Orders</span>
+            <span className="text-xl font-black text-slate-900 font-mono mt-1 block">{orders.length}</span>
           </div>
 
           <div
             onClick={() => { setFulfillmentFilter('PICKUP'); }}
-            className={`p-4 rounded-2xl border transition-colors cursor-pointer ${
-              fulfillmentFilter === 'PICKUP' ? 'bg-amber-500/10 border-amber-500/50' : 'bg-[#15191F] border-[#2A3038]'
+            className={`p-4 rounded-2xl border transition-colors cursor-pointer shadow-xs ${
+              fulfillmentFilter === 'PICKUP' ? 'bg-amber-50 border-amber-400' : 'bg-white border-slate-200'
             }`}
           >
-            <span className="text-[10px] font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1">
+            <span className="text-[10px] font-bold text-amber-700 uppercase tracking-wider flex items-center gap-1">
               <MapPin className="w-3 h-3" /> Pickup Orders
             </span>
-            <span className="text-xl font-black text-[#F7F7F5] font-mono mt-1 block">{pickupCount}</span>
+            <span className="text-xl font-black text-slate-900 font-mono mt-1 block">{pickupCount}</span>
           </div>
 
           <div
             onClick={() => { setFulfillmentFilter('DELIVERY'); }}
-            className={`p-4 rounded-2xl border transition-colors cursor-pointer ${
-              fulfillmentFilter === 'DELIVERY' ? 'bg-sky-500/10 border-sky-500/50' : 'bg-[#15191F] border-[#2A3038]'
+            className={`p-4 rounded-2xl border transition-colors cursor-pointer shadow-xs ${
+              fulfillmentFilter === 'DELIVERY' ? 'bg-sky-50 border-sky-400' : 'bg-white border-slate-200'
             }`}
           >
-            <span className="text-[10px] font-bold text-sky-400 uppercase tracking-wider flex items-center gap-1">
+            <span className="text-[10px] font-bold text-sky-700 uppercase tracking-wider flex items-center gap-1">
               <Truck className="w-3 h-3" /> Delivery Orders
             </span>
-            <span className="text-xl font-black text-[#F7F7F5] font-mono mt-1 block">{deliveryCount}</span>
+            <span className="text-xl font-black text-slate-900 font-mono mt-1 block">{deliveryCount}</span>
           </div>
 
           <div
             onClick={() => { setStatusFilter('INVENTORY_ISSUE'); }}
-            className={`p-4 rounded-2xl border transition-colors cursor-pointer ${
-              statusFilter === 'INVENTORY_ISSUE' ? 'bg-amber-500/20 border-amber-500' : 'bg-[#15191F] border-[#2A3038]'
+            className={`p-4 rounded-2xl border transition-colors cursor-pointer shadow-xs ${
+              statusFilter === 'INVENTORY_ISSUE' ? 'bg-amber-50 border-amber-500' : 'bg-white border-slate-200'
             }`}
           >
-            <span className="text-[10px] font-bold text-amber-400 uppercase tracking-wider flex items-center gap-1">
+            <span className="text-[10px] font-bold text-amber-700 uppercase tracking-wider flex items-center gap-1">
               <AlertTriangle className="w-3 h-3" /> Issues / Action Req.
             </span>
-            <span className="text-xl font-black text-amber-400 font-mono mt-1 block">{issueCount}</span>
+            <span className="text-xl font-black text-amber-700 font-mono mt-1 block">{issueCount}</span>
           </div>
 
           <div
             onClick={() => { setStatusFilter('READY_FOR_PICKUP'); }}
-            className={`p-4 rounded-2xl border transition-colors cursor-pointer ${
-              statusFilter === 'READY_FOR_PICKUP' ? 'bg-emerald-500/20 border-emerald-500' : 'bg-[#15191F] border-[#2A3038]'
+            className={`p-4 rounded-2xl border transition-colors cursor-pointer shadow-xs ${
+              statusFilter === 'READY_FOR_PICKUP' ? 'bg-emerald-50 border-emerald-500' : 'bg-white border-slate-200'
             }`}
           >
-            <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-1">
+            <span className="text-[10px] font-bold text-emerald-700 uppercase tracking-wider flex items-center gap-1">
               <CheckCircle2 className="w-3 h-3" /> Ready For Pickup
             </span>
-            <span className="text-xl font-black text-emerald-400 font-mono mt-1 block">{readyPickupCount}</span>
+            <span className="text-xl font-black text-emerald-700 font-mono mt-1 block">{readyPickupCount}</span>
           </div>
         </div>
 
         {/* Filter Controls & Search */}
-        <div className="bg-[#15191F] p-4 rounded-2xl border border-[#2A3038] space-y-3">
+        <div className="bg-white p-4 rounded-2xl border border-slate-200 space-y-3 shadow-xs">
           {/* Method Filters */}
           <div className="flex flex-wrap items-center justify-between gap-3">
             <div className="flex flex-wrap items-center gap-2">
-              <span className="text-xs font-bold text-[#858C96] uppercase tracking-wider mr-1">Method:</span>
+              <span className="text-xs font-bold text-slate-500 uppercase tracking-wider mr-1">Method:</span>
               {(['ALL', 'PICKUP', 'DELIVERY'] as const).map((m) => (
                 <button
                   key={m}
                   onClick={() => setFulfillmentFilter(m)}
                   className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                     fulfillmentFilter === m
-                      ? 'bg-[#FF6B00] text-white shadow-sm'
-                      : 'bg-[#1B2027] text-[#858C96] hover:text-[#F7F7F5] border border-[#2A3038]'
+                      ? 'bg-[#FF6B00] text-white shadow-xs'
+                      : 'bg-slate-100 text-slate-700 hover:text-slate-900 border border-slate-200'
                   }`}
                 >
                   {m === 'ALL' ? 'All Methods' : m}
@@ -193,18 +193,18 @@ export default function AdminOrdersList() {
             {/* Search Input */}
             <form onSubmit={handleSearchSubmit} className="flex items-center gap-2 w-full sm:w-auto">
               <div className="relative flex-1 sm:w-64">
-                <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-[#858C96]" />
+                <Search className="w-3.5 h-3.5 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
                 <input
                   type="text"
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
                   placeholder="Order #, name, phone, email..."
-                  className="w-full bg-[#0B0D10] border border-[#2A3038] rounded-xl pl-9 pr-3.5 py-1.5 text-xs text-[#F7F7F5] placeholder-[#858C96] focus:outline-none focus:border-[#FF6B00]"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl pl-9 pr-3.5 py-1.5 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white"
                 />
               </div>
               <button
                 type="submit"
-                className="px-3.5 py-1.5 bg-[#1B2027] hover:bg-[#2A3038] text-[#F7F7F5] text-xs font-bold rounded-xl border border-[#2A3038] transition-colors cursor-pointer"
+                className="px-3.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold rounded-xl border border-slate-200 transition-colors cursor-pointer"
               >
                 Search
               </button>
@@ -212,8 +212,8 @@ export default function AdminOrdersList() {
           </div>
 
           {/* Status Filter Chips */}
-          <div className="flex flex-wrap items-center gap-1.5 pt-2 border-t border-[#2A3038]/60">
-            <span className="text-xs font-bold text-[#858C96] uppercase tracking-wider mr-1">Status:</span>
+          <div className="flex flex-wrap items-center gap-1.5 pt-2 border-t border-slate-200">
+            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider mr-1">Status:</span>
             {[
               { id: 'ALL', label: 'All Statuses' },
               { id: 'ORDER_RECEIVED', label: 'Order Received' },
@@ -230,8 +230,8 @@ export default function AdminOrdersList() {
                 onClick={() => setStatusFilter(s.id)}
                 className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all cursor-pointer ${
                   statusFilter === s.id
-                    ? 'bg-[#F7F7F5] text-black shadow-xs'
-                    : 'bg-[#1B2027] text-[#858C96] hover:text-[#B8BDC5] border border-[#2A3038]'
+                    ? 'bg-slate-900 text-white shadow-xs'
+                    : 'bg-slate-100 text-slate-600 hover:text-slate-900 border border-slate-200'
                 }`}
               >
                 {s.label}
@@ -242,30 +242,30 @@ export default function AdminOrdersList() {
 
         {/* Error Alert */}
         {error && (
-          <div className="p-4 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-400 text-xs flex items-center gap-2">
+          <div className="p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-center gap-2">
             <AlertTriangle className="w-4 h-4 shrink-0" />
             <span>{error}</span>
           </div>
         )}
 
         {/* Orders Table */}
-        <div className="bg-[#15191F] rounded-2xl border border-[#2A3038] overflow-hidden shadow-xl">
+        <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm">
           {isLoading ? (
             <div className="py-16 text-center space-y-3">
               <Loader2 className="w-8 h-8 animate-spin text-[#FF6B00] mx-auto" />
-              <p className="text-xs text-[#858C96]">Loading orders queue...</p>
+              <p className="text-xs text-slate-500">Loading orders queue...</p>
             </div>
           ) : orders.length === 0 ? (
             <div className="py-16 text-center space-y-3">
-              <Package className="w-10 h-10 text-[#858C96] mx-auto" />
-              <h3 className="text-sm font-bold text-[#F7F7F5]">No Orders Found</h3>
-              <p className="text-xs text-[#858C96]">No matching orders found for the selected filters.</p>
+              <Package className="w-10 h-10 text-slate-400 mx-auto" />
+              <h3 className="text-sm font-bold text-slate-900">No Orders Found</h3>
+              <p className="text-xs text-slate-500">No matching orders found for the selected filters.</p>
             </div>
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse text-xs">
                 <thead>
-                  <tr className="border-b border-[#2A3038] bg-[#1B2027]/70 text-[#858C96] text-[10px] font-black uppercase tracking-wider">
+                  <tr className="border-b border-slate-200 bg-slate-50 text-slate-500 text-[10px] font-black uppercase tracking-wider">
                     <th className="py-3.5 px-4">Order #</th>
                     <th className="py-3.5 px-4">Customer / Entity</th>
                     <th className="py-3.5 px-4">Date</th>
@@ -277,15 +277,15 @@ export default function AdminOrdersList() {
                     <th className="py-3.5 px-4 text-right">Action</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#2A3038]">
+                <tbody className="divide-y divide-slate-200">
                   {orders.map((ord) => {
                     const hasIssue = ord.hasInventoryIssue || ord.status === 'INVENTORY_ISSUE' || ord.status === 'CUSTOMER_ACTION_REQUIRED';
 
                     return (
                       <tr
                         key={ord.id}
-                        className={`hover:bg-[#1B2027] transition-colors ${
-                          hasIssue ? 'bg-amber-500/[0.03]' : ''
+                        className={`hover:bg-slate-50 transition-colors ${
+                          hasIssue ? 'bg-amber-50/30' : ''
                         }`}
                       >
                         <td className="py-3.5 px-4">
@@ -298,20 +298,20 @@ export default function AdminOrdersList() {
                         </td>
 
                         <td className="py-3.5 px-4">
-                          <div className="font-bold text-[#F7F7F5] truncate max-w-[180px]">
+                          <div className="font-bold text-slate-900 truncate max-w-[180px]">
                             {ord.customerName}
                           </div>
                           {ord.businessName && (
-                            <div className="text-[11px] text-[#858C96] truncate max-w-[180px]">
+                            <div className="text-[11px] text-slate-500 truncate max-w-[180px]">
                               {ord.businessName}
                             </div>
                           )}
-                          <div className="text-[10px] text-[#858C96] font-mono">{ord.phone}</div>
+                          <div className="text-[10px] text-slate-400 font-mono">{ord.phone}</div>
                         </td>
 
-                        <td className="py-3.5 px-4 text-[#858C96] whitespace-nowrap">
+                        <td className="py-3.5 px-4 text-slate-500 whitespace-nowrap">
                           {new Date(ord.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
-                          <div className="text-[10px]">
+                          <div className="text-[10px] text-slate-400">
                             {new Date(ord.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                           </div>
                         </td>
@@ -320,8 +320,8 @@ export default function AdminOrdersList() {
                           <span
                             className={`inline-flex items-center gap-1 text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider ${
                               ord.fulfillmentMethod === 'PICKUP'
-                                ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
-                                : 'bg-sky-500/20 text-sky-300 border border-sky-500/30'
+                                ? 'bg-amber-50 text-amber-700 border border-amber-200'
+                                : 'bg-sky-50 text-sky-700 border border-sky-200'
                             }`}
                           >
                             {ord.fulfillmentMethod === 'PICKUP' ? (
@@ -333,7 +333,7 @@ export default function AdminOrdersList() {
                           </span>
                         </td>
 
-                        <td className="py-3.5 px-4 font-mono text-[#B8BDC5]">
+                        <td className="py-3.5 px-4 font-mono text-slate-700">
                           {ord.lineItems?.length || 0}
                         </td>
 
@@ -341,35 +341,35 @@ export default function AdminOrdersList() {
                           <span
                             className={`inline-flex items-center gap-1 text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider ${
                               ord.status === 'READY_FOR_PICKUP'
-                                ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
+                                ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                                 : ord.status === 'OUT_FOR_DELIVERY'
-                                ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
+                                ? 'bg-blue-50 text-blue-700 border border-blue-200'
                                 : ord.status === 'COMPLETED' || ord.status === 'DELIVERED' || ord.status === 'PICKED_UP'
-                                ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
+                                ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                                 : hasIssue
-                                ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40 animate-pulse'
+                                ? 'bg-amber-50 text-amber-800 border border-amber-300 animate-pulse'
                                 : ord.status === 'PROCESSING'
-                                ? 'bg-purple-500/20 text-purple-300 border border-purple-500/30'
-                                : 'bg-[#0B0D10] text-[#858C96] border border-[#2A3038]'
+                                ? 'bg-purple-50 text-purple-700 border border-purple-200'
+                                : 'bg-slate-100 text-slate-600 border border-slate-200'
                             }`}
                           >
-                            {hasIssue && <AlertTriangle className="w-3 h-3 text-amber-400" />}
+                            {hasIssue && <AlertTriangle className="w-3 h-3 text-amber-600" />}
                             {ord.status.replace(/_/g, ' ')}
                           </span>
                         </td>
 
-                        <td className="py-3.5 px-4 whitespace-nowrap font-semibold text-[#858C96] text-[11px]">
+                        <td className="py-3.5 px-4 whitespace-nowrap font-semibold text-slate-500 text-[11px]">
                           {ord.paymentStatus}
                         </td>
 
-                        <td className="py-3.5 px-4 text-right font-mono font-bold text-[#F7F7F5] whitespace-nowrap">
+                        <td className="py-3.5 px-4 text-right font-mono font-bold text-slate-900 whitespace-nowrap">
                           ${ord.total.toFixed(2)}
                         </td>
 
                         <td className="py-3.5 px-4 text-right whitespace-nowrap">
                           <a
                             href={`/admin/orders/${ord.id}`}
-                            className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#FF6B00] hover:bg-[#E85F00] text-white font-bold text-xs rounded-xl shadow-xs transition-colors"
+                            className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#FF6B00] hover:bg-[#E85F00] text-white font-bold text-xs rounded-xl shadow-xs transition-colors cursor-pointer"
                           >
                             <span>Prepare</span>
                             <ChevronRight className="w-3.5 h-3.5" />

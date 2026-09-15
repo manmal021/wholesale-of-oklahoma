@@ -307,21 +307,21 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
   }, [items]);
 
   return (
-    <section id="inventory" className="py-16 sm:py-24 bg-[#0B0D10] text-[#F7F7F5] relative overflow-hidden">
+    <section id="inventory" className="py-16 sm:py-24 bg-[#F8FAFC] text-slate-900 relative overflow-hidden border-t border-slate-200">
       {/* Decorative subtle background gradient glows */}
       <div className="absolute top-10 left-[-5%] w-[450px] h-[450px] rounded-full bg-[#FF6B00]/5 blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-10 right-[-5%] w-[500px] h-[500px] rounded-full bg-slate-800/10 blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-10 right-[-5%] w-[500px] h-[500px] rounded-full bg-slate-300/20 blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Breadcrumbs Navigation Hierarchy: Home > Inventory > Brands > [Brand] */}
-        <nav aria-label="Inventory Breadcrumbs" className="mb-6 flex items-center gap-2 text-xs text-[#858C96] flex-wrap">
+        <nav aria-label="Inventory Breadcrumbs" className="mb-6 flex items-center gap-2 text-xs text-slate-500 flex-wrap">
           <a
             href="#overview"
             className="hover:text-[#FF6B00] transition-colors flex items-center gap-1 font-medium"
           >
             <span>Home</span>
           </a>
-          <ChevronRight className="w-3.5 h-3.5 text-[#353C46]" />
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
           <button
             type="button"
             onClick={() => {
@@ -330,12 +330,12 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
               setCurrentPage(1);
             }}
             className={`hover:text-[#FF6B00] transition-colors cursor-pointer font-medium ${
-              selectedBrand === 'All' && selectedCategory === 'All' ? 'text-[#F7F7F5] font-bold' : ''
+              selectedBrand === 'All' && selectedCategory === 'All' ? 'text-slate-900 font-bold' : ''
             }`}
           >
             Inventory
           </button>
-          <ChevronRight className="w-3.5 h-3.5 text-[#353C46]" />
+          <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
           <button
             type="button"
             onClick={() => {
@@ -350,31 +350,31 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
           </button>
           {selectedBrand !== 'All' && (
             <>
-              <ChevronRight className="w-3.5 h-3.5 text-[#353C46]" />
-              <span className="inline-flex items-center gap-1.5 bg-[#FF6B00]/15 text-[#FF6B00] px-2.5 py-0.5 rounded-md font-bold text-xs border border-[#FF6B00]/30">
+              <ChevronRight className="w-3.5 h-3.5 text-slate-400" />
+              <span className="inline-flex items-center gap-1.5 bg-orange-50 text-[#FF6B00] px-2.5 py-0.5 rounded-md font-bold text-xs border border-orange-200">
                 {selectedBrand}
               </span>
             </>
           )}
         </nav>
         {/* Header Block */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#2A3038]">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-slate-200">
           <div className="space-y-3">
             <div className="flex items-center gap-2 flex-wrap">
-              <span className="inline-flex items-center gap-1.5 bg-[#FF6B00]/10 text-[#FF6B00] border border-[#FF6B00]/30 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider">
+              <span className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-black px-3 py-1 rounded-full uppercase tracking-wider">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
                 Live Wholesale Catalog
               </span>
-              <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#B8BDC5] bg-[#15191F] px-3 py-1 rounded-full border border-[#2A3038]">
+              <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-slate-600 bg-white px-3 py-1 rounded-full border border-slate-200 shadow-xs">
                 <Package className="w-3.5 h-3.5 text-[#FF6B00]" />
                 OKC Central Warehouse · Updated {lastUpdatedTime}
               </span>
             </div>
 
-            <h2 className="heading-1 font-black tracking-tight text-[#F7F7F5]">
+            <h2 className="heading-1 font-black tracking-tight text-slate-900">
               Wholesale Inventory
             </h2>
-            <p className="text-[#B8BDC5] text-sm sm:text-base max-w-2xl leading-relaxed">
+            <p className="text-slate-600 text-sm sm:text-base max-w-2xl leading-relaxed">
               Browse current available inventory. Real-time stock levels, wholesale tiered pricing, and direct dispensary case distribution from our central Oklahoma City warehouse.
             </p>
           </div>
@@ -404,20 +404,20 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
           <div className="flex items-center gap-3 max-w-3xl">
             <div className="relative flex-1">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <Search className="h-5 w-5 text-[#858C96]" />
+                <Search className="h-5 w-5 text-slate-400" />
               </div>
               <input
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search products, SKU, or brand..."
-                className="w-full bg-[#15191F] pl-11 pr-10 py-3.5 rounded-xl border border-[#2A3038] text-sm sm:text-base text-[#F7F7F5] placeholder-[#858C96] focus:outline-none focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 transition-all"
+                className="w-full bg-white pl-11 pr-10 py-3.5 rounded-xl border border-slate-300 text-sm sm:text-base text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:ring-2 focus:ring-[#FF6B00]/20 shadow-xs transition-all"
               />
               {searchQuery && (
                 <button
                   type="button"
                   onClick={() => setSearchQuery('')}
-                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-[#858C96] hover:text-[#F7F7F5] cursor-pointer"
+                  className="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-700 cursor-pointer"
                 >
                   <X className="w-4 h-4" />
                 </button>
@@ -430,7 +430,7 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
               onClick={() => loadInventory(false)}
               disabled={isRefreshing || loading}
               title="Refresh live warehouse inventory"
-              className="h-12 px-4 rounded-xl bg-[#15191F] hover:bg-[#1B2027] border border-[#2A3038] text-[#F7F7F5] text-xs font-bold flex items-center gap-2 transition-colors cursor-pointer disabled:opacity-50 shrink-0"
+              className="h-12 px-4 rounded-xl bg-white hover:bg-slate-50 border border-slate-300 text-slate-800 text-xs font-bold flex items-center gap-2 transition-colors cursor-pointer disabled:opacity-50 shrink-0 shadow-xs"
             >
               <RefreshCw className={`w-4 h-4 text-[#FF6B00] ${isRefreshing || loading ? 'animate-spin' : ''}`} />
               <span className="hidden sm:inline">Refresh</span>
@@ -448,7 +448,7 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
               className={`px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 cursor-pointer shrink-0 ${
                 selectedCategory === 'All'
                   ? 'bg-[#FF6B00] text-white shadow-md'
-                  : 'bg-[#15191F] hover:bg-[#1B2027] text-[#B8BDC5] hover:text-[#F7F7F5] border border-[#2A3038] hover:border-[#353C46]'
+                  : 'bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 border border-slate-200 shadow-xs'
               }`}
             >
               <span>📦</span>
@@ -473,7 +473,7 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
                   className={`px-4 py-2 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 cursor-pointer shrink-0 ${
                     active
                       ? 'bg-[#FF6B00] text-white shadow-md'
-                      : 'bg-[#15191F] hover:bg-[#1B2027] text-[#B8BDC5] hover:text-[#F7F7F5] border border-[#2A3038] hover:border-[#353C46]'
+                      : 'bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 border border-slate-200 shadow-xs'
                   }`}
                 >
                   <span>{icon}</span>
@@ -485,7 +485,7 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
 
           {/* Shop by Brand Pills Toolbar */}
           <div className="space-y-2 pt-1">
-            <div className="flex items-center justify-between text-xs font-bold text-[#858C96]">
+            <div className="flex items-center justify-between text-xs font-bold text-slate-500">
               <span className="uppercase tracking-wider flex items-center gap-1.5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]" />
                 Shop by Brand Directory
@@ -514,7 +514,7 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
                 className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 cursor-pointer shrink-0 ${
                   selectedBrand === 'All'
                     ? 'bg-[#FF6B00] text-white shadow-md'
-                    : 'bg-[#15191F] hover:bg-[#1B2027] text-[#B8BDC5] hover:text-[#F7F7F5] border border-[#2A3038] hover:border-[#353C46]'
+                    : 'bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 border border-slate-200 shadow-xs'
                 }`}
               >
                 <span>🏷️</span>
@@ -533,7 +533,7 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
                     className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all whitespace-nowrap flex items-center gap-1.5 cursor-pointer shrink-0 ${
                       active
                         ? 'bg-[#FF6B00] text-white shadow-md'
-                        : 'bg-[#15191F] hover:bg-[#1B2027] text-[#B8BDC5] hover:text-[#F7F7F5] border border-[#2A3038] hover:border-[#353C46]'
+                        : 'bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 border border-slate-200 shadow-xs'
                     }`}
                   >
                     <span>{brand}</span>
@@ -544,11 +544,11 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
           </div>
 
           {/* Advanced Filter Toolbar (Brand, Availability, Price Range, Product Type, Sorting) */}
-          <div className="bg-[#15191F] p-4 rounded-2xl border border-[#2A3038] flex flex-wrap items-center justify-between gap-3 text-xs">
+          <div className="bg-white p-4 rounded-2xl border border-slate-200 shadow-xs flex flex-wrap items-center justify-between gap-3 text-xs">
             <div className="flex flex-wrap items-center gap-2.5">
               {/* Brand Filter */}
-              <div className="flex items-center gap-1.5 bg-[#1B2027] px-3 py-1.5 rounded-xl border border-[#2A3038]">
-                <span className="text-[#858C96] font-semibold">Brand:</span>
+              <div className="flex items-center gap-1.5 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200">
+                <span className="text-slate-500 font-semibold">Brand:</span>
                 <select
                   value={selectedBrand}
                   onChange={(e) => {
@@ -556,11 +556,11 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
                     setCurrentPage(1);
                   }}
                   aria-label="Filter by Brand"
-                  className="bg-transparent font-bold text-[#F7F7F5] border-0 outline-none cursor-pointer"
+                  className="bg-transparent font-bold text-slate-900 border-0 outline-none cursor-pointer"
                 >
-                  <option value="All" className="bg-[#1B2027] text-[#F7F7F5]">All Brands</option>
+                  <option value="All" className="bg-white text-slate-900">All Brands</option>
                   {brandsList.map((b) => (
-                    <option key={b} value={b} className="bg-[#1B2027] text-[#F7F7F5]">
+                    <option key={b} value={b} className="bg-white text-slate-900">
                       {b}
                     </option>
                   ))}
@@ -568,8 +568,8 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
               </div>
 
               {/* Availability Filter */}
-              <div className="flex items-center gap-1.5 bg-[#1B2027] px-3 py-1.5 rounded-xl border border-[#2A3038]">
-                <span className="text-[#858C96] font-semibold">Availability:</span>
+              <div className="flex items-center gap-1.5 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200">
+                <span className="text-slate-500 font-semibold">Availability:</span>
                 <select
                   value={selectedAvailability}
                   onChange={(e) => {
@@ -577,18 +577,18 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
                     setCurrentPage(1);
                   }}
                   aria-label="Filter by Availability"
-                  className="bg-transparent font-bold text-[#F7F7F5] border-0 outline-none cursor-pointer"
+                  className="bg-transparent font-bold text-slate-900 border-0 outline-none cursor-pointer"
                 >
-                  <option value="all" className="bg-[#1B2027] text-[#F7F7F5]">All Availability</option>
-                  <option value="in_stock" className="bg-[#1B2027] text-[#F7F7F5]">🟢 In Stock</option>
-                  <option value="low_stock" className="bg-[#1B2027] text-[#F7F7F5]">🟡 Low Stock</option>
-                  <option value="out_of_stock" className="bg-[#1B2027] text-[#F7F7F5]">🔴 Out of Stock</option>
+                  <option value="all" className="bg-white text-slate-900">All Availability</option>
+                  <option value="in_stock" className="bg-white text-slate-900">🟢 In Stock</option>
+                  <option value="low_stock" className="bg-white text-slate-900">🟡 Low Stock</option>
+                  <option value="out_of_stock" className="bg-white text-slate-900">🔴 Out of Stock</option>
                 </select>
               </div>
 
               {/* Price Range */}
-              <div className="flex items-center gap-1.5 bg-[#1B2027] px-3 py-1.5 rounded-xl border border-[#2A3038]">
-                <span className="text-[#858C96] font-semibold">Price:</span>
+              <div className="flex items-center gap-1.5 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200">
+                <span className="text-slate-500 font-semibold">Price:</span>
                 <select
                   value={selectedPriceRange}
                   onChange={(e) => {
@@ -596,20 +596,20 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
                     setCurrentPage(1);
                   }}
                   aria-label="Filter by Price Range"
-                  className="bg-transparent font-bold text-[#F7F7F5] border-0 outline-none cursor-pointer"
+                  className="bg-transparent font-bold text-slate-900 border-0 outline-none cursor-pointer"
                 >
-                  <option value="all" className="bg-[#1B2027] text-[#F7F7F5]">All Prices</option>
-                  <option value="under-15" className="bg-[#1B2027] text-[#F7F7F5]">Under $15</option>
-                  <option value="15-30" className="bg-[#1B2027] text-[#F7F7F5]">$15 - $30</option>
-                  <option value="30-60" className="bg-[#1B2027] text-[#F7F7F5]">$30 - $60</option>
-                  <option value="60-plus" className="bg-[#1B2027] text-[#F7F7F5]">$60+</option>
+                  <option value="all" className="bg-white text-slate-900">All Prices</option>
+                  <option value="under-15" className="bg-white text-slate-900">Under $15</option>
+                  <option value="15-30" className="bg-white text-slate-900">$15 - $30</option>
+                  <option value="30-60" className="bg-white text-slate-900">$30 - $60</option>
+                  <option value="60-plus" className="bg-white text-slate-900">$60+</option>
                 </select>
               </div>
 
               {/* Product Type */}
               {productTypesList.length > 0 && (
-                <div className="flex items-center gap-1.5 bg-[#1B2027] px-3 py-1.5 rounded-xl border border-[#2A3038]">
-                  <span className="text-[#858C96] font-semibold">Type:</span>
+                <div className="flex items-center gap-1.5 bg-slate-50 px-3 py-1.5 rounded-xl border border-slate-200">
+                  <span className="text-slate-500 font-semibold">Type:</span>
                   <select
                     value={selectedProductType}
                     onChange={(e) => {
@@ -617,11 +617,11 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
                       setCurrentPage(1);
                     }}
                     aria-label="Filter by Product Type"
-                    className="bg-transparent font-bold text-[#F7F7F5] border-0 outline-none cursor-pointer"
+                    className="bg-transparent font-bold text-slate-900 border-0 outline-none cursor-pointer"
                   >
-                    <option value="All" className="bg-[#1B2027] text-[#F7F7F5]">All Types</option>
+                    <option value="All" className="bg-white text-slate-900">All Types</option>
                     {productTypesList.map((pt) => (
-                      <option key={pt} value={pt} className="bg-[#1B2027] text-[#F7F7F5]">
+                      <option key={pt} value={pt} className="bg-white text-slate-900">
                         {pt}
                       </option>
                     ))}
@@ -634,7 +634,7 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
                 <button
                   type="button"
                   onClick={handleResetFilters}
-                  className="px-3 py-1.5 rounded-xl bg-rose-950/60 hover:bg-rose-900/60 text-rose-300 font-bold text-xs flex items-center gap-1 transition-colors cursor-pointer border border-rose-800/60"
+                  className="px-3 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs flex items-center gap-1 transition-colors cursor-pointer border border-rose-200"
                 >
                   <X className="w-3.5 h-3.5" />
                   Clear Filters
@@ -644,7 +644,7 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
 
             {/* Sort Selector */}
             <div className="flex items-center gap-2 ml-auto">
-              <span className="text-[#858C96] font-semibold flex items-center gap-1">
+              <span className="text-slate-500 font-semibold flex items-center gap-1">
                 <ArrowUpDown className="w-3.5 h-3.5 text-[#FF6B00]" />
                 Sort:
               </span>
@@ -652,24 +652,24 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value as any)}
                 aria-label="Sort Inventory"
-                className="bg-[#1B2027] font-bold text-[#F7F7F5] border border-[#2A3038] rounded-xl px-3 py-1.5 outline-none cursor-pointer"
+                className="bg-slate-50 font-bold text-slate-900 border border-slate-300 rounded-xl px-3 py-1.5 outline-none cursor-pointer"
               >
-                <option value="newest" className="bg-[#1B2027] text-[#F7F7F5]">Newest Restocks</option>
-                <option value="name_asc" className="bg-[#1B2027] text-[#F7F7F5]">Product Name (A - Z)</option>
-                <option value="name_desc" className="bg-[#1B2027] text-[#F7F7F5]">Product Name (Z - A)</option>
-                <option value="price_asc" className="bg-[#1B2027] text-[#F7F7F5]">Price: Low to High</option>
-                <option value="price_desc" className="bg-[#1B2027] text-[#F7F7F5]">Price: High to Low</option>
-                <option value="availability" className="bg-[#1B2027] text-[#F7F7F5]">Availability (In Stock First)</option>
+                <option value="newest" className="bg-white text-slate-900">Newest Restocks</option>
+                <option value="name_asc" className="bg-white text-slate-900">Product Name (A - Z)</option>
+                <option value="name_desc" className="bg-white text-slate-900">Product Name (Z - A)</option>
+                <option value="price_asc" className="bg-white text-slate-900">Price: Low to High</option>
+                <option value="price_desc" className="bg-white text-slate-900">Price: High to Low</option>
+                <option value="availability" className="bg-white text-slate-900">Availability (In Stock First)</option>
               </select>
             </div>
           </div>
         </div>
 
         {/* Total Results Count & Page Summary */}
-        <div className="mt-6 flex items-center justify-between text-xs text-[#858C96] px-1">
+        <div className="mt-6 flex items-center justify-between text-xs text-slate-500 px-1">
           <span>
-            Showing <strong className="text-[#F7F7F5]">{items.length}</strong> of{' '}
-            <strong className="text-[#F7F7F5]">{totalItems}</strong> verified products
+            Showing <strong className="text-slate-900">{items.length}</strong> of{' '}
+            <strong className="text-slate-900">{totalItems}</strong> verified products
           </span>
 
           <div className="flex items-center gap-2">
@@ -684,8 +684,8 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
                 }}
                 className={`px-2.5 py-0.5 rounded-lg font-bold transition-colors cursor-pointer ${
                   pageSize === size
-                    ? 'bg-[#FF6B00] text-white'
-                    : 'bg-[#15191F] hover:bg-[#1B2027] text-[#B8BDC5] border border-[#2A3038]'
+                    ? 'bg-[#FF6B00] text-white shadow-xs'
+                    : 'bg-white hover:bg-slate-50 text-slate-700 border border-slate-200 shadow-xs'
                 }`}
               >
                 {size}
@@ -700,24 +700,24 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
             {Array.from({ length: 8 }).map((_, i) => (
               <div
                 key={i}
-                className="bg-[#15191F] rounded-2xl p-4 border border-[#2A3038] animate-pulse space-y-4"
+                className="bg-white rounded-2xl p-4 border border-slate-200 animate-pulse space-y-4 shadow-xs"
               >
-                <div className="aspect-[4/3] bg-[#1B2027] rounded-xl" />
-                <div className="h-4 bg-[#1B2027] rounded w-1/3" />
-                <div className="h-6 bg-[#1B2027] rounded w-3/4" />
-                <div className="h-4 bg-[#1B2027] rounded w-1/2" />
-                <div className="h-10 bg-[#1B2027] rounded-xl" />
+                <div className="aspect-[4/3] bg-slate-100 rounded-xl" />
+                <div className="h-4 bg-slate-100 rounded w-1/3" />
+                <div className="h-6 bg-slate-100 rounded w-3/4" />
+                <div className="h-4 bg-slate-100 rounded w-1/2" />
+                <div className="h-10 bg-slate-100 rounded-xl" />
               </div>
             ))}
           </div>
         ) : items.length === 0 ? (
           /* Empty State */
-          <div className="mt-12 bg-[#15191F] rounded-2xl p-12 text-center border border-[#2A3038] max-w-lg mx-auto space-y-4">
-            <div className="w-16 h-16 rounded-full bg-[#1B2027] flex items-center justify-center mx-auto text-[#858C96]">
+          <div className="mt-12 bg-white rounded-2xl p-12 text-center border border-slate-200 max-w-lg mx-auto space-y-4 shadow-xs">
+            <div className="w-16 h-16 rounded-full bg-slate-100 flex items-center justify-center mx-auto text-slate-400">
               <Boxes className="w-8 h-8" />
             </div>
-            <h3 className="text-xl font-bold text-[#F7F7F5]">No Products Found</h3>
-            <p className="text-[#858C96] text-xs sm:text-sm leading-relaxed">
+            <h3 className="text-xl font-bold text-slate-900">No Products Found</h3>
+            <p className="text-slate-600 text-xs sm:text-sm leading-relaxed">
               We couldn't find any inventory matching your current search or filter combination.
             </p>
             <button
@@ -735,24 +735,24 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
               <div
                 key={group.brand}
                 id={`brand-group-${group.brand.toLowerCase().replace(/[^a-z0-9]+/g, '-')}`}
-                className="bg-[#111419]/95 rounded-3xl p-6 sm:p-8 border border-[#2A3038] shadow-xl space-y-6"
+                className="bg-white rounded-3xl p-6 sm:p-8 border border-slate-200 shadow-sm space-y-6"
               >
                 {/* Brand Header */}
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-[#2A3038]">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-slate-100">
                   <div className="space-y-1">
                     <div className="flex items-center gap-2.5 flex-wrap">
-                      <span className="text-[10px] font-black uppercase tracking-widest text-[#FF6B00] bg-[#FF6B00]/10 px-2.5 py-0.5 rounded-full border border-[#FF6B00]/30">
+                      <span className="text-[10px] font-black uppercase tracking-widest text-[#FF6B00] bg-orange-50 px-2.5 py-0.5 rounded-full border border-orange-200">
                         Brand Directory
                       </span>
-                      <span className="text-xs font-semibold text-[#858C96] bg-[#1B2027] px-2.5 py-0.5 rounded-full border border-[#2A3038]">
+                      <span className="text-xs font-semibold text-slate-500 bg-slate-100 px-2.5 py-0.5 rounded-full border border-slate-200">
                         {group.items.length} {group.items.length === 1 ? 'Product' : 'Products'} in stock
                       </span>
                     </div>
-                    <h3 className="text-xl sm:text-2xl font-black text-[#F7F7F5] tracking-tight">
+                    <h3 className="text-xl sm:text-2xl font-black text-slate-900 tracking-tight">
                       {group.brand}
                     </h3>
-                    <p className="text-xs text-[#858C96]">
-                      Home <span className="text-[#353C46] font-bold">/</span> Inventory <span className="text-[#353C46] font-bold">/</span> Brands <span className="text-[#353C46] font-bold">/</span> <strong className="text-[#F7F7F5]">{group.brand} Products</strong>
+                    <p className="text-xs text-slate-500">
+                      Home <span className="text-slate-300 font-bold">/</span> Inventory <span className="text-slate-300 font-bold">/</span> Brands <span className="text-slate-300 font-bold">/</span> <strong className="text-slate-900">{group.brand} Products</strong>
                     </p>
                   </div>
 
@@ -764,7 +764,7 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
                       const el = document.getElementById('inventory');
                       if (el) el.scrollIntoView({ behavior: 'smooth' });
                     }}
-                    className="self-start sm:self-center text-xs font-bold text-[#FF6B00] hover:text-[#FFA04D] bg-[#1B2027] hover:bg-[#222832] border border-[#2A3038] hover:border-[#FF6B00]/40 px-4 py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 shrink-0 shadow-sm"
+                    className="self-start sm:self-center text-xs font-bold text-[#FF6B00] hover:text-[#E85F00] bg-orange-50/60 hover:bg-orange-100/70 border border-orange-200 px-4 py-2 rounded-xl transition-all cursor-pointer flex items-center gap-1.5 shrink-0 shadow-xs"
                   >
                     <span>View Only {group.brand} ({group.items.length})</span>
                     <ChevronRight className="w-3.5 h-3.5" />
@@ -790,9 +790,9 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
           /* Specific Brand View: Home > Inventory > Brands > [Selected Brand] */
           <div className="mt-8 space-y-6">
             {/* Active Brand Showcase Banner */}
-            <div className="bg-[#111419] rounded-3xl p-6 sm:p-8 border border-[#FF6B00]/30 shadow-xl flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div className="bg-white rounded-3xl p-6 sm:p-8 border border-orange-200 shadow-sm flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div>
-                <div className="flex items-center gap-2 text-xs text-[#858C96] mb-1 font-medium">
+                <div className="flex items-center gap-2 text-xs text-slate-500 mb-1 font-medium">
                   <span>Home</span>
                   <span>/</span>
                   <button
@@ -820,10 +820,10 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
                   <span>/</span>
                   <span className="text-[#FF6B00] font-bold">{selectedBrand}</span>
                 </div>
-                <h3 className="text-2xl sm:text-3xl font-black text-[#F7F7F5] tracking-tight">
+                <h3 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
                   {selectedBrand} Products
                 </h3>
-                <p className="text-xs sm:text-sm text-[#858C96] mt-1">
+                <p className="text-xs sm:text-sm text-slate-500 mt-1">
                   Showing {items.length} verified {selectedBrand} {items.length === 1 ? 'product' : 'products'} from our Oklahoma City wholesale warehouse.
                 </p>
               </div>
@@ -834,7 +834,7 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
                   setSelectedBrand('All');
                   setCurrentPage(1);
                 }}
-                className="self-start sm:self-center text-xs font-bold text-[#F7F7F5] bg-[#1B2027] hover:bg-[#222832] border border-[#2A3038] hover:border-[#FF6B00] px-4 py-2.5 rounded-xl transition-all cursor-pointer flex items-center gap-2 shrink-0"
+                className="self-start sm:self-center text-xs font-bold text-slate-800 bg-slate-50 hover:bg-slate-100 border border-slate-300 hover:border-[#FF6B00] px-4 py-2.5 rounded-xl transition-all cursor-pointer flex items-center gap-2 shrink-0 shadow-xs"
               >
                 <ChevronLeft className="w-4 h-4 text-[#FF6B00]" />
                 <span>← Back to All Brands</span>
@@ -863,10 +863,10 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
               type="button"
               onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
               disabled={currentPage === 1}
-              className="p-2.5 rounded-xl bg-[#15191F] border border-[#2A3038] hover:border-[#FF6B00] disabled:opacity-30 transition-colors cursor-pointer"
+              className="p-2.5 rounded-xl bg-white border border-slate-300 hover:border-[#FF6B00] disabled:opacity-30 transition-colors cursor-pointer shadow-xs"
               aria-label="Previous page"
             >
-              <ChevronLeft className="w-4 h-4 text-[#F7F7F5]" />
+              <ChevronLeft className="w-4 h-4 text-slate-700" />
             </button>
 
             {Array.from({ length: totalPages }, (_, i) => i + 1)
@@ -881,14 +881,14 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
                 const showEllipsis = prev && p - prev > 1;
                 return (
                   <React.Fragment key={p}>
-                    {showEllipsis && <span className="px-2 text-[#858C96]">...</span>}
+                    {showEllipsis && <span className="px-2 text-slate-400">...</span>}
                     <button
                       type="button"
                       onClick={() => setCurrentPage(p)}
                       className={`w-9 h-9 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                         currentPage === p
                           ? 'bg-[#FF6B00] text-white shadow-md'
-                          : 'bg-[#15191F] hover:bg-[#1B2027] text-[#B8BDC5] hover:text-[#F7F7F5] border border-[#2A3038]'
+                          : 'bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 border border-slate-300 shadow-xs'
                       }`}
                     >
                       {p}
@@ -901,10 +901,10 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
               type="button"
               onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
               disabled={currentPage === totalPages}
-              className="p-2.5 rounded-xl bg-[#15191F] border border-[#2A3038] hover:border-[#FF6B00] disabled:opacity-30 transition-colors cursor-pointer"
+              className="p-2.5 rounded-xl bg-white border border-slate-300 hover:border-[#FF6B00] disabled:opacity-30 transition-colors cursor-pointer shadow-xs"
               aria-label="Next page"
             >
-              <ChevronRight className="w-4 h-4 text-[#F7F7F5]" />
+              <ChevronRight className="w-4 h-4 text-slate-700" />
             </button>
           </div>
         )}
@@ -927,18 +927,18 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
 
       {/* Cart Toast Notification */}
       {cartToast && (
-        <div className="fixed top-24 right-4 sm:right-6 z-50 bg-[#0f172A] text-white px-4 py-3 rounded-2xl shadow-2xl border border-[#F97316]/30 flex items-center gap-3 animate-in slide-in-from-top-4 duration-300">
-          <div className="w-8 h-8 rounded-full bg-[#F97316]/20 flex items-center justify-center text-[#F97316] shrink-0 border border-[#F97316]/30">
+        <div className="fixed top-24 right-4 sm:right-6 z-50 bg-white text-slate-900 px-4 py-3 rounded-2xl shadow-2xl border border-slate-200 flex items-center gap-3 animate-in slide-in-from-top-4 duration-300">
+          <div className="w-8 h-8 rounded-full bg-orange-100 flex items-center justify-center text-[#FF6B00] shrink-0 border border-orange-200">
             <ShoppingBag className="w-4 h-4" />
           </div>
           <div>
-            <p className="text-xs font-bold text-white">{cartToast}</p>
+            <p className="text-xs font-bold text-slate-900">{cartToast}</p>
             <button
               onClick={() => {
                 setCartToast(null);
                 window.dispatchEvent(new CustomEvent('open-cart'));
               }}
-              className="text-[11px] text-[#F97316] hover:text-orange-400 hover:underline font-semibold flex items-center gap-1 cursor-pointer mt-0.5"
+              className="text-[11px] text-[#FF6B00] hover:text-[#E85F00] hover:underline font-semibold flex items-center gap-1 cursor-pointer mt-0.5"
             >
               <span>View Wholesale Cart →</span>
             </button>

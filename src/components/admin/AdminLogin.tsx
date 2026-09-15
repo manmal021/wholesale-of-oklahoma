@@ -67,41 +67,41 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0B0D10] flex flex-col justify-center py-12 sm:px-6 lg:px-8 text-[#F7F7F5]">
+    <div className="min-h-screen bg-[#F8FAFC] flex flex-col justify-center py-12 sm:px-6 lg:px-8 text-slate-900">
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center">
         <div className="w-14 h-14 rounded-2xl bg-[#FF6B00] flex items-center justify-center text-white mx-auto shadow-xl shadow-[#FF6B00]/20 mb-4">
           <ShieldAlert className="w-8 h-8" />
         </div>
-        <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-[#F7F7F5]">
+        <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900">
           Administrator Portal
         </h2>
-        <p className="mt-1.5 text-xs text-[#858C96]">
+        <p className="mt-1.5 text-xs text-slate-500">
           Wholesale of Oklahoma • Secure Dispatch & Application Management
         </p>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md px-4 sm:px-0">
-        <div className="bg-[#15191F] py-8 px-6 sm:px-10 border border-[#2A3038] rounded-3xl shadow-2xl space-y-6">
+        <div className="bg-white py-8 px-6 sm:px-10 border border-slate-200 rounded-3xl shadow-xl space-y-6">
           {showForgot ? (
             <div className="space-y-4">
-              <div className="flex items-center justify-between pb-3 border-b border-[#2A3038]">
-                <h3 className="text-sm font-bold uppercase tracking-wider text-[#F7F7F5]">Reset Admin Password</h3>
+              <div className="flex items-center justify-between pb-3 border-b border-slate-200">
+                <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900">Reset Admin Password</h3>
                 <button
                   type="button"
                   onClick={() => {
                     setShowForgot(false);
                     setForgotSent(false);
                   }}
-                  className="text-xs text-[#858C96] hover:text-[#F7F7F5] flex items-center gap-1 cursor-pointer"
+                  className="text-xs text-slate-500 hover:text-slate-900 flex items-center gap-1 cursor-pointer"
                 >
                   <ArrowLeft className="w-3.5 h-3.5" /> Back to Login
                 </button>
               </div>
 
               {forgotSent ? (
-                <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs space-y-2">
+                <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs space-y-2">
                   <div className="flex items-center gap-2 font-bold">
-                    <CheckCircle2 className="w-4 h-4" /> Link Dispatched
+                    <CheckCircle2 className="w-4 h-4 text-emerald-600" /> Link Dispatched
                   </div>
                   <p>
                     If an administrator account exists for <strong>{forgotEmail}</strong>, a secure password reset link has been dispatched to that address.
@@ -109,12 +109,12 @@ export default function AdminLogin() {
                 </div>
               ) : (
                 <form onSubmit={handleForgotPassword} className="space-y-4">
-                  <p className="text-xs text-[#B8BDC5] leading-relaxed">
+                  <p className="text-xs text-slate-600 leading-relaxed">
                     Enter the verified administrator email address. We will send you a single-use link to choose a new password.
                   </p>
 
                   <div>
-                    <label className="block text-xs font-bold uppercase tracking-wider text-[#858C96] mb-1.5">
+                    <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5">
                       Admin Email
                     </label>
                     <input
@@ -123,7 +123,7 @@ export default function AdminLogin() {
                       value={forgotEmail}
                       onChange={(e) => setForgotEmail(e.target.value)}
                       placeholder="order2wholesaleofoklahoma@gmail.com"
-                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00]"
+                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#FF6B00]"
                     />
                   </div>
 
@@ -140,14 +140,14 @@ export default function AdminLogin() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
               {errorMessage && (
-                <div className="p-3.5 rounded-xl bg-red-500/15 border border-red-500/30 text-red-400 text-xs flex items-center gap-2">
+                <div className="p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-center gap-2">
                   <ShieldAlert className="w-4 h-4 shrink-0" />
                   <span>{errorMessage}</span>
                 </div>
               )}
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-[#858C96] mb-1.5 flex items-center gap-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5 flex items-center gap-1.5">
                   <Mail className="w-3.5 h-3.5 text-[#FF6B00]" />
                   Administrator Email
                 </label>
@@ -157,13 +157,13 @@ export default function AdminLogin() {
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="order2wholesaleofoklahoma@gmail.com"
-                  className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#FF6B00] transition-colors"
                 />
               </div>
 
               <div>
                 <div className="flex items-center justify-between mb-1.5">
-                  <label className="block text-xs font-bold uppercase tracking-wider text-[#858C96] flex items-center gap-1.5">
+                  <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 flex items-center gap-1.5">
                     <Lock className="w-3.5 h-3.5 text-[#FF6B00]" />
                     Password
                   </label>
@@ -184,7 +184,7 @@ export default function AdminLogin() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••••••"
-                  className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#FF6B00] transition-colors"
                 />
               </div>
 
@@ -205,10 +205,10 @@ export default function AdminLogin() {
             </form>
           )}
 
-          <div className="pt-4 border-t border-[#2A3038] text-center">
+          <div className="pt-4 border-t border-slate-200 text-center">
             <a
               href="/"
-              className="text-xs text-[#858C96] hover:text-[#F7F7F5] transition-colors inline-flex items-center gap-1.5"
+              className="text-xs text-slate-500 hover:text-slate-900 transition-colors inline-flex items-center gap-1.5"
             >
               <ArrowLeft className="w-3 h-3" /> Return to Customer Storefront
             </a>

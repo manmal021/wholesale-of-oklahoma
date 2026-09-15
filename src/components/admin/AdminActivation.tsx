@@ -94,33 +94,33 @@ export default function AdminActivation() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0B0D10] flex flex-col justify-center py-12 sm:px-6 lg:px-8 text-[#F7F7F5]">
+    <div className="min-h-screen bg-[#F8FAFC] flex flex-col justify-center py-12 sm:px-6 lg:px-8 text-slate-900">
       <div className="sm:mx-auto sm:w-full sm:max-w-md text-center">
         <div className="w-14 h-14 rounded-2xl bg-[#FF6B00] flex items-center justify-center text-white mx-auto shadow-xl shadow-[#FF6B00]/20 mb-4">
           <ShieldCheck className="w-8 h-8" />
         </div>
-        <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-[#F7F7F5]">
+        <h2 className="text-2xl sm:text-3xl font-black tracking-tight text-slate-900">
           Administrator Setup
         </h2>
-        <p className="mt-1 text-xs text-[#858C96]">
+        <p className="mt-1 text-xs text-slate-500">
           Wholesale of Oklahoma • Initial Password Creation
         </p>
       </div>
 
       <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md px-4 sm:px-0">
-        <div className="bg-[#15191F] py-8 px-6 sm:px-10 border border-[#2A3038] rounded-3xl shadow-2xl space-y-6">
+        <div className="bg-white py-8 px-6 sm:px-10 border border-slate-200 rounded-3xl shadow-xl space-y-6">
           {isVerifying ? (
             <div className="py-12 text-center space-y-3">
               <Loader2 className="w-8 h-8 animate-spin text-[#FF6B00] mx-auto" />
-              <p className="text-xs text-[#858C96]">Verifying cryptographic activation token...</p>
+              <p className="text-xs text-slate-500">Verifying cryptographic activation token...</p>
             </div>
           ) : !isValidToken ? (
             <div className="text-center py-6 space-y-4">
-              <div className="w-12 h-12 rounded-full bg-red-500/15 text-red-400 flex items-center justify-center mx-auto border border-red-500/30">
+              <div className="w-12 h-12 rounded-full bg-rose-50 text-rose-600 flex items-center justify-center mx-auto border border-rose-200">
                 <AlertCircle className="w-6 h-6" />
               </div>
-              <h3 className="text-lg font-bold text-[#F7F7F5]">Invalid or Expired Link</h3>
-              <p className="text-xs text-[#B8BDC5] leading-relaxed max-w-sm mx-auto">
+              <h3 className="text-lg font-bold text-slate-900">Invalid or Expired Link</h3>
+              <p className="text-xs text-slate-600 leading-relaxed max-w-sm mx-auto">
                 {tokenError || 'This activation token is invalid or has expired. For security, single-use activation tokens expire in 24 hours.'}
               </p>
               <div className="pt-2">
@@ -134,31 +134,31 @@ export default function AdminActivation() {
             </div>
           ) : isSuccess ? (
             <div className="text-center py-8 space-y-4 animate-fadeIn">
-              <div className="w-14 h-14 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/40">
+              <div className="w-14 h-14 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto border border-emerald-200">
                 <CheckCircle2 className="w-8 h-8" />
               </div>
-              <h3 className="text-xl font-bold text-[#F7F7F5]">Password Created!</h3>
-              <p className="text-xs text-[#B8BDC5]">
+              <h3 className="text-xl font-bold text-slate-900">Password Created!</h3>
+              <p className="text-xs text-slate-600">
                 Your administrator credentials have been securely registered. Redirecting to the admin portal...
               </p>
               <Loader2 className="w-5 h-5 animate-spin text-[#FF6B00] mx-auto mt-2" />
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="space-y-5">
-              <div className="p-3.5 rounded-xl bg-[#1B2027] border border-[#2A3038] text-xs space-y-1">
-                <span className="text-[#858C96] block">Configuring Admin Access For:</span>
-                <span className="text-[#F7F7F5] font-mono font-bold block">{adminEmail}</span>
+              <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs space-y-1">
+                <span className="text-slate-500 block">Configuring Admin Access For:</span>
+                <span className="text-slate-900 font-mono font-bold block">{adminEmail}</span>
               </div>
 
               {formError && (
-                <div className="p-3.5 rounded-xl bg-red-500/15 border border-red-500/30 text-red-400 text-xs flex items-center gap-2">
+                <div className="p-3.5 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-center gap-2">
                   <AlertCircle className="w-4 h-4 shrink-0" />
                   <span>{formError}</span>
                 </div>
               )}
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-[#858C96] mb-1.5 flex items-center gap-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5 flex items-center gap-1.5">
                   <Lock className="w-3.5 h-3.5 text-[#FF6B00]" />
                   New Administrator Password
                 </label>
@@ -168,12 +168,12 @@ export default function AdminActivation() {
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   placeholder="Minimum 8 characters"
-                  className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#FF6B00] transition-colors"
                 />
               </div>
 
               <div>
-                <label className="block text-xs font-bold uppercase tracking-wider text-[#858C96] mb-1.5 flex items-center gap-1.5">
+                <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1.5 flex items-center gap-1.5">
                   <Lock className="w-3.5 h-3.5 text-[#FF6B00]" />
                   Confirm Password
                 </label>
@@ -183,11 +183,11 @@ export default function AdminActivation() {
                   value={confirmPassword}
                   onChange={(e) => setConfirmPassword(e.target.value)}
                   placeholder="Re-enter password"
-                  className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#FF6B00] transition-colors"
                 />
               </div>
 
-              <div className="text-[11px] text-[#858C96] leading-relaxed">
+              <div className="text-[11px] text-slate-500 leading-relaxed">
                 By setting this password, the single-use token will be permanently invalidated and your ADMIN role will be authorized.
               </div>
 

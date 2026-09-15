@@ -198,10 +198,10 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[#0B0D10] text-[#F7F7F5] flex items-center justify-center">
+      <div className="min-h-screen bg-[#F8FAFC] text-slate-900 flex items-center justify-center">
         <div className="text-center space-y-3">
           <Loader2 className="w-8 h-8 animate-spin text-[#FF6B00] mx-auto" />
-          <p className="text-xs text-[#858C96]">Loading order preparation workspace...</p>
+          <p className="text-xs text-slate-500">Loading order preparation workspace...</p>
         </div>
       </div>
     );
@@ -209,8 +209,8 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
 
   if (!order) {
     return (
-      <div className="min-h-screen bg-[#0B0D10] text-[#F7F7F5] p-8 text-center space-y-4">
-        <AlertTriangle className="w-10 h-10 text-rose-400 mx-auto" />
+      <div className="min-h-screen bg-[#F8FAFC] text-slate-900 p-8 text-center space-y-4">
+        <AlertTriangle className="w-10 h-10 text-rose-500 mx-auto" />
         <h2 className="text-base font-bold">Order Not Found</h2>
         <a href="/admin/orders" className="text-xs text-[#FF6B00] underline">
           Back to Orders Queue
@@ -224,28 +224,28 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
   );
 
   return (
-    <div className="min-h-screen bg-[#0B0D10] text-[#F7F7F5]">
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-900">
       {/* Top Header */}
-      <header className="bg-[#15191F] border-b border-[#2A3038] px-4 sm:px-8 py-4 sticky top-0 z-30 shadow-md">
+      <header className="bg-white border-b border-slate-200 px-4 sm:px-8 py-4 sticky top-0 z-30 shadow-xs">
         <div className="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <a
               href="/admin/orders"
-              className="p-2 rounded-xl bg-[#1B2027] hover:bg-[#2A3038] text-[#B8BDC5] hover:text-[#F7F7F5] border border-[#2A3038] transition-colors"
+              className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 border border-slate-200 transition-colors cursor-pointer"
               title="Back to Orders Queue"
             >
               <ArrowLeft className="w-4 h-4" />
             </a>
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="font-mono text-lg font-black text-[#F7F7F5]">
+                <h1 className="font-mono text-lg font-black text-slate-900">
                   Order #{order.orderNumber}
                 </h1>
                 <span
                   className={`text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider ${
                     order.fulfillmentMethod === 'PICKUP'
-                      ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
-                      : 'bg-sky-500/20 text-sky-300 border border-sky-500/30'
+                      ? 'bg-amber-50 text-amber-700 border border-amber-200'
+                      : 'bg-sky-50 text-sky-700 border border-sky-200'
                   }`}
                 >
                   {order.fulfillmentMethod}
@@ -253,16 +253,16 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
                 <span
                   className={`text-[10px] font-black px-2.5 py-0.5 rounded-full uppercase tracking-wider ${
                     order.hasInventoryIssue
-                      ? 'bg-amber-500/20 text-amber-300 border border-amber-500 animate-pulse'
+                      ? 'bg-amber-50 text-amber-800 border border-amber-300 animate-pulse'
                       : order.status === 'READY_FOR_PICKUP' || order.status === 'DELIVERED' || order.status === 'COMPLETED'
-                      ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
-                      : 'bg-[#0B0D10] text-[#B8BDC5] border border-[#2A3038]'
+                      ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                      : 'bg-slate-100 text-slate-600 border border-slate-200'
                   }`}
                 >
                   {order.status.replace(/_/g, ' ')}
                 </span>
               </div>
-              <p className="text-xs text-[#858C96]">
+              <p className="text-xs text-slate-500">
                 {order.customerName} {order.businessName ? `· ${order.businessName}` : ''} · Placed {new Date(order.createdAt).toLocaleString()}
               </p>
             </div>
@@ -271,7 +271,7 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
           <div className="flex items-center gap-2">
             <button
               onClick={loadOrder}
-              className="p-2 rounded-xl bg-[#1B2027] hover:bg-[#2A3038] text-[#B8BDC5] hover:text-[#F7F7F5] border border-[#2A3038] transition-colors cursor-pointer"
+              className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 border border-slate-200 transition-colors cursor-pointer"
               title="Refresh"
             >
               <RefreshCw className="w-4 h-4" />
@@ -298,13 +298,13 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
         )}
 
         {/* Workflow Action Bar */}
-        <div className="bg-[#15191F] rounded-2xl p-4 sm:p-5 border border-[#2A3038] space-y-3">
+        <div className="bg-white rounded-2xl p-4 sm:p-5 border border-slate-200 shadow-xs space-y-3">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-bold uppercase tracking-wider text-[#858C96]">
+            <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
               Order Lifecycle Controls
             </span>
             {hasUnresolvedIssues && (
-              <span className="text-[11px] font-bold text-amber-400 flex items-center gap-1">
+              <span className="text-[11px] font-bold text-amber-600 flex items-center gap-1">
                 <AlertTriangle className="w-3.5 h-3.5" />
                 Unresolved item shortages exist
               </span>
@@ -374,7 +374,7 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
                   updateAdminOrderStatus({ orderId, status: 'CANCELLED', notes: reason }).then((o) => setOrder(o));
                 }
               }}
-              className="px-4 py-2.5 bg-rose-900/40 hover:bg-rose-800 text-rose-300 font-bold text-xs rounded-xl border border-rose-700/50 transition-colors cursor-pointer disabled:opacity-40 ml-auto"
+              className="px-4 py-2.5 bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs rounded-xl border border-rose-200 transition-colors cursor-pointer disabled:opacity-40 ml-auto"
             >
               Cancel Order
             </button>
@@ -384,86 +384,86 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
         {/* Top Info Grid: Customer Info & Fulfillment Info */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           {/* Customer Card */}
-          <div className="bg-[#15191F] rounded-2xl p-5 border border-[#2A3038] space-y-2.5 text-xs">
-            <span className="text-[10px] font-bold text-[#858C96] uppercase tracking-wider block">Customer & Contact</span>
-            <div className="font-bold text-sm text-[#F7F7F5]">{order.customerName}</div>
-            {order.businessName && <div className="text-[#B8BDC5] font-semibold">{order.businessName}</div>}
-            <div className="text-[#858C96] flex items-center gap-1.5">
+          <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs space-y-2.5 text-xs">
+            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Customer & Contact</span>
+            <div className="font-bold text-sm text-slate-900">{order.customerName}</div>
+            {order.businessName && <div className="text-slate-700 font-semibold">{order.businessName}</div>}
+            <div className="text-slate-600 flex items-center gap-1.5">
               <Mail className="w-3 h-3 text-[#FF6B00]" />
               <span>{order.email}</span>
             </div>
-            <div className="text-[#858C96] flex items-center gap-1.5">
+            <div className="text-slate-600 flex items-center gap-1.5">
               <Phone className="w-3 h-3 text-[#FF6B00]" />
               <span>{order.phone}</span>
             </div>
           </div>
 
           {/* Fulfillment Details Card */}
-          <div className="bg-[#15191F] rounded-2xl p-5 border border-[#2A3038] space-y-2.5 text-xs">
-            <span className="text-[10px] font-bold text-[#858C96] uppercase tracking-wider block">
+          <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs space-y-2.5 text-xs">
+            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
               {order.fulfillmentMethod === 'PICKUP' ? 'Warehouse Pickup Station' : 'Commercial Delivery Address'}
             </span>
             {order.fulfillmentMethod === 'PICKUP' && order.pickupInfo && (
               <>
-                <div className="font-bold text-[#F7F7F5]">{order.pickupInfo.locationSnapshot.locationName}</div>
-                <div className="text-[#B8BDC5]">{order.pickupInfo.locationSnapshot.address.street}, {order.pickupInfo.locationSnapshot.address.city}, OK</div>
-                <div className="text-[11px] text-[#858C96]">Hours: {order.pickupInfo.locationSnapshot.hours}</div>
-                <div className="text-[11px] text-[#858C96]">Status: <strong className="text-[#F7F7F5]">{order.pickupInfo.pickupStatus}</strong></div>
+                <div className="font-bold text-slate-900">{order.pickupInfo.locationSnapshot.locationName}</div>
+                <div className="text-slate-700">{order.pickupInfo.locationSnapshot.address.street}, {order.pickupInfo.locationSnapshot.address.city}, OK</div>
+                <div className="text-[11px] text-slate-500">Hours: {order.pickupInfo.locationSnapshot.hours}</div>
+                <div className="text-[11px] text-slate-500">Status: <strong className="text-slate-900">{order.pickupInfo.pickupStatus}</strong></div>
               </>
             )}
 
             {order.fulfillmentMethod === 'DELIVERY' && order.deliveryInfo && (
               <>
-                <div className="font-bold text-[#F7F7F5]">{order.deliveryInfo.addressSnapshot.recipientName}</div>
-                <div className="text-[#B8BDC5]">
+                <div className="font-bold text-slate-900">{order.deliveryInfo.addressSnapshot.recipientName}</div>
+                <div className="text-slate-700">
                   {order.deliveryInfo.addressSnapshot.street} {order.deliveryInfo.addressSnapshot.unit || ''}, {order.deliveryInfo.addressSnapshot.city}, {order.deliveryInfo.addressSnapshot.state} {order.deliveryInfo.addressSnapshot.zip}
                 </div>
                 {order.deliveryInfo.addressSnapshot.deliveryInstructions && (
-                  <div className="text-[11px] text-[#858C96]">Note: {order.deliveryInfo.addressSnapshot.deliveryInstructions}</div>
+                  <div className="text-[11px] text-slate-500">Note: {order.deliveryInfo.addressSnapshot.deliveryInstructions}</div>
                 )}
-                <div className="text-[11px] text-[#858C96]">Status: <strong className="text-[#F7F7F5]">{order.deliveryInfo.deliveryStatus}</strong></div>
+                <div className="text-[11px] text-slate-500">Status: <strong className="text-slate-900">{order.deliveryInfo.deliveryStatus}</strong></div>
               </>
             )}
           </div>
 
           {/* Financial Summary */}
-          <div className="bg-[#15191F] rounded-2xl p-5 border border-[#2A3038] space-y-2 text-xs">
-            <span className="text-[10px] font-bold text-[#858C96] uppercase tracking-wider block">Invoice Summary</span>
-            <div className="flex justify-between text-[#858C96]">
+          <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs space-y-2 text-xs">
+            <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Invoice Summary</span>
+            <div className="flex justify-between text-slate-600">
               <span>Product Subtotal</span>
-              <span className="font-mono text-[#F7F7F5]">${order.subtotal.toFixed(2)}</span>
+              <span className="font-mono text-slate-900">${order.subtotal.toFixed(2)}</span>
             </div>
-            <div className="flex justify-between text-[#858C96]">
+            <div className="flex justify-between text-slate-600">
               <span>Delivery Fee</span>
-              <span className="font-mono text-[#F7F7F5]">${order.deliveryFee.toFixed(2)}</span>
+              <span className="font-mono text-slate-900">${order.deliveryFee.toFixed(2)}</span>
             </div>
-            <div className="flex justify-between text-[#858C96]">
+            <div className="flex justify-between text-slate-600">
               <span>Taxes</span>
-              <span className="font-mono text-[#F7F7F5]">${order.tax.toFixed(2)}</span>
+              <span className="font-mono text-slate-900">${order.tax.toFixed(2)}</span>
             </div>
-            <div className="flex justify-between pt-1 border-t border-[#2A3038] font-bold text-sm text-[#FF6B00]">
+            <div className="flex justify-between pt-1 border-t border-slate-200 font-bold text-sm text-[#FF6B00]">
               <span>Final Total</span>
               <span className="font-mono">${order.total.toFixed(2)}</span>
             </div>
-            <div className="text-[10px] text-[#858C96] pt-1">
-              Payment Status: <span className="text-[#F7F7F5] font-bold">{order.paymentStatus}</span>
+            <div className="text-[10px] text-slate-500 pt-1">
+              Payment Status: <span className="text-slate-900 font-bold">{order.paymentStatus}</span>
             </div>
           </div>
         </div>
 
         {/* INDIVIDUAL ORDER ITEM FULFILLMENT STATUS (Core warehouse prep workspace) */}
-        <div className="bg-[#15191F] rounded-2xl border border-[#2A3038] overflow-hidden space-y-4 p-5 sm:p-6 shadow-xl">
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#2A3038] pb-4">
+        <div className="bg-white rounded-2xl border border-slate-200 shadow-xs overflow-hidden space-y-4 p-5 sm:p-6">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 pb-4">
             <div>
-              <h2 className="text-base font-black text-[#F7F7F5] tracking-tight flex items-center gap-2">
+              <h2 className="text-base font-black text-slate-900 tracking-tight flex items-center gap-2">
                 <Package className="w-5 h-5 text-[#FF6B00]" />
                 Warehouse Item Physical Verification Workspace
               </h2>
-              <p className="text-xs text-[#858C96] mt-0.5">
+              <p className="text-xs text-slate-500 mt-0.5">
                 Staff physically checks store shelves. Mark availability independently per SKU.
               </p>
             </div>
-            <span className="text-xs font-bold text-[#858C96]">
+            <span className="text-xs font-bold text-slate-500">
               {order.lineItems.length} Product Line{order.lineItems.length !== 1 ? 's' : ''}
             </span>
           </div>
@@ -484,36 +484,36 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
                   key={item.id}
                   className={`p-4 sm:p-5 rounded-2xl border transition-all space-y-4 ${
                     hasDiscrepancy
-                      ? 'bg-amber-500/[0.04] border-amber-500/40'
-                      : 'bg-[#1B2027] border-[#2A3038]'
+                      ? 'bg-amber-50/60 border-amber-300'
+                      : 'bg-slate-50 border-slate-200'
                   }`}
                 >
                   <div className="flex flex-wrap items-start justify-between gap-4">
                     {/* Item Information */}
                     <div className="flex-1 min-w-[240px]">
                       <div className="flex items-center gap-2">
-                        <span className="w-5 h-5 rounded-full bg-[#0B0D10] text-[#858C96] text-[10px] font-mono font-bold flex items-center justify-center border border-[#2A3038]">
+                        <span className="w-5 h-5 rounded-full bg-white text-slate-600 text-[10px] font-mono font-bold flex items-center justify-center border border-slate-200 shadow-xs">
                           {idx + 1}
                         </span>
-                        <h4 className="text-sm font-bold text-[#F7F7F5]">{item.name}</h4>
+                        <h4 className="text-sm font-bold text-slate-900">{item.name}</h4>
                       </div>
-                      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-[#858C96] mt-1 ml-7">
-                        <span>SKU: <strong className="text-[#B8BDC5]">{item.sku}</strong></span>
-                        {item.flavor && <span>Flavor: <strong className="text-[#B8BDC5]">{item.flavor}</strong></span>}
-                        <span>Price: <strong className="font-mono text-[#F7F7F5]">${item.pricePerUnit.toFixed(2)}</strong></span>
-                        <span>Zoho/System Inventory: <strong className="font-mono text-emerald-400">{item.systemInventory}</strong></span>
+                      <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-slate-500 mt-1 ml-7">
+                        <span>SKU: <strong className="text-slate-800">{item.sku}</strong></span>
+                        {item.flavor && <span>Flavor: <strong className="text-slate-800">{item.flavor}</strong></span>}
+                        <span>Price: <strong className="font-mono text-slate-900">${item.pricePerUnit.toFixed(2)}</strong></span>
+                        <span>Zoho/System Inventory: <strong className="font-mono text-emerald-700">{item.systemInventory}</strong></span>
                       </div>
                     </div>
 
                     {/* Quantity Counters */}
                     <div className="flex items-center gap-4 text-xs">
-                      <div className="bg-[#0B0D10] p-2.5 rounded-xl border border-[#2A3038] text-center min-w-[80px]">
-                        <span className="text-[10px] font-bold text-[#858C96] uppercase block">Ordered</span>
-                        <span className="font-mono font-black text-sm text-[#F7F7F5]">{item.quantityOrdered}</span>
+                      <div className="bg-white p-2.5 rounded-xl border border-slate-200 shadow-xs text-center min-w-[80px]">
+                        <span className="text-[10px] font-bold text-slate-400 uppercase block">Ordered</span>
+                        <span className="font-mono font-black text-sm text-slate-900">{item.quantityOrdered}</span>
                       </div>
 
-                      <div className="bg-[#0B0D10] p-2.5 rounded-xl border border-[#2A3038] text-center min-w-[100px]">
-                        <span className="text-[10px] font-bold text-[#858C96] uppercase block">Physical Count</span>
+                      <div className="bg-white p-2.5 rounded-xl border border-slate-200 shadow-xs text-center min-w-[100px]">
+                        <span className="text-[10px] font-bold text-slate-400 uppercase block">Physical Count</span>
                         <input
                           type="number"
                           min="0"
@@ -530,14 +530,14 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
                               },
                             }));
                           }}
-                          className="w-16 text-center font-mono font-black text-sm text-emerald-400 bg-transparent border-b border-[#2A3038] focus:border-[#FF6B00] outline-none"
+                          className="w-16 text-center font-mono font-black text-sm text-emerald-700 bg-transparent border-b border-slate-300 focus:border-[#FF6B00] outline-none"
                         />
                       </div>
                     </div>
                   </div>
 
                   {/* Quick Action Buttons for Warehouse Staff (Large, Touch-Friendly) */}
-                  <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-[#2A3038]/60">
+                  <div className="flex flex-wrap items-center gap-2 pt-2 border-t border-slate-200">
                     <button
                       type="button"
                       onClick={() => {
@@ -552,8 +552,8 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
                       }}
                       className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                         form.status === 'AVAILABLE'
-                          ? 'bg-emerald-500 text-black shadow-sm'
-                          : 'bg-[#15191F] text-[#858C96] hover:text-[#F7F7F5] border border-[#2A3038]'
+                          ? 'bg-emerald-600 text-white shadow-xs'
+                          : 'bg-white text-slate-700 hover:text-slate-900 border border-slate-200'
                       }`}
                     >
                       Available
@@ -574,8 +574,8 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
                       }}
                       className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                         form.status === 'OUT_OF_STOCK'
-                          ? 'bg-rose-600 text-white shadow-sm'
-                          : 'bg-[#15191F] text-[#858C96] hover:text-rose-400 border border-[#2A3038]'
+                          ? 'bg-rose-600 text-white shadow-xs'
+                          : 'bg-white text-slate-700 hover:text-rose-700 border border-slate-200'
                       }`}
                     >
                       Out of Stock
@@ -596,8 +596,8 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
                       }}
                       className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                         form.status === 'PARTIALLY_AVAILABLE'
-                          ? 'bg-amber-500 text-black shadow-sm'
-                          : 'bg-[#15191F] text-[#858C96] hover:text-amber-400 border border-[#2A3038]'
+                          ? 'bg-amber-500 text-slate-950 shadow-xs'
+                          : 'bg-white text-slate-700 hover:text-amber-700 border border-slate-200'
                       }`}
                     >
                       Partially Available
@@ -617,8 +617,8 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
                       }}
                       className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                         form.status === 'TEMPORARILY_UNAVAILABLE'
-                          ? 'bg-orange-500 text-black shadow-sm'
-                          : 'bg-[#15191F] text-[#858C96] hover:text-orange-400 border border-[#2A3038]'
+                          ? 'bg-orange-500 text-white shadow-xs'
+                          : 'bg-white text-slate-700 hover:text-orange-700 border border-slate-200'
                       }`}
                     >
                       Temporarily Unavailable
@@ -638,8 +638,8 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
                       }}
                       className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                         form.status === 'FULFILLED'
-                          ? 'bg-blue-500 text-white shadow-sm'
-                          : 'bg-[#15191F] text-[#858C96] hover:text-blue-400 border border-[#2A3038]'
+                          ? 'bg-sky-600 text-white shadow-xs'
+                          : 'bg-white text-slate-700 hover:text-sky-700 border border-slate-200'
                       }`}
                     >
                       Fulfilled
@@ -648,7 +648,7 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
 
                   {/* Temporary Online Block Checkbox & Notes */}
                   <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
-                    <label className="flex items-center gap-2 text-xs text-[#B8BDC5] cursor-pointer select-none">
+                    <label className="flex items-center gap-2 text-xs text-slate-600 cursor-pointer select-none">
                       <input
                         type="checkbox"
                         checked={form.blockOnline}
@@ -658,9 +658,9 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
                             [item.id]: { ...prev[item.id], blockOnline: e.target.checked },
                           }))
                         }
-                        className="w-4 h-4 rounded text-[#FF6B00] bg-[#0B0D10] border-[#2A3038] cursor-pointer"
+                        className="w-4 h-4 rounded text-[#FF6B00] bg-white border-slate-300 cursor-pointer"
                       />
-                      <span className={form.blockOnline ? 'text-amber-400 font-bold' : ''}>
+                      <span className={form.blockOnline ? 'text-amber-600 font-bold' : ''}>
                         Mark Product Temporarily Out of Stock Online (blocks new website orders immediately)
                       </span>
                     </label>
@@ -671,7 +671,7 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
                         <button
                           type="button"
                           onClick={() => setResolvingItem(item)}
-                          className="px-3 py-1.5 bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 text-xs font-bold rounded-xl border border-amber-500/40 transition-colors cursor-pointer"
+                          className="px-3 py-1.5 bg-amber-100 hover:bg-amber-200 text-amber-800 text-xs font-bold rounded-xl border border-amber-300 transition-colors cursor-pointer"
                         >
                           Resolve Shortage...
                         </button>
@@ -681,7 +681,7 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
                         type="button"
                         disabled={isSaving}
                         onClick={() => handleSaveItemFulfillment(item)}
-                        className="px-4 py-1.5 bg-[#FF6B00] hover:bg-[#E85F00] text-white font-bold text-xs rounded-xl transition-all shadow-sm flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
+                        className="px-4 py-1.5 bg-[#FF6B00] hover:bg-[#E85F00] text-white font-bold text-xs rounded-xl transition-all shadow-xs flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
                       >
                         {isSaving ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Save className="w-3.5 h-3.5" />}
                         <span>Save Fulfillment Update</span>
@@ -696,38 +696,38 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
 
         {/* Staff Resolution Modal */}
         {resolvingItem && (
-          <div className="fixed inset-0 z-50 bg-[#0B0D10]/80 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
             <form
               onSubmit={handleSubmitResolution}
-              className="bg-[#15191F] border border-[#2A3038] rounded-2xl max-w-lg w-full p-6 space-y-4 shadow-2xl"
+              className="bg-white border border-slate-200 rounded-2xl max-w-lg w-full p-6 space-y-4 shadow-xl"
             >
               <div className="flex items-center justify-between">
-                <h3 className="text-sm font-black text-[#F7F7F5] uppercase tracking-wider flex items-center gap-2">
+                <h3 className="text-sm font-black text-slate-900 uppercase tracking-wider flex items-center gap-2">
                   <ShieldCheck className="w-4 h-4 text-[#FF6B00]" />
                   Resolve Inventory Shortage: {resolvingItem.name}
                 </h3>
                 <button
                   type="button"
                   onClick={() => setResolvingItem(null)}
-                  className="text-[#858C96] hover:text-[#F7F7F5] p-1 cursor-pointer"
+                  className="text-slate-400 hover:text-slate-700 p-1 cursor-pointer"
                 >
                   ✕
                 </button>
               </div>
 
-              <p className="text-xs text-[#858C96]">
+              <p className="text-xs text-slate-600">
                 Customer ordered <strong>{resolvingItem.quantityOrdered}</strong>. Physical stock verification found{' '}
-                <strong className="text-amber-400">{resolvingItem.physicalQuantityAvailable}</strong>.
+                <strong className="text-amber-600">{resolvingItem.physicalQuantityAvailable}</strong>.
               </p>
 
               <div>
-                <label className="text-[10px] font-bold uppercase tracking-wider text-[#B8BDC5] block mb-1">
+                <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block mb-1">
                   Resolution Action
                 </label>
                 <select
                   value={resolutionType}
                   onChange={(e) => setResolutionType(e.target.value as any)}
-                  className="w-full bg-[#0B0D10] border border-[#2A3038] rounded-xl px-3.5 py-2 text-xs text-[#F7F7F5] focus:border-[#FF6B00] outline-none"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2 text-xs text-slate-900 focus:border-[#FF6B00] outline-none"
                 >
                   <option value="ACCEPT_PARTIAL">Customer Accepted Partial Quantity ({resolvingItem.physicalQuantityAvailable} units)</option>
                   <option value="REMOVE_ITEM">Remove Unavailable Item from Order</option>
@@ -738,7 +738,7 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
               </div>
 
               <div>
-                <label className="text-[10px] font-bold uppercase tracking-wider text-[#B8BDC5] block mb-1">
+                <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block mb-1">
                   Staff Resolution Notes
                 </label>
                 <textarea
@@ -746,7 +746,7 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
                   value={resolutionNotes}
                   onChange={(e) => setResolutionNotes(e.target.value)}
                   placeholder="e.g. Spoke with store manager Taylor; agreed to six units now."
-                  className="w-full bg-[#0B0D10] border border-[#2A3038] rounded-xl px-3.5 py-2 text-xs text-[#F7F7F5] focus:border-[#FF6B00] outline-none"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#FF6B00] outline-none"
                 />
               </div>
 
@@ -754,7 +754,7 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
                 <button
                   type="button"
                   onClick={() => setResolvingItem(null)}
-                  className="px-4 py-2 bg-[#1B2027] text-xs font-bold text-[#858C96] rounded-xl hover:bg-[#2A3038] transition-colors cursor-pointer"
+                  className="px-4 py-2 bg-slate-100 text-xs font-bold text-slate-700 rounded-xl hover:bg-slate-200 transition-colors cursor-pointer"
                 >
                   Cancel
                 </button>
@@ -772,32 +772,32 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
         )}
 
         {/* Internal Staff Notes Area (Private to Authorized Business Staff) */}
-        <div className="bg-[#15191F] rounded-2xl p-5 sm:p-6 border border-[#2A3038] space-y-4 shadow-lg">
+        <div className="bg-white rounded-2xl p-5 sm:p-6 border border-slate-200 shadow-xs space-y-4">
           <div className="flex items-center gap-2 text-[#FF6B00]">
             <Lock className="w-4 h-4" />
-            <h3 className="text-xs font-bold uppercase tracking-wider text-[#F7F7F5]">
+            <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900">
               Internal Staff Notes (Hidden from Customers)
             </h3>
           </div>
 
-          <p className="text-xs text-[#858C96]">
+          <p className="text-xs text-slate-500">
             Confidential warehouse communications, phone call logs, and customer arrangements. Never visible in customer portals or notifications.
           </p>
 
           {/* Notes List */}
           {(!order.internalNotes || order.internalNotes.length === 0) ? (
-            <div className="py-4 text-center text-xs text-[#858C96] bg-[#0B0D10] rounded-xl border border-[#2A3038]/60">
+            <div className="py-4 text-center text-xs text-slate-500 bg-slate-50 rounded-xl border border-slate-200">
               No internal staff notes recorded for this order yet.
             </div>
           ) : (
             <div className="space-y-2.5">
               {order.internalNotes.map((n) => (
-                <div key={n.id} className="bg-[#0B0D10] p-3.5 rounded-xl border border-[#2A3038] text-xs space-y-1">
-                  <div className="flex items-center justify-between text-[11px] text-[#858C96]">
+                <div key={n.id} className="bg-slate-50 p-3.5 rounded-xl border border-slate-200 text-xs space-y-1">
+                  <div className="flex items-center justify-between text-[11px] text-slate-500">
                     <span className="font-bold text-[#FF6B00]">{n.authorName}</span>
                     <span>{new Date(n.createdAt).toLocaleString()}</span>
                   </div>
-                  <p className="text-[#F7F7F5] leading-relaxed">{n.note}</p>
+                  <p className="text-slate-800 leading-relaxed">{n.note}</p>
                 </div>
               ))}
             </div>
@@ -810,7 +810,7 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
               value={internalNoteInput}
               onChange={(e) => setInternalNoteInput(e.target.value)}
               placeholder="e.g. Spoke with manager John at 2:15 PM; requested delivery after 3 PM..."
-              className="flex-1 bg-[#0B0D10] border border-[#2A3038] rounded-xl px-3.5 py-2 text-xs text-[#F7F7F5] placeholder-[#858C96] focus:border-[#FF6B00] outline-none"
+              className="flex-1 bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#FF6B00] outline-none"
             />
             <button
               type="submit"

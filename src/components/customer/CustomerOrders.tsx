@@ -81,19 +81,19 @@ export default function CustomerOrders() {
 
   if (orders.length === 0) {
     return (
-      <div className="bg-[#15191F] rounded-2xl p-8 border border-[#2A3038] text-center space-y-4">
-        <div className="w-14 h-14 rounded-full bg-[#1B2027] border border-[#2A3038] flex items-center justify-center text-[#858C96] mx-auto">
+      <div className="bg-white rounded-2xl p-8 border border-slate-200 text-center space-y-4 shadow-xs">
+        <div className="w-14 h-14 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-400 mx-auto">
           <Package className="w-7 h-7" />
         </div>
         <div>
-          <h3 className="text-base font-bold text-[#F7F7F5]">No Orders Found</h3>
-          <p className="text-xs text-[#858C96] mt-1 max-w-sm mx-auto">
+          <h3 className="text-base font-bold text-slate-900">No Orders Found</h3>
+          <p className="text-xs text-slate-500 mt-1 max-w-sm mx-auto">
             You haven't placed any wholesale orders yet. Add products to your cart to submit your first pickup or delivery order.
           </p>
         </div>
         <a
           href="/#inventory"
-          className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#FF6B00] hover:bg-[#E85F00] text-white text-xs font-bold rounded-full transition-colors"
+          className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#FF6B00] hover:bg-[#E85F00] text-white text-xs font-bold rounded-full transition-colors shadow-xs"
         >
           <span>Browse Wholesale Catalog</span>
           <ArrowRight className="w-3.5 h-3.5" />
@@ -105,14 +105,14 @@ export default function CustomerOrders() {
   return (
     <div className="space-y-6">
       {error && (
-        <div className="p-4 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-400 text-xs flex items-center gap-2">
+        <div className="p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-center gap-2">
           <AlertTriangle className="w-4 h-4 shrink-0" />
           <span>{error}</span>
         </div>
       )}
 
       {actionSuccess && (
-        <div className="p-4 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs flex items-center gap-2">
+        <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs flex items-center gap-2">
           <CheckCircle2 className="w-4 h-4 shrink-0" />
           <span>{actionSuccess}</span>
         </div>
@@ -120,12 +120,12 @@ export default function CustomerOrders() {
 
       <div className="flex items-center justify-between">
         <div>
-          <h2 className="text-lg font-black text-[#F7F7F5] tracking-tight">Wholesale Orders & Fulfillment Status</h2>
-          <p className="text-xs text-[#858C96]">Track order processing, ready for pickup alerts, and delivery dispatch.</p>
+          <h2 className="text-lg font-black text-slate-900 tracking-tight">Wholesale Orders & Fulfillment Status</h2>
+          <p className="text-xs text-slate-500">Track order processing, ready for pickup alerts, and delivery dispatch.</p>
         </div>
         <button
           onClick={loadOrders}
-          className="px-3 py-1.5 bg-[#1B2027] hover:bg-[#2A3038] text-xs text-[#B8BDC5] hover:text-[#F7F7F5] rounded-lg border border-[#2A3038] transition-colors flex items-center gap-1.5 cursor-pointer"
+          className="px-3 py-1.5 bg-white hover:bg-slate-50 text-xs text-slate-700 hover:text-slate-900 rounded-lg border border-slate-300 transition-colors flex items-center gap-1.5 cursor-pointer shadow-xs"
         >
           <RefreshCw className="w-3 h-3" />
           <span>Refresh</span>
@@ -140,23 +140,23 @@ export default function CustomerOrders() {
           return (
             <div
               key={order.id}
-              className={`bg-[#15191F] rounded-2xl border transition-all overflow-hidden ${
+              className={`bg-white rounded-2xl border transition-all overflow-hidden shadow-xs ${
                 hasIssue
-                  ? 'border-amber-500/40 shadow-lg shadow-amber-500/5'
-                  : 'border-[#2A3038] hover:border-[#FF6B00]/40'
+                  ? 'border-amber-400 bg-amber-50/10'
+                  : 'border-slate-200 hover:border-[#FF6B00]/40'
               }`}
             >
               {/* Order Header */}
               <div
                 onClick={() => setExpandedOrder(isExpanded ? null : order.id)}
-                className="p-4 sm:p-5 flex flex-wrap items-center justify-between gap-4 cursor-pointer select-none bg-[#1B2027]/50"
+                className="p-4 sm:p-5 flex flex-wrap items-center justify-between gap-4 cursor-pointer select-none bg-slate-50/70 border-b border-slate-100"
               >
                 <div className="flex items-center gap-3 min-w-[200px]">
                   <div
                     className={`w-10 h-10 rounded-xl flex items-center justify-center border ${
                       order.fulfillmentMethod === 'PICKUP'
-                        ? 'bg-amber-500/10 text-amber-400 border-amber-500/30'
-                        : 'bg-sky-500/10 text-sky-400 border-sky-500/30'
+                        ? 'bg-amber-50 text-amber-600 border-amber-200'
+                        : 'bg-sky-50 text-sky-600 border-sky-200'
                     }`}
                   >
                     {order.fulfillmentMethod === 'PICKUP' ? (
@@ -167,20 +167,20 @@ export default function CustomerOrders() {
                   </div>
                   <div>
                     <div className="flex items-center gap-2">
-                      <span className="font-mono text-sm font-black text-[#F7F7F5]">
+                      <span className="font-mono text-sm font-black text-slate-900">
                         #{order.orderNumber}
                       </span>
                       <span
                         className={`text-[10px] font-black px-2 py-0.5 rounded-full uppercase tracking-wider ${
                           order.fulfillmentMethod === 'PICKUP'
-                            ? 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
-                            : 'bg-sky-500/20 text-sky-300 border border-sky-500/30'
+                            ? 'bg-amber-100 text-amber-800 border border-amber-200'
+                            : 'bg-sky-100 text-sky-800 border border-sky-200'
                         }`}
                       >
                         {order.fulfillmentMethod}
                       </span>
                     </div>
-                    <p className="text-[11px] text-[#858C96] mt-0.5">
+                    <p className="text-[11px] text-slate-500 mt-0.5">
                       Placed on {new Date(order.createdAt).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
                     </p>
                   </div>
@@ -192,17 +192,17 @@ export default function CustomerOrders() {
                     <span
                       className={`inline-flex items-center gap-1 text-[11px] font-bold px-2.5 py-1 rounded-full ${
                         order.status === 'READY_FOR_PICKUP'
-                          ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
+                          ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                           : order.status === 'OUT_FOR_DELIVERY'
-                          ? 'bg-blue-500/20 text-blue-300 border border-blue-500/30'
+                          ? 'bg-blue-50 text-blue-700 border border-blue-200'
                           : order.status === 'COMPLETED' || order.status === 'DELIVERED' || order.status === 'PICKED_UP'
-                          ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
+                          ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                           : hasIssue
-                          ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40 animate-pulse'
-                          : 'bg-[#0B0D10] text-[#B8BDC5] border border-[#2A3038]'
+                          ? 'bg-amber-50 text-amber-800 border border-amber-300 animate-pulse'
+                          : 'bg-slate-100 text-slate-700 border border-slate-200'
                       }`}
                     >
-                      {hasIssue && <AlertTriangle className="w-3 h-3 text-amber-400" />}
+                      {hasIssue && <AlertTriangle className="w-3 h-3 text-amber-600" />}
                       {order.status.replace(/_/g, ' ')}
                     </span>
                     <p className="text-xs font-black text-[#FF6B00] mt-1 font-mono">
@@ -210,7 +210,7 @@ export default function CustomerOrders() {
                     </p>
                   </div>
 
-                  <div className="w-7 h-7 rounded-lg bg-[#15191F] border border-[#2A3038] flex items-center justify-center text-[#858C96]">
+                  <div className="w-7 h-7 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-500">
                     {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
                   </div>
                 </div>
@@ -218,17 +218,17 @@ export default function CustomerOrders() {
 
               {/* Collapsible Content */}
               {isExpanded && (
-                <div className="p-4 sm:p-6 space-y-6 border-t border-[#2A3038]">
+                <div className="p-4 sm:p-6 space-y-6 bg-white">
                   {/* Action Required Banner if inventory shortage */}
                   {hasIssue && (
-                    <div className="p-4 rounded-2xl bg-amber-500/10 border border-amber-500/40 space-y-3">
-                      <div className="flex items-center gap-2 text-amber-400">
+                    <div className="p-4 rounded-2xl bg-amber-50 border border-amber-200 space-y-3 text-amber-950">
+                      <div className="flex items-center gap-2 text-amber-700">
                         <ShieldAlert className="w-5 h-5 shrink-0" />
                         <h4 className="text-xs font-black uppercase tracking-wider">
                           Action Required: Fulfillment Availability Exception
                         </h4>
                       </div>
-                      <p className="text-xs text-[#F7F7F5] leading-relaxed">
+                      <p className="text-xs text-slate-700 leading-relaxed">
                         {order.actionRequiredReason ||
                           'Our warehouse team discovered an inventory count difference while physically assembling your order. Please review the items below and select your preferred fulfillment resolution.'}
                       </p>
@@ -237,11 +237,11 @@ export default function CustomerOrders() {
 
                   {/* Visual Status Timeline */}
                   <div>
-                    <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#858C96] mb-3">
+                    <h4 className="text-[11px] font-bold uppercase tracking-wider text-slate-500 mb-3">
                       Order Fulfillment Timeline
                     </h4>
                     <div className="relative flex items-center justify-between max-w-2xl mx-auto py-2">
-                      <div className="absolute top-1/2 left-4 right-4 h-0.5 bg-[#2A3038] -translate-y-1/2 z-0" />
+                      <div className="absolute top-1/2 left-4 right-4 h-0.5 bg-slate-200 -translate-y-1/2 z-0" />
                       {order.fulfillmentMethod === 'PICKUP' ? (
                         <>
                           <TimelineStep
@@ -307,22 +307,22 @@ export default function CustomerOrders() {
                   {/* Pickup / Delivery Info Card */}
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {order.fulfillmentMethod === 'PICKUP' && order.pickupInfo && (
-                      <div className="bg-[#1B2027] rounded-xl p-4 border border-[#2A3038] space-y-2">
-                        <div className="flex items-center gap-2 text-amber-400">
+                      <div className="bg-slate-50 rounded-xl p-4 border border-slate-200 space-y-2">
+                        <div className="flex items-center gap-2 text-amber-700">
                           <MapPin className="w-4 h-4" />
                           <h4 className="text-xs font-bold uppercase tracking-wider">Official Pickup Warehouse</h4>
                         </div>
-                        <p className="text-xs font-bold text-[#F7F7F5]">
+                        <p className="text-xs font-bold text-slate-900">
                           {order.pickupInfo.locationSnapshot.locationName}
                         </p>
-                        <p className="text-xs text-[#B8BDC5]">
+                        <p className="text-xs text-slate-600">
                           {order.pickupInfo.locationSnapshot.address.street}, {order.pickupInfo.locationSnapshot.address.city}, {order.pickupInfo.locationSnapshot.address.state} {order.pickupInfo.locationSnapshot.address.zip}
                         </p>
-                        <div className="pt-2 text-[11px] text-[#858C96] space-y-1">
-                          <p><strong className="text-[#B8BDC5]">Hours:</strong> {order.pickupInfo.locationSnapshot.hours}</p>
-                          <p><strong className="text-[#B8BDC5]">Contact:</strong> {order.pickupInfo.locationSnapshot.phone}</p>
-                          <p><strong className="text-[#B8BDC5]">Instructions:</strong> {order.pickupInfo.locationSnapshot.instructions}</p>
-                          <p className="text-amber-400/90 font-medium mt-1">
+                        <div className="pt-2 text-[11px] text-slate-500 space-y-1">
+                          <p><strong className="text-slate-700">Hours:</strong> {order.pickupInfo.locationSnapshot.hours}</p>
+                          <p><strong className="text-slate-700">Contact:</strong> {order.pickupInfo.locationSnapshot.phone}</p>
+                          <p><strong className="text-slate-700">Instructions:</strong> {order.pickupInfo.locationSnapshot.instructions}</p>
+                          <p className="text-amber-700 font-medium mt-1">
                             * You will receive an automated email as soon as our warehouse marks your order ready.
                           </p>
                         </div>
@@ -330,24 +330,24 @@ export default function CustomerOrders() {
                     )}
 
                     {order.fulfillmentMethod === 'DELIVERY' && order.deliveryInfo && (
-                      <div className="bg-[#1B2027] rounded-xl p-4 border border-[#2A3038] space-y-2">
-                        <div className="flex items-center gap-2 text-sky-400">
+                      <div className="bg-slate-50 rounded-xl p-4 border border-slate-200 space-y-2">
+                        <div className="flex items-center gap-2 text-sky-700">
                           <Truck className="w-4 h-4" />
                           <h4 className="text-xs font-bold uppercase tracking-wider">Commercial Delivery Address</h4>
                         </div>
-                        <p className="text-xs font-bold text-[#F7F7F5]">
+                        <p className="text-xs font-bold text-slate-900">
                           {order.deliveryInfo.addressSnapshot.recipientName} {order.deliveryInfo.addressSnapshot.businessName ? `(${order.deliveryInfo.addressSnapshot.businessName})` : ''}
                         </p>
-                        <p className="text-xs text-[#B8BDC5]">
+                        <p className="text-xs text-slate-600">
                           {order.deliveryInfo.addressSnapshot.street} {order.deliveryInfo.addressSnapshot.unit ? `· ${order.deliveryInfo.addressSnapshot.unit}` : ''}, {order.deliveryInfo.addressSnapshot.city}, {order.deliveryInfo.addressSnapshot.state} {order.deliveryInfo.addressSnapshot.zip}
                         </p>
-                        <div className="pt-2 text-[11px] text-[#858C96] space-y-1">
-                          <p><strong className="text-[#B8BDC5]">Phone:</strong> {order.deliveryInfo.addressSnapshot.phone}</p>
+                        <div className="pt-2 text-[11px] text-slate-500 space-y-1">
+                          <p><strong className="text-slate-700">Phone:</strong> {order.deliveryInfo.addressSnapshot.phone}</p>
                           {order.deliveryInfo.addressSnapshot.deliveryInstructions && (
-                            <p><strong className="text-[#B8BDC5]">Instructions:</strong> {order.deliveryInfo.addressSnapshot.deliveryInstructions}</p>
+                            <p><strong className="text-slate-700">Instructions:</strong> {order.deliveryInfo.addressSnapshot.deliveryInstructions}</p>
                           )}
-                          <p><strong className="text-[#B8BDC5]">Delivery Fee:</strong> ${order.deliveryFee.toFixed(2)}</p>
-                          <p className="text-sky-400/90 font-medium mt-1">
+                          <p><strong className="text-slate-700">Delivery Fee:</strong> ${order.deliveryFee.toFixed(2)}</p>
+                          <p className="text-sky-700 font-medium mt-1">
                             * You will receive email tracking notifications when out for delivery and when delivered.
                           </p>
                         </div>
@@ -355,33 +355,33 @@ export default function CustomerOrders() {
                     )}
 
                     {/* Order Financial Summary */}
-                    <div className="bg-[#1B2027] rounded-xl p-4 border border-[#2A3038] space-y-2 text-xs">
-                      <h4 className="text-xs font-bold uppercase tracking-wider text-[#858C96]">Invoice Breakdown</h4>
-                      <div className="flex justify-between py-1 border-b border-[#2A3038] text-[#B8BDC5]">
+                    <div className="bg-slate-50 rounded-xl p-4 border border-slate-200 space-y-2 text-xs">
+                      <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500">Invoice Breakdown</h4>
+                      <div className="flex justify-between py-1 border-b border-slate-200 text-slate-600">
                         <span>Product Subtotal</span>
-                        <span className="font-mono text-[#F7F7F5]">${order.subtotal.toFixed(2)}</span>
+                        <span className="font-mono text-slate-900 font-bold">${order.subtotal.toFixed(2)}</span>
                       </div>
-                      <div className="flex justify-between py-1 border-b border-[#2A3038] text-[#B8BDC5]">
+                      <div className="flex justify-between py-1 border-b border-slate-200 text-slate-600">
                         <span>Delivery Fee</span>
-                        <span className="font-mono text-[#F7F7F5]">${order.deliveryFee.toFixed(2)}</span>
+                        <span className="font-mono text-slate-900 font-bold">${order.deliveryFee.toFixed(2)}</span>
                       </div>
-                      <div className="flex justify-between py-1 border-b border-[#2A3038] text-[#B8BDC5]">
+                      <div className="flex justify-between py-1 border-b border-slate-200 text-slate-600">
                         <span>Taxes & Fees</span>
-                        <span className="font-mono text-[#F7F7F5]">${order.tax.toFixed(2)}</span>
+                        <span className="font-mono text-slate-900 font-bold">${order.tax.toFixed(2)}</span>
                       </div>
                       <div className="flex justify-between py-1.5 text-sm font-black text-[#FF6B00]">
                         <span>Total</span>
                         <span className="font-mono">${order.total.toFixed(2)}</span>
                       </div>
-                      <div className="pt-1 text-[11px] text-[#858C96]">
-                        Payment Status: <span className="font-bold text-[#F7F7F5]">{order.paymentStatus}</span>
+                      <div className="pt-1 text-[11px] text-slate-500">
+                        Payment Status: <span className="font-bold text-slate-900">{order.paymentStatus}</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Line Items List with Individual Fulfillment Statuses */}
                   <div className="space-y-3">
-                    <h4 className="text-[11px] font-bold uppercase tracking-wider text-[#858C96]">
+                    <h4 className="text-[11px] font-bold uppercase tracking-wider text-slate-500">
                       Ordered Products ({order.lineItems.length})
                     </h4>
                     <div className="space-y-2">
@@ -394,45 +394,45 @@ export default function CustomerOrders() {
                             key={item.id}
                             className={`p-3.5 rounded-xl border transition-all ${
                               itemHasShortage
-                                ? 'bg-amber-500/5 border-amber-500/30'
-                                : 'bg-[#1B2027] border-[#2A3038]'
+                                ? 'bg-amber-50/40 border-amber-300'
+                                : 'bg-slate-50 border-slate-200'
                             }`}
                           >
                             <div className="flex flex-wrap items-center justify-between gap-2">
                               <div className="flex-1 min-w-[180px]">
-                                <h5 className="text-xs font-bold text-[#F7F7F5]">{item.name}</h5>
-                                <p className="text-[10px] text-[#858C96] mt-0.5">
+                                <h5 className="text-xs font-bold text-slate-900">{item.name}</h5>
+                                <p className="text-[10px] text-slate-500 mt-0.5">
                                   SKU: {item.sku} {item.flavor ? `· Flavor: ${item.flavor}` : ''}
                                 </p>
                               </div>
 
                               <div className="flex items-center gap-4 text-xs">
                                 <div className="text-right">
-                                  <span className="text-[#858C96] text-[10px] uppercase block">Ordered</span>
-                                  <span className="font-bold text-[#F7F7F5]">{item.quantityOrdered}</span>
+                                  <span className="text-slate-500 text-[10px] uppercase block">Ordered</span>
+                                  <span className="font-bold text-slate-900">{item.quantityOrdered}</span>
                                 </div>
 
                                 <div className="text-right">
-                                  <span className="text-[#858C96] text-[10px] uppercase block">Available</span>
-                                  <span className={`font-bold ${item.physicalQuantityAvailable < item.quantityOrdered ? 'text-amber-400' : 'text-emerald-400'}`}>
+                                  <span className="text-slate-500 text-[10px] uppercase block">Available</span>
+                                  <span className={`font-bold ${item.physicalQuantityAvailable < item.quantityOrdered ? 'text-amber-600' : 'text-emerald-600'}`}>
                                     {item.physicalQuantityAvailable}
                                   </span>
                                 </div>
 
                                 <div className="text-right">
-                                  <span className="text-[#858C96] text-[10px] uppercase block">Price</span>
-                                  <span className="font-mono text-[#F7F7F5]">${item.pricePerUnit.toFixed(2)}</span>
+                                  <span className="text-slate-500 text-[10px] uppercase block">Price</span>
+                                  <span className="font-mono text-slate-900 font-semibold">${item.pricePerUnit.toFixed(2)}</span>
                                 </div>
 
                                 <span
                                   className={`text-[10px] font-black px-2 py-0.5 rounded-full uppercase ${
                                     item.itemFulfillmentStatus === 'AVAILABLE' || item.itemFulfillmentStatus === 'FULFILLED'
-                                      ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
+                                      ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
                                       : item.itemFulfillmentStatus === 'OUT_OF_STOCK'
-                                      ? 'bg-rose-500/20 text-rose-400 border border-rose-500/30'
+                                      ? 'bg-rose-50 text-rose-700 border border-rose-200'
                                       : item.itemFulfillmentStatus === 'PARTIALLY_AVAILABLE'
-                                      ? 'bg-amber-500/20 text-amber-400 border border-amber-500/30'
-                                      : 'bg-[#0B0D10] text-[#B8BDC5] border border-[#2A3038]'
+                                      ? 'bg-amber-50 text-amber-800 border border-amber-200'
+                                      : 'bg-slate-100 text-slate-700 border border-slate-200'
                                   }`}
                                 >
                                   {item.itemFulfillmentStatus.replace(/_/g, ' ')}
@@ -442,8 +442,8 @@ export default function CustomerOrders() {
 
                             {/* Customer Choice Resolution Options if item has an unresolved shortage */}
                             {itemHasShortage && !item.customerResolutionChoice && (
-                              <div className="mt-3 pt-3 border-t border-amber-500/20 space-y-2">
-                                <p className="text-[11px] text-amber-300 font-medium">
+                              <div className="mt-3 pt-3 border-t border-amber-200 space-y-2">
+                                <p className="text-[11px] text-amber-800 font-medium">
                                   Select an approved option for this product shortage:
                                 </p>
                                 <div className="flex flex-wrap gap-2">
@@ -451,7 +451,7 @@ export default function CustomerOrders() {
                                     <button
                                       disabled={isResolving}
                                       onClick={() => handleCustomerResolution(order.id, item.id, 'ACCEPT_PARTIAL')}
-                                      className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-lg transition-colors cursor-pointer disabled:opacity-50"
+                                      className="px-3 py-1.5 bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold rounded-lg transition-colors cursor-pointer disabled:opacity-50 shadow-xs"
                                     >
                                       Accept Available ({item.physicalQuantityAvailable} units)
                                     </button>
@@ -459,27 +459,27 @@ export default function CustomerOrders() {
                                   <button
                                     disabled={isResolving}
                                     onClick={() => handleCustomerResolution(order.id, item.id, 'REMOVE_ITEM')}
-                                    className="px-3 py-1.5 bg-rose-600/80 hover:bg-rose-500 text-white text-xs font-bold rounded-lg transition-colors cursor-pointer disabled:opacity-50"
+                                    className="px-3 py-1.5 bg-rose-600 hover:bg-rose-500 text-white text-xs font-bold rounded-lg transition-colors cursor-pointer disabled:opacity-50 shadow-xs"
                                   >
                                     Remove Product
                                   </button>
                                   <button
                                     disabled={isResolving}
                                     onClick={() => handleCustomerResolution(order.id, item.id, 'WAIT_FOR_PRODUCT')}
-                                    className="px-3 py-1.5 bg-[#2A3038] hover:bg-[#38404C] text-[#F7F7F5] text-xs font-bold rounded-lg transition-colors cursor-pointer disabled:opacity-50"
+                                    className="px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold rounded-lg transition-colors cursor-pointer disabled:opacity-50 border border-slate-300"
                                   >
                                     Wait for Incoming Restock
                                   </button>
                                   <button
                                     disabled={isResolving}
                                     onClick={() => handleCustomerResolution(order.id, item.id, 'REQUEST_SUBSTITUTE')}
-                                    className="px-3 py-1.5 bg-[#FF6B00] hover:bg-[#E85F00] text-white text-xs font-bold rounded-lg transition-colors cursor-pointer disabled:opacity-50"
+                                    className="px-3 py-1.5 bg-[#FF6B00] hover:bg-[#E85F00] text-white text-xs font-bold rounded-lg transition-colors cursor-pointer disabled:opacity-50 shadow-xs"
                                   >
                                     Request Suitable Substitute
                                   </button>
                                   <a
                                     href="tel:4057682975"
-                                    className="px-3 py-1.5 bg-[#1B2027] hover:bg-[#2A3038] text-[#B8BDC5] hover:text-[#F7F7F5] text-xs font-bold rounded-lg border border-[#2A3038] transition-colors inline-flex items-center gap-1"
+                                    className="px-3 py-1.5 bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 text-xs font-bold rounded-lg border border-slate-300 transition-colors inline-flex items-center gap-1 shadow-xs"
                                   >
                                     <Phone className="w-3 h-3 text-[#FF6B00]" />
                                     <span>Call Warehouse (405) 768-2975</span>
@@ -490,7 +490,7 @@ export default function CustomerOrders() {
 
                             {/* Show chosen resolution if already submitted */}
                             {item.customerResolutionChoice && (
-                              <div className="mt-2 text-[11px] text-emerald-400 font-semibold flex items-center gap-1.5">
+                              <div className="mt-2 text-[11px] text-emerald-700 font-semibold flex items-center gap-1.5">
                                 <CheckCircle2 className="w-3.5 h-3.5" />
                                 <span>Resolution applied: {item.customerResolutionChoice.replace(/_/g, ' ')}</span>
                               </div>
@@ -526,19 +526,19 @@ function TimelineStep({
       <div
         className={`w-6 h-6 rounded-full flex items-center justify-center text-[10px] font-black border transition-all ${
           alert
-            ? 'bg-amber-500 text-black border-amber-400 animate-pulse'
+            ? 'bg-amber-500 text-white border-amber-600 animate-pulse'
             : active
-            ? 'bg-[#FF6B00] text-white border-[#FF6B00] shadow-md shadow-[#FF6B00]/30'
-            : 'bg-[#15191F] text-[#858C96] border-[#2A3038]'
+            ? 'bg-[#FF6B00] text-white border-[#FF6B00] shadow-xs'
+            : 'bg-white text-slate-400 border-slate-300'
         }`}
       >
         {active ? '✓' : '○'}
       </div>
-      <span className={`text-[10px] font-bold mt-1.5 ${active ? 'text-[#F7F7F5]' : 'text-[#858C96]'}`}>
+      <span className={`text-[10px] font-bold mt-1.5 ${active ? 'text-slate-900' : 'text-slate-400'}`}>
         {label}
       </span>
       {timestamp && (
-        <span className="text-[8px] text-[#858C96]">
+        <span className="text-[8px] text-slate-500">
           {new Date(timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
         </span>
       )}

@@ -94,48 +94,48 @@ export default function CustomerAccountPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[#0B0D10] text-[#F7F7F5] flex items-center justify-center">
+      <div className="min-h-screen bg-[#F8FAFC] text-slate-900 flex items-center justify-center">
         <div className="text-center space-y-3">
           <Loader2 className="w-8 h-8 animate-spin text-[#FF6B00] mx-auto" />
-          <p className="text-xs text-[#858C96]">Loading customer account...</p>
+          <p className="text-xs text-slate-500">Loading customer account...</p>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-[#0B0D10] text-[#F7F7F5]">
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-900">
       {/* Header */}
-      <header className="bg-[#15191F] border-b border-[#2A3038] px-4 sm:px-8 py-4 sticky top-0 z-30 shadow-md">
+      <header className="bg-white border-b border-slate-200 px-4 sm:px-8 py-4 sticky top-0 z-30 shadow-xs">
         <div className="max-w-6xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-2xl bg-[#FF6B00] flex items-center justify-center text-white shadow-md">
+            <div className="w-10 h-10 rounded-2xl bg-[#FF6B00] flex items-center justify-center text-white shadow-xs">
               <Building2 className="w-5 h-5" />
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="font-extrabold text-base sm:text-lg tracking-tight text-[#F7F7F5]">
+                <h1 className="font-extrabold text-base sm:text-lg tracking-tight text-slate-900">
                   {userData?.businessName || 'Wholesale Customer Account'}
                 </h1>
-                <span className="bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">
+                <span className="bg-emerald-50 border border-emerald-200 text-emerald-700 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">
                   Verified B2B Retailer
                 </span>
               </div>
-              <p className="text-xs text-[#858C96]">{userData?.email}</p>
+              <p className="text-xs text-slate-500">{userData?.email}</p>
             </div>
           </div>
 
           <div className="flex items-center gap-3">
             <a
               href="/"
-              className="px-4 py-2 rounded-xl bg-[#FF6B00] hover:bg-[#E05E00] text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-md flex items-center gap-1.5"
+              className="px-4 py-2 rounded-xl bg-[#FF6B00] hover:bg-[#E05E00] text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-xs flex items-center gap-1.5"
             >
               <Package className="w-3.5 h-3.5" />
               <span>Shop Catalog</span>
             </a>
             <button
               onClick={handleLogout}
-              className="p-2 rounded-xl bg-[#1B2027] hover:bg-[#2A3038] text-rose-400 border border-rose-500/20 transition-colors cursor-pointer"
+              className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-rose-600 border border-slate-200 transition-colors cursor-pointer"
               title="Logout"
             >
               <LogOut className="w-4 h-4" />
@@ -147,13 +147,13 @@ export default function CustomerAccountPage() {
       {/* Main Content Area */}
       <main className="max-w-6xl mx-auto px-4 sm:px-8 py-8 space-y-6">
         {/* Navigation Tabs */}
-        <div className="flex flex-wrap gap-2 border-b border-[#2A3038] pb-3">
+        <div className="flex flex-wrap gap-2 border-b border-slate-200 pb-3">
           <button
             onClick={() => setActiveTab('orders')}
             className={`px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 transition-all cursor-pointer ${
               activeTab === 'orders'
-                ? 'bg-[#FF6B00] text-white shadow-md shadow-[#FF6B00]/20'
-                : 'bg-[#15191F] text-[#B8BDC5] hover:text-[#F7F7F5] border border-[#2A3038]'
+                ? 'bg-[#FF6B00] text-white shadow-xs'
+                : 'bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:bg-slate-50'
             }`}
           >
             <Package className="w-4 h-4" />
@@ -164,8 +164,8 @@ export default function CustomerAccountPage() {
             onClick={() => setActiveTab('addresses')}
             className={`px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 transition-all cursor-pointer ${
               activeTab === 'addresses'
-                ? 'bg-[#FF6B00] text-white shadow-md shadow-[#FF6B00]/20'
-                : 'bg-[#15191F] text-[#B8BDC5] hover:text-[#F7F7F5] border border-[#2A3038]'
+                ? 'bg-[#FF6B00] text-white shadow-xs'
+                : 'bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:bg-slate-50'
             }`}
           >
             <Truck className="w-4 h-4" />
@@ -176,8 +176,8 @@ export default function CustomerAccountPage() {
             onClick={() => setActiveTab('profile')}
             className={`px-4 py-2.5 rounded-xl font-bold text-xs flex items-center gap-2 transition-all cursor-pointer ${
               activeTab === 'profile'
-                ? 'bg-[#FF6B00] text-white shadow-md shadow-[#FF6B00]/20'
-                : 'bg-[#15191F] text-[#B8BDC5] hover:text-[#F7F7F5] border border-[#2A3038]'
+                ? 'bg-[#FF6B00] text-white shadow-xs'
+                : 'bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:bg-slate-50'
             }`}
           >
             <ShieldCheck className="w-4 h-4" />
@@ -193,23 +193,23 @@ export default function CustomerAccountPage() {
         {activeTab === 'profile' && (
           <div className="space-y-6">
             {/* Status Callout Banner */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-emerald-500/10 via-[#15191F] to-[#15191F] border border-emerald-500/30 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-xl">
+            <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-emerald-50 via-white to-white border border-emerald-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-sm">
               <div className="space-y-2">
-                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-400 bg-emerald-500/15 px-3 py-1 rounded-full border border-emerald-500/30">
-                  <ShieldCheck className="w-3.5 h-3.5" />
+                <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-emerald-800 bg-emerald-100 px-3 py-1 rounded-full border border-emerald-200">
+                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
                   <span>Wholesale Pricing Access Active</span>
                 </div>
-                <h2 className="text-xl sm:text-2xl font-black text-[#F7F7F5]">
+                <h2 className="text-xl sm:text-2xl font-black text-slate-900">
                   Authorized Oklahoma Resale Account
                 </h2>
-                <p className="text-xs sm:text-sm text-[#B8BDC5] max-w-xl leading-relaxed">
+                <p className="text-xs sm:text-sm text-slate-600 max-w-xl leading-relaxed">
                   Your business entity has been verified for tax-exempt B2B wholesale pricing. Live rates and instant carton ordering are enabled across the full catalog.
                 </p>
               </div>
 
               <a
                 href="/"
-                className="px-6 py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm flex items-center gap-2 shadow-lg shadow-emerald-600/25 transition-all hover:scale-105 shrink-0"
+                className="px-6 py-3.5 rounded-2xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm flex items-center gap-2 shadow-sm transition-all hover:scale-105 shrink-0"
               >
                 <span>Browse Active Products</span>
                 <ArrowRight className="w-4 h-4" />
@@ -219,7 +219,7 @@ export default function CustomerAccountPage() {
             {/* Profile Details Grid */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               {/* Business & Contact Card */}
-              <div className="bg-[#15191F] border border-[#2A3038] rounded-3xl p-6 space-y-4">
+              <div className="bg-white border border-slate-200 rounded-3xl p-6 space-y-4 shadow-xs">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-[#FF6B00] flex items-center gap-2">
                   <Building2 className="w-4 h-4" />
                   Business & Contact Profile
@@ -227,26 +227,26 @@ export default function CustomerAccountPage() {
 
                 <div className="space-y-3 text-xs">
                   <div>
-                    <span className="text-[#858C96] block">Legal Entity:</span>
-                    <span className="text-sm font-bold text-[#F7F7F5]">{userData?.businessName || 'N/A'}</span>
+                    <span className="text-slate-500 block">Legal Entity:</span>
+                    <span className="text-sm font-bold text-slate-900">{userData?.businessName || 'N/A'}</span>
                   </div>
                   <div>
-                    <span className="text-[#858C96] block">Authorized Contact:</span>
-                    <span className="text-[#F7F7F5] font-semibold">{userData?.contactName || 'Representative'}</span>
+                    <span className="text-slate-500 block">Authorized Contact:</span>
+                    <span className="text-slate-800 font-semibold">{userData?.contactName || 'Representative'}</span>
                   </div>
                   <div>
-                    <span className="text-[#858C96] block">Verified Email:</span>
-                    <span className="text-[#F7F7F5] font-mono">{userData?.email}</span>
+                    <span className="text-slate-500 block">Verified Email:</span>
+                    <span className="text-slate-800 font-mono">{userData?.email}</span>
                   </div>
                   <div>
-                    <span className="text-[#858C96] block">Account ID:</span>
-                    <code className="text-[#858C96] font-mono">{userData?.id || userData?.userId}</code>
+                    <span className="text-slate-500 block">Account ID:</span>
+                    <code className="text-slate-600 font-mono bg-slate-100 px-2 py-0.5 rounded">{userData?.id || userData?.userId}</code>
                   </div>
                 </div>
               </div>
 
               {/* Commercial Privileges */}
-              <div className="bg-[#15191F] border border-[#2A3038] rounded-3xl p-6 space-y-4">
+              <div className="bg-white border border-slate-200 rounded-3xl p-6 space-y-4 shadow-xs">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-[#FF6B00] flex items-center gap-2">
                   <FileText className="w-4 h-4" />
                   Commercial Privileges
@@ -254,29 +254,29 @@ export default function CustomerAccountPage() {
 
                 <div className="space-y-3 text-xs">
                   <div>
-                    <span className="text-[#858C96] block">Authorization Tier:</span>
-                    <span className="text-[#F7F7F5] font-bold">Licensed Retail Reseller</span>
+                    <span className="text-slate-500 block">Authorization Tier:</span>
+                    <span className="text-slate-900 font-bold">Licensed Retail Reseller</span>
                   </div>
                   <div>
-                    <span className="text-[#858C96] block">Dispatch Warehouse:</span>
-                    <span className="text-[#F7F7F5]">4500 S Bryant Ave, Oklahoma City, OK 73135</span>
+                    <span className="text-slate-500 block">Dispatch Warehouse:</span>
+                    <span className="text-slate-800">4500 S Bryant Ave, Oklahoma City, OK 73135</span>
                   </div>
                   <div>
-                    <span className="text-[#858C96] block">Delivery Eligibility:</span>
-                    <span className="text-emerald-400 font-semibold">Oklahoma City Metro Area (Free on $500+)</span>
+                    <span className="text-slate-500 block">Delivery Eligibility:</span>
+                    <span className="text-emerald-700 font-semibold">Oklahoma City Metro Area (Free on $500+)</span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Change Password Section */}
-            <div className="bg-[#15191F] border border-[#2A3038] rounded-3xl p-6 sm:p-8 space-y-4 max-w-xl">
+            <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-4 max-w-xl shadow-xs">
               <h3 className="text-xs font-bold uppercase tracking-wider text-[#FF6B00] flex items-center gap-2">
                 <Lock className="w-4 h-4" />
                 Security & Password Update
               </h3>
 
-              <p className="text-xs text-[#858C96] leading-relaxed">
+              <p className="text-xs text-slate-600 leading-relaxed">
                 Need to update your wholesale account credentials? Request a secure single-use password reset link sent to your registered email.
               </p>
 
@@ -284,14 +284,14 @@ export default function CustomerAccountPage() {
                 <div
                   className={`p-3.5 rounded-xl text-xs flex items-center gap-2 ${
                     pwMessage.type === 'success'
-                      ? 'bg-emerald-500/15 border border-emerald-500/40 text-emerald-300'
-                      : 'bg-red-500/15 border border-red-500/40 text-red-400'
+                      ? 'bg-emerald-50 border border-emerald-200 text-emerald-800'
+                      : 'bg-rose-50 border border-rose-200 text-rose-700'
                   }`}
                 >
                   {pwMessage.type === 'success' ? (
-                    <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-400" />
+                    <CheckCircle2 className="w-4 h-4 shrink-0 text-emerald-600" />
                   ) : (
-                    <AlertCircle className="w-4 h-4 shrink-0 text-red-400" />
+                    <AlertCircle className="w-4 h-4 shrink-0 text-rose-600" />
                   )}
                   <span>{pwMessage.text}</span>
                 </div>
@@ -301,7 +301,7 @@ export default function CustomerAccountPage() {
                 <button
                   type="submit"
                   disabled={isChangingPassword}
-                  className="px-5 py-2.5 rounded-xl bg-[#1B2027] hover:bg-[#2A3038] text-white font-bold text-xs border border-[#2A3038] hover:border-[#FF6B00] transition-colors flex items-center gap-2 cursor-pointer disabled:opacity-50"
+                  className="px-5 py-2.5 rounded-xl bg-slate-50 hover:bg-slate-100 text-slate-800 font-bold text-xs border border-slate-300 hover:border-[#FF6B00] transition-colors flex items-center gap-2 cursor-pointer disabled:opacity-50"
                 >
                   {isChangingPassword ? (
                     <>

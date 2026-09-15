@@ -64,28 +64,28 @@ export default function AdminInventoryMismatches() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0B0D10] text-[#F7F7F5]">
+    <div className="min-h-screen bg-[#F8FAFC] text-slate-900">
       {/* Header */}
-      <header className="bg-[#15191F] border-b border-[#2A3038] px-4 sm:px-8 py-4 sticky top-0 z-30 shadow-md">
+      <header className="bg-white border-b border-slate-200 px-4 sm:px-8 py-4 sticky top-0 z-30 shadow-xs">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-3">
             <a
               href="/admin/orders"
-              className="p-2 rounded-xl bg-[#1B2027] hover:bg-[#2A3038] text-[#B8BDC5] hover:text-[#F7F7F5] border border-[#2A3038] transition-colors"
+              className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 border border-slate-200 transition-colors"
               title="Back to Orders Queue"
             >
               <ArrowLeft className="w-4 h-4" />
             </a>
             <div>
               <div className="flex items-center gap-2">
-                <h1 className="font-extrabold text-base sm:text-lg tracking-tight text-[#F7F7F5]">
+                <h1 className="font-extrabold text-base sm:text-lg tracking-tight text-slate-900">
                   Physical Inventory Discrepancy Log
                 </h1>
-                <span className="bg-amber-500/20 text-amber-300 border border-amber-500/30 text-[10px] font-black px-2 py-0.5 rounded-full uppercase">
+                <span className="bg-amber-50 text-amber-700 border border-amber-200 text-[10px] font-black px-2 py-0.5 rounded-full uppercase">
                   Warehouse Reconciliation
                 </span>
               </div>
-              <p className="text-xs text-[#858C96]">
+              <p className="text-xs text-slate-500">
                 Identifies physical warehouse mismatches vs Zoho live counts reported during fulfillment
               </p>
             </div>
@@ -94,7 +94,7 @@ export default function AdminInventoryMismatches() {
           <div className="flex items-center gap-2.5">
             <button
               onClick={loadMismatches}
-              className="p-2 rounded-xl bg-[#1B2027] hover:bg-[#2A3038] text-[#B8BDC5] hover:text-[#F7F7F5] border border-[#2A3038] transition-colors cursor-pointer"
+              className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 border border-slate-200 transition-colors cursor-pointer"
               title="Refresh"
             >
               <RefreshCw className="w-4 h-4" />
@@ -107,23 +107,23 @@ export default function AdminInventoryMismatches() {
       <main className="max-w-7xl mx-auto px-4 sm:px-8 py-8 space-y-6">
         {/* Messages */}
         {error && (
-          <div className="p-4 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-400 text-xs flex items-center gap-2">
+          <div className="p-4 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs flex items-center gap-2">
             <AlertTriangle className="w-4 h-4 shrink-0" />
             <span>{error}</span>
           </div>
         )}
 
         {success && (
-          <div className="p-4 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs flex items-center gap-2">
+          <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 text-emerald-700 text-xs flex items-center gap-2">
             <CheckCircle2 className="w-4 h-4 shrink-0" />
             <span>{success}</span>
           </div>
         )}
 
         {/* Filter Controls */}
-        <div className="flex items-center justify-between gap-3 bg-[#15191F] p-4 rounded-2xl border border-[#2A3038]">
+        <div className="flex items-center justify-between gap-3 bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
           <div className="flex items-center gap-2">
-            <span className="text-xs font-bold text-[#858C96] uppercase tracking-wider mr-1">Filter:</span>
+            <span className="text-xs font-bold text-slate-500 uppercase tracking-wider mr-1">Filter:</span>
             {[
               { id: false, label: 'Unresolved Shortages' },
               { id: true, label: 'Resolved History' },
@@ -134,8 +134,8 @@ export default function AdminInventoryMismatches() {
                 onClick={() => setFilterResolved(f.id as any)}
                 className={`px-3 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                   filterResolved === f.id
-                    ? 'bg-[#FF6B00] text-white shadow-sm'
-                    : 'bg-[#1B2027] text-[#858C96] hover:text-[#F7F7F5] border border-[#2A3038]'
+                    ? 'bg-[#FF6B00] text-white shadow-xs'
+                    : 'bg-slate-100 text-slate-700 hover:text-slate-900 border border-slate-200'
                 }`}
               >
                 {f.label}
@@ -143,23 +143,23 @@ export default function AdminInventoryMismatches() {
             ))}
           </div>
 
-          <span className="text-xs font-mono text-[#858C96]">
+          <span className="text-xs font-mono text-slate-500">
             {mismatches.length} record{mismatches.length !== 1 ? 's' : ''}
           </span>
         </div>
 
         {/* Mismatches Table */}
-        <div className="bg-[#15191F] rounded-2xl border border-[#2A3038] overflow-hidden shadow-xl">
+        <div className="bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-xs">
           {isLoading ? (
             <div className="py-16 text-center space-y-3">
               <Loader2 className="w-8 h-8 animate-spin text-[#FF6B00] mx-auto" />
-              <p className="text-xs text-[#858C96]">Loading mismatch records...</p>
+              <p className="text-xs text-slate-500">Loading mismatch records...</p>
             </div>
           ) : mismatches.length === 0 ? (
             <div className="py-16 text-center space-y-3">
-              <CheckCircle2 className="w-10 h-10 text-emerald-400 mx-auto" />
-              <h3 className="text-sm font-bold text-[#F7F7F5]">No Inventory Discrepancies Found</h3>
-              <p className="text-xs text-[#858C96]">
+              <CheckCircle2 className="w-10 h-10 text-emerald-600 mx-auto" />
+              <h3 className="text-sm font-bold text-slate-900">No Inventory Discrepancies Found</h3>
+              <p className="text-xs text-slate-500">
                 Physical stock verification counts currently match or no records match your filter.
               </p>
             </div>
@@ -167,7 +167,7 @@ export default function AdminInventoryMismatches() {
             <div className="overflow-x-auto">
               <table className="w-full text-left border-collapse text-xs">
                 <thead>
-                  <tr className="border-b border-[#2A3038] bg-[#1B2027]/70 text-[#858C96] text-[10px] font-black uppercase tracking-wider">
+                  <tr className="border-b border-slate-200 bg-slate-50 text-slate-500 text-[10px] font-black uppercase tracking-wider">
                     <th className="py-3.5 px-4">Product Name & SKU</th>
                     <th className="py-3.5 px-4">Order ID</th>
                     <th className="py-3.5 px-4 text-center">System Qty</th>
@@ -178,12 +178,12 @@ export default function AdminInventoryMismatches() {
                     <th className="py-3.5 px-4 text-right">Action</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#2A3038]">
+                <tbody className="divide-y divide-slate-200">
                   {mismatches.map((m) => (
-                    <tr key={m.id} className="hover:bg-[#1B2027] transition-colors">
+                    <tr key={m.id} className="hover:bg-slate-50/80 transition-colors">
                       <td className="py-3.5 px-4">
-                        <div className="font-bold text-[#F7F7F5]">{m.productName}</div>
-                        <div className="text-[10px] text-[#858C96] font-mono">SKU: {m.sku}</div>
+                        <div className="font-bold text-slate-900">{m.productName}</div>
+                        <div className="text-[10px] text-slate-500 font-mono">SKU: {m.sku}</div>
                       </td>
 
                       <td className="py-3.5 px-4 font-mono text-[#FF6B00]">
@@ -192,26 +192,26 @@ export default function AdminInventoryMismatches() {
                         </a>
                       </td>
 
-                      <td className="py-3.5 px-4 text-center font-mono font-bold text-[#B8BDC5]">
+                      <td className="py-3.5 px-4 text-center font-mono font-bold text-slate-700">
                         {m.systemQuantity}
                       </td>
 
-                      <td className="py-3.5 px-4 text-center font-mono font-bold text-amber-400">
+                      <td className="py-3.5 px-4 text-center font-mono font-bold text-amber-600">
                         {m.physicalQuantity}
                       </td>
 
                       <td className="py-3.5 px-4 text-center">
                         <span
                           className={`font-mono font-bold px-2 py-0.5 rounded ${
-                            m.difference < 0 ? 'bg-rose-500/20 text-rose-400' : 'bg-emerald-500/20 text-emerald-400'
+                            m.difference < 0 ? 'bg-rose-50 text-rose-700' : 'bg-emerald-50 text-emerald-700'
                           }`}
                         >
                           {m.difference > 0 ? `+${m.difference}` : m.difference}
                         </span>
                       </td>
 
-                      <td className="py-3.5 px-4 text-[#858C96]">
-                        <div className="text-[#F7F7F5] font-semibold">{m.reportedBy}</div>
+                      <td className="py-3.5 px-4 text-slate-500">
+                        <div className="text-slate-900 font-semibold">{m.reportedBy}</div>
                         <div className="text-[10px]">{new Date(m.reportedAt).toLocaleString()}</div>
                       </td>
 
@@ -219,8 +219,8 @@ export default function AdminInventoryMismatches() {
                         <span
                           className={`text-[10px] font-black px-2.5 py-1 rounded-full uppercase tracking-wider ${
                             m.resolved
-                              ? 'bg-emerald-500/20 text-emerald-400 border border-emerald-500/30'
-                              : 'bg-amber-500/20 text-amber-300 border border-amber-500/30'
+                              ? 'bg-emerald-50 text-emerald-700 border border-emerald-200'
+                              : 'bg-amber-50 text-amber-700 border border-amber-200'
                           }`}
                         >
                           {m.resolved ? 'Resolved' : 'Shortage Unresolved'}
@@ -231,12 +231,12 @@ export default function AdminInventoryMismatches() {
                         {!m.resolved ? (
                           <button
                             onClick={() => setResolvingId(m.id)}
-                            className="px-3 py-1 bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 font-bold text-xs rounded-lg border border-amber-500/40 transition-colors cursor-pointer"
+                            className="px-3 py-1 bg-amber-50 hover:bg-amber-100 text-amber-700 font-bold text-xs rounded-lg border border-amber-200 transition-colors cursor-pointer"
                           >
                             Mark Resolved
                           </button>
                         ) : (
-                          <span className="text-[10px] text-[#858C96] italic">
+                          <span className="text-[10px] text-slate-400 italic">
                             {m.resolutionNotes || 'Resolved'}
                           </span>
                         )}
@@ -251,20 +251,20 @@ export default function AdminInventoryMismatches() {
 
         {/* Resolve Modal */}
         {resolvingId && (
-          <div className="fixed inset-0 z-50 bg-[#0B0D10]/80 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-xs flex items-center justify-center p-4">
             <form
               onSubmit={handleResolve}
-              className="bg-[#15191F] border border-[#2A3038] rounded-2xl max-w-md w-full p-6 space-y-4 shadow-2xl"
+              className="bg-white border border-slate-200 rounded-2xl max-w-md w-full p-6 space-y-4 shadow-xl"
             >
-              <h3 className="text-sm font-bold text-[#F7F7F5] uppercase tracking-wider">
+              <h3 className="text-sm font-bold text-slate-900 uppercase tracking-wider">
                 Resolve Inventory Discrepancy
               </h3>
-              <p className="text-xs text-[#858C96]">
+              <p className="text-xs text-slate-500">
                 Record reconciliation action (e.g. Zoho inventory adjusted, replacement shipment unpacked, or count verified).
               </p>
 
               <div>
-                <label className="text-[10px] font-bold uppercase tracking-wider text-[#B8BDC5] block mb-1">
+                <label className="text-[10px] font-bold uppercase tracking-wider text-slate-500 block mb-1">
                   Reconciliation Notes
                 </label>
                 <textarea
@@ -273,7 +273,7 @@ export default function AdminInventoryMismatches() {
                   value={resolveNotes}
                   onChange={(e) => setResolveNotes(e.target.value)}
                   placeholder="e.g. Zoho count reconciled down to physical quantity."
-                  className="w-full bg-[#0B0D10] border border-[#2A3038] rounded-xl p-3 text-xs text-[#F7F7F5] focus:border-[#FF6B00] outline-none"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-xl p-3 text-xs text-slate-900 placeholder:text-slate-400 focus:border-[#FF6B00] outline-none"
                 />
               </div>
 
@@ -281,7 +281,7 @@ export default function AdminInventoryMismatches() {
                 <button
                   type="button"
                   onClick={() => setResolvingId(null)}
-                  className="px-4 py-2 bg-[#1B2027] text-xs font-bold text-[#858C96] rounded-xl hover:bg-[#2A3038] transition-colors cursor-pointer"
+                  className="px-4 py-2 bg-slate-100 text-xs font-bold text-slate-700 rounded-xl hover:bg-slate-200 transition-colors cursor-pointer"
                 >
                   Cancel
                 </button>
