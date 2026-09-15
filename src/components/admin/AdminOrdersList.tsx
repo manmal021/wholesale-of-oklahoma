@@ -14,6 +14,7 @@ import {
   ChevronRight,
   ArrowLeft,
   Filter,
+  Layers,
 } from 'lucide-react';
 import {
   fetchAdminOrders,
@@ -91,11 +92,18 @@ export default function AdminOrdersList() {
 
           <div className="flex items-center gap-2.5">
             <a
+              href="/admin/products"
+              className="px-3.5 py-2 rounded-xl bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 font-bold text-xs border border-slate-300 transition-colors flex items-center gap-1.5 shadow-xs"
+            >
+              <Layers className="w-3.5 h-3.5 text-blue-600" />
+              <span className="hidden sm:inline">Product Overrides</span>
+            </a>
+            <a
               href="/admin/inventory-mismatches"
               className="px-3.5 py-2 rounded-xl bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 font-bold text-xs border border-slate-300 transition-colors flex items-center gap-1.5 shadow-xs"
             >
               <AlertTriangle className="w-3.5 h-3.5 text-amber-600" />
-              <span>Inventory Mismatches</span>
+              <span className="hidden sm:inline">Inventory Mismatches</span>
             </a>
             <button
               onClick={loadOrders}

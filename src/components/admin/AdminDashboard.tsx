@@ -13,7 +13,10 @@ import {
   Search,
   ExternalLink,
   ShieldCheck,
-  Package
+  Package,
+  Truck,
+  Layers,
+  AlertTriangle,
 } from 'lucide-react';
 
 interface Stats {
@@ -23,6 +26,13 @@ interface Stats {
   suspended: number;
   totalApplications: number;
   totalCustomers: number;
+  totalOrders?: number;
+  newOrders?: number;
+  pendingOrders?: number;
+  pickupOrders?: number;
+  deliveryOrders?: number;
+  inventoryIssues?: number;
+  activeOverrides?: number;
 }
 
 interface AuditLog {
@@ -42,6 +52,13 @@ export default function AdminDashboard() {
     suspended: 0,
     totalApplications: 0,
     totalCustomers: 0,
+    totalOrders: 0,
+    newOrders: 0,
+    pendingOrders: 0,
+    pickupOrders: 0,
+    deliveryOrders: 0,
+    inventoryIssues: 0,
+    activeOverrides: 0,
   });
   const [logs, setLogs] = useState<AuditLog[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -164,6 +181,23 @@ export default function AdminDashboard() {
           >
             <Package className="w-3.5 h-3.5 text-amber-600" />
             Wholesale Orders
+            {(stats.newOrders || 0) > 0 && (
+              <span className="bg-[#FF6B00] text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold">
+                {stats.newOrders}
+              </span>
+            )}
+          </a>
+          <a
+            href="/admin/products"
+            className="px-4 py-2 rounded-xl bg-white hover:bg-slate-50 text-slate-700 hover:text-slate-900 border border-slate-200 font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-colors shadow-xs"
+          >
+            <Layers className="w-3.5 h-3.5 text-blue-600" />
+            Products / Availability
+            {(stats.activeOverrides || 0) > 0 && (
+              <span className="bg-rose-100 text-rose-700 border border-rose-200 text-[10px] px-1.5 py-0.2 rounded-full font-bold">
+                {stats.activeOverrides}
+              </span>
+            )}
           </a>
           <a
             href="/admin/inventory-mismatches"
@@ -252,6 +286,90 @@ export default function AdminDashboard() {
             </div>
             <div className="text-3xl font-black text-purple-600">{stats.suspended}</div>
             <p className="text-[11px] text-slate-500">Accounts with revoked access</p>
+          </div>
+        </div>
+
+        {/* Operational Warehouse & Order Fulfillment Row */}
+        <div>
+          <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3 flex items-center gap-2">
+            <Package className="w-3.5 h-3.5 text-[#FF6B00]" />
+            <span>Fulfillment & Dispatch Operations</span>
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+            {/* New Orders */}
+            <a
+              href="/admin/orders?status=ORDER_RECEIVED"
+              className="p-4 rounded-2xl bg-white border border-orange-200 hover:border-[#FF6B00] transition-colors space-y-1.5 shadow-xs block"
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">New Orders</span>
+                <span className="w-6 h-6 rounded-lg bg-orange-50 text-[#FF6B00] flex items-center justify-center">
+                  <Package className="w-3.5 h-3.5" />
+                </span>
+              </div>
+              <div className="text-2xl font-black text-slate-900">{stats.newOrders || 0}</div>
+              <p className="text-[10px] text-slate-500">Awaiting dispatch triage</p>
+            </a>
+
+            {/* Pickup Orders */}
+            <a
+              href="/admin/orders?fulfillment=PICKUP"
+              className="p-4 rounded-2xl bg-white border border-sky-200 hover:border-sky-400 transition-colors space-y-1.5 shadow-xs block"
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Pickup Orders</span>
+                <span className="w-6 h-6 rounded-lg bg-sky-50 text-sky-600 flex items-center justify-center">
+                  <Package className="w-3.5 h-3.5" />
+                </span>
+              </div>
+              <div className="text-2xl font-black text-sky-700">{stats.pickupOrders || 0}</div>
+              <p className="text-[10px] text-slate-500">OKC Central Warehouse</p>
+            </a>
+
+            {/* Delivery Orders */}
+            <a
+              href="/admin/orders?fulfillment=DELIVERY"
+              className="p-4 rounded-2xl bg-white border border-indigo-200 hover:border-indigo-400 transition-colors space-y-1.5 shadow-xs block"
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Delivery Orders</span>
+                <span className="w-6 h-6 rounded-lg bg-indigo-50 text-indigo-600 flex items-center justify-center">
+                  <Truck className="w-3.5 h-3.5" />
+                </span>
+              </div>
+              <div className="text-2xl font-black text-indigo-700">{stats.deliveryOrders || 0}</div>
+              <p className="text-[10px] text-slate-500">Commercial Metro Route</p>
+            </a>
+
+            {/* Shortages / Exceptions */}
+            <a
+              href="/admin/orders?status=INVENTORY_ISSUE"
+              className="p-4 rounded-2xl bg-white border border-rose-200 hover:border-rose-400 transition-colors space-y-1.5 shadow-xs block"
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Exceptions</span>
+                <span className="w-6 h-6 rounded-lg bg-rose-50 text-rose-600 flex items-center justify-center">
+                  <AlertTriangle className="w-3.5 h-3.5" />
+                </span>
+              </div>
+              <div className="text-2xl font-black text-rose-700">{stats.inventoryIssues || 0}</div>
+              <p className="text-[10px] text-slate-500">Action required</p>
+            </a>
+
+            {/* Overridden Products */}
+            <a
+              href="/admin/products"
+              className="p-4 rounded-2xl bg-white border border-amber-200 hover:border-amber-400 transition-colors space-y-1.5 shadow-xs block"
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-[11px] font-bold uppercase tracking-wider text-slate-500">Unavailable</span>
+                <span className="w-6 h-6 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center">
+                  <Ban className="w-3.5 h-3.5" />
+                </span>
+              </div>
+              <div className="text-2xl font-black text-amber-700">{stats.activeOverrides || 0}</div>
+              <p className="text-[10px] text-slate-500">Manual stock overrides</p>
+            </a>
           </div>
         </div>
 

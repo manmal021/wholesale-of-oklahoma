@@ -42,29 +42,41 @@ class AuthStore {
   private sessions: Map<string, SessionRecord> = new Map(); // keyed by session token
 
   constructor() {
-    // Seed pre-verified test account for customer verification
-    this.seedUser({
-      email: 'retailer@okcvapor.com',
-      password: 'WholesaleOK2026!',
-      role: 'approved_customer',
-      businessName: 'OKC Vapor Lounge LLC',
-      contactName: 'Alex Mercer',
-      phone: '(405) 555-0199',
-      fein: '73-1234567',
-      licenseNumber: 'OK-TOB-89214',
-    });
+    // 1. Restore persistent users from databaseStore
+    const savedUsers = databaseStore.getUsers();
+    for (const u of savedUsers) {
+      if (u && u.email) {
+        this.users.set(u.email.toLowerCase().trim(), u);
+      }
+    }
 
-    // Seed internal backup admin
-    this.seedUser({
-      email: 'admin@wholesaleofoklahoma.com',
-      password: 'AdminSecret2026!',
-      role: 'admin',
-      businessName: 'Wholesale of Oklahoma Dispatch',
-      contactName: 'Head Dispatcher',
-      phone: '(405) 768-2975',
-    });
+    // 2. Seed pre-verified test account for customer verification if not present
+    if (!this.users.has('retailer@okcvapor.com')) {
+      this.seedUser({
+        email: 'retailer@okcvapor.com',
+        password: 'WholesaleOK2026!',
+        role: 'approved_customer',
+        businessName: 'OKC Vapor Lounge LLC',
+        contactName: 'Alex Mercer',
+        phone: '(405) 555-0199',
+        fein: '73-1234567',
+        licenseNumber: 'OK-TOB-89214',
+      });
+    }
 
-    // Ensure initial administrator for order2wholesaleofoklahoma@gmail.com
+    // 3. Seed internal backup admin if not present
+    if (!this.users.has('admin@wholesaleofoklahoma.com')) {
+      this.seedUser({
+        email: 'admin@wholesaleofoklahoma.com',
+        password: 'AdminSecret2026!',
+        role: 'admin',
+        businessName: 'Wholesale of Oklahoma Dispatch',
+        contactName: 'Head Dispatcher',
+        phone: '(405) 768-2975',
+      });
+    }
+
+    // 4. Ensure initial administrator for order2wholesaleofoklahoma@gmail.com
     this.ensureInitialAdmin();
   }
 
@@ -85,6 +97,7 @@ class AuthStore {
         createdAt: new Date().toISOString(),
       };
       this.users.set(adminEmail, user);
+      databaseStore.saveUser(user);
       console.log(`[AuthStore] 🛡 Initial administrator account record prepared for ${adminEmail}`);
 
       // Create single-use 24-hour setup token if no active token exists
@@ -119,7 +132,7 @@ class AuthStore {
     const passwordHash = this.hashPassword(data.password, salt);
     const id = `usr_${crypto.randomBytes(8).toString('hex')}`;
 
-    this.users.set(data.email.toLowerCase(), {
+    const user: UserRecord = {
       id,
       email: data.email.toLowerCase(),
       passwordHash,
@@ -131,7 +144,10 @@ class AuthStore {
       fein: data.fein,
       licenseNumber: data.licenseNumber,
       createdAt: new Date().toISOString(),
-    });
+    };
+
+    this.users.set(data.email.toLowerCase(), user);
+    databaseStore.saveUser(user);
   }
 
   public setPassword(email: string, password: string): UserRecord {
@@ -159,6 +175,7 @@ class AuthStore {
 
     user.salt = salt;
     user.passwordHash = passwordHash;
+    databaseStore.saveUser(user);
     return user;
   }
 
@@ -191,6 +208,7 @@ class AuthStore {
       user.businessName = customer.businessName;
       user.contactName = customer.contactName;
     }
+    databaseStore.saveUser(user);
     return user;
   }
 
@@ -228,6 +246,7 @@ class AuthStore {
     };
 
     this.users.set(cleanEmail, user);
+    databaseStore.saveUser(user);
     const session = this.createSession(user);
 
     const { passwordHash: _, salt: __, ...safeUser } = user;
@@ -462,6 +481,7 @@ class AuthStore {
         session.role = newRole;
       }
     }
+    databaseStore.saveUser(user);
     return true;
   }
 

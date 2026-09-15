@@ -43,6 +43,7 @@ import AdminCustomersList from './components/admin/AdminCustomersList';
 import AdminOrdersList from './components/admin/AdminOrdersList';
 import AdminOrderDetail from './components/admin/AdminOrderDetail';
 import AdminInventoryMismatches from './components/admin/AdminInventoryMismatches';
+import AdminProductsAvailability from './components/admin/AdminProductsAvailability';
 import AccountActivation from './components/customer/AccountActivation';
 import CustomerAccountPage from './components/customer/CustomerAccountPage';
 import PasswordResetPage from './components/customer/PasswordResetPage';
@@ -64,34 +65,62 @@ interface CurrentUser {
 export default function App() {
   const pathname = typeof window !== 'undefined' ? window.location.pathname.toLowerCase().replace(/\/$/, '') || '/' : '/';
 
-  if (pathname === '/admin/login') {
-    return <AdminLogin />;
-  }
-  if (pathname === '/admin/activate') {
-    return <AdminActivation />;
-  }
-  if (pathname.startsWith('/admin/orders/')) {
-    const rawId = window.location.pathname.replace(/^\/admin\/orders\//i, '').replace(/\/$/, '').trim();
-    return <AdminOrderDetail orderId={rawId} />;
-  }
-  if (pathname === '/admin/orders') {
-    return <AdminOrdersList />;
-  }
-  if (pathname === '/admin/inventory-mismatches') {
-    return <AdminInventoryMismatches />;
-  }
-  if (pathname.startsWith('/admin/customer-applications/')) {
-    const rawId = window.location.pathname.replace(/^\/admin\/customer-applications\//i, '').replace(/\/$/, '').trim();
-    return <AdminApplicationDetail applicationId={rawId} />;
-  }
-  if (pathname === '/admin/customer-applications') {
-    return <AdminApplicationsList />;
-  }
-  if (pathname === '/admin/customers') {
-    return <AdminCustomersList />;
-  }
-  if (pathname === '/admin') {
-    return <AdminDashboard />;
+  if (pathname.startsWith('/admin')) {
+    if (pathname === '/admin/login') {
+      return <AdminLogin />;
+    }
+    if (pathname === '/admin/activate') {
+      return <AdminActivation />;
+    }
+
+    // Secure Admin Guard: Redirect unauthenticated or non-admin visitors immediately to /admin/login
+    let isAdmin = false;
+    if (typeof window !== 'undefined') {
+      try {
+        const token = localStorage.getItem('woo_session_token');
+        const rawUser = localStorage.getItem('woo_user');
+        if (token && rawUser) {
+          const u = JSON.parse(rawUser);
+          if (u && u.role === 'admin') {
+            isAdmin = true;
+          }
+        }
+      } catch (_) {}
+    }
+
+    if (!isAdmin) {
+      if (typeof window !== 'undefined') {
+        window.location.replace('/admin/login');
+      }
+      return <AdminLogin />;
+    }
+
+    if (pathname.startsWith('/admin/orders/')) {
+      const rawId = window.location.pathname.replace(/^\/admin\/orders\//i, '').replace(/\/$/, '').trim();
+      return <AdminOrderDetail orderId={rawId} />;
+    }
+    if (pathname === '/admin/orders') {
+      return <AdminOrdersList />;
+    }
+    if (pathname === '/admin/products' || pathname === '/admin/products/availability') {
+      return <AdminProductsAvailability />;
+    }
+    if (pathname === '/admin/inventory-mismatches') {
+      return <AdminInventoryMismatches />;
+    }
+    if (pathname.startsWith('/admin/customer-applications/')) {
+      const rawId = window.location.pathname.replace(/^\/admin\/customer-applications\//i, '').replace(/\/$/, '').trim();
+      return <AdminApplicationDetail applicationId={rawId} />;
+    }
+    if (pathname === '/admin/customer-applications') {
+      return <AdminApplicationsList />;
+    }
+    if (pathname === '/admin/customers') {
+      return <AdminCustomersList />;
+    }
+    if (pathname === '/admin') {
+      return <AdminDashboard />;
+    }
   }
   if (pathname === '/activate') {
     return <AccountActivation />;

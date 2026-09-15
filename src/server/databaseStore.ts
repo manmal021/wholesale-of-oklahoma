@@ -14,6 +14,7 @@
 import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
+import os from 'os';
 
 export type ApplicationStatus = 'PENDING' | 'APPROVED' | 'REJECTED' | 'SUSPENDED';
 
@@ -392,9 +393,24 @@ interface DatabaseState {
   inventoryOverrides?: InventoryOverrideRecord[];
   inventoryMismatches?: InventoryMismatchRecord[];
   customerAddresses?: CustomerSavedAddress[];
+  users?: any[];
 }
 
-const STORAGE_DIR = path.resolve(process.cwd(), 'storage');
+const isVercel = Boolean(
+  process.env.VERCEL ||
+  process.env.VERCEL_ENV ||
+  process.env.NOW_REGION ||
+  process.env.AWS_LAMBDA_FUNCTION_NAME ||
+  process.env.LAMBDA_TASK_ROOT
+);
+
+const LOCAL_STORAGE_DIR = path.resolve(process.cwd(), 'storage');
+const LOCAL_DB_FILE = path.join(LOCAL_STORAGE_DIR, 'database_state.json');
+const COMMITTED_SEED_FILE = path.resolve(process.cwd(), 'data', 'seed_database_state.json');
+
+const STORAGE_DIR = isVercel
+  ? path.join(os.tmpdir(), 'storage')
+  : LOCAL_STORAGE_DIR;
 const DB_FILE = path.join(STORAGE_DIR, 'database_state.json');
 
 class DatabaseStore {
@@ -412,6 +428,7 @@ class DatabaseStore {
   private inventoryOverrides: Map<string, InventoryOverrideRecord> = new Map(); // productId/sku -> record
   private inventoryMismatches: Map<string, InventoryMismatchRecord> = new Map(); // id -> record
   private customerAddresses: Map<string, CustomerSavedAddress[]> = new Map(); // customerId -> addresses[]
+  private users: Map<string, any> = new Map(); // keyed by email (lowercase)
 
   constructor() {
     this.ensureStorageDir();
@@ -431,8 +448,31 @@ class DatabaseStore {
 
   private loadFromDisk(): void {
     try {
-      if (fs.existsSync(DB_FILE)) {
-        const raw = fs.readFileSync(DB_FILE, 'utf-8');
+      let fileToLoad = DB_FILE;
+
+      // In Vercel / serverless: copy seed to /tmp/storage/database_state.json on initial boot
+      if (isVercel && !fs.existsSync(DB_FILE)) {
+        this.ensureStorageDir();
+        if (fs.existsSync(COMMITTED_SEED_FILE)) {
+          try {
+            fs.copyFileSync(COMMITTED_SEED_FILE, DB_FILE);
+            fileToLoad = DB_FILE;
+          } catch (copyErr: any) {
+            console.warn('[DatabaseStore] Could not copy seed to /tmp, falling back to read-only seed:', copyErr.message);
+            fileToLoad = COMMITTED_SEED_FILE;
+          }
+        } else if (fs.existsSync(LOCAL_DB_FILE)) {
+          try {
+            fs.copyFileSync(LOCAL_DB_FILE, DB_FILE);
+            fileToLoad = DB_FILE;
+          } catch {
+            fileToLoad = LOCAL_DB_FILE;
+          }
+        }
+      }
+
+      if (fs.existsSync(fileToLoad)) {
+        const raw = fs.readFileSync(fileToLoad, 'utf-8');
         const state: DatabaseState = JSON.parse(raw);
 
         if (Array.isArray(state.applications)) {
@@ -511,13 +551,35 @@ class DatabaseStore {
           }
         }
 
+        if (Array.isArray(state.users)) {
+          for (const u of state.users) {
+            if (u && u.email) {
+              this.users.set(u.email.toLowerCase().trim(), u);
+            }
+          }
+        }
+
         console.log(
-          `[DatabaseStore] 📦 Loaded ${this.applications.size} applications, ${this.customers.size} customers, ${this.orders.size} orders, ${this.auditLogs.length} audit logs.`
+          `[DatabaseStore] 📦 Loaded ${this.applications.size} applications, ${this.customers.size} customers, ${this.orders.size} orders, ${this.users.size} users, ${this.auditLogs.length} audit logs.`
         );
       }
     } catch (err: any) {
       console.warn('[DatabaseStore] Could not load database state from disk:', err.message);
     }
+  }
+
+  public getUsers(): any[] {
+    return Array.from(this.users.values());
+  }
+
+  public getUserByEmail(email: string): any | undefined {
+    return this.users.get(email.toLowerCase().trim());
+  }
+
+  public saveUser(user: any): void {
+    if (!user || !user.email) return;
+    this.users.set(user.email.toLowerCase().trim(), user);
+    this.persistToDisk();
   }
 
   public persistToDisk(): void {
@@ -533,6 +595,7 @@ class DatabaseStore {
         inventoryOverrides: Array.from(new Set(this.inventoryOverrides.values())),
         inventoryMismatches: Array.from(this.inventoryMismatches.values()),
         customerAddresses: Array.from(this.customerAddresses.values()).flat(),
+        users: Array.from(this.users.values()),
       };
 
       const tempFile = `${DB_FILE}.tmp.${Date.now()}`;
@@ -1897,7 +1960,10 @@ class DatabaseStore {
     totalApplications: number;
     totalCustomers: number;
     totalOrders: number;
+    newOrders: number;
     pendingOrders: number;
+    pickupOrders: number;
+    deliveryOrders: number;
     inventoryIssues: number;
     activeOverrides: number;
   } {
@@ -1923,12 +1989,22 @@ class DatabaseStore {
       }
     }
 
+    let newOrders = 0;
     let pendingOrders = 0;
+    let pickupOrders = 0;
+    let deliveryOrders = 0;
     let inventoryIssues = 0;
     const allUniqueOrders = Array.from(new Set(this.orders.values()));
     for (const ord of allUniqueOrders) {
+      if (ord.status === 'ORDER_RECEIVED') {
+        newOrders++;
+      }
       if (ord.status === 'ORDER_RECEIVED' || ord.status === 'PROCESSING') {
         pendingOrders++;
+      }
+      if (ord.status !== 'COMPLETED' && ord.status !== 'CANCELLED') {
+        if (ord.fulfillmentMethod === 'PICKUP') pickupOrders++;
+        if (ord.fulfillmentMethod === 'DELIVERY') deliveryOrders++;
       }
       if (ord.status === 'INVENTORY_ISSUE' || ord.status === 'CUSTOMER_ACTION_REQUIRED') {
         inventoryIssues++;
@@ -1943,7 +2019,10 @@ class DatabaseStore {
       totalApplications: this.applications.size,
       totalCustomers: this.customers.size,
       totalOrders: allUniqueOrders.length,
+      newOrders,
       pendingOrders,
+      pickupOrders,
+      deliveryOrders,
       inventoryIssues,
       activeOverrides: this.listProductOverrides().length,
     };
