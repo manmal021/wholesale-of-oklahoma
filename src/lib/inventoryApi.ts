@@ -120,22 +120,46 @@ export async function submitWholesaleOrder(orderData: {
   email?: string;
   phone: string;
   notes?: string;
+  fulfillmentMethod?: 'PICKUP' | 'DELIVERY';
+  pickupInfo?: {
+    requestedPickupDate?: string;
+    requestedPickupTime?: string;
+  };
+  deliveryInfo?: {
+    addressSnapshot: {
+      recipientName: string;
+      businessName?: string;
+      street: string;
+      unit?: string;
+      city: string;
+      state: string;
+      zip: string;
+      phone: string;
+      deliveryInstructions?: string;
+    };
+    deliveryInstructions?: string;
+  };
   lineItems: Array<{
     id?: string;
     sku?: string;
     name: string;
+    flavor?: string;
     quantity: number;
     pricePerUnit: number;
     zoho_item_id?: string;
   }>;
 }): Promise<{ success: boolean; orderId: string; message: string }> {
+  const headers = getAuthHeaders() as Record<string, string>;
+  headers['Content-Type'] = 'application/json';
+
   const response = await fetch(`${BASE_URL}/orders`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers,
     body: JSON.stringify(orderData),
   });
   if (!response.ok) {
-    throw new Error('Failed to submit wholesale order');
+    const errData = await response.json().catch(() => ({}));
+    throw new Error(errData.error || errData.message || 'Failed to submit wholesale order');
   }
   return response.json();
 }

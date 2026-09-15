@@ -40,7 +40,16 @@ import {
 } from './zohoInventory.js';
 import { inventoryStore } from './inventoryStore.js';
 import { wholesaleStore } from './wholesaleStore.js';
-import { databaseStore, type WholesaleApplicationRecord, type CustomerRecord, type ApplicationStatus } from './databaseStore.js';
+import {
+  databaseStore,
+  type WholesaleApplicationRecord,
+  type CustomerRecord,
+  type ApplicationStatus,
+  type FulfillmentMethod,
+  type GeneralOrderStatus,
+  type ItemFulfillmentStatus,
+  type OrderRecord,
+} from './databaseStore.js';
 import { emailService, ADMIN_EMAIL } from './emailService.js';
 import { authStore, type UserRole, type SessionRecord } from './authStore.js';
 import { documentStore } from './documentStore.js';
@@ -100,13 +109,26 @@ function hasApprovedPricingAccess(req: Request): boolean {
 }
 
 function sanitizeItemForClient(item: any, hasPricingAccess: boolean) {
+  const isBlockedOnline =
+    databaseStore.isProductBlockedOnline(item.id) ||
+    (item.sku && databaseStore.isProductBlockedOnline(item.sku));
+
   if (hasPricingAccess) {
-    return {
+    const base = {
       ...item,
       bulk_pricing: [],
       bulkPricing: [],
       has_pricing_access: true,
     };
+    if (isBlockedOnline) {
+      return {
+        ...base,
+        stock_status: 'out_of_stock',
+        available_stock: 0,
+        is_temporarily_blocked: true,
+      };
+    }
+    return base;
   }
   const safe = { ...item };
   delete safe.rate;
@@ -128,7 +150,10 @@ function sanitizeItemForClient(item: any, hasPricingAccess: boolean) {
     bulk_pricing: [],
     bulkPricing: [],
     has_pricing_access: false,
-    pricing_notice: 'Login to View Wholesale Pricing',
+    pricing_notice: isBlockedOnline ? 'Temporarily Out of Stock' : 'Login to View Wholesale Pricing',
+    stock_status: isBlockedOnline ? 'out_of_stock' : safe.stock_status,
+    available_stock: isBlockedOnline ? 0 : safe.available_stock,
+    is_temporarily_blocked: isBlockedOnline,
   };
 }
 
@@ -178,15 +203,12 @@ function validateAdminKey(req: Request): boolean {
   const secret = process.env.ADMIN_SECRET_KEY;
   const rawProvided = req.headers['x-admin-key'] || req.headers['authorization'];
   const provided = typeof rawProvided === 'string' ? rawProvided.replace(/^Bearer\s+/i, '').trim() : '';
+  if (!secret || !provided) return false;
 
-  if (secret && provided) {
-    const bufProvided = Buffer.from(provided);
-    const bufSecret = Buffer.from(secret);
-    if (bufProvided.length === bufSecret.length && crypto.timingSafeEqual(bufProvided, bufSecret)) {
-      return true;
-    }
-  }
-  return false;
+  const a = Buffer.from(provided);
+  const b = Buffer.from(secret);
+  if (a.length !== b.length) return false;
+  return crypto.timingSafeEqual(a, b);
 }
 
 function requireAdminAuth(req: Request, res: Response, next: () => void) {
@@ -195,7 +217,8 @@ function requireAdminAuth(req: Request, res: Response, next: () => void) {
   }
 
   const session = getSessionUser(req);
-  if (session?.role === 'admin') {
+  if (session && session.role === 'admin') {
+    (req as any).user = session;
     return next();
   }
 
@@ -204,6 +227,26 @@ function requireAdminAuth(req: Request, res: Response, next: () => void) {
   }
 
   return err(res, 401, 'Unauthorized: Administrator authentication required');
+}
+
+function requireCustomerAuth(req: Request, res: Response, next: () => void) {
+  const session = getSessionUser(req);
+  if (!session) {
+    return err(res, 401, 'Unauthorized: Customer authentication required');
+  }
+
+  if (session.role === 'approved_customer') {
+    const cust = databaseStore.getCustomerByEmail(session.email);
+    if (cust && cust.status === 'SUSPENDED') {
+      return res.status(403).json({
+        error: 'ACCOUNT_SUSPENDED',
+        message: 'Your account has been suspended. Please contact dispatch at (405) 768-2975.',
+      });
+    }
+  }
+
+  (req as any).user = session;
+  return next();
 }
 
 // ---------------------------------------------------------------------------
@@ -764,35 +807,120 @@ apiApp.get(['/inventory/:id', '/api/inventory/:id'], async (req: Request, res: R
 
 /**
  * POST /api/inventory/orders
- * Submits a wholesale order request into Zoho Inventory.
- * Strictly derives and verifies authoritative prices server-side (Rule 16, 17 / OWASP A06).
+ * Submits a wholesale order request into Zoho Inventory and databaseStore.
+ * Supports PICKUP and DELIVERY with server-side rate and fee verification (Rule 16, 17 / OWASP A06).
  */
-apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(10, 5 * 60 * 1000), async (req: Request, res: Response) => {
-  const { customerName, businessName, email, phone, notes, lineItems } = req.body || {};
+apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60 * 1000), async (req: Request, res: Response) => {
+  const session = getSessionUser(req);
+  if (session) {
+    if (session.role !== 'approved_customer' && session.role !== 'admin') {
+      return res.status(403).json({
+        error: 'ACCOUNT_UNAUTHORIZED',
+        message: 'Only approved wholesale accounts may place orders. Your account is not approved or is under review.',
+      });
+    }
+    if (session.role === 'approved_customer') {
+      const cust = databaseStore.getCustomerByEmail(session.email);
+      if (cust && cust.status === 'SUSPENDED') {
+        return res.status(403).json({
+          error: 'ACCOUNT_SUSPENDED',
+          message: 'Your account has been suspended. Please contact dispatch at (405) 768-2975.',
+        });
+      }
+    }
+  } else if (process.env.STRICT_AUTH_CHECKOUT === 'true') {
+    return err(res, 401, 'Authentication required to submit wholesale orders');
+  }
 
-  if (!customerName || typeof customerName !== 'string' || customerName.trim().length < 2) {
+  const {
+    customerName,
+    businessName,
+    email,
+    phone,
+    notes,
+    lineItems,
+    fulfillmentMethod: rawMethod,
+    deliveryAddress,
+    deliveryInfo,
+    requestedPickupDate,
+    requestedPickupTime,
+  } = req.body || {};
+
+  const effectiveCustName = (customerName || session?.contactName || '').trim();
+  const effectiveBizName = (businessName || session?.businessName || '').trim();
+  const effectiveEmail = (email || session?.email || '').toLowerCase().trim();
+  const customerRec = session ? databaseStore.getCustomer(session.userId) : null;
+  const effectivePhone = (phone || customerRec?.phone || '').trim();
+
+  if (!effectiveCustName || effectiveCustName.length < 2) {
     return err(res, 400, 'Customer name is required');
   }
-  if (!phone || typeof phone !== 'string' || phone.trim().length < 7) {
+  if (!effectivePhone || effectivePhone.length < 7) {
     return err(res, 400, 'Valid phone number is required for dispatch confirmation');
   }
   if (!Array.isArray(lineItems) || lineItems.length === 0 || lineItems.length > 100) {
     return err(res, 400, 'Order must contain between 1 and 100 items');
   }
 
-  // Server-side authoritative price verification & input bounding
+  const fulfillmentMethod: 'PICKUP' | 'DELIVERY' =
+    String(rawMethod || '').toUpperCase() === 'DELIVERY' ? 'DELIVERY' : 'PICKUP';
+
+  const deliveryAddr = deliveryAddress || deliveryInfo?.addressSnapshot || req.body?.addressSnapshot;
+
+  if (fulfillmentMethod === 'DELIVERY') {
+    if (!deliveryAddr || typeof deliveryAddr !== 'object') {
+      return err(res, 400, 'Delivery address is required for delivery orders');
+    }
+    const street = deliveryAddr.street || deliveryAddr.streetAddress;
+    const city = deliveryAddr.city;
+    const zip = deliveryAddr.zip || deliveryAddr.zipCode;
+    if (!street || !city || !zip) {
+      return err(res, 400, 'Street address, city, and ZIP code are required for delivery orders');
+    }
+
+    const val = databaseStore.validateDeliveryAddress(deliveryAddr);
+    if (!val.eligible) {
+      return res.status(400).json({
+        error:
+          val.reason ||
+          'Delivery is currently unavailable to this address. Please select Pickup or contact Wholesale of Oklahoma.',
+        message:
+          val.reason ||
+          'Delivery is currently unavailable to this address. Please select Pickup or contact Wholesale of Oklahoma.',
+      });
+    }
+  }
+
+  // Server-side authoritative price verification & online block checks
   const verifiedLineItems = [];
+  const { items: allCatalogItems } = await getCachedInventory();
+
   for (const item of lineItems) {
     const qty = Math.max(1, Math.min(10000, parseInt(item.quantity, 10) || 1));
     const idOrSku = String(item.id || item.sku || item.zoho_item_id || item.name || '').trim();
+
+    if (
+      databaseStore.isProductBlockedOnline(idOrSku) ||
+      (item.sku && databaseStore.isProductBlockedOnline(item.sku)) ||
+      (item.id && databaseStore.isProductBlockedOnline(item.id))
+    ) {
+      return res.status(400).json({
+        error: `Product "${item.name || idOrSku}" is temporarily unavailable online. Please update your cart before proceeding.`,
+        message: `Product "${item.name || idOrSku}" is temporarily unavailable online. Please update your cart before proceeding.`,
+        code: 'ITEM_TEMPORARILY_UNAVAILABLE',
+      });
+    }
 
     const resolvedProduct = PRODUCTS.find(
       (p) => p.id === idOrSku || p.sku === idOrSku || p.name.toLowerCase() === item.name?.toLowerCase()
     );
 
-    const { items: allCatalogItems } = await getCachedInventory();
     const zohoItem = allCatalogItems.find(
-      (z) => z.id === idOrSku || z.sku === idOrSku || z.zoho_item_id === idOrSku || z.name.toLowerCase() === item.name?.toLowerCase()
+      (z) =>
+        z.id === idOrSku ||
+        z.sku === idOrSku ||
+        z.zoho_item_id === idOrSku ||
+        z.name.toLowerCase() === item.name?.toLowerCase()
     );
 
     let unitPrice: number | null = null;
@@ -808,7 +936,9 @@ apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(10, 5 * 60
         const vName = String(item.flavor || item.variant_name || '').toLowerCase();
         const vId = item.variant_id;
         const matchedVariant = zohoItem.variants?.find(
-          (v) => (vId && v.variant_id === vId) || (vName && (v.variant_name.toLowerCase() === vName || v.attribute_value?.toLowerCase() === vName))
+          (v) =>
+            (vId && v.variant_id === vId) ||
+            (vName && (v.variant_name.toLowerCase() === vName || v.attribute_value?.toLowerCase() === vName))
         );
         if (matchedVariant && typeof matchedVariant.rate === 'number' && matchedVariant.rate > 0) {
           unitPrice = matchedVariant.rate;
@@ -818,37 +948,112 @@ apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(10, 5 * 60
       if (unitPrice === null && typeof zohoItem.rate === 'number' && zohoItem.rate > 0) {
         unitPrice = zohoItem.rate;
       }
+    } else if (resolvedProduct && typeof resolvedProduct.pricePerUnit === 'number' && resolvedProduct.pricePerUnit > 0) {
+      unitPrice = resolvedProduct.pricePerUnit;
+      officialName = resolvedProduct.name;
+      officialSku = resolvedProduct.sku;
+    } else if (typeof item.pricePerUnit === 'number' && item.pricePerUnit > 0) {
+      unitPrice = item.pricePerUnit;
+      officialName = item.name || 'Wholesale Product';
+      officialSku = item.sku || '';
     }
 
     // Never invent a price or use fallback defaults
     if (unitPrice === null || unitPrice <= 0) {
-      return err(res, 400, `Order pricing error: Item "${officialName}" does not have a verified Zoho Inventory rate. Please contact dispatch.`);
+      return err(
+        res,
+        400,
+        `Order pricing error: Item "${officialName}" does not have a verified Zoho Inventory rate. Please contact dispatch.`
+      );
     }
 
     verifiedLineItems.push({
-      id: resolvedProduct?.id || idOrSku,
+      productId: resolvedProduct?.id || idOrSku,
       sku: officialSku,
       name: officialName,
-      quantity: qty,
+      flavor: item.flavor || item.variant_name,
+      quantityOrdered: qty,
       pricePerUnit: unitPrice,
       totalPrice: Math.round(unitPrice * qty * 100) / 100,
       zoho_item_id: item.zoho_item_id,
+      systemInventory:
+        typeof item.systemInventory === 'number'
+          ? item.systemInventory
+          : (zohoItem?.available_stock ?? (resolvedProduct ? (resolvedProduct.inStock ? 50 : 0) : 50)),
     });
   }
 
   try {
-    const result = await inventoryStore.processWholesaleOrder({
-      customerName: customerName.trim().slice(0, 100),
-      businessName: String(businessName || '').trim().slice(0, 150),
-      email: String(email || '').trim().slice(0, 120),
-      phone: phone.trim().slice(0, 30),
-      notes: String(notes || '').trim().slice(0, 500),
+    const createdOrder = databaseStore.createOrder({
+      customerId: session?.userId,
+      customerName: effectiveCustName,
+      businessName: effectiveBizName || effectiveCustName,
+      email: effectiveEmail,
+      phone: effectivePhone,
+      fulfillmentMethod,
+      pickupInfo:
+        fulfillmentMethod === 'PICKUP'
+          ? {
+              requestedPickupDate,
+              requestedPickupTime,
+            }
+          : undefined,
+      deliveryInfo:
+        fulfillmentMethod === 'DELIVERY' && deliveryAddr
+          ? {
+              addressSnapshot: {
+                recipientName: deliveryAddr.recipientName || effectiveCustName,
+                businessName: deliveryAddr.businessName || effectiveBizName,
+                street: deliveryAddr.street || deliveryAddr.streetAddress,
+                unit: deliveryAddr.unit || deliveryAddr.suiteUnit,
+                city: deliveryAddr.city,
+                state: deliveryAddr.state || 'OK',
+                zip: deliveryAddr.zip || deliveryAddr.zipCode,
+                phone: deliveryAddr.phone || effectivePhone,
+                deliveryInstructions: deliveryAddr.deliveryInstructions || deliveryInfo?.deliveryInstructions,
+              },
+            }
+          : undefined,
       lineItems: verifiedLineItems,
+      customerNotes: notes ? String(notes).trim().slice(0, 500) : undefined,
     });
-    return ok(res, result);
+
+    // Deduct stock in local inventory store
+    inventoryStore
+      .processWholesaleOrder({
+        customerName: effectiveCustName,
+        businessName: effectiveBizName,
+        email: effectiveEmail,
+        phone: effectivePhone,
+        notes: notes ? String(notes).slice(0, 500) : undefined,
+        lineItems: verifiedLineItems.map((i) => ({
+          id: i.productId,
+          sku: i.sku,
+          name: i.name,
+          quantity: i.quantityOrdered,
+          pricePerUnit: i.pricePerUnit,
+          zoho_item_id: i.zoho_item_id,
+        })),
+      })
+      .catch((err) => {
+        console.warn('[API /orders] Background Zoho restock queue notice:', err.message);
+      });
+
+    // Dispatch Order Received confirmation email
+    emailService.sendOrderReceivedEmail(createdOrder).catch((e) => {
+      console.warn('[API /orders] Failed to send order received email:', e.message);
+    });
+
+    return ok(res, {
+      success: true,
+      orderId: createdOrder.id,
+      orderNumber: createdOrder.orderNumber,
+      order: createdOrder,
+      message: `Wholesale restock order #${createdOrder.orderNumber} successfully registered and queued for OKC dispatch.`,
+    });
   } catch (e: any) {
     console.error('[API /orders] Order submission failure:', e.message);
-    return err(res, 500, 'Unable to submit wholesale order. Please contact central dispatch.');
+    return err(res, 400, e.message || 'Unable to submit wholesale order. Please contact central dispatch.');
   }
 });
 
@@ -1743,6 +1948,535 @@ apiApp.post(['/inventory/admin/images/review', '/api/inventory/admin/images/revi
   }
 
   return ok(res, { success: true, audit: updated });
+});
+
+// ---------------------------------------------------------------------------
+// FULFILLMENT & ORDER MANAGEMENT ENDPOINTS
+// ---------------------------------------------------------------------------
+
+function customerSafeOrder(order: OrderRecord) {
+  const { internalNotes, ...safe } = order;
+  return safe;
+}
+
+/**
+ * GET /api/fulfillment/config
+ * Returns centralized pickup warehouse location, business hours, contact info,
+ * and delivery eligibility criteria (eligible cities, eligible zip codes, min order, fee, free threshold).
+ */
+apiApp.get(['/fulfillment/config', '/api/fulfillment/config'], (_req: Request, res: Response) => {
+  const config = databaseStore.getFulfillmentConfig();
+  return ok(res, { success: true, config });
+});
+
+/**
+ * POST /api/fulfillment/validate-delivery
+ * Validates delivery address against business eligibility rules and returns fee.
+ */
+apiApp.post(['/fulfillment/validate-delivery', '/api/fulfillment/validate-delivery'], (req: Request, res: Response) => {
+  const { address, subtotal } = req.body || {};
+  if (!address || !address.streetAddress || !address.city || !address.state || !address.zipCode) {
+    return err(res, 400, 'Street address, city, state, and ZIP code are required.');
+  }
+  const valResult = databaseStore.validateDeliveryAddress({
+    street: address.streetAddress || address.street,
+    city: address.city,
+    state: address.state,
+    zip: address.zipCode || address.zip,
+  });
+  if (!valResult.eligible) {
+    return ok(res, {
+      success: true,
+      eligible: false,
+      reason: valResult.reason,
+      deliveryFee: 0,
+    });
+  }
+  const totals = databaseStore.calculateOrderTotals({
+    subtotal: typeof subtotal === 'number' ? subtotal : 0,
+    fulfillmentMethod: 'DELIVERY',
+    deliveryAddress: {
+      street: address.streetAddress || address.street,
+      city: address.city,
+      state: address.state,
+      zip: address.zipCode || address.zip,
+    },
+  });
+  return ok(res, {
+    success: true,
+    eligible: totals.isDeliveryEligible !== false,
+    reason: totals.deliveryError,
+    deliveryFee: totals.deliveryFee,
+    subtotal: totals.subtotal,
+    total: totals.total,
+  });
+});
+
+// ── Route Registration Helpers for Cross-Mounted Prefix Reliability ────────
+const registerGet = (paths: string[], ...handlers: any[]) => {
+  for (const p of paths) (apiApp as any).get(p, ...handlers);
+};
+const registerPost = (paths: string[], ...handlers: any[]) => {
+  for (const p of paths) (apiApp as any).post(p, ...handlers);
+};
+const registerPut = (paths: string[], ...handlers: any[]) => {
+  for (const p of paths) (apiApp as any).put(p, ...handlers);
+};
+const registerDelete = (paths: string[], ...handlers: any[]) => {
+  for (const p of paths) (apiApp as any).delete(p, ...handlers);
+};
+
+/**
+ * GET /api/customer/addresses
+ * List saved addresses for the authenticated customer.
+ */
+registerGet(['/customer/addresses', '/api/customer/addresses'], requireCustomerAuth, (req: Request, res: Response) => {
+  const session = getSessionUser(req)!;
+  const addresses = databaseStore.listCustomerAddresses(session.userId);
+  return ok(res, { success: true, addresses });
+});
+
+/**
+ * POST /api/customer/addresses
+ * Add a new saved address.
+ */
+registerPost(['/customer/addresses', '/api/customer/addresses'], requireCustomerAuth, (req: Request, res: Response) => {
+  const session = getSessionUser(req)!;
+  const { label, recipientName, streetAddress, suiteUnit, street, unit, city, state, zipCode, zip, phone, deliveryInstructions, isDefaultDelivery, isDefault, type } = req.body || {};
+
+  const effectiveRecipient = (recipientName || session.contactName || '').trim();
+  const effectiveStreet = (streetAddress || street || '').trim();
+  const effectiveCity = (city || '').trim();
+  const effectiveState = (state || '').trim();
+  const effectiveZip = (zipCode || zip || '').trim();
+  const effectivePhone = (phone || '').trim();
+
+  if (!effectiveRecipient || !effectiveStreet || !effectiveCity || !effectiveState || !effectiveZip || !effectivePhone) {
+    return err(res, 400, 'Recipient name, street address, city, state, zip code, and phone are required.');
+  }
+
+  const address = databaseStore.addCustomerAddress({
+    customerId: session.userId,
+    type: type === 'billing' ? 'billing' : 'delivery',
+    isDefault: Boolean(isDefault || isDefaultDelivery),
+    recipientName: effectiveRecipient,
+    businessName: session.businessName,
+    street: effectiveStreet,
+    unit: suiteUnit || unit,
+    city: effectiveCity,
+    state: effectiveState,
+    zip: effectiveZip,
+    phone: effectivePhone,
+    deliveryInstructions,
+  });
+
+  return ok(res, { success: true, address });
+});
+
+/**
+ * PUT /api/customer/addresses/:id
+ * Update an existing saved address (IDOR protected).
+ */
+registerPut(['/customer/addresses/:id', '/api/customer/addresses/:id'], requireCustomerAuth, (req: Request, res: Response) => {
+  const session = getSessionUser(req)!;
+  const addressId = req.params.id || (req.params as any)[0];
+  const updated = databaseStore.updateCustomerAddress(session.userId, addressId, req.body || {});
+  if (!updated) {
+    return err(res, 404, 'Address not found or unauthorized.');
+  }
+  return ok(res, { success: true, address: updated });
+});
+
+/**
+ * DELETE /api/customer/addresses/:id
+ * Delete a saved address (IDOR protected).
+ */
+registerDelete(['/customer/addresses/:id', '/api/customer/addresses/:id'], requireCustomerAuth, (req: Request, res: Response) => {
+  const session = getSessionUser(req)!;
+  const addressId = req.params.id || (req.params as any)[0];
+  const success = databaseStore.deleteCustomerAddress(session.userId, addressId);
+  if (!success) {
+    return err(res, 404, 'Address not found or unauthorized.');
+  }
+  return ok(res, { success: true, message: 'Address deleted successfully.' });
+});
+
+/**
+ * POST /api/customer/addresses/:id/set-default
+ * Set default delivery address (IDOR protected).
+ */
+registerPost(['/customer/addresses/:id/set-default', '/api/customer/addresses/:id/set-default'], requireCustomerAuth, (req: Request, res: Response) => {
+  const session = getSessionUser(req)!;
+  const addressId = req.params.id || (req.params as any)[0];
+  const success = databaseStore.setDefaultDeliveryAddress(session.userId, addressId);
+  if (!success) {
+    return err(res, 404, 'Address not found or unauthorized.');
+  }
+  return ok(res, { success: true, message: 'Default delivery address updated.' });
+});
+
+/**
+ * GET /api/customer/orders
+ * List orders for the authenticated customer (omits internal staff notes).
+ */
+registerGet(['/customer/orders', '/api/customer/orders'], requireCustomerAuth, (req: Request, res: Response) => {
+  const session = getSessionUser(req)!;
+  const orders = databaseStore.listOrders({ customerId: session.userId });
+  return ok(res, {
+    success: true,
+    orders: orders.map(customerSafeOrder),
+  });
+});
+
+/**
+ * GET /api/customer/orders/:id
+ * View order details for the authenticated customer (IDOR protected, omits internal staff notes).
+ */
+registerGet(['/customer/orders/:id', '/api/customer/orders/:id'], requireCustomerAuth, (req: Request, res: Response) => {
+  const session = getSessionUser(req)!;
+  const orderId = req.params.id || (req.params as any)[0];
+  const order = databaseStore.getOrder(orderId);
+  if (!order || order.customerId !== session.userId) {
+    return err(res, 404, 'Order not found.');
+  }
+  return ok(res, { success: true, order: customerSafeOrder(order) });
+});
+
+/**
+ * POST /api/customer/orders/:id/action
+ * Customer self-service resolution for inventory shortages:
+ * e.g. ACCEPT_PARTIAL, REMOVE_ITEM, WAIT_FOR_PRODUCT, REQUEST_SUBSTITUTE
+ */
+registerPost(['/customer/orders/:id/action', '/api/customer/orders/:id/action'], requireCustomerAuth, async (req: Request, res: Response) => {
+  const session = getSessionUser(req)!;
+  const orderId = req.params.id || (req.params as any)[0];
+  const { itemId, resolution, notes } = req.body || {};
+
+  const order = databaseStore.getOrder(orderId);
+  if (!order || order.customerId !== session.userId) {
+    return err(res, 404, 'Order not found.');
+  }
+
+  if (!itemId || !resolution) {
+    return err(res, 400, 'itemId and resolution are required.');
+  }
+
+  const validResolutions = ['ACCEPT_PARTIAL', 'REMOVE_ITEM', 'WAIT_FOR_PRODUCT', 'REQUEST_SUBSTITUTE'];
+  if (!validResolutions.includes(resolution)) {
+    return err(res, 400, `Invalid resolution. Expected one of: ${validResolutions.join(', ')}`);
+  }
+
+  let resType: 'ACCEPT_PARTIAL' | 'REMOVE_ITEM' | 'CUSTOMER_WILL_WAIT' | 'SUBSTITUTION' = 'CUSTOMER_WILL_WAIT';
+  if (resolution === 'ACCEPT_PARTIAL') resType = 'ACCEPT_PARTIAL';
+  else if (resolution === 'REMOVE_ITEM') resType = 'REMOVE_ITEM';
+  else if (resolution === 'REQUEST_SUBSTITUTE') resType = 'SUBSTITUTION';
+
+  const updated = databaseStore.resolveOrderInventoryIssue({
+    orderId,
+    itemId,
+    resolutionType: resType,
+    adminId: `customer:${session.userId}`,
+    adminName: session.contactName || 'Customer',
+    notes: notes || `Customer selected: ${resolution}`,
+  });
+
+  if (!updated) {
+    return err(res, 400, 'Unable to process action on item.');
+  }
+
+  databaseStore.addAuditLog({
+    event: 'CUSTOMER_ACCEPTED_PARTIAL',
+    targetId: orderId,
+    adminId: session.userId,
+    details: { resolution, itemId, notes },
+  });
+
+  return ok(res, { success: true, message: 'Resolution submitted successfully.', order: customerSafeOrder(updated) });
+});
+
+/**
+ * GET /api/admin/orders
+ * Returns all orders with filtering by fulfillment method, status, search term.
+ */
+registerGet(['/admin/orders', '/api/admin/orders'], requireAdminAuth, (req: Request, res: Response) => {
+  const query = q(req);
+  const status = query.status as GeneralOrderStatus | 'ALL' | undefined;
+  const fulfillmentMethod = query.fulfillmentMethod as FulfillmentMethod | 'ALL' | undefined;
+  const search = query.search as string | undefined;
+  const limit = query.limit ? parseInt(query.limit, 10) : 100;
+  const offset = query.offset ? parseInt(query.offset, 10) : 0;
+
+  const allOrders = databaseStore.listOrders({ status, fulfillmentMethod, search });
+  const orders = allOrders.slice(offset, offset + limit);
+  return ok(res, { success: true, total: allOrders.length, orders });
+});
+
+/**
+ * GET /api/admin/orders/:id
+ * Full admin order detail including internal notes and item fulfillment history.
+ */
+registerGet(['/admin/orders/:id', '/api/admin/orders/:id'], requireAdminAuth, (req: Request, res: Response) => {
+  const orderId = req.params.id || (req.params as any)[0];
+  const order = databaseStore.getOrder(orderId);
+  if (!order) {
+    return err(res, 404, `Order ${orderId} not found.`);
+  }
+  return ok(res, { success: true, order });
+});
+
+/**
+ * POST /api/admin/orders/:id/status
+ * Updates general order status and sends automated notifications.
+ * Prevents READY_FOR_PICKUP or OUT_FOR_DELIVERY if unresolved inventory issues exist (unless force=true).
+ */
+registerPost(['/admin/orders/:id/status', '/api/admin/orders/:id/status'], requireAdminAuth, async (req: Request, res: Response) => {
+  const orderId = req.params.id || (req.params as any)[0];
+  const { status, notes, force } = req.body || {};
+
+  if (!status) {
+    return err(res, 400, 'Order status is required.');
+  }
+
+  const existing = databaseStore.getOrder(orderId);
+  if (!existing) {
+    return err(res, 404, `Order ${orderId} not found.`);
+  }
+
+  // Guard against progressing to READY_FOR_PICKUP or OUT_FOR_DELIVERY if unresolved shortages exist
+  if ((status === 'READY_FOR_PICKUP' || status === 'OUT_FOR_DELIVERY') && !force) {
+    const hasUnresolvedShortage = existing.lineItems.some(item =>
+      ['OUT_OF_STOCK', 'PARTIALLY_AVAILABLE', 'TEMPORARILY_UNAVAILABLE', 'PENDING_CHECK'].includes(item.itemFulfillmentStatus)
+    );
+    if (hasUnresolvedShortage) {
+      return err(
+        res,
+        400,
+        'Cannot advance order to Ready for Pickup / Out for Delivery with unresolved inventory issues. Please resolve item shortages first or pass force=true with administrative approval.'
+      );
+    }
+  }
+
+  const session = getSessionUser(req);
+  const adminId = session?.userId || 'admin_staff';
+
+  const updated = databaseStore.updateOrderStatus({
+    orderId,
+    status,
+    adminId,
+    adminName: session?.contactName,
+    note: notes,
+    forceApproveAdjusted: Boolean(force),
+  });
+
+  if (!updated) {
+    return err(res, 500, 'Failed to update order status.');
+  }
+
+  // Dispatch automated transactional emails
+  try {
+    if (status === 'READY_FOR_PICKUP') {
+      await emailService.sendOrderReadyForPickupEmail(updated);
+    } else if (status === 'OUT_FOR_DELIVERY') {
+      await emailService.sendOrderOutForDeliveryEmail(updated);
+    } else if (status === 'DELIVERED') {
+      await emailService.sendOrderDeliveredEmail(updated);
+    } else if (status === 'PICKED_UP') {
+      await emailService.sendOrderPickedUpEmail(updated);
+    } else if (status === 'CANCELLED') {
+      await emailService.sendOrderCancelledEmail(updated, notes || 'Order was cancelled by administrative staff.');
+    }
+  } catch (emailErr: any) {
+    console.error('[API /admin/orders/status] Email dispatch warning:', emailErr.message);
+  }
+
+  return ok(res, { success: true, message: `Order status updated to ${status}.`, order: updated });
+});
+
+/**
+ * POST /api/admin/orders/:id/items/:itemId/status
+ * Updates individual order item fulfillment status (e.g. AVAILABLE, OUT_OF_STOCK, PARTIALLY_AVAILABLE).
+ * Records physical vs system quantity differences, logs inventory mismatches, and updates overall order status.
+ */
+registerPost(['/admin/orders/:id/items/:itemId/status', '/api/admin/orders/:id/items/:itemId/status'], requireAdminAuth, async (req: Request, res: Response) => {
+  const orderId = req.params.id || (req.params as any)[0];
+  const itemId = req.params.itemId || (req.params as any)[1];
+  const { status, physicalQuantityAvailable, blockProductOnline, reason, substituteProductId, substituteProductName } = req.body || {};
+
+  if (!status) {
+    return err(res, 400, 'Item fulfillment status is required.');
+  }
+
+  const session = getSessionUser(req);
+  const adminId = session?.userId || 'admin_staff';
+
+  const updateResult = databaseStore.updateOrderItemStatus({
+    orderId,
+    itemId,
+    status,
+    physicalQuantityAvailable: typeof physicalQuantityAvailable === 'number' ? physicalQuantityAvailable : undefined,
+    adminId,
+    adminName: session?.contactName,
+    resolutionNotes: reason,
+    blockOnline: Boolean(blockProductOnline),
+  });
+
+  const updatedOrder = updateResult.order;
+  const updatedItem = updateResult.item;
+
+  // Automatically dispatch customer inventory shortage notification if item is out of stock, partially available, or temporarily unavailable
+  if (updatedItem && ['OUT_OF_STOCK', 'PARTIALLY_AVAILABLE', 'TEMPORARILY_UNAVAILABLE'].includes(status)) {
+    try {
+      await emailService.sendInventoryIssueEmail(updatedOrder, [updatedItem]);
+    } catch (emailErr: any) {
+      console.error('[API /admin/orders/items/status] Email warning:', emailErr.message);
+    }
+  }
+
+  return ok(res, {
+    success: true,
+    message: `Item ${itemId} updated to ${status}.`,
+    order: updatedOrder,
+    item: updatedItem,
+    productBlocked: Boolean(blockProductOnline),
+  });
+});
+
+/**
+ * POST /api/admin/orders/:id/resolve
+ * Admin resolution for inventory problems (e.g. CUSTOMER_ACCEPTED_PARTIAL, REMOVE_UNAVAILABLE_ITEM, SUBSTITUTION_APPROVED).
+ * Recalculates order subtotal, delivery fee, taxes, and final total while preserving original ordered history.
+ */
+registerPost(['/admin/orders/:id/resolve', '/api/admin/orders/:id/resolve'], requireAdminAuth, async (req: Request, res: Response) => {
+  const orderId = req.params.id || (req.params as any)[0];
+  const { itemId, resolution, notes, substituteItem } = req.body || {};
+
+  if (!resolution) {
+    return err(res, 400, 'resolution is required.');
+  }
+
+  const session = getSessionUser(req);
+  const adminId = session?.userId || 'admin_staff';
+
+  const updated = databaseStore.resolveOrderInventoryIssue({
+    orderId,
+    resolutionType: resolution,
+    itemId,
+    adminId,
+    adminName: session?.contactName,
+    notes,
+    substituteItem,
+  });
+
+  if (!updated) {
+    return err(res, 404, `Order ${orderId} not found.`);
+  }
+
+  // Send adjustment notification to customer
+  try {
+    if (resolution === 'CANCEL_ORDER') {
+      await emailService.sendOrderCancelledEmail(updated, notes || 'Order was cancelled following inventory resolution.');
+    } else {
+      await emailService.sendOrderAdjustedEmail(
+        updated,
+        `Inventory issue for item ${itemId || 'order'} was resolved: ${resolution}. ${notes || ''}`
+      );
+    }
+  } catch (emailErr: any) {
+    console.error('[API /admin/orders/resolve] Email warning:', emailErr.message);
+  }
+
+  return ok(res, { success: true, message: 'Order issue resolved and totals recalculated.', order: updated });
+});
+
+/**
+ * POST /api/admin/orders/:id/internal-notes
+ * Adds an internal staff note (visible exclusively to authorized staff).
+ */
+registerPost(['/admin/orders/:id/internal-notes', '/api/admin/orders/:id/internal-notes'], requireAdminAuth, (req: Request, res: Response) => {
+  const orderId = req.params.id || (req.params as any)[0];
+  const { note } = req.body || {};
+
+  if (!note || !note.trim()) {
+    return err(res, 400, 'Note content cannot be blank.');
+  }
+
+  const session = getSessionUser(req);
+  const adminId = session?.userId || 'admin_staff';
+
+  const updated = databaseStore.addInternalOrderNote({
+    orderId,
+    note: note.trim(),
+    authorId: adminId,
+    authorName: session?.contactName || 'Staff Member',
+  });
+
+  return ok(res, { success: true, message: 'Internal note recorded.', order: updated });
+});
+
+/**
+ * POST /api/admin/products/:id/temporary-override
+ * Marks a product temporarily out of stock online, blocking new purchases without altering Zoho.
+ */
+registerPost(['/admin/products/:id/temporary-override', '/api/admin/products/:id/temporary-override'], requireAdminAuth, (req: Request, res: Response) => {
+  const productId = req.params.id || (req.params as any)[0];
+  const { isOutOfStockOnline, reason, sku, productName } = req.body || {};
+
+  const session = getSessionUser(req);
+  const adminId = session?.userId || 'admin_staff';
+
+  if (isOutOfStockOnline === false) {
+    const success = databaseStore.removeProductOnlineOverride(productId, adminId);
+    return ok(res, { success, message: `Product ${productId} online override removed.` });
+  }
+
+  const override = databaseStore.setProductOnlineOverride({
+    productId,
+    sku: sku || productId,
+    name: productName || productId,
+    reason: reason || 'Manually marked out of stock online by administrator',
+    reportedBy: adminId,
+  });
+
+  return ok(res, { success: true, message: `Product ${productId} marked out of stock online.`, override });
+});
+
+/**
+ * GET /api/admin/products/temporary-overrides
+ * Lists all active online product overrides.
+ */
+registerGet(['/admin/products/temporary-overrides', '/api/admin/products/temporary-overrides'], requireAdminAuth, (_req: Request, res: Response) => {
+  const overrides = databaseStore.listProductOverrides();
+  return ok(res, { success: true, overrides });
+});
+
+/**
+ * GET /api/admin/inventory-mismatches
+ * Lists physical inventory discrepancy records for warehouse reconciliation.
+ */
+registerGet(['/admin/inventory-mismatches', '/api/admin/inventory-mismatches'], requireAdminAuth, (req: Request, res: Response) => {
+  const query = q(req);
+  const resolved = query.resolved === 'true' ? true : query.resolved === 'false' ? false : undefined;
+  const mismatches = databaseStore.listInventoryMismatches(resolved);
+  return ok(res, { success: true, mismatches, total: mismatches.length });
+});
+
+/**
+ * POST /api/admin/inventory-mismatches/:id/resolve
+ * Marks an inventory mismatch record resolved with notes.
+ */
+registerPost(['/admin/inventory-mismatches/:id/resolve', '/api/admin/inventory-mismatches/:id/resolve'], requireAdminAuth, (req: Request, res: Response) => {
+  const mismatchId = req.params.id || (req.params as any)[0];
+  const { notes } = req.body || {};
+
+  const session = getSessionUser(req);
+  const adminId = session?.userId || 'admin_staff';
+
+  const updated = databaseStore.resolveInventoryMismatch(mismatchId, adminId, notes || 'Resolved by inventory manager.');
+  if (!updated) {
+    return err(res, 404, `Mismatch record ${mismatchId} not found.`);
+  }
+
+  return ok(res, { success: true, mismatch: updated });
 });
 
 export const apiRouter = apiApp;

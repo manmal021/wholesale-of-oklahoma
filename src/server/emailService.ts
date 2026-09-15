@@ -14,7 +14,12 @@
 
 import fs from 'fs';
 import path from 'path';
-import type { WholesaleApplicationRecord } from './databaseStore.js';
+import {
+  DEFAULT_FULFILLMENT_CONFIG,
+  type WholesaleApplicationRecord,
+  type OrderRecord,
+  type OrderItemRecord,
+} from './databaseStore.js';
 
 const STORAGE_DIR = path.resolve(process.cwd(), 'storage');
 const EMAIL_LOG_FILE = path.join(STORAGE_DIR, 'email_outbox.log');
@@ -654,6 +659,600 @@ Wholesale of Oklahoma
       html,
       text,
       actionUrl: resetUrl,
+    });
+  }
+
+  // ── Order Fulfillment Emails ──────────────────────────────────────────────
+
+  public async sendOrderReceivedEmail(order: OrderRecord): Promise<EmailDispatchResult> {
+    const siteUrl = getSiteUrl();
+    const orderUrl = `${siteUrl}/account/orders`;
+    const subject = `Wholesale of Oklahoma Order Received – #${order.orderNumber}`;
+
+    const itemsHtml = order.lineItems
+      .map(
+        (i) => `
+        <tr style="border-bottom: 1px solid #2A3038;">
+          <td style="padding: 10px 0; color: #FFFFFF; font-size: 14px;">
+            <strong>${i.name}</strong> ${i.flavor ? `<span style="color: #94A3B8;">(${i.flavor})</span>` : ''}
+            <br><span style="color: #64748B; font-size: 12px;">SKU: ${i.sku || 'N/A'}</span>
+          </td>
+          <td style="padding: 10px 0; text-align: center; color: #E2E8F0; font-size: 14px;">${i.quantityOrdered}</td>
+          <td style="padding: 10px 0; text-align: right; color: #E2E8F0; font-size: 14px;">$${i.pricePerUnit.toFixed(2)}</td>
+          <td style="padding: 10px 0; text-align: right; color: #FF6B00; font-weight: bold; font-size: 14px;">$${i.totalPrice.toFixed(2)}</td>
+        </tr>`
+      )
+      .join('');
+
+    const fulfillmentDetailsHtml =
+      order.fulfillmentMethod === 'PICKUP'
+        ? `
+        <div style="background: #11141A; border: 1px solid #2A3038; border-radius: 8px; padding: 16px; margin: 20px 0;">
+          <div style="color: #FF6B00; font-weight: bold; font-size: 13px; text-transform: uppercase; margin-bottom: 6px;">
+            🏬 Official Pickup Location
+          </div>
+          <div style="color: #FFFFFF; font-weight: bold; font-size: 15px;">
+            ${order.pickupInfo?.locationSnapshot.locationName || 'Wholesale of Oklahoma Warehouse'}
+          </div>
+          <div style="color: #CBD5E1; font-size: 13px; margin: 4px 0;">
+            ${order.pickupInfo?.locationSnapshot.address.street}, ${order.pickupInfo?.locationSnapshot.address.city}, ${order.pickupInfo?.locationSnapshot.address.state} ${order.pickupInfo?.locationSnapshot.address.zip}
+          </div>
+          <div style="color: #94A3B8; font-size: 12px; margin-top: 8px;">
+            <strong>Hours:</strong> ${order.pickupInfo?.locationSnapshot.hours || 'Mon–Sat: 9 AM – 8 PM'} · <strong>Phone:</strong> ${order.pickupInfo?.locationSnapshot.phone || '(405) 768-2975'}
+          </div>
+          <div style="background: rgba(255, 107, 0, 0.1); border-left: 3px solid #FF6B00; padding: 8px 12px; margin-top: 12px; color: #E2E8F0; font-size: 12px;">
+            <strong>Important:</strong> You will be notified when your order is ready for pickup. Please do not come to the warehouse until you receive the "Ready for Pickup" notification.
+          </div>
+        </div>`
+        : `
+        <div style="background: #11141A; border: 1px solid #2A3038; border-radius: 8px; padding: 16px; margin: 20px 0;">
+          <div style="color: #FF6B00; font-weight: bold; font-size: 13px; text-transform: uppercase; margin-bottom: 6px;">
+            🚚 Commercial Delivery Address
+          </div>
+          <div style="color: #FFFFFF; font-weight: bold; font-size: 15px;">
+            ${order.deliveryInfo?.addressSnapshot.recipientName || order.businessName}
+          </div>
+          <div style="color: #CBD5E1; font-size: 13px; margin: 4px 0;">
+            ${order.deliveryInfo?.addressSnapshot.street} ${order.deliveryInfo?.addressSnapshot.unit ? `#${order.deliveryInfo?.addressSnapshot.unit}` : ''}<br>
+            ${order.deliveryInfo?.addressSnapshot.city}, ${order.deliveryInfo?.addressSnapshot.state} ${order.deliveryInfo?.addressSnapshot.zip}
+          </div>
+          <div style="color: #94A3B8; font-size: 12px; margin-top: 8px;">
+            <strong>Recipient Phone:</strong> ${order.deliveryInfo?.addressSnapshot.phone}
+          </div>
+          <div style="background: rgba(59, 130, 246, 0.1); border-left: 3px solid #3B82F6; padding: 8px 12px; margin-top: 12px; color: #E2E8F0; font-size: 12px;">
+            You will receive live tracking updates as your order progresses through preparation and dispatch.
+          </div>
+        </div>`;
+
+    const html = `
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <style>
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0B0D10; color: #F8FAFC; margin: 0; padding: 24px; }
+    .card { background: #15191F; border: 1px solid #2A3038; border-radius: 12px; max-width: 600px; margin: 0 auto; padding: 28px; }
+    .badge { display: inline-block; padding: 4px 10px; border-radius: 6px; font-weight: bold; font-size: 12px; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #2A3038; padding-bottom: 16px;">
+      <h2 style="color: #FF6B00; margin: 0; font-size: 20px;">Wholesale of Oklahoma</h2>
+      <span style="background: #1E293B; color: #38BDF8; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;">ORDER #${order.orderNumber}</span>
+    </div>
+
+    <p style="color: #E2E8F0; font-size: 15px; margin-top: 18px;">
+      Hello <strong>${order.customerName}</strong> (${order.businessName}),
+    </p>
+    <p style="color: #94A3B8; font-size: 14px;">
+      Thank you for your order. We have registered your wholesale order and routed it to our Oklahoma City fulfillment center.
+    </p>
+
+    ${fulfillmentDetailsHtml}
+
+    <table style="width: 100%; border-collapse: collapse; margin-top: 20px;">
+      <thead>
+        <tr style="border-bottom: 1px solid #334155; text-align: left; color: #94A3B8; font-size: 12px; text-transform: uppercase;">
+          <th style="padding-bottom: 8px;">Product</th>
+          <th style="padding-bottom: 8px; text-align: center;">Qty</th>
+          <th style="padding-bottom: 8px; text-align: right;">Rate</th>
+          <th style="padding-bottom: 8px; text-align: right;">Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${itemsHtml}
+      </tbody>
+    </table>
+
+    <div style="margin-top: 16px; border-top: 1px solid #2A3038; padding-top: 12px;">
+      <div style="display: flex; justify-content: space-between; color: #94A3B8; font-size: 13px; margin-bottom: 4px;">
+        <span>Subtotal:</span>
+        <span>$${order.subtotal.toFixed(2)}</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; color: #94A3B8; font-size: 13px; margin-bottom: 4px;">
+        <span>Delivery Fee (${order.fulfillmentMethod}):</span>
+        <span>${order.deliveryFee === 0 ? 'FREE' : `$${order.deliveryFee.toFixed(2)}`}</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; color: #94A3B8; font-size: 13px; margin-bottom: 8px;">
+        <span>Taxes (OTC Wholesale Exempt):</span>
+        <span>$0.00</span>
+      </div>
+      <div style="display: flex; justify-content: space-between; color: #FFFFFF; font-size: 16px; font-weight: bold; border-top: 1px solid #334155; padding-top: 8px;">
+        <span>Order Total:</span>
+        <span style="color: #FF6B00;">$${order.total.toFixed(2)}</span>
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 24px;">
+      <a href="${orderUrl}" style="background: #FF6B00; color: #FFFFFF; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 14px; display: inline-block;">
+        VIEW ORDER STATUS ONLINE
+      </a>
+    </div>
+
+    <div style="color: #64748B; font-size: 11px; text-align: center; margin-top: 24px; border-top: 1px solid #2A3038; padding-top: 12px;">
+      Wholesale of Oklahoma · 4500 S Bryant Ave, Oklahoma City, OK 73135 · (405) 768-2975
+    </div>
+  </div>
+</body>
+</html>`;
+
+    const text = `
+Wholesale of Oklahoma - Order Received #${order.orderNumber}
+
+Hello ${order.customerName} (${order.businessName}),
+
+Thank you for your order. We have registered your wholesale order #${order.orderNumber} for ${order.fulfillmentMethod}.
+
+Order Total: $${order.total.toFixed(2)}
+Fulfillment Method: ${order.fulfillmentMethod}
+
+${
+  order.fulfillmentMethod === 'PICKUP'
+    ? `Pickup Location: ${order.pickupInfo?.locationSnapshot.address.street}, ${order.pickupInfo?.locationSnapshot.address.city}, OK ${order.pickupInfo?.locationSnapshot.address.zip}
+Hours: ${order.pickupInfo?.locationSnapshot.hours}
+You will be notified when your order is ready for pickup.`
+    : `Delivery Address: ${order.deliveryInfo?.addressSnapshot.street}, ${order.deliveryInfo?.addressSnapshot.city}, OK ${order.deliveryInfo?.addressSnapshot.zip}
+You will receive updates as your order progresses.`
+}
+
+Track your order online:
+${orderUrl}
+
+Wholesale of Oklahoma
+`;
+
+    return this.sendMail({
+      to: order.email,
+      subject,
+      html,
+      text,
+      actionUrl: orderUrl,
+    });
+  }
+
+  public async sendOrderReadyForPickupEmail(order: OrderRecord): Promise<EmailDispatchResult> {
+    const siteUrl = getSiteUrl();
+    const orderUrl = `${siteUrl}/account/orders`;
+    const subject = `Your Wholesale of Oklahoma order #${order.orderNumber} is ready for pickup`;
+    const location = order.pickupInfo?.locationSnapshot || DEFAULT_FULFILLMENT_CONFIG.pickupLocation;
+
+    const html = `
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0B0D10; color: #F8FAFC; margin: 0; padding: 24px;">
+  <div style="background: #15191F; border: 1px solid #10B981; border-radius: 12px; max-width: 600px; margin: 0 auto; padding: 28px;">
+    <div style="text-align: center; margin-bottom: 20px;">
+      <span style="background: rgba(16, 185, 129, 0.2); color: #10B981; border: 1px solid #10B981; padding: 6px 14px; border-radius: 9999px; font-weight: bold; font-size: 13px;">
+        ✓ READY FOR PICKUP
+      </span>
+      <h2 style="color: #FFFFFF; margin: 16px 0 6px 0; font-size: 22px;">Your Order is Ready for Collection</h2>
+      <p style="color: #94A3B8; font-size: 14px; margin: 0;">Order #${order.orderNumber} · ${order.businessName}</p>
+    </div>
+
+    <div style="background: #11141A; border: 1px solid #2A3038; border-radius: 8px; padding: 20px; margin: 20px 0;">
+      <div style="color: #FF6B00; font-weight: bold; font-size: 13px; text-transform: uppercase; margin-bottom: 6px;">
+        Pickup Location
+      </div>
+      <div style="color: #FFFFFF; font-weight: bold; font-size: 16px;">
+        ${location.locationName}
+      </div>
+      <div style="color: #E2E8F0; font-size: 14px; margin: 6px 0;">
+        ${location.address.street}<br>
+        ${location.address.city}, ${location.address.state} ${location.address.zip}
+      </div>
+      <div style="color: #94A3B8; font-size: 13px; margin-top: 10px;">
+        <strong>Hours Today:</strong> ${location.hours}<br>
+        <strong>Warehouse Dispatch Phone:</strong> ${location.phone}
+      </div>
+      <div style="background: #1E293B; border-radius: 6px; padding: 12px; margin-top: 14px; color: #CBD5E1; font-size: 13px;">
+        <strong>Pickup Instructions:</strong><br>
+        ${location.instructions}
+      </div>
+    </div>
+
+    <div style="text-align: center; margin-top: 24px;">
+      <a href="${orderUrl}" style="background: #10B981; color: #000000; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 14px; display: inline-block;">
+        VIEW ORDER DETAILS
+      </a>
+    </div>
+  </div>
+</body>
+</html>`;
+
+    const text = `
+Your Wholesale of Oklahoma order #${order.orderNumber} is ready for pickup!
+
+Location:
+${location.locationName}
+${location.address.street}
+${location.address.city}, ${location.address.state} ${location.address.zip}
+
+Hours: ${location.hours}
+Phone: ${location.phone}
+
+Instructions:
+${location.instructions}
+
+View details:
+${orderUrl}
+`;
+
+    return this.sendMail({
+      to: order.email,
+      subject,
+      html,
+      text,
+      actionUrl: orderUrl,
+    });
+  }
+
+  public async sendOrderOutForDeliveryEmail(order: OrderRecord): Promise<EmailDispatchResult> {
+    const siteUrl = getSiteUrl();
+    const orderUrl = `${siteUrl}/account/orders`;
+    const subject = `Your Wholesale of Oklahoma order #${order.orderNumber} is out for delivery`;
+    const address = order.deliveryInfo?.addressSnapshot;
+
+    const html = `
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0B0D10; color: #F8FAFC; margin: 0; padding: 24px;">
+  <div style="background: #15191F; border: 1px solid #3B82F6; border-radius: 12px; max-width: 600px; margin: 0 auto; padding: 28px;">
+    <div style="text-align: center; margin-bottom: 20px;">
+      <span style="background: rgba(59, 130, 246, 0.2); color: #38BDF8; border: 1px solid #38BDF8; padding: 6px 14px; border-radius: 9999px; font-weight: bold; font-size: 13px;">
+        🚚 OUT FOR DELIVERY
+      </span>
+      <h2 style="color: #FFFFFF; margin: 16px 0 6px 0; font-size: 22px;">Your Delivery Driver is En Route</h2>
+      <p style="color: #94A3B8; font-size: 14px; margin: 0;">Order #${order.orderNumber} · ${order.businessName}</p>
+    </div>
+
+    <div style="background: #11141A; border: 1px solid #2A3038; border-radius: 8px; padding: 18px; margin: 20px 0;">
+      <div style="color: #38BDF8; font-weight: bold; font-size: 13px; text-transform: uppercase; margin-bottom: 6px;">
+        Delivery Destination
+      </div>
+      <div style="color: #FFFFFF; font-weight: bold; font-size: 15px;">
+        ${address?.recipientName || order.businessName}
+      </div>
+      <div style="color: #E2E8F0; font-size: 14px; margin: 4px 0;">
+        ${address?.street} ${address?.unit ? `#${address.unit}` : ''}<br>
+        ${address?.city}, ${address?.state} ${address?.zip}
+      </div>
+      ${address?.deliveryInstructions ? `<div style="color: #94A3B8; font-size: 12px; margin-top: 8px;"><em>Instructions: ${address.deliveryInstructions}</em></div>` : ''}
+    </div>
+
+    <p style="color: #94A3B8; font-size: 13px; text-align: center;">
+      Please have an authorized store representative available to receive and verify the commercial shipment.
+    </p>
+
+    <div style="text-align: center; margin-top: 20px;">
+      <a href="${orderUrl}" style="background: #3B82F6; color: #FFFFFF; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 14px; display: inline-block;">
+        TRACK ORDER
+      </a>
+    </div>
+  </div>
+</body>
+</html>`;
+
+    const text = `
+Your Wholesale of Oklahoma order #${order.orderNumber} is out for delivery!
+
+Destination:
+${address?.recipientName}
+${address?.street} ${address?.unit || ''}
+${address?.city}, ${address?.state} ${address?.zip}
+
+Please have an authorized store representative on hand to sign for delivery.
+
+Track order:
+${orderUrl}
+`;
+
+    return this.sendMail({
+      to: order.email,
+      subject,
+      html,
+      text,
+      actionUrl: orderUrl,
+    });
+  }
+
+  public async sendOrderDeliveredEmail(order: OrderRecord): Promise<EmailDispatchResult> {
+    const siteUrl = getSiteUrl();
+    const orderUrl = `${siteUrl}/account/orders`;
+    const subject = `Your Wholesale of Oklahoma order #${order.orderNumber} has been delivered`;
+
+    const html = `
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0B0D10; color: #F8FAFC; margin: 0; padding: 24px;">
+  <div style="background: #15191F; border: 1px solid #10B981; border-radius: 12px; max-width: 600px; margin: 0 auto; padding: 28px;">
+    <div style="text-align: center;">
+      <span style="background: rgba(16, 185, 129, 0.2); color: #10B981; border: 1px solid #10B981; padding: 6px 14px; border-radius: 9999px; font-weight: bold; font-size: 13px;">
+        ✓ DELIVERED
+      </span>
+      <h2 style="color: #FFFFFF; margin: 16px 0 6px 0; font-size: 22px;">Order Delivered Successfully</h2>
+      <p style="color: #94A3B8; font-size: 14px; margin: 0;">Order #${order.orderNumber} · Total: $${order.total.toFixed(2)}</p>
+    </div>
+
+    <p style="color: #CBD5E1; font-size: 14px; margin-top: 20px; text-align: center;">
+      Your delivery has been successfully completed. Thank you for choosing Wholesale of Oklahoma.
+    </p>
+
+    <div style="text-align: center; margin-top: 24px;">
+      <a href="${orderUrl}" style="background: #FF6B00; color: #FFFFFF; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 14px; display: inline-block;">
+        VIEW ORDER INVOICE
+      </a>
+    </div>
+  </div>
+</body>
+</html>`;
+
+    const text = `
+Your Wholesale of Oklahoma order #${order.orderNumber} has been delivered!
+Total: $${order.total.toFixed(2)}
+
+Thank you for your business.
+View invoice: ${orderUrl}
+`;
+
+    return this.sendMail({
+      to: order.email,
+      subject,
+      html,
+      text,
+      actionUrl: orderUrl,
+    });
+  }
+
+  public async sendOrderPickedUpEmail(order: OrderRecord): Promise<EmailDispatchResult> {
+    const siteUrl = getSiteUrl();
+    const orderUrl = `${siteUrl}/account/orders`;
+    const subject = `Your Wholesale of Oklahoma order #${order.orderNumber} has been picked up`;
+
+    const html = `
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0B0D10; color: #F8FAFC; margin: 0; padding: 24px;">
+  <div style="background: #15191F; border: 1px solid #10B981; border-radius: 12px; max-width: 600px; margin: 0 auto; padding: 28px;">
+    <div style="text-align: center;">
+      <span style="background: rgba(16, 185, 129, 0.2); color: #10B981; border: 1px solid #10B981; padding: 6px 14px; border-radius: 9999px; font-weight: bold; font-size: 13px;">
+        ✓ PICKED UP
+      </span>
+      <h2 style="color: #FFFFFF; margin: 16px 0 6px 0; font-size: 22px;">Order Picked Up Successfully</h2>
+      <p style="color: #94A3B8; font-size: 14px; margin: 0;">Order #${order.orderNumber} · Total: $${order.total.toFixed(2)}</p>
+    </div>
+
+    <p style="color: #CBD5E1; font-size: 14px; margin-top: 20px; text-align: center;">
+      Your order was picked up from our Oklahoma City warehouse counter. Thank you for your business.
+    </p>
+
+    <div style="text-align: center; margin-top: 24px;">
+      <a href="${orderUrl}" style="background: #FF6B00; color: #FFFFFF; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 14px; display: inline-block;">
+        VIEW ORDER INVOICE
+      </a>
+    </div>
+  </div>
+</body>
+</html>`;
+
+    const text = `
+Your Wholesale of Oklahoma order #${order.orderNumber} has been picked up!
+Total: $${order.total.toFixed(2)}
+
+Thank you for your business.
+View invoice: ${orderUrl}
+`;
+
+    return this.sendMail({
+      to: order.email,
+      subject,
+      html,
+      text,
+      actionUrl: orderUrl,
+    });
+  }
+
+  public async sendInventoryIssueEmail(order: OrderRecord, issueItems: OrderItemRecord[]): Promise<EmailDispatchResult> {
+    const siteUrl = getSiteUrl();
+    const orderUrl = `${siteUrl}/account/orders`;
+    const subject = `Wholesale of Oklahoma Order #${order.orderNumber} – Item Availability Update`;
+
+    const itemsListHtml = issueItems
+      .map(
+        (i) => `
+        <div style="background: #11141A; border: 1px solid #EF4444; border-radius: 8px; padding: 14px; margin-bottom: 12px;">
+          <div style="color: #FFFFFF; font-weight: bold; font-size: 15px;">${i.name} ${i.flavor ? `(${i.flavor})` : ''}</div>
+          <div style="color: #94A3B8; font-size: 13px; margin: 4px 0;">SKU: ${i.sku || 'N/A'}</div>
+          <div style="display: flex; justify-content: space-between; margin-top: 8px; font-size: 13px;">
+            <span style="color: #CBD5E1;">Quantity Ordered: <strong>${i.quantityOrdered}</strong></span>
+            <span style="color: ${i.physicalQuantityAvailable > 0 ? '#FBBF24' : '#EF4444'}; font-weight: bold;">
+              Available Now: ${i.physicalQuantityAvailable}
+            </span>
+          </div>
+          <div style="color: #EF4444; font-size: 12px; font-weight: bold; margin-top: 6px; text-transform: uppercase;">
+            Status: ${i.itemFulfillmentStatus.replace(/_/g, ' ')}
+          </div>
+        </div>`
+      )
+      .join('');
+
+    const html = `
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0B0D10; color: #F8FAFC; margin: 0; padding: 24px;">
+  <div style="background: #15191F; border: 1px solid #EF4444; border-radius: 12px; max-width: 600px; margin: 0 auto; padding: 28px;">
+    <div style="text-align: center; margin-bottom: 20px;">
+      <span style="background: rgba(239, 68, 68, 0.2); color: #F87171; border: 1px solid #EF4444; padding: 6px 14px; border-radius: 9999px; font-weight: bold; font-size: 13px;">
+        ⚠️ INVENTORY AVAILABILITY UPDATE
+      </span>
+      <h2 style="color: #FFFFFF; margin: 16px 0 6px 0; font-size: 22px;">Action Needed on Order #${order.orderNumber}</h2>
+      <p style="color: #94A3B8; font-size: 14px; margin: 0;">${order.businessName}</p>
+    </div>
+
+    <p style="color: #E2E8F0; font-size: 14px; line-height: 1.6;">
+      While preparing your order, our warehouse staff discovered an inventory count discrepancy on the following item(s).
+      <strong>Your order is currently being held while this issue is resolved.</strong>
+    </p>
+
+    <div style="margin: 20px 0;">
+      ${itemsListHtml}
+    </div>
+
+    <div style="background: #1E293B; border-radius: 8px; padding: 14px; margin: 20px 0; color: #CBD5E1; font-size: 13px;">
+      <strong>Resolution Options:</strong><br>
+      • Accept the currently available quantity<br>
+      • Remove the unavailable item and proceed with remainder<br>
+      • Wait for upcoming distributor restock<br>
+      • Request an approved flavor/model substitute
+    </div>
+
+    <div style="text-align: center; margin-top: 24px;">
+      <a href="${orderUrl}" style="background: #EF4444; color: #FFFFFF; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 14px; display: inline-block;">
+        REVIEW & RESOLVE IN MY ACCOUNT
+      </a>
+    </div>
+
+    <p style="color: #64748B; font-size: 12px; text-align: center; margin-top: 16px;">
+      Or contact central dispatch directly at (405) 768-2975 or reply to this email.
+    </p>
+  </div>
+</body>
+</html>`;
+
+    const text = `
+Wholesale of Oklahoma Order #${order.orderNumber}
+There is an availability issue with one or more items in your order.
+
+Affected Items:
+${issueItems.map((i) => `- ${i.name} (Ordered: ${i.quantityOrdered}, Available: ${i.physicalQuantityAvailable}, Status: ${i.itemFulfillmentStatus})`).join('\n')}
+
+Your order is currently being held while this issue is resolved.
+
+Review options and choose resolution online:
+${orderUrl}
+
+Wholesale of Oklahoma Dispatch: (405) 768-2975
+`;
+
+    return this.sendMail({
+      to: order.email,
+      subject,
+      html,
+      text,
+      actionUrl: orderUrl,
+    });
+  }
+
+  public async sendOrderAdjustedEmail(order: OrderRecord, adjustmentSummary: string): Promise<EmailDispatchResult> {
+    const siteUrl = getSiteUrl();
+    const orderUrl = `${siteUrl}/account/orders`;
+    const subject = `Wholesale of Oklahoma Order #${order.orderNumber} – Order Adjusted`;
+
+    const html = `
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0B0D10; color: #F8FAFC; margin: 0; padding: 24px;">
+  <div style="background: #15191F; border: 1px solid #2A3038; border-radius: 12px; max-width: 600px; margin: 0 auto; padding: 28px;">
+    <h2 style="color: #FF6B00; margin-top: 0;">Order #${order.orderNumber} Has Been Adjusted</h2>
+    <p style="color: #E2E8F0; font-size: 14px;">
+      Hello <strong>${order.customerName}</strong>, per your agreement with dispatch, order #${order.orderNumber} has been updated.
+    </p>
+    <div style="background: #11141A; border: 1px solid #334155; border-radius: 6px; padding: 14px; margin: 16px 0; color: #E2E8F0; font-size: 13px;">
+      ${adjustmentSummary}
+    </div>
+    <div style="color: #FFFFFF; font-size: 16px; font-weight: bold; margin-top: 14px;">
+      New Order Total: <span style="color: #FF6B00;">$${order.total.toFixed(2)}</span>
+    </div>
+    <div style="text-align: center; margin-top: 24px;">
+      <a href="${orderUrl}" style="background: #FF6B00; color: #FFFFFF; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; font-size: 14px; display: inline-block;">
+        VIEW UPDATED ORDER
+      </a>
+    </div>
+  </div>
+</body>
+</html>`;
+
+    const text = `
+Wholesale of Oklahoma Order #${order.orderNumber} Adjusted
+
+Adjustment:
+${adjustmentSummary}
+
+New Total: $${order.total.toFixed(2)}
+View details: ${orderUrl}
+`;
+
+    return this.sendMail({
+      to: order.email,
+      subject,
+      html,
+      text,
+      actionUrl: orderUrl,
+    });
+  }
+
+  public async sendOrderCancelledEmail(order: OrderRecord, reason?: string): Promise<EmailDispatchResult> {
+    const siteUrl = getSiteUrl();
+    const orderUrl = `${siteUrl}/account/orders`;
+    const subject = `Wholesale of Oklahoma Order #${order.orderNumber} – Order Cancelled`;
+
+    const html = `
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0B0D10; color: #F8FAFC; margin: 0; padding: 24px;">
+  <div style="background: #15191F; border: 1px solid #EF4444; border-radius: 12px; max-width: 600px; margin: 0 auto; padding: 28px;">
+    <h2 style="color: #EF4444; margin-top: 0;">Order #${order.orderNumber} Cancelled</h2>
+    <p style="color: #E2E8F0; font-size: 14px;">
+      Order #${order.orderNumber} for ${order.businessName} has been cancelled.
+      ${reason ? `<br><br><strong>Reason:</strong> ${reason}` : ''}
+    </p>
+    <p style="color: #94A3B8; font-size: 13px;">
+      If you have any questions, please contact central dispatch at (405) 768-2975.
+    </p>
+  </div>
+</body>
+</html>`;
+
+    const text = `
+Order #${order.orderNumber} Cancelled
+${reason ? `Reason: ${reason}` : ''}
+
+Contact dispatch at (405) 768-2975 with any questions.
+`;
+
+    return this.sendMail({
+      to: order.email,
+      subject,
+      html,
+      text,
+      actionUrl: orderUrl,
     });
   }
 }

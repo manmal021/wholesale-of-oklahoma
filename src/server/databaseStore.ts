@@ -106,7 +106,27 @@ export type AuditEventType =
   | 'PASSWORD_RESET_REQUESTED'
   | 'PASSWORD_RESET_COMPLETED'
   | 'ADMIN_LOGIN_SUCCESS'
-  | 'ADMIN_LOGIN_FAILURE';
+  | 'ADMIN_LOGIN_FAILURE'
+  | 'ORDER_CREATED'
+  | 'ORDER_PROCESSING_STARTED'
+  | 'ITEM_MARKED_AVAILABLE'
+  | 'ITEM_MARKED_OUT_OF_STOCK'
+  | 'ITEM_PARTIALLY_AVAILABLE'
+  | 'ITEM_TEMPORARILY_UNAVAILABLE'
+  | 'SUBSTITUTION_OFFERED'
+  | 'SUBSTITUTION_APPROVED'
+  | 'CUSTOMER_ACCEPTED_PARTIAL'
+  | 'ITEM_REMOVED_FROM_ORDER'
+  | 'INVENTORY_MISMATCH_REPORTED'
+  | 'INVENTORY_MISMATCH_RESOLVED'
+  | 'PRODUCT_TEMPORARILY_DISABLED'
+  | 'PRODUCT_REACTIVATED'
+  | 'ORDER_MARKED_READY_FOR_PICKUP'
+  | 'ORDER_PICKED_UP'
+  | 'ORDER_OUT_FOR_DELIVERY'
+  | 'ORDER_DELIVERED'
+  | 'ORDER_CANCELLED'
+  | 'ORDER_ADJUSTED';
 
 export interface AuditLogRecord {
   id: string;
@@ -120,11 +140,258 @@ export interface AuditLogRecord {
   details?: Record<string, any>;
 }
 
+// ── Fulfillment & Order Management Types ────────────────────────────────────
+
+export type FulfillmentMethod = 'PICKUP' | 'DELIVERY';
+
+export type GeneralOrderStatus =
+  | 'ORDER_RECEIVED'
+  | 'PROCESSING'
+  | 'INVENTORY_ISSUE'
+  | 'CUSTOMER_ACTION_REQUIRED'
+  | 'READY_FOR_PICKUP'
+  | 'OUT_FOR_DELIVERY'
+  | 'PICKED_UP'
+  | 'DELIVERED'
+  | 'COMPLETED'
+  | 'CANCELLED';
+
+export type ItemFulfillmentStatus =
+  | 'PENDING_CHECK'
+  | 'AVAILABLE'
+  | 'OUT_OF_STOCK'
+  | 'PARTIALLY_AVAILABLE'
+  | 'TEMPORARILY_UNAVAILABLE'
+  | 'SUBSTITUTION_AVAILABLE'
+  | 'FULFILLED';
+
+export type PickupStatus = 'PENDING' | 'READY_FOR_PICKUP' | 'PICKED_UP';
+export type DeliveryStatus = 'PENDING' | 'OUT_FOR_DELIVERY' | 'DELIVERED';
+
+export interface OrderItemRecord {
+  id: string; // Line item id
+  productId: string;
+  sku: string;
+  name: string;
+  flavor?: string;
+  quantityOrdered: number;
+  pricePerUnit: number;
+  totalPrice: number;
+  zoho_item_id?: string;
+  systemInventory: number;
+  physicalQuantityAvailable: number;
+  unavailableQuantity: number;
+  itemFulfillmentStatus: ItemFulfillmentStatus;
+  substituteProductId?: string;
+  substituteProductName?: string;
+  substitutePrice?: number;
+  resolutionNotes?: string;
+  customerResolutionChoice?: string;
+}
+
+export interface DeliveryAddressSnapshot {
+  recipientName: string;
+  businessName?: string;
+  street: string;
+  unit?: string;
+  city: string;
+  state: string;
+  zip: string;
+  phone: string;
+  deliveryInstructions?: string;
+}
+
+export interface PickupLocationInfo {
+  locationId: string;
+  locationName: string;
+  address: {
+    street: string;
+    city: string;
+    state: string;
+    zip: string;
+  };
+  hours: string;
+  phone: string;
+  instructions: string;
+}
+
+export interface OrderRecord {
+  id: string; // e.g. WOO-ORD-10052
+  orderNumber: string;
+  customerId?: string;
+  customerName: string;
+  businessName: string;
+  email: string;
+  phone: string;
+  fulfillmentMethod: FulfillmentMethod;
+  status: GeneralOrderStatus;
+  paymentStatus: 'PENDING' | 'PAID' | 'INVOICED' | 'ADJUSTED' | 'REFUNDED';
+  subtotal: number;
+  discount: number;
+  tax: number;
+  deliveryFee: number;
+  total: number;
+  originalSubtotal: number;
+  originalTotal: number;
+  createdAt: string;
+  updatedAt: string;
+  pickupInfo?: {
+    locationId: string;
+    locationSnapshot: PickupLocationInfo;
+    requestedPickupDate?: string;
+    requestedPickupTime?: string;
+    pickupStatus: PickupStatus;
+    readyForPickupAt?: string;
+    pickedUpAt?: string;
+    pickedUpByStaff?: string;
+  };
+  deliveryInfo?: {
+    addressSnapshot: DeliveryAddressSnapshot;
+    deliveryFee: number;
+    deliveryStatus: DeliveryStatus;
+    outForDeliveryAt?: string;
+    deliveredAt?: string;
+    deliveredByStaff?: string;
+  };
+  lineItems: OrderItemRecord[];
+  customerNotes?: string;
+  internalNotes: Array<{
+    id: string;
+    note: string;
+    authorId: string;
+    authorName: string;
+    timestamp: string;
+  }>;
+  hasInventoryIssue: boolean;
+  customerActionRequired: boolean;
+  actionRequiredReason?: string;
+  timeline: Array<{
+    status: GeneralOrderStatus;
+    timestamp: string;
+    note?: string;
+    updatedBy?: string;
+  }>;
+}
+
+export interface FulfillmentConfig {
+  pickupLocation: PickupLocationInfo;
+  delivery: {
+    enabled: boolean;
+    eligibleZipCodes: string[];
+    eligibleCities: string[];
+    deliveryFee: number;
+    freeDeliveryThreshold: number;
+    minimumDeliveryOrder: number;
+    deliveryRadiusMiles?: number;
+    notes?: string;
+  };
+}
+
+export interface InventoryOverrideRecord {
+  productId: string;
+  sku: string;
+  name: string;
+  isOutOfStockOnline: boolean;
+  reportedBy: string;
+  reportedAt: string;
+  reason: string;
+  active: boolean;
+}
+
+export interface InventoryMismatchRecord {
+  id: string;
+  orderId: string;
+  productId: string;
+  sku: string;
+  productName: string;
+  systemQuantity: number;
+  physicalQuantity: number;
+  difference: number;
+  reportedBy: string;
+  reportedAt: string;
+  resolved: boolean;
+  resolvedBy?: string;
+  resolvedAt?: string;
+  resolutionNotes?: string;
+}
+
+export interface CustomerSavedAddress {
+  id: string;
+  customerId: string;
+  type: 'billing' | 'delivery';
+  isDefault: boolean;
+  recipientName: string;
+  businessName?: string;
+  street: string;
+  unit?: string;
+  city: string;
+  state: string;
+  zip: string;
+  phone: string;
+  deliveryInstructions?: string;
+  createdAt: string;
+}
+
+export const DEFAULT_FULFILLMENT_CONFIG: FulfillmentConfig = {
+  pickupLocation: {
+    locationId: 'loc_okc_bryant',
+    locationName: 'Wholesale of Oklahoma Central Dispatch & Warehouse',
+    address: {
+      street: '4500 S Bryant Ave',
+      city: 'Oklahoma City',
+      state: 'OK',
+      zip: '73135',
+    },
+    hours: 'Mon–Sat: 9:00 AM – 8:00 PM, Sun: 11:00 AM – 8:00 PM',
+    phone: '(405) 768-2975',
+    instructions:
+      'Pull into the commercial loading area at 4500 S Bryant Ave. Present your Order Reference Number and valid government/business ID at the wholesale dispatch counter.',
+  },
+  delivery: {
+    enabled: true,
+    eligibleCities: [
+      'Oklahoma City',
+      'Edmond',
+      'Norman',
+      'Moore',
+      'Midwest City',
+      'Del City',
+      'Yukon',
+      'Mustang',
+      'Bethany',
+      'Warr Acres',
+      'El Reno',
+      'Guthrie',
+      'Shawnee',
+    ],
+    eligibleZipCodes: [
+      '73003', '73007', '73008', '73012', '73013', '73020', '73025', '73034',
+      '73036', '73044', '73054', '73064', '73069', '73071', '73072', '73084',
+      '73099', '73101', '73102', '73103', '73104', '73105', '73106', '73107',
+      '73108', '73109', '73110', '73111', '73112', '73113', '73114', '73115',
+      '73116', '73117', '73118', '73119', '73120', '73121', '73122', '73127',
+      '73128', '73129', '73130', '73132', '73134', '73135', '73139', '73142',
+      '73145', '73149', '73150', '73159', '73160', '73162', '73165', '73169',
+      '73170', '73172', '73173', '73179', '73189'
+    ],
+    deliveryFee: 25.0,
+    freeDeliveryThreshold: 500.0,
+    minimumDeliveryOrder: 150.0,
+    deliveryRadiusMiles: 35,
+    notes: 'Direct store delivery available for all approved commercial retailers across the OKC metropolitan corridor.',
+  },
+};
+
 interface DatabaseState {
   applications: WholesaleApplicationRecord[];
   customers: CustomerRecord[];
   tokens: SecurityTokenRecord[];
   auditLogs: AuditLogRecord[];
+  orders?: OrderRecord[];
+  fulfillmentConfig?: FulfillmentConfig;
+  inventoryOverrides?: InventoryOverrideRecord[];
+  inventoryMismatches?: InventoryMismatchRecord[];
+  customerAddresses?: CustomerSavedAddress[];
 }
 
 const STORAGE_DIR = path.resolve(process.cwd(), 'storage');
@@ -137,6 +404,14 @@ class DatabaseStore {
   private customersByEmail: Map<string, CustomerRecord> = new Map(); // keyed by email
   private tokens: Map<string, SecurityTokenRecord> = new Map(); // keyed by token string
   private auditLogs: AuditLogRecord[] = [];
+
+  // Fulfillment & Orders state
+  private orders: Map<string, OrderRecord> = new Map(); // keyed by id and orderNumber
+  private ordersByCustomerEmail: Map<string, string[]> = new Map(); // email -> orderId[]
+  private fulfillmentConfig: FulfillmentConfig = { ...DEFAULT_FULFILLMENT_CONFIG };
+  private inventoryOverrides: Map<string, InventoryOverrideRecord> = new Map(); // productId/sku -> record
+  private inventoryMismatches: Map<string, InventoryMismatchRecord> = new Map(); // id -> record
+  private customerAddresses: Map<string, CustomerSavedAddress[]> = new Map(); // customerId -> addresses[]
 
   constructor() {
     this.ensureStorageDir();
@@ -187,8 +462,57 @@ class DatabaseStore {
           this.auditLogs = state.auditLogs;
         }
 
+        if (Array.isArray(state.orders)) {
+          for (const ord of state.orders) {
+            this.orders.set(ord.id, ord);
+            this.orders.set(ord.orderNumber, ord);
+            const emailKey = ord.email.toLowerCase().trim();
+            const existing = this.ordersByCustomerEmail.get(emailKey) || [];
+            if (!existing.includes(ord.id)) existing.push(ord.id);
+            this.ordersByCustomerEmail.set(emailKey, existing);
+          }
+        }
+
+        if (state.fulfillmentConfig) {
+          this.fulfillmentConfig = {
+            ...DEFAULT_FULFILLMENT_CONFIG,
+            ...state.fulfillmentConfig,
+            pickupLocation: {
+              ...DEFAULT_FULFILLMENT_CONFIG.pickupLocation,
+              ...(state.fulfillmentConfig.pickupLocation || {}),
+            },
+            delivery: {
+              ...DEFAULT_FULFILLMENT_CONFIG.delivery,
+              ...(state.fulfillmentConfig.delivery || {}),
+            },
+          };
+        }
+
+        if (Array.isArray(state.inventoryOverrides)) {
+          for (const ov of state.inventoryOverrides) {
+            if (ov.active) {
+              this.inventoryOverrides.set(ov.productId, ov);
+              if (ov.sku) this.inventoryOverrides.set(ov.sku, ov);
+            }
+          }
+        }
+
+        if (Array.isArray(state.inventoryMismatches)) {
+          for (const mis of state.inventoryMismatches) {
+            this.inventoryMismatches.set(mis.id, mis);
+          }
+        }
+
+        if (Array.isArray(state.customerAddresses)) {
+          for (const addr of state.customerAddresses) {
+            const list = this.customerAddresses.get(addr.customerId) || [];
+            list.push(addr);
+            this.customerAddresses.set(addr.customerId, list);
+          }
+        }
+
         console.log(
-          `[DatabaseStore] 📦 Loaded ${this.applications.size} applications, ${this.customers.size} customers, ${this.auditLogs.length} audit logs.`
+          `[DatabaseStore] 📦 Loaded ${this.applications.size} applications, ${this.customers.size} customers, ${this.orders.size} orders, ${this.auditLogs.length} audit logs.`
         );
       }
     } catch (err: any) {
@@ -204,6 +528,11 @@ class DatabaseStore {
         customers: Array.from(this.customers.values()),
         tokens: Array.from(this.tokens.values()),
         auditLogs: this.auditLogs.slice(-2000), // Keep last 2000 audit logs
+        orders: Array.from(new Set(this.orders.values())),
+        fulfillmentConfig: this.fulfillmentConfig,
+        inventoryOverrides: Array.from(new Set(this.inventoryOverrides.values())),
+        inventoryMismatches: Array.from(this.inventoryMismatches.values()),
+        customerAddresses: Array.from(this.customerAddresses.values()).flat(),
       };
 
       const tempFile = `${DB_FILE}.tmp.${Date.now()}`;
@@ -645,6 +974,919 @@ class DatabaseStore {
     return this.auditLogs.slice(-limit).reverse();
   }
 
+  // ── Orders & Fulfillment ───────────────────────────────────────────────────
+
+  public calculateOrderTotals(params: {
+    subtotal: number;
+    fulfillmentMethod: FulfillmentMethod;
+    deliveryAddress?: { street?: string; city?: string; state?: string; zip?: string };
+  }): {
+    subtotal: number;
+    discount: number;
+    deliveryFee: number;
+    tax: number;
+    total: number;
+    isDeliveryEligible?: boolean;
+    deliveryError?: string;
+  } {
+    const cfg = this.fulfillmentConfig;
+    const subtotal = Math.round(params.subtotal * 100) / 100;
+    const discount = 0; // B2B net wholesale catalog rates
+    const tax = 0; // B2B tax-exempt certified
+
+    if (params.fulfillmentMethod === 'PICKUP') {
+      return {
+        subtotal,
+        discount,
+        deliveryFee: 0,
+        tax,
+        total: subtotal,
+        isDeliveryEligible: true,
+      };
+    }
+
+    // Delivery calculations
+    const validation = this.validateDeliveryAddress(params.deliveryAddress || {});
+    if (!validation.eligible) {
+      return {
+        subtotal,
+        discount,
+        deliveryFee: cfg.delivery.deliveryFee,
+        tax,
+        total: Math.round((subtotal + cfg.delivery.deliveryFee) * 100) / 100,
+        isDeliveryEligible: false,
+        deliveryError: validation.reason,
+      };
+    }
+
+    if (subtotal < cfg.delivery.minimumDeliveryOrder) {
+      return {
+        subtotal,
+        discount,
+        deliveryFee: cfg.delivery.deliveryFee,
+        tax,
+        total: Math.round((subtotal + cfg.delivery.deliveryFee) * 100) / 100,
+        isDeliveryEligible: false,
+        deliveryError: `Minimum delivery order is $${cfg.delivery.minimumDeliveryOrder.toFixed(2)}. Current subtotal is $${subtotal.toFixed(2)}. Please add items or select Pickup.`,
+      };
+    }
+
+    // Free delivery threshold
+    const deliveryFee = subtotal >= cfg.delivery.freeDeliveryThreshold ? 0 : cfg.delivery.deliveryFee;
+    const total = Math.round((subtotal + deliveryFee) * 100) / 100;
+
+    return {
+      subtotal,
+      discount,
+      deliveryFee,
+      tax,
+      total,
+      isDeliveryEligible: true,
+    };
+  }
+
+  public validateDeliveryAddress(address: { street?: string; city?: string; state?: string; zip?: string }): {
+    eligible: boolean;
+    reason?: string;
+  } {
+    const cfg = this.fulfillmentConfig.delivery;
+    if (!cfg.enabled) {
+      return {
+        eligible: false,
+        reason: 'Delivery is temporarily disabled. Please select Pickup or contact Wholesale of Oklahoma.',
+      };
+    }
+
+    const rawZip = String(address.zip || '').trim().slice(0, 5);
+    const rawCity = String(address.city || '').trim().toLowerCase();
+    const rawState = String(address.state || '').trim().toUpperCase();
+
+    if (rawState && rawState !== 'OK' && rawState !== 'OKLAHOMA') {
+      return {
+        eligible: false,
+        reason: 'Delivery is currently unavailable to this address. Delivery is restricted to Oklahoma. Please select Pickup or contact Wholesale of Oklahoma.',
+      };
+    }
+
+    const matchZip = cfg.eligibleZipCodes.includes(rawZip);
+    const matchCity = cfg.eligibleCities.some((c) => c.toLowerCase() === rawCity);
+
+    if (matchZip || matchCity) {
+      return { eligible: true };
+    }
+
+    return {
+      eligible: false,
+      reason: 'Delivery is currently unavailable to this address. Please select Pickup or contact Wholesale of Oklahoma.',
+    };
+  }
+
+  public getFulfillmentConfig(): FulfillmentConfig {
+    return JSON.parse(JSON.stringify(this.fulfillmentConfig));
+  }
+
+  public updateFulfillmentConfig(updates: Partial<FulfillmentConfig>, adminId: string): FulfillmentConfig {
+    if (updates.pickupLocation) {
+      this.fulfillmentConfig.pickupLocation = {
+        ...this.fulfillmentConfig.pickupLocation,
+        ...updates.pickupLocation,
+      };
+    }
+    if (updates.delivery) {
+      this.fulfillmentConfig.delivery = {
+        ...this.fulfillmentConfig.delivery,
+        ...updates.delivery,
+      };
+    }
+
+    this.addAuditLog({
+      event: 'ORDER_ADJUSTED',
+      adminId,
+      details: { updatedFulfillmentConfig: true },
+    });
+
+    this.persistToDisk();
+    return this.getFulfillmentConfig();
+  }
+
+  public createOrder(params: {
+    customerId?: string;
+    customerName: string;
+    businessName: string;
+    email: string;
+    phone: string;
+    fulfillmentMethod: FulfillmentMethod;
+    pickupInfo?: {
+      requestedPickupDate?: string;
+      requestedPickupTime?: string;
+    };
+    deliveryInfo?: {
+      addressSnapshot: DeliveryAddressSnapshot;
+    };
+    lineItems: Array<{
+      productId: string;
+      sku: string;
+      name: string;
+      flavor?: string;
+      quantityOrdered: number;
+      pricePerUnit: number;
+      zoho_item_id?: string;
+      systemInventory?: number;
+    }>;
+    customerNotes?: string;
+  }): OrderRecord {
+    const cleanEmail = params.email.toLowerCase().trim();
+    const orderNum = Math.floor(10000 + Math.random() * 90000);
+    const id = `WOO-ORD-${orderNum}`;
+    const now = new Date().toISOString();
+
+    // Check line items against online overrides
+    for (const item of params.lineItems) {
+      if (this.isProductBlockedOnline(item.productId) || (item.sku && this.isProductBlockedOnline(item.sku))) {
+        throw new Error(`Product "${item.name}" is temporarily unavailable online. Please update your cart before proceeding.`);
+      }
+    }
+
+    // Compute line item records
+    let subtotal = 0;
+    const processedItems: OrderItemRecord[] = params.lineItems.map((item, idx) => {
+      const qty = Math.max(1, item.quantityOrdered);
+      const price = Math.max(0, item.pricePerUnit);
+      const lineTotal = Math.round(qty * price * 100) / 100;
+      subtotal += lineTotal;
+      const sysInv = typeof item.systemInventory === 'number' ? item.systemInventory : 50;
+
+      return {
+        id: `item_${idx + 1}_${crypto.randomBytes(4).toString('hex')}`,
+        productId: item.productId,
+        sku: item.sku,
+        name: item.name,
+        flavor: item.flavor,
+        quantityOrdered: qty,
+        pricePerUnit: price,
+        totalPrice: lineTotal,
+        zoho_item_id: item.zoho_item_id,
+        systemInventory: sysInv,
+        physicalQuantityAvailable: qty,
+        unavailableQuantity: 0,
+        itemFulfillmentStatus: 'PENDING_CHECK',
+      };
+    });
+
+    subtotal = Math.round(subtotal * 100) / 100;
+
+    const totals = this.calculateOrderTotals({
+      subtotal,
+      fulfillmentMethod: params.fulfillmentMethod,
+      deliveryAddress: params.deliveryInfo?.addressSnapshot,
+    });
+
+    if (params.fulfillmentMethod === 'DELIVERY' && totals.isDeliveryEligible === false) {
+      throw new Error(totals.deliveryError || 'Delivery is currently unavailable to this address. Please select Pickup or contact Wholesale of Oklahoma.');
+    }
+
+    const order: OrderRecord = {
+      id,
+      orderNumber: String(orderNum),
+      customerId: params.customerId,
+      customerName: params.customerName,
+      businessName: params.businessName,
+      email: cleanEmail,
+      phone: params.phone,
+      fulfillmentMethod: params.fulfillmentMethod,
+      status: 'ORDER_RECEIVED',
+      paymentStatus: 'INVOICED',
+      subtotal,
+      discount: totals.discount,
+      tax: totals.tax,
+      deliveryFee: totals.deliveryFee,
+      total: totals.total,
+      originalSubtotal: subtotal,
+      originalTotal: totals.total,
+      createdAt: now,
+      updatedAt: now,
+      lineItems: processedItems,
+      customerNotes: params.customerNotes,
+      internalNotes: [],
+      hasInventoryIssue: false,
+      customerActionRequired: false,
+      timeline: [
+        {
+          status: 'ORDER_RECEIVED',
+          timestamp: now,
+          note: `Order received via ${params.fulfillmentMethod}. Awaiting warehouse staff verification.`,
+        },
+      ],
+    };
+
+    if (params.fulfillmentMethod === 'PICKUP') {
+      order.pickupInfo = {
+        locationId: this.fulfillmentConfig.pickupLocation.locationId,
+        locationSnapshot: { ...this.fulfillmentConfig.pickupLocation },
+        requestedPickupDate: params.pickupInfo?.requestedPickupDate,
+        requestedPickupTime: params.pickupInfo?.requestedPickupTime,
+        pickupStatus: 'PENDING',
+      };
+    } else {
+      if (!params.deliveryInfo?.addressSnapshot) {
+        throw new Error('Delivery address is required for delivery orders');
+      }
+      order.deliveryInfo = {
+        addressSnapshot: { ...params.deliveryInfo.addressSnapshot },
+        deliveryFee: totals.deliveryFee,
+        deliveryStatus: 'PENDING',
+      };
+    }
+
+    this.orders.set(id, order);
+    this.orders.set(String(orderNum), order);
+
+    const existing = this.ordersByCustomerEmail.get(cleanEmail) || [];
+    if (!existing.includes(id)) existing.push(id);
+    this.ordersByCustomerEmail.set(cleanEmail, existing);
+
+    this.addAuditLog({
+      event: 'ORDER_CREATED',
+      targetId: id,
+      targetEmail: cleanEmail,
+      details: {
+        orderNumber: orderNum,
+        fulfillmentMethod: params.fulfillmentMethod,
+        total: order.total,
+        itemCount: processedItems.length,
+      },
+    });
+
+    this.persistToDisk();
+    return order;
+  }
+
+  public getOrder(idOrNumber: string): OrderRecord | undefined {
+    return this.orders.get(idOrNumber);
+  }
+
+  public listOrders(filters?: {
+    fulfillmentMethod?: FulfillmentMethod | 'ALL';
+    status?: GeneralOrderStatus | 'ALL';
+    search?: string;
+    customerId?: string;
+    customerEmail?: string;
+  }): OrderRecord[] {
+    let list = Array.from(new Set(this.orders.values()));
+
+    if (filters?.customerEmail) {
+      const emailKey = filters.customerEmail.toLowerCase().trim();
+      list = list.filter((o) => o.email.toLowerCase().trim() === emailKey);
+    }
+
+    if (filters?.customerId) {
+      list = list.filter((o) => o.customerId === filters.customerId);
+    }
+
+    if (filters?.fulfillmentMethod && filters.fulfillmentMethod !== 'ALL') {
+      list = list.filter((o) => o.fulfillmentMethod === filters.fulfillmentMethod);
+    }
+
+    if (filters?.status && filters.status !== 'ALL') {
+      list = list.filter((o) => o.status === filters.status);
+    }
+
+    if (filters?.search && filters.search.trim()) {
+      const q = filters.search.toLowerCase().trim();
+      list = list.filter(
+        (o) =>
+          o.orderNumber.toLowerCase().includes(q) ||
+          o.id.toLowerCase().includes(q) ||
+          o.customerName.toLowerCase().includes(q) ||
+          o.businessName.toLowerCase().includes(q) ||
+          o.email.toLowerCase().includes(q) ||
+          o.phone.includes(q)
+      );
+    }
+
+    return list.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+  }
+
+  public updateOrderItemStatus(params: {
+    orderId: string;
+    itemId: string;
+    status: ItemFulfillmentStatus;
+    physicalQuantityAvailable?: number;
+    adminId: string;
+    adminName?: string;
+    resolutionNotes?: string;
+    blockOnline?: boolean;
+  }): {
+    order: OrderRecord;
+    item: OrderItemRecord;
+    mismatchRecord?: InventoryMismatchRecord;
+    inventoryIssueDetected: boolean;
+  } {
+    const order = this.orders.get(params.orderId);
+    if (!order) throw new Error(`Order ${params.orderId} not found`);
+
+    const item = order.lineItems.find((i) => i.id === params.itemId);
+    if (!item) throw new Error(`Order item ${params.itemId} not found in order ${params.orderId}`);
+
+    const previousStatus = item.itemFulfillmentStatus;
+    item.itemFulfillmentStatus = params.status;
+
+    if (typeof params.physicalQuantityAvailable === 'number') {
+      item.physicalQuantityAvailable = Math.max(0, params.physicalQuantityAvailable);
+      item.unavailableQuantity = Math.max(0, item.quantityOrdered - item.physicalQuantityAvailable);
+    }
+
+    if (params.status === 'OUT_OF_STOCK') {
+      item.physicalQuantityAvailable = 0;
+      item.unavailableQuantity = item.quantityOrdered;
+    } else if (params.status === 'AVAILABLE' || params.status === 'FULFILLED') {
+      item.physicalQuantityAvailable = item.quantityOrdered;
+      item.unavailableQuantity = 0;
+    }
+
+    if (params.resolutionNotes) {
+      item.resolutionNotes = params.resolutionNotes;
+    }
+
+    let mismatchRecord: InventoryMismatchRecord | undefined;
+    // Discrepancy logged whenever physical count is less than system inventory or status is OUT_OF_STOCK / PARTIALLY_AVAILABLE
+    if (
+      item.physicalQuantityAvailable < item.systemInventory ||
+      params.status === 'OUT_OF_STOCK' ||
+      params.status === 'PARTIALLY_AVAILABLE'
+    ) {
+      const diff = item.physicalQuantityAvailable - item.systemInventory;
+      mismatchRecord = this.createInventoryMismatch({
+        orderId: order.id,
+        productId: item.productId,
+        sku: item.sku,
+        productName: item.name,
+        systemQuantity: item.systemInventory,
+        physicalQuantity: item.physicalQuantityAvailable,
+        difference: diff,
+        reportedBy: params.adminName || params.adminId,
+      });
+    }
+
+    // Option to immediately block online
+    if (params.blockOnline) {
+      this.setProductOnlineOverride({
+        productId: item.productId,
+        sku: item.sku,
+        name: item.name,
+        reportedBy: params.adminName || params.adminId,
+        reason: `Physical inventory mismatch reported while fulfilling order #${order.orderNumber}`,
+      });
+    }
+
+    let eventType: AuditEventType = 'ITEM_MARKED_AVAILABLE';
+    if (params.status === 'OUT_OF_STOCK') eventType = 'ITEM_MARKED_OUT_OF_STOCK';
+    else if (params.status === 'PARTIALLY_AVAILABLE') eventType = 'ITEM_PARTIALLY_AVAILABLE';
+    else if (params.status === 'TEMPORARILY_UNAVAILABLE') eventType = 'ITEM_TEMPORARILY_UNAVAILABLE';
+
+    this.addAuditLog({
+      event: eventType,
+      targetId: order.id,
+      adminId: params.adminId,
+      details: {
+        itemId: item.id,
+        productName: item.name,
+        sku: item.sku,
+        oldStatus: previousStatus,
+        newStatus: params.status,
+        quantityOrdered: item.quantityOrdered,
+        physicalAvailable: item.physicalQuantityAvailable,
+      },
+    });
+
+    // Check if unresolved inventory issues exist
+    const hasUnresolvedIssue = order.lineItems.some((i) =>
+      ['OUT_OF_STOCK', 'PARTIALLY_AVAILABLE', 'TEMPORARILY_UNAVAILABLE'].includes(i.itemFulfillmentStatus)
+    );
+
+    order.hasInventoryIssue = hasUnresolvedIssue;
+    if (hasUnresolvedIssue) {
+      order.status = 'INVENTORY_ISSUE';
+      order.customerActionRequired = true;
+      order.actionRequiredReason = `Fulfillment exception: Item "${item.name}" is ${params.status.replace(/_/g, ' ')}. Physical availability: ${item.physicalQuantityAvailable} of ${item.quantityOrdered} ordered.`;
+      order.timeline.push({
+        status: 'INVENTORY_ISSUE',
+        timestamp: new Date().toISOString(),
+        note: `Inventory issue flagged: ${item.name} is ${params.status.replace(/_/g, ' ')}. Available: ${item.physicalQuantityAvailable}/${item.quantityOrdered}.`,
+        updatedBy: params.adminName || params.adminId,
+      });
+    }
+
+    order.updatedAt = new Date().toISOString();
+    this.persistToDisk();
+
+    return {
+      order,
+      item,
+      mismatchRecord,
+      inventoryIssueDetected: hasUnresolvedIssue,
+    };
+  }
+
+  public updateOrderStatus(params: {
+    orderId: string;
+    status: GeneralOrderStatus;
+    adminId: string;
+    adminName?: string;
+    note?: string;
+    forceApproveAdjusted?: boolean;
+  }): OrderRecord {
+    const order = this.orders.get(params.orderId);
+    if (!order) throw new Error(`Order ${params.orderId} not found`);
+
+    const hasUnresolvedIssues = order.lineItems.some((i) =>
+      ['OUT_OF_STOCK', 'PARTIALLY_AVAILABLE', 'TEMPORARILY_UNAVAILABLE'].includes(i.itemFulfillmentStatus)
+    );
+
+    if (['READY_FOR_PICKUP', 'OUT_FOR_DELIVERY'].includes(params.status)) {
+      if (hasUnresolvedIssues && !params.forceApproveAdjusted) {
+        throw new Error(
+          `Cannot transition order to ${params.status.replace(/_/g, ' ')} while unresolved inventory problems remain on order items. Please resolve exceptions first.`
+        );
+      }
+    }
+
+    const now = new Date().toISOString();
+    const oldStatus = order.status;
+    order.status = params.status;
+    order.updatedAt = now;
+
+    if (params.status === 'PROCESSING') {
+      this.addAuditLog({
+        event: 'ORDER_PROCESSING_STARTED',
+        targetId: order.id,
+        adminId: params.adminId,
+      });
+    } else if (params.status === 'READY_FOR_PICKUP') {
+      if (order.pickupInfo) {
+        order.pickupInfo.pickupStatus = 'READY_FOR_PICKUP';
+        order.pickupInfo.readyForPickupAt = now;
+      }
+      this.addAuditLog({
+        event: 'ORDER_MARKED_READY_FOR_PICKUP',
+        targetId: order.id,
+        adminId: params.adminId,
+      });
+    } else if (params.status === 'OUT_FOR_DELIVERY') {
+      if (order.deliveryInfo) {
+        order.deliveryInfo.deliveryStatus = 'OUT_FOR_DELIVERY';
+        order.deliveryInfo.outForDeliveryAt = now;
+      }
+      this.addAuditLog({
+        event: 'ORDER_OUT_FOR_DELIVERY',
+        targetId: order.id,
+        adminId: params.adminId,
+      });
+    } else if (params.status === 'PICKED_UP') {
+      if (order.pickupInfo) {
+        order.pickupInfo.pickupStatus = 'PICKED_UP';
+        order.pickupInfo.pickedUpAt = now;
+        order.pickupInfo.pickedUpByStaff = params.adminName || params.adminId;
+      }
+      order.status = 'COMPLETED';
+      this.addAuditLog({
+        event: 'ORDER_PICKED_UP',
+        targetId: order.id,
+        adminId: params.adminId,
+      });
+    } else if (params.status === 'DELIVERED') {
+      if (order.deliveryInfo) {
+        order.deliveryInfo.deliveryStatus = 'DELIVERED';
+        order.deliveryInfo.deliveredAt = now;
+        order.deliveryInfo.deliveredByStaff = params.adminName || params.adminId;
+      }
+      order.status = 'COMPLETED';
+      this.addAuditLog({
+        event: 'ORDER_DELIVERED',
+        targetId: order.id,
+        adminId: params.adminId,
+      });
+    } else if (params.status === 'CANCELLED') {
+      this.addAuditLog({
+        event: 'ORDER_CANCELLED',
+        targetId: order.id,
+        adminId: params.adminId,
+        details: { reason: params.note },
+      });
+    }
+
+    order.timeline.push({
+      status: order.status,
+      timestamp: now,
+      note: params.note || `Order status updated to ${order.status.replace(/_/g, ' ')}`,
+      updatedBy: params.adminName || params.adminId,
+    });
+
+    this.persistToDisk();
+    return order;
+  }
+
+  public resolveOrderInventoryIssue(params: {
+    orderId: string;
+    resolutionType: 'ACCEPT_PARTIAL' | 'REMOVE_ITEM' | 'SUBSTITUTION' | 'CUSTOMER_WILL_WAIT' | 'CANCEL_ORDER';
+    itemId?: string;
+    substituteItem?: { productId: string; sku: string; name: string; price: number; quantity: number };
+    adminId: string;
+    adminName?: string;
+    notes?: string;
+  }): OrderRecord {
+    const order = this.orders.get(params.orderId);
+    if (!order) throw new Error(`Order ${params.orderId} not found`);
+
+    const now = new Date().toISOString();
+
+    if (params.resolutionType === 'CANCEL_ORDER') {
+      order.status = 'CANCELLED';
+      order.hasInventoryIssue = false;
+      order.customerActionRequired = false;
+      order.timeline.push({
+        status: 'CANCELLED',
+        timestamp: now,
+        note: params.notes || 'Order cancelled due to inventory availability.',
+        updatedBy: params.adminName || params.adminId,
+      });
+      this.persistToDisk();
+      return order;
+    }
+
+    if (params.itemId) {
+      const item = order.lineItems.find((i) => i.id === params.itemId);
+      if (item) {
+        if (params.resolutionType === 'ACCEPT_PARTIAL') {
+          item.itemFulfillmentStatus = 'FULFILLED';
+          item.customerResolutionChoice = 'ACCEPTED_PARTIAL';
+          item.resolutionNotes = params.notes || `Customer accepted physical quantity of ${item.physicalQuantityAvailable}.`;
+          item.totalPrice = Math.round(item.physicalQuantityAvailable * item.pricePerUnit * 100) / 100;
+          this.addAuditLog({
+            event: 'CUSTOMER_ACCEPTED_PARTIAL',
+            targetId: order.id,
+            adminId: params.adminId,
+            details: { itemId: item.id, qty: item.physicalQuantityAvailable },
+          });
+        } else if (params.resolutionType === 'REMOVE_ITEM') {
+          item.itemFulfillmentStatus = 'FULFILLED';
+          item.customerResolutionChoice = 'REMOVED_FROM_ORDER';
+          item.resolutionNotes = params.notes || 'Item removed from order per customer agreement.';
+          item.physicalQuantityAvailable = 0;
+          item.totalPrice = 0;
+          this.addAuditLog({
+            event: 'ITEM_REMOVED_FROM_ORDER',
+            targetId: order.id,
+            adminId: params.adminId,
+            details: { itemId: item.id },
+          });
+        } else if (params.resolutionType === 'CUSTOMER_WILL_WAIT') {
+          item.customerResolutionChoice = 'WILL_WAIT_FOR_RESTOCK';
+          item.resolutionNotes = params.notes || 'Customer agreed to wait for incoming stock.';
+        } else if (params.resolutionType === 'SUBSTITUTION' && params.substituteItem) {
+          item.itemFulfillmentStatus = 'FULFILLED';
+          item.substituteProductId = params.substituteItem.productId;
+          item.substituteProductName = params.substituteItem.name;
+          item.substitutePrice = params.substituteItem.price;
+          item.pricePerUnit = params.substituteItem.price;
+          item.totalPrice = Math.round(item.physicalQuantityAvailable * params.substituteItem.price * 100) / 100;
+          item.customerResolutionChoice = 'SUBSTITUTION_APPROVED';
+          item.resolutionNotes = `Substituted with ${params.substituteItem.name}.`;
+          this.addAuditLog({
+            event: 'SUBSTITUTION_APPROVED',
+            targetId: order.id,
+            adminId: params.adminId,
+            details: { itemId: item.id, substitute: params.substituteItem },
+          });
+        }
+      }
+    }
+
+    // Recalculate subtotal from non-removed items
+    let newSubtotal = 0;
+    for (const it of order.lineItems) {
+      if (it.customerResolutionChoice === 'REMOVED_FROM_ORDER') continue;
+      newSubtotal += it.totalPrice;
+    }
+    newSubtotal = Math.round(newSubtotal * 100) / 100;
+
+    const totals = this.calculateOrderTotals({
+      subtotal: newSubtotal,
+      fulfillmentMethod: order.fulfillmentMethod,
+      deliveryAddress: order.deliveryInfo?.addressSnapshot,
+    });
+
+    order.subtotal = newSubtotal;
+    order.deliveryFee = totals.deliveryFee;
+    order.total = totals.total;
+    if (order.total !== order.originalTotal) {
+      order.paymentStatus = 'ADJUSTED';
+    }
+
+    const remainingIssues = order.lineItems.some((i) =>
+      ['OUT_OF_STOCK', 'PARTIALLY_AVAILABLE', 'TEMPORARILY_UNAVAILABLE'].includes(i.itemFulfillmentStatus)
+    );
+
+    order.hasInventoryIssue = remainingIssues;
+    order.customerActionRequired = remainingIssues;
+    if (!remainingIssues) {
+      order.status = 'PROCESSING';
+      order.timeline.push({
+        status: 'PROCESSING',
+        timestamp: now,
+        note: 'All inventory exceptions resolved. Order returned to processing.',
+        updatedBy: params.adminName || params.adminId,
+      });
+    }
+
+    order.updatedAt = now;
+    this.addAuditLog({
+      event: 'ORDER_ADJUSTED',
+      targetId: order.id,
+      adminId: params.adminId,
+      details: { newSubtotal, newTotal: order.total },
+    });
+
+    this.persistToDisk();
+    return order;
+  }
+
+  public addInternalOrderNote(params: {
+    orderId: string;
+    note: string;
+    authorId: string;
+    authorName: string;
+  }): OrderRecord {
+    const order = this.orders.get(params.orderId);
+    if (!order) throw new Error(`Order ${params.orderId} not found`);
+
+    order.internalNotes.push({
+      id: `note_${crypto.randomBytes(6).toString('hex')}`,
+      note: params.note.trim(),
+      authorId: params.authorId,
+      authorName: params.authorName,
+      timestamp: new Date().toISOString(),
+    });
+
+    order.updatedAt = new Date().toISOString();
+    this.persistToDisk();
+    return order;
+  }
+
+  // ── Online Inventory Overrides ─────────────────────────────────────────────
+
+  public setProductOnlineOverride(params: {
+    productId: string;
+    sku: string;
+    name: string;
+    reportedBy: string;
+    reason: string;
+  }): InventoryOverrideRecord {
+    const record: InventoryOverrideRecord = {
+      productId: params.productId,
+      sku: params.sku,
+      name: params.name,
+      isOutOfStockOnline: true,
+      reportedBy: params.reportedBy,
+      reportedAt: new Date().toISOString(),
+      reason: params.reason,
+      active: true,
+    };
+
+    this.inventoryOverrides.set(params.productId, record);
+    if (params.sku) {
+      this.inventoryOverrides.set(params.sku, record);
+    }
+
+    this.addAuditLog({
+      event: 'PRODUCT_TEMPORARILY_DISABLED',
+      targetId: params.productId,
+      adminId: params.reportedBy,
+      details: { sku: params.sku, name: params.name, reason: params.reason },
+    });
+
+    this.persistToDisk();
+    return record;
+  }
+
+  public removeProductOnlineOverride(idOrSku: string, adminId: string): boolean {
+    const existing = this.inventoryOverrides.get(idOrSku);
+    if (!existing) return false;
+
+    existing.active = false;
+    existing.isOutOfStockOnline = false;
+    this.inventoryOverrides.delete(existing.productId);
+    if (existing.sku) {
+      this.inventoryOverrides.delete(existing.sku);
+    }
+
+    this.addAuditLog({
+      event: 'PRODUCT_REACTIVATED',
+      targetId: existing.productId,
+      adminId,
+      details: { sku: existing.sku, name: existing.name },
+    });
+
+    this.persistToDisk();
+    return true;
+  }
+
+  public isProductBlockedOnline(idOrSku: string): boolean {
+    const override = this.inventoryOverrides.get(idOrSku);
+    return Boolean(override && override.active && override.isOutOfStockOnline);
+  }
+
+  public listProductOverrides(): InventoryOverrideRecord[] {
+    const unique = new Map<string, InventoryOverrideRecord>();
+    for (const o of this.inventoryOverrides.values()) {
+      if (o.active) unique.set(o.productId, o);
+    }
+    return Array.from(unique.values());
+  }
+
+  // ── Inventory Mismatches ───────────────────────────────────────────────────
+
+  public createInventoryMismatch(params: {
+    orderId: string;
+    productId: string;
+    sku: string;
+    productName: string;
+    systemQuantity: number;
+    physicalQuantity: number;
+    difference: number;
+    reportedBy: string;
+  }): InventoryMismatchRecord {
+    const id = `mis_${crypto.randomBytes(8).toString('hex')}`;
+    const record: InventoryMismatchRecord = {
+      id,
+      orderId: params.orderId,
+      productId: params.productId,
+      sku: params.sku,
+      productName: params.productName,
+      systemQuantity: params.systemQuantity,
+      physicalQuantity: params.physicalQuantity,
+      difference: params.difference,
+      reportedBy: params.reportedBy,
+      reportedAt: new Date().toISOString(),
+      resolved: false,
+    };
+
+    this.inventoryMismatches.set(id, record);
+
+    this.addAuditLog({
+      event: 'INVENTORY_MISMATCH_REPORTED',
+      targetId: id,
+      adminId: params.reportedBy,
+      details: {
+        orderId: params.orderId,
+        sku: params.sku,
+        difference: params.difference,
+        systemQty: params.systemQuantity,
+        physicalQty: params.physicalQuantity,
+      },
+    });
+
+    this.persistToDisk();
+    return record;
+  }
+
+  public listInventoryMismatches(filterResolved?: boolean): InventoryMismatchRecord[] {
+    let list = Array.from(this.inventoryMismatches.values());
+    if (typeof filterResolved === 'boolean') {
+      list = list.filter((m) => m.resolved === filterResolved);
+    }
+    return list.sort((a, b) => new Date(b.reportedAt).getTime() - new Date(a.reportedAt).getTime());
+  }
+
+  public resolveInventoryMismatch(id: string, adminId: string, notes?: string): InventoryMismatchRecord | null {
+    const record = this.inventoryMismatches.get(id);
+    if (!record) return null;
+
+    record.resolved = true;
+    record.resolvedBy = adminId;
+    record.resolvedAt = new Date().toISOString();
+    record.resolutionNotes = notes;
+
+    this.addAuditLog({
+      event: 'INVENTORY_MISMATCH_RESOLVED',
+      targetId: id,
+      adminId,
+      details: { notes },
+    });
+
+    this.persistToDisk();
+    return record;
+  }
+
+  // ── Customer Saved Addresses ───────────────────────────────────────────────
+
+  public listCustomerAddresses(customerId: string): CustomerSavedAddress[] {
+    return this.customerAddresses.get(customerId) || [];
+  }
+
+  public addCustomerAddress(params: Omit<CustomerSavedAddress, 'id' | 'createdAt'>): CustomerSavedAddress {
+    const id = `addr_${crypto.randomBytes(8).toString('hex')}`;
+    const record: CustomerSavedAddress = {
+      ...params,
+      id,
+      createdAt: new Date().toISOString(),
+    };
+
+    const list = this.customerAddresses.get(params.customerId) || [];
+    if (record.isDefault && record.type === 'delivery') {
+      for (const a of list) {
+        if (a.type === 'delivery') a.isDefault = false;
+      }
+    }
+    list.push(record);
+    this.customerAddresses.set(params.customerId, list);
+    this.persistToDisk();
+    return record;
+  }
+
+  public updateCustomerAddress(
+    customerId: string,
+    addressId: string,
+    updates: Partial<CustomerSavedAddress>
+  ): CustomerSavedAddress | null {
+    const list = this.customerAddresses.get(customerId);
+    if (!list) return null;
+    const addr = list.find((a) => a.id === addressId);
+    if (!addr) return null;
+
+    Object.assign(addr, updates);
+    if (updates.isDefault && addr.type === 'delivery') {
+      for (const a of list) {
+        if (a.id !== addressId && a.type === 'delivery') a.isDefault = false;
+      }
+    }
+
+    this.persistToDisk();
+    return addr;
+  }
+
+  public deleteCustomerAddress(customerId: string, addressId: string): boolean {
+    const list = this.customerAddresses.get(customerId);
+    if (!list) return false;
+    const idx = list.findIndex((a) => a.id === addressId);
+    if (idx === -1) return false;
+    list.splice(idx, 1);
+    this.persistToDisk();
+    return true;
+  }
+
+  public setDefaultDeliveryAddress(customerId: string, addressId: string): boolean {
+    const list = this.customerAddresses.get(customerId);
+    if (!list) return false;
+    for (const a of list) {
+      if (a.type === 'delivery') {
+        a.isDefault = a.id === addressId;
+      }
+    }
+    this.persistToDisk();
+    return true;
+  }
+
   // ── Metrics & Dashboard Stats ─────────────────────────────────────────────
 
   public getDashboardStats(): {
@@ -654,6 +1896,10 @@ class DatabaseStore {
     suspended: number;
     totalApplications: number;
     totalCustomers: number;
+    totalOrders: number;
+    pendingOrders: number;
+    inventoryIssues: number;
+    activeOverrides: number;
   } {
     let pending = 0;
     let approved = 0;
@@ -677,6 +1923,18 @@ class DatabaseStore {
       }
     }
 
+    let pendingOrders = 0;
+    let inventoryIssues = 0;
+    const allUniqueOrders = Array.from(new Set(this.orders.values()));
+    for (const ord of allUniqueOrders) {
+      if (ord.status === 'ORDER_RECEIVED' || ord.status === 'PROCESSING') {
+        pendingOrders++;
+      }
+      if (ord.status === 'INVENTORY_ISSUE' || ord.status === 'CUSTOMER_ACTION_REQUIRED') {
+        inventoryIssues++;
+      }
+    }
+
     return {
       pending,
       approved,
@@ -684,6 +1942,10 @@ class DatabaseStore {
       suspended,
       totalApplications: this.applications.size,
       totalCustomers: this.customers.size,
+      totalOrders: allUniqueOrders.length,
+      pendingOrders,
+      inventoryIssues,
+      activeOverrides: this.listProductOverrides().length,
     };
   }
 }

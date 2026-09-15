@@ -80,6 +80,7 @@ export default function OrderForm() {
         email,
         phone,
         notes: orderDetails,
+        fulfillmentMethod: 'PICKUP',
         lineItems,
       }).catch(() => null);
 

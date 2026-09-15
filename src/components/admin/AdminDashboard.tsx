@@ -158,6 +158,20 @@ export default function AdminDashboard() {
             <Users className="w-3.5 h-3.5 text-emerald-400" />
             Wholesale Customers
           </a>
+          <a
+            href="/admin/orders"
+            className="px-4 py-2 rounded-xl bg-[#15191F] hover:bg-[#1B2027] text-[#B8BDC5] hover:text-[#F7F7F5] border border-[#2A3038] font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-colors"
+          >
+            <Package className="w-3.5 h-3.5 text-amber-400" />
+            Wholesale Orders
+          </a>
+          <a
+            href="/admin/inventory-mismatches"
+            className="px-4 py-2 rounded-xl bg-[#15191F] hover:bg-[#1B2027] text-[#B8BDC5] hover:text-[#F7F7F5] border border-[#2A3038] font-bold text-xs uppercase tracking-wider flex items-center gap-2 transition-colors"
+          >
+            <ShieldAlert className="w-3.5 h-3.5 text-rose-400" />
+            Inventory Mismatches
+          </a>
         </div>
 
         {errorMessage && (

@@ -40,6 +40,9 @@ import AdminDashboard from './components/admin/AdminDashboard';
 import AdminApplicationsList from './components/admin/AdminApplicationsList';
 import AdminApplicationDetail from './components/admin/AdminApplicationDetail';
 import AdminCustomersList from './components/admin/AdminCustomersList';
+import AdminOrdersList from './components/admin/AdminOrdersList';
+import AdminOrderDetail from './components/admin/AdminOrderDetail';
+import AdminInventoryMismatches from './components/admin/AdminInventoryMismatches';
 import AccountActivation from './components/customer/AccountActivation';
 import CustomerAccountPage from './components/customer/CustomerAccountPage';
 import PasswordResetPage from './components/customer/PasswordResetPage';
@@ -67,6 +70,16 @@ export default function App() {
   if (pathname === '/admin/activate') {
     return <AdminActivation />;
   }
+  if (pathname.startsWith('/admin/orders/')) {
+    const rawId = window.location.pathname.replace(/^\/admin\/orders\//i, '').replace(/\/$/, '').trim();
+    return <AdminOrderDetail orderId={rawId} />;
+  }
+  if (pathname === '/admin/orders') {
+    return <AdminOrdersList />;
+  }
+  if (pathname === '/admin/inventory-mismatches') {
+    return <AdminInventoryMismatches />;
+  }
   if (pathname.startsWith('/admin/customer-applications/')) {
     const rawId = window.location.pathname.replace(/^\/admin\/customer-applications\//i, '').replace(/\/$/, '').trim();
     return <AdminApplicationDetail applicationId={rawId} />;
@@ -83,7 +96,7 @@ export default function App() {
   if (pathname === '/activate') {
     return <AccountActivation />;
   }
-  if (pathname === '/account') {
+  if (pathname === '/account' || pathname === '/account/orders' || pathname === '/account/addresses') {
     return <CustomerAccountPage />;
   }
   if (pathname === '/reset-password') {

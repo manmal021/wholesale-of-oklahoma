@@ -305,7 +305,7 @@ class AuthStore {
   }
 
   public createSession(
-    userOrId: UserRecord | string,
+    userOrId: UserRecord | { id?: string; userId?: string; email?: string; role?: UserRole; businessName?: string; contactName?: string } | string,
     email?: string,
     role?: UserRole,
     businessName?: string,
@@ -321,7 +321,7 @@ class AuthStore {
     let cName: string;
 
     if (typeof userOrId === 'object') {
-      userId = userOrId.id;
+      userId = (userOrId as any).id || (userOrId as any).userId;
       userEmail = userOrId.email;
       userRole = userOrId.role;
       bName = userOrId.businessName;
