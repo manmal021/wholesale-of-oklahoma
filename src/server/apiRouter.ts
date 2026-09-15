@@ -839,12 +839,15 @@ apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60
     phone,
     notes,
     lineItems,
+    items,
     fulfillmentMethod: rawMethod,
     deliveryAddress,
     deliveryInfo,
     requestedPickupDate,
     requestedPickupTime,
   } = req.body || {};
+
+  const effectiveLineItems = Array.isArray(lineItems) ? lineItems : (Array.isArray(items) ? items : []);
 
   const effectiveCustName = (customerName || session?.contactName || '').trim();
   const effectiveBizName = (businessName || session?.businessName || '').trim();
@@ -858,7 +861,7 @@ apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60
   if (!effectivePhone || effectivePhone.length < 7) {
     return err(res, 400, 'Valid phone number is required for dispatch confirmation');
   }
-  if (!Array.isArray(lineItems) || lineItems.length === 0 || lineItems.length > 100) {
+  if (!Array.isArray(effectiveLineItems) || effectiveLineItems.length === 0 || effectiveLineItems.length > 100) {
     return err(res, 400, 'Order must contain between 1 and 100 items');
   }
 
@@ -895,7 +898,7 @@ apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60
   const verifiedLineItems = [];
   const { items: allCatalogItems } = await getCachedInventory();
 
-  for (const item of lineItems) {
+  for (const item of effectiveLineItems) {
     const qty = Math.max(1, Math.min(10000, parseInt(item.quantity, 10) || 1));
     const idOrSku = String(item.id || item.sku || item.zoho_item_id || item.name || '').trim();
 
