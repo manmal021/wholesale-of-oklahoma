@@ -1,9 +1,27 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { X, ShieldCheck, Building2, User, Mail, Phone, FileText, CheckCircle2, AlertCircle, Loader2, Upload, FileCheck, Lock } from 'lucide-react';
+import {
+  X,
+  ShieldCheck,
+  Building2,
+  User,
+  Mail,
+  Phone,
+  FileText,
+  Clock,
+  AlertCircle,
+  Loader2,
+  Upload,
+  FileCheck,
+  CheckCircle2,
+  Globe,
+  HelpCircle,
+  LogIn
+} from 'lucide-react';
 
 interface WholesaleApplicationModalProps {
   isOpen: boolean;
   onClose: () => void;
+  onOpenLogin?: () => void;
 }
 
 interface UploadedDocState {
@@ -13,12 +31,12 @@ interface UploadedDocState {
   errorMessage?: string;
 }
 
-export default function WholesaleApplicationModal({ isOpen, onClose }: WholesaleApplicationModalProps) {
+export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin }: WholesaleApplicationModalProps) {
   const [businessName, setBusinessName] = useState('');
   const [dba, setDba] = useState('');
-  const [contactName, setContactName] = useState('');
+  const [contactFirstName, setContactFirstName] = useState('');
+  const [contactLastName, setContactLastName] = useState('');
   const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
   const [phone, setPhone] = useState('');
   const [fein, setFein] = useState('');
   const [licenseNumber, setLicenseNumber] = useState('');
@@ -27,6 +45,8 @@ export default function WholesaleApplicationModal({ isOpen, onClose }: Wholesale
   const [city, setCity] = useState('Oklahoma City');
   const [state, setState] = useState('OK');
   const [zip, setZip] = useState('');
+  const [website, setWebsite] = useState('');
+  const [notes, setNotes] = useState('');
   const [ageCertified, setAgeCertified] = useState(false);
   const [taxExemptCertified, setTaxExemptCertified] = useState(false);
 
@@ -36,7 +56,8 @@ export default function WholesaleApplicationModal({ isOpen, onClose }: Wholesale
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
-  const [applicationSuccess, setApplicationSuccess] = useState<{ id: string; businessName: string } | null>(null);
+  const [duplicateType, setDuplicateType] = useState<'PENDING' | 'APPROVED' | 'REJECTED' | 'SUSPENDED' | null>(null);
+  const [applicationSuccess, setApplicationSuccess] = useState<{ id: string; businessName: string; email: string } | null>(null);
 
   const resaleInputRef = useRef<HTMLInputElement>(null);
   const licenseInputRef = useRef<HTMLInputElement>(null);
@@ -84,10 +105,18 @@ export default function WholesaleApplicationModal({ isOpen, onClose }: Wholesale
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (isSubmitting) return; // Prevent double-clicks
+
     setErrorMessage(null);
+    setDuplicateType(null);
+
+    if (!contactFirstName.trim() || !contactLastName.trim()) {
+      setErrorMessage('Please provide both first and last name for the authorized contact.');
+      return;
+    }
 
     if (!ageCertified) {
-      setErrorMessage('You must certify that you are at least 21 years of age.');
+      setErrorMessage('You must certify that you are at least 21 years of age and authorized to purchase for this business.');
       return;
     }
 
@@ -125,25 +154,29 @@ export default function WholesaleApplicationModal({ isOpen, onClose }: Wholesale
       }
 
       // 3. Submit wholesale application
+      const contactName = `${contactFirstName.trim()} ${contactLastName.trim()}`;
       const res = await fetch('/api/wholesale/apply', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          businessName,
-          dba,
+          businessName: businessName.trim(),
+          dba: dba.trim() || undefined,
+          contactFirstName: contactFirstName.trim(),
+          contactLastName: contactLastName.trim(),
           contactName,
-          email,
-          password: password || undefined,
-          phone,
-          fein,
-          licenseNumber,
+          email: email.trim().toLowerCase(),
+          phone: phone.trim(),
+          fein: fein.trim(),
+          licenseNumber: licenseNumber.trim() || undefined,
           businessType,
           address: {
-            street,
-            city,
-            state,
-            zip,
+            street: street.trim(),
+            city: city.trim(),
+            state: state.trim(),
+            zip: zip.trim(),
           },
+          website: website.trim() || undefined,
+          notes: notes.trim() || undefined,
           ageCertified,
           taxExemptCertified,
           documents: uploadedDocs,
@@ -151,22 +184,35 @@ export default function WholesaleApplicationModal({ isOpen, onClose }: Wholesale
       });
 
       const data = await res.json();
+
       if (!res.ok) {
+        if (data.error === 'ACCOUNT_ALREADY_EXISTS') {
+          setDuplicateType('APPROVED');
+          setErrorMessage(data.message || 'An active wholesale account already exists for this email address.');
+          return;
+        }
+        if (data.error === 'APPLICATION_PENDING') {
+          setDuplicateType('PENDING');
+          setErrorMessage(data.message || 'Your wholesale account application is currently under review.');
+          return;
+        }
+        if (data.error === 'APPLICATION_REJECTED') {
+          setDuplicateType('REJECTED');
+          setErrorMessage(data.message || 'An application for this email address was previously reviewed.');
+          return;
+        }
+        if (data.error === 'ACCOUNT_SUSPENDED') {
+          setDuplicateType('SUSPENDED');
+          setErrorMessage(data.message || 'An account for this email is currently suspended.');
+          return;
+        }
         throw new Error(data.error || 'Failed to submit application.');
       }
 
-      // If portal token was returned, store session
-      if (data.token && data.user) {
-        try {
-          localStorage.setItem('woo_session_token', data.token);
-          localStorage.setItem('woo_user', JSON.stringify(data.user));
-        } catch (_) {}
-        window.dispatchEvent(new CustomEvent('woo-auth-changed', { detail: data.user }));
-      }
-
       setApplicationSuccess({
-        id: data.applicationId || 'WOO-APP-' + Math.floor(100000 + Math.random() * 900000),
+        id: data.applicationId || 'WOA-APP-' + Math.floor(10000 + Math.random() * 90000),
         businessName,
+        email: email.trim().toLowerCase(),
       });
     } catch (err: any) {
       setErrorMessage(err.message || 'An error occurred while submitting your application.');
@@ -178,6 +224,7 @@ export default function WholesaleApplicationModal({ isOpen, onClose }: Wholesale
   const handleReset = () => {
     setApplicationSuccess(null);
     setErrorMessage(null);
+    setDuplicateType(null);
     onClose();
   };
 
@@ -189,11 +236,11 @@ export default function WholesaleApplicationModal({ isOpen, onClose }: Wholesale
       aria-labelledby="wholesale-modal-title"
     >
       <div
-        className="relative w-full max-w-2xl bg-[#1B2027] rounded-3xl shadow-2xl border border-[#2A3038] overflow-hidden my-8 text-[#F7F7F5]"
+        className="relative w-full max-w-2xl bg-[#15191F] rounded-3xl shadow-2xl border border-[#2A3038] overflow-hidden my-8 text-[#F7F7F5]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="bg-[#15191F] text-[#F7F7F5] px-6 py-5 flex items-center justify-between border-b border-[#2A3038]">
+        <div className="bg-[#1B2027] text-[#F7F7F5] px-6 py-5 flex items-center justify-between border-b border-[#2A3038]">
           <div className="flex items-center gap-3">
             <div className="w-10 h-10 rounded-xl bg-[#FF6B00] flex items-center justify-center text-white shadow-md">
               <ShieldCheck className="w-5 h-5" />
@@ -203,14 +250,14 @@ export default function WholesaleApplicationModal({ isOpen, onClose }: Wholesale
                 Apply for Wholesale Account
               </h2>
               <p className="text-xs text-[#858C96]">
-                Licensed B2B Retailers • Tax-Exempt Wholesale Pricing Portal
+                Licensed B2B Retailers • Wholesale Pricing & Compliance Portal
               </p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-full bg-[#1B2027] hover:bg-[#2A3038] text-[#B8BDC5] hover:text-[#F7F7F5] border border-[#2A3038] flex items-center justify-center transition-colors cursor-pointer"
-            aria-label="Close wholesale application modal"
+            className="w-8 h-8 rounded-full bg-[#15191F] hover:bg-[#2A3038] text-[#B8BDC5] hover:text-[#F7F7F5] border border-[#2A3038] flex items-center justify-center transition-colors cursor-pointer"
+            aria-label="Close modal"
           >
             <X className="w-4 h-4" />
           </button>
@@ -219,436 +266,466 @@ export default function WholesaleApplicationModal({ isOpen, onClose }: Wholesale
         {/* Modal Content */}
         <div className="p-6 sm:p-8 max-h-[82vh] overflow-y-auto">
           {applicationSuccess ? (
-            /* Success Confirmation Screen */
-            <div className="text-center py-6 space-y-4">
-              <div className="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto border border-emerald-500/30">
-                <CheckCircle2 className="w-10 h-10" />
+            /* Prominent APPLICATION RECEIVED / ACCOUNT UNDER REVIEW Screen */
+            <div className="py-4 space-y-6 text-center animate-fadeIn">
+              <div className="w-20 h-20 rounded-2xl bg-[#FF6B00]/15 text-[#FF6B00] flex items-center justify-center mx-auto border border-[#FF6B00]/30 shadow-lg">
+                <Clock className="w-11 h-11" />
               </div>
 
-              <div className="space-y-2">
-                <div className="inline-block bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full">
-                  Status: Pending Review
+              <div className="space-y-3">
+                <div className="inline-flex items-center gap-1.5 bg-amber-500/15 border border-amber-500/40 text-amber-400 text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">
+                  <span className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
+                  Application Received — Under Review
                 </div>
-                <h3 className="text-2xl font-extrabold text-[#F7F7F5]">Application Received!</h3>
-                <div className="inline-block bg-[#15191F] border border-[#2A3038] rounded-lg px-4 py-2 text-sm font-mono font-bold text-[#F7F7F5]">
+                <h3 className="text-2xl sm:text-3xl font-black tracking-tight text-[#F7F7F5]">
+                  ACCOUNT UNDER REVIEW
+                </h3>
+                <div className="inline-block bg-[#1B2027] border border-[#2A3038] rounded-xl px-5 py-2.5 text-sm font-mono font-bold text-[#F7F7F5] shadow-inner">
                   Reference ID: <span className="text-[#FF6B00]">{applicationSuccess.id}</span>
                 </div>
               </div>
 
-              <div className="p-4 rounded-2xl bg-[#15191F] border border-[#2A3038] max-w-lg mx-auto text-sm text-[#B8BDC5] leading-relaxed text-left space-y-2">
+              <div className="p-6 rounded-2xl bg-[#1B2027] border border-[#2A3038] max-w-lg mx-auto text-sm text-[#B8BDC5] leading-relaxed text-left space-y-3">
                 <p className="font-semibold text-[#F7F7F5]">
-                  Your Wholesale of Oklahoma account application has been received and is pending review.
+                  Your Wholesale of Oklahoma account application is currently under review.
                 </p>
-                <p className="text-xs text-[#858C96]">
-                  Our compliance team is verifying your business license and resale tax information. Once approved, wholesale catalog pricing will be automatically unlocked for your account.
+                <p>
+                  Thank you for submitting your wholesale account application for <strong>{applicationSuccess.businessName}</strong>.
                 </p>
+                <p>
+                  Our compliance team will review your business information. If your application is approved, you will receive an email at <strong className="text-[#F7F7F5]">{applicationSuccess.email}</strong> containing a secure link with instructions to activate your account and create your login credentials.
+                </p>
+                <div className="bg-[#15191F] border border-amber-500/30 rounded-xl p-3.5 text-amber-300 text-xs font-medium">
+                  <strong>Notice:</strong> Please do not submit another application while your current application is under review. You do not have shopping or login access yet.
+                </div>
               </div>
 
-              <div className="bg-[#15191F] border border-[#2A3038] rounded-2xl p-4 text-left max-w-lg mx-auto space-y-1.5">
-                <h4 className="text-xs font-bold uppercase tracking-wider text-[#858C96]">Need Immediate Restock Dispatch?</h4>
-                <p className="text-xs text-[#B8BDC5]">
-                  Call our live warehouse desk in Oklahoma City with your Reference ID for expedited phone quotes and same-day pickup.
-                </p>
-                <a
-                  href="tel:4057682975"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FF6B00] hover:underline pt-1"
-                >
-                  <Phone className="w-3.5 h-3.5" /> (405) 768-2975 · Central OKC Dispatch
-                </a>
-              </div>
-
-              <div className="pt-2">
+              <div className="pt-2 flex flex-col sm:flex-row gap-3 justify-center">
                 <button
                   type="button"
                   onClick={handleReset}
-                  className="px-8 py-3 bg-[#FF6B00] hover:bg-[#E85F00] text-white text-xs font-bold uppercase tracking-widest rounded-full transition-colors cursor-pointer shadow"
+                  className="px-6 py-3 rounded-xl bg-[#FF6B00] hover:bg-[#E05E00] text-white font-bold text-sm transition-colors shadow-md cursor-pointer"
                 >
-                  Return to Store
+                  Return to Storefront
                 </button>
+              </div>
+
+              <div className="pt-2 text-xs text-[#626871]">
+                Wholesale of Oklahoma • Central OKC Wholesale Warehouse • Dispatch: (405) 768-2975
               </div>
             </div>
           ) : (
+            /* Application Form */
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Duplicate or Error Banner */}
               {errorMessage && (
-                <div className="p-4 rounded-xl bg-rose-500/15 border border-rose-500/30 flex items-start gap-3 text-sm text-rose-400" role="alert">
-                  <AlertCircle className="w-5 h-5 shrink-0 text-rose-400 mt-0.5" />
-                  <div>
-                    <strong className="font-semibold">Submission Error: </strong>
-                    {errorMessage}
+                <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-400 text-sm space-y-2">
+                  <div className="flex items-center gap-2 font-bold">
+                    <AlertCircle className="w-5 h-5 shrink-0" />
+                    <span>Application Notice</span>
                   </div>
+                  <p className="text-xs leading-relaxed text-red-300">{errorMessage}</p>
+
+                  {duplicateType === 'APPROVED' && onOpenLogin && (
+                    <div className="pt-2">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          onClose();
+                          onOpenLogin();
+                        }}
+                        className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#FF6B00] text-white font-bold text-xs hover:bg-[#E05E00] transition-colors cursor-pointer"
+                      >
+                        <LogIn className="w-3.5 h-3.5" /> Go to Customer Sign In
+                      </button>
+                    </div>
+                  )}
+
+                  {duplicateType === 'PENDING' && (
+                    <div className="pt-1 text-xs text-amber-300 font-medium">
+                      Our dispatch team reviews applications within 1 business day. Contact dispatch at (405) 768-2975 for urgent requests.
+                    </div>
+                  )}
                 </div>
               )}
 
-              <div className="bg-[#15191F] border border-[#2A3038] rounded-2xl p-4 text-xs text-[#B8BDC5] leading-relaxed">
-                <strong className="font-semibold text-[#F7F7F5] block mb-1">State of Oklahoma B2B Wholesale Notice:</strong>
-                Wholesale of Oklahoma sells exclusively to verified commercial businesses holding a valid Federal EIN or Oklahoma Sales Tax Resale Permit. We do not sell directly to the public.
-              </div>
+              {/* SECTION 1: BUSINESS ENTITY INFORMATION */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-2 text-sm font-bold text-[#FF6B00] uppercase tracking-wider">
+                  <Building2 className="w-4 h-4" />
+                  <span>1. Business Information</span>
+                </div>
 
-              {/* 1. Business Details */}
-              <div>
-                <h3 className="text-xs font-bold uppercase tracking-wider text-[#F7F7F5] mb-3 flex items-center gap-2">
-                  <Building2 className="w-4 h-4 text-[#FF6B00]" /> 1. Business Information
-                </h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div>
-                    <label htmlFor="apply-business-name" className="block text-xs font-semibold text-[#B8BDC5] mb-1">
-                      Legal Business Name <span className="text-rose-400">*</span>
+                  <div className="sm:col-span-2">
+                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
+                      Legal Business Name <span className="text-[#FF6B00]">*</span>
                     </label>
                     <input
-                      id="apply-business-name"
                       type="text"
                       required
                       value={businessName}
                       onChange={(e) => setBusinessName(e.target.value)}
-                      placeholder="e.g. Sooner Vape Hub LLC"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#15191F] border border-[#2A3038] text-sm text-[#F7F7F5] placeholder-[#858C96] focus:outline-none focus:border-[#FF6B00]"
+                      placeholder="e.g. Sooner State Vapor LLC"
+                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="apply-dba" className="block text-xs font-semibold text-[#B8BDC5] mb-1">
-                      DBA / Store Front Name (Optional)
+                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
+                      DBA / Store Front Name <span className="text-[#626871]">(Optional)</span>
                     </label>
                     <input
-                      id="apply-dba"
                       type="text"
                       value={dba}
                       onChange={(e) => setDba(e.target.value)}
-                      placeholder="e.g. Metro Smoke & Vape"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#15191F] border border-[#2A3038] text-sm text-[#F7F7F5] placeholder-[#858C96] focus:outline-none focus:border-[#FF6B00]"
+                      placeholder="e.g. Sooner Vapor"
+                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="apply-business-type" className="block text-xs font-semibold text-[#B8BDC5] mb-1">
-                      Type of Business <span className="text-rose-400">*</span>
+                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
+                      Business Type <span className="text-[#FF6B00]">*</span>
                     </label>
                     <select
-                      id="apply-business-type"
                       value={businessType}
                       onChange={(e) => setBusinessType(e.target.value)}
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#15191F] border border-[#2A3038] text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00]"
+                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors cursor-pointer"
                     >
-                      <option value="vape_shop">Vape / E-Cigarette Shop</option>
-                      <option value="smoke_shop">Smoke / Tobacco Shop</option>
+                      <option value="vape_shop">Vape & Smoke Retailer</option>
+                      <option value="smoke_shop">Smoke Shop / Head Shop</option>
                       <option value="dispensary">Licensed Dispensary</option>
                       <option value="c_store">Convenience Store</option>
-                      <option value="distributor">Sub-Distributor / Wholesaler</option>
-                      <option value="other">Other Commercial Retailer</option>
+                      <option value="distributor">Sub-Distributor / Jobber</option>
+                      <option value="other">Other Commercial Reseller</option>
                     </select>
+                  </div>
+                </div>
+              </div>
+
+              {/* SECTION 2: AUTHORIZED CONTACT */}
+              <div className="space-y-4 pt-2 border-t border-[#2A3038]">
+                <div className="flex items-center gap-2 text-sm font-bold text-[#FF6B00] uppercase tracking-wider">
+                  <User className="w-4 h-4" />
+                  <span>2. Authorized Contact</span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
+                      First Name <span className="text-[#FF6B00]">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      value={contactFirstName}
+                      onChange={(e) => setContactFirstName(e.target.value)}
+                      placeholder="Alex"
+                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
+                    />
                   </div>
 
                   <div>
-                    <label htmlFor="apply-phone" className="block text-xs font-semibold text-[#B8BDC5] mb-1">
-                      Business Phone Number <span className="text-rose-400">*</span>
+                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
+                      Last Name <span className="text-[#FF6B00]">*</span>
                     </label>
                     <input
-                      id="apply-phone"
+                      type="text"
+                      required
+                      value={contactLastName}
+                      onChange={(e) => setContactLastName(e.target.value)}
+                      placeholder="Mercer"
+                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
+                      Business Email Address <span className="text-[#FF6B00]">*</span>
+                    </label>
+                    <input
+                      type="email"
+                      required
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="purchasing@company.com"
+                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
+                      Contact Phone <span className="text-[#FF6B00]">*</span>
+                    </label>
+                    <input
                       type="tel"
                       required
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       placeholder="(405) 555-0199"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#15191F] border border-[#2A3038] text-sm text-[#F7F7F5] placeholder-[#858C96] focus:outline-none focus:border-[#FF6B00]"
+                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
                     />
                   </div>
                 </div>
               </div>
 
-              {/* 2. Physical Location */}
-              <div>
-                <h3 className="text-xs font-bold uppercase tracking-wider text-[#F7F7F5] mb-3">Store Location</h3>
-                <div className="grid grid-cols-1 sm:grid-cols-4 gap-4">
-                  <div className="sm:col-span-2">
-                    <label htmlFor="apply-street" className="block text-xs font-semibold text-[#B8BDC5] mb-1">
-                      Street Address <span className="text-rose-400">*</span>
+              {/* SECTION 3: PHYSICAL BUSINESS ADDRESS */}
+              <div className="space-y-4 pt-2 border-t border-[#2A3038]">
+                <div className="flex items-center gap-2 text-sm font-bold text-[#FF6B00] uppercase tracking-wider">
+                  <Building2 className="w-4 h-4" />
+                  <span>3. Physical Business Address</span>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <div className="sm:col-span-3">
+                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
+                      Street Address <span className="text-[#FF6B00]">*</span>
                     </label>
                     <input
-                      id="apply-street"
                       type="text"
                       required
                       value={street}
                       onChange={(e) => setStreet(e.target.value)}
-                      placeholder="123 Main St"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#15191F] border border-[#2A3038] text-sm text-[#F7F7F5] placeholder-[#858C96] focus:outline-none focus:border-[#FF6B00]"
+                      placeholder="123 SW 29th St"
+                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
                     />
                   </div>
+
                   <div>
-                    <label htmlFor="apply-city" className="block text-xs font-semibold text-[#B8BDC5] mb-1">
-                      City <span className="text-rose-400">*</span>
+                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
+                      City <span className="text-[#FF6B00]">*</span>
                     </label>
                     <input
-                      id="apply-city"
                       type="text"
                       required
                       value={city}
                       onChange={(e) => setCity(e.target.value)}
                       placeholder="Oklahoma City"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#15191F] border border-[#2A3038] text-sm text-[#F7F7F5] placeholder-[#858C96] focus:outline-none focus:border-[#FF6B00]"
+                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
                     />
                   </div>
+
                   <div>
-                    <label htmlFor="apply-zip" className="block text-xs font-semibold text-[#B8BDC5] mb-1">
-                      ZIP Code <span className="text-rose-400">*</span>
+                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
+                      State <span className="text-[#FF6B00]">*</span>
                     </label>
                     <input
-                      id="apply-zip"
+                      type="text"
+                      required
+                      value={state}
+                      onChange={(e) => setState(e.target.value)}
+                      placeholder="OK"
+                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
+                      ZIP Code <span className="text-[#FF6B00]">*</span>
+                    </label>
+                    <input
                       type="text"
                       required
                       value={zip}
                       onChange={(e) => setZip(e.target.value)}
                       placeholder="73109"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#15191F] border border-[#2A3038] text-sm text-[#F7F7F5] placeholder-[#858C96] focus:outline-none focus:border-[#FF6B00]"
+                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
                     />
                   </div>
                 </div>
               </div>
 
-              {/* 3. Tax ID & Licensing */}
-              <div>
-                <h3 className="text-xs font-bold uppercase tracking-wider text-[#F7F7F5] mb-3 flex items-center gap-2">
-                  <FileText className="w-4 h-4 text-[#FF6B00]" /> 2. Tax & License Identification
-                </h3>
+              {/* SECTION 4: TAX ID & COMPLIANCE LICENSES */}
+              <div className="space-y-4 pt-2 border-t border-[#2A3038]">
+                <div className="flex items-center gap-2 text-sm font-bold text-[#FF6B00] uppercase tracking-wider">
+                  <FileText className="w-4 h-4" />
+                  <span>4. Tax Identification & Permits</span>
+                </div>
+
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="apply-fein" className="block text-xs font-semibold text-[#B8BDC5] mb-1">
-                      Federal EIN (FEIN) <span className="text-rose-400">*</span>
+                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
+                      Federal Employer ID (FEIN) / State Tax ID <span className="text-[#FF6B00]">*</span>
                     </label>
                     <input
-                      id="apply-fein"
                       type="text"
                       required
                       value={fein}
                       onChange={(e) => setFein(e.target.value)}
-                      placeholder="e.g. 73-XXXXXXX"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#15191F] border border-[#2A3038] text-sm text-[#F7F7F5] placeholder-[#858C96] focus:outline-none focus:border-[#FF6B00]"
+                      placeholder="XX-XXXXXXX"
+                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
                     />
                   </div>
 
                   <div>
-                    <label htmlFor="apply-license" className="block text-xs font-semibold text-[#B8BDC5] mb-1">
-                      State Sales Tax / Resale Permit Number
+                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
+                      Oklahoma Sales Tax / Resale Permit Number <span className="text-[#626871]">(Optional)</span>
                     </label>
                     <input
-                      id="apply-license"
                       type="text"
                       value={licenseNumber}
                       onChange={(e) => setLicenseNumber(e.target.value)}
-                      placeholder="e.g. OK-RES-XXXXX"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#15191F] border border-[#2A3038] text-sm text-[#F7F7F5] placeholder-[#858C96] focus:outline-none focus:border-[#FF6B00]"
+                      placeholder="e.g. OK-RES-12345"
+                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
+                      Business Website <span className="text-[#626871]">(Optional)</span>
+                    </label>
+                    <input
+                      type="url"
+                      value={website}
+                      onChange={(e) => setWebsite(e.target.value)}
+                      placeholder="https://www.yourshop.com"
+                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-xs font-semibold text-[#858C96] mb-1.5">
+                      Additional Notes / Inquiries <span className="text-[#626871]">(Optional)</span>
+                    </label>
+                    <input
+                      type="text"
+                      value={notes}
+                      onChange={(e) => setNotes(e.target.value)}
+                      placeholder="Brands you are seeking, volume requests..."
+                      className="w-full bg-[#1B2027] border border-[#2A3038] rounded-xl px-4 py-2.5 text-sm text-[#F7F7F5] focus:outline-none focus:border-[#FF6B00] transition-colors"
                     />
                   </div>
                 </div>
-              </div>
 
-              {/* 4. Document Upload Portal */}
-              <div className="p-4 rounded-2xl bg-[#15191F] border border-[#2A3038] space-y-4">
-                <div>
-                  <h3 className="text-xs font-bold uppercase tracking-wider text-[#F7F7F5] flex items-center gap-1.5">
-                    <Upload className="w-4 h-4 text-[#FF6B00]" /> Secure Document Upload Portal
-                  </h3>
-                  <p className="text-[11px] text-[#858C96] mt-0.5">
-                    Upload official verification documents (PDF, JPG, JPEG, PNG • max 10MB per file). Documents are encrypted and stored in private storage.
-                  </p>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {/* Upload 1: Sales Tax Resale Certificate */}
-                  <div className="p-3.5 bg-[#1B2027] rounded-xl border border-[#2A3038] space-y-2">
-                    <label className="block text-xs font-bold text-[#F7F7F5]">
-                      Sales Tax ID / Resale Certificate
-                    </label>
-
+                {/* Optional Document Uploads */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                  <div className="p-3.5 rounded-xl bg-[#1B2027] border border-[#2A3038] space-y-2">
+                    <span className="text-xs font-semibold text-[#F7F7F5] block">
+                      Resale Certificate / Tax Exemption (PDF / Image)
+                    </span>
                     <input
                       type="file"
                       ref={resaleInputRef}
-                      accept=".pdf,.jpg,.jpeg,.png"
+                      accept=".pdf,.png,.jpg,.jpeg"
                       className="hidden"
                       onChange={(e) => {
-                        const f = e.target.files?.[0] || null;
-                        setResaleDoc({ file: f, status: 'idle' });
+                        const file = e.target.files?.[0] || null;
+                        setResaleDoc({ file, status: file ? 'uploaded' : 'idle' });
                       }}
                     />
-
-                    {resaleDoc.file ? (
-                      <div className="flex items-center justify-between p-2.5 bg-emerald-500/10 border border-emerald-500/20 rounded-lg text-xs">
-                        <div className="flex items-center gap-2 truncate">
-                          <FileCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-                          <span className="font-semibold text-emerald-300 truncate">{resaleDoc.file.name}</span>
-                        </div>
-                        <button
-                          type="button"
-                          onClick={() => setResaleDoc({ file: null, status: 'idle' })}
-                          className="text-[#858C96] hover:text-rose-400 cursor-pointer shrink-0 ml-2"
-                          aria-label="Remove resale document"
-                        >
-                          <X className="w-3.5 h-3.5" />
-                        </button>
-                      </div>
-                    ) : (
-                      <button
-                        type="button"
-                        onClick={() => resaleInputRef.current?.click()}
-                        className="w-full py-2.5 px-3 border border-dashed border-[#353C46] hover:border-[#FF6B00] rounded-lg text-xs font-semibold text-[#B8BDC5] hover:text-[#FF6B00] flex items-center justify-center gap-2 transition-colors cursor-pointer bg-[#0B0D10]"
-                      >
-                        <Upload className="w-3.5 h-3.5" />
-                        <span>Choose Resale Certificate</span>
-                      </button>
-                    )}
-                    <span className="text-[10px] text-[#858C96] block">Accepted: PDF, JPG, PNG (Max 10MB)</span>
+                    <button
+                      type="button"
+                      onClick={() => resaleInputRef.current?.click()}
+                      className="w-full py-2 px-3 rounded-lg bg-[#15191F] hover:bg-[#2A3038] border border-[#2A3038] text-xs font-medium text-[#B8BDC5] flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                    >
+                      {resaleDoc.file ? (
+                        <>
+                          <FileCheck className="w-3.5 h-3.5 text-emerald-400" />
+                          <span className="truncate">{resaleDoc.file.name}</span>
+                        </>
+                      ) : (
+                        <>
+                          <Upload className="w-3.5 h-3.5 text-[#FF6B00]" />
+                          <span>Attach Resale Permit</span>
+                        </>
+                      )}
+                    </button>
                   </div>
 
-                  {/* Upload 2: Business Permit / License */}
-                  <div className="p-3.5 bg-[#1B2027] rounded-xl border border-[#2A3038] space-y-2">
-                    <label className="block text-xs font-bold text-[#F7F7F5]">
-                      Business Permit / Tobacco License
-                    </label>
-
+                  <div className="p-3.5 rounded-xl bg-[#1B2027] border border-[#2A3038] space-y-2">
+                    <span className="text-xs font-semibold text-[#F7F7F5] block">
+                      Tobacco / Business License (PDF / Image)
+                    </span>
                     <input
                       type="file"
                       ref={licenseInputRef}
-                      accept=".pdf,.jpg,.jpeg,.png"
+                      accept=".pdf,.png,.jpg,.jpeg"
                       className="hidden"
                       onChange={(e) => {
-                        const f = e.target.files?.[0] || null;
-                        setLicenseDoc({ file: f, status: 'idle' });
+                        const file = e.target.files?.[0] || null;
+                        setLicenseDoc({ file, status: file ? 'uploaded' : 'idle' });
                       }}
                     />
-
-                    {licenseDoc.file ? (
-                      <div className="flex items-center justify-between p-2.5 bg-emerald-500/10 border border-emerald-500/20 rounded-lg text-xs">
-                        <div className="flex items-center gap-2 truncate">
-                          <FileCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-                          <span className="font-semibold text-emerald-300 truncate">{licenseDoc.file.name}</span>
-                        </div>
-                        <button
-                          type="button"
-                          onClick={() => setLicenseDoc({ file: null, status: 'idle' })}
-                          className="text-[#858C96] hover:text-rose-400 cursor-pointer shrink-0 ml-2"
-                          aria-label="Remove license document"
-                        >
-                          <X className="w-3.5 h-3.5" />
-                        </button>
-                      </div>
-                    ) : (
-                      <button
-                        type="button"
-                        onClick={() => licenseInputRef.current?.click()}
-                        className="w-full py-2.5 px-3 border border-dashed border-[#353C46] hover:border-[#FF6B00] rounded-lg text-xs font-semibold text-[#B8BDC5] hover:text-[#FF6B00] flex items-center justify-center gap-2 transition-colors cursor-pointer bg-[#0B0D10]"
-                      >
-                        <Upload className="w-3.5 h-3.5" />
-                        <span>Choose Permit / License</span>
-                      </button>
-                    )}
-                    <span className="text-[10px] text-[#858C96] block">Accepted: PDF, JPG, PNG (Max 10MB)</span>
+                    <button
+                      type="button"
+                      onClick={() => licenseInputRef.current?.click()}
+                      className="w-full py-2 px-3 rounded-lg bg-[#15191F] hover:bg-[#2A3038] border border-[#2A3038] text-xs font-medium text-[#B8BDC5] flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                    >
+                      {licenseDoc.file ? (
+                        <>
+                          <FileCheck className="w-3.5 h-3.5 text-emerald-400" />
+                          <span className="truncate">{licenseDoc.file.name}</span>
+                        </>
+                      ) : (
+                        <>
+                          <Upload className="w-3.5 h-3.5 text-[#FF6B00]" />
+                          <span>Attach Retail License</span>
+                        </>
+                      )}
+                    </button>
                   </div>
                 </div>
               </div>
 
-              {/* 5. Contact Person & Login Setup */}
-              <div>
-                <h3 className="text-xs font-bold uppercase tracking-wider text-[#F7F7F5] mb-3 flex items-center gap-2">
-                  <User className="w-4 h-4 text-[#FF6B00]" /> 3. Authorized Contact & Portal Login
-                </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                  <div>
-                    <label htmlFor="apply-contact-name" className="block text-xs font-semibold text-[#B8BDC5] mb-1">
-                      Contact Full Name <span className="text-rose-400">*</span>
-                    </label>
-                    <input
-                      id="apply-contact-name"
-                      type="text"
-                      required
-                      value={contactName}
-                      onChange={(e) => setContactName(e.target.value)}
-                      placeholder="Authorized Buyer"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#15191F] border border-[#2A3038] text-sm text-[#F7F7F5] placeholder-[#858C96] focus:outline-none focus:border-[#FF6B00]"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="apply-email" className="block text-xs font-semibold text-[#B8BDC5] mb-1">
-                      Business Email <span className="text-rose-400">*</span>
-                    </label>
-                    <input
-                      id="apply-email"
-                      type="email"
-                      required
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="buyer@business.com"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#15191F] border border-[#2A3038] text-sm text-[#F7F7F5] placeholder-[#858C96] focus:outline-none focus:border-[#FF6B00]"
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="apply-password" className="block text-xs font-semibold text-[#B8BDC5] mb-1 flex items-center gap-1">
-                      <Lock className="w-3 h-3 text-[#FF6B00]" /> Set Portal Password
-                    </label>
-                    <input
-                      id="apply-password"
-                      type="password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      placeholder="Min. 6 characters"
-                      className="w-full px-3.5 py-2.5 rounded-xl bg-[#15191F] border border-[#2A3038] text-sm text-[#F7F7F5] placeholder-[#858C96] focus:outline-none focus:border-[#FF6B00]"
-                    />
-                  </div>
-                </div>
-              </div>
-
-              {/* 6. Legal Certifications */}
+              {/* SECTION 5: LEGAL CERTIFICATIONS */}
               <div className="space-y-3 pt-2 border-t border-[#2A3038]">
-                <label className="flex items-start gap-3 cursor-pointer">
+                <label className="flex items-start gap-3 p-3 rounded-xl bg-[#1B2027] border border-[#2A3038] cursor-pointer hover:border-[#FF6B00]/40 transition-colors">
                   <input
                     type="checkbox"
                     required
                     checked={ageCertified}
                     onChange={(e) => setAgeCertified(e.target.checked)}
-                    className="mt-1 w-4 h-4 text-[#FF6B00] rounded border-[#2A3038] bg-[#15191F] focus:ring-[#FF6B00]"
+                    className="mt-0.5 rounded border-[#2A3038] text-[#FF6B00] focus:ring-[#FF6B00] cursor-pointer"
                   />
                   <span className="text-xs text-[#B8BDC5] leading-relaxed">
-                    <strong className="text-[#F7F7F5]">Age Certification (21+):</strong> I certify under penalty of law that I am at least 21 years of age and legally authorized to purchase regulated merchandise on behalf of this commercial entity.
+                    <strong className="text-[#F7F7F5]">21+ Age Certification & Purchasing Authority:</strong> I certify that I am at least 21 years of age and an authorized representative of this retail commercial entity. <span className="text-[#FF6B00]">*</span>
                   </span>
                 </label>
 
-                <label className="flex items-start gap-3 cursor-pointer">
+                <label className="flex items-start gap-3 p-3 rounded-xl bg-[#1B2027] border border-[#2A3038] cursor-pointer hover:border-[#FF6B00]/40 transition-colors">
                   <input
                     type="checkbox"
                     checked={taxExemptCertified}
                     onChange={(e) => setTaxExemptCertified(e.target.checked)}
-                    className="mt-1 w-4 h-4 text-[#FF6B00] rounded border-[#2A3038] bg-[#15191F] focus:ring-[#FF6B00]"
+                    className="mt-0.5 rounded border-[#2A3038] text-[#FF6B00] focus:ring-[#FF6B00] cursor-pointer"
                   />
                   <span className="text-xs text-[#B8BDC5] leading-relaxed">
-                    <strong className="text-[#F7F7F5]">Resale Tax Exemption:</strong> All products purchased through this wholesale account are intended for commercial resale and comply with Oklahoma Sales Tax Exemption rules.
+                    <strong className="text-[#F7F7F5]">Tax-Exempt Resale Certification:</strong> Products purchased under this wholesale account are intended strictly for commercial retail resale under Oklahoma and Federal regulations.
                   </span>
                 </label>
               </div>
 
-              {/* Submit Buttons */}
-              <div className="pt-4 flex flex-col sm:flex-row items-center justify-end gap-3 border-t border-[#2A3038]">
-                <button
-                  type="button"
-                  onClick={onClose}
-                  className="w-full sm:w-auto px-5 py-2.5 rounded-xl border border-[#2A3038] text-[#B8BDC5] text-sm font-semibold hover:bg-[#2A3038] hover:text-[#F7F7F5] transition-colors cursor-pointer"
-                >
-                  Cancel
-                </button>
+              {/* Submit Actions */}
+              <div className="pt-4 border-t border-[#2A3038] flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div className="text-xs text-[#858C96] text-center sm:text-left">
+                  Applications are manually reviewed by our compliance desk.
+                </div>
 
-                <button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full sm:w-auto px-7 py-3 bg-[#FF6B00] hover:bg-[#E85F00] disabled:opacity-50 text-white text-xs font-bold uppercase tracking-wider rounded-xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                      <span>Submitting Application & Documents...</span>
-                    </>
-                  ) : (
-                    <span>Submit Wholesale Application</span>
-                  )}
-                </button>
+                <div className="flex items-center gap-3 w-full sm:w-auto">
+                  <button
+                    type="button"
+                    onClick={onClose}
+                    disabled={isSubmitting}
+                    className="flex-1 sm:flex-none px-5 py-2.5 rounded-xl border border-[#2A3038] hover:bg-[#1B2027] text-sm font-semibold text-[#B8BDC5] hover:text-[#F7F7F5] transition-colors cursor-pointer"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="flex-1 sm:flex-none px-6 py-2.5 rounded-xl bg-[#FF6B00] hover:bg-[#E05E00] disabled:bg-[#FF6B00]/50 text-white font-bold text-sm shadow-md transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        <span>Submitting Application...</span>
+                      </>
+                    ) : (
+                      <span>Submit Wholesale Application</span>
+                    )}
+                  </button>
+                </div>
               </div>
             </form>
           )}

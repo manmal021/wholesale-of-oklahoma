@@ -34,6 +34,15 @@ import BrandDirectoryShowcase from './components/BrandDirectoryShowcase';
 import CategoryShowcase from './components/CategoryShowcase';
 import WhyChooseUs from './components/WhyChooseUs';
 import { getDraftOrder } from './lib/mangoAI';
+import AdminLogin from './components/admin/AdminLogin';
+import AdminActivation from './components/admin/AdminActivation';
+import AdminDashboard from './components/admin/AdminDashboard';
+import AdminApplicationsList from './components/admin/AdminApplicationsList';
+import AdminApplicationDetail from './components/admin/AdminApplicationDetail';
+import AdminCustomersList from './components/admin/AdminCustomersList';
+import AccountActivation from './components/customer/AccountActivation';
+import CustomerAccountPage from './components/customer/CustomerAccountPage';
+import PasswordResetPage from './components/customer/PasswordResetPage';
 
 const BG_VIDEO = '/transi.mp4';
 
@@ -50,6 +59,37 @@ interface CurrentUser {
 }
 
 export default function App() {
+  const pathname = typeof window !== 'undefined' ? window.location.pathname.toLowerCase().replace(/\/$/, '') || '/' : '/';
+
+  if (pathname === '/admin/login') {
+    return <AdminLogin />;
+  }
+  if (pathname === '/admin/activate') {
+    return <AdminActivation />;
+  }
+  if (pathname.startsWith('/admin/customer-applications/')) {
+    const rawId = window.location.pathname.replace(/^\/admin\/customer-applications\//i, '').replace(/\/$/, '').trim();
+    return <AdminApplicationDetail applicationId={rawId} />;
+  }
+  if (pathname === '/admin/customer-applications') {
+    return <AdminApplicationsList />;
+  }
+  if (pathname === '/admin/customers') {
+    return <AdminCustomersList />;
+  }
+  if (pathname === '/admin') {
+    return <AdminDashboard />;
+  }
+  if (pathname === '/activate') {
+    return <AccountActivation />;
+  }
+  if (pathname === '/account') {
+    return <CustomerAccountPage />;
+  }
+  if (pathname === '/reset-password') {
+    return <PasswordResetPage />;
+  }
+
   const [showDisclaimer] = useState(() => Date.now() < DISCLAIMER_EXPIRATION);
   const [menuOpen, setMenuOpen] = useState(false);
   const [quickContactMsg, setQuickContactMsg] = useState(false);
@@ -244,32 +284,30 @@ export default function App() {
             {/* Auth-Aware Desktop Buttons */}
             {currentUser ? (
               <div className="flex items-center gap-2 ml-2 pl-2 border-l border-[#2A3038]">
-                <span
-                  className={`text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 ${
-                    currentUser.role === 'approved_customer' || currentUser.role === 'admin'
-                      ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-400/40'
-                      : 'bg-amber-500/20 text-amber-300 border border-amber-400/40'
-                  }`}
-                >
-                  {currentUser.role === 'approved_customer' && (
-                    <>
-                      <CheckCircle2 className="w-3 h-3 text-emerald-400" />
-                      Verified Retailer
-                    </>
-                  )}
-                  {currentUser.role === 'admin' && (
-                    <>
-                      <ShieldCheck className="w-3 h-3 text-[#FF6B00]" />
-                      Portal Admin
-                    </>
-                  )}
-                  {currentUser.role === 'pending_customer' && (
-                    <>
-                      <Clock className="w-3 h-3 text-amber-400" />
-                      Pending Review
-                    </>
-                  )}
-                </span>
+                {currentUser.role === 'admin' && (
+                  <a
+                    href="/admin"
+                    className="text-xs font-bold text-[#FF6B00] hover:text-white bg-[#FF6B00]/10 hover:bg-[#FF6B00] px-3 py-1.5 rounded-full border border-[#FF6B00]/30 transition-colors flex items-center gap-1"
+                  >
+                    <ShieldCheck className="w-3.5 h-3.5" />
+                    Admin Portal
+                  </a>
+                )}
+                {currentUser.role === 'approved_customer' && (
+                  <a
+                    href="/account"
+                    className="text-xs font-bold text-emerald-400 hover:text-white bg-emerald-500/10 hover:bg-emerald-600 px-3 py-1.5 rounded-full border border-emerald-500/30 transition-colors flex items-center gap-1"
+                  >
+                    <CheckCircle2 className="w-3.5 h-3.5" />
+                    My Account
+                  </a>
+                )}
+                {currentUser.role === 'pending_customer' && (
+                  <span className="text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 bg-amber-500/20 text-amber-300 border border-amber-400/40">
+                    <Clock className="w-3 h-3 text-amber-400" />
+                    Pending Review
+                  </span>
+                )}
                 <button
                   type="button"
                   onClick={handleLogout}
@@ -1051,6 +1089,10 @@ export default function App() {
       <WholesaleApplicationModal
         isOpen={isWholesaleModalOpen}
         onClose={() => setIsWholesaleModalOpen(false)}
+        onOpenLogin={() => {
+          setIsWholesaleModalOpen(false);
+          setIsLoginModalOpen(true);
+        }}
       />
 
       {/* B2B Client Portal Login Modal */}

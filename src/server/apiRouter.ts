@@ -40,6 +40,8 @@ import {
 } from './zohoInventory.js';
 import { inventoryStore } from './inventoryStore.js';
 import { wholesaleStore } from './wholesaleStore.js';
+import { databaseStore, type WholesaleApplicationRecord, type CustomerRecord, type ApplicationStatus } from './databaseStore.js';
+import { emailService, ADMIN_EMAIL } from './emailService.js';
 import { authStore, type UserRole, type SessionRecord } from './authStore.js';
 import { documentStore } from './documentStore.js';
 import { productImageRegistry } from './productImageRegistry.js';
@@ -197,13 +199,11 @@ function requireAdminAuth(req: Request, res: Response, next: () => void) {
     return next();
   }
 
-  // In non-production environments allow localhost without admin key
-  const clientIp = req.socket?.remoteAddress || req.ip || '';
-  if (process.env.NODE_ENV !== 'production' && (clientIp === '127.0.0.1' || clientIp === '::1' || clientIp.includes('127.0.0.1'))) {
-    return next();
+  if (session) {
+    return err(res, 403, 'Forbidden: Administrative privileges required');
   }
 
-  return err(res, 401, 'Unauthorized: Administrative key required');
+  return err(res, 401, 'Unauthorized: Administrator authentication required');
 }
 
 // ---------------------------------------------------------------------------
@@ -663,13 +663,8 @@ apiApp.post(
         zohoItems = items;
       }
 
-      const allStoreItems = inventoryStore.queryItems({ limit: 5000 }).items;
-      const { updatedItems, report } = reconcileWebsitePrices(allStoreItems, zohoItems);
-
-      // Apply updated prices to inventory store
-      for (const item of updatedItems) {
-        inventoryStore.syncZohoPrice(item.sku, item.rate);
-      }
+      // Reconcile catalog items and variants atomically in store
+      const report = inventoryStore.reconcileCatalogWithZoho(zohoItems);
 
       return ok(res, {
         success: true,
@@ -977,6 +972,16 @@ apiApp.post(['/auth/login', '/api/auth/login'], rateLimit(30, 5 * 60 * 1000), (r
       `woo_session=${token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=604800${isProd ? '; Secure' : ''}`
     );
 
+    if (user.role === 'admin') {
+      databaseStore.addAuditLog({
+        event: 'ADMIN_LOGIN_SUCCESS',
+        targetEmail: user.email,
+        adminId: user.id,
+        adminEmail: user.email,
+        details: { ip: req.ip },
+      });
+    }
+
     return ok(res, {
       success: true,
       user: {
@@ -987,7 +992,32 @@ apiApp.post(['/auth/login', '/api/auth/login'], rateLimit(30, 5 * 60 * 1000), (r
       message: 'Login successful.',
     });
   } catch (loginErr: any) {
-    return err(res, 401, loginErr.message || 'Invalid email or password.');
+    const rawMsg = loginErr.message || 'Invalid email or password.';
+    if (rawMsg.includes('ACCOUNT_PENDING')) {
+      return res.status(403).json({
+        error: 'ACCOUNT_PENDING',
+        message: 'Your Wholesale of Oklahoma account application is currently under review. You will receive an email once our team has reviewed your application.',
+      });
+    }
+    if (rawMsg.includes('ACCOUNT_REJECTED')) {
+      return res.status(403).json({
+        error: 'ACCOUNT_REJECTED',
+        message: 'Your wholesale account application was not approved. Please contact dispatch at (405) 768-2975 if you have questions.',
+      });
+    }
+    if (rawMsg.includes('ACCOUNT_SUSPENDED')) {
+      return res.status(403).json({
+        error: 'ACCOUNT_SUSPENDED',
+        message: 'Your wholesale account has been suspended. Please contact Wholesale of Oklahoma dispatch at (405) 768-2975.',
+      });
+    }
+    if (rawMsg.includes('ACCOUNT_NOT_ACTIVATED')) {
+      return res.status(403).json({
+        error: 'ACCOUNT_NOT_ACTIVATED',
+        message: 'Your account has been approved but not yet activated. Please use the activation link sent to your email to set your password.',
+      });
+    }
+    return err(res, 401, 'Invalid email or password.');
   }
 });
 
@@ -1034,6 +1064,198 @@ apiApp.get(['/auth/me', '/api/auth/me'], (req: Request, res: Response) => {
       has_pricing_access: hasAccess,
     },
     has_pricing_access: hasAccess,
+  });
+});
+
+/**
+ * GET /api/auth/verify-token
+ * Validates token without consuming it.
+ */
+apiApp.get(['/auth/verify-token', '/api/auth/verify-token'], (req: Request, res: Response) => {
+  const params = q(req);
+  const token = params.token;
+  const expectedType = params.type as any;
+
+  if (!token) {
+    return err(res, 400, 'Token is required.');
+  }
+
+  const result = databaseStore.verifySecurityToken(token, expectedType);
+  if (!result.valid) {
+    let msg = 'Invalid or expired link.';
+    if (result.reason === 'EXPIRED') msg = 'This link has expired.';
+    if (result.reason === 'USED') msg = 'This link has already been used.';
+    return ok(res, { valid: false, reason: result.reason, message: msg });
+  }
+
+  return ok(res, {
+    valid: true,
+    email: result.tokenRecord?.email,
+    type: result.tokenRecord?.type,
+  });
+});
+
+/**
+ * POST /api/auth/activate
+ * Consumes single-use activation token to set user password (admin or approved customer).
+ * Rate limited to 10 attempts per 15 minutes.
+ */
+apiApp.post(['/auth/activate', '/api/auth/activate'], rateLimit(10, 15 * 60 * 1000), (req: Request, res: Response) => {
+  const { token, password } = req.body || {};
+
+  if (!token || typeof token !== 'string') {
+    return err(res, 400, 'Activation token is required.');
+  }
+  if (!password || typeof password !== 'string' || password.length < 8) {
+    return err(res, 400, 'Password must be at least 8 characters long.');
+  }
+
+  const verification = databaseStore.verifySecurityToken(token);
+  if (!verification.valid || !verification.tokenRecord) {
+    const reason = verification.reason;
+    if (reason === 'EXPIRED') return err(res, 400, 'This activation link has expired. Please contact dispatch or request a new invite.');
+    if (reason === 'USED') return err(res, 400, 'This activation link has already been used. Please log in.');
+    return err(res, 400, 'Invalid or expired activation link.');
+  }
+
+  const tokenRecord = verification.tokenRecord;
+  const email = tokenRecord.email;
+
+  // Consume token permanently
+  databaseStore.consumeSecurityToken(token, tokenRecord.type);
+
+  // Set password securely
+  const user = authStore.setPassword(email, password);
+
+  if (tokenRecord.type === 'ADMIN_ACTIVATION') {
+    authStore.updateUserRole(email, 'admin');
+    databaseStore.addAuditLog({
+      event: 'ADMIN_LOGIN_SUCCESS',
+      targetEmail: email,
+      details: { activation: true },
+    });
+
+    const session = authStore.createSession(user, email, 'admin', user.businessName, user.contactName);
+    const isProd = process.env.NODE_ENV === 'production' || Boolean(process.env.VERCEL);
+    res.setHeader(
+      'Set-Cookie',
+      `woo_session=${session.token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=604800${isProd ? '; Secure' : ''}`
+    );
+
+    return ok(res, {
+      success: true,
+      role: 'admin',
+      token: session.token,
+      redirect: '/admin',
+      message: 'Administrator password created successfully. Welcome to Wholesale of Oklahoma Admin Portal.',
+    });
+  }
+
+  // CUSTOMER_ACTIVATION
+  authStore.updateUserRole(email, 'approved_customer');
+  const cust = databaseStore.getCustomerByEmail(email);
+  if (cust) {
+    cust.activatedAt = new Date().toISOString();
+    cust.userId = user.id;
+    databaseStore.persistToDisk();
+  }
+
+  databaseStore.addAuditLog({
+    event: 'ACCOUNT_ACTIVATED',
+    targetId: cust?.id || user.id,
+    targetEmail: email,
+  });
+
+  const session = authStore.createSession(user, email, 'approved_customer', user.businessName, user.contactName);
+  const isProd = process.env.NODE_ENV === 'production' || Boolean(process.env.VERCEL);
+  res.setHeader(
+    'Set-Cookie',
+    `woo_session=${session.token}; Path=/; HttpOnly; SameSite=Lax; Max-Age=604800${isProd ? '; Secure' : ''}`
+  );
+
+  return ok(res, {
+    success: true,
+    role: 'approved_customer',
+    token: session.token,
+    redirect: '/account',
+    message: 'Your account has been successfully activated. You now have full access to wholesale shopping.',
+  });
+});
+
+/**
+ * POST /api/auth/forgot-password
+ * Sends single-use password reset link.
+ * Rate limited to 5 per 15 minutes.
+ */
+apiApp.post(['/auth/forgot-password', '/api/auth/forgot-password'], rateLimit(5, 15 * 60 * 1000), async (req: Request, res: Response) => {
+  const { email, role } = req.body || {};
+  const cleanEmail = String(email || '').toLowerCase().trim();
+
+  if (!cleanEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
+    return err(res, 400, 'A valid email address is required.');
+  }
+
+  const user = authStore.getUser(cleanEmail);
+  const cust = databaseStore.getCustomerByEmail(cleanEmail);
+
+  if (user || cust) {
+    const tokenRecord = databaseStore.createSecurityToken({
+      type: 'PASSWORD_RESET',
+      email: cleanEmail,
+      targetId: user?.id || cust?.id || cleanEmail,
+      durationHours: 2, // 2 hour expiration
+    });
+
+    databaseStore.addAuditLog({
+      event: 'PASSWORD_RESET_REQUESTED',
+      targetEmail: cleanEmail,
+    });
+
+    await emailService.sendPasswordResetEmail(cleanEmail, tokenRecord.token, role === 'admin' || user?.role === 'admin');
+  }
+
+  // Always return generic success to protect against email enumeration (OWASP)
+  return ok(res, {
+    success: true,
+    message: 'If an account exists with this email address, password reset instructions have been sent.',
+  });
+});
+
+/**
+ * POST /api/auth/reset-password
+ * Consumes single-use reset token and updates password.
+ * Rate limited to 10 per 15 minutes.
+ */
+apiApp.post(['/auth/reset-password', '/api/auth/reset-password'], rateLimit(10, 15 * 60 * 1000), (req: Request, res: Response) => {
+  const { token, password } = req.body || {};
+
+  if (!token || typeof token !== 'string') {
+    return err(res, 400, 'Password reset token is required.');
+  }
+  if (!password || typeof password !== 'string' || password.length < 8) {
+    return err(res, 400, 'New password must be at least 8 characters long.');
+  }
+
+  const verification = databaseStore.verifySecurityToken(token, 'PASSWORD_RESET');
+  if (!verification.valid || !verification.tokenRecord) {
+    const reason = verification.reason;
+    if (reason === 'EXPIRED') return err(res, 400, 'This password reset link has expired. Please request a new one.');
+    if (reason === 'USED') return err(res, 400, 'This password reset link has already been used.');
+    return err(res, 400, 'Invalid or expired password reset link.');
+  }
+
+  const tokenRecord = verification.tokenRecord;
+  databaseStore.consumeSecurityToken(token, 'PASSWORD_RESET');
+  authStore.setPassword(tokenRecord.email, password);
+
+  databaseStore.addAuditLog({
+    event: 'PASSWORD_RESET_COMPLETED',
+    targetEmail: tokenRecord.email,
+  });
+
+  return ok(res, {
+    success: true,
+    message: 'Your password has been successfully reset. You may now log in.',
   });
 });
 
@@ -1118,9 +1340,17 @@ apiApp.get(['/wholesale/documents/:id', '/api/wholesale/documents/:id'], require
  * Handles wholesale customer applications with business verification (FEIN, tobacco license, 21+).
  * Rate limited to 5 requests per 15 minutes to prevent spam/abuse (Rule 22).
  */
-apiApp.post(['/wholesale/apply', '/api/wholesale/apply'], rateLimit(5, 15 * 60 * 1000), (req: Request, res: Response) => {
+/**
+ * POST /api/wholesale/apply
+ * Handles wholesale customer applications with business verification (FEIN, tobacco license, 21+).
+ * Rate limited to 10 requests per 15 minutes to prevent spam/abuse (Rule 22).
+ */
+apiApp.post(['/wholesale/apply', '/api/wholesale/apply'], rateLimit(10, 15 * 60 * 1000), async (req: Request, res: Response) => {
   const {
     businessName,
+    dba,
+    contactFirstName,
+    contactLastName,
     contactName,
     email,
     phone,
@@ -1128,60 +1358,90 @@ apiApp.post(['/wholesale/apply', '/api/wholesale/apply'], rateLimit(5, 15 * 60 *
     licenseNumber,
     businessType,
     address,
+    website,
+    notes,
     ageCertified,
     taxExemptCertified,
     documents,
-    password,
   } = req.body || {};
 
   // Server-side input validation (OWASP A01 / Rule 16)
   if (!businessName || typeof businessName !== 'string' || businessName.trim().length < 2) {
     return err(res, 400, 'Legal Business Name is required (minimum 2 characters)');
   }
-  if (!contactName || typeof contactName !== 'string' || contactName.trim().length < 2) {
-    return err(res, 400, 'Authorized Representative / Contact Name is required');
+
+  const effectiveFirstName = (contactFirstName || (contactName ? contactName.split(' ')[0] : '') || '').trim();
+  const effectiveLastName = (contactLastName || (contactName ? contactName.split(' ').slice(1).join(' ') : '') || '').trim();
+  const effectiveContactName = (contactName || `${effectiveFirstName} ${effectiveLastName}`).trim();
+
+  if (!effectiveContactName || effectiveContactName.length < 2) {
+    return err(res, 400, 'Authorized Contact Name is required');
   }
+
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!email || typeof email !== 'string' || !emailRegex.test(email.trim())) {
     return err(res, 400, 'A valid business email address is required');
   }
+
   if (!phone || typeof phone !== 'string' || phone.trim().length < 7) {
     return err(res, 400, 'A valid phone number is required');
   }
+
   if (!fein || typeof fein !== 'string' || fein.trim().length < 4) {
     return err(res, 400, 'Federal Employer ID (FEIN) or State Tax ID is required for wholesale account approval');
   }
+
   if (!ageCertified) {
     return err(res, 400, 'You must certify that you are at least 21 years of age and authorized to purchase for this business entity');
+  }
+
+  const cleanEmail = email.toLowerCase().trim();
+
+  // Duplicate Protection Checks
+  const existingCustomer = databaseStore.getCustomerByEmail(cleanEmail);
+  if (existingCustomer) {
+    if (existingCustomer.status === 'APPROVED') {
+      return res.status(409).json({
+        error: 'ACCOUNT_ALREADY_EXISTS',
+        message: 'An approved wholesale account already exists for this email address. Please log in or use Forgot Password.',
+      });
+    }
+    if (existingCustomer.status === 'SUSPENDED') {
+      return res.status(409).json({
+        error: 'ACCOUNT_SUSPENDED',
+        message: 'An account for this email address is currently suspended. Please contact dispatch at (405) 768-2975.',
+      });
+    }
+  }
+
+  const latestApp = databaseStore.getLatestApplicationForEmail(cleanEmail);
+  if (latestApp) {
+    if (latestApp.status === 'PENDING') {
+      return res.status(409).json({
+        error: 'APPLICATION_PENDING',
+        message: 'Your wholesale account application is already under review. Our team will contact you once your review is complete.',
+      });
+    }
+    if (latestApp.status === 'REJECTED') {
+      return res.status(409).json({
+        error: 'APPLICATION_REJECTED',
+        message: 'An application for this email address was previously reviewed. Please contact dispatch at (405) 768-2975 to discuss re-applying.',
+      });
+    }
   }
 
   const validBusinessTypes = ['vape_shop', 'smoke_shop', 'dispensary', 'c_store', 'distributor', 'other'];
   const sanitizedBusinessType = (validBusinessTypes.includes(businessType) ? businessType : 'other') as any;
 
-  // Create pending customer account in authStore if password provided
-  if (password && typeof password === 'string' && password.length >= 6) {
-    try {
-      authStore.register({
-        email: email.trim(),
-        password,
-        businessName: businessName.trim(),
-        contactName: contactName.trim(),
-        phone: phone.trim(),
-        fein: fein.trim(),
-        licenseNumber: String(licenseNumber || '').trim(),
-        role: 'pending_customer',
-      });
-    } catch (regErr: any) {
-      // Account may already exist, which is fine
-    }
-  }
-
-  const newApp = wholesaleStore.createApplication({
+  const newApp = databaseStore.createApplication({
     businessName: businessName.trim().slice(0, 150),
-    contactName: contactName.trim().slice(0, 100),
-    email: email.trim().toLowerCase().slice(0, 120),
+    dba: dba ? String(dba).trim().slice(0, 150) : undefined,
+    contactFirstName: effectiveFirstName.slice(0, 50),
+    contactLastName: effectiveLastName.slice(0, 50),
+    contactName: effectiveContactName.slice(0, 100),
+    email: cleanEmail.slice(0, 120),
     phone: phone.trim().slice(0, 30),
-    fein: fein.trim().slice(0, 30),
+    fein: fein.trim().slice(0, 40),
     licenseNumber: String(licenseNumber || '').trim().slice(0, 50),
     businessType: sanitizedBusinessType,
     address: {
@@ -1190,18 +1450,29 @@ apiApp.post(['/wholesale/apply', '/api/wholesale/apply'], rateLimit(5, 15 * 60 *
       state: String(address?.state || 'OK').trim().slice(0, 20),
       zip: String(address?.zip || '').trim().slice(0, 10),
     },
+    website: website ? String(website).trim().slice(0, 200) : undefined,
+    notes: notes ? String(notes).trim().slice(0, 500) : undefined,
+    documents: Array.isArray(documents) ? documents : [],
     ageCertified: Boolean(ageCertified),
     taxExemptCertified: Boolean(taxExemptCertified),
-    documents: Array.isArray(documents) ? documents : [],
   });
 
-  console.log(`[API /wholesale/apply] 🟢 New wholesale application registered: ${newApp.id} for "${newApp.businessName}"`);
+  // Dispatch Transactional Emails asynchronously (never block database submission on email provider failure)
+  emailService.sendAdminNewApplicationNotification(newApp).catch((emailErr) => {
+    console.warn(`[API /wholesale/apply] ⚠ Failed to send admin notification email: ${emailErr.message}`);
+  });
+
+  emailService.sendCustomerApplicationReceived(newApp).catch((emailErr) => {
+    console.warn(`[API /wholesale/apply] ⚠ Failed to send customer confirmation email: ${emailErr.message}`);
+  });
+
+  console.log(`[API /wholesale/apply] 🟢 New wholesale application stored: ${newApp.id} for "${newApp.businessName}" (${newApp.email})`);
 
   return ok(res, {
     success: true,
     applicationId: newApp.id,
     status: newApp.status,
-    message: 'Your Wholesale of Oklahoma account application has been received and is pending review.',
+    message: 'Your Wholesale of Oklahoma account application has been received and is currently under review.',
   });
 });
 
@@ -1218,7 +1489,7 @@ apiApp.get(['/wholesale/status', '/api/wholesale/status'], rateLimit(20, 5 * 60 
     return err(res, 400, 'Both application ID and contact email are required to check status');
   }
 
-  const app = wholesaleStore.getApplication(String(id).trim());
+  const app = databaseStore.getApplication(String(id).trim());
   if (!app || app.email.toLowerCase() !== String(email).trim().toLowerCase()) {
     return err(res, 404, 'Application not found or email does not match our records');
   }
@@ -1233,43 +1504,209 @@ apiApp.get(['/wholesale/status', '/api/wholesale/status'], rateLimit(20, 5 * 60 
   });
 });
 
+// ============================================================================
+// ADMIN PORTAL ROUTES — /api/admin/*
+// ============================================================================
+
 /**
- * GET /api/wholesale/admin/applications
- * Administrative list of all wholesale applications.
- * Guarded by timing-safe administrative authorization (Rule 12 & 14).
+ * GET /api/admin/stats
+ * Dashboard counters for pending, approved, rejected, and suspended accounts.
  */
-apiApp.get(['/wholesale/admin/applications', '/api/wholesale/admin/applications'], requireAdminAuth, (req: Request, res: Response) => {
-  const params = q(req);
-  const statusFilter = params.status;
-  const list = wholesaleStore.listApplications(statusFilter);
-  return ok(res, { total: list.length, applications: list });
+apiApp.get(['/admin/stats', '/api/admin/stats'], requireAdminAuth, (_req: Request, res: Response) => {
+  const stats = databaseStore.getDashboardStats();
+  return ok(res, { success: true, stats });
 });
 
 /**
- * POST /api/wholesale/admin/review
- * Approves or rejects a wholesale application.
- * Guarded by timing-safe administrative authorization (Rule 12 & 14).
+ * GET /api/admin/applications
+ * Returns filtered list of wholesale customer applications.
  */
-apiApp.post(['/wholesale/admin/review', '/api/wholesale/admin/review'], requireAdminAuth, (req: Request, res: Response) => {
-  const { id, status, reviewNotes } = req.body || {};
+apiApp.get(['/admin/applications', '/api/admin/applications', '/wholesale/admin/applications', '/api/wholesale/admin/applications'], requireAdminAuth, (req: Request, res: Response) => {
+  const params = q(req);
+  const statusFilter = params.status as any;
+  const search = params.search;
 
-  if (!id || (status !== 'APPROVED' && status !== 'REJECTED')) {
-    return err(res, 400, 'Invalid request. "id" and status ("APPROVED" | "REJECTED") are required');
+  const list = databaseStore.listApplications(statusFilter, search);
+  return ok(res, { success: true, total: list.length, applications: list });
+});
+
+/**
+ * GET /api/admin/applications/:id
+ * Returns complete submitted data for a single application.
+ */
+apiApp.get(['/admin/applications/:id', '/api/admin/applications/:id'], requireAdminAuth, (req: Request, res: Response) => {
+  const id = req.params.id;
+  const app = databaseStore.getApplication(id);
+  if (!app) {
+    return err(res, 404, `Application ${id} not found.`);
   }
 
-  const updated = wholesaleStore.reviewApplication(id, status, reviewNotes);
-  if (!updated) {
-    return err(res, 404, `Application ${id} not found`);
+  const customer = app.customerId ? databaseStore.getCustomer(app.customerId) : undefined;
+  return ok(res, { success: true, application: app, customer });
+});
+
+/**
+ * POST /api/admin/applications/:id/approve
+ * Approves application, creates customer record, generates 48h activation token,
+ * and sends customer activation email.
+ */
+apiApp.post(['/admin/applications/:id/approve', '/api/admin/applications/:id/approve'], requireAdminAuth, async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const app = databaseStore.getApplication(id);
+
+  if (!app) {
+    return err(res, 404, `Application ${id} not found.`);
   }
 
-  // If approved, update user account role in authStore to approved_customer
-  if (status === 'APPROVED') {
-    authStore.updateUserRole(updated.email, 'approved_customer');
-    console.log(`[API /wholesale/admin/review] User ${updated.email} promoted to approved_customer.`);
+  if (app.status === 'APPROVED') {
+    return err(res, 400, `Application ${id} is already approved.`);
   }
 
-  console.log(`[API /wholesale/admin/review] Application ${id} updated to ${status} by admin.`);
-  return ok(res, { success: true, application: updated });
+  const session = getSessionUser(req);
+  const adminId = session?.userId || 'admin_master';
+  const adminEmail = session?.email || ADMIN_EMAIL;
+
+  // 1. Create or update customer record in databaseStore
+  const customer = databaseStore.createOrUpdateCustomerFromApplication(app, adminId);
+
+  // 2. Provision customer user record in authStore
+  authStore.provisionCustomer(customer);
+
+  // 3. Generate single-use 48h activation token
+  const tokenRecord = databaseStore.createSecurityToken({
+    type: 'CUSTOMER_ACTIVATION',
+    email: customer.email,
+    targetId: customer.id,
+    durationHours: 48,
+  });
+
+  // 4. Audit Log
+  databaseStore.addAuditLog({
+    event: 'APPLICATION_APPROVED',
+    targetId: app.id,
+    targetEmail: customer.email,
+    adminId,
+    adminEmail,
+    details: { customerId: customer.id },
+  });
+
+  // 5. Send Activation Email to customer
+  try {
+    await emailService.sendCustomerAccountApproved(app, tokenRecord.token);
+  } catch (emailErr: any) {
+    console.warn('[API /admin/applications/:id/approve] Email send error:', emailErr.message);
+  }
+
+  console.log(`[API /admin/approve] 🟢 Approved application ${app.id} for ${customer.businessName} (${customer.email}) by ${adminEmail}`);
+
+  return ok(res, {
+    success: true,
+    message: `Account approved. Activation email dispatched to ${customer.email}.`,
+    customer,
+    application: app,
+  });
+});
+
+/**
+ * POST /api/admin/applications/:id/reject
+ * Rejects application with optional reason, logs audit event, and sends notification email.
+ */
+apiApp.post(['/admin/applications/:id/reject', '/api/admin/applications/:id/reject'], requireAdminAuth, async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const { reason } = req.body || {};
+
+  const app = databaseStore.getApplication(id);
+  if (!app) {
+    return err(res, 404, `Application ${id} not found.`);
+  }
+
+  const session = getSessionUser(req);
+  const adminId = session?.userId || 'admin_master';
+  const adminEmail = session?.email || ADMIN_EMAIL;
+
+  const updated = databaseStore.updateApplicationStatus(id, 'REJECTED', adminId, reason);
+
+  databaseStore.addAuditLog({
+    event: 'APPLICATION_REJECTED',
+    targetId: id,
+    targetEmail: app.email,
+    adminId,
+    adminEmail,
+    details: { reason },
+  });
+
+  try {
+    await emailService.sendCustomerAccountRejected(app);
+  } catch (emailErr: any) {
+    console.warn('[API /admin/applications/:id/reject] Email send error:', emailErr.message);
+  }
+
+  return ok(res, {
+    success: true,
+    message: `Application ${id} has been rejected.`,
+    application: updated,
+  });
+});
+
+/**
+ * GET /api/admin/customers
+ * Returns list of customer accounts.
+ */
+apiApp.get(['/admin/customers', '/api/admin/customers'], requireAdminAuth, (req: Request, res: Response) => {
+  const params = q(req);
+  const statusFilter = params.status as any;
+  const search = params.search;
+
+  const customers = databaseStore.listCustomers(statusFilter, search);
+  return ok(res, { success: true, total: customers.length, customers });
+});
+
+/**
+ * POST /api/admin/customers/:id/suspend
+ * Suspends an approved wholesale account, immediately blocking shopping access.
+ */
+apiApp.post(['/admin/customers/:id/suspend', '/api/admin/customers/:id/suspend'], requireAdminAuth, (req: Request, res: Response) => {
+  const id = req.params.id;
+  const { reason } = req.body || {};
+
+  const session = getSessionUser(req);
+  const adminId = session?.userId || 'admin_master';
+
+  const customer = databaseStore.suspendCustomer(id, adminId, reason);
+  if (!customer) {
+    return err(res, 404, `Customer ${id} not found.`);
+  }
+
+  console.log(`[API /admin/customers/suspend] ⛔ Customer ${customer.email} (${id}) SUSPENDED.`);
+  return ok(res, { success: true, message: `Customer account ${id} suspended.`, customer });
+});
+
+/**
+ * POST /api/admin/customers/:id/reactivate
+ * Restores an approved wholesale account from suspended state.
+ */
+apiApp.post(['/admin/customers/:id/reactivate', '/api/admin/customers/:id/reactivate'], requireAdminAuth, (req: Request, res: Response) => {
+  const id = req.params.id;
+
+  const session = getSessionUser(req);
+  const adminId = session?.userId || 'admin_master';
+
+  const customer = databaseStore.reactivateCustomer(id, adminId);
+  if (!customer) {
+    return err(res, 404, `Customer ${id} not found.`);
+  }
+
+  console.log(`[API /admin/customers/reactivate] 🟢 Customer ${customer.email} (${id}) REACTIVATED.`);
+  return ok(res, { success: true, message: `Customer account ${id} reactivated.`, customer });
+});
+
+/**
+ * GET /api/admin/audit-logs
+ * Returns audit trail entries.
+ */
+apiApp.get(['/admin/audit-logs', '/api/admin/audit-logs'], requireAdminAuth, (_req: Request, res: Response) => {
+  const logs = databaseStore.listAuditLogs(100);
+  return ok(res, { success: true, logs });
 });
 
 /**

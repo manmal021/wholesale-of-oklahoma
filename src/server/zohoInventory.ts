@@ -71,7 +71,7 @@ function saveSnapshotToDisk(items: InventoryItem[]): void {
 }
 
 // Pre-seed cache from bundled snapshot (zero filesystem IO, 100% serverless safe)
-const initialSnapshot = loadSnapshotFromDisk() || ZOHO_CATALOG_SNAPSHOT;
+const initialSnapshot: InventoryItem[] = loadSnapshotFromDisk() || (ZOHO_CATALOG_SNAPSHOT as unknown as InventoryItem[]);
 let _cache: CacheEntry = {
   items: initialSnapshot,
   fetchedAt: Date.now(),
@@ -317,7 +317,7 @@ export async function getCachedInventory(): Promise<{
   }
 
   // Fallback 2: persistent disk snapshot or bundled snapshot
-  const diskSnapshot = loadSnapshotFromDisk() || ZOHO_CATALOG_SNAPSHOT;
+  const diskSnapshot: InventoryItem[] = loadSnapshotFromDisk() || (ZOHO_CATALOG_SNAPSHOT as unknown as InventoryItem[]);
   _cache = { items: diskSnapshot, fetchedAt: now, isStale: true };
   console.warn(`[ZohoInventory] ⚠ Serving from snapshot (${diskSnapshot.length} items).`);
   return { items: diskSnapshot, fromCache: true, fetchedAt: new Date(now).toISOString() };

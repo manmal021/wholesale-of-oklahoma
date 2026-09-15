@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, LogIn, Lock, Mail, ShieldCheck, AlertCircle, Loader2, UserPlus } from 'lucide-react';
+import { X, LogIn, Lock, Mail, ShieldCheck, AlertCircle, Loader2, UserPlus, HelpCircle } from 'lucide-react';
 
 interface LoginModalProps {
   isOpen: boolean;
@@ -7,6 +7,7 @@ interface LoginModalProps {
   onSuccess?: () => void;
   onLoginSuccess?: () => void;
   onOpenApplication?: () => void;
+  onOpenForgotPassword?: () => void;
 }
 
 export default function LoginModal({
@@ -15,11 +16,13 @@ export default function LoginModal({
   onSuccess,
   onLoginSuccess,
   onOpenApplication,
+  onOpenForgotPassword,
 }: LoginModalProps) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [errorCode, setErrorCode] = useState<string | null>(null);
 
   // Close on Escape key
   useEffect(() => {
@@ -37,18 +40,20 @@ export default function LoginModal({
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrorMessage(null);
+    setErrorCode(null);
     setIsSubmitting(true);
 
     try {
       const res = await fetch('/api/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ email: email.trim().toLowerCase(), password }),
       });
 
       const data = await res.json();
       if (!res.ok) {
-        throw new Error(data.error || 'Login failed. Please check your credentials.');
+        setErrorCode(data.error);
+        throw new Error(data.message || data.error || 'Login failed. Please check your credentials.');
       }
 
       // Store auth session token for client authorization
@@ -64,6 +69,11 @@ export default function LoginModal({
       if (onSuccess) onSuccess();
       if (onLoginSuccess) onLoginSuccess();
       onClose();
+
+      // If administrator logged in, navigate to /admin
+      if (data.user?.role === 'admin') {
+        window.location.href = '/admin';
+      }
     } catch (err: any) {
       setErrorMessage(err.message || 'Unable to log in.');
     } finally {
@@ -77,6 +87,15 @@ export default function LoginModal({
       onOpenApplication();
     } else {
       window.dispatchEvent(new CustomEvent('open-wholesale-application'));
+    }
+  };
+
+  const handleForgotPassword = () => {
+    onClose();
+    if (onOpenForgotPassword) {
+      onOpenForgotPassword();
+    } else {
+      window.location.href = '/reset-password';
     }
   };
 
@@ -114,10 +133,33 @@ export default function LoginModal({
           </button>
         </div>
 
+        {/* Status Error Banners */}
         {errorMessage && (
-          <div className="p-3.5 rounded-xl bg-rose-500/15 border border-rose-500/30 text-rose-400 text-xs flex items-center gap-2.5 mb-5" role="alert">
-            <AlertCircle className="w-4 h-4 shrink-0 text-rose-400" />
-            <span>{errorMessage}</span>
+          <div
+            className={`p-3.5 rounded-xl text-xs flex flex-col gap-1.5 mb-5 ${
+              errorCode === 'ACCOUNT_PENDING'
+                ? 'bg-amber-500/15 border border-amber-500/30 text-amber-300'
+                : errorCode === 'ACCOUNT_SUSPENDED'
+                ? 'bg-rose-500/15 border border-rose-500/30 text-rose-400'
+                : errorCode === 'ACCOUNT_NOT_ACTIVATED'
+                ? 'bg-blue-500/15 border border-blue-500/30 text-blue-300'
+                : 'bg-rose-500/15 border border-rose-500/30 text-rose-400'
+            }`}
+            role="alert"
+          >
+            <div className="flex items-center gap-2 font-bold">
+              <AlertCircle className="w-4 h-4 shrink-0" />
+              <span>
+                {errorCode === 'ACCOUNT_PENDING'
+                  ? 'Application Under Review'
+                  : errorCode === 'ACCOUNT_SUSPENDED'
+                  ? 'Account Suspended'
+                  : errorCode === 'ACCOUNT_NOT_ACTIVATED'
+                  ? 'Activation Required'
+                  : 'Authentication Notice'}
+              </span>
+            </div>
+            <p className="leading-relaxed">{errorMessage}</p>
           </div>
         )}
 
@@ -139,10 +181,19 @@ export default function LoginModal({
           </div>
 
           <div>
-            <label htmlFor="login-password" className="block text-xs font-bold uppercase tracking-wider text-[#B8BDC5] mb-1.5 flex items-center gap-1.5">
-              <Lock className="w-3.5 h-3.5 text-[#FF6B00]" />
-              Password
-            </label>
+            <div className="flex items-center justify-between mb-1.5">
+              <label htmlFor="login-password" className="block text-xs font-bold uppercase tracking-wider text-[#B8BDC5] flex items-center gap-1.5">
+                <Lock className="w-3.5 h-3.5 text-[#FF6B00]" />
+                Password
+              </label>
+              <button
+                type="button"
+                onClick={handleForgotPassword}
+                className="text-[11px] text-[#FF6B00] hover:underline cursor-pointer font-medium"
+              >
+                Forgot Password?
+              </button>
+            </div>
             <input
               id="login-password"
               type="password"

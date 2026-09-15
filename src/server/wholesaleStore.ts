@@ -2,8 +2,12 @@
  * wholesaleStore.ts
  * Manages wholesale customer applications, business licenses,
  * tax exemption certificates (FEIN / Oklahoma Resale Permit),
- * and customer verification states (OWASP A01 / Rules 29 & 30).
+ * and customer verification states.
+ *
+ * Backed persistently by databaseStore.ts.
  */
+
+import { databaseStore, type WholesaleApplicationRecord, type ApplicationStatus } from './databaseStore.js';
 
 export interface WholesaleApplication {
   id: string;
@@ -27,78 +31,83 @@ export interface WholesaleApplication {
     documentType: string;
     filename: string;
   }>;
-  status: 'PENDING_REVIEW' | 'APPROVED' | 'REJECTED';
+  status: 'PENDING_REVIEW' | 'APPROVED' | 'REJECTED' | 'SUSPENDED';
   reviewNotes?: string;
   reviewedAt?: string;
   submittedAt: string;
 }
 
+function toLegacyApp(record: WholesaleApplicationRecord): WholesaleApplication {
+  let legacyStatus: WholesaleApplication['status'] = 'PENDING_REVIEW';
+  if (record.status === 'APPROVED') legacyStatus = 'APPROVED';
+  else if (record.status === 'REJECTED') legacyStatus = 'REJECTED';
+  else if (record.status === 'SUSPENDED') legacyStatus = 'SUSPENDED';
+
+  return {
+    id: record.id,
+    businessName: record.businessName,
+    contactName: record.contactName,
+    email: record.email,
+    phone: record.phone,
+    fein: record.fein,
+    licenseNumber: record.licenseNumber,
+    businessType: record.businessType,
+    address: record.address,
+    ageCertified: record.ageCertified,
+    taxExemptCertified: record.taxExemptCertified,
+    documents: record.documents,
+    status: legacyStatus,
+    reviewNotes: record.reviewNotes,
+    reviewedAt: record.reviewedAt,
+    submittedAt: record.submittedAt,
+  };
+}
+
 class WholesaleStore {
-  private applications: Map<string, WholesaleApplication> = new Map();
-
-  constructor() {
-    // Seed an approved demo/sample wholesale account for verification testing
-    const seedId = 'WOA-APP-10001';
-    this.applications.set(seedId, {
-      id: seedId,
-      businessName: 'OKC Vapor Lounge LLC',
-      contactName: 'Alex Mercer',
-      email: 'alex@okcvaporlounge.com',
-      phone: '(405) 555-0199',
-      fein: '73-1234567',
-      licenseNumber: 'OK-TOB-89214',
-      businessType: 'vape_shop',
-      address: {
-        street: '123 SW 29th St',
-        city: 'Oklahoma City',
-        state: 'OK',
-        zip: '73109',
-      },
-      ageCertified: true,
-      taxExemptCertified: true,
-      status: 'APPROVED',
-      reviewNotes: 'Verified OTC Resale Permit and FEIN.',
-      reviewedAt: new Date().toISOString(),
-      submittedAt: new Date(Date.now() - 86400000).toISOString(),
-    });
-  }
-
   public createApplication(data: Omit<WholesaleApplication, 'id' | 'status' | 'submittedAt'>): WholesaleApplication {
-    const randomSuffix = Math.floor(10000 + Math.random() * 90000);
-    const id = `WOA-APP-${randomSuffix}`;
+    const contactParts = (data.contactName || '').trim().split(/\s+/);
+    const firstName = contactParts[0] || 'Authorized';
+    const lastName = contactParts.slice(1).join(' ') || 'Representative';
 
-    const newApp: WholesaleApplication = {
-      ...data,
-      id,
-      status: 'PENDING_REVIEW',
-      submittedAt: new Date().toISOString(),
-    };
+    const record = databaseStore.createApplication({
+      businessName: data.businessName,
+      contactFirstName: firstName,
+      contactLastName: lastName,
+      contactName: data.contactName,
+      email: data.email,
+      phone: data.phone,
+      fein: data.fein,
+      licenseNumber: data.licenseNumber,
+      businessType: data.businessType,
+      address: data.address,
+      ageCertified: data.ageCertified,
+      taxExemptCertified: data.taxExemptCertified,
+      documents: data.documents,
+    });
 
-    this.applications.set(id, newApp);
-    return newApp;
+    return toLegacyApp(record);
   }
 
   public getApplication(id: string): WholesaleApplication | undefined {
-    return this.applications.get(id);
+    const record = databaseStore.getApplication(id);
+    return record ? toLegacyApp(record) : undefined;
   }
 
   public findByEmail(email: string): WholesaleApplication[] {
-    const cleanEmail = email.toLowerCase().trim();
-    const matches: WholesaleApplication[] = [];
-    for (const app of this.applications.values()) {
-      if (app.email.toLowerCase().trim() === cleanEmail) {
-        matches.push(app);
-      }
-    }
-    return matches;
+    const records = databaseStore.findApplicationsByEmail(email);
+    return records.map(toLegacyApp);
   }
 
   public listApplications(statusFilter?: string): WholesaleApplication[] {
-    const list = Array.from(this.applications.values());
-    if (statusFilter) {
-      return list.filter((a) => a.status === statusFilter);
+    let filter: ApplicationStatus | 'ALL' | undefined;
+    if (statusFilter === 'PENDING_REVIEW' || statusFilter === 'PENDING') {
+      filter = 'PENDING';
+    } else if (statusFilter === 'APPROVED' || statusFilter === 'REJECTED' || statusFilter === 'SUSPENDED') {
+      filter = statusFilter;
     }
-    return list.sort((a, b) => new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime());
+
+    const records = databaseStore.listApplications(filter);
+    return records.map(toLegacyApp);
   }
 
   public reviewApplication(
@@ -106,14 +115,8 @@ class WholesaleStore {
     status: 'APPROVED' | 'REJECTED',
     reviewNotes?: string
   ): WholesaleApplication | null {
-    const app = this.applications.get(id);
-    if (!app) return null;
-
-    app.status = status;
-    app.reviewNotes = reviewNotes;
-    app.reviewedAt = new Date().toISOString();
-
-    return app;
+    const updated = databaseStore.updateApplicationStatus(id, status, 'system_admin', reviewNotes);
+    return updated ? toLegacyApp(updated) : null;
   }
 }
 

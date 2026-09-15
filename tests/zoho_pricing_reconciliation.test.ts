@@ -26,10 +26,36 @@ import { InventoryStore } from '../src/server/inventoryStore.js';
 import { productImageRegistry } from '../src/server/productImageRegistry.js';
 import type { InventoryItem } from '../src/types/inventory.js';
 
+function createTestItem(data: Partial<InventoryItem> & { sku: string; name: string }): InventoryItem {
+  return {
+    id: data.id || data.sku,
+    zoho_item_id: data.zoho_item_id || data.id || data.sku,
+    sku: data.sku,
+    name: data.name,
+    brand: data.brand || 'Test Brand',
+    category: data.category || 'Disposable Vapes',
+    description: data.description || 'Test product description',
+    image_url: data.image_url || '/products/test.png',
+    rate: data.rate ?? 0,
+    available_stock: data.available_stock ?? 50,
+    stock_on_hand: data.stock_on_hand ?? 50,
+    stock_status: data.stock_status || 'in_stock',
+    status: data.status || 'active',
+    unit: data.unit || 'Pack',
+    min_order_qty: data.min_order_qty ?? 1,
+    bulk_pricing: data.bulk_pricing || [],
+    features: data.features || ['Factory sealed packaging'],
+    variants: data.variants,
+    retail_msrp: data.retail_msrp,
+    purchase_rate: data.purchase_rate,
+    last_modified_time: data.last_modified_time || new Date().toISOString(),
+  };
+}
+
 // ── TEST A: Zoho price = $10, Website incorrectly says $15 ───────────────────
 test('TEST A: Website price $15 is reconciled to authoritative Zoho price $10', () => {
   const websiteItems: InventoryItem[] = [
-    {
+    createTestItem({
       id: 'item-pulse-101',
       zoho_item_id: 'ZOHO-1001',
       sku: 'GEEK-PULSE-15K-BLK',
@@ -45,7 +71,7 @@ test('TEST A: Website price $15 is reconciled to authoritative Zoho price $10', 
       min_order_qty: 1,
       bulk_pricing: [],
       last_modified_time: new Date().toISOString(),
-    },
+    }),
   ];
 
   const zohoItems: RawZohoItemLike[] = [
@@ -74,7 +100,7 @@ test('TEST B: Image importer finds external image with price $18 -> Image update
   const store = new InventoryStore();
 
   // 1. Initial product with authoritative Zoho rate = $10.00
-  const initialItem: InventoryItem = {
+  const initialItem: InventoryItem = createTestItem({
     id: 'test-foger-30k',
     zoho_item_id: 'ZOHO-FOG-30K',
     sku: 'FOG-SWPRO-30K',
@@ -91,7 +117,7 @@ test('TEST B: Image importer finds external image with price $18 -> Image update
     min_order_qty: 1,
     bulk_pricing: [],
     last_modified_time: new Date().toISOString(),
-  };
+  });
 
   // Synchronize price
   store.syncZohoPrice(initialItem.sku, 10.0);
@@ -134,7 +160,7 @@ test('TEST B: Image importer finds external image with price $18 -> Image update
 // ── TEST C: Change Zoho price from $10 to $12 -> normal sync -> price = $12 ───
 test('TEST C: Change Zoho price from $10 to $12 propagates correctly via sync', () => {
   const websiteItems: InventoryItem[] = [
-    {
+    createTestItem({
       id: 'raz-dc25000',
       zoho_item_id: 'ZOHO-RAZ-25K',
       sku: 'RAZ-LTX-25K',
@@ -150,7 +176,7 @@ test('TEST C: Change Zoho price from $10 to $12 propagates correctly via sync', 
       min_order_qty: 1,
       bulk_pricing: [],
       last_modified_time: new Date().toISOString(),
-    },
+    }),
   ];
 
   // Zoho changes rate: $10.00 -> $12.00
@@ -176,7 +202,7 @@ test('TEST C: Change Zoho price from $10 to $12 propagates correctly via sync', 
 test('TEST D: Image cannot be found -> Image remains blank/existing, price remains Zoho price', () => {
   const store = new InventoryStore();
 
-  const itemWithZohoPrice: InventoryItem = {
+  const itemWithZohoPrice: InventoryItem = createTestItem({
     id: 'custom-glass-beaker',
     zoho_item_id: 'ZOHO-GLS-999',
     sku: 'GLS-BEAKER-10',
@@ -193,7 +219,7 @@ test('TEST D: Image cannot be found -> Image remains blank/existing, price remai
     min_order_qty: 1,
     bulk_pricing: [],
     last_modified_time: new Date().toISOString(),
-  };
+  });
 
   // Image search fails / returns no match
   const failedImagePayload = {
@@ -215,7 +241,7 @@ test('TEST D: Image cannot be found -> Image remains blank/existing, price remai
 // ── TEST E: Zoho API temporarily fails -> No random price, no cost price, error logged ─
 test('TEST E: Zoho API temporarily fails -> No random/scraped/purchase price appears, last verified price safely preserved', () => {
   const websiteItems: InventoryItem[] = [
-    {
+    createTestItem({
       id: 'geekbar-60k',
       zoho_item_id: 'ZOHO-GB-60K',
       sku: 'GB-PULSE-ULTRA-60K',
@@ -231,7 +257,7 @@ test('TEST E: Zoho API temporarily fails -> No random/scraped/purchase price app
       min_order_qty: 1,
       bulk_pricing: [],
       last_modified_time: new Date().toISOString(),
-    },
+    }),
   ];
 
   // Zoho API fails or returns item without a valid selling rate (e.g. rate is null/undefined)
@@ -257,7 +283,7 @@ test('TEST E: Zoho API temporarily fails -> No random/scraped/purchase price app
 // ── TEST F: Two products have similar names but different SKUs ───────────────
 test('TEST F: Two products with similar names but different SKUs receive correct distinct Zoho prices', () => {
   const websiteItems: InventoryItem[] = [
-    {
+    createTestItem({
       id: 'geekbar-15k-miami',
       zoho_item_id: 'ZOHO-GB-15K-MIA',
       sku: 'GB-PULSE-15K-MIA',
@@ -273,8 +299,8 @@ test('TEST F: Two products with similar names but different SKUs receive correct
       min_order_qty: 1,
       bulk_pricing: [],
       last_modified_time: new Date().toISOString(),
-    },
-    {
+    }),
+    createTestItem({
       id: 'geekbar-60k-miami',
       zoho_item_id: 'ZOHO-GB-60K-MIA',
       sku: 'GB-PULSE-60K-MIA',
@@ -290,7 +316,7 @@ test('TEST F: Two products with similar names but different SKUs receive correct
       min_order_qty: 1,
       bulk_pricing: [],
       last_modified_time: new Date().toISOString(),
-    },
+    }),
   ];
 
   const zohoItems: RawZohoItemLike[] = [
@@ -323,7 +349,7 @@ test('TEST F: Two products with similar names but different SKUs receive correct
 
 // ── TEST G: Parent product with multiple variants with different prices ──────
 test('TEST G: Parent product with multiple variants with different rates shows corresponding Zoho variant rate', () => {
-  const parentItem: InventoryItem = {
+  const parentItem: InventoryItem = createTestItem({
     id: 'vaporesso-xros-coils',
     zoho_item_id: 'ZOHO-VAP-XROS',
     sku: 'VAP-XROS-COILS',
@@ -374,7 +400,7 @@ test('TEST G: Parent product with multiple variants with different rates shows c
       },
     ],
     last_modified_time: new Date().toISOString(),
-  };
+  });
 
   // Zoho has different rates for different variants:
   // 0.6 ohm = $11.50, 0.8 ohm = $11.00, 1.2 ohm = $9.75
@@ -478,3 +504,45 @@ test('TEST H: validateImageUpdatePayload strictly rejects attempts to inject pri
     'Must throw security violation when inventory quantity is present'
   );
 });
+
+// ── TEST I: Real-time Zoho Webhook Price Change ($12.50 -> $22.00) ────────────
+test('TEST I: Real-time Zoho webhook price change automatically updates website selling price', () => {
+  const store = new InventoryStore();
+
+  // 1. Initial product GB-PULSE-15K in store
+  const itemBefore = store.getItem('GB-PULSE-15K');
+  assert.ok(itemBefore, 'Catalog item GB-PULSE-15K must exist in store');
+  const initialRate = itemBefore.rate;
+  assert.equal(typeof initialRate, 'number', 'Initial rate must be a valid number');
+
+  // 2. Zoho pushes an automated price update webhook: rate -> $22.00
+  const firstVariant = itemBefore.variants?.[0];
+  const webhookPayload = {
+    item_id: itemBefore.zoho_item_id,
+    sku: itemBefore.sku,
+    rate: 22.0, // Zoho updated selling price
+    variants: firstVariant
+      ? [
+          {
+            variant_id: firstVariant.variant_id,
+            sku: firstVariant.variant_sku,
+            rate: 22.5, // Variant rate update
+          },
+        ]
+      : undefined,
+    available_stock: 48,
+  };
+
+  const handled = store.handleZohoWebhook(webhookPayload);
+  assert.equal(handled, true, 'Webhook should be handled successfully');
+
+  // 3. Verify the website selling price subsequently displays $22.00
+  const itemAfter = store.getItem('GB-PULSE-15K');
+  assert.ok(itemAfter, 'Item must exist after webhook update');
+  assert.equal(itemAfter.rate, 22.0, 'Website selling price must automatically update to $22.00');
+  assert.equal(itemAfter.available_stock, 48, 'Stock must update to 48');
+  if (firstVariant && itemAfter.variants && itemAfter.variants[0]) {
+    assert.equal(itemAfter.variants[0].rate, 22.5, 'Variant rate must update to $22.50');
+  }
+});
+

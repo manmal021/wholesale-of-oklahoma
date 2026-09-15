@@ -6,6 +6,8 @@
  */
 
 import crypto from 'crypto';
+import { databaseStore, type CustomerRecord } from './databaseStore.js';
+import { emailService, ADMIN_EMAIL } from './emailService.js';
 
 export type UserRole = 'visitor' | 'pending_customer' | 'approved_customer' | 'admin';
 
@@ -40,7 +42,7 @@ class AuthStore {
   private sessions: Map<string, SessionRecord> = new Map(); // keyed by session token
 
   constructor() {
-    // Seed pre-verified test accounts for verification and administrative dispatch
+    // Seed pre-verified test account for customer verification
     this.seedUser({
       email: 'retailer@okcvapor.com',
       password: 'WholesaleOK2026!',
@@ -52,6 +54,7 @@ class AuthStore {
       licenseNumber: 'OK-TOB-89214',
     });
 
+    // Seed internal backup admin
     this.seedUser({
       email: 'admin@wholesaleofoklahoma.com',
       password: 'AdminSecret2026!',
@@ -60,6 +63,42 @@ class AuthStore {
       contactName: 'Head Dispatcher',
       phone: '(405) 768-2975',
     });
+
+    // Ensure initial administrator for order2wholesaleofoklahoma@gmail.com
+    this.ensureInitialAdmin();
+  }
+
+  public ensureInitialAdmin(): void {
+    const adminEmail = ADMIN_EMAIL.toLowerCase().trim();
+    let user = this.users.get(adminEmail);
+    if (!user) {
+      const id = `usr_admin_${crypto.randomBytes(6).toString('hex')}`;
+      user = {
+        id,
+        email: adminEmail,
+        passwordHash: 'UNSET',
+        salt: crypto.randomBytes(16).toString('hex'),
+        role: 'admin',
+        businessName: 'Wholesale of Oklahoma',
+        contactName: 'Site Administrator',
+        phone: '(405) 768-2975',
+        createdAt: new Date().toISOString(),
+      };
+      this.users.set(adminEmail, user);
+      console.log(`[AuthStore] 🛡 Initial administrator account record prepared for ${adminEmail}`);
+
+      // Create single-use 24-hour setup token if no active token exists
+      const tokenRecord = databaseStore.createSecurityToken({
+        type: 'ADMIN_ACTIVATION',
+        email: adminEmail,
+        targetId: id,
+        durationHours: 24,
+      });
+
+      emailService.sendAdminSetupInvite(adminEmail, tokenRecord.token).catch((err) => {
+        console.warn('[AuthStore] Warning: Could not dispatch initial admin setup email:', err.message);
+      });
+    }
   }
 
   private hashPassword(password: string, salt: string): string {
@@ -93,6 +132,66 @@ class AuthStore {
       licenseNumber: data.licenseNumber,
       createdAt: new Date().toISOString(),
     });
+  }
+
+  public setPassword(email: string, password: string): UserRecord {
+    const cleanEmail = email.toLowerCase().trim();
+    let user = this.users.get(cleanEmail);
+    const salt = crypto.randomBytes(16).toString('hex');
+    const passwordHash = this.hashPassword(password, salt);
+
+    if (!user) {
+      const id = `usr_${crypto.randomBytes(8).toString('hex')}`;
+      user = {
+        id,
+        email: cleanEmail,
+        passwordHash,
+        salt,
+        role: 'approved_customer',
+        businessName: '',
+        contactName: '',
+        phone: '',
+        createdAt: new Date().toISOString(),
+      };
+      this.users.set(cleanEmail, user);
+      return user;
+    }
+
+    user.salt = salt;
+    user.passwordHash = passwordHash;
+    return user;
+  }
+
+  public hasPasswordSet(email: string): boolean {
+    const user = this.users.get(email.toLowerCase().trim());
+    return Boolean(user && user.passwordHash && user.passwordHash !== 'UNSET');
+  }
+
+  public provisionCustomer(customer: CustomerRecord): UserRecord {
+    const cleanEmail = customer.email.toLowerCase().trim();
+    let user = this.users.get(cleanEmail);
+    if (!user) {
+      const id = `usr_${crypto.randomBytes(8).toString('hex')}`;
+      user = {
+        id,
+        email: cleanEmail,
+        passwordHash: 'UNSET',
+        salt: crypto.randomBytes(16).toString('hex'),
+        role: 'approved_customer',
+        businessName: customer.businessName,
+        contactName: customer.contactName,
+        phone: customer.phone,
+        fein: customer.fein,
+        licenseNumber: customer.licenseNumber,
+        createdAt: new Date().toISOString(),
+      };
+      this.users.set(cleanEmail, user);
+    } else {
+      user.role = 'approved_customer';
+      user.businessName = customer.businessName;
+      user.contactName = customer.contactName;
+    }
+    return user;
   }
 
   public register(data: {
@@ -137,9 +236,31 @@ class AuthStore {
 
   public login(email: string, password: string): { user: Omit<UserRecord, 'passwordHash' | 'salt'>; token: string } {
     const cleanEmail = email.toLowerCase().trim();
+
+    // 1. Check Customer Status in databaseStore
+    const customer = databaseStore.getCustomerByEmail(cleanEmail);
+    if (customer && customer.status === 'SUSPENDED') {
+      throw new Error('ACCOUNT_SUSPENDED: Your wholesale account has been suspended. Please contact Wholesale of Oklahoma dispatch at (405) 768-2975.');
+    }
+
+    // 2. Check Wholesale Applications in databaseStore
+    const latestApp = databaseStore.getLatestApplicationForEmail(cleanEmail);
+    if (latestApp) {
+      if (latestApp.status === 'PENDING' && (!customer || customer.status !== 'APPROVED')) {
+        throw new Error('ACCOUNT_PENDING: Your Wholesale of Oklahoma account application is currently under review. You will receive an email once our team has reviewed your application.');
+      }
+      if (latestApp.status === 'REJECTED' && (!customer || customer.status !== 'APPROVED')) {
+        throw new Error('ACCOUNT_REJECTED: Your wholesale account application was not approved. Please contact dispatch if you have questions.');
+      }
+    }
+
     const user = this.users.get(cleanEmail);
     if (!user) {
       throw new Error('Invalid email or password.');
+    }
+
+    if (user.passwordHash === 'UNSET') {
+      throw new Error('ACCOUNT_NOT_ACTIVATED: Your account has not yet been activated. Please check your email for your activation link to set your password.');
     }
 
     const testHash = this.hashPassword(password, user.salt);
@@ -261,6 +382,14 @@ class AuthStore {
         this.sessions.delete(token);
         return null;
       }
+
+      // Check if user account was suspended in databaseStore
+      const cust = databaseStore.getCustomerByEmail(cachedSession.email);
+      if (cust && cust.status === 'SUSPENDED') {
+        this.sessions.delete(token);
+        return null;
+      }
+
       const user = this.users.get(cachedSession.email);
       if (user) {
         cachedSession.role = user.role;
@@ -287,6 +416,14 @@ class AuthStore {
 
       if (!payload.exp || Date.now() > payload.exp) {
         return null;
+      }
+
+      // Check if user account was suspended in databaseStore
+      if (payload.e) {
+        const cust = databaseStore.getCustomerByEmail(payload.e);
+        if (cust && cust.status === 'SUSPENDED') {
+          return null;
+        }
       }
 
       const user = payload.e ? this.users.get(payload.e.toLowerCase().trim()) : undefined;

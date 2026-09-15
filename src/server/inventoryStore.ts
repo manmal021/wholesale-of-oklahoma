@@ -225,7 +225,8 @@ export class InventoryStore {
   }
 
   /**
-   * Handles real-time Webhook from Zoho Inventory Automation
+   * Handles real-time Webhook from Zoho Inventory Automation.
+   * Supports real-time stock updates as well as authoritative price updates.
    */
   public handleZohoWebhook(payload: any): boolean {
     if (!payload) return false;
@@ -234,17 +235,47 @@ export class InventoryStore {
     const sku = String(payload.sku || '');
     const newStock = payload.stock_on_hand !== undefined ? Number(payload.stock_on_hand) : undefined;
     const availableStock = payload.available_stock !== undefined ? Number(payload.available_stock) : newStock;
+    const rawRate = payload.rate !== undefined && !isNaN(Number(payload.rate)) ? Number(payload.rate) : undefined;
 
     // Find item by SKU or Zoho item ID
     let foundItem: InventoryItem | undefined;
     for (const item of this.items.values()) {
-      if ((sku && item.sku === sku) || (itemId && item.zoho_item_id === itemId)) {
+      if ((sku && item.sku.toLowerCase() === sku.toLowerCase()) || (itemId && item.zoho_item_id === itemId)) {
         foundItem = item;
         break;
       }
     }
 
-    if (foundItem && availableStock !== undefined) {
+    if (!foundItem) return false;
+
+    let updated = false;
+
+    // 1. Authoritative price update (Zoho rate -> website selling price)
+    if (rawRate !== undefined && rawRate >= 0) {
+      foundItem.rate = rawRate;
+      updated = true;
+    }
+
+    // 2. Variant price updates if provided
+    if (Array.isArray(payload.variants) && Array.isArray(foundItem.variants)) {
+      for (const pv of payload.variants) {
+        const vRate = pv.rate !== undefined && !isNaN(Number(pv.rate)) ? Number(pv.rate) : undefined;
+        if (vRate !== undefined && vRate >= 0) {
+          const vTargetId = String(pv.variant_id || pv.item_id || '');
+          const vTargetSku = String(pv.sku || '').toLowerCase();
+          const matchVar = foundItem.variants.find(
+            (v) => (vTargetId && String(v.variant_id) === vTargetId) || (vTargetSku && v.variant_sku.toLowerCase() === vTargetSku)
+          );
+          if (matchVar) {
+            matchVar.rate = vRate;
+            updated = true;
+          }
+        }
+      }
+    }
+
+    // 3. Stock updates
+    if (availableStock !== undefined) {
       foundItem.available_stock = availableStock;
       foundItem.stock_on_hand = newStock ?? availableStock;
 
@@ -255,7 +286,10 @@ export class InventoryStore {
       } else {
         foundItem.stock_status = 'in_stock';
       }
+      updated = true;
+    }
 
+    if (updated) {
       foundItem.last_modified_time = new Date().toISOString();
       this.syncStatus.last_update_time = new Date().toISOString();
       return true;
