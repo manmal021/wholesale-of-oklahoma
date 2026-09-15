@@ -253,6 +253,10 @@ export class ZohoInventoryClient {
       stockStatus = 'low_stock';
     }
 
+    const parentRate = typeof raw.rate === 'number' && !isNaN(raw.rate)
+      ? raw.rate
+      : (raw.rate !== undefined && raw.rate !== null && !isNaN(Number(raw.rate)) ? Number(raw.rate) : 0);
+
     // Build variants if item group
     const variants: InventoryVariant[] = Array.isArray(raw.variants)
       ? raw.variants.map((v: any) => {
@@ -260,6 +264,10 @@ export class ZohoInventoryClient {
         let vStatus: StockStatus = 'in_stock';
         if (vStock <= 0) vStatus = 'out_of_stock';
         else if (vStock <= lowStockThreshold) vStatus = 'low_stock';
+
+        const vRate = typeof v.rate === 'number' && !isNaN(v.rate)
+          ? v.rate
+          : (v.rate !== undefined && v.rate !== null && !isNaN(Number(v.rate)) ? Number(v.rate) : parentRate);
 
         return {
           variant_id: String(v.item_id || v.variant_id),
@@ -270,7 +278,7 @@ export class ZohoInventoryClient {
           stock_on_hand: vStock,
           available_stock: vStock,
           stock_status: vStatus,
-          rate: v.rate ? Number(v.rate) : Number(raw.rate || 0),
+          rate: vRate,
         };
       })
       : [];
@@ -285,7 +293,8 @@ export class ZohoInventoryClient {
       subcategory: raw.subcategory || raw.cf_subcategory,
       description: String(raw.description || raw.item_description || ''),
       image_url: raw.image_url || raw.image_name || '',
-      rate: Number(raw.rate || raw.purchase_rate || 0),
+      rate: parentRate,
+      retail_msrp: raw.sales_rate ? Number(raw.sales_rate) : (raw.retail_msrp ? Number(raw.retail_msrp) : undefined),
       purchase_rate: raw.purchase_rate ? Number(raw.purchase_rate) : undefined,
       available_stock: availableStock,
       stock_on_hand: stockOnHand,

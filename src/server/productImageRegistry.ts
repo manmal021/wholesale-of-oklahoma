@@ -10,6 +10,8 @@
  *  4. Admin review mechanism for reviewing, approving, rejecting, or updating imagery in real time.
  */
 
+import { validateImageUpdatePayload } from './priceReconciliation.js';
+
 export type MatchConfidence = 'EXACT_VERIFIED' | 'HIGH_CONFIDENCE' | 'IMAGE_REVIEW_REQUIRED' | 'NO_MATCH';
 export type SourceType = 'manufacturer' | 'authorized_distributor' | 'wholesale_catalog' | 'manual_upload';
 export type LicensingStatus = 'manufacturer_provided' | 'distributor_asset' | 'pending_review' | 'not_applicable';
@@ -828,6 +830,35 @@ class ProductImageRegistry {
     return '/products/geekbar-15k.png';
   }
 
+  /**
+   * Strictly whitelisted image update method.
+   * The image importer / updater can ONLY modify image-related attributes.
+   * Modifying price, rate, purchase_rate, inventory, or SKU is strictly forbidden.
+   */
+  public updateProductImage(
+    productId: string,
+    imageData: Record<string, any>
+  ): ProductImageAudit | null {
+    // 1. Validate payload contains ZERO pricing or inventory fields
+    validateImageUpdatePayload(imageData);
+
+    const record = this.registry.get(productId);
+    if (!record) return null;
+
+    if (imageData.imageUrl !== undefined) {
+      record.imageUrl = imageData.imageUrl || undefined;
+      record.confidence = imageData.imageUrl ? 'EXACT_VERIFIED' : 'NO_MATCH';
+    }
+    if (imageData.sourceUrl !== undefined) record.sourceUrl = imageData.sourceUrl;
+    if (imageData.sourceDomain !== undefined) record.sourceDomain = imageData.sourceDomain;
+    if (imageData.matchNotes !== undefined) record.matchNotes = imageData.matchNotes;
+    if (imageData.licensingStatus !== undefined) record.licensingStatus = imageData.licensingStatus;
+    if (imageData.manuallyApproved !== undefined) record.manuallyApproved = Boolean(imageData.manuallyApproved);
+
+    record.verifiedAt = new Date().toISOString();
+    return record;
+  }
+
   public reviewProductImage(
     productId: string,
     action: 'APPROVE' | 'REJECT' | 'UPDATE_URL' | 'REMOVE',
@@ -861,3 +892,4 @@ class ProductImageRegistry {
 }
 
 export const productImageRegistry = new ProductImageRegistry();
+

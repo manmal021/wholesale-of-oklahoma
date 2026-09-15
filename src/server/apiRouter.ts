@@ -44,6 +44,7 @@ import { authStore, type UserRole, type SessionRecord } from './authStore.js';
 import { documentStore } from './documentStore.js';
 import { productImageRegistry } from './productImageRegistry.js';
 import { PRODUCTS } from '../lib/productDatabase.js';
+import { reconcileWebsitePrices, matchWebsiteProductToZoho } from './priceReconciliation.js';
 import type { InventoryFilterParams } from '../types/inventory.js';
 
 export const apiApp = express();
@@ -208,17 +209,28 @@ function requireAdminAuth(req: Request, res: Response, next: () => void) {
 // ---------------------------------------------------------------------------
 // Boot: start background token refresh if already configured
 // ---------------------------------------------------------------------------
+const isServerlessEnv = Boolean(
+  process.env.VERCEL ||
+  process.env.VERCEL_ENV ||
+  process.env.NOW_REGION ||
+  process.env.AWS_LAMBDA_FUNCTION_NAME ||
+  process.env.LAMBDA_TASK_ROOT
+);
+
 if (process.env.ZOHO_CLIENT_ID && process.env.ZOHO_CLIENT_SECRET && process.env.ZOHO_REFRESH_TOKEN) {
-  scheduleTokenRefresh();
-  // Warm up cache on server start
-  refreshAccessToken()
-    .then(() => fetchAllZohoItems())
-    .then((items) => {
-      console.log(`[API] 🟢 Zoho warm-up complete — ${items.length} items cached.`);
-    })
-    .catch((e) => {
-      console.warn('[API] ⚠ Zoho warm-up skipped (credentials not yet configured):', e.message);
-    });
+  // Start scheduled refresh only on persistent server instances, avoiding serverless timeout handles
+  if (!isServerlessEnv) {
+    scheduleTokenRefresh();
+    // Warm up cache once on server boot
+    refreshAccessToken()
+      .then(() => fetchAllZohoItems())
+      .then((items) => {
+        console.log(`[API] 🟢 Zoho warm-up complete — ${items.length} items cached.`);
+      })
+      .catch((e) => {
+        console.warn('[API] ⚠ Zoho warm-up skipped (rate limited or offline):', e.message);
+      });
+  }
 }
 
 // ---------------------------------------------------------------------------
@@ -627,6 +639,59 @@ apiApp.post(['/inventory/sync', '/api/inventory/sync'], requireAdminAuth, rateLi
 });
 
 /**
+ * POST /api/inventory/admin/reconcile-prices
+ * Performs server-side price reconciliation strictly against Zoho rates.
+ * Guarded by administrative authorization and secure non-public logging.
+ */
+apiApp.post(
+  ['/inventory/admin/reconcile-prices', '/api/inventory/admin/reconcile-prices'],
+  requireAdminAuth,
+  rateLimit(5, 10 * 60 * 1000),
+  async (_req: Request, res: Response) => {
+    try {
+      let zohoItems: any[] = [];
+      if (isZohoConfigured()) {
+        try {
+          zohoItems = await fetchAllZohoItems();
+        } catch (e: any) {
+          console.warn('[API /reconcile-prices] Live fetch failed, using cached Zoho data:', e.message);
+          const { items } = await getCachedInventory();
+          zohoItems = items;
+        }
+      } else {
+        const { items } = await getCachedInventory();
+        zohoItems = items;
+      }
+
+      const allStoreItems = inventoryStore.queryItems({ limit: 5000 }).items;
+      const { updatedItems, report } = reconcileWebsitePrices(allStoreItems, zohoItems);
+
+      // Apply updated prices to inventory store
+      for (const item of updatedItems) {
+        inventoryStore.syncZohoPrice(item.sku, item.rate);
+      }
+
+      return ok(res, {
+        success: true,
+        report: {
+          timestamp: report.timestamp,
+          total_website_products: report.total_website_products,
+          total_zoho_products: report.total_zoho_products,
+          matched_count: report.matched_count,
+          updated_count: report.updated_count,
+          unmatched_count: report.unmatched_count,
+          unmatched_products: report.unmatched_products,
+        },
+      });
+    } catch (e: any) {
+      console.error('[API /reconcile-prices] Error:', e.message);
+      return err(res, 500, `Reconciliation error: ${e.message}`);
+    }
+  }
+);
+
+
+/**
  * POST /api/inventory/settings
  * Updates display settings (hide out-of-stock, low stock threshold, etc.)
  * Guarded by administrative authorization.
@@ -735,18 +800,34 @@ apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(10, 5 * 60
       (z) => z.id === idOrSku || z.sku === idOrSku || z.zoho_item_id === idOrSku || z.name.toLowerCase() === item.name?.toLowerCase()
     );
 
-    let unitPrice = 15.0; // fallback baseline
+    let unitPrice: number | null = null;
     let officialName = item.name || 'Wholesale Product';
     let officialSku = item.sku || '';
 
-    if (zohoItem && typeof zohoItem.rate === 'number' && zohoItem.rate > 0) {
+    if (zohoItem) {
       officialName = zohoItem.name;
-      officialSku = resolvedProduct?.sku || zohoItem.sku;
-      unitPrice = zohoItem.rate;
-    } else if (resolvedProduct) {
-      officialName = resolvedProduct.name;
-      officialSku = resolvedProduct.sku;
-      unitPrice = resolvedProduct.pricePerUnit;
+      officialSku = zohoItem.sku;
+
+      // If variant requested, resolve specific variant rate
+      if (item.variant_id || item.flavor || item.variant_name) {
+        const vName = String(item.flavor || item.variant_name || '').toLowerCase();
+        const vId = item.variant_id;
+        const matchedVariant = zohoItem.variants?.find(
+          (v) => (vId && v.variant_id === vId) || (vName && (v.variant_name.toLowerCase() === vName || v.attribute_value?.toLowerCase() === vName))
+        );
+        if (matchedVariant && typeof matchedVariant.rate === 'number' && matchedVariant.rate > 0) {
+          unitPrice = matchedVariant.rate;
+        }
+      }
+
+      if (unitPrice === null && typeof zohoItem.rate === 'number' && zohoItem.rate > 0) {
+        unitPrice = zohoItem.rate;
+      }
+    }
+
+    // Never invent a price or use fallback defaults
+    if (unitPrice === null || unitPrice <= 0) {
+      return err(res, 400, `Order pricing error: Item "${officialName}" does not have a verified Zoho Inventory rate. Please contact dispatch.`);
     }
 
     verifiedLineItems.push({

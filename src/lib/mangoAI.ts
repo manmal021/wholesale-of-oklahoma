@@ -121,9 +121,9 @@ export function addToOrderDirect(
     pricePerUnit =
       priceOverride !== undefined && priceOverride > 0
         ? priceOverride
-        : invItem.rate > 0
+        : typeof invItem.rate === 'number' && invItem.rate > 0
         ? invItem.rate
-        : match?.pricePerUnit || 0;
+        : 0;
 
     imageUrl = imageOverride || invItem.image_url || match?.imageUrl;
 

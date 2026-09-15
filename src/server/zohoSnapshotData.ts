@@ -13,7 +13,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -32,7 +31,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.867Z"
   },
   {
     "id": "ZOHO-ITM-1002",
@@ -46,7 +45,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -65,7 +63,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.867Z"
   },
   {
     "id": "ZOHO-ITM-1003",
@@ -79,7 +77,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -98,7 +95,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.867Z"
   },
   {
     "id": "ZOHO-ITM-1004",
@@ -112,7 +109,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -131,7 +127,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.867Z"
   },
   {
     "id": "ZOHO-ITM-1005",
@@ -145,7 +141,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -164,7 +159,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.867Z"
   },
   {
     "id": "ZOHO-ITM-1006",
@@ -178,7 +173,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -197,7 +191,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.867Z"
   },
   {
     "id": "ZOHO-ITM-1007",
@@ -211,7 +205,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -230,7 +223,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.867Z"
   },
   {
     "id": "ZOHO-ITM-1008",
@@ -244,7 +237,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -263,7 +255,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.867Z"
   },
   {
     "id": "ZOHO-ITM-1009",
@@ -277,7 +269,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -296,7 +287,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1010",
@@ -310,7 +301,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -329,7 +319,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1011",
@@ -343,7 +333,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -362,7 +351,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1012",
@@ -376,7 +365,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -395,7 +383,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1013",
@@ -409,7 +397,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -428,7 +415,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1014",
@@ -442,7 +429,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -461,7 +447,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1015",
@@ -475,7 +461,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -494,7 +479,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1016",
@@ -508,7 +493,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -527,7 +511,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1017",
@@ -541,7 +525,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -560,7 +543,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1018",
@@ -574,7 +557,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -593,7 +575,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1019",
@@ -607,7 +589,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -626,7 +607,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1020",
@@ -640,7 +621,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -659,7 +639,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1021",
@@ -673,7 +653,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -692,7 +671,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1022",
@@ -706,7 +685,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -725,7 +703,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1023",
@@ -739,7 +717,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -758,7 +735,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1024",
@@ -772,7 +749,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -791,7 +767,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1025",
@@ -805,7 +781,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -824,7 +799,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1026",
@@ -838,7 +813,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -857,7 +831,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1027",
@@ -871,7 +845,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -890,7 +863,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "geekbar-25k",
@@ -904,7 +877,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.75,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.59,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -923,7 +895,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1029",
@@ -937,7 +909,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.75,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.59,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -956,7 +927,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1030",
@@ -970,7 +941,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.75,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.59,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -989,7 +959,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1031",
@@ -1003,7 +973,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.75,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.59,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1022,7 +991,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1032",
@@ -1036,7 +1005,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.75,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.59,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1055,7 +1023,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1033",
@@ -1069,7 +1037,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.75,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.59,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1088,7 +1055,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.791Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1034",
@@ -1102,7 +1069,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.75,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.59,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1121,7 +1087,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1035",
@@ -1135,7 +1101,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.75,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.59,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1154,7 +1119,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1036",
@@ -1168,7 +1133,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.75,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.59,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1187,7 +1151,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1037",
@@ -1201,7 +1165,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.75,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.59,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1220,7 +1183,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1038",
@@ -1234,7 +1197,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.75,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.59,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1253,7 +1215,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1039",
@@ -1267,7 +1229,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.75,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.59,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1286,7 +1247,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1040",
@@ -1300,7 +1261,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.75,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.59,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1319,7 +1279,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1041",
@@ -1333,7 +1293,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.75,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.59,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1352,7 +1311,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1042",
@@ -1366,7 +1325,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.75,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.59,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1385,7 +1343,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1043",
@@ -1399,7 +1357,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.75,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.59,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1418,7 +1375,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1044",
@@ -1432,7 +1389,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.75,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.59,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1451,7 +1407,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1045",
@@ -1465,7 +1421,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.75,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.59,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1484,7 +1439,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1046",
@@ -1498,7 +1453,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.75,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.59,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1517,7 +1471,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1047",
@@ -1531,7 +1485,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.75,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.59,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1550,7 +1503,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1048",
@@ -1564,7 +1517,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.75,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.59,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1583,7 +1535,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1049",
@@ -1597,7 +1549,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.75,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.59,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1616,7 +1567,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1050",
@@ -1630,7 +1581,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.75,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.59,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1649,7 +1599,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1051",
@@ -1663,7 +1613,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.75,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.59,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1682,7 +1631,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1052",
@@ -1696,7 +1645,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.75,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.59,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1715,7 +1663,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "geekbar-60k",
@@ -1729,7 +1677,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-60k.png",
     "rate": 17.5,
     "retail_msrp": 34.99,
-    "purchase_rate": 11.38,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1747,7 +1694,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1054",
@@ -1761,7 +1708,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-60k.png",
     "rate": 17.5,
     "retail_msrp": 34.99,
-    "purchase_rate": 11.38,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1779,7 +1725,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1055",
@@ -1793,7 +1739,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-60k.png",
     "rate": 17.5,
     "retail_msrp": 34.99,
-    "purchase_rate": 11.38,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1811,7 +1756,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.868Z"
   },
   {
     "id": "ZOHO-ITM-1056",
@@ -1825,7 +1770,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-60k.png",
     "rate": 17.5,
     "retail_msrp": 34.99,
-    "purchase_rate": 11.38,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1843,7 +1787,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1057",
@@ -1857,7 +1801,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-60k.png",
     "rate": 17.5,
     "retail_msrp": 34.99,
-    "purchase_rate": 11.38,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1875,7 +1818,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1058",
@@ -1889,7 +1832,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-60k.png",
     "rate": 17.5,
     "retail_msrp": 34.99,
-    "purchase_rate": 11.38,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1907,7 +1849,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1059",
@@ -1921,7 +1863,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-60k.png",
     "rate": 17.5,
     "retail_msrp": 34.99,
-    "purchase_rate": 11.38,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1939,7 +1880,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1060",
@@ -1953,7 +1894,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-60k.png",
     "rate": 17.5,
     "retail_msrp": 34.99,
-    "purchase_rate": 11.38,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -1971,7 +1911,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1061",
@@ -1985,7 +1925,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-60k.png",
     "rate": 17.5,
     "retail_msrp": 34.99,
-    "purchase_rate": 11.38,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2003,7 +1942,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1062",
@@ -2017,7 +1956,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-60k.png",
     "rate": 17.5,
     "retail_msrp": 34.99,
-    "purchase_rate": 11.38,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2035,7 +1973,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1063",
@@ -2049,7 +1987,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-60k.png",
     "rate": 17.5,
     "retail_msrp": 34.99,
-    "purchase_rate": 11.38,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2067,7 +2004,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1064",
@@ -2081,7 +2018,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-60k.png",
     "rate": 17.5,
     "retail_msrp": 34.99,
-    "purchase_rate": 11.38,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2099,7 +2035,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1065",
@@ -2113,7 +2049,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-60k.png",
     "rate": 17.5,
     "retail_msrp": 34.99,
-    "purchase_rate": 11.38,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2131,7 +2066,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1066",
@@ -2145,7 +2080,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-60k.png",
     "rate": 17.5,
     "retail_msrp": 34.99,
-    "purchase_rate": 11.38,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2163,7 +2097,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1067",
@@ -2177,7 +2111,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-60k.png",
     "rate": 17.5,
     "retail_msrp": 34.99,
-    "purchase_rate": 11.38,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2195,7 +2128,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1068",
@@ -2209,7 +2142,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.25,
     "retail_msrp": 27.99,
-    "purchase_rate": 9.26,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2227,7 +2159,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1069",
@@ -2241,7 +2173,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.25,
     "retail_msrp": 27.99,
-    "purchase_rate": 9.26,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2259,7 +2190,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1070",
@@ -2273,7 +2204,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.25,
     "retail_msrp": 27.99,
-    "purchase_rate": 9.26,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2291,7 +2221,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1071",
@@ -2305,7 +2235,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.25,
     "retail_msrp": 27.99,
-    "purchase_rate": 9.26,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2323,7 +2252,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1072",
@@ -2337,7 +2266,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.25,
     "retail_msrp": 27.99,
-    "purchase_rate": 9.26,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2355,7 +2283,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1073",
@@ -2369,7 +2297,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.25,
     "retail_msrp": 27.99,
-    "purchase_rate": 9.26,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2387,7 +2314,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1074",
@@ -2401,7 +2328,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.25,
     "retail_msrp": 27.99,
-    "purchase_rate": 9.26,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2419,7 +2345,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1075",
@@ -2433,7 +2359,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.25,
     "retail_msrp": 27.99,
-    "purchase_rate": 9.26,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2451,7 +2376,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1076",
@@ -2465,7 +2390,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.25,
     "retail_msrp": 27.99,
-    "purchase_rate": 9.26,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2483,7 +2407,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1077",
@@ -2497,7 +2421,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.25,
     "retail_msrp": 27.99,
-    "purchase_rate": 9.26,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2515,7 +2438,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1078",
@@ -2529,7 +2452,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.25,
     "retail_msrp": 27.99,
-    "purchase_rate": 9.26,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2547,7 +2469,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1079",
@@ -2561,7 +2483,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.25,
     "retail_msrp": 27.99,
-    "purchase_rate": 9.26,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2579,7 +2500,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1080",
@@ -2593,7 +2514,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.25,
     "retail_msrp": 27.99,
-    "purchase_rate": 9.26,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2611,7 +2531,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1081",
@@ -2625,7 +2545,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.25,
     "retail_msrp": 27.99,
-    "purchase_rate": 9.26,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2643,7 +2562,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1082",
@@ -2657,7 +2576,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 14.25,
     "retail_msrp": 27.99,
-    "purchase_rate": 9.26,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2675,7 +2593,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1083",
@@ -2689,7 +2607,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2707,7 +2624,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1084",
@@ -2721,7 +2638,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2739,7 +2655,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1085",
@@ -2753,7 +2669,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2771,7 +2686,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1086",
@@ -2785,7 +2700,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2803,7 +2717,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1087",
@@ -2817,7 +2731,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2835,7 +2748,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1088",
@@ -2849,7 +2762,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2867,7 +2779,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1089",
@@ -2881,7 +2793,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2899,7 +2810,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1090",
@@ -2913,7 +2824,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2931,7 +2841,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1091",
@@ -2945,7 +2855,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2963,7 +2872,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1092",
@@ -2977,7 +2886,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -2995,7 +2903,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1093",
@@ -3009,7 +2917,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3027,7 +2934,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1094",
@@ -3041,7 +2948,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3059,7 +2965,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1095",
@@ -3073,7 +2979,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3091,7 +2996,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1096",
@@ -3105,7 +3010,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3123,7 +3027,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1097",
@@ -3137,7 +3041,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3155,7 +3058,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1098",
@@ -3169,7 +3072,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-pod.png",
     "rate": 9.75,
     "retail_msrp": 19.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3187,7 +3089,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1099",
@@ -3201,7 +3103,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-pod.png",
     "rate": 9.75,
     "retail_msrp": 19.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3219,7 +3120,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1100",
@@ -3233,7 +3134,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-pod.png",
     "rate": 9.75,
     "retail_msrp": 19.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3251,7 +3151,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1101",
@@ -3265,7 +3165,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-pod.png",
     "rate": 9.75,
     "retail_msrp": 19.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3283,7 +3182,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.869Z"
   },
   {
     "id": "ZOHO-ITM-1102",
@@ -3297,7 +3196,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-pod.png",
     "rate": 9.75,
     "retail_msrp": 19.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3315,7 +3213,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1103",
@@ -3329,7 +3227,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-pod.png",
     "rate": 9.75,
     "retail_msrp": 19.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3347,7 +3244,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1104",
@@ -3361,7 +3258,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-pod.png",
     "rate": 9.75,
     "retail_msrp": 19.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3379,7 +3275,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1105",
@@ -3393,7 +3289,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-pod.png",
     "rate": 9.75,
     "retail_msrp": 19.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3411,7 +3306,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1106",
@@ -3425,7 +3320,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-pod.png",
     "rate": 9.75,
     "retail_msrp": 19.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3443,7 +3337,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1107",
@@ -3457,7 +3351,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-pod.png",
     "rate": 9.75,
     "retail_msrp": 19.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3475,7 +3368,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1108",
@@ -3489,7 +3382,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-pod.png",
     "rate": 9.75,
     "retail_msrp": 19.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3507,7 +3399,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1109",
@@ -3521,7 +3413,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-pod.png",
     "rate": 9.75,
     "retail_msrp": 19.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3539,7 +3430,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1110",
@@ -3553,7 +3444,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-pod.png",
     "rate": 9.75,
     "retail_msrp": 19.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3571,7 +3461,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1111",
@@ -3585,7 +3475,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-pod.png",
     "rate": 9.75,
     "retail_msrp": 19.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3603,7 +3492,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1112",
@@ -3617,7 +3506,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-pod.png",
     "rate": 9.75,
     "retail_msrp": 19.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3635,7 +3523,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "foger-30k",
@@ -3649,7 +3537,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3668,7 +3555,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1114",
@@ -3682,7 +3569,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3701,7 +3587,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1115",
@@ -3715,7 +3601,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3734,7 +3619,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1116",
@@ -3748,7 +3633,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3767,7 +3651,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1117",
@@ -3781,7 +3665,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3800,7 +3683,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1118",
@@ -3814,7 +3697,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3833,7 +3715,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1119",
@@ -3847,7 +3729,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3866,7 +3747,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1120",
@@ -3880,7 +3761,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3899,7 +3779,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1121",
@@ -3913,7 +3793,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3932,7 +3811,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1122",
@@ -3946,7 +3825,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3965,7 +3843,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1123",
@@ -3979,7 +3857,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -3998,7 +3875,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1124",
@@ -4012,7 +3889,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4031,7 +3907,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1125",
@@ -4045,7 +3921,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4064,7 +3939,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1126",
@@ -4078,7 +3953,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4097,7 +3971,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1127",
@@ -4111,7 +3985,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4130,7 +4003,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1128",
@@ -4144,7 +4017,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4163,7 +4035,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1129",
@@ -4177,7 +4049,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4196,7 +4067,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1130",
@@ -4210,7 +4081,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4229,7 +4099,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1131",
@@ -4243,7 +4113,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4262,7 +4131,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1132",
@@ -4276,7 +4145,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4295,7 +4163,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1133",
@@ -4309,7 +4177,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4328,7 +4195,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1134",
@@ -4342,7 +4209,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4361,7 +4227,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1135",
@@ -4375,7 +4241,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4394,7 +4259,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1136",
@@ -4408,7 +4273,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4427,7 +4291,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1137",
@@ -4441,7 +4305,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4460,7 +4323,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1138",
@@ -4474,7 +4337,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 9.25,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.01,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4492,7 +4354,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1139",
@@ -4506,7 +4368,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 9.25,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.01,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4524,7 +4385,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1140",
@@ -4538,7 +4399,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 9.25,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.01,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4556,7 +4416,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1141",
@@ -4570,7 +4430,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 9.25,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.01,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4588,7 +4447,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1142",
@@ -4602,7 +4461,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 9.25,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.01,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4620,7 +4478,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1143",
@@ -4634,7 +4492,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 9.25,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.01,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4652,7 +4509,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1144",
@@ -4666,7 +4523,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 9.25,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.01,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4684,7 +4540,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1145",
@@ -4698,7 +4554,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 9.25,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.01,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4716,7 +4571,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1146",
@@ -4730,7 +4585,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 9.25,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.01,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4748,7 +4602,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1147",
@@ -4762,7 +4616,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 9.25,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.01,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4780,7 +4633,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1148",
@@ -4794,7 +4647,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 9.25,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.01,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4812,7 +4664,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1149",
@@ -4826,7 +4678,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 9.25,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.01,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4844,7 +4695,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1150",
@@ -4858,7 +4709,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 9.25,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.01,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4876,7 +4726,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1151",
@@ -4890,7 +4740,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 9.25,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.01,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4908,7 +4757,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1152",
@@ -4922,7 +4771,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 9.25,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.01,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4940,7 +4788,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1153",
@@ -4954,7 +4802,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 9.25,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.01,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -4972,7 +4819,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1154",
@@ -4986,7 +4833,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 9.25,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.01,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5004,7 +4850,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1155",
@@ -5018,7 +4864,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 9.25,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.01,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5036,7 +4881,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1156",
@@ -5050,7 +4895,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 9.25,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.01,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5068,7 +4912,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1157",
@@ -5082,7 +4926,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 9.25,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.01,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5100,7 +4943,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.792Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1158",
@@ -5114,7 +4957,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 11.25,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.31,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5132,7 +4974,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1159",
@@ -5146,7 +4988,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 11.25,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.31,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5164,7 +5005,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1160",
@@ -5178,7 +5019,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 11.25,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.31,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5196,7 +5036,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1161",
@@ -5210,7 +5050,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 11.25,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.31,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5228,7 +5067,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1162",
@@ -5242,7 +5081,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 11.25,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.31,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5260,7 +5098,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1163",
@@ -5274,7 +5112,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 11.25,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.31,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5292,7 +5129,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1164",
@@ -5306,7 +5143,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 11.25,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.31,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5324,7 +5160,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.870Z"
   },
   {
     "id": "ZOHO-ITM-1165",
@@ -5338,7 +5174,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 11.25,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.31,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5356,7 +5191,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.871Z"
   },
   {
     "id": "ZOHO-ITM-1166",
@@ -5370,7 +5205,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 11.25,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.31,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5388,7 +5222,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.871Z"
   },
   {
     "id": "ZOHO-ITM-1167",
@@ -5402,7 +5236,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 11.25,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.31,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5420,7 +5253,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.871Z"
   },
   {
     "id": "ZOHO-ITM-1168",
@@ -5434,7 +5267,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 8.75,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.69,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5452,7 +5284,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.871Z"
   },
   {
     "id": "ZOHO-ITM-1169",
@@ -5466,7 +5298,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 8.75,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.69,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5484,7 +5315,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.871Z"
   },
   {
     "id": "ZOHO-ITM-1170",
@@ -5498,7 +5329,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 8.75,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.69,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5516,7 +5346,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.871Z"
   },
   {
     "id": "ZOHO-ITM-1171",
@@ -5530,7 +5360,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 8.75,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.69,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5548,7 +5377,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.871Z"
   },
   {
     "id": "ZOHO-ITM-1172",
@@ -5562,7 +5391,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 8.75,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.69,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5580,7 +5408,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.871Z"
   },
   {
     "id": "ZOHO-ITM-1173",
@@ -5594,7 +5422,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 8.75,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.69,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5612,7 +5439,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.871Z"
   },
   {
     "id": "ZOHO-ITM-1174",
@@ -5626,7 +5453,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 8.75,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.69,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5644,7 +5470,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.871Z"
   },
   {
     "id": "ZOHO-ITM-1175",
@@ -5658,7 +5484,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 8.75,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.69,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5676,7 +5501,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.871Z"
   },
   {
     "id": "ZOHO-ITM-1176",
@@ -5690,7 +5515,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 8.75,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.69,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5708,7 +5532,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.871Z"
   },
   {
     "id": "ZOHO-ITM-1177",
@@ -5722,7 +5546,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/foger-30k.jpg",
     "rate": 8.75,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.69,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5740,7 +5563,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.871Z"
   },
   {
     "id": "raz-25k",
@@ -5754,7 +5577,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5772,7 +5594,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.871Z"
   },
   {
     "id": "ZOHO-ITM-1179",
@@ -5786,7 +5608,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5804,7 +5625,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.871Z"
   },
   {
     "id": "ZOHO-ITM-1180",
@@ -5818,7 +5639,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5836,7 +5656,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.871Z"
   },
   {
     "id": "ZOHO-ITM-1181",
@@ -5850,7 +5670,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5868,7 +5687,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.871Z"
   },
   {
     "id": "ZOHO-ITM-1182",
@@ -5882,7 +5701,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5900,7 +5718,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.871Z"
   },
   {
     "id": "ZOHO-ITM-1183",
@@ -5914,7 +5732,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5932,7 +5749,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.871Z"
   },
   {
     "id": "ZOHO-ITM-1184",
@@ -5946,7 +5763,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5964,7 +5780,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.871Z"
   },
   {
     "id": "ZOHO-ITM-1185",
@@ -5978,7 +5794,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -5996,7 +5811,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.871Z"
   },
   {
     "id": "ZOHO-ITM-1186",
@@ -6010,7 +5825,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6028,7 +5842,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.871Z"
   },
   {
     "id": "ZOHO-ITM-1187",
@@ -6042,7 +5856,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6060,7 +5873,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.871Z"
   },
   {
     "id": "ZOHO-ITM-1188",
@@ -6074,7 +5887,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6092,7 +5904,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.871Z"
   },
   {
     "id": "ZOHO-ITM-1189",
@@ -6106,7 +5918,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6124,7 +5935,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.871Z"
   },
   {
     "id": "ZOHO-ITM-1190",
@@ -6138,7 +5949,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6156,7 +5966,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.871Z"
   },
   {
     "id": "ZOHO-ITM-1191",
@@ -6170,7 +5980,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6188,7 +5997,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1192",
@@ -6202,7 +6011,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6220,7 +6028,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1193",
@@ -6234,7 +6042,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6252,7 +6059,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1194",
@@ -6266,7 +6073,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6284,7 +6090,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1195",
@@ -6298,7 +6104,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6316,7 +6121,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1196",
@@ -6330,7 +6135,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6348,7 +6152,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1197",
@@ -6362,7 +6166,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6380,7 +6183,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1198",
@@ -6394,7 +6197,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6412,7 +6214,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1199",
@@ -6426,7 +6228,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6444,7 +6245,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1200",
@@ -6458,7 +6259,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6476,7 +6276,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1201",
@@ -6490,7 +6290,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6508,7 +6307,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1202",
@@ -6522,7 +6321,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6540,7 +6338,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1203",
@@ -6554,7 +6352,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6572,7 +6369,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1204",
@@ -6586,7 +6383,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6604,7 +6400,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1205",
@@ -6618,7 +6414,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6636,7 +6431,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1206",
@@ -6650,7 +6445,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6668,7 +6462,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1207",
@@ -6682,7 +6476,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6700,7 +6493,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1208",
@@ -6714,7 +6507,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6732,7 +6524,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1209",
@@ -6746,7 +6538,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6764,7 +6555,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1210",
@@ -6778,7 +6569,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6796,7 +6586,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1211",
@@ -6810,7 +6600,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6828,7 +6617,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1212",
@@ -6842,7 +6631,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6860,7 +6648,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1213",
@@ -6874,7 +6662,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6892,7 +6679,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1214",
@@ -6906,7 +6693,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6924,7 +6710,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1215",
@@ -6938,7 +6724,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6956,7 +6741,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1216",
@@ -6970,7 +6755,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -6988,7 +6772,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1217",
@@ -7002,7 +6786,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7020,7 +6803,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1218",
@@ -7034,7 +6817,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7052,7 +6834,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1219",
@@ -7066,7 +6848,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7084,7 +6865,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1220",
@@ -7098,7 +6879,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7116,7 +6896,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1221",
@@ -7130,7 +6910,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7148,7 +6927,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1222",
@@ -7162,7 +6941,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7180,7 +6958,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1223",
@@ -7194,7 +6972,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7212,7 +6989,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1224",
@@ -7226,7 +7003,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7244,7 +7020,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1225",
@@ -7258,7 +7034,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7276,7 +7051,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1226",
@@ -7290,7 +7065,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7308,7 +7082,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1227",
@@ -7322,7 +7096,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7340,7 +7113,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1228",
@@ -7354,7 +7127,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 15,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.75,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7372,7 +7144,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1229",
@@ -7386,7 +7158,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 15,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.75,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7404,7 +7175,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1230",
@@ -7418,7 +7189,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 15,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.75,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7436,7 +7206,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1231",
@@ -7450,7 +7220,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 15,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.75,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7468,7 +7237,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.793Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1232",
@@ -7482,7 +7251,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 15,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.75,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7500,7 +7268,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1233",
@@ -7514,7 +7282,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 15,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.75,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7532,7 +7299,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1234",
@@ -7546,7 +7313,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 15,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.75,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7564,7 +7330,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1235",
@@ -7578,7 +7344,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 15,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.75,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7596,7 +7361,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1236",
@@ -7610,7 +7375,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 15,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.75,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7628,7 +7392,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1237",
@@ -7642,7 +7406,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 15,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.75,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7660,7 +7423,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1238",
@@ -7674,7 +7437,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 15,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.75,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7692,7 +7454,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1239",
@@ -7706,7 +7468,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 15,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.75,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7724,7 +7485,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1240",
@@ -7738,7 +7499,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 15,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.75,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7756,7 +7516,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1241",
@@ -7770,7 +7530,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 15,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.75,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7788,7 +7547,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1242",
@@ -7802,7 +7561,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-25k.png",
     "rate": 15,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.75,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7820,7 +7578,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1243",
@@ -7834,7 +7592,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-pod.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7852,7 +7609,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1244",
@@ -7866,7 +7623,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-pod.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7884,7 +7640,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1245",
@@ -7898,7 +7654,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-pod.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7916,7 +7671,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1246",
@@ -7930,7 +7685,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-pod.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7948,7 +7702,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1247",
@@ -7962,7 +7716,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-pod.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -7980,7 +7733,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1248",
@@ -7994,7 +7747,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-pod.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8012,7 +7764,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1249",
@@ -8026,7 +7778,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-pod.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8044,7 +7795,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.872Z"
   },
   {
     "id": "ZOHO-ITM-1250",
@@ -8058,7 +7809,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-pod.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8076,7 +7826,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1251",
@@ -8090,7 +7840,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-pod.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8108,7 +7857,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1252",
@@ -8122,7 +7871,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-pod.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8140,7 +7888,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1253",
@@ -8154,7 +7902,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-pod.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8172,7 +7919,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1254",
@@ -8186,7 +7933,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-pod.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8204,7 +7950,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1255",
@@ -8218,7 +7964,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-pod.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8236,7 +7981,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1256",
@@ -8250,7 +7995,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raz-pod.png",
     "rate": 10.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8268,7 +8012,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1257",
@@ -8282,7 +8026,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 12.25,
     "retail_msrp": 24.99,
-    "purchase_rate": 7.96,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8300,7 +8043,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1258",
@@ -8314,7 +8057,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 12.25,
     "retail_msrp": 24.99,
-    "purchase_rate": 7.96,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8332,7 +8074,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1259",
@@ -8346,7 +8088,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 12.25,
     "retail_msrp": 24.99,
-    "purchase_rate": 7.96,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8364,7 +8105,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1260",
@@ -8378,7 +8119,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 12.25,
     "retail_msrp": 24.99,
-    "purchase_rate": 7.96,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8396,7 +8136,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1261",
@@ -8410,7 +8150,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 12.25,
     "retail_msrp": 24.99,
-    "purchase_rate": 7.96,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8428,7 +8167,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1262",
@@ -8442,7 +8181,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 12.25,
     "retail_msrp": 24.99,
-    "purchase_rate": 7.96,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8460,7 +8198,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1263",
@@ -8474,7 +8212,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 12.25,
     "retail_msrp": 24.99,
-    "purchase_rate": 7.96,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8492,7 +8229,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1264",
@@ -8506,7 +8243,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 12.25,
     "retail_msrp": 24.99,
-    "purchase_rate": 7.96,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8524,7 +8260,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1265",
@@ -8538,7 +8274,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 12.25,
     "retail_msrp": 24.99,
-    "purchase_rate": 7.96,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8556,7 +8291,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1266",
@@ -8570,7 +8305,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 12.25,
     "retail_msrp": 24.99,
-    "purchase_rate": 7.96,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8588,7 +8322,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1267",
@@ -8602,7 +8336,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 12.25,
     "retail_msrp": 24.99,
-    "purchase_rate": 7.96,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8620,7 +8353,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1268",
@@ -8634,7 +8367,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 12.25,
     "retail_msrp": 24.99,
-    "purchase_rate": 7.96,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8652,7 +8384,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1269",
@@ -8666,7 +8398,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 12.25,
     "retail_msrp": 24.99,
-    "purchase_rate": 7.96,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8684,7 +8415,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1270",
@@ -8698,7 +8429,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 12.25,
     "retail_msrp": 24.99,
-    "purchase_rate": 7.96,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8716,7 +8446,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1271",
@@ -8730,7 +8460,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 12.25,
     "retail_msrp": 24.99,
-    "purchase_rate": 7.96,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8748,7 +8477,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1272",
@@ -8762,7 +8491,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 12.25,
     "retail_msrp": 24.99,
-    "purchase_rate": 7.96,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8780,7 +8508,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1273",
@@ -8794,7 +8522,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 12.25,
     "retail_msrp": 24.99,
-    "purchase_rate": 7.96,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8812,7 +8539,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1274",
@@ -8826,7 +8553,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 12.25,
     "retail_msrp": 24.99,
-    "purchase_rate": 7.96,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8844,7 +8570,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1275",
@@ -8858,7 +8584,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 12.25,
     "retail_msrp": 24.99,
-    "purchase_rate": 7.96,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8876,7 +8601,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1276",
@@ -8890,7 +8615,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 12.25,
     "retail_msrp": 24.99,
-    "purchase_rate": 7.96,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8908,7 +8632,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1277",
@@ -8922,7 +8646,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 12.25,
     "retail_msrp": 24.99,
-    "purchase_rate": 7.96,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8940,7 +8663,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1278",
@@ -8954,7 +8677,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 12.25,
     "retail_msrp": 24.99,
-    "purchase_rate": 7.96,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -8972,7 +8694,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1279",
@@ -8986,7 +8708,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 12.25,
     "retail_msrp": 24.99,
-    "purchase_rate": 7.96,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9004,7 +8725,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1280",
@@ -9018,7 +8739,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 12.25,
     "retail_msrp": 24.99,
-    "purchase_rate": 7.96,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9036,7 +8756,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1281",
@@ -9050,7 +8770,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 12.25,
     "retail_msrp": 24.99,
-    "purchase_rate": 7.96,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9068,7 +8787,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1282",
@@ -9082,7 +8801,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9100,7 +8818,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1283",
@@ -9114,7 +8832,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9132,7 +8849,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1284",
@@ -9146,7 +8863,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9164,7 +8880,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1285",
@@ -9178,7 +8894,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9196,7 +8911,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1286",
@@ -9210,7 +8925,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9228,7 +8942,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1287",
@@ -9242,7 +8956,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9260,7 +8973,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1288",
@@ -9274,7 +8987,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9292,7 +9004,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1289",
@@ -9306,7 +9018,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9324,7 +9035,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1290",
@@ -9338,7 +9049,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9356,7 +9066,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1291",
@@ -9370,7 +9080,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9388,7 +9097,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1292",
@@ -9402,7 +9111,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9420,7 +9128,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1293",
@@ -9434,7 +9142,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9452,7 +9159,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1294",
@@ -9466,7 +9173,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9484,7 +9190,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1295",
@@ -9498,7 +9204,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9516,7 +9221,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1296",
@@ -9530,7 +9235,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9548,7 +9252,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1297",
@@ -9562,7 +9266,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9580,7 +9283,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1298",
@@ -9594,7 +9297,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9612,7 +9314,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1299",
@@ -9626,7 +9328,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9644,7 +9345,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1300",
@@ -9658,7 +9359,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9676,7 +9376,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1301",
@@ -9690,7 +9390,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9708,7 +9407,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1302",
@@ -9722,7 +9421,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9740,7 +9438,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1303",
@@ -9754,7 +9452,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9772,7 +9469,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1304",
@@ -9786,7 +9483,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9804,7 +9500,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1305",
@@ -9818,7 +9514,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9836,7 +9531,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.873Z"
   },
   {
     "id": "ZOHO-ITM-1306",
@@ -9850,7 +9545,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9868,7 +9562,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1307",
@@ -9882,7 +9576,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 13.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9900,7 +9593,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1308",
@@ -9914,7 +9607,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 13.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9932,7 +9624,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1309",
@@ -9946,7 +9638,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 13.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9964,7 +9655,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1310",
@@ -9978,7 +9669,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 13.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -9996,7 +9686,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1311",
@@ -10010,7 +9700,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 13.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10028,7 +9717,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1312",
@@ -10042,7 +9731,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 13.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10060,7 +9748,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1313",
@@ -10074,7 +9762,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 13.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10092,7 +9779,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1314",
@@ -10106,7 +9793,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 13.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10124,7 +9810,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1315",
@@ -10138,7 +9824,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 13.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10156,7 +9841,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1316",
@@ -10170,7 +9855,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 13.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10188,7 +9872,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1317",
@@ -10202,7 +9886,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 13.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10220,7 +9903,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1318",
@@ -10234,7 +9917,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 13.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10252,7 +9934,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1319",
@@ -10266,7 +9948,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 13.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10284,7 +9965,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1320",
@@ -10298,7 +9979,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 13.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10316,7 +9996,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1321",
@@ -10330,7 +10010,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 13.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10348,7 +10027,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1322",
@@ -10362,7 +10041,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.5,
     "retail_msrp": 17.99,
-    "purchase_rate": 6.18,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10380,7 +10058,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1323",
@@ -10394,7 +10072,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.5,
     "retail_msrp": 17.99,
-    "purchase_rate": 6.18,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10412,7 +10089,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1324",
@@ -10426,7 +10103,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.5,
     "retail_msrp": 17.99,
-    "purchase_rate": 6.18,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10444,7 +10120,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1325",
@@ -10458,7 +10134,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.5,
     "retail_msrp": 17.99,
-    "purchase_rate": 6.18,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10476,7 +10151,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1326",
@@ -10490,7 +10165,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.5,
     "retail_msrp": 17.99,
-    "purchase_rate": 6.18,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10508,7 +10182,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1327",
@@ -10522,7 +10196,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.5,
     "retail_msrp": 17.99,
-    "purchase_rate": 6.18,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10540,7 +10213,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1328",
@@ -10554,7 +10227,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.5,
     "retail_msrp": 17.99,
-    "purchase_rate": 6.18,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10572,7 +10244,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1329",
@@ -10586,7 +10258,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.5,
     "retail_msrp": 17.99,
-    "purchase_rate": 6.18,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10604,7 +10275,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1330",
@@ -10618,7 +10289,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.5,
     "retail_msrp": 17.99,
-    "purchase_rate": 6.18,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10636,7 +10306,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1331",
@@ -10650,7 +10320,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/lostmary-mt15000.png",
     "rate": 9.5,
     "retail_msrp": 17.99,
-    "purchase_rate": 6.18,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10668,7 +10337,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "vozol-50k",
@@ -10682,7 +10351,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 15.5,
     "retail_msrp": 32.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10700,7 +10368,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1333",
@@ -10714,7 +10382,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 15.5,
     "retail_msrp": 32.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10732,7 +10399,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1334",
@@ -10746,7 +10413,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 15.5,
     "retail_msrp": 32.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10764,7 +10430,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1335",
@@ -10778,7 +10444,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 15.5,
     "retail_msrp": 32.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10796,7 +10461,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1336",
@@ -10810,7 +10475,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 15.5,
     "retail_msrp": 32.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10828,7 +10492,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1337",
@@ -10842,7 +10506,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 15.5,
     "retail_msrp": 32.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10860,7 +10523,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1338",
@@ -10874,7 +10537,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 15.5,
     "retail_msrp": 32.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10892,7 +10554,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1339",
@@ -10906,7 +10568,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 15.5,
     "retail_msrp": 32.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10924,7 +10585,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1340",
@@ -10938,7 +10599,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 15.5,
     "retail_msrp": 32.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10956,7 +10616,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1341",
@@ -10970,7 +10630,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 15.5,
     "retail_msrp": 32.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -10988,7 +10647,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1342",
@@ -11002,7 +10661,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 15.5,
     "retail_msrp": 32.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11020,7 +10678,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1343",
@@ -11034,7 +10692,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 15.5,
     "retail_msrp": 32.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11052,7 +10709,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1344",
@@ -11066,7 +10723,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 15.5,
     "retail_msrp": 32.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11084,7 +10740,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1345",
@@ -11098,7 +10754,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 15.5,
     "retail_msrp": 32.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11116,7 +10771,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1346",
@@ -11130,7 +10785,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 15.5,
     "retail_msrp": 32.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11148,7 +10802,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1347",
@@ -11162,7 +10816,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 15.5,
     "retail_msrp": 32.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11180,7 +10833,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1348",
@@ -11194,7 +10847,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 15.5,
     "retail_msrp": 32.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11212,7 +10864,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1349",
@@ -11226,7 +10878,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 15.5,
     "retail_msrp": 32.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11244,7 +10895,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1350",
@@ -11258,7 +10909,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 15.5,
     "retail_msrp": 32.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11276,7 +10926,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1351",
@@ -11290,7 +10940,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 15.5,
     "retail_msrp": 32.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11308,7 +10957,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1352",
@@ -11322,7 +10971,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 15.5,
     "retail_msrp": 32.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11340,7 +10988,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1353",
@@ -11354,7 +11002,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 15.5,
     "retail_msrp": 32.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11372,7 +11019,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1354",
@@ -11386,7 +11033,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 15.5,
     "retail_msrp": 32.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11404,7 +11050,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1355",
@@ -11418,7 +11064,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 15.5,
     "retail_msrp": 32.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11436,7 +11081,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.874Z"
   },
   {
     "id": "ZOHO-ITM-1356",
@@ -11450,7 +11095,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 15.5,
     "retail_msrp": 32.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11468,7 +11112,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1357",
@@ -11482,7 +11126,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 16,
     "retail_msrp": 34.99,
-    "purchase_rate": 10.4,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11500,7 +11143,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1358",
@@ -11514,7 +11157,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 16,
     "retail_msrp": 34.99,
-    "purchase_rate": 10.4,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11532,7 +11174,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1359",
@@ -11546,7 +11188,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 16,
     "retail_msrp": 34.99,
-    "purchase_rate": 10.4,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11564,7 +11205,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1360",
@@ -11578,7 +11219,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 16,
     "retail_msrp": 34.99,
-    "purchase_rate": 10.4,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11596,7 +11236,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1361",
@@ -11610,7 +11250,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 16,
     "retail_msrp": 34.99,
-    "purchase_rate": 10.4,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11628,7 +11267,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1362",
@@ -11642,7 +11281,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 16,
     "retail_msrp": 34.99,
-    "purchase_rate": 10.4,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11660,7 +11298,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1363",
@@ -11674,7 +11312,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 16,
     "retail_msrp": 34.99,
-    "purchase_rate": 10.4,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11692,7 +11329,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1364",
@@ -11706,7 +11343,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 16,
     "retail_msrp": 34.99,
-    "purchase_rate": 10.4,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11724,7 +11360,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1365",
@@ -11738,7 +11374,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 16,
     "retail_msrp": 34.99,
-    "purchase_rate": 10.4,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11756,7 +11391,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1366",
@@ -11770,7 +11405,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 16,
     "retail_msrp": 34.99,
-    "purchase_rate": 10.4,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11788,7 +11422,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1367",
@@ -11802,7 +11436,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 16,
     "retail_msrp": 34.99,
-    "purchase_rate": 10.4,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11820,7 +11453,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1368",
@@ -11834,7 +11467,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 16,
     "retail_msrp": 34.99,
-    "purchase_rate": 10.4,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11852,7 +11484,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1369",
@@ -11866,7 +11498,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 16,
     "retail_msrp": 34.99,
-    "purchase_rate": 10.4,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11884,7 +11515,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1370",
@@ -11898,7 +11529,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 16,
     "retail_msrp": 34.99,
-    "purchase_rate": 10.4,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11916,7 +11546,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1371",
@@ -11930,7 +11560,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 16,
     "retail_msrp": 34.99,
-    "purchase_rate": 10.4,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11948,7 +11577,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1372",
@@ -11962,7 +11591,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 16,
     "retail_msrp": 34.99,
-    "purchase_rate": 10.4,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -11980,7 +11608,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1373",
@@ -11994,7 +11622,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 16,
     "retail_msrp": 34.99,
-    "purchase_rate": 10.4,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12012,7 +11639,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1374",
@@ -12026,7 +11653,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 16,
     "retail_msrp": 34.99,
-    "purchase_rate": 10.4,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12044,7 +11670,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1375",
@@ -12058,7 +11684,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 16,
     "retail_msrp": 34.99,
-    "purchase_rate": 10.4,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12076,7 +11701,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1376",
@@ -12090,7 +11715,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 16,
     "retail_msrp": 34.99,
-    "purchase_rate": 10.4,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12108,7 +11732,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1377",
@@ -12122,7 +11746,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 13,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12140,7 +11763,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1378",
@@ -12154,7 +11777,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 13,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12172,7 +11794,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1379",
@@ -12186,7 +11808,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 13,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12204,7 +11825,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1380",
@@ -12218,7 +11839,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 13,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12236,7 +11856,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1381",
@@ -12250,7 +11870,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 13,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12268,7 +11887,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1382",
@@ -12282,7 +11901,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 13,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12300,7 +11918,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1383",
@@ -12314,7 +11932,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 13,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12332,7 +11949,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1384",
@@ -12346,7 +11963,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 13,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12364,7 +11980,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1385",
@@ -12378,7 +11994,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 13,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12396,7 +12011,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1386",
@@ -12410,7 +12025,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 13,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12428,7 +12042,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1387",
@@ -12442,7 +12056,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 13,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12460,7 +12073,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1388",
@@ -12474,7 +12087,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 13,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12492,7 +12104,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1389",
@@ -12506,7 +12118,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 13,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12524,7 +12135,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1390",
@@ -12538,7 +12149,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 13,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12556,7 +12166,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1391",
@@ -12570,7 +12180,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 13,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12588,7 +12197,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1392",
@@ -12602,7 +12211,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 13,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12620,7 +12228,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1393",
@@ -12634,7 +12242,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 13,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12652,7 +12259,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1394",
@@ -12666,7 +12273,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 13,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12684,7 +12290,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1395",
@@ -12698,7 +12304,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 13,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12716,7 +12321,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1396",
@@ -12730,7 +12335,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 13,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12748,7 +12352,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1397",
@@ -12762,7 +12366,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12780,7 +12383,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1398",
@@ -12794,7 +12397,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12812,7 +12414,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1399",
@@ -12826,7 +12428,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12844,7 +12445,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1400",
@@ -12858,7 +12459,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12876,7 +12476,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.875Z"
   },
   {
     "id": "ZOHO-ITM-1401",
@@ -12890,7 +12490,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12908,7 +12507,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1402",
@@ -12922,7 +12521,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12940,7 +12538,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1403",
@@ -12954,7 +12552,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -12972,7 +12569,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1404",
@@ -12986,7 +12583,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13004,7 +12600,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1405",
@@ -13018,7 +12614,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13036,7 +12631,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1406",
@@ -13050,7 +12645,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13068,7 +12662,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.794Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1407",
@@ -13082,7 +12676,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13100,7 +12693,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1408",
@@ -13114,7 +12707,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13132,7 +12724,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1409",
@@ -13146,7 +12738,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13164,7 +12755,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1410",
@@ -13178,7 +12769,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13196,7 +12786,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1411",
@@ -13210,7 +12800,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vozol-50k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13228,7 +12817,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1412",
@@ -13242,7 +12831,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13261,7 +12849,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1413",
@@ -13275,7 +12863,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13294,7 +12881,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1414",
@@ -13308,7 +12895,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13327,7 +12913,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1415",
@@ -13341,7 +12927,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13360,7 +12945,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1416",
@@ -13374,7 +12959,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13393,7 +12977,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1417",
@@ -13407,7 +12991,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13426,7 +13009,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1418",
@@ -13440,7 +13023,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13459,7 +13041,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1419",
@@ -13473,7 +13055,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13492,7 +13073,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1420",
@@ -13506,7 +13087,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13525,7 +13105,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1421",
@@ -13539,7 +13119,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13558,7 +13137,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1422",
@@ -13572,7 +13151,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13591,7 +13169,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1423",
@@ -13605,7 +13183,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13624,7 +13201,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1424",
@@ -13638,7 +13215,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13657,7 +13233,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1425",
@@ -13671,7 +13247,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13690,7 +13265,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1426",
@@ -13704,7 +13279,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13723,7 +13297,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1427",
@@ -13737,7 +13311,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13756,7 +13329,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1428",
@@ -13770,7 +13343,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13789,7 +13361,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1429",
@@ -13803,7 +13375,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13822,7 +13393,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1430",
@@ -13836,7 +13407,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13855,7 +13425,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1431",
@@ -13869,7 +13439,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13888,7 +13457,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1432",
@@ -13902,7 +13471,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13921,7 +13489,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1433",
@@ -13935,7 +13503,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13954,7 +13521,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1434",
@@ -13968,7 +13535,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -13987,7 +13553,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1435",
@@ -14001,7 +13567,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14020,7 +13585,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1436",
@@ -14034,7 +13599,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 14.5,
     "retail_msrp": 28.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14053,7 +13617,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1437",
@@ -14067,7 +13631,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14085,7 +13648,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1438",
@@ -14099,7 +13662,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14117,7 +13679,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1439",
@@ -14131,7 +13693,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14149,7 +13710,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1440",
@@ -14163,7 +13724,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14181,7 +13741,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1441",
@@ -14195,7 +13755,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14213,7 +13772,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.876Z"
   },
   {
     "id": "ZOHO-ITM-1442",
@@ -14227,7 +13786,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14245,7 +13803,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1443",
@@ -14259,7 +13817,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14277,7 +13834,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1444",
@@ -14291,7 +13848,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14309,7 +13865,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1445",
@@ -14323,7 +13879,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14341,7 +13896,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1446",
@@ -14355,7 +13910,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14373,7 +13927,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1447",
@@ -14387,7 +13941,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14405,7 +13958,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1448",
@@ -14419,7 +13972,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14437,7 +13989,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1449",
@@ -14451,7 +14003,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14469,7 +14020,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1450",
@@ -14483,7 +14034,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14501,7 +14051,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1451",
@@ -14515,7 +14065,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14533,7 +14082,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1452",
@@ -14547,7 +14096,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14565,7 +14113,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1453",
@@ -14579,7 +14127,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14597,7 +14144,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1454",
@@ -14611,7 +14158,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14629,7 +14175,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1455",
@@ -14643,7 +14189,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14661,7 +14206,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1456",
@@ -14675,7 +14220,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14693,7 +14237,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1457",
@@ -14707,7 +14251,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14725,7 +14268,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1458",
@@ -14739,7 +14282,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14757,7 +14299,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1459",
@@ -14771,7 +14313,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14789,7 +14330,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1460",
@@ -14803,7 +14344,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14821,7 +14361,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1461",
@@ -14835,7 +14375,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/oxbar-magic-maze.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14853,7 +14392,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1462",
@@ -14867,7 +14406,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14885,7 +14423,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1463",
@@ -14899,7 +14437,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14917,7 +14454,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1464",
@@ -14931,7 +14468,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14949,7 +14485,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1465",
@@ -14963,7 +14499,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -14981,7 +14516,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1466",
@@ -14995,7 +14530,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15013,7 +14547,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1467",
@@ -15027,7 +14561,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15045,7 +14578,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1468",
@@ -15059,7 +14592,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15077,7 +14609,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1469",
@@ -15091,7 +14623,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15109,7 +14640,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1470",
@@ -15123,7 +14654,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15141,7 +14671,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.795Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1471",
@@ -15155,7 +14685,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15173,7 +14702,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1472",
@@ -15187,7 +14716,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15205,7 +14733,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1473",
@@ -15219,7 +14747,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15237,7 +14764,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1474",
@@ -15251,7 +14778,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15269,7 +14795,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1475",
@@ -15283,7 +14809,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15301,7 +14826,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1476",
@@ -15315,7 +14840,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15333,7 +14857,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1477",
@@ -15347,7 +14871,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 7.25,
     "retail_msrp": 14.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15365,7 +14888,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1478",
@@ -15379,7 +14902,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 7.25,
     "retail_msrp": 14.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15397,7 +14919,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1479",
@@ -15411,7 +14933,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 7.25,
     "retail_msrp": 14.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15429,7 +14950,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1480",
@@ -15443,7 +14964,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 7.25,
     "retail_msrp": 14.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15461,7 +14981,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1481",
@@ -15475,7 +14995,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 7.25,
     "retail_msrp": 14.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15493,7 +15012,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1482",
@@ -15507,7 +15026,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 7.25,
     "retail_msrp": 14.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15525,7 +15043,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.877Z"
   },
   {
     "id": "ZOHO-ITM-1483",
@@ -15539,7 +15057,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 7.25,
     "retail_msrp": 14.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15557,7 +15074,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.878Z"
   },
   {
     "id": "ZOHO-ITM-1484",
@@ -15571,7 +15088,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 7.25,
     "retail_msrp": 14.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15589,7 +15105,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.878Z"
   },
   {
     "id": "ZOHO-ITM-1485",
@@ -15603,7 +15119,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 7.25,
     "retail_msrp": 14.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15621,7 +15136,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.878Z"
   },
   {
     "id": "ZOHO-ITM-1486",
@@ -15635,7 +15150,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 7.25,
     "retail_msrp": 14.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15653,7 +15167,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.878Z"
   },
   {
     "id": "ZOHO-ITM-1487",
@@ -15667,7 +15181,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 7.25,
     "retail_msrp": 14.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15685,7 +15198,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.878Z"
   },
   {
     "id": "ZOHO-ITM-1488",
@@ -15699,7 +15212,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 7.25,
     "retail_msrp": 14.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15717,7 +15229,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.878Z"
   },
   {
     "id": "ZOHO-ITM-1489",
@@ -15731,7 +15243,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 7.25,
     "retail_msrp": 14.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15749,7 +15260,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.878Z"
   },
   {
     "id": "ZOHO-ITM-1490",
@@ -15763,7 +15274,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 7.25,
     "retail_msrp": 14.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15781,7 +15291,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.878Z"
   },
   {
     "id": "ZOHO-ITM-1491",
@@ -15795,7 +15305,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 7.25,
     "retail_msrp": 14.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15813,7 +15322,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.878Z"
   },
   {
     "id": "ZOHO-ITM-1492",
@@ -15827,7 +15336,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 8.5,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15845,7 +15353,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.878Z"
   },
   {
     "id": "ZOHO-ITM-1493",
@@ -15859,7 +15367,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 8.5,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15877,7 +15384,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.878Z"
   },
   {
     "id": "ZOHO-ITM-1494",
@@ -15891,7 +15398,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 8.5,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15909,7 +15415,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.878Z"
   },
   {
     "id": "ZOHO-ITM-1495",
@@ -15923,7 +15429,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 8.5,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15941,7 +15446,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.878Z"
   },
   {
     "id": "ZOHO-ITM-1496",
@@ -15955,7 +15460,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 8.5,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -15973,7 +15477,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.878Z"
   },
   {
     "id": "ZOHO-ITM-1497",
@@ -15987,7 +15491,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 8.5,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16005,7 +15508,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.878Z"
   },
   {
     "id": "ZOHO-ITM-1498",
@@ -16019,7 +15522,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 8.5,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16037,7 +15539,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.878Z"
   },
   {
     "id": "ZOHO-ITM-1499",
@@ -16051,7 +15553,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 8.5,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16069,7 +15570,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.878Z"
   },
   {
     "id": "ZOHO-ITM-1500",
@@ -16083,7 +15584,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 8.5,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16101,7 +15601,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.878Z"
   },
   {
     "id": "ZOHO-ITM-1501",
@@ -16115,7 +15615,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 8.5,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16133,7 +15632,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.878Z"
   },
   {
     "id": "ZOHO-ITM-1502",
@@ -16147,7 +15646,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 8.5,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16165,7 +15663,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.878Z"
   },
   {
     "id": "ZOHO-ITM-1503",
@@ -16179,7 +15677,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 8.5,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16197,7 +15694,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.878Z"
   },
   {
     "id": "ZOHO-ITM-1504",
@@ -16211,7 +15708,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 8.5,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16229,7 +15725,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.878Z"
   },
   {
     "id": "ZOHO-ITM-1505",
@@ -16243,7 +15739,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 8.5,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16261,7 +15756,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1506",
@@ -16275,7 +15770,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 8.5,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16293,7 +15787,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1507",
@@ -16307,7 +15801,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 8.5,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16325,7 +15818,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1508",
@@ -16339,7 +15832,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 8.5,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16357,7 +15849,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1509",
@@ -16371,7 +15863,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 8.5,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16389,7 +15880,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1510",
@@ -16403,7 +15894,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 8.5,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16421,7 +15911,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1511",
@@ -16435,7 +15925,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 8.5,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16453,7 +15942,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1512",
@@ -16467,7 +15956,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 8.5,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16485,7 +15973,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1513",
@@ -16499,7 +15987,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 8.5,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16517,7 +16004,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1514",
@@ -16531,7 +16018,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 8.5,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16549,7 +16035,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1515",
@@ -16563,7 +16049,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 8.5,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16581,7 +16066,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1516",
@@ -16595,7 +16080,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 8.5,
     "retail_msrp": 16.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16613,7 +16097,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1517",
@@ -16627,7 +16111,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12,
     "retail_msrp": 23.99,
-    "purchase_rate": 7.8,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16645,7 +16128,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1518",
@@ -16659,7 +16142,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12,
     "retail_msrp": 23.99,
-    "purchase_rate": 7.8,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16677,7 +16159,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1519",
@@ -16691,7 +16173,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12,
     "retail_msrp": 23.99,
-    "purchase_rate": 7.8,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16709,7 +16190,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1520",
@@ -16723,7 +16204,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12,
     "retail_msrp": 23.99,
-    "purchase_rate": 7.8,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16741,7 +16221,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1521",
@@ -16755,7 +16235,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12,
     "retail_msrp": 23.99,
-    "purchase_rate": 7.8,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16773,7 +16252,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1522",
@@ -16787,7 +16266,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12,
     "retail_msrp": 23.99,
-    "purchase_rate": 7.8,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16805,7 +16283,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1523",
@@ -16819,7 +16297,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12,
     "retail_msrp": 23.99,
-    "purchase_rate": 7.8,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16837,7 +16314,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1524",
@@ -16851,7 +16328,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/cbd-relax-gummies-1000mg.png",
     "rate": 12,
     "retail_msrp": 23.99,
-    "purchase_rate": 7.8,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16869,7 +16345,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1525",
@@ -16883,7 +16359,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12,
     "retail_msrp": 23.99,
-    "purchase_rate": 7.8,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16901,7 +16376,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1526",
@@ -16915,7 +16390,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12,
     "retail_msrp": 23.99,
-    "purchase_rate": 7.8,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16933,7 +16407,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1527",
@@ -16947,7 +16421,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12,
     "retail_msrp": 23.99,
-    "purchase_rate": 7.8,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16965,7 +16438,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1528",
@@ -16979,7 +16452,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12,
     "retail_msrp": 23.99,
-    "purchase_rate": 7.8,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -16997,7 +16469,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1529",
@@ -17011,7 +16483,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12,
     "retail_msrp": 23.99,
-    "purchase_rate": 7.8,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17029,7 +16500,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1530",
@@ -17043,7 +16514,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12,
     "retail_msrp": 23.99,
-    "purchase_rate": 7.8,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17061,7 +16531,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1531",
@@ -17075,7 +16545,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12,
     "retail_msrp": 23.99,
-    "purchase_rate": 7.8,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17093,7 +16562,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.796Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1532",
@@ -17107,7 +16576,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12,
     "retail_msrp": 23.99,
-    "purchase_rate": 7.8,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17125,7 +16593,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1533",
@@ -17139,7 +16607,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12,
     "retail_msrp": 23.99,
-    "purchase_rate": 7.8,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17157,7 +16624,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1534",
@@ -17171,7 +16638,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12,
     "retail_msrp": 23.99,
-    "purchase_rate": 7.8,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17189,7 +16655,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1535",
@@ -17203,7 +16669,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12,
     "retail_msrp": 23.99,
-    "purchase_rate": 7.8,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17221,7 +16686,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1536",
@@ -17235,7 +16700,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12,
     "retail_msrp": 23.99,
-    "purchase_rate": 7.8,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17253,7 +16717,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1537",
@@ -17267,7 +16731,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 13.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17285,7 +16748,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1538",
@@ -17299,7 +16762,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 13.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17317,7 +16779,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1539",
@@ -17331,7 +16793,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 13.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17349,7 +16810,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1540",
@@ -17363,7 +16824,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 13.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17381,7 +16841,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1541",
@@ -17395,7 +16855,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 13.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17413,7 +16872,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1542",
@@ -17427,7 +16886,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 13.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17445,7 +16903,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1543",
@@ -17459,7 +16917,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 13.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17477,7 +16934,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1544",
@@ -17491,7 +16948,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 13.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17509,7 +16965,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1545",
@@ -17523,7 +16979,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 13.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17541,7 +16996,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1546",
@@ -17555,7 +17010,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 13.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17573,7 +17027,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1547",
@@ -17587,7 +17041,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 13.25,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.61,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17605,7 +17058,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.879Z"
   },
   {
     "id": "ZOHO-ITM-1548",
@@ -17619,7 +17072,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 13.25,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.61,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17637,7 +17089,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1549",
@@ -17651,7 +17103,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 13.25,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.61,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17669,7 +17120,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1550",
@@ -17683,7 +17134,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 13.25,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.61,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17701,7 +17151,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1551",
@@ -17715,7 +17165,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 13.25,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.61,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17733,7 +17182,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1552",
@@ -17747,7 +17196,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 13.25,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.61,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17765,7 +17213,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1553",
@@ -17779,7 +17227,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 13.25,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.61,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17797,7 +17244,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1554",
@@ -17811,7 +17258,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 13.25,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.61,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17829,7 +17275,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1555",
@@ -17843,7 +17289,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 13.25,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.61,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17861,7 +17306,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1556",
@@ -17875,7 +17320,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 13.25,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.61,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17893,7 +17337,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1557",
@@ -17907,7 +17351,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 13.25,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.61,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17925,7 +17368,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1558",
@@ -17939,7 +17382,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 13.25,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.61,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17957,7 +17399,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1559",
@@ -17971,7 +17413,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 13.25,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.61,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -17989,7 +17430,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1560",
@@ -18003,7 +17444,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 13.25,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.61,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18021,7 +17461,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1561",
@@ -18035,7 +17475,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 13.25,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.61,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18053,7 +17492,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1562",
@@ -18067,7 +17506,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 13.25,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.61,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18085,7 +17523,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1563",
@@ -18099,7 +17537,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 13.25,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.61,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18117,7 +17554,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1564",
@@ -18131,7 +17568,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 13.25,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.61,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18149,7 +17585,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1565",
@@ -18163,7 +17599,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 13.25,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.61,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18181,7 +17616,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1566",
@@ -18195,7 +17630,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 13.25,
     "retail_msrp": 25.99,
-    "purchase_rate": 8.61,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18213,7 +17647,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1567",
@@ -18227,7 +17661,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18245,7 +17678,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1568",
@@ -18259,7 +17692,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18277,7 +17709,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1569",
@@ -18291,7 +17723,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18309,7 +17740,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1570",
@@ -18323,7 +17754,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18341,7 +17771,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1571",
@@ -18355,7 +17785,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18373,7 +17802,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1572",
@@ -18387,7 +17816,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18405,7 +17833,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1573",
@@ -18419,7 +17847,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18437,7 +17864,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1574",
@@ -18451,7 +17878,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18469,7 +17895,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1575",
@@ -18483,7 +17909,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18501,7 +17926,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1576",
@@ -18515,7 +17940,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18533,7 +17957,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1577",
@@ -18547,7 +17971,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18565,7 +17988,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1578",
@@ -18579,7 +18002,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18597,7 +18019,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1579",
@@ -18611,7 +18033,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18629,7 +18050,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1580",
@@ -18643,7 +18064,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18661,7 +18081,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1581",
@@ -18675,7 +18095,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18693,7 +18112,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1582",
@@ -18707,7 +18126,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18725,7 +18143,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1583",
@@ -18739,7 +18157,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18757,7 +18174,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1584",
@@ -18771,7 +18188,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18789,7 +18205,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1585",
@@ -18803,7 +18219,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-15k.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18821,7 +18236,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1586",
@@ -18835,7 +18250,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/cbd-relax-gummies-1000mg.png",
     "rate": 12.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18853,7 +18267,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1587",
@@ -18867,7 +18281,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 19.5,
     "retail_msrp": 36.99,
-    "purchase_rate": 12.68,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18883,7 +18296,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1588",
@@ -18897,7 +18310,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 19.5,
     "retail_msrp": 36.99,
-    "purchase_rate": 12.68,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18913,7 +18325,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.880Z"
   },
   {
     "id": "ZOHO-ITM-1589",
@@ -18927,7 +18339,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 19.5,
     "retail_msrp": 36.99,
-    "purchase_rate": 12.68,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18943,7 +18354,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1590",
@@ -18957,7 +18368,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 19.5,
     "retail_msrp": 36.99,
-    "purchase_rate": 12.68,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -18973,7 +18383,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1591",
@@ -18987,7 +18397,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 19.5,
     "retail_msrp": 36.99,
-    "purchase_rate": 12.68,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19003,7 +18412,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1592",
@@ -19017,7 +18426,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 19.5,
     "retail_msrp": 36.99,
-    "purchase_rate": 12.68,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19033,7 +18441,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1593",
@@ -19047,7 +18455,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 19.5,
     "retail_msrp": 36.99,
-    "purchase_rate": 12.68,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19063,7 +18470,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1594",
@@ -19077,7 +18484,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 19.5,
     "retail_msrp": 36.99,
-    "purchase_rate": 12.68,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19093,7 +18499,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1595",
@@ -19107,7 +18513,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 23.5,
     "retail_msrp": 44.99,
-    "purchase_rate": 15.28,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19123,7 +18528,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1596",
@@ -19137,7 +18542,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 23.5,
     "retail_msrp": 44.99,
-    "purchase_rate": 15.28,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19153,7 +18557,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1597",
@@ -19167,7 +18571,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 23.5,
     "retail_msrp": 44.99,
-    "purchase_rate": 15.28,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19183,7 +18586,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1598",
@@ -19197,7 +18600,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 23.5,
     "retail_msrp": 44.99,
-    "purchase_rate": 15.28,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19213,7 +18615,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1599",
@@ -19227,7 +18629,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19243,7 +18644,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1600",
@@ -19257,7 +18658,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19273,7 +18673,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1601",
@@ -19287,7 +18687,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19303,7 +18702,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1602",
@@ -19317,7 +18716,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19333,7 +18731,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1603",
@@ -19347,7 +18745,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 9.75,
     "retail_msrp": 18.99,
-    "purchase_rate": 6.34,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19363,7 +18760,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1604",
@@ -19377,7 +18774,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 34,
     "retail_msrp": 64.99,
-    "purchase_rate": 22.1,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19393,7 +18789,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1605",
@@ -19407,7 +18803,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 34,
     "retail_msrp": 64.99,
-    "purchase_rate": 22.1,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19423,7 +18818,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1606",
@@ -19437,7 +18832,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 34,
     "retail_msrp": 64.99,
-    "purchase_rate": 22.1,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19453,7 +18847,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1607",
@@ -19467,7 +18861,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 34,
     "retail_msrp": 64.99,
-    "purchase_rate": 22.1,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19483,7 +18876,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1608",
@@ -19497,7 +18890,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 34,
     "retail_msrp": 64.99,
-    "purchase_rate": 22.1,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19513,7 +18905,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1609",
@@ -19527,7 +18919,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-novo-5.png",
     "rate": 18,
     "retail_msrp": 34.99,
-    "purchase_rate": 11.7,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19543,7 +18934,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1610",
@@ -19557,7 +18948,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-novo-5.png",
     "rate": 18,
     "retail_msrp": 34.99,
-    "purchase_rate": 11.7,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19573,7 +18963,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1611",
@@ -19587,7 +18977,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-novo-5.png",
     "rate": 18,
     "retail_msrp": 34.99,
-    "purchase_rate": 11.7,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19603,7 +18992,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1612",
@@ -19617,7 +19006,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-novo-5.png",
     "rate": 18,
     "retail_msrp": 34.99,
-    "purchase_rate": 11.7,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19633,7 +19021,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1613",
@@ -19647,7 +19035,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-novo-5.png",
     "rate": 18,
     "retail_msrp": 34.99,
-    "purchase_rate": 11.7,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19663,7 +19050,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.797Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1614",
@@ -19677,7 +19064,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-novo-5.png",
     "rate": 18,
     "retail_msrp": 34.99,
-    "purchase_rate": 11.7,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19693,7 +19079,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1615",
@@ -19707,7 +19093,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-novo-5.png",
     "rate": 18,
     "retail_msrp": 34.99,
-    "purchase_rate": 11.7,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19723,7 +19108,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1616",
@@ -19737,7 +19122,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-novo-5.png",
     "rate": 18,
     "retail_msrp": 34.99,
-    "purchase_rate": 11.7,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19753,7 +19137,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1617",
@@ -19767,7 +19151,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 24.5,
     "retail_msrp": 46.99,
-    "purchase_rate": 15.93,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19783,7 +19166,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1618",
@@ -19797,7 +19180,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 24.5,
     "retail_msrp": 46.99,
-    "purchase_rate": 15.93,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19813,7 +19195,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1619",
@@ -19827,7 +19209,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 24.5,
     "retail_msrp": 46.99,
-    "purchase_rate": 15.93,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19843,7 +19224,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1620",
@@ -19857,7 +19238,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 24.5,
     "retail_msrp": 46.99,
-    "purchase_rate": 15.93,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19873,7 +19253,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1621",
@@ -19887,7 +19267,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 24.5,
     "retail_msrp": 46.99,
-    "purchase_rate": 15.93,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19903,7 +19282,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1622",
@@ -19917,7 +19296,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 24.5,
     "retail_msrp": 46.99,
-    "purchase_rate": 15.93,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19933,7 +19311,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1623",
@@ -19947,7 +19325,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 24.5,
     "retail_msrp": 46.99,
-    "purchase_rate": 15.93,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19963,7 +19340,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1624",
@@ -19977,7 +19354,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -19993,7 +19369,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1625",
@@ -20007,7 +19383,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20023,7 +19398,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.881Z"
   },
   {
     "id": "ZOHO-ITM-1626",
@@ -20037,7 +19412,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20053,7 +19427,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1627",
@@ -20067,7 +19441,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20083,7 +19456,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1628",
@@ -20097,7 +19470,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20113,7 +19485,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1629",
@@ -20127,7 +19499,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20143,7 +19514,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1630",
@@ -20157,7 +19528,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20173,7 +19543,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1631",
@@ -20187,7 +19557,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20203,7 +19572,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1632",
@@ -20217,7 +19586,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20233,7 +19601,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1633",
@@ -20247,7 +19615,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 11.5,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20263,7 +19630,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1634",
@@ -20277,7 +19644,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 42,
     "retail_msrp": 79.99,
-    "purchase_rate": 27.3,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20293,7 +19659,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1635",
@@ -20307,7 +19673,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 42,
     "retail_msrp": 79.99,
-    "purchase_rate": 27.3,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20323,7 +19688,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1636",
@@ -20337,7 +19702,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 42,
     "retail_msrp": 79.99,
-    "purchase_rate": 27.3,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20353,7 +19717,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1637",
@@ -20367,7 +19731,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 42,
     "retail_msrp": 79.99,
-    "purchase_rate": 27.3,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20383,7 +19746,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1638",
@@ -20397,7 +19760,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 42,
     "retail_msrp": 79.99,
-    "purchase_rate": 27.3,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20413,7 +19775,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1639",
@@ -20427,7 +19789,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 19,
     "retail_msrp": 35.99,
-    "purchase_rate": 12.35,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20443,7 +19804,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1640",
@@ -20457,7 +19818,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 19,
     "retail_msrp": 35.99,
-    "purchase_rate": 12.35,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20473,7 +19833,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1641",
@@ -20487,7 +19847,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 19,
     "retail_msrp": 35.99,
-    "purchase_rate": 12.35,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20503,7 +19862,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1642",
@@ -20517,7 +19876,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 19,
     "retail_msrp": 35.99,
-    "purchase_rate": 12.35,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20533,7 +19891,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1643",
@@ -20547,7 +19905,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 19,
     "retail_msrp": 35.99,
-    "purchase_rate": 12.35,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20563,7 +19920,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1644",
@@ -20577,7 +19934,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20593,7 +19949,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1645",
@@ -20607,7 +19963,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20623,7 +19978,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1646",
@@ -20637,7 +19992,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20653,7 +20007,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1647",
@@ -20667,7 +20021,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20683,7 +20036,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1648",
@@ -20697,7 +20050,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/vaporesso-xros-4.png",
     "rate": 11.75,
     "retail_msrp": 22.99,
-    "purchase_rate": 7.64,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20713,7 +20065,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1649",
@@ -20727,7 +20079,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-kit.png",
     "rate": 48,
     "retail_msrp": 89.99,
-    "purchase_rate": 31.2,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20743,7 +20094,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1650",
@@ -20757,7 +20108,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-kit.png",
     "rate": 48,
     "retail_msrp": 89.99,
-    "purchase_rate": 31.2,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20773,7 +20123,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1651",
@@ -20787,7 +20137,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-kit.png",
     "rate": 48,
     "retail_msrp": 89.99,
-    "purchase_rate": 31.2,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20803,7 +20152,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1652",
@@ -20817,7 +20166,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-kit.png",
     "rate": 48,
     "retail_msrp": 89.99,
-    "purchase_rate": 31.2,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20833,7 +20181,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1653",
@@ -20847,7 +20195,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-kit.png",
     "rate": 48,
     "retail_msrp": 89.99,
-    "purchase_rate": 31.2,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20863,7 +20210,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1654",
@@ -20877,7 +20224,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-kit.png",
     "rate": 48,
     "retail_msrp": 89.99,
-    "purchase_rate": 31.2,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20893,7 +20239,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1655",
@@ -20907,7 +20253,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-kit.png",
     "rate": 48,
     "retail_msrp": 89.99,
-    "purchase_rate": 31.2,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20923,7 +20268,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1656",
@@ -20937,7 +20282,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-kit.png",
     "rate": 48,
     "retail_msrp": 89.99,
-    "purchase_rate": 31.2,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20953,7 +20297,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1657",
@@ -20967,7 +20311,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-pod.png",
     "rate": 15.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -20983,7 +20326,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1658",
@@ -20997,7 +20340,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-pod.png",
     "rate": 15.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21013,7 +20355,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1659",
@@ -21027,7 +20369,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-pod.png",
     "rate": 15.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21043,7 +20384,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1660",
@@ -21057,7 +20398,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-60k.png",
     "rate": 15.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21073,7 +20413,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.882Z"
   },
   {
     "id": "ZOHO-ITM-1661",
@@ -21087,7 +20427,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-pod.png",
     "rate": 15.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 10.08,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21103,7 +20442,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1662",
@@ -21117,7 +20456,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-pod.png",
     "rate": 12,
     "retail_msrp": 23.99,
-    "purchase_rate": 7.8,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21133,7 +20471,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1663",
@@ -21147,7 +20485,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-pod.png",
     "rate": 12,
     "retail_msrp": 23.99,
-    "purchase_rate": 7.8,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21163,7 +20500,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1664",
@@ -21177,7 +20514,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-25k.png",
     "rate": 12,
     "retail_msrp": 23.99,
-    "purchase_rate": 7.8,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21193,7 +20529,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1665",
@@ -21207,7 +20543,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-pod.png",
     "rate": 12,
     "retail_msrp": 23.99,
-    "purchase_rate": 7.8,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21223,7 +20558,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1666",
@@ -21237,7 +20572,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/geekbar-pod.png",
     "rate": 12,
     "retail_msrp": 23.99,
-    "purchase_rate": 7.8,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21253,7 +20587,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1667",
@@ -21267,7 +20601,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-60ml.png",
     "rate": 7.5,
     "retail_msrp": 18.99,
-    "purchase_rate": 4.88,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21285,7 +20618,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1668",
@@ -21299,7 +20632,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-60ml.png",
     "rate": 7.5,
     "retail_msrp": 18.99,
-    "purchase_rate": 4.88,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21317,7 +20649,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1669",
@@ -21331,7 +20663,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-60ml.png",
     "rate": 7.5,
     "retail_msrp": 18.99,
-    "purchase_rate": 4.88,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21349,7 +20680,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1670",
@@ -21363,7 +20694,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-60ml.png",
     "rate": 7.5,
     "retail_msrp": 18.99,
-    "purchase_rate": 4.88,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21381,7 +20711,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1671",
@@ -21395,7 +20725,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-60ml.png",
     "rate": 7.5,
     "retail_msrp": 18.99,
-    "purchase_rate": 4.88,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21413,7 +20742,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1672",
@@ -21427,7 +20756,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-60ml.png",
     "rate": 7.5,
     "retail_msrp": 18.99,
-    "purchase_rate": 4.88,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21445,7 +20773,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1673",
@@ -21459,7 +20787,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-60ml.png",
     "rate": 7.5,
     "retail_msrp": 18.99,
-    "purchase_rate": 4.88,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21477,7 +20804,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1674",
@@ -21491,7 +20818,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-60ml.png",
     "rate": 7.5,
     "retail_msrp": 18.99,
-    "purchase_rate": 4.88,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21509,7 +20835,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1675",
@@ -21523,7 +20849,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-60ml.png",
     "rate": 7.5,
     "retail_msrp": 18.99,
-    "purchase_rate": 4.88,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21541,7 +20866,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1676",
@@ -21555,7 +20880,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-60ml.png",
     "rate": 7.5,
     "retail_msrp": 18.99,
-    "purchase_rate": 4.88,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21573,7 +20897,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1677",
@@ -21587,7 +20911,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-60ml.png",
     "rate": 7.5,
     "retail_msrp": 18.99,
-    "purchase_rate": 4.88,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21605,7 +20928,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1678",
@@ -21619,7 +20942,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-60ml.png",
     "rate": 7.5,
     "retail_msrp": 18.99,
-    "purchase_rate": 4.88,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21637,7 +20959,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1679",
@@ -21651,7 +20973,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-60ml.png",
     "rate": 7.5,
     "retail_msrp": 18.99,
-    "purchase_rate": 4.88,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21669,7 +20990,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1680",
@@ -21683,7 +21004,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-60ml.png",
     "rate": 7.5,
     "retail_msrp": 18.99,
-    "purchase_rate": 4.88,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21701,7 +21021,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1681",
@@ -21715,7 +21035,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-60ml.png",
     "rate": 7.5,
     "retail_msrp": 18.99,
-    "purchase_rate": 4.88,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21733,7 +21052,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1682",
@@ -21747,7 +21066,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-60ml.png",
     "rate": 7.5,
     "retail_msrp": 18.99,
-    "purchase_rate": 4.88,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21765,7 +21083,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1683",
@@ -21779,7 +21097,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-60ml.png",
     "rate": 7.5,
     "retail_msrp": 18.99,
-    "purchase_rate": 4.88,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21797,7 +21114,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1684",
@@ -21811,7 +21128,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-60ml.png",
     "rate": 7.5,
     "retail_msrp": 18.99,
-    "purchase_rate": 4.88,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21829,7 +21145,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1685",
@@ -21843,7 +21159,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-60ml.png",
     "rate": 7.5,
     "retail_msrp": 18.99,
-    "purchase_rate": 4.88,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21861,7 +21176,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1686",
@@ -21875,7 +21190,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-60ml.png",
     "rate": 7.5,
     "retail_msrp": 18.99,
-    "purchase_rate": 4.88,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21893,7 +21207,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1687",
@@ -21907,7 +21221,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-60ml.png",
     "rate": 7.5,
     "retail_msrp": 18.99,
-    "purchase_rate": 4.88,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21925,7 +21238,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1688",
@@ -21939,7 +21252,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-60ml.png",
     "rate": 7.5,
     "retail_msrp": 18.99,
-    "purchase_rate": 4.88,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21957,7 +21269,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1689",
@@ -21971,7 +21283,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-60ml.png",
     "rate": 7.5,
     "retail_msrp": 18.99,
-    "purchase_rate": 4.88,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -21989,7 +21300,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.883Z"
   },
   {
     "id": "ZOHO-ITM-1690",
@@ -22003,7 +21314,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-60ml.png",
     "rate": 7.5,
     "retail_msrp": 18.99,
-    "purchase_rate": 4.88,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22021,7 +21331,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1691",
@@ -22035,7 +21345,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-salts-30ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22053,7 +21362,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1692",
@@ -22067,7 +21376,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-salts-30ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22085,7 +21393,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1693",
@@ -22099,7 +21407,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-salts-30ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22117,7 +21424,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1694",
@@ -22131,7 +21438,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-salts-30ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22149,7 +21455,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1695",
@@ -22163,7 +21469,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-salts-30ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22181,7 +21486,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1696",
@@ -22195,7 +21500,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-salts-30ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22213,7 +21517,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1697",
@@ -22227,7 +21531,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-salts-30ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22245,7 +21548,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1698",
@@ -22259,7 +21562,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-salts-30ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22277,7 +21579,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1699",
@@ -22291,7 +21593,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-salts-30ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22309,7 +21610,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1700",
@@ -22323,7 +21624,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-salts-30ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22341,7 +21641,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1701",
@@ -22355,7 +21655,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-salts-30ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22373,7 +21672,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1702",
@@ -22387,7 +21686,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-salts-30ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22405,7 +21703,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1703",
@@ -22419,7 +21717,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-salts-30ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22437,7 +21734,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1704",
@@ -22451,7 +21748,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/coastal-clouds-salts-30ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22469,7 +21765,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1705",
@@ -22483,7 +21779,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22501,7 +21796,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1706",
@@ -22515,7 +21810,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22533,7 +21827,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1707",
@@ -22547,7 +21841,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22565,7 +21858,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.798Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1708",
@@ -22579,7 +21872,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22597,7 +21889,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1709",
@@ -22611,7 +21903,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22629,7 +21920,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1710",
@@ -22643,7 +21934,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22661,7 +21951,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1711",
@@ -22675,7 +21965,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22693,7 +21982,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1712",
@@ -22707,7 +21996,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22725,7 +22013,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1713",
@@ -22739,7 +22027,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22757,7 +22044,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1714",
@@ -22771,7 +22058,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22789,7 +22075,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1715",
@@ -22803,7 +22089,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22821,7 +22106,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1716",
@@ -22835,7 +22120,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22853,7 +22137,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1717",
@@ -22867,7 +22151,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22885,7 +22168,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1718",
@@ -22899,7 +22182,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22917,7 +22199,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1719",
@@ -22931,7 +22213,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 7,
     "retail_msrp": 16.99,
-    "purchase_rate": 4.55,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22949,7 +22230,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1720",
@@ -22963,7 +22244,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 7,
     "retail_msrp": 16.99,
-    "purchase_rate": 4.55,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -22981,7 +22261,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1721",
@@ -22995,7 +22275,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 7,
     "retail_msrp": 16.99,
-    "purchase_rate": 4.55,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23013,7 +22292,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1722",
@@ -23027,7 +22306,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 7,
     "retail_msrp": 16.99,
-    "purchase_rate": 4.55,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23045,7 +22323,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.884Z"
   },
   {
     "id": "ZOHO-ITM-1723",
@@ -23059,7 +22337,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 7,
     "retail_msrp": 16.99,
-    "purchase_rate": 4.55,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23077,7 +22354,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1724",
@@ -23091,7 +22368,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 7,
     "retail_msrp": 16.99,
-    "purchase_rate": 4.55,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23109,7 +22385,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1725",
@@ -23123,7 +22399,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 7,
     "retail_msrp": 16.99,
-    "purchase_rate": 4.55,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23141,7 +22416,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1726",
@@ -23155,7 +22430,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 7,
     "retail_msrp": 16.99,
-    "purchase_rate": 4.55,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23173,7 +22447,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1727",
@@ -23187,7 +22461,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 7,
     "retail_msrp": 16.99,
-    "purchase_rate": 4.55,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23205,7 +22478,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1728",
@@ -23219,7 +22492,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 7,
     "retail_msrp": 16.99,
-    "purchase_rate": 4.55,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23237,7 +22509,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1729",
@@ -23251,7 +22523,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 8.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23269,7 +22540,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1730",
@@ -23283,7 +22554,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 8.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23301,7 +22571,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1731",
@@ -23315,7 +22585,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 8.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23333,7 +22602,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1732",
@@ -23347,7 +22616,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 8.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23365,7 +22633,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1733",
@@ -23379,7 +22647,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 8.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23397,7 +22664,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1734",
@@ -23411,7 +22678,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 8.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23429,7 +22695,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1735",
@@ -23443,7 +22709,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 8.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23461,7 +22726,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1736",
@@ -23475,7 +22740,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 8.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23493,7 +22757,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1737",
@@ -23507,7 +22771,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 8.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23525,7 +22788,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1738",
@@ -23539,7 +22802,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 8.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23557,7 +22819,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1739",
@@ -23571,7 +22833,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 8.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23589,7 +22850,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1740",
@@ -23603,7 +22864,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 8.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23621,7 +22881,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1741",
@@ -23635,7 +22895,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 8.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23653,7 +22912,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1742",
@@ -23667,7 +22926,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 8.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23685,7 +22943,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1743",
@@ -23699,7 +22957,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 8.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23717,7 +22974,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1744",
@@ -23731,7 +22988,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-100ml.png",
     "rate": 8.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23749,7 +23005,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1745",
@@ -23763,7 +23019,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-salts-30ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23781,7 +23036,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1746",
@@ -23795,7 +23050,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-salts-30ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23813,7 +23067,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1747",
@@ -23827,7 +23081,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-salts-30ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23845,7 +23098,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1748",
@@ -23859,7 +23112,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-salts-30ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23877,7 +23129,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1749",
@@ -23891,7 +23143,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-salts-30ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23909,7 +23160,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1750",
@@ -23923,7 +23174,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-salts-30ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23941,7 +23191,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1751",
@@ -23955,7 +23205,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-salts-30ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -23973,7 +23222,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1752",
@@ -23987,7 +23236,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-salts-30ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24005,7 +23253,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1753",
@@ -24019,7 +23267,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-salts-30ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24037,7 +23284,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1754",
@@ -24051,7 +23298,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/juice-head-salts-30ml.png",
     "rate": 7.25,
     "retail_msrp": 17.99,
-    "purchase_rate": 4.71,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24069,7 +23315,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1755",
@@ -24083,7 +23329,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/twist-120ml.jpg",
     "rate": 9.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 6.18,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24101,7 +23346,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1756",
@@ -24115,7 +23360,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/twist-120ml.jpg",
     "rate": 9.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 6.18,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24133,7 +23377,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1757",
@@ -24147,7 +23391,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/twist-120ml.jpg",
     "rate": 9.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 6.18,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24165,7 +23408,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.885Z"
   },
   {
     "id": "ZOHO-ITM-1758",
@@ -24179,7 +23422,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/twist-120ml.jpg",
     "rate": 9.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 6.18,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24197,7 +23439,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1759",
@@ -24211,7 +23453,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/twist-120ml.jpg",
     "rate": 9.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 6.18,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24229,7 +23470,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1760",
@@ -24243,7 +23484,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/twist-120ml.jpg",
     "rate": 9.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 6.18,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24261,7 +23501,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1761",
@@ -24275,7 +23515,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/twist-120ml.jpg",
     "rate": 9.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 6.18,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24293,7 +23532,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1762",
@@ -24307,7 +23546,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/twist-120ml.jpg",
     "rate": 9.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 6.18,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24325,7 +23563,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.799Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1763",
@@ -24339,7 +23577,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/twist-120ml.jpg",
     "rate": 9.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 6.18,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24357,7 +23594,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1764",
@@ -24371,7 +23608,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/twist-120ml.jpg",
     "rate": 9.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 6.18,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24389,7 +23625,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1765",
@@ -24403,7 +23639,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/twist-120ml.jpg",
     "rate": 9.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 6.18,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24421,7 +23656,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1766",
@@ -24435,7 +23670,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/twist-120ml.jpg",
     "rate": 9.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 6.18,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24453,7 +23687,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1767",
@@ -24467,7 +23701,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/twist-120ml.jpg",
     "rate": 9.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 6.18,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24485,7 +23718,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1768",
@@ -24499,7 +23732,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/twist-120ml.jpg",
     "rate": 9.5,
     "retail_msrp": 24.99,
-    "purchase_rate": 6.18,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24517,7 +23749,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1769",
@@ -24531,7 +23763,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/opms-gold-liquid-extract.jpg",
     "rate": 11.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24548,7 +23779,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1770",
@@ -24562,7 +23793,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/opms-gold-liquid-extract.jpg",
     "rate": 11.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24579,7 +23809,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1771",
@@ -24593,7 +23823,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/opms-gold-liquid-extract.jpg",
     "rate": 11.5,
     "retail_msrp": 21.99,
-    "purchase_rate": 7.48,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24610,7 +23839,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1772",
@@ -24624,7 +23853,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/opms-black-liquid-extract.jpg",
     "rate": 12.75,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.29,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24641,7 +23869,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1773",
@@ -24655,7 +23883,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/opms-black-liquid-extract.jpg",
     "rate": 12.75,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.29,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24672,7 +23899,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1774",
@@ -24686,7 +23913,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/opms-black-liquid-extract.jpg",
     "rate": 12.75,
     "retail_msrp": 24.99,
-    "purchase_rate": 8.29,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24703,7 +23929,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1775",
@@ -24717,7 +23943,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/opms-gold-liquid-extract.jpg",
     "rate": 19,
     "retail_msrp": 38.99,
-    "purchase_rate": 12.35,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24733,7 +23958,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1776",
@@ -24747,7 +23972,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/opms-gold-liquid-extract.jpg",
     "rate": 19,
     "retail_msrp": 38.99,
-    "purchase_rate": 12.35,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24763,7 +23987,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1777",
@@ -24777,7 +24001,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/opms-gold-liquid-extract.jpg",
     "rate": 19,
     "retail_msrp": 38.99,
-    "purchase_rate": 12.35,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24793,7 +24016,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1778",
@@ -24807,7 +24030,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/opms-gold-liquid-extract.jpg",
     "rate": 19,
     "retail_msrp": 38.99,
-    "purchase_rate": 12.35,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24823,7 +24045,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1779",
@@ -24837,7 +24059,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/opms-gold-liquid-extract.jpg",
     "rate": 19,
     "retail_msrp": 38.99,
-    "purchase_rate": 12.35,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24853,7 +24074,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1780",
@@ -24867,7 +24088,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/opms-gold-liquid-extract.jpg",
     "rate": 19,
     "retail_msrp": 38.99,
-    "purchase_rate": 12.35,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24883,7 +24103,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1781",
@@ -24897,7 +24117,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/opms-black-liquid-extract.jpg",
     "rate": 21.5,
     "retail_msrp": 42.99,
-    "purchase_rate": 13.98,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24913,7 +24132,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1782",
@@ -24927,7 +24146,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/opms-black-liquid-extract.jpg",
     "rate": 21.5,
     "retail_msrp": 42.99,
-    "purchase_rate": 13.98,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24943,7 +24161,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1783",
@@ -24957,7 +24175,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/opms-black-liquid-extract.jpg",
     "rate": 21.5,
     "retail_msrp": 42.99,
-    "purchase_rate": 13.98,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -24973,7 +24190,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1784",
@@ -24987,7 +24204,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/opms-black-liquid-extract.jpg",
     "rate": 21.5,
     "retail_msrp": 42.99,
-    "purchase_rate": 13.98,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25003,7 +24219,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1785",
@@ -25017,7 +24233,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/opms-black-liquid-extract.jpg",
     "rate": 21.5,
     "retail_msrp": 42.99,
-    "purchase_rate": 13.98,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25033,7 +24248,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1786",
@@ -25047,7 +24262,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/opms-black-liquid-extract.jpg",
     "rate": 21.5,
     "retail_msrp": 42.99,
-    "purchase_rate": 13.98,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25063,7 +24277,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1787",
@@ -25077,7 +24291,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/opms-gold-liquid-extract.jpg",
     "rate": 22,
     "retail_msrp": 45,
-    "purchase_rate": 14.3,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25093,7 +24306,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1788",
@@ -25107,7 +24320,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/opms-gold-liquid-extract.jpg",
     "rate": 22,
     "retail_msrp": 45,
-    "purchase_rate": 14.3,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25123,7 +24335,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1789",
@@ -25137,7 +24349,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/opms-gold-liquid-extract.jpg",
     "rate": 22,
     "retail_msrp": 45,
-    "purchase_rate": 14.3,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25153,7 +24364,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1790",
@@ -25167,7 +24378,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/opms-gold-liquid-extract.jpg",
     "rate": 22,
     "retail_msrp": 45,
-    "purchase_rate": 14.3,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25183,7 +24393,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1791",
@@ -25197,7 +24407,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/kratom-capsules-maeng-da.jpg",
     "rate": 10.5,
     "retail_msrp": 19.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25213,7 +24422,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.886Z"
   },
   {
     "id": "ZOHO-ITM-1792",
@@ -25227,7 +24436,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/kratom-capsules-maeng-da.jpg",
     "rate": 10.5,
     "retail_msrp": 19.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25243,7 +24451,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1793",
@@ -25257,7 +24465,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/kratom-capsules-maeng-da.jpg",
     "rate": 10.5,
     "retail_msrp": 19.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25273,7 +24480,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1794",
@@ -25287,7 +24494,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/kratom-capsules-maeng-da.jpg",
     "rate": 10.5,
     "retail_msrp": 19.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25303,7 +24509,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1795",
@@ -25317,7 +24523,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/kratom-capsules-maeng-da.jpg",
     "rate": 10.5,
     "retail_msrp": 19.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25333,7 +24538,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1796",
@@ -25347,7 +24552,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/kratom-capsules-maeng-da.jpg",
     "rate": 10.5,
     "retail_msrp": 19.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25363,7 +24567,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1797",
@@ -25377,7 +24581,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/kratom-capsules-maeng-da.jpg",
     "rate": 10.5,
     "retail_msrp": 19.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25393,7 +24596,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1798",
@@ -25407,7 +24610,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/kratom-capsules-maeng-da.jpg",
     "rate": 10.5,
     "retail_msrp": 19.99,
-    "purchase_rate": 6.83,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25423,7 +24625,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1799",
@@ -25437,7 +24639,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/kratom-capsules-maeng-da.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25453,7 +24654,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1800",
@@ -25467,7 +24668,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/kratom-capsules-maeng-da.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25483,7 +24683,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1801",
@@ -25497,7 +24697,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/kratom-capsules-maeng-da.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25513,7 +24712,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1802",
@@ -25527,7 +24726,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/kratom-capsules-maeng-da.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25543,7 +24741,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1803",
@@ -25557,7 +24755,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/kratom-capsules-maeng-da.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25573,7 +24770,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1804",
@@ -25587,7 +24784,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/kratom-capsules-maeng-da.jpg",
     "rate": 14.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 9.43,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25603,7 +24799,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1805",
@@ -25617,7 +24813,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 13.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25634,7 +24829,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1806",
@@ -25648,7 +24843,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 13.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25665,7 +24859,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1807",
@@ -25679,7 +24873,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 13.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25696,7 +24889,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1808",
@@ -25710,7 +24903,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 13.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25727,7 +24919,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1809",
@@ -25741,7 +24933,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 13.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25758,7 +24949,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1810",
@@ -25772,7 +24963,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 13.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25789,7 +24979,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1811",
@@ -25803,7 +24993,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 13.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25820,7 +25009,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1812",
@@ -25834,7 +25023,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 13.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25851,7 +25039,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1813",
@@ -25865,7 +25053,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 13.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25882,7 +25069,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1814",
@@ -25896,7 +25083,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 13.5,
     "retail_msrp": 29.99,
-    "purchase_rate": 8.78,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25913,7 +25099,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1815",
@@ -25927,7 +25113,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 14,
     "retail_msrp": 32.99,
-    "purchase_rate": 9.1,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25943,7 +25128,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1816",
@@ -25957,7 +25142,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 14,
     "retail_msrp": 32.99,
-    "purchase_rate": 9.1,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -25973,7 +25157,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1817",
@@ -25987,7 +25171,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 14,
     "retail_msrp": 32.99,
-    "purchase_rate": 9.1,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26003,7 +25186,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1818",
@@ -26017,7 +25200,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 14,
     "retail_msrp": 32.99,
-    "purchase_rate": 9.1,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26033,7 +25215,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1819",
@@ -26047,7 +25229,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 14,
     "retail_msrp": 32.99,
-    "purchase_rate": 9.1,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26063,7 +25244,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1820",
@@ -26077,7 +25258,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 14,
     "retail_msrp": 32.99,
-    "purchase_rate": 9.1,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26093,7 +25273,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1821",
@@ -26107,7 +25287,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 14,
     "retail_msrp": 32.99,
-    "purchase_rate": 9.1,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26123,7 +25302,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1822",
@@ -26137,7 +25316,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 12.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26153,7 +25331,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1823",
@@ -26167,7 +25345,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 12.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26183,7 +25360,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1824",
@@ -26197,7 +25374,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 12.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26213,7 +25389,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.887Z"
   },
   {
     "id": "ZOHO-ITM-1825",
@@ -26227,7 +25403,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 12.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26243,7 +25418,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.888Z"
   },
   {
     "id": "ZOHO-ITM-1826",
@@ -26257,7 +25432,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 12.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26273,7 +25447,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.888Z"
   },
   {
     "id": "ZOHO-ITM-1827",
@@ -26287,7 +25461,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 12.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26303,7 +25476,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.888Z"
   },
   {
     "id": "ZOHO-ITM-1828",
@@ -26317,7 +25490,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 12.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26333,7 +25505,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.888Z"
   },
   {
     "id": "ZOHO-ITM-1829",
@@ -26347,7 +25519,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 12.5,
     "retail_msrp": 26.99,
-    "purchase_rate": 8.13,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26363,7 +25534,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.888Z"
   },
   {
     "id": "ZOHO-ITM-1830",
@@ -26377,7 +25548,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 13,
     "retail_msrp": 28.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26393,7 +25563,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.888Z"
   },
   {
     "id": "ZOHO-ITM-1831",
@@ -26407,7 +25577,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 13,
     "retail_msrp": 28.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26423,7 +25592,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.888Z"
   },
   {
     "id": "ZOHO-ITM-1832",
@@ -26437,7 +25606,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 13,
     "retail_msrp": 28.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26453,7 +25621,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.888Z"
   },
   {
     "id": "ZOHO-ITM-1833",
@@ -26467,7 +25635,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raw-classic-king-size-box.png",
     "rate": 13,
     "retail_msrp": 28.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26483,7 +25650,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.888Z"
   },
   {
     "id": "ZOHO-ITM-1834",
@@ -26497,7 +25664,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 13,
     "retail_msrp": 28.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26513,7 +25679,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.888Z"
   },
   {
     "id": "ZOHO-ITM-1835",
@@ -26527,7 +25693,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 13,
     "retail_msrp": 28.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26543,7 +25708,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.888Z"
   },
   {
     "id": "ZOHO-ITM-1836",
@@ -26557,7 +25722,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 13,
     "retail_msrp": 28.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26573,7 +25737,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.800Z"
+    "last_modified_time": "2026-09-15T01:04:04.888Z"
   },
   {
     "id": "ZOHO-ITM-1837",
@@ -26587,7 +25751,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/thca-diamond-prerolls.png",
     "rate": 13,
     "retail_msrp": 28.99,
-    "purchase_rate": 8.45,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26603,7 +25766,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.888Z"
   },
   {
     "id": "ZOHO-ITM-1838",
@@ -26617,7 +25780,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/glass-beaker-10in.jpg",
     "rate": 28,
     "retail_msrp": 69.99,
-    "purchase_rate": 18.2,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26633,7 +25795,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.888Z"
   },
   {
     "id": "ZOHO-ITM-1839",
@@ -26647,7 +25809,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/glass-beaker-10in.jpg",
     "rate": 28,
     "retail_msrp": 69.99,
-    "purchase_rate": 18.2,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26663,7 +25824,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.888Z"
   },
   {
     "id": "ZOHO-ITM-1840",
@@ -26677,7 +25838,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/glass-beaker-10in.jpg",
     "rate": 28,
     "retail_msrp": 69.99,
-    "purchase_rate": 18.2,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26693,7 +25853,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.888Z"
   },
   {
     "id": "ZOHO-ITM-1841",
@@ -26707,7 +25867,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/glass-beaker-10in.jpg",
     "rate": 28,
     "retail_msrp": 69.99,
-    "purchase_rate": 18.2,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26723,7 +25882,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.888Z"
   },
   {
     "id": "ZOHO-ITM-1842",
@@ -26737,7 +25896,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/glass-beaker-10in.jpg",
     "rate": 28,
     "retail_msrp": 69.99,
-    "purchase_rate": 18.2,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26753,7 +25911,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.888Z"
   },
   {
     "id": "ZOHO-ITM-1843",
@@ -26767,7 +25925,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/glass-beaker-10in.jpg",
     "rate": 28,
     "retail_msrp": 69.99,
-    "purchase_rate": 18.2,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26783,7 +25940,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.888Z"
   },
   {
     "id": "ZOHO-ITM-1844",
@@ -26797,7 +25954,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/glass-beaker-10in.jpg",
     "rate": 28,
     "retail_msrp": 69.99,
-    "purchase_rate": 18.2,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26813,7 +25969,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.888Z"
   },
   {
     "id": "ZOHO-ITM-1845",
@@ -26827,7 +25983,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/glass-beaker-10in.jpg",
     "rate": 28,
     "retail_msrp": 69.99,
-    "purchase_rate": 18.2,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26843,7 +25998,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.888Z"
   },
   {
     "id": "ZOHO-ITM-1846",
@@ -26857,7 +26012,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/glass-beaker-10in.jpg",
     "rate": 28,
     "retail_msrp": 69.99,
-    "purchase_rate": 18.2,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26873,7 +26027,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.888Z"
   },
   {
     "id": "ZOHO-ITM-1847",
@@ -26887,7 +26041,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/glass-beaker-10in.jpg",
     "rate": 28,
     "retail_msrp": 69.99,
-    "purchase_rate": 18.2,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26903,7 +26056,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.888Z"
   },
   {
     "id": "ZOHO-ITM-1848",
@@ -26917,7 +26070,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/glass-spoon-pipe-4in.jpg",
     "rate": 8.5,
     "retail_msrp": 19.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26933,7 +26085,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.888Z"
   },
   {
     "id": "ZOHO-ITM-1849",
@@ -26947,7 +26099,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/glass-spoon-pipe-4in.jpg",
     "rate": 8.5,
     "retail_msrp": 19.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26963,7 +26114,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1850",
@@ -26977,7 +26128,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/glass-spoon-pipe-4in.jpg",
     "rate": 8.5,
     "retail_msrp": 19.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -26993,7 +26143,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1851",
@@ -27007,7 +26157,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/glass-spoon-pipe-4in.jpg",
     "rate": 8.5,
     "retail_msrp": 19.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27023,7 +26172,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1852",
@@ -27037,7 +26186,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/glass-spoon-pipe-4in.jpg",
     "rate": 8.5,
     "retail_msrp": 19.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27053,7 +26201,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1853",
@@ -27067,7 +26215,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/glass-spoon-pipe-4in.jpg",
     "rate": 8.5,
     "retail_msrp": 19.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27083,7 +26230,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1854",
@@ -27097,7 +26244,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/glass-spoon-pipe-4in.jpg",
     "rate": 8.5,
     "retail_msrp": 19.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27113,7 +26259,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1855",
@@ -27127,7 +26273,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/glass-spoon-pipe-4in.jpg",
     "rate": 8.5,
     "retail_msrp": 19.99,
-    "purchase_rate": 5.53,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27143,7 +26288,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1856",
@@ -27157,7 +26302,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/eyce-silicone-beaker.png",
     "rate": 22.5,
     "retail_msrp": 49.99,
-    "purchase_rate": 14.63,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27173,7 +26317,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1857",
@@ -27187,7 +26331,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 22.5,
     "retail_msrp": 49.99,
-    "purchase_rate": 14.63,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27203,7 +26346,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1858",
@@ -27217,7 +26360,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/eyce-silicone-beaker.png",
     "rate": 22.5,
     "retail_msrp": 49.99,
-    "purchase_rate": 14.63,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27233,7 +26375,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1859",
@@ -27247,7 +26389,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/eyce-silicone-beaker.png",
     "rate": 22.5,
     "retail_msrp": 49.99,
-    "purchase_rate": 14.63,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27263,7 +26404,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1860",
@@ -27277,7 +26418,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/eyce-silicone-beaker.png",
     "rate": 22.5,
     "retail_msrp": 49.99,
-    "purchase_rate": 14.63,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27293,7 +26433,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1861",
@@ -27307,7 +26447,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 22.5,
     "retail_msrp": 49.99,
-    "purchase_rate": 14.63,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27323,7 +26462,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1862",
@@ -27337,7 +26476,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 22.5,
     "retail_msrp": 49.99,
-    "purchase_rate": 14.63,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27353,7 +26491,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1863",
@@ -27367,7 +26505,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/eyce-silicone-beaker.png",
     "rate": 22.5,
     "retail_msrp": 49.99,
-    "purchase_rate": 14.63,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27383,7 +26520,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1864",
@@ -27397,7 +26534,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/eyce-silicone-beaker.png",
     "rate": 22.5,
     "retail_msrp": 49.99,
-    "purchase_rate": 14.63,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27413,7 +26549,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1865",
@@ -27427,7 +26563,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/eyce-silicone-beaker.png",
     "rate": 22.5,
     "retail_msrp": 49.99,
-    "purchase_rate": 14.63,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27443,7 +26578,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1866",
@@ -27457,7 +26592,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raw-classic-king-size-box.png",
     "rate": 22,
     "retail_msrp": 48,
-    "purchase_rate": 14.3,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27473,7 +26607,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1867",
@@ -27487,7 +26621,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raw-classic-king-size-box.png",
     "rate": 22,
     "retail_msrp": 48,
-    "purchase_rate": 14.3,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27503,7 +26636,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1868",
@@ -27517,7 +26650,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raw-classic-king-size-box.png",
     "rate": 22,
     "retail_msrp": 48,
-    "purchase_rate": 14.3,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27533,7 +26665,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1869",
@@ -27547,7 +26679,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raw-classic-king-size-box.png",
     "rate": 22,
     "retail_msrp": 48,
-    "purchase_rate": 14.3,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27563,7 +26694,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1870",
@@ -27577,7 +26708,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raw-classic-king-size-box.png",
     "rate": 22,
     "retail_msrp": 48,
-    "purchase_rate": 14.3,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27593,7 +26723,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1871",
@@ -27607,7 +26737,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raw-classic-king-size-box.png",
     "rate": 22,
     "retail_msrp": 48,
-    "purchase_rate": 14.3,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27623,7 +26752,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1872",
@@ -27637,7 +26766,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raw-classic-king-size-box.png",
     "rate": 22,
     "retail_msrp": 48,
-    "purchase_rate": 14.3,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27653,7 +26781,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1873",
@@ -27667,7 +26795,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raw-classic-king-size-box.png",
     "rate": 22,
     "retail_msrp": 48,
-    "purchase_rate": 14.3,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27683,7 +26810,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1874",
@@ -27697,7 +26824,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raw-classic-king-size-box.png",
     "rate": 22,
     "retail_msrp": 48,
-    "purchase_rate": 14.3,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27713,7 +26839,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1875",
@@ -27727,7 +26853,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raw-classic-king-size-box.png",
     "rate": 22,
     "retail_msrp": 48,
-    "purchase_rate": 14.3,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27743,7 +26868,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1876",
@@ -27757,7 +26882,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raw-classic-king-size-box.png",
     "rate": 22,
     "retail_msrp": 48,
-    "purchase_rate": 14.3,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27773,7 +26897,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1877",
@@ -27787,7 +26911,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raw-classic-king-size-box.png",
     "rate": 22,
     "retail_msrp": 48,
-    "purchase_rate": 14.3,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27803,7 +26926,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1878",
@@ -27817,7 +26940,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raw-classic-king-size-box.png",
     "rate": 22,
     "retail_msrp": 48,
-    "purchase_rate": 14.3,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27833,7 +26955,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1879",
@@ -27847,7 +26969,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/raw-classic-king-size-box.png",
     "rate": 22,
     "retail_msrp": 48,
-    "purchase_rate": 14.3,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27863,7 +26984,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1880",
@@ -27877,7 +26998,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/king-palm-cones-display.png",
     "rate": 19.5,
     "retail_msrp": 42,
-    "purchase_rate": 12.68,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27893,7 +27013,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.889Z"
   },
   {
     "id": "ZOHO-ITM-1881",
@@ -27907,7 +27027,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/king-palm-cones-display.png",
     "rate": 19.5,
     "retail_msrp": 42,
-    "purchase_rate": 12.68,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27923,7 +27042,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.890Z"
   },
   {
     "id": "ZOHO-ITM-1882",
@@ -27937,7 +27056,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/king-palm-cones-display.png",
     "rate": 19.5,
     "retail_msrp": 42,
-    "purchase_rate": 12.68,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27953,7 +27071,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.890Z"
   },
   {
     "id": "ZOHO-ITM-1883",
@@ -27967,7 +27085,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/king-palm-cones-display.png",
     "rate": 19.5,
     "retail_msrp": 42,
-    "purchase_rate": 12.68,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -27983,7 +27100,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.890Z"
   },
   {
     "id": "ZOHO-ITM-1884",
@@ -27997,7 +27114,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/king-palm-cones-display.png",
     "rate": 19.5,
     "retail_msrp": 42,
-    "purchase_rate": 12.68,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -28013,7 +27129,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.890Z"
   },
   {
     "id": "ZOHO-ITM-1885",
@@ -28027,7 +27143,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/king-palm-cones-display.png",
     "rate": 19.5,
     "retail_msrp": 42,
-    "purchase_rate": 12.68,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -28043,7 +27158,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.890Z"
   },
   {
     "id": "ZOHO-ITM-1886",
@@ -28057,7 +27172,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/king-palm-cones-display.png",
     "rate": 19.5,
     "retail_msrp": 42,
-    "purchase_rate": 12.68,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -28073,7 +27187,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.890Z"
   },
   {
     "id": "ZOHO-ITM-1887",
@@ -28087,7 +27201,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/king-palm-cones-display.png",
     "rate": 19.5,
     "retail_msrp": 42,
-    "purchase_rate": 12.68,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -28103,7 +27216,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.890Z"
   },
   {
     "id": "ZOHO-ITM-1888",
@@ -28117,7 +27230,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/king-palm-cones-display.png",
     "rate": 19.5,
     "retail_msrp": 42,
-    "purchase_rate": 12.68,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -28133,7 +27245,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.890Z"
   },
   {
     "id": "ZOHO-ITM-1889",
@@ -28147,7 +27259,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 18,
     "retail_msrp": 38,
-    "purchase_rate": 11.7,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -28163,7 +27274,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.890Z"
   },
   {
     "id": "ZOHO-ITM-1890",
@@ -28177,7 +27288,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 18,
     "retail_msrp": 38,
-    "purchase_rate": 11.7,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -28193,7 +27303,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.890Z"
   },
   {
     "id": "ZOHO-ITM-1891",
@@ -28207,7 +27317,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 18,
     "retail_msrp": 38,
-    "purchase_rate": 11.7,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -28223,7 +27332,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.890Z"
   },
   {
     "id": "ZOHO-ITM-1892",
@@ -28237,7 +27346,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 18,
     "retail_msrp": 38,
-    "purchase_rate": 11.7,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -28253,7 +27361,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.890Z"
   },
   {
     "id": "ZOHO-ITM-1893",
@@ -28267,7 +27375,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 18,
     "retail_msrp": 38,
-    "purchase_rate": 11.7,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -28283,7 +27390,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.890Z"
   },
   {
     "id": "ZOHO-ITM-1894",
@@ -28297,7 +27404,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 18,
     "retail_msrp": 38,
-    "purchase_rate": 11.7,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -28313,7 +27419,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.890Z"
   },
   {
     "id": "ZOHO-ITM-1895",
@@ -28327,7 +27433,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 18,
     "retail_msrp": 38,
-    "purchase_rate": 11.7,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -28343,7 +27448,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.890Z"
   },
   {
     "id": "ZOHO-ITM-1896",
@@ -28357,7 +27462,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 18,
     "retail_msrp": 38,
-    "purchase_rate": 11.7,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -28373,7 +27477,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.890Z"
   },
   {
     "id": "ZOHO-ITM-1897",
@@ -28387,7 +27491,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 18,
     "retail_msrp": 38,
-    "purchase_rate": 11.7,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -28403,7 +27506,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.890Z"
   },
   {
     "id": "ZOHO-ITM-1898",
@@ -28417,7 +27520,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 18,
     "retail_msrp": 38,
-    "purchase_rate": 11.7,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -28433,7 +27535,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.890Z"
   },
   {
     "id": "ZOHO-ITM-1899",
@@ -28447,7 +27549,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 18,
     "retail_msrp": 38,
-    "purchase_rate": 11.7,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -28463,7 +27564,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.890Z"
   },
   {
     "id": "ZOHO-ITM-1900",
@@ -28477,7 +27578,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "image_url": "/products/smok-nord-coils.png",
     "rate": 18,
     "retail_msrp": 38,
-    "purchase_rate": 11.7,
     "available_stock": 50,
     "stock_on_hand": 50,
     "stock_status": "in_stock",
@@ -28493,6 +27593,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-14T22:48:46.801Z"
+    "last_modified_time": "2026-09-15T01:04:04.890Z"
   }
 ] as const;

@@ -16,6 +16,7 @@ import type {
 } from '../types/inventory.js';
 import { PRODUCTS, type WholesaleProduct } from '../lib/productDatabase.js';
 import { productImageRegistry } from './productImageRegistry.js';
+import { validateImageUpdatePayload, reconcileWebsitePrices } from './priceReconciliation.js';
 
 
 // Seed pricing for wholesale B2B display
@@ -104,7 +105,7 @@ export class InventoryStore {
       const zohoItemId = String(zohoCounter++);
       const verifiedImage = productImageRegistry.getVerifiedImageUrl(p.id);
       const image = verifiedImage || '';
-      const rate = PRODUCT_RATES[p.id] || (p.pricePerUnit > 0 ? p.pricePerUnit : 15.0);
+      const rate = PRODUCT_RATES[p.id] || (p.pricePerUnit > 0 ? p.pricePerUnit : 0);
 
       // Create variants if product has flavors or options
       const variants = p.flavours && p.flavours.length > 0
@@ -139,8 +140,6 @@ export class InventoryStore {
         image_url: image,
         gallery_images: image ? [image] : [],
         rate: rate,
-        retail_msrp: Number((rate * 1.65).toFixed(2)),
-        purchase_rate: Number((rate * 0.65).toFixed(2)),
         available_stock: stock,
         stock_on_hand: stock,
         stock_status: status,
@@ -264,6 +263,111 @@ export class InventoryStore {
 
     return false;
   }
+
+  /**
+   * LEAST-PRIVILEGE IMAGE UPDATE:
+   * Strictly updates ONLY image-related fields.
+   * Modifying price, rate, cost, inventory, SKU, or product title is forbidden.
+   */
+  public updateProductImage(
+    idOrSku: string,
+    imageData: Record<string, any>
+  ): InventoryItem | null {
+    // 1. Validate payload contains ZERO pricing or inventory fields
+    const safeData = validateImageUpdatePayload(imageData);
+
+    // 2. Find product
+    const item = this.getItem(idOrSku);
+    if (!item) return null;
+
+    // 3. Mutate ONLY image fields
+    if (safeData.imageUrl !== undefined) {
+      item.image_url = safeData.imageUrl;
+      if (safeData.imageUrl) {
+        item.gallery_images = [safeData.imageUrl];
+      }
+    }
+    item.last_modified_time = new Date().toISOString();
+    return item;
+  }
+
+  /**
+   * LEAST-PRIVILEGE PRICE SYNC:
+   * Dedicated method to synchronize selling prices strictly from verified Zoho data.
+   * Customer-facing price = Zoho rate.
+   * Variant price = Zoho variant rate.
+   * NEVER uses purchase_rate.
+   */
+  public syncZohoPrice(
+    idOrSku: string,
+    newRate: number,
+    variantRates?: Record<string, number>
+  ): InventoryItem | null {
+    if (typeof newRate !== 'number' || isNaN(newRate) || newRate < 0) {
+      throw new Error(`Invalid Zoho rate provided for ${idOrSku}: ${newRate}`);
+    }
+
+    const item = this.getItem(idOrSku);
+    if (!item) return null;
+
+    item.rate = newRate;
+
+    // Sync variant rates if provided
+    if (variantRates && Array.isArray(item.variants)) {
+      for (const variant of item.variants) {
+        if (variantRates[variant.variant_id] !== undefined) {
+          variant.rate = variantRates[variant.variant_id];
+        } else if (variantRates[variant.variant_sku] !== undefined) {
+          variant.rate = variantRates[variant.variant_sku];
+        }
+      }
+    }
+
+    item.last_modified_time = new Date().toISOString();
+    return item;
+  }
+
+  /**
+   * LEAST-PRIVILEGE INVENTORY SYNC:
+   * Dedicated method to synchronize inventory counts and stock statuses.
+   */
+  public syncZohoInventory(
+    idOrSku: string,
+    availableStock: number
+  ): InventoryItem | null {
+    const item = this.getItem(idOrSku);
+    if (!item) return null;
+
+    item.available_stock = Math.max(0, availableStock);
+    item.stock_on_hand = Math.max(0, availableStock);
+
+    if (item.available_stock <= 0) {
+      item.stock_status = 'out_of_stock';
+    } else if (item.available_stock <= this.settings.low_stock_threshold) {
+      item.stock_status = 'low_stock';
+    } else {
+      item.stock_status = 'in_stock';
+    }
+
+    item.last_modified_time = new Date().toISOString();
+    return item;
+  }
+
+  /**
+   * Reconciles all items in the store against Zoho items using strict matching priorities.
+   */
+  public reconcileCatalogWithZoho(zohoItems: any[]) {
+    const currentList = Array.from(this.items.values());
+    const { updatedItems, report } = reconcileWebsitePrices(currentList, zohoItems);
+
+    for (const item of updatedItems) {
+      this.items.set(item.sku, item);
+    }
+
+    this.syncStatus.last_update_time = new Date().toISOString();
+    return report;
+  }
+
 
   /**
    * Filter, search, and paginate items with public stock status according to settings.

@@ -140,6 +140,11 @@ function normalizeItem(raw: any): InventoryItem {
   if (available <= 0)         status = 'out_of_stock';
   else if (available <= threshold) status = 'low_stock';
 
+  // Strictly Zoho selling rate - NEVER fall back to purchase_rate (cost price)
+  const rate = typeof raw.rate === 'number' && !isNaN(raw.rate)
+    ? raw.rate
+    : (raw.rate !== undefined && raw.rate !== null && !isNaN(Number(raw.rate)) ? Number(raw.rate) : 0);
+
   // Build variants if the item is part of an item group
   const variants: InventoryVariant[] = Array.isArray(raw.variants)
     ? raw.variants.map((v: any, idx: number) => {
@@ -147,6 +152,10 @@ function normalizeItem(raw: any): InventoryItem {
         let vStatus: StockStatus = 'in_stock';
         if (vStock <= 0)          vStatus = 'out_of_stock';
         else if (vStock <= threshold) vStatus = 'low_stock';
+
+        const vRate = typeof v.rate === 'number' && !isNaN(v.rate)
+          ? v.rate
+          : (v.rate !== undefined && v.rate !== null && !isNaN(Number(v.rate)) ? Number(v.rate) : rate);
 
         return {
           variant_id:      String(v.item_id   || `${raw.item_id}-v${idx}`),
@@ -157,12 +166,10 @@ function normalizeItem(raw: any): InventoryItem {
           stock_on_hand:   vStock,
           available_stock: vStock,
           stock_status:    vStatus,
-          rate:            v.rate ? Number(v.rate) : Number(raw.rate || 0),
+          rate:            vRate,
         };
       })
     : [];
-
-  const rate = Number(raw.rate || raw.purchase_rate || 0);
 
   const rawBrand = String(raw.brand || raw.cf_brand || raw.manufacturer || 'Wholesale of OK');
   const rawName = String(raw.name || 'Unnamed Product');
@@ -197,7 +204,7 @@ function normalizeItem(raw: any): InventoryItem {
                          ? raw.documents.map((d: any) => d.file_url).filter((u: string) => Boolean(u) && !isZohoInternalUrl(u))
                          : undefined,
     rate,
-    retail_msrp:       raw.sales_rate  ? Number(raw.sales_rate)  : undefined,
+    retail_msrp:       raw.sales_rate ? Number(raw.sales_rate) : (raw.retail_msrp ? Number(raw.retail_msrp) : undefined),
     purchase_rate:     raw.purchase_rate ? Number(raw.purchase_rate) : undefined,
     available_stock:   available,
     stock_on_hand:     stockOnHand,
