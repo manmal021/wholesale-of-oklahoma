@@ -1809,6 +1809,8 @@ apiApp.post(['/admin/applications/:id/approve', '/api/admin/applications/:id/app
     message: `Account approved. Activation email dispatched to ${customer.email}.`,
     customer,
     application: app,
+    activationToken: tokenRecord.token,
+    activationUrl: `/activate?token=${tokenRecord.token}`,
   });
 });
 
@@ -1903,6 +1905,32 @@ apiApp.post(['/admin/customers/:id/reactivate', '/api/admin/customers/:id/reacti
 
   console.log(`[API /admin/customers/reactivate] 🟢 Customer ${customer.email} (${id}) REACTIVATED.`);
   return ok(res, { success: true, message: `Customer account ${id} reactivated.`, customer });
+});
+
+/**
+ * POST /api/admin/customers/:id/generate-activation
+ * Generates an account activation link for an approved customer.
+ */
+apiApp.post(['/admin/customers/:id/generate-activation', '/api/admin/customers/:id/generate-activation'], requireAdminAuth, (req: Request, res: Response) => {
+  const id = req.params.id;
+  const customer = databaseStore.getCustomer(id);
+  if (!customer) {
+    return err(res, 404, `Customer ${id} not found.`);
+  }
+
+  const tokenRecord = databaseStore.createSecurityToken({
+    type: 'CUSTOMER_ACTIVATION',
+    email: customer.email,
+    targetId: customer.id,
+    durationHours: 48,
+  });
+
+  return ok(res, {
+    success: true,
+    activationToken: tokenRecord.token,
+    activationUrl: `/activate?token=${tokenRecord.token}`,
+    message: `New activation link generated for ${customer.email}.`,
+  });
 });
 
 /**
