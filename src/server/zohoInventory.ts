@@ -17,6 +17,7 @@ import path from 'path';
 import { getValidToken } from './zohoAuth.js';
 import type { InventoryItem, StockStatus, InventoryVariant } from '../types/inventory.js';
 import { productImageRegistry } from './productImageRegistry.js';
+import { calculateWebsitePrice } from './priceReconciliation.js';
 
 // ---------------------------------------------------------------------------
 // Config from environment variables
@@ -141,9 +142,15 @@ function normalizeItem(raw: any): InventoryItem {
   else if (available <= threshold) status = 'low_stock';
 
   // Strictly Zoho selling rate - NEVER fall back to purchase_rate (cost price)
-  const rate = typeof raw.rate === 'number' && !isNaN(raw.rate)
+  const rawRate = typeof raw.rate === 'number' && !isNaN(raw.rate)
     ? raw.rate
     : (raw.rate !== undefined && raw.rate !== null && !isNaN(Number(raw.rate)) ? Number(raw.rate) : 0);
+
+  // Preserve authoritative Zoho rate and calculate website selling price:
+  // - If Zoho rate < $10: increase by $2
+  // - If Zoho rate >= $10: increase by $5
+  const zohoRate = rawRate;
+  const websiteRate = calculateWebsitePrice(zohoRate);
 
   // Build variants if the item is part of an item group
   const variants: InventoryVariant[] = Array.isArray(raw.variants)
@@ -153,9 +160,11 @@ function normalizeItem(raw: any): InventoryItem {
         if (vStock <= 0)          vStatus = 'out_of_stock';
         else if (vStock <= threshold) vStatus = 'low_stock';
 
-        const vRate = typeof v.rate === 'number' && !isNaN(v.rate)
+        const rawVRate = typeof v.rate === 'number' && !isNaN(v.rate)
           ? v.rate
-          : (v.rate !== undefined && v.rate !== null && !isNaN(Number(v.rate)) ? Number(v.rate) : rate);
+          : (v.rate !== undefined && v.rate !== null && !isNaN(Number(v.rate)) ? Number(v.rate) : zohoRate);
+        const vZohoRate = rawVRate;
+        const vWebsiteRate = calculateWebsitePrice(vZohoRate);
 
         return {
           variant_id:      String(v.item_id   || `${raw.item_id}-v${idx}`),
@@ -166,7 +175,8 @@ function normalizeItem(raw: any): InventoryItem {
           stock_on_hand:   vStock,
           available_stock: vStock,
           stock_status:    vStatus,
-          rate:            vRate,
+          zoho_rate:       vZohoRate,
+          rate:            vWebsiteRate,
         };
       })
     : [];
@@ -203,7 +213,8 @@ function normalizeItem(raw: any): InventoryItem {
     gallery_images:    Array.isArray(raw.documents)
                          ? raw.documents.map((d: any) => d.file_url).filter((u: string) => Boolean(u) && !isZohoInternalUrl(u))
                          : undefined,
-    rate,
+    zoho_rate:         zohoRate,
+    rate:              websiteRate,
     retail_msrp:       raw.sales_rate ? Number(raw.sales_rate) : (raw.retail_msrp ? Number(raw.retail_msrp) : undefined),
     purchase_rate:     raw.purchase_rate ? Number(raw.purchase_rate) : undefined,
     available_stock:   available,

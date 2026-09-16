@@ -11,7 +11,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - Blow Pop. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -31,7 +32,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.616Z"
   },
   {
     "id": "ZOHO-ITM-1002",
@@ -43,7 +44,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - Fucking Fab. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -63,7 +65,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.616Z"
   },
   {
     "id": "ZOHO-ITM-1003",
@@ -75,7 +77,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - Sour Apple Blow Pop. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -95,7 +98,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1004",
@@ -107,7 +110,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - Watermelon Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -127,7 +131,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1005",
@@ -139,7 +143,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - Miami Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -159,7 +164,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1006",
@@ -171,7 +176,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - Blue Razz Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -191,7 +197,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1007",
@@ -203,7 +209,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - Strawberry Banana. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -223,7 +230,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1008",
@@ -235,7 +242,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - White Gummy Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -255,7 +263,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1009",
@@ -267,7 +275,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - Juicy Peach Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -287,7 +296,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1010",
@@ -299,7 +308,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - Dragon Melon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -319,7 +329,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1011",
@@ -331,7 +341,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - Meta Moon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -351,7 +362,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1012",
@@ -363,7 +374,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - California Cherry. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -383,7 +395,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1013",
@@ -395,7 +407,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - Black Cherry. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -415,7 +428,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1014",
@@ -427,7 +440,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - Cherry Bomb. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -447,7 +461,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1015",
@@ -459,7 +473,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - Pink Lemonade. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -479,7 +494,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1016",
@@ -491,7 +506,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - Fcuking Fab Frozen Edition. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -511,7 +527,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1017",
@@ -523,7 +539,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - Frozen Blackberry. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -543,7 +560,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1018",
@@ -555,7 +572,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - Frozen Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -575,7 +593,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1019",
@@ -587,7 +605,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - Crazy Melon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -607,7 +626,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1020",
@@ -619,7 +638,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - Grape Blow Pop. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -639,7 +659,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1021",
@@ -651,7 +671,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - OMG Blow Pop. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -671,7 +692,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1022",
@@ -683,7 +704,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - Banana Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -703,7 +725,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1023",
@@ -715,7 +737,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - Tropical Rainbow Blast. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -735,7 +758,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1024",
@@ -747,7 +770,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - Sour Apple Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -767,7 +791,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1025",
@@ -779,7 +803,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - Scorpio Blue Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -799,7 +824,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1026",
@@ -811,7 +836,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - Sagittarius Cherry Bomb. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -831,7 +857,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1027",
@@ -843,7 +869,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse 15k",
     "description": "Authentic factory-sealed Geekbar Pulse 15k - Capricorn Dragon Melon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -863,7 +890,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "geekbar-25k",
@@ -875,7 +902,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse X 25k",
     "description": "Authentic factory-sealed Geekbar Pulse X 25k - Lime Berry Orange. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.75,
+    "zoho_rate": 14.75,
+    "rate": 19.75,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -895,7 +923,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1029",
@@ -907,7 +935,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse X 25k",
     "description": "Authentic factory-sealed Geekbar Pulse X 25k - Blackberry B-Pop. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.75,
+    "zoho_rate": 14.75,
+    "rate": 19.75,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -927,7 +956,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1030",
@@ -939,7 +968,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse X 25k",
     "description": "Authentic factory-sealed Geekbar Pulse X 25k - Sour Mango Pineapple. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.75,
+    "zoho_rate": 14.75,
+    "rate": 19.75,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -959,7 +989,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1031",
@@ -971,7 +1001,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse X 25k",
     "description": "Authentic factory-sealed Geekbar Pulse X 25k - Blue Rancher. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.75,
+    "zoho_rate": 14.75,
+    "rate": 19.75,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -991,7 +1022,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1032",
@@ -1003,7 +1034,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse X 25k",
     "description": "Authentic factory-sealed Geekbar Pulse X 25k - Orange Fsp. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.75,
+    "zoho_rate": 14.75,
+    "rate": 19.75,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1023,7 +1055,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1033",
@@ -1035,7 +1067,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse X 25k",
     "description": "Authentic factory-sealed Geekbar Pulse X 25k - Strawberry B-Pop. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.75,
+    "zoho_rate": 14.75,
+    "rate": 19.75,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1055,7 +1088,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1034",
@@ -1067,7 +1100,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse X 25k",
     "description": "Authentic factory-sealed Geekbar Pulse X 25k - Banana Taffy Freeze. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.75,
+    "zoho_rate": 14.75,
+    "rate": 19.75,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1087,7 +1121,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1035",
@@ -1099,7 +1133,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse X 25k",
     "description": "Authentic factory-sealed Geekbar Pulse X 25k - Miami Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.75,
+    "zoho_rate": 14.75,
+    "rate": 19.75,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1119,7 +1154,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1036",
@@ -1131,7 +1166,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse X 25k",
     "description": "Authentic factory-sealed Geekbar Pulse X 25k - Blue Razz Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.75,
+    "zoho_rate": 14.75,
+    "rate": 19.75,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1151,7 +1187,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1037",
@@ -1163,7 +1199,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse X 25k",
     "description": "Authentic factory-sealed Geekbar Pulse X 25k - Watermelon Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.75,
+    "zoho_rate": 14.75,
+    "rate": 19.75,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1183,7 +1220,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1038",
@@ -1195,7 +1232,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse X 25k",
     "description": "Authentic factory-sealed Geekbar Pulse X 25k - Sour Apple Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.75,
+    "zoho_rate": 14.75,
+    "rate": 19.75,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1215,7 +1253,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1039",
@@ -1227,7 +1265,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse X 25k",
     "description": "Authentic factory-sealed Geekbar Pulse X 25k - Lemon Heads. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.75,
+    "zoho_rate": 14.75,
+    "rate": 19.75,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1247,7 +1286,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1040",
@@ -1259,7 +1298,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse X 25k",
     "description": "Authentic factory-sealed Geekbar Pulse X 25k - White Peach Raspberry. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.75,
+    "zoho_rate": 14.75,
+    "rate": 19.75,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1279,7 +1319,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1041",
@@ -1291,7 +1331,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse X 25k",
     "description": "Authentic factory-sealed Geekbar Pulse X 25k - Grapefruit Refresher. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.75,
+    "zoho_rate": 14.75,
+    "rate": 19.75,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1311,7 +1352,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1042",
@@ -1323,7 +1364,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse X 25k",
     "description": "Authentic factory-sealed Geekbar Pulse X 25k - Raspberry Peach Lime. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.75,
+    "zoho_rate": 14.75,
+    "rate": 19.75,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1343,7 +1385,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1043",
@@ -1355,7 +1397,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse X 25k",
     "description": "Authentic factory-sealed Geekbar Pulse X 25k - Cool Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.75,
+    "zoho_rate": 14.75,
+    "rate": 19.75,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1375,7 +1418,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1044",
@@ -1387,7 +1430,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse X 25k",
     "description": "Authentic factory-sealed Geekbar Pulse X 25k - Midnight Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.75,
+    "zoho_rate": 14.75,
+    "rate": 19.75,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1407,7 +1451,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1045",
@@ -1419,7 +1463,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse X 25k",
     "description": "Authentic factory-sealed Geekbar Pulse X 25k - Ruby Sunset. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.75,
+    "zoho_rate": 14.75,
+    "rate": 19.75,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1439,7 +1484,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1046",
@@ -1451,7 +1496,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse X 25k",
     "description": "Authentic factory-sealed Geekbar Pulse X 25k - Citrus Blast. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.75,
+    "zoho_rate": 14.75,
+    "rate": 19.75,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1471,7 +1517,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1047",
@@ -1483,7 +1529,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse X 25k",
     "description": "Authentic factory-sealed Geekbar Pulse X 25k - Electric Blue Lemonade. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.75,
+    "zoho_rate": 14.75,
+    "rate": 19.75,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1503,7 +1550,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1048",
@@ -1515,7 +1562,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse X 25k",
     "description": "Authentic factory-sealed Geekbar Pulse X 25k - Frozen Strawberry. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.75,
+    "zoho_rate": 14.75,
+    "rate": 19.75,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1535,7 +1583,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1049",
@@ -1547,7 +1595,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse X 25k",
     "description": "Authentic factory-sealed Geekbar Pulse X 25k - Frozen Peach. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.75,
+    "zoho_rate": 14.75,
+    "rate": 19.75,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1567,7 +1616,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1050",
@@ -1579,7 +1628,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse X 25k",
     "description": "Authentic factory-sealed Geekbar Pulse X 25k - Frozen Cherry Apple. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.75,
+    "zoho_rate": 14.75,
+    "rate": 19.75,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1599,7 +1649,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1051",
@@ -1611,7 +1661,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse X 25k",
     "description": "Authentic factory-sealed Geekbar Pulse X 25k - Sour Fcuking Fab. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.75,
+    "zoho_rate": 14.75,
+    "rate": 19.75,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1631,7 +1682,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1052",
@@ -1643,7 +1694,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse X 25k",
     "description": "Authentic factory-sealed Geekbar Pulse X 25k - Kiwi Passionfruit. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.75,
+    "zoho_rate": 14.75,
+    "rate": 19.75,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1663,7 +1715,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "geekbar-60k",
@@ -1675,7 +1727,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Ultra 60k",
     "description": "Authentic factory-sealed Geekbar Pulse Ultra 60k - Miami Mint High Velocity. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-60k.png",
-    "rate": 17.5,
+    "zoho_rate": 17.5,
+    "rate": 22.5,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1694,7 +1747,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1054",
@@ -1706,7 +1759,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Ultra 60k",
     "description": "Authentic factory-sealed Geekbar Pulse Ultra 60k - Blue Razz Ice Extreme. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-60k.png",
-    "rate": 17.5,
+    "zoho_rate": 17.5,
+    "rate": 22.5,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1725,7 +1779,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1055",
@@ -1737,7 +1791,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Ultra 60k",
     "description": "Authentic factory-sealed Geekbar Pulse Ultra 60k - Watermelon Bubblegum Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-60k.png",
-    "rate": 17.5,
+    "zoho_rate": 17.5,
+    "rate": 22.5,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1756,7 +1811,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1056",
@@ -1768,7 +1823,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Ultra 60k",
     "description": "Authentic factory-sealed Geekbar Pulse Ultra 60k - Strawberry Banana Freeze. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-60k.png",
-    "rate": 17.5,
+    "zoho_rate": 17.5,
+    "rate": 22.5,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1787,7 +1843,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1057",
@@ -1799,7 +1855,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Ultra 60k",
     "description": "Authentic factory-sealed Geekbar Pulse Ultra 60k - Sour Apple Ice Blast. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-60k.png",
-    "rate": 17.5,
+    "zoho_rate": 17.5,
+    "rate": 22.5,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1818,7 +1875,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1058",
@@ -1830,7 +1887,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Ultra 60k",
     "description": "Authentic factory-sealed Geekbar Pulse Ultra 60k - Triple Berry Crisp. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-60k.png",
-    "rate": 17.5,
+    "zoho_rate": 17.5,
+    "rate": 22.5,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1849,7 +1907,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1059",
@@ -1861,7 +1919,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Ultra 60k",
     "description": "Authentic factory-sealed Geekbar Pulse Ultra 60k - Juicy Mango Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-60k.png",
-    "rate": 17.5,
+    "zoho_rate": 17.5,
+    "rate": 22.5,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1880,7 +1939,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1060",
@@ -1892,7 +1951,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Ultra 60k",
     "description": "Authentic factory-sealed Geekbar Pulse Ultra 60k - Dragonfruit Lychee. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-60k.png",
-    "rate": 17.5,
+    "zoho_rate": 17.5,
+    "rate": 22.5,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1911,7 +1971,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1061",
@@ -1923,7 +1983,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Ultra 60k",
     "description": "Authentic factory-sealed Geekbar Pulse Ultra 60k - White Gummy Blast. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-60k.png",
-    "rate": 17.5,
+    "zoho_rate": 17.5,
+    "rate": 22.5,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1942,7 +2003,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1062",
@@ -1954,7 +2015,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Ultra 60k",
     "description": "Authentic factory-sealed Geekbar Pulse Ultra 60k - California Cherry Turbo. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-60k.png",
-    "rate": 17.5,
+    "zoho_rate": 17.5,
+    "rate": 22.5,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -1973,7 +2035,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1063",
@@ -1985,7 +2047,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Ultra 60k",
     "description": "Authentic factory-sealed Geekbar Pulse Ultra 60k - Glacier Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-60k.png",
-    "rate": 17.5,
+    "zoho_rate": 17.5,
+    "rate": 22.5,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2004,7 +2067,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1064",
@@ -2016,7 +2079,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Ultra 60k",
     "description": "Authentic factory-sealed Geekbar Pulse Ultra 60k - Peach Mango Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-60k.png",
-    "rate": 17.5,
+    "zoho_rate": 17.5,
+    "rate": 22.5,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2035,7 +2099,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1065",
@@ -2047,7 +2111,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Ultra 60k",
     "description": "Authentic factory-sealed Geekbar Pulse Ultra 60k - Grape Slushy. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-60k.png",
-    "rate": 17.5,
+    "zoho_rate": 17.5,
+    "rate": 22.5,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2066,7 +2131,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1066",
@@ -2078,7 +2143,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Ultra 60k",
     "description": "Authentic factory-sealed Geekbar Pulse Ultra 60k - Rainbow Candy Freeze. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-60k.png",
-    "rate": 17.5,
+    "zoho_rate": 17.5,
+    "rate": 22.5,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2097,7 +2163,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1067",
@@ -2109,7 +2175,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Ultra 60k",
     "description": "Authentic factory-sealed Geekbar Pulse Ultra 60k - Black Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-60k.png",
-    "rate": 17.5,
+    "zoho_rate": 17.5,
+    "rate": 22.5,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2128,7 +2195,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1068",
@@ -2140,7 +2207,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Digiflavor Sky 25K",
     "description": "Authentic factory-sealed Geekbar Digiflavor Sky 25K - Sour Watermelon Blue Razz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.25,
+    "zoho_rate": 14.25,
+    "rate": 19.25,
     "retail_msrp": 27.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2159,7 +2227,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1069",
@@ -2171,7 +2239,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Digiflavor Sky 25K",
     "description": "Authentic factory-sealed Geekbar Digiflavor Sky 25K - Strawberry Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.25,
+    "zoho_rate": 14.25,
+    "rate": 19.25,
     "retail_msrp": 27.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2190,7 +2259,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1070",
@@ -2202,7 +2271,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Digiflavor Sky 25K",
     "description": "Authentic factory-sealed Geekbar Digiflavor Sky 25K - Miami Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.25,
+    "zoho_rate": 14.25,
+    "rate": 19.25,
     "retail_msrp": 27.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2221,7 +2291,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1071",
@@ -2233,7 +2303,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Digiflavor Sky 25K",
     "description": "Authentic factory-sealed Geekbar Digiflavor Sky 25K - Peach Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.25,
+    "zoho_rate": 14.25,
+    "rate": 19.25,
     "retail_msrp": 27.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2252,7 +2323,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1072",
@@ -2264,7 +2335,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Digiflavor Sky 25K",
     "description": "Authentic factory-sealed Geekbar Digiflavor Sky 25K - Triple Berry Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.25,
+    "zoho_rate": 14.25,
+    "rate": 19.25,
     "retail_msrp": 27.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2283,7 +2355,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1073",
@@ -2295,7 +2367,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Digiflavor Sky 25K",
     "description": "Authentic factory-sealed Geekbar Digiflavor Sky 25K - Cherry Lemon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.25,
+    "zoho_rate": 14.25,
+    "rate": 19.25,
     "retail_msrp": 27.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2314,7 +2387,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1074",
@@ -2326,7 +2399,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Digiflavor Sky 25K",
     "description": "Authentic factory-sealed Geekbar Digiflavor Sky 25K - Blueberry Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.25,
+    "zoho_rate": 14.25,
+    "rate": 19.25,
     "retail_msrp": 27.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2345,7 +2419,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1075",
@@ -2357,7 +2431,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Digiflavor Sky 25K",
     "description": "Authentic factory-sealed Geekbar Digiflavor Sky 25K - Pineapple Coconut Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.25,
+    "zoho_rate": 14.25,
+    "rate": 19.25,
     "retail_msrp": 27.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2376,7 +2451,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1076",
@@ -2388,7 +2463,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Digiflavor Sky 25K",
     "description": "Authentic factory-sealed Geekbar Digiflavor Sky 25K - Cool Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.25,
+    "zoho_rate": 14.25,
+    "rate": 19.25,
     "retail_msrp": 27.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2407,7 +2483,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1077",
@@ -2419,7 +2495,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Digiflavor Sky 25K",
     "description": "Authentic factory-sealed Geekbar Digiflavor Sky 25K - Watermelon Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.25,
+    "zoho_rate": 14.25,
+    "rate": 19.25,
     "retail_msrp": 27.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2438,7 +2515,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1078",
@@ -2450,7 +2527,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Digiflavor Sky 25K",
     "description": "Authentic factory-sealed Geekbar Digiflavor Sky 25K - Blackberry Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.25,
+    "zoho_rate": 14.25,
+    "rate": 19.25,
     "retail_msrp": 27.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2469,7 +2547,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1079",
@@ -2481,7 +2559,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Digiflavor Sky 25K",
     "description": "Authentic factory-sealed Geekbar Digiflavor Sky 25K - Green Apple Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.25,
+    "zoho_rate": 14.25,
+    "rate": 19.25,
     "retail_msrp": 27.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2500,7 +2579,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1080",
@@ -2512,7 +2591,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Digiflavor Sky 25K",
     "description": "Authentic factory-sealed Geekbar Digiflavor Sky 25K - Mango Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.25,
+    "zoho_rate": 14.25,
+    "rate": 19.25,
     "retail_msrp": 27.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2531,7 +2611,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1081",
@@ -2543,7 +2623,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Digiflavor Sky 25K",
     "description": "Authentic factory-sealed Geekbar Digiflavor Sky 25K - Juicy Peach. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.25,
+    "zoho_rate": 14.25,
+    "rate": 19.25,
     "retail_msrp": 27.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2562,7 +2643,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1082",
@@ -2574,7 +2655,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Digiflavor Sky 25K",
     "description": "Authentic factory-sealed Geekbar Digiflavor Sky 25K - Grape Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 14.25,
+    "zoho_rate": 14.25,
+    "rate": 19.25,
     "retail_msrp": 27.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2593,7 +2675,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1083",
@@ -2605,7 +2687,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Meloso Max 9000",
     "description": "Authentic factory-sealed Geekbar Meloso Max 9000 - Stone Freeze. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2624,7 +2707,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1084",
@@ -2636,7 +2719,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Meloso Max 9000",
     "description": "Authentic factory-sealed Geekbar Meloso Max 9000 - Tropical Fruit. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2655,7 +2739,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1085",
@@ -2667,7 +2751,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Meloso Max 9000",
     "description": "Authentic factory-sealed Geekbar Meloso Max 9000 - Watermelon Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2686,7 +2771,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1086",
@@ -2698,7 +2783,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Meloso Max 9000",
     "description": "Authentic factory-sealed Geekbar Meloso Max 9000 - Strawberry Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2717,7 +2803,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1087",
@@ -2729,7 +2815,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Meloso Max 9000",
     "description": "Authentic factory-sealed Geekbar Meloso Max 9000 - Peach Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2748,7 +2835,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1088",
@@ -2760,7 +2847,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Meloso Max 9000",
     "description": "Authentic factory-sealed Geekbar Meloso Max 9000 - Cool Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2779,7 +2867,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1089",
@@ -2791,7 +2879,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Meloso Max 9000",
     "description": "Authentic factory-sealed Geekbar Meloso Max 9000 - Clear Emerald. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2810,7 +2899,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1090",
@@ -2822,7 +2911,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Meloso Max 9000",
     "description": "Authentic factory-sealed Geekbar Meloso Max 9000 - Sour Apple Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2841,7 +2931,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1091",
@@ -2853,7 +2943,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Meloso Max 9000",
     "description": "Authentic factory-sealed Geekbar Meloso Max 9000 - Fuji Melon Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2872,7 +2963,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1092",
@@ -2884,7 +2975,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Meloso Max 9000",
     "description": "Authentic factory-sealed Geekbar Meloso Max 9000 - Strawberry Mango. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2903,7 +2995,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.106Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1093",
@@ -2915,7 +3007,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Meloso Max 9000",
     "description": "Authentic factory-sealed Geekbar Meloso Max 9000 - Mexico Mango. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2934,7 +3027,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1094",
@@ -2946,7 +3039,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Meloso Max 9000",
     "description": "Authentic factory-sealed Geekbar Meloso Max 9000 - Ginger Ale. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2965,7 +3059,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.617Z"
   },
   {
     "id": "ZOHO-ITM-1095",
@@ -2977,7 +3071,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Meloso Max 9000",
     "description": "Authentic factory-sealed Geekbar Meloso Max 9000 - Blue Razz Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -2996,7 +3091,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1096",
@@ -3008,7 +3103,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Meloso Max 9000",
     "description": "Authentic factory-sealed Geekbar Meloso Max 9000 - Green Monster. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3027,7 +3123,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1097",
@@ -3039,7 +3135,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Meloso Max 9000",
     "description": "Authentic factory-sealed Geekbar Meloso Max 9000 - Apple Peach. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3058,7 +3155,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1098",
@@ -3070,7 +3167,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Starter Kit & Prefilled Replacement Pods",
     "description": "Authentic factory-sealed Geekbar Pulse Starter Kit & Prefilled Replacement Pods - Pulse Base Battery Device (Black). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-pod.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3089,7 +3187,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1099",
@@ -3101,7 +3199,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Starter Kit & Prefilled Replacement Pods",
     "description": "Authentic factory-sealed Geekbar Pulse Starter Kit & Prefilled Replacement Pods - Pulse Base Battery Device (Silver). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-pod.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3120,7 +3219,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1100",
@@ -3132,7 +3231,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Starter Kit & Prefilled Replacement Pods",
     "description": "Authentic factory-sealed Geekbar Pulse Starter Kit & Prefilled Replacement Pods - Pulse Base Battery Device (Blue). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-pod.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3151,7 +3251,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1101",
@@ -3163,7 +3263,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Starter Kit & Prefilled Replacement Pods",
     "description": "Authentic factory-sealed Geekbar Pulse Starter Kit & Prefilled Replacement Pods - Pulse Base Battery Device (Gold). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-pod.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3182,7 +3283,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1102",
@@ -3194,7 +3295,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Starter Kit & Prefilled Replacement Pods",
     "description": "Authentic factory-sealed Geekbar Pulse Starter Kit & Prefilled Replacement Pods - Replacement Pod 2pk - Miami Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-pod.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3213,7 +3315,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1103",
@@ -3225,7 +3327,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Starter Kit & Prefilled Replacement Pods",
     "description": "Authentic factory-sealed Geekbar Pulse Starter Kit & Prefilled Replacement Pods - Replacement Pod 2pk - Blue Razz Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-pod.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3244,7 +3347,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1104",
@@ -3256,7 +3359,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Starter Kit & Prefilled Replacement Pods",
     "description": "Authentic factory-sealed Geekbar Pulse Starter Kit & Prefilled Replacement Pods - Replacement Pod 2pk - Watermelon Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-pod.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3275,7 +3379,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1105",
@@ -3287,7 +3391,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Starter Kit & Prefilled Replacement Pods",
     "description": "Authentic factory-sealed Geekbar Pulse Starter Kit & Prefilled Replacement Pods - Replacement Pod 2pk - Sour Apple. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-pod.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3306,7 +3411,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1106",
@@ -3318,7 +3423,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Starter Kit & Prefilled Replacement Pods",
     "description": "Authentic factory-sealed Geekbar Pulse Starter Kit & Prefilled Replacement Pods - Replacement Pod 2pk - Strawberry Banana. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-pod.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3337,7 +3443,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1107",
@@ -3349,7 +3455,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Starter Kit & Prefilled Replacement Pods",
     "description": "Authentic factory-sealed Geekbar Pulse Starter Kit & Prefilled Replacement Pods - Replacement Pod 2pk - Fucking Fab. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-pod.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3368,7 +3475,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1108",
@@ -3380,7 +3487,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Starter Kit & Prefilled Replacement Pods",
     "description": "Authentic factory-sealed Geekbar Pulse Starter Kit & Prefilled Replacement Pods - Replacement Pod 2pk - White Gummy Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-pod.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3399,7 +3507,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1109",
@@ -3411,7 +3519,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Starter Kit & Prefilled Replacement Pods",
     "description": "Authentic factory-sealed Geekbar Pulse Starter Kit & Prefilled Replacement Pods - Replacement Pod 2pk - Blow Pop. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-pod.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3430,7 +3539,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1110",
@@ -3442,7 +3551,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Starter Kit & Prefilled Replacement Pods",
     "description": "Authentic factory-sealed Geekbar Pulse Starter Kit & Prefilled Replacement Pods - Replacement Pod 2pk - Juicy Peach Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-pod.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3461,7 +3571,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1111",
@@ -3473,7 +3583,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Starter Kit & Prefilled Replacement Pods",
     "description": "Authentic factory-sealed Geekbar Pulse Starter Kit & Prefilled Replacement Pods - Replacement Pod 2pk - Dragon Melon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-pod.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3492,7 +3603,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1112",
@@ -3504,7 +3615,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Pulse Starter Kit & Prefilled Replacement Pods",
     "description": "Authentic factory-sealed Geekbar Pulse Starter Kit & Prefilled Replacement Pods - Replacement Pod 2pk - Cool Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-pod.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3523,7 +3635,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "foger-30k",
@@ -3535,7 +3647,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro 30K",
     "description": "Authentic factory-sealed Foger Switch Pro 30K - Sour Apple Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3555,7 +3668,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1114",
@@ -3567,7 +3680,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro 30K",
     "description": "Authentic factory-sealed Foger Switch Pro 30K - Blue Razz Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3587,7 +3701,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1115",
@@ -3599,7 +3713,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro 30K",
     "description": "Authentic factory-sealed Foger Switch Pro 30K - Strawberry Kiwi. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3619,7 +3734,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1116",
@@ -3631,7 +3746,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro 30K",
     "description": "Authentic factory-sealed Foger Switch Pro 30K - Watermelon Bubblegum. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3651,7 +3767,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1117",
@@ -3663,7 +3779,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro 30K",
     "description": "Authentic factory-sealed Foger Switch Pro 30K - Miami Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3683,7 +3800,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1118",
@@ -3695,7 +3812,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro 30K",
     "description": "Authentic factory-sealed Foger Switch Pro 30K - Cool Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3715,7 +3833,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1119",
@@ -3727,7 +3845,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro 30K",
     "description": "Authentic factory-sealed Foger Switch Pro 30K - Peach Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3747,7 +3866,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1120",
@@ -3759,7 +3878,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro 30K",
     "description": "Authentic factory-sealed Foger Switch Pro 30K - Pineapple Coconut. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3779,7 +3899,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1121",
@@ -3791,7 +3911,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro 30K",
     "description": "Authentic factory-sealed Foger Switch Pro 30K - Gummy Bear. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3811,7 +3932,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1122",
@@ -3823,7 +3944,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro 30K",
     "description": "Authentic factory-sealed Foger Switch Pro 30K - Strawberry Banana. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3843,7 +3965,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1123",
@@ -3855,7 +3977,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro 30K",
     "description": "Authentic factory-sealed Foger Switch Pro 30K - Cherry Lemon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3875,7 +3998,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1124",
@@ -3887,7 +4010,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro 30K",
     "description": "Authentic factory-sealed Foger Switch Pro 30K - Grape Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3907,7 +4031,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1125",
@@ -3919,7 +4043,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro 30K",
     "description": "Authentic factory-sealed Foger Switch Pro 30K - Coffee. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3939,7 +4064,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1126",
@@ -3951,7 +4076,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro 30K",
     "description": "Authentic factory-sealed Foger Switch Pro 30K - Tobacco. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -3971,7 +4097,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1127",
@@ -3983,7 +4109,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro 30K",
     "description": "Authentic factory-sealed Foger Switch Pro 30K - Clear. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4003,7 +4130,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1128",
@@ -4015,7 +4142,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro 30K",
     "description": "Authentic factory-sealed Foger Switch Pro 30K - Mexican Mango. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4035,7 +4163,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1129",
@@ -4047,7 +4175,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro 30K",
     "description": "Authentic factory-sealed Foger Switch Pro 30K - Blueberry Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4067,7 +4196,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1130",
@@ -4079,7 +4208,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro 30K",
     "description": "Authentic factory-sealed Foger Switch Pro 30K - Raspberry Lemonade. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4099,7 +4229,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1131",
@@ -4111,7 +4241,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro 30K",
     "description": "Authentic factory-sealed Foger Switch Pro 30K - White Gummy. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4131,7 +4262,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1132",
@@ -4143,7 +4274,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro 30K",
     "description": "Authentic factory-sealed Foger Switch Pro 30K - Melon Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4163,7 +4295,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1133",
@@ -4175,7 +4307,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro 30K",
     "description": "Authentic factory-sealed Foger Switch Pro 30K - Dragon Fruit. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4195,7 +4328,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1134",
@@ -4207,7 +4340,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro 30K",
     "description": "Authentic factory-sealed Foger Switch Pro 30K - Kiwi Passion Fruit. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4227,7 +4361,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1135",
@@ -4239,7 +4373,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro 30K",
     "description": "Authentic factory-sealed Foger Switch Pro 30K - Pink Burst. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4259,7 +4394,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1136",
@@ -4271,7 +4406,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro 30K",
     "description": "Authentic factory-sealed Foger Switch Pro 30K - Tropical Punch. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4291,7 +4427,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1137",
@@ -4303,7 +4439,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro 30K",
     "description": "Authentic factory-sealed Foger Switch Pro 30K - Juicy Peach. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4323,7 +4460,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1138",
@@ -4335,7 +4472,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro Replacement Pods",
     "description": "Authentic factory-sealed Foger Switch Pro Replacement Pods - Switch Pro Pod - Sour Apple Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 9.25,
+    "zoho_rate": 9.25,
+    "rate": 11.25,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4354,7 +4492,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1139",
@@ -4366,7 +4504,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro Replacement Pods",
     "description": "Authentic factory-sealed Foger Switch Pro Replacement Pods - Switch Pro Pod - Blue Razz Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 9.25,
+    "zoho_rate": 9.25,
+    "rate": 11.25,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4385,7 +4524,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1140",
@@ -4397,7 +4536,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro Replacement Pods",
     "description": "Authentic factory-sealed Foger Switch Pro Replacement Pods - Switch Pro Pod - Miami Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 9.25,
+    "zoho_rate": 9.25,
+    "rate": 11.25,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4416,7 +4556,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1141",
@@ -4428,7 +4568,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro Replacement Pods",
     "description": "Authentic factory-sealed Foger Switch Pro Replacement Pods - Switch Pro Pod - Watermelon Bubblegum. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 9.25,
+    "zoho_rate": 9.25,
+    "rate": 11.25,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4447,7 +4588,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1142",
@@ -4459,7 +4600,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro Replacement Pods",
     "description": "Authentic factory-sealed Foger Switch Pro Replacement Pods - Switch Pro Pod - Cool Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 9.25,
+    "zoho_rate": 9.25,
+    "rate": 11.25,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4478,7 +4620,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1143",
@@ -4490,7 +4632,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro Replacement Pods",
     "description": "Authentic factory-sealed Foger Switch Pro Replacement Pods - Switch Pro Pod - Strawberry Kiwi. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 9.25,
+    "zoho_rate": 9.25,
+    "rate": 11.25,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4509,7 +4652,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1144",
@@ -4521,7 +4664,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro Replacement Pods",
     "description": "Authentic factory-sealed Foger Switch Pro Replacement Pods - Switch Pro Pod - Peach Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 9.25,
+    "zoho_rate": 9.25,
+    "rate": 11.25,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4540,7 +4684,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1145",
@@ -4552,7 +4696,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro Replacement Pods",
     "description": "Authentic factory-sealed Foger Switch Pro Replacement Pods - Switch Pro Pod - Pineapple Coconut. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 9.25,
+    "zoho_rate": 9.25,
+    "rate": 11.25,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4571,7 +4716,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1146",
@@ -4583,7 +4728,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro Replacement Pods",
     "description": "Authentic factory-sealed Foger Switch Pro Replacement Pods - Switch Pro Pod - Gummy Bear. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 9.25,
+    "zoho_rate": 9.25,
+    "rate": 11.25,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4602,7 +4748,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1147",
@@ -4614,7 +4760,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro Replacement Pods",
     "description": "Authentic factory-sealed Foger Switch Pro Replacement Pods - Switch Pro Pod - Grape Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 9.25,
+    "zoho_rate": 9.25,
+    "rate": 11.25,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4633,7 +4780,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1148",
@@ -4645,7 +4792,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro Replacement Pods",
     "description": "Authentic factory-sealed Foger Switch Pro Replacement Pods - Switch Pro Pod - Strawberry Banana. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 9.25,
+    "zoho_rate": 9.25,
+    "rate": 11.25,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4664,7 +4812,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1149",
@@ -4676,7 +4824,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro Replacement Pods",
     "description": "Authentic factory-sealed Foger Switch Pro Replacement Pods - Switch Pro Pod - Mexican Mango. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 9.25,
+    "zoho_rate": 9.25,
+    "rate": 11.25,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4695,7 +4844,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1150",
@@ -4707,7 +4856,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro Replacement Pods",
     "description": "Authentic factory-sealed Foger Switch Pro Replacement Pods - Switch Pro Pod - Clear. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 9.25,
+    "zoho_rate": 9.25,
+    "rate": 11.25,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4726,7 +4876,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1151",
@@ -4738,7 +4888,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro Replacement Pods",
     "description": "Authentic factory-sealed Foger Switch Pro Replacement Pods - Switch Pro Pod - Raspberry Lemonade. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 9.25,
+    "zoho_rate": 9.25,
+    "rate": 11.25,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4757,7 +4908,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1152",
@@ -4769,7 +4920,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro Replacement Pods",
     "description": "Authentic factory-sealed Foger Switch Pro Replacement Pods - Switch Pro Pod - White Gummy. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 9.25,
+    "zoho_rate": 9.25,
+    "rate": 11.25,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4788,7 +4940,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.618Z"
   },
   {
     "id": "ZOHO-ITM-1153",
@@ -4800,7 +4952,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro Replacement Pods",
     "description": "Authentic factory-sealed Foger Switch Pro Replacement Pods - Switch Pro Pod - Melon Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 9.25,
+    "zoho_rate": 9.25,
+    "rate": 11.25,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4819,7 +4972,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1154",
@@ -4831,7 +4984,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro Replacement Pods",
     "description": "Authentic factory-sealed Foger Switch Pro Replacement Pods - Switch Pro Pod - Dragon Fruit. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 9.25,
+    "zoho_rate": 9.25,
+    "rate": 11.25,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4850,7 +5004,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1155",
@@ -4862,7 +5016,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro Replacement Pods",
     "description": "Authentic factory-sealed Foger Switch Pro Replacement Pods - Switch Pro Pod - Tropical Punch. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 9.25,
+    "zoho_rate": 9.25,
+    "rate": 11.25,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4881,7 +5036,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1156",
@@ -4893,7 +5048,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro Replacement Pods",
     "description": "Authentic factory-sealed Foger Switch Pro Replacement Pods - Switch Pro Pod - Juicy Peach. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 9.25,
+    "zoho_rate": 9.25,
+    "rate": 11.25,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4912,7 +5068,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1157",
@@ -4924,7 +5080,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Switch Pro Replacement Pods",
     "description": "Authentic factory-sealed Foger Switch Pro Replacement Pods - Switch Pro Pod - Cherry Lemon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 9.25,
+    "zoho_rate": 9.25,
+    "rate": 11.25,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4943,7 +5100,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1158",
@@ -4955,7 +5112,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "CT10000 Clear Tank",
     "description": "Authentic factory-sealed Foger CT10000 Clear Tank - Cool Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 11.25,
+    "zoho_rate": 11.25,
+    "rate": 16.25,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -4974,7 +5132,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1159",
@@ -4986,7 +5144,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "CT10000 Clear Tank",
     "description": "Authentic factory-sealed Foger CT10000 Clear Tank - Blue Razz Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 11.25,
+    "zoho_rate": 11.25,
+    "rate": 16.25,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5005,7 +5164,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1160",
@@ -5017,7 +5176,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "CT10000 Clear Tank",
     "description": "Authentic factory-sealed Foger CT10000 Clear Tank - Watermelon Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 11.25,
+    "zoho_rate": 11.25,
+    "rate": 16.25,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5036,7 +5196,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1161",
@@ -5048,7 +5208,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "CT10000 Clear Tank",
     "description": "Authentic factory-sealed Foger CT10000 Clear Tank - Strawberry Kiwi. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 11.25,
+    "zoho_rate": 11.25,
+    "rate": 16.25,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5067,7 +5228,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1162",
@@ -5079,7 +5240,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "CT10000 Clear Tank",
     "description": "Authentic factory-sealed Foger CT10000 Clear Tank - Sour Apple. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 11.25,
+    "zoho_rate": 11.25,
+    "rate": 16.25,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5098,7 +5260,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1163",
@@ -5110,7 +5272,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "CT10000 Clear Tank",
     "description": "Authentic factory-sealed Foger CT10000 Clear Tank - Peach Mango Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 11.25,
+    "zoho_rate": 11.25,
+    "rate": 16.25,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5129,7 +5292,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1164",
@@ -5141,7 +5304,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "CT10000 Clear Tank",
     "description": "Authentic factory-sealed Foger CT10000 Clear Tank - Kiwi Passionfruit Guava. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 11.25,
+    "zoho_rate": 11.25,
+    "rate": 16.25,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5160,7 +5324,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1165",
@@ -5172,7 +5336,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "CT10000 Clear Tank",
     "description": "Authentic factory-sealed Foger CT10000 Clear Tank - Strawberry Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 11.25,
+    "zoho_rate": 11.25,
+    "rate": 16.25,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5191,7 +5356,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1166",
@@ -5203,7 +5368,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "CT10000 Clear Tank",
     "description": "Authentic factory-sealed Foger CT10000 Clear Tank - Miami Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 11.25,
+    "zoho_rate": 11.25,
+    "rate": 16.25,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5222,7 +5388,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1167",
@@ -5234,7 +5400,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "CT10000 Clear Tank",
     "description": "Authentic factory-sealed Foger CT10000 Clear Tank - Clear. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 11.25,
+    "zoho_rate": 11.25,
+    "rate": 16.25,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5253,7 +5420,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1168",
@@ -5265,7 +5432,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Ultra 6000",
     "description": "Authentic factory-sealed Foger Ultra 6000 - Mint Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 8.75,
+    "zoho_rate": 8.75,
+    "rate": 10.75,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5284,7 +5452,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1169",
@@ -5296,7 +5464,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Ultra 6000",
     "description": "Authentic factory-sealed Foger Ultra 6000 - Blue Razz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 8.75,
+    "zoho_rate": 8.75,
+    "rate": 10.75,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5315,7 +5484,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1170",
@@ -5327,7 +5496,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Ultra 6000",
     "description": "Authentic factory-sealed Foger Ultra 6000 - Watermelon Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 8.75,
+    "zoho_rate": 8.75,
+    "rate": 10.75,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5346,7 +5516,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1171",
@@ -5358,7 +5528,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Ultra 6000",
     "description": "Authentic factory-sealed Foger Ultra 6000 - Gummy Bear. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 8.75,
+    "zoho_rate": 8.75,
+    "rate": 10.75,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5377,7 +5548,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1172",
@@ -5389,7 +5560,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Ultra 6000",
     "description": "Authentic factory-sealed Foger Ultra 6000 - Snow Cone Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 8.75,
+    "zoho_rate": 8.75,
+    "rate": 10.75,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5408,7 +5580,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1173",
@@ -5420,7 +5592,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Ultra 6000",
     "description": "Authentic factory-sealed Foger Ultra 6000 - Strawberry Ice Cream. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 8.75,
+    "zoho_rate": 8.75,
+    "rate": 10.75,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5439,7 +5612,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1174",
@@ -5451,7 +5624,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Ultra 6000",
     "description": "Authentic factory-sealed Foger Ultra 6000 - Pineapple Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 8.75,
+    "zoho_rate": 8.75,
+    "rate": 10.75,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5470,7 +5644,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1175",
@@ -5482,7 +5656,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Ultra 6000",
     "description": "Authentic factory-sealed Foger Ultra 6000 - Peach Mango. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 8.75,
+    "zoho_rate": 8.75,
+    "rate": 10.75,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5501,7 +5676,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1176",
@@ -5513,7 +5688,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Ultra 6000",
     "description": "Authentic factory-sealed Foger Ultra 6000 - Kiwi Berry. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 8.75,
+    "zoho_rate": 8.75,
+    "rate": 10.75,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5532,7 +5708,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1177",
@@ -5544,7 +5720,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Ultra 6000",
     "description": "Authentic factory-sealed Foger Ultra 6000 - Blood Orange. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/foger-30k.jpg",
-    "rate": 8.75,
+    "zoho_rate": 8.75,
+    "rate": 10.75,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5563,7 +5740,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "raz-25k",
@@ -5575,7 +5752,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "DC25000",
     "description": "Authentic factory-sealed Raz DC25000 - Night Crawler. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5594,7 +5772,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1179",
@@ -5606,7 +5784,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "DC25000",
     "description": "Authentic factory-sealed Raz DC25000 - Tiffany. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5625,7 +5804,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1180",
@@ -5637,7 +5816,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "DC25000",
     "description": "Authentic factory-sealed Raz DC25000 - Graham Twist. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5656,7 +5836,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1181",
@@ -5668,7 +5848,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "DC25000",
     "description": "Authentic factory-sealed Raz DC25000 - Miami Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5687,7 +5868,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1182",
@@ -5699,7 +5880,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "DC25000",
     "description": "Authentic factory-sealed Raz DC25000 - Georgia Peach. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5718,7 +5900,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1183",
@@ -5730,7 +5912,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "DC25000",
     "description": "Authentic factory-sealed Raz DC25000 - Wintergreen. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5749,7 +5932,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1184",
@@ -5761,7 +5944,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "DC25000",
     "description": "Authentic factory-sealed Raz DC25000 - Blue Raz Cotton Clouds. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5780,7 +5964,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1185",
@@ -5792,7 +5976,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "DC25000",
     "description": "Authentic factory-sealed Raz DC25000 - Sour Apple Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5811,7 +5996,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1186",
@@ -5823,7 +6008,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "DC25000",
     "description": "Authentic factory-sealed Raz DC25000 - Strawberry Orange Tang. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5842,7 +6028,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1187",
@@ -5854,7 +6040,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "DC25000",
     "description": "Authentic factory-sealed Raz DC25000 - Blueberry Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5873,7 +6060,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1188",
@@ -5885,7 +6072,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "DC25000",
     "description": "Authentic factory-sealed Raz DC25000 - Cherry Strapple. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5904,7 +6092,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1189",
@@ -5916,7 +6104,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "DC25000",
     "description": "Authentic factory-sealed Raz DC25000 - Watermelon Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5935,7 +6124,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1190",
@@ -5947,7 +6136,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "DC25000",
     "description": "Authentic factory-sealed Raz DC25000 - Bangin Sour Berries. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5966,7 +6156,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1191",
@@ -5978,7 +6168,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "DC25000",
     "description": "Authentic factory-sealed Raz DC25000 - Raspberry Limeade. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -5997,7 +6188,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1192",
@@ -6009,7 +6200,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "DC25000",
     "description": "Authentic factory-sealed Raz DC25000 - Clear. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6028,7 +6220,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1193",
@@ -6040,7 +6232,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "DC25000",
     "description": "Authentic factory-sealed Raz DC25000 - Key Lime Pie. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6059,7 +6252,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1194",
@@ -6071,7 +6264,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "DC25000",
     "description": "Authentic factory-sealed Raz DC25000 - Orange Daydream. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6090,7 +6284,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1195",
@@ -6102,7 +6296,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "DC25000",
     "description": "Authentic factory-sealed Raz DC25000 - Iced Blue Dragon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6121,7 +6316,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1196",
@@ -6133,7 +6328,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "DC25000",
     "description": "Authentic factory-sealed Raz DC25000 - Strawberry Burst. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6152,7 +6348,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1197",
@@ -6164,7 +6360,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "DC25000",
     "description": "Authentic factory-sealed Raz DC25000 - Black Cherry Peach. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6183,7 +6380,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1198",
@@ -6195,7 +6392,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "DC25000",
     "description": "Authentic factory-sealed Raz DC25000 - Watermelon Bubblegum. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6214,7 +6412,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1199",
@@ -6226,7 +6424,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "DC25000",
     "description": "Authentic factory-sealed Raz DC25000 - Ruby. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6245,7 +6444,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1200",
@@ -6257,7 +6456,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "DC25000",
     "description": "Authentic factory-sealed Raz DC25000 - Vicky. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6276,7 +6476,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1201",
@@ -6288,7 +6488,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "DC25000",
     "description": "Authentic factory-sealed Raz DC25000 - Tobacco. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6307,7 +6508,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1202",
@@ -6319,7 +6520,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "DC25000",
     "description": "Authentic factory-sealed Raz DC25000 - Polar Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6338,7 +6540,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1203",
@@ -6350,7 +6552,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "TN9000 Dream Edition",
     "description": "Authentic factory-sealed Raz TN9000 Dream Edition - Citronnade. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6369,7 +6572,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1204",
@@ -6381,7 +6584,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "TN9000 Dream Edition",
     "description": "Authentic factory-sealed Raz TN9000 Dream Edition - Cactus Jack. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6400,7 +6604,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1205",
@@ -6412,7 +6616,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "TN9000 Dream Edition",
     "description": "Authentic factory-sealed Raz TN9000 Dream Edition - Dragon Fruit Lemonade. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6431,7 +6636,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1206",
@@ -6443,7 +6648,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "TN9000 Dream Edition",
     "description": "Authentic factory-sealed Raz TN9000 Dream Edition - Night Crawler. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6462,7 +6668,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1207",
@@ -6474,7 +6680,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "TN9000 Dream Edition",
     "description": "Authentic factory-sealed Raz TN9000 Dream Edition - Polar Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6493,7 +6700,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1208",
@@ -6505,7 +6712,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "TN9000 Dream Edition",
     "description": "Authentic factory-sealed Raz TN9000 Dream Edition - Graham Twist. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6524,7 +6732,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1209",
@@ -6536,7 +6744,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "TN9000 Dream Edition",
     "description": "Authentic factory-sealed Raz TN9000 Dream Edition - Ruby. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6555,7 +6764,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1210",
@@ -6567,7 +6776,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "TN9000 Dream Edition",
     "description": "Authentic factory-sealed Raz TN9000 Dream Edition - Tiffany. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6586,7 +6796,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1211",
@@ -6598,7 +6808,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "TN9000 Dream Edition",
     "description": "Authentic factory-sealed Raz TN9000 Dream Edition - Vicky. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6617,7 +6828,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1212",
@@ -6629,7 +6840,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "TN9000 Dream Edition",
     "description": "Authentic factory-sealed Raz TN9000 Dream Edition - Blue Razz Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6648,7 +6860,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1213",
@@ -6660,7 +6872,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "TN9000 Dream Edition",
     "description": "Authentic factory-sealed Raz TN9000 Dream Edition - Strawberry Shortcake. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6679,7 +6892,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1214",
@@ -6691,7 +6904,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "TN9000 Dream Edition",
     "description": "Authentic factory-sealed Raz TN9000 Dream Edition - Cherry Lemon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6710,7 +6924,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1215",
@@ -6722,7 +6936,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "TN9000 Dream Edition",
     "description": "Authentic factory-sealed Raz TN9000 Dream Edition - Watermelon Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6741,7 +6956,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1216",
@@ -6753,7 +6968,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "TN9000 Dream Edition",
     "description": "Authentic factory-sealed Raz TN9000 Dream Edition - Miami Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6772,7 +6988,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1217",
@@ -6784,7 +7000,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "TN9000 Dream Edition",
     "description": "Authentic factory-sealed Raz TN9000 Dream Edition - Peach Grapefruit. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6803,7 +7020,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1218",
@@ -6815,7 +7032,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "TN9000 Dream Edition",
     "description": "Authentic factory-sealed Raz TN9000 Dream Edition - Clear. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6834,7 +7052,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1219",
@@ -6846,7 +7064,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "TN9000 Dream Edition",
     "description": "Authentic factory-sealed Raz TN9000 Dream Edition - Apple Cinnamon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6865,7 +7084,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1220",
@@ -6877,7 +7096,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "TN9000 Dream Edition",
     "description": "Authentic factory-sealed Raz TN9000 Dream Edition - Pumpkin Pie Frosting. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6896,7 +7116,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1221",
@@ -6908,7 +7128,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "TN9000 Dream Edition",
     "description": "Authentic factory-sealed Raz TN9000 Dream Edition - Banana Coconut. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6927,7 +7148,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1222",
@@ -6939,7 +7160,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "TN9000 Dream Edition",
     "description": "Authentic factory-sealed Raz TN9000 Dream Edition - Mango Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6958,7 +7180,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1223",
@@ -6970,7 +7192,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "TN9000 Dream Edition",
     "description": "Authentic factory-sealed Raz TN9000 Dream Edition - Triple Berry. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -6989,7 +7212,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1224",
@@ -7001,7 +7224,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "TN9000 Dream Edition",
     "description": "Authentic factory-sealed Raz TN9000 Dream Edition - White Gummy Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7020,7 +7244,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1225",
@@ -7032,7 +7256,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "TN9000 Dream Edition",
     "description": "Authentic factory-sealed Raz TN9000 Dream Edition - Tobacco. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7051,7 +7276,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1226",
@@ -7063,7 +7288,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "TN9000 Dream Edition",
     "description": "Authentic factory-sealed Raz TN9000 Dream Edition - Blueberry Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7082,7 +7308,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1227",
@@ -7094,7 +7320,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "TN9000 Dream Edition",
     "description": "Authentic factory-sealed Raz TN9000 Dream Edition - Georgia Peach. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7113,7 +7340,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1228",
@@ -7125,7 +7352,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "LTX 25K Heavy Duty",
     "description": "Authentic factory-sealed Raz LTX 25K Heavy Duty - Miami Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 15,
+    "zoho_rate": 15,
+    "rate": 20,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7144,7 +7372,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1229",
@@ -7156,7 +7384,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "LTX 25K Heavy Duty",
     "description": "Authentic factory-sealed Raz LTX 25K Heavy Duty - Night Crawler Extreme. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 15,
+    "zoho_rate": 15,
+    "rate": 20,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7175,7 +7404,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1230",
@@ -7187,7 +7416,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "LTX 25K Heavy Duty",
     "description": "Authentic factory-sealed Raz LTX 25K Heavy Duty - Tiffany Cold. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 15,
+    "zoho_rate": 15,
+    "rate": 20,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7206,7 +7436,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1231",
@@ -7218,7 +7448,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "LTX 25K Heavy Duty",
     "description": "Authentic factory-sealed Raz LTX 25K Heavy Duty - Polar Ice Freeze. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 15,
+    "zoho_rate": 15,
+    "rate": 20,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7237,7 +7468,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1232",
@@ -7249,7 +7480,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "LTX 25K Heavy Duty",
     "description": "Authentic factory-sealed Raz LTX 25K Heavy Duty - Georgia Peach Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 15,
+    "zoho_rate": 15,
+    "rate": 20,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7268,7 +7500,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1233",
@@ -7280,7 +7512,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "LTX 25K Heavy Duty",
     "description": "Authentic factory-sealed Raz LTX 25K Heavy Duty - Sour Apple Blast. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 15,
+    "zoho_rate": 15,
+    "rate": 20,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7299,7 +7532,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1234",
@@ -7311,7 +7544,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "LTX 25K Heavy Duty",
     "description": "Authentic factory-sealed Raz LTX 25K Heavy Duty - Blue Razz Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 15,
+    "zoho_rate": 15,
+    "rate": 20,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7330,7 +7564,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1235",
@@ -7342,7 +7576,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "LTX 25K Heavy Duty",
     "description": "Authentic factory-sealed Raz LTX 25K Heavy Duty - Watermelon Candy. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 15,
+    "zoho_rate": 15,
+    "rate": 20,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7361,7 +7596,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1236",
@@ -7373,7 +7608,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "LTX 25K Heavy Duty",
     "description": "Authentic factory-sealed Raz LTX 25K Heavy Duty - Strawberry Banana. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 15,
+    "zoho_rate": 15,
+    "rate": 20,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7392,7 +7628,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1237",
@@ -7404,7 +7640,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "LTX 25K Heavy Duty",
     "description": "Authentic factory-sealed Raz LTX 25K Heavy Duty - Cherry Bomb. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 15,
+    "zoho_rate": 15,
+    "rate": 20,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7423,7 +7660,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1238",
@@ -7435,7 +7672,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "LTX 25K Heavy Duty",
     "description": "Authentic factory-sealed Raz LTX 25K Heavy Duty - Clear Arctic. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 15,
+    "zoho_rate": 15,
+    "rate": 20,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7454,7 +7692,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1239",
@@ -7466,7 +7704,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "LTX 25K Heavy Duty",
     "description": "Authentic factory-sealed Raz LTX 25K Heavy Duty - Dragon Fruit Punch. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 15,
+    "zoho_rate": 15,
+    "rate": 20,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7485,7 +7724,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1240",
@@ -7497,7 +7736,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "LTX 25K Heavy Duty",
     "description": "Authentic factory-sealed Raz LTX 25K Heavy Duty - Grape Slush. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 15,
+    "zoho_rate": 15,
+    "rate": 20,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7516,7 +7756,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1241",
@@ -7528,7 +7768,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "LTX 25K Heavy Duty",
     "description": "Authentic factory-sealed Raz LTX 25K Heavy Duty - Citrus Tang. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 15,
+    "zoho_rate": 15,
+    "rate": 20,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7547,7 +7788,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1242",
@@ -7559,7 +7800,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "LTX 25K Heavy Duty",
     "description": "Authentic factory-sealed Raz LTX 25K Heavy Duty - Wintergreen Frost. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-25k.png",
-    "rate": 15,
+    "zoho_rate": 15,
+    "rate": 20,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7578,7 +7820,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1243",
@@ -7590,7 +7832,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vue 50K Modular Pod Kit & Replacement Pods",
     "description": "Authentic factory-sealed Raz Vue 50K Modular Pod Kit & Replacement Pods - Vue Battery Chasis (Midnight Onyx). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-pod.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7609,7 +7852,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1244",
@@ -7621,7 +7864,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vue 50K Modular Pod Kit & Replacement Pods",
     "description": "Authentic factory-sealed Raz Vue 50K Modular Pod Kit & Replacement Pods - Vue Battery Chasis (Cyber Gunmetal). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-pod.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7640,7 +7884,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1245",
@@ -7652,7 +7896,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vue 50K Modular Pod Kit & Replacement Pods",
     "description": "Authentic factory-sealed Raz Vue 50K Modular Pod Kit & Replacement Pods - Vue Pod 2pk - Miami Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-pod.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7671,7 +7916,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1246",
@@ -7683,7 +7928,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vue 50K Modular Pod Kit & Replacement Pods",
     "description": "Authentic factory-sealed Raz Vue 50K Modular Pod Kit & Replacement Pods - Vue Pod 2pk - Night Crawler. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-pod.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7702,7 +7948,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1247",
@@ -7714,7 +7960,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vue 50K Modular Pod Kit & Replacement Pods",
     "description": "Authentic factory-sealed Raz Vue 50K Modular Pod Kit & Replacement Pods - Vue Pod 2pk - Blue Razz Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-pod.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7733,7 +7980,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1248",
@@ -7745,7 +7992,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vue 50K Modular Pod Kit & Replacement Pods",
     "description": "Authentic factory-sealed Raz Vue 50K Modular Pod Kit & Replacement Pods - Vue Pod 2pk - Watermelon Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-pod.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7764,7 +8012,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1249",
@@ -7776,7 +8024,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vue 50K Modular Pod Kit & Replacement Pods",
     "description": "Authentic factory-sealed Raz Vue 50K Modular Pod Kit & Replacement Pods - Vue Pod 2pk - Graham Twist. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-pod.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7795,7 +8044,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1250",
@@ -7807,7 +8056,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vue 50K Modular Pod Kit & Replacement Pods",
     "description": "Authentic factory-sealed Raz Vue 50K Modular Pod Kit & Replacement Pods - Vue Pod 2pk - Tiffany. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-pod.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7826,7 +8076,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1251",
@@ -7838,7 +8088,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vue 50K Modular Pod Kit & Replacement Pods",
     "description": "Authentic factory-sealed Raz Vue 50K Modular Pod Kit & Replacement Pods - Vue Pod 2pk - Georgia Peach. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-pod.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7857,7 +8108,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1252",
@@ -7869,7 +8120,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vue 50K Modular Pod Kit & Replacement Pods",
     "description": "Authentic factory-sealed Raz Vue 50K Modular Pod Kit & Replacement Pods - Vue Pod 2pk - Polar Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-pod.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7888,7 +8140,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1253",
@@ -7900,7 +8152,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vue 50K Modular Pod Kit & Replacement Pods",
     "description": "Authentic factory-sealed Raz Vue 50K Modular Pod Kit & Replacement Pods - Vue Pod 2pk - Sour Apple. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-pod.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7919,7 +8172,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1254",
@@ -7931,7 +8184,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vue 50K Modular Pod Kit & Replacement Pods",
     "description": "Authentic factory-sealed Raz Vue 50K Modular Pod Kit & Replacement Pods - Vue Pod 2pk - Strawberry Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-pod.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7950,7 +8204,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1255",
@@ -7962,7 +8216,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vue 50K Modular Pod Kit & Replacement Pods",
     "description": "Authentic factory-sealed Raz Vue 50K Modular Pod Kit & Replacement Pods - Vue Pod 2pk - Clear Frost. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-pod.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -7981,7 +8236,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1256",
@@ -7993,7 +8248,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vue 50K Modular Pod Kit & Replacement Pods",
     "description": "Authentic factory-sealed Raz Vue 50K Modular Pod Kit & Replacement Pods - Vue Pod 2pk - Cherry Lemon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raz-pod.png",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8012,7 +8268,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1257",
@@ -8024,7 +8280,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MT15000 Turbo",
     "description": "Authentic factory-sealed Lost Mary MT15000 Turbo - Thermal Edition - Summer Grape. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 12.25,
+    "zoho_rate": 12.25,
+    "rate": 17.25,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8043,7 +8300,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1258",
@@ -8055,7 +8312,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MT15000 Turbo",
     "description": "Authentic factory-sealed Lost Mary MT15000 Turbo - Thermal Edition - Cherry Strazz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 12.25,
+    "zoho_rate": 12.25,
+    "rate": 17.25,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8074,7 +8332,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1259",
@@ -8086,7 +8344,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MT15000 Turbo",
     "description": "Authentic factory-sealed Lost Mary MT15000 Turbo - Thermal Edition - Citrus Sunrise. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 12.25,
+    "zoho_rate": 12.25,
+    "rate": 17.25,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8105,7 +8364,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1260",
@@ -8117,7 +8376,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MT15000 Turbo",
     "description": "Authentic factory-sealed Lost Mary MT15000 Turbo - Thermal Edition - Miami Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 12.25,
+    "zoho_rate": 12.25,
+    "rate": 17.25,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8136,7 +8396,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1261",
@@ -8148,7 +8408,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MT15000 Turbo",
     "description": "Authentic factory-sealed Lost Mary MT15000 Turbo - Thermal Edition - Nana Coconut. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 12.25,
+    "zoho_rate": 12.25,
+    "rate": 17.25,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8167,7 +8428,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1262",
@@ -8179,7 +8440,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MT15000 Turbo",
     "description": "Authentic factory-sealed Lost Mary MT15000 Turbo - Thermal Edition - Strawmelon Peach. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 12.25,
+    "zoho_rate": 12.25,
+    "rate": 17.25,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8198,7 +8460,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1263",
@@ -8210,7 +8472,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MT15000 Turbo",
     "description": "Authentic factory-sealed Lost Mary MT15000 Turbo - Thermal Edition - Watermelon Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 12.25,
+    "zoho_rate": 12.25,
+    "rate": 17.25,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8229,7 +8492,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1264",
@@ -8241,7 +8504,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MT15000 Turbo",
     "description": "Authentic factory-sealed Lost Mary MT15000 Turbo - Thermal Edition - Baja Splash. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 12.25,
+    "zoho_rate": 12.25,
+    "rate": 17.25,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8260,7 +8524,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1265",
@@ -8272,7 +8536,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MT15000 Turbo",
     "description": "Authentic factory-sealed Lost Mary MT15000 Turbo - Blue Razz Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 12.25,
+    "zoho_rate": 12.25,
+    "rate": 17.25,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8291,7 +8556,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1266",
@@ -8303,7 +8568,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MT15000 Turbo",
     "description": "Authentic factory-sealed Lost Mary MT15000 Turbo - Dr. Cherry. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 12.25,
+    "zoho_rate": 12.25,
+    "rate": 17.25,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8322,7 +8588,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1267",
@@ -8334,7 +8600,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MT15000 Turbo",
     "description": "Authentic factory-sealed Lost Mary MT15000 Turbo - Rocket Popsicle. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 12.25,
+    "zoho_rate": 12.25,
+    "rate": 17.25,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8353,7 +8620,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1268",
@@ -8365,7 +8632,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MT15000 Turbo",
     "description": "Authentic factory-sealed Lost Mary MT15000 Turbo - Winter Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 12.25,
+    "zoho_rate": 12.25,
+    "rate": 17.25,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8384,7 +8652,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1269",
@@ -8396,7 +8664,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MT15000 Turbo",
     "description": "Authentic factory-sealed Lost Mary MT15000 Turbo - Strawberry Orange. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 12.25,
+    "zoho_rate": 12.25,
+    "rate": 17.25,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8415,7 +8684,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1270",
@@ -8427,7 +8696,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MT15000 Turbo",
     "description": "Authentic factory-sealed Lost Mary MT15000 Turbo - Berry Burst. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 12.25,
+    "zoho_rate": 12.25,
+    "rate": 17.25,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8446,7 +8716,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1271",
@@ -8458,7 +8728,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MT15000 Turbo",
     "description": "Authentic factory-sealed Lost Mary MT15000 Turbo - Sour Apple Lemon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 12.25,
+    "zoho_rate": 12.25,
+    "rate": 17.25,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8477,7 +8748,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1272",
@@ -8489,7 +8760,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MT15000 Turbo",
     "description": "Authentic factory-sealed Lost Mary MT15000 Turbo - Clear. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 12.25,
+    "zoho_rate": 12.25,
+    "rate": 17.25,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8508,7 +8780,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1273",
@@ -8520,7 +8792,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MT15000 Turbo",
     "description": "Authentic factory-sealed Lost Mary MT15000 Turbo - Banana Cake. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 12.25,
+    "zoho_rate": 12.25,
+    "rate": 17.25,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8539,7 +8812,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1274",
@@ -8551,7 +8824,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MT15000 Turbo",
     "description": "Authentic factory-sealed Lost Mary MT15000 Turbo - Peach Mango Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 12.25,
+    "zoho_rate": 12.25,
+    "rate": 17.25,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8570,7 +8844,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1275",
@@ -8582,7 +8856,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MT15000 Turbo",
     "description": "Authentic factory-sealed Lost Mary MT15000 Turbo - Juicy Peach. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 12.25,
+    "zoho_rate": 12.25,
+    "rate": 17.25,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8601,7 +8876,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1276",
@@ -8613,7 +8888,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MT15000 Turbo",
     "description": "Authentic factory-sealed Lost Mary MT15000 Turbo - Grape Jelly. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 12.25,
+    "zoho_rate": 12.25,
+    "rate": 17.25,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8632,7 +8908,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1277",
@@ -8644,7 +8920,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MT15000 Turbo",
     "description": "Authentic factory-sealed Lost Mary MT15000 Turbo - Citrus Sunrise. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 12.25,
+    "zoho_rate": 12.25,
+    "rate": 17.25,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8663,7 +8940,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1278",
@@ -8675,7 +8952,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MT15000 Turbo",
     "description": "Authentic factory-sealed Lost Mary MT15000 Turbo - Strawberry Kiwi. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 12.25,
+    "zoho_rate": 12.25,
+    "rate": 17.25,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8694,7 +8972,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1279",
@@ -8706,7 +8984,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MT15000 Turbo",
     "description": "Authentic factory-sealed Lost Mary MT15000 Turbo - Blueberry Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 12.25,
+    "zoho_rate": 12.25,
+    "rate": 17.25,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8725,7 +9004,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1280",
@@ -8737,7 +9016,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MT15000 Turbo",
     "description": "Authentic factory-sealed Lost Mary MT15000 Turbo - Dragon Strazz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 12.25,
+    "zoho_rate": 12.25,
+    "rate": 17.25,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8756,7 +9036,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1281",
@@ -8768,7 +9048,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MT15000 Turbo",
     "description": "Authentic factory-sealed Lost Mary MT15000 Turbo - Apple Pear. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 12.25,
+    "zoho_rate": 12.25,
+    "rate": 17.25,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8787,7 +9068,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.107Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1282",
@@ -8799,7 +9080,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OS5000 Luster Edition",
     "description": "Authentic factory-sealed Lost Mary OS5000 Luster Edition - Cranberry Soda. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8818,7 +9100,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1283",
@@ -8830,7 +9112,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OS5000 Luster Edition",
     "description": "Authentic factory-sealed Lost Mary OS5000 Luster Edition - Blue Cotton Candy. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8849,7 +9132,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1284",
@@ -8861,7 +9144,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OS5000 Luster Edition",
     "description": "Authentic factory-sealed Lost Mary OS5000 Luster Edition - Strawberry Sundae. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8880,7 +9164,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1285",
@@ -8892,7 +9176,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OS5000 Luster Edition",
     "description": "Authentic factory-sealed Lost Mary OS5000 Luster Edition - Juicy Peach. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8911,7 +9196,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1286",
@@ -8923,7 +9208,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OS5000 Luster Edition",
     "description": "Authentic factory-sealed Lost Mary OS5000 Luster Edition - Watermelon Lemon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8942,7 +9228,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1287",
@@ -8954,7 +9240,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OS5000 Luster Edition",
     "description": "Authentic factory-sealed Lost Mary OS5000 Luster Edition - Strawberry Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -8973,7 +9260,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.619Z"
   },
   {
     "id": "ZOHO-ITM-1288",
@@ -8985,7 +9272,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OS5000 Luster Edition",
     "description": "Authentic factory-sealed Lost Mary OS5000 Luster Edition - Pineapple Mango. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9004,7 +9292,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1289",
@@ -9016,7 +9304,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OS5000 Luster Edition",
     "description": "Authentic factory-sealed Lost Mary OS5000 Luster Edition - Blue Razz Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9035,7 +9324,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1290",
@@ -9047,7 +9336,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OS5000 Luster Edition",
     "description": "Authentic factory-sealed Lost Mary OS5000 Luster Edition - Mary Dream. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9066,7 +9356,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1291",
@@ -9078,7 +9368,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OS5000 Luster Edition",
     "description": "Authentic factory-sealed Lost Mary OS5000 Luster Edition - Kiwi Passionfruit Guava. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9097,7 +9388,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1292",
@@ -9109,7 +9400,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OS5000 Luster Edition",
     "description": "Authentic factory-sealed Lost Mary OS5000 Luster Edition - Peach Mango Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9128,7 +9420,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1293",
@@ -9140,7 +9432,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OS5000 Luster Edition",
     "description": "Authentic factory-sealed Lost Mary OS5000 Luster Edition - Spearmint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9159,7 +9452,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1294",
@@ -9171,7 +9464,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OS5000 Luster Edition",
     "description": "Authentic factory-sealed Lost Mary OS5000 Luster Edition - Strawberry Mango. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9190,7 +9484,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1295",
@@ -9202,7 +9496,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OS5000 Luster Edition",
     "description": "Authentic factory-sealed Lost Mary OS5000 Luster Edition - Grape. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9221,7 +9516,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1296",
@@ -9233,7 +9528,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OS5000 Luster Edition",
     "description": "Authentic factory-sealed Lost Mary OS5000 Luster Edition - Black Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9252,7 +9548,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1297",
@@ -9264,7 +9560,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OS5000 Luster Edition",
     "description": "Authentic factory-sealed Lost Mary OS5000 Luster Edition - Lemon Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9283,7 +9580,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1298",
@@ -9295,7 +9592,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OS5000 Luster Edition",
     "description": "Authentic factory-sealed Lost Mary OS5000 Luster Edition - Acai Berry Storm Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9314,7 +9612,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1299",
@@ -9326,7 +9624,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OS5000 Luster Edition",
     "description": "Authentic factory-sealed Lost Mary OS5000 Luster Edition - Berry Crush Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9345,7 +9644,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1300",
@@ -9357,7 +9656,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OS5000 Luster Edition",
     "description": "Authentic factory-sealed Lost Mary OS5000 Luster Edition - Raspberry Lemonade. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9376,7 +9676,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1301",
@@ -9388,7 +9688,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OS5000 Luster Edition",
     "description": "Authentic factory-sealed Lost Mary OS5000 Luster Edition - Light Snow Peppermint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9407,7 +9708,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1302",
@@ -9419,7 +9720,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OS5000 Luster Edition",
     "description": "Authentic factory-sealed Lost Mary OS5000 Luster Edition - Cherry Banana Duo Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9438,7 +9740,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1303",
@@ -9450,7 +9752,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OS5000 Luster Edition",
     "description": "Authentic factory-sealed Lost Mary OS5000 Luster Edition - Lemon Lime. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9469,7 +9772,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1304",
@@ -9481,7 +9784,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OS5000 Luster Edition",
     "description": "Authentic factory-sealed Lost Mary OS5000 Luster Edition - Ocean Bay. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9500,7 +9804,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1305",
@@ -9512,7 +9816,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OS5000 Luster Edition",
     "description": "Authentic factory-sealed Lost Mary OS5000 Luster Edition - Forest Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9531,7 +9836,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1306",
@@ -9543,7 +9848,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OS5000 Luster Edition",
     "description": "Authentic factory-sealed Lost Mary OS5000 Luster Edition - Citrus Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9562,7 +9868,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1307",
@@ -9574,7 +9880,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MO20000 Pro",
     "description": "Authentic factory-sealed Lost Mary MO20000 Pro - Miami Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 13.5,
+    "zoho_rate": 13.5,
+    "rate": 18.5,
     "retail_msrp": 26.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9593,7 +9900,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1308",
@@ -9605,7 +9912,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MO20000 Pro",
     "description": "Authentic factory-sealed Lost Mary MO20000 Pro - Blue Razz Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 13.5,
+    "zoho_rate": 13.5,
+    "rate": 18.5,
     "retail_msrp": 26.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9624,7 +9932,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1309",
@@ -9636,7 +9944,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MO20000 Pro",
     "description": "Authentic factory-sealed Lost Mary MO20000 Pro - Watermelon Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 13.5,
+    "zoho_rate": 13.5,
+    "rate": 18.5,
     "retail_msrp": 26.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9655,7 +9964,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1310",
@@ -9667,7 +9976,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MO20000 Pro",
     "description": "Authentic factory-sealed Lost Mary MO20000 Pro - Peach Mango Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 13.5,
+    "zoho_rate": 13.5,
+    "rate": 18.5,
     "retail_msrp": 26.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9686,7 +9996,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1311",
@@ -9698,7 +10008,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MO20000 Pro",
     "description": "Authentic factory-sealed Lost Mary MO20000 Pro - Sour Apple Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 13.5,
+    "zoho_rate": 13.5,
+    "rate": 18.5,
     "retail_msrp": 26.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9717,7 +10028,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1312",
@@ -9729,7 +10040,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MO20000 Pro",
     "description": "Authentic factory-sealed Lost Mary MO20000 Pro - Strawberry Kiwi. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 13.5,
+    "zoho_rate": 13.5,
+    "rate": 18.5,
     "retail_msrp": 26.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9748,7 +10060,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1313",
@@ -9760,7 +10072,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MO20000 Pro",
     "description": "Authentic factory-sealed Lost Mary MO20000 Pro - Tropical Punch. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 13.5,
+    "zoho_rate": 13.5,
+    "rate": 18.5,
     "retail_msrp": 26.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9779,7 +10092,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1314",
@@ -9791,7 +10104,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MO20000 Pro",
     "description": "Authentic factory-sealed Lost Mary MO20000 Pro - Rainbow Sherbet. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 13.5,
+    "zoho_rate": 13.5,
+    "rate": 18.5,
     "retail_msrp": 26.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9810,7 +10124,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1315",
@@ -9822,7 +10136,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MO20000 Pro",
     "description": "Authentic factory-sealed Lost Mary MO20000 Pro - Pineapple Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 13.5,
+    "zoho_rate": 13.5,
+    "rate": 18.5,
     "retail_msrp": 26.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9841,7 +10156,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1316",
@@ -9853,7 +10168,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MO20000 Pro",
     "description": "Authentic factory-sealed Lost Mary MO20000 Pro - Lime Grapefruit. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 13.5,
+    "zoho_rate": 13.5,
+    "rate": 18.5,
     "retail_msrp": 26.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9872,7 +10188,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1317",
@@ -9884,7 +10200,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MO20000 Pro",
     "description": "Authentic factory-sealed Lost Mary MO20000 Pro - Dragon Drink. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 13.5,
+    "zoho_rate": 13.5,
+    "rate": 18.5,
     "retail_msrp": 26.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9903,7 +10220,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1318",
@@ -9915,7 +10232,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MO20000 Pro",
     "description": "Authentic factory-sealed Lost Mary MO20000 Pro - Cherry Bomb. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 13.5,
+    "zoho_rate": 13.5,
+    "rate": 18.5,
     "retail_msrp": 26.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9934,7 +10252,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1319",
@@ -9946,7 +10264,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MO20000 Pro",
     "description": "Authentic factory-sealed Lost Mary MO20000 Pro - Mango Twist. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 13.5,
+    "zoho_rate": 13.5,
+    "rate": 18.5,
     "retail_msrp": 26.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9965,7 +10284,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1320",
@@ -9977,7 +10296,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MO20000 Pro",
     "description": "Authentic factory-sealed Lost Mary MO20000 Pro - Cool Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 13.5,
+    "zoho_rate": 13.5,
+    "rate": 18.5,
     "retail_msrp": 26.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -9996,7 +10316,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1321",
@@ -10008,7 +10328,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MO20000 Pro",
     "description": "Authentic factory-sealed Lost Mary MO20000 Pro - Watermelon Sour Peach. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 13.5,
+    "zoho_rate": 13.5,
+    "rate": 18.5,
     "retail_msrp": 26.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10027,7 +10348,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1322",
@@ -10039,7 +10360,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "BM6000 Big Puff Prefilled",
     "description": "Authentic factory-sealed Lost Mary BM6000 Big Puff Prefilled - Blueberry Sour Raspberry. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.5,
+    "zoho_rate": 9.5,
+    "rate": 11.5,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10058,7 +10380,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1323",
@@ -10070,7 +10392,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "BM6000 Big Puff Prefilled",
     "description": "Authentic factory-sealed Lost Mary BM6000 Big Puff Prefilled - Watermelon Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.5,
+    "zoho_rate": 9.5,
+    "rate": 11.5,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10089,7 +10412,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1324",
@@ -10101,7 +10424,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "BM6000 Big Puff Prefilled",
     "description": "Authentic factory-sealed Lost Mary BM6000 Big Puff Prefilled - Triple Mango. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.5,
+    "zoho_rate": 9.5,
+    "rate": 11.5,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10120,7 +10444,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1325",
@@ -10132,7 +10456,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "BM6000 Big Puff Prefilled",
     "description": "Authentic factory-sealed Lost Mary BM6000 Big Puff Prefilled - Strawberry Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.5,
+    "zoho_rate": 9.5,
+    "rate": 11.5,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10151,7 +10476,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1326",
@@ -10163,7 +10488,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "BM6000 Big Puff Prefilled",
     "description": "Authentic factory-sealed Lost Mary BM6000 Big Puff Prefilled - Pink Lemonade. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.5,
+    "zoho_rate": 9.5,
+    "rate": 11.5,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10182,7 +10508,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1327",
@@ -10194,7 +10520,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "BM6000 Big Puff Prefilled",
     "description": "Authentic factory-sealed Lost Mary BM6000 Big Puff Prefilled - Cola. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.5,
+    "zoho_rate": 9.5,
+    "rate": 11.5,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10213,7 +10540,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1328",
@@ -10225,7 +10552,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "BM6000 Big Puff Prefilled",
     "description": "Authentic factory-sealed Lost Mary BM6000 Big Puff Prefilled - Grape. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.5,
+    "zoho_rate": 9.5,
+    "rate": 11.5,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10244,7 +10572,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1329",
@@ -10256,7 +10584,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "BM6000 Big Puff Prefilled",
     "description": "Authentic factory-sealed Lost Mary BM6000 Big Puff Prefilled - Menthol. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.5,
+    "zoho_rate": 9.5,
+    "rate": 11.5,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10275,7 +10604,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1330",
@@ -10287,7 +10616,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "BM6000 Big Puff Prefilled",
     "description": "Authentic factory-sealed Lost Mary BM6000 Big Puff Prefilled - Pineapple Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.5,
+    "zoho_rate": 9.5,
+    "rate": 11.5,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10306,7 +10636,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1331",
@@ -10318,7 +10648,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "BM6000 Big Puff Prefilled",
     "description": "Authentic factory-sealed Lost Mary BM6000 Big Puff Prefilled - Apple Peach. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/lostmary-mt15000.png",
-    "rate": 9.5,
+    "zoho_rate": 9.5,
+    "rate": 11.5,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10337,7 +10668,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "vozol-50k",
@@ -10349,7 +10680,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Mega 50K Kit & Modular Pod System",
     "description": "Authentic factory-sealed VOZOL Mega 50K Kit & Modular Pod System - Blue Razz Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 32.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10368,7 +10700,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1333",
@@ -10380,7 +10712,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Mega 50K Kit & Modular Pod System",
     "description": "Authentic factory-sealed VOZOL Mega 50K Kit & Modular Pod System - Watermelon Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 32.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10399,7 +10732,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1334",
@@ -10411,7 +10744,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Mega 50K Kit & Modular Pod System",
     "description": "Authentic factory-sealed VOZOL Mega 50K Kit & Modular Pod System - Love 777. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 32.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10430,7 +10764,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1335",
@@ -10442,7 +10776,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Mega 50K Kit & Modular Pod System",
     "description": "Authentic factory-sealed VOZOL Mega 50K Kit & Modular Pod System - Miami Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 32.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10461,7 +10796,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1336",
@@ -10473,7 +10808,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Mega 50K Kit & Modular Pod System",
     "description": "Authentic factory-sealed VOZOL Mega 50K Kit & Modular Pod System - Grape Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 32.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10492,7 +10828,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1337",
@@ -10504,7 +10840,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Mega 50K Kit & Modular Pod System",
     "description": "Authentic factory-sealed VOZOL Mega 50K Kit & Modular Pod System - Mixed Berries. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 32.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10523,7 +10860,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1338",
@@ -10535,7 +10872,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Mega 50K Kit & Modular Pod System",
     "description": "Authentic factory-sealed VOZOL Mega 50K Kit & Modular Pod System - Strawberry Mango. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 32.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10554,7 +10892,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1339",
@@ -10566,7 +10904,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Mega 50K Kit & Modular Pod System",
     "description": "Authentic factory-sealed VOZOL Mega 50K Kit & Modular Pod System - Sour Apple Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 32.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10585,7 +10924,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1340",
@@ -10597,7 +10936,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Mega 50K Kit & Modular Pod System",
     "description": "Authentic factory-sealed VOZOL Mega 50K Kit & Modular Pod System - Peach Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 32.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10616,7 +10956,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1341",
@@ -10628,7 +10968,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Mega 50K Kit & Modular Pod System",
     "description": "Authentic factory-sealed VOZOL Mega 50K Kit & Modular Pod System - Cherry Cola. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 32.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10647,7 +10988,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1342",
@@ -10659,7 +11000,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Mega 50K Kit & Modular Pod System",
     "description": "Authentic factory-sealed VOZOL Mega 50K Kit & Modular Pod System - Dragon Fruit Banana. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 32.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10678,7 +11020,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1343",
@@ -10690,7 +11032,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Mega 50K Kit & Modular Pod System",
     "description": "Authentic factory-sealed VOZOL Mega 50K Kit & Modular Pod System - Lemon Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 32.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10709,7 +11052,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1344",
@@ -10721,7 +11064,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Mega 50K Kit & Modular Pod System",
     "description": "Authentic factory-sealed VOZOL Mega 50K Kit & Modular Pod System - Cool Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 32.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10740,7 +11084,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1345",
@@ -10752,7 +11096,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Mega 50K Kit & Modular Pod System",
     "description": "Authentic factory-sealed VOZOL Mega 50K Kit & Modular Pod System - Strawberry Kiwi. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 32.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10771,7 +11116,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1346",
@@ -10783,7 +11128,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Mega 50K Kit & Modular Pod System",
     "description": "Authentic factory-sealed VOZOL Mega 50K Kit & Modular Pod System - Pineapple Coconut. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 32.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10802,7 +11148,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1347",
@@ -10814,7 +11160,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Mega 50K Kit & Modular Pod System",
     "description": "Authentic factory-sealed VOZOL Mega 50K Kit & Modular Pod System - Watermelon Bubblegum. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 32.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10833,7 +11180,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1348",
@@ -10845,7 +11192,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Mega 50K Kit & Modular Pod System",
     "description": "Authentic factory-sealed VOZOL Mega 50K Kit & Modular Pod System - Energy Drink. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 32.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10864,7 +11212,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1349",
@@ -10876,7 +11224,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Mega 50K Kit & Modular Pod System",
     "description": "Authentic factory-sealed VOZOL Mega 50K Kit & Modular Pod System - Clear. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 32.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10895,7 +11244,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1350",
@@ -10907,7 +11256,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Mega 50K Kit & Modular Pod System",
     "description": "Authentic factory-sealed VOZOL Mega 50K Kit & Modular Pod System - Tobacco Reserve. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 32.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10926,7 +11276,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1351",
@@ -10938,7 +11288,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Mega 50K Kit & Modular Pod System",
     "description": "Authentic factory-sealed VOZOL Mega 50K Kit & Modular Pod System - Rainbow Candy. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 32.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10957,7 +11308,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1352",
@@ -10969,7 +11320,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Mega 50K Kit & Modular Pod System",
     "description": "Authentic factory-sealed VOZOL Mega 50K Kit & Modular Pod System - Mango Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 32.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -10988,7 +11340,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1353",
@@ -11000,7 +11352,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Mega 50K Kit & Modular Pod System",
     "description": "Authentic factory-sealed VOZOL Mega 50K Kit & Modular Pod System - Cranberry Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 32.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11019,7 +11372,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1354",
@@ -11031,7 +11384,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Mega 50K Kit & Modular Pod System",
     "description": "Authentic factory-sealed VOZOL Mega 50K Kit & Modular Pod System - Blueberry Storm. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 32.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11050,7 +11404,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1355",
@@ -11062,7 +11416,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Mega 50K Kit & Modular Pod System",
     "description": "Authentic factory-sealed VOZOL Mega 50K Kit & Modular Pod System - Lush Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 32.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11081,7 +11436,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1356",
@@ -11093,7 +11448,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Mega 50K Kit & Modular Pod System",
     "description": "Authentic factory-sealed VOZOL Mega 50K Kit & Modular Pod System - Cotton Candy. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 32.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11112,7 +11468,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1357",
@@ -11124,7 +11480,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Rave 50000 Party Screen",
     "description": "Authentic factory-sealed VOZOL Rave 50000 Party Screen - Miami Mint Cyber. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 16,
+    "zoho_rate": 16,
+    "rate": 21,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11143,7 +11500,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1358",
@@ -11155,7 +11512,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Rave 50000 Party Screen",
     "description": "Authentic factory-sealed VOZOL Rave 50000 Party Screen - Blue Razz Ice Neon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 16,
+    "zoho_rate": 16,
+    "rate": 21,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11174,7 +11532,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1359",
@@ -11186,7 +11544,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Rave 50000 Party Screen",
     "description": "Authentic factory-sealed VOZOL Rave 50000 Party Screen - Watermelon Frost Rave. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 16,
+    "zoho_rate": 16,
+    "rate": 21,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11205,7 +11564,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1360",
@@ -11217,7 +11576,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Rave 50000 Party Screen",
     "description": "Authentic factory-sealed VOZOL Rave 50000 Party Screen - Strawberry Watermelon Beat. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 16,
+    "zoho_rate": 16,
+    "rate": 21,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11236,7 +11596,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1361",
@@ -11248,7 +11608,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Rave 50000 Party Screen",
     "description": "Authentic factory-sealed VOZOL Rave 50000 Party Screen - Sour Apple Electro. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 16,
+    "zoho_rate": 16,
+    "rate": 21,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11267,7 +11628,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1362",
@@ -11279,7 +11640,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Rave 50000 Party Screen",
     "description": "Authentic factory-sealed VOZOL Rave 50000 Party Screen - Juicy Peach Vibe. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 16,
+    "zoho_rate": 16,
+    "rate": 21,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11298,7 +11660,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1363",
@@ -11310,7 +11672,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Rave 50000 Party Screen",
     "description": "Authentic factory-sealed VOZOL Rave 50000 Party Screen - Cherry Lemon Pulse. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 16,
+    "zoho_rate": 16,
+    "rate": 21,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11329,7 +11692,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1364",
@@ -11341,7 +11704,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Rave 50000 Party Screen",
     "description": "Authentic factory-sealed VOZOL Rave 50000 Party Screen - Grape Soda Glow. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 16,
+    "zoho_rate": 16,
+    "rate": 21,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11360,7 +11724,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1365",
@@ -11372,7 +11736,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Rave 50000 Party Screen",
     "description": "Authentic factory-sealed VOZOL Rave 50000 Party Screen - Clear Laser. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 16,
+    "zoho_rate": 16,
+    "rate": 21,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11391,7 +11756,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1366",
@@ -11403,7 +11768,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Rave 50000 Party Screen",
     "description": "Authentic factory-sealed VOZOL Rave 50000 Party Screen - Cool Mint Bass. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 16,
+    "zoho_rate": 16,
+    "rate": 21,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11422,7 +11788,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1367",
@@ -11434,7 +11800,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Rave 50000 Party Screen",
     "description": "Authentic factory-sealed VOZOL Rave 50000 Party Screen - Triple Berry Remix. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 16,
+    "zoho_rate": 16,
+    "rate": 21,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11453,7 +11820,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1368",
@@ -11465,7 +11832,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Rave 50000 Party Screen",
     "description": "Authentic factory-sealed VOZOL Rave 50000 Party Screen - Dragonfruit Limeade. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 16,
+    "zoho_rate": 16,
+    "rate": 21,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11484,7 +11852,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1369",
@@ -11496,7 +11864,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Rave 50000 Party Screen",
     "description": "Authentic factory-sealed VOZOL Rave 50000 Party Screen - Mango Passion Pop. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 16,
+    "zoho_rate": 16,
+    "rate": 21,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11515,7 +11884,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1370",
@@ -11527,7 +11896,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Rave 50000 Party Screen",
     "description": "Authentic factory-sealed VOZOL Rave 50000 Party Screen - Blackberry Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 16,
+    "zoho_rate": 16,
+    "rate": 21,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11546,7 +11916,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1371",
@@ -11558,7 +11928,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Rave 50000 Party Screen",
     "description": "Authentic factory-sealed VOZOL Rave 50000 Party Screen - Cotton Cloud. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 16,
+    "zoho_rate": 16,
+    "rate": 21,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11577,7 +11948,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1372",
@@ -11589,7 +11960,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Rave 50000 Party Screen",
     "description": "Authentic factory-sealed VOZOL Rave 50000 Party Screen - Glacier Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 16,
+    "zoho_rate": 16,
+    "rate": 21,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11608,7 +11980,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1373",
@@ -11620,7 +11992,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Rave 50000 Party Screen",
     "description": "Authentic factory-sealed VOZOL Rave 50000 Party Screen - Peach Mango Fizz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 16,
+    "zoho_rate": 16,
+    "rate": 21,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11639,7 +12012,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1374",
@@ -11651,7 +12024,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Rave 50000 Party Screen",
     "description": "Authentic factory-sealed VOZOL Rave 50000 Party Screen - Citrus Blast. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 16,
+    "zoho_rate": 16,
+    "rate": 21,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11670,7 +12044,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1375",
@@ -11682,7 +12056,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Rave 50000 Party Screen",
     "description": "Authentic factory-sealed VOZOL Rave 50000 Party Screen - Banana Ice Track. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 16,
+    "zoho_rate": 16,
+    "rate": 21,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11701,7 +12076,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1376",
@@ -11713,7 +12088,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Rave 50000 Party Screen",
     "description": "Authentic factory-sealed VOZOL Rave 50000 Party Screen - Polar Freeze. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 16,
+    "zoho_rate": 16,
+    "rate": 21,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11732,7 +12108,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1377",
@@ -11744,7 +12120,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vista 20000 6-Level Wattage",
     "description": "Authentic factory-sealed VOZOL Vista 20000 6-Level Wattage - Vana Nic Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 13,
+    "zoho_rate": 13,
+    "rate": 18,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11763,7 +12140,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1378",
@@ -11775,7 +12152,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vista 20000 6-Level Wattage",
     "description": "Authentic factory-sealed VOZOL Vista 20000 6-Level Wattage - Blue Razz Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 13,
+    "zoho_rate": 13,
+    "rate": 18,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11794,7 +12172,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1379",
@@ -11806,7 +12184,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vista 20000 6-Level Wattage",
     "description": "Authentic factory-sealed VOZOL Vista 20000 6-Level Wattage - Watermelon Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 13,
+    "zoho_rate": 13,
+    "rate": 18,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11825,7 +12204,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1380",
@@ -11837,7 +12216,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vista 20000 6-Level Wattage",
     "description": "Authentic factory-sealed VOZOL Vista 20000 6-Level Wattage - Sour Apple Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 13,
+    "zoho_rate": 13,
+    "rate": 18,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11856,7 +12236,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1381",
@@ -11868,7 +12248,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vista 20000 6-Level Wattage",
     "description": "Authentic factory-sealed VOZOL Vista 20000 6-Level Wattage - Strawberry Kiwi. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 13,
+    "zoho_rate": 13,
+    "rate": 18,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11887,7 +12268,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1382",
@@ -11899,7 +12280,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vista 20000 6-Level Wattage",
     "description": "Authentic factory-sealed VOZOL Vista 20000 6-Level Wattage - Peach Mango Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 13,
+    "zoho_rate": 13,
+    "rate": 18,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11918,7 +12300,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1383",
@@ -11930,7 +12312,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vista 20000 6-Level Wattage",
     "description": "Authentic factory-sealed VOZOL Vista 20000 6-Level Wattage - Raspberry Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 13,
+    "zoho_rate": 13,
+    "rate": 18,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11949,7 +12332,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1384",
@@ -11961,7 +12344,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vista 20000 6-Level Wattage",
     "description": "Authentic factory-sealed VOZOL Vista 20000 6-Level Wattage - Miami Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 13,
+    "zoho_rate": 13,
+    "rate": 18,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -11980,7 +12364,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1385",
@@ -11992,7 +12376,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vista 20000 6-Level Wattage",
     "description": "Authentic factory-sealed VOZOL Vista 20000 6-Level Wattage - Dragon Fruit Banana Cherry. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 13,
+    "zoho_rate": 13,
+    "rate": 18,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12011,7 +12396,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1386",
@@ -12023,7 +12408,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vista 20000 6-Level Wattage",
     "description": "Authentic factory-sealed VOZOL Vista 20000 6-Level Wattage - Elderflower Grapefruit. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 13,
+    "zoho_rate": 13,
+    "rate": 18,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12042,7 +12428,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1387",
@@ -12054,7 +12440,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vista 20000 6-Level Wattage",
     "description": "Authentic factory-sealed VOZOL Vista 20000 6-Level Wattage - Cherry Cola. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 13,
+    "zoho_rate": 13,
+    "rate": 18,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12073,7 +12460,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1388",
@@ -12085,7 +12472,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vista 20000 6-Level Wattage",
     "description": "Authentic factory-sealed VOZOL Vista 20000 6-Level Wattage - Fstrawberry Raspberry Cherry. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 13,
+    "zoho_rate": 13,
+    "rate": 18,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12104,7 +12492,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1389",
@@ -12116,7 +12504,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vista 20000 6-Level Wattage",
     "description": "Authentic factory-sealed VOZOL Vista 20000 6-Level Wattage - Mixed Berries. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 13,
+    "zoho_rate": 13,
+    "rate": 18,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12135,7 +12524,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1390",
@@ -12147,7 +12536,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vista 20000 6-Level Wattage",
     "description": "Authentic factory-sealed VOZOL Vista 20000 6-Level Wattage - Lemon Lime. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 13,
+    "zoho_rate": 13,
+    "rate": 18,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12166,7 +12556,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1391",
@@ -12178,7 +12568,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vista 20000 6-Level Wattage",
     "description": "Authentic factory-sealed VOZOL Vista 20000 6-Level Wattage - Mango Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 13,
+    "zoho_rate": 13,
+    "rate": 18,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12197,7 +12588,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1392",
@@ -12209,7 +12600,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vista 20000 6-Level Wattage",
     "description": "Authentic factory-sealed VOZOL Vista 20000 6-Level Wattage - Grape Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 13,
+    "zoho_rate": 13,
+    "rate": 18,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12228,7 +12620,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1393",
@@ -12240,7 +12632,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vista 20000 6-Level Wattage",
     "description": "Authentic factory-sealed VOZOL Vista 20000 6-Level Wattage - Watermelon Bubble Gum. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 13,
+    "zoho_rate": 13,
+    "rate": 18,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12259,7 +12652,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1394",
@@ -12271,7 +12664,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vista 20000 6-Level Wattage",
     "description": "Authentic factory-sealed VOZOL Vista 20000 6-Level Wattage - Cool Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 13,
+    "zoho_rate": 13,
+    "rate": 18,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12290,7 +12684,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1395",
@@ -12302,7 +12696,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vista 20000 6-Level Wattage",
     "description": "Authentic factory-sealed VOZOL Vista 20000 6-Level Wattage - Clear. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 13,
+    "zoho_rate": 13,
+    "rate": 18,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12321,7 +12716,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1396",
@@ -12333,7 +12728,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Vista 20000 6-Level Wattage",
     "description": "Authentic factory-sealed VOZOL Vista 20000 6-Level Wattage - Tobacco. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 13,
+    "zoho_rate": 13,
+    "rate": 18,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12352,7 +12748,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1397",
@@ -12364,7 +12760,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Gear Power 20K Full Screen",
     "description": "Authentic factory-sealed VOZOL Gear Power 20K Full Screen - Blue Razz Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12383,7 +12780,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1398",
@@ -12395,7 +12792,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Gear Power 20K Full Screen",
     "description": "Authentic factory-sealed VOZOL Gear Power 20K Full Screen - Watermelon Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12414,7 +12812,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1399",
@@ -12426,7 +12824,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Gear Power 20K Full Screen",
     "description": "Authentic factory-sealed VOZOL Gear Power 20K Full Screen - Strawberry Kiwi. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12445,7 +12844,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1400",
@@ -12457,7 +12856,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Gear Power 20K Full Screen",
     "description": "Authentic factory-sealed VOZOL Gear Power 20K Full Screen - Cool Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12476,7 +12876,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1401",
@@ -12488,7 +12888,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Gear Power 20K Full Screen",
     "description": "Authentic factory-sealed VOZOL Gear Power 20K Full Screen - Sour Apple. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12507,7 +12908,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1402",
@@ -12519,7 +12920,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Gear Power 20K Full Screen",
     "description": "Authentic factory-sealed VOZOL Gear Power 20K Full Screen - Peach Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12538,7 +12940,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1403",
@@ -12550,7 +12952,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Gear Power 20K Full Screen",
     "description": "Authentic factory-sealed VOZOL Gear Power 20K Full Screen - Mango Pineapple Grapefruit. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12569,7 +12972,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1404",
@@ -12581,7 +12984,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Gear Power 20K Full Screen",
     "description": "Authentic factory-sealed VOZOL Gear Power 20K Full Screen - Grape Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12600,7 +13004,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1405",
@@ -12612,7 +13016,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Gear Power 20K Full Screen",
     "description": "Authentic factory-sealed VOZOL Gear Power 20K Full Screen - Dragon Fruit Lemonade. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12631,7 +13036,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.620Z"
   },
   {
     "id": "ZOHO-ITM-1406",
@@ -12643,7 +13048,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Gear Power 20K Full Screen",
     "description": "Authentic factory-sealed VOZOL Gear Power 20K Full Screen - Cherry Berry Lime. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12662,7 +13068,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1407",
@@ -12674,7 +13080,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Gear Power 20K Full Screen",
     "description": "Authentic factory-sealed VOZOL Gear Power 20K Full Screen - Miami Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12693,7 +13100,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1408",
@@ -12705,7 +13112,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Gear Power 20K Full Screen",
     "description": "Authentic factory-sealed VOZOL Gear Power 20K Full Screen - Raspberry Tangerine. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12724,7 +13132,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1409",
@@ -12736,7 +13144,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Gear Power 20K Full Screen",
     "description": "Authentic factory-sealed VOZOL Gear Power 20K Full Screen - Double Apple. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12755,7 +13164,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1410",
@@ -12767,7 +13176,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Gear Power 20K Full Screen",
     "description": "Authentic factory-sealed VOZOL Gear Power 20K Full Screen - Tobacco. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12786,7 +13196,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1411",
@@ -12798,7 +13208,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Gear Power 20K Full Screen",
     "description": "Authentic factory-sealed VOZOL Gear Power 20K Full Screen - Caramel Macchiato. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vozol-50k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12817,7 +13228,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1412",
@@ -12829,7 +13240,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze 2.0 30K (Pod Juice Edition)",
     "description": "Authentic factory-sealed OXBAR Magic Maze 2.0 30K (Pod Juice Edition) - Jewel Mint Pod Juice Collab. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12849,7 +13261,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.108Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1413",
@@ -12861,7 +13273,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze 2.0 30K (Pod Juice Edition)",
     "description": "Authentic factory-sealed OXBAR Magic Maze 2.0 30K (Pod Juice Edition) - Fruity Pebz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12881,7 +13294,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1414",
@@ -12893,7 +13306,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze 2.0 30K (Pod Juice Edition)",
     "description": "Authentic factory-sealed OXBAR Magic Maze 2.0 30K (Pod Juice Edition) - Clear Jewel. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12913,7 +13327,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1415",
@@ -12925,7 +13339,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze 2.0 30K (Pod Juice Edition)",
     "description": "Authentic factory-sealed OXBAR Magic Maze 2.0 30K (Pod Juice Edition) - Blue Razz Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12945,7 +13360,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1416",
@@ -12957,7 +13372,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze 2.0 30K (Pod Juice Edition)",
     "description": "Authentic factory-sealed OXBAR Magic Maze 2.0 30K (Pod Juice Edition) - Strawberry Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -12977,7 +13393,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1417",
@@ -12989,7 +13405,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze 2.0 30K (Pod Juice Edition)",
     "description": "Authentic factory-sealed OXBAR Magic Maze 2.0 30K (Pod Juice Edition) - Watermelon Apple Chew. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13009,7 +13426,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1418",
@@ -13021,7 +13438,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze 2.0 30K (Pod Juice Edition)",
     "description": "Authentic factory-sealed OXBAR Magic Maze 2.0 30K (Pod Juice Edition) - Wap Drops. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13041,7 +13459,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1419",
@@ -13053,7 +13471,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze 2.0 30K (Pod Juice Edition)",
     "description": "Authentic factory-sealed OXBAR Magic Maze 2.0 30K (Pod Juice Edition) - Rocket Pop. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13073,7 +13492,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1420",
@@ -13085,7 +13504,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze 2.0 30K (Pod Juice Edition)",
     "description": "Authentic factory-sealed OXBAR Magic Maze 2.0 30K (Pod Juice Edition) - Sour Apple Skitz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13105,7 +13525,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1421",
@@ -13117,7 +13537,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze 2.0 30K (Pod Juice Edition)",
     "description": "Authentic factory-sealed OXBAR Magic Maze 2.0 30K (Pod Juice Edition) - Strawberry Kiwi. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13137,7 +13558,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1422",
@@ -13149,7 +13570,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze 2.0 30K (Pod Juice Edition)",
     "description": "Authentic factory-sealed OXBAR Magic Maze 2.0 30K (Pod Juice Edition) - Fab Fcuking Fab. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13169,7 +13591,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1423",
@@ -13181,7 +13603,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze 2.0 30K (Pod Juice Edition)",
     "description": "Authentic factory-sealed OXBAR Magic Maze 2.0 30K (Pod Juice Edition) - Big Melons. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13201,7 +13624,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1424",
@@ -13213,7 +13636,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze 2.0 30K (Pod Juice Edition)",
     "description": "Authentic factory-sealed OXBAR Magic Maze 2.0 30K (Pod Juice Edition) - Gummy Bear. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13233,7 +13657,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1425",
@@ -13245,7 +13669,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze 2.0 30K (Pod Juice Edition)",
     "description": "Authentic factory-sealed OXBAR Magic Maze 2.0 30K (Pod Juice Edition) - Clear Green Apple. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13265,7 +13690,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1426",
@@ -13277,7 +13702,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze 2.0 30K (Pod Juice Edition)",
     "description": "Authentic factory-sealed OXBAR Magic Maze 2.0 30K (Pod Juice Edition) - Grape Slushy. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13297,7 +13723,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1427",
@@ -13309,7 +13735,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze 2.0 30K (Pod Juice Edition)",
     "description": "Authentic factory-sealed OXBAR Magic Maze 2.0 30K (Pod Juice Edition) - White Gummy Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13329,7 +13756,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1428",
@@ -13341,7 +13768,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze 2.0 30K (Pod Juice Edition)",
     "description": "Authentic factory-sealed OXBAR Magic Maze 2.0 30K (Pod Juice Edition) - Watermelon Skitz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13361,7 +13789,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1429",
@@ -13373,7 +13801,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze 2.0 30K (Pod Juice Edition)",
     "description": "Authentic factory-sealed OXBAR Magic Maze 2.0 30K (Pod Juice Edition) - Blueberry Strawberry Dragonfruit. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13393,7 +13822,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1430",
@@ -13405,7 +13834,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze 2.0 30K (Pod Juice Edition)",
     "description": "Authentic factory-sealed OXBAR Magic Maze 2.0 30K (Pod Juice Edition) - Jewel Tobacco. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13425,7 +13855,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1431",
@@ -13437,7 +13867,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze 2.0 30K (Pod Juice Edition)",
     "description": "Authentic factory-sealed OXBAR Magic Maze 2.0 30K (Pod Juice Edition) - Taffy Freeze. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13457,7 +13888,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1432",
@@ -13469,7 +13900,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze 2.0 30K (Pod Juice Edition)",
     "description": "Authentic factory-sealed OXBAR Magic Maze 2.0 30K (Pod Juice Edition) - Sour Blue Razz Chew. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13489,7 +13921,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1433",
@@ -13501,7 +13933,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze 2.0 30K (Pod Juice Edition)",
     "description": "Authentic factory-sealed OXBAR Magic Maze 2.0 30K (Pod Juice Edition) - Rainbow Chew. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13521,7 +13954,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1434",
@@ -13533,7 +13966,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze 2.0 30K (Pod Juice Edition)",
     "description": "Authentic factory-sealed OXBAR Magic Maze 2.0 30K (Pod Juice Edition) - Miami Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13553,7 +13987,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1435",
@@ -13565,7 +13999,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze 2.0 30K (Pod Juice Edition)",
     "description": "Authentic factory-sealed OXBAR Magic Maze 2.0 30K (Pod Juice Edition) - Cotton Candy. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13585,7 +14020,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1436",
@@ -13597,7 +14032,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze 2.0 30K (Pod Juice Edition)",
     "description": "Authentic factory-sealed OXBAR Magic Maze 2.0 30K (Pod Juice Edition) - Glacier Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 14.5,
+    "zoho_rate": 14.5,
+    "rate": 19.5,
     "retail_msrp": 28.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13617,7 +14053,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Same-Day OKC Warehouse Pickup Available"
     ],
     "badge": "🔥 High Velocity",
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1437",
@@ -13629,7 +14065,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze Pro 10K Adjustable Wattage",
     "description": "Authentic factory-sealed OXBAR Magic Maze Pro 10K Adjustable Wattage - Jewel Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13648,7 +14085,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1438",
@@ -13660,7 +14097,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze Pro 10K Adjustable Wattage",
     "description": "Authentic factory-sealed OXBAR Magic Maze Pro 10K Adjustable Wattage - Watermelon Remix Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13679,7 +14117,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1439",
@@ -13691,7 +14129,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze Pro 10K Adjustable Wattage",
     "description": "Authentic factory-sealed OXBAR Magic Maze Pro 10K Adjustable Wattage - Strawberry Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13710,7 +14149,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1440",
@@ -13722,7 +14161,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze Pro 10K Adjustable Wattage",
     "description": "Authentic factory-sealed OXBAR Magic Maze Pro 10K Adjustable Wattage - Blue Razz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13741,7 +14181,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1441",
@@ -13753,7 +14193,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze Pro 10K Adjustable Wattage",
     "description": "Authentic factory-sealed OXBAR Magic Maze Pro 10K Adjustable Wattage - Sakura Grape. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13772,7 +14213,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1442",
@@ -13784,7 +14225,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze Pro 10K Adjustable Wattage",
     "description": "Authentic factory-sealed OXBAR Magic Maze Pro 10K Adjustable Wattage - Fruit Paradise. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13803,7 +14245,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1443",
@@ -13815,7 +14257,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze Pro 10K Adjustable Wattage",
     "description": "Authentic factory-sealed OXBAR Magic Maze Pro 10K Adjustable Wattage - Rainbow Blast. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13834,7 +14277,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1444",
@@ -13846,7 +14289,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze Pro 10K Adjustable Wattage",
     "description": "Authentic factory-sealed OXBAR Magic Maze Pro 10K Adjustable Wattage - Cranberry Lemon Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13865,7 +14309,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1445",
@@ -13877,7 +14321,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze Pro 10K Adjustable Wattage",
     "description": "Authentic factory-sealed OXBAR Magic Maze Pro 10K Adjustable Wattage - Splash Bros Lemonade. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13896,7 +14341,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1446",
@@ -13908,7 +14353,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze Pro 10K Adjustable Wattage",
     "description": "Authentic factory-sealed OXBAR Magic Maze Pro 10K Adjustable Wattage - Razz Pineapple. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13927,7 +14373,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1447",
@@ -13939,7 +14385,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze Pro 10K Adjustable Wattage",
     "description": "Authentic factory-sealed OXBAR Magic Maze Pro 10K Adjustable Wattage - Apple Kiwi Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13958,7 +14405,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1448",
@@ -13970,7 +14417,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze Pro 10K Adjustable Wattage",
     "description": "Authentic factory-sealed OXBAR Magic Maze Pro 10K Adjustable Wattage - Pink Burst Chew. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -13989,7 +14437,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1449",
@@ -14001,7 +14449,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze Pro 10K Adjustable Wattage",
     "description": "Authentic factory-sealed OXBAR Magic Maze Pro 10K Adjustable Wattage - Strawberry Shortcake. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14020,7 +14469,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1450",
@@ -14032,7 +14481,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze Pro 10K Adjustable Wattage",
     "description": "Authentic factory-sealed OXBAR Magic Maze Pro 10K Adjustable Wattage - Clear Emerald. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14051,7 +14501,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1451",
@@ -14063,7 +14513,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze Pro 10K Adjustable Wattage",
     "description": "Authentic factory-sealed OXBAR Magic Maze Pro 10K Adjustable Wattage - Tobacco. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14082,7 +14533,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1452",
@@ -14094,7 +14545,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze Pro 10K Adjustable Wattage",
     "description": "Authentic factory-sealed OXBAR Magic Maze Pro 10K Adjustable Wattage - Mad Blue. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14113,7 +14565,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1453",
@@ -14125,7 +14577,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze Pro 10K Adjustable Wattage",
     "description": "Authentic factory-sealed OXBAR Magic Maze Pro 10K Adjustable Wattage - Cool Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14144,7 +14597,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1454",
@@ -14156,7 +14609,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze Pro 10K Adjustable Wattage",
     "description": "Authentic factory-sealed OXBAR Magic Maze Pro 10K Adjustable Wattage - Peach Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14175,7 +14629,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1455",
@@ -14187,7 +14641,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze Pro 10K Adjustable Wattage",
     "description": "Authentic factory-sealed OXBAR Magic Maze Pro 10K Adjustable Wattage - Grape Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14206,7 +14661,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1456",
@@ -14218,7 +14673,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze Pro 10K Adjustable Wattage",
     "description": "Authentic factory-sealed OXBAR Magic Maze Pro 10K Adjustable Wattage - Mango Peach Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14237,7 +14693,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1457",
@@ -14249,7 +14705,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze Pro 10K Adjustable Wattage",
     "description": "Authentic factory-sealed OXBAR Magic Maze Pro 10K Adjustable Wattage - Triple Berry Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14268,7 +14725,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1458",
@@ -14280,7 +14737,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze Pro 10K Adjustable Wattage",
     "description": "Authentic factory-sealed OXBAR Magic Maze Pro 10K Adjustable Wattage - Watermelon Bubblegum. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14299,7 +14757,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1459",
@@ -14311,7 +14769,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze Pro 10K Adjustable Wattage",
     "description": "Authentic factory-sealed OXBAR Magic Maze Pro 10K Adjustable Wattage - Cherry Lemonade. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14330,7 +14789,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1460",
@@ -14342,7 +14801,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze Pro 10K Adjustable Wattage",
     "description": "Authentic factory-sealed OXBAR Magic Maze Pro 10K Adjustable Wattage - Fuji Apple Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14361,7 +14821,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1461",
@@ -14373,7 +14833,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Magic Maze Pro 10K Adjustable Wattage",
     "description": "Authentic factory-sealed OXBAR Magic Maze Pro 10K Adjustable Wattage - Lemon Lime. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/oxbar-magic-maze.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14392,7 +14853,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1462",
@@ -14404,7 +14865,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Prime 6000",
     "description": "Authentic factory-sealed Breeze Breeze Prime 6000 - Anejo. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14423,7 +14885,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1463",
@@ -14435,7 +14897,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Prime 6000",
     "description": "Authentic factory-sealed Breeze Breeze Prime 6000 - Blueberry Lemon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14454,7 +14917,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1464",
@@ -14466,7 +14929,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Prime 6000",
     "description": "Authentic factory-sealed Breeze Breeze Prime 6000 - Cherry Lemon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14485,7 +14949,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1465",
@@ -14497,7 +14961,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Prime 6000",
     "description": "Authentic factory-sealed Breeze Breeze Prime 6000 - Coconut Banana. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14516,7 +14981,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1466",
@@ -14528,7 +14993,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Prime 6000",
     "description": "Authentic factory-sealed Breeze Breeze Prime 6000 - Honeydew Pineapple. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14547,7 +15013,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1467",
@@ -14559,7 +15025,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Prime 6000",
     "description": "Authentic factory-sealed Breeze Breeze Prime 6000 - Lemon Cola. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14578,7 +15045,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1468",
@@ -14590,7 +15057,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Prime 6000",
     "description": "Authentic factory-sealed Breeze Breeze Prime 6000 - Mango. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14609,7 +15077,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1469",
@@ -14621,7 +15089,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Prime 6000",
     "description": "Authentic factory-sealed Breeze Breeze Prime 6000 - Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14640,7 +15109,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1470",
@@ -14652,7 +15121,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Prime 6000",
     "description": "Authentic factory-sealed Breeze Breeze Prime 6000 - Peach Berry. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14671,7 +15141,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1471",
@@ -14683,7 +15153,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Prime 6000",
     "description": "Authentic factory-sealed Breeze Breeze Prime 6000 - Strawberry Apple. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14702,7 +15173,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1472",
@@ -14714,7 +15185,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Prime 6000",
     "description": "Authentic factory-sealed Breeze Breeze Prime 6000 - Strawberry Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14733,7 +15205,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1473",
@@ -14745,7 +15217,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Prime 6000",
     "description": "Authentic factory-sealed Breeze Breeze Prime 6000 - Vanilla Tobacco. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14764,7 +15237,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1474",
@@ -14776,7 +15249,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Prime 6000",
     "description": "Authentic factory-sealed Breeze Breeze Prime 6000 - Watermelon Bubblegum. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14795,7 +15269,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1475",
@@ -14807,7 +15281,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Prime 6000",
     "description": "Authentic factory-sealed Breeze Breeze Prime 6000 - Blueberry Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14826,7 +15301,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1476",
@@ -14838,7 +15313,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Prime 6000",
     "description": "Authentic factory-sealed Breeze Breeze Prime 6000 - Cherry Frost. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14857,7 +15333,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1477",
@@ -14869,7 +15345,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Pro 2000",
     "description": "Authentic factory-sealed Breeze Breeze Pro 2000 - Anejo. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 14.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14888,7 +15365,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1478",
@@ -14900,7 +15377,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Pro 2000",
     "description": "Authentic factory-sealed Breeze Breeze Pro 2000 - Banana Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 14.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14919,7 +15397,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1479",
@@ -14931,7 +15409,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Pro 2000",
     "description": "Authentic factory-sealed Breeze Breeze Pro 2000 - Berry Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 14.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14950,7 +15429,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1480",
@@ -14962,7 +15441,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Pro 2000",
     "description": "Authentic factory-sealed Breeze Breeze Pro 2000 - Blueberry Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 14.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -14981,7 +15461,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1481",
@@ -14993,7 +15473,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Pro 2000",
     "description": "Authentic factory-sealed Breeze Breeze Pro 2000 - Blueberry Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 14.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15012,7 +15493,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1482",
@@ -15024,7 +15505,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Pro 2000",
     "description": "Authentic factory-sealed Breeze Breeze Pro 2000 - Cherry Lemon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 14.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15043,7 +15525,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1483",
@@ -15055,7 +15537,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Pro 2000",
     "description": "Authentic factory-sealed Breeze Breeze Pro 2000 - Gum Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 14.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15074,7 +15557,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1484",
@@ -15086,7 +15569,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Pro 2000",
     "description": "Authentic factory-sealed Breeze Breeze Pro 2000 - Lemon Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 14.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15105,7 +15589,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1485",
@@ -15117,7 +15601,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Pro 2000",
     "description": "Authentic factory-sealed Breeze Breeze Pro 2000 - Lush Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 14.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15136,7 +15621,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1486",
@@ -15148,7 +15633,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Pro 2000",
     "description": "Authentic factory-sealed Breeze Breeze Pro 2000 - Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 14.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15167,7 +15653,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1487",
@@ -15179,7 +15665,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Pro 2000",
     "description": "Authentic factory-sealed Breeze Breeze Pro 2000 - Orange Mango Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 14.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15198,7 +15685,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.621Z"
   },
   {
     "id": "ZOHO-ITM-1488",
@@ -15210,7 +15697,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Pro 2000",
     "description": "Authentic factory-sealed Breeze Breeze Pro 2000 - Peach Mango. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 14.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15229,7 +15717,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1489",
@@ -15241,7 +15729,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Pro 2000",
     "description": "Authentic factory-sealed Breeze Breeze Pro 2000 - Pom Berry Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 14.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15260,7 +15749,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1490",
@@ -15272,7 +15761,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Pro 2000",
     "description": "Authentic factory-sealed Breeze Breeze Pro 2000 - Strawberry Cream. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 14.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15291,7 +15781,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1491",
@@ -15303,7 +15793,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Breeze Pro 2000",
     "description": "Authentic factory-sealed Breeze Breeze Pro 2000 - Strawberry Peach Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 14.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15322,7 +15813,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1492",
@@ -15334,7 +15825,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "EB Design BC5000 Ultra",
     "description": "Authentic factory-sealed Elf Bar EB Design BC5000 Ultra - Blue Razz Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15353,7 +15845,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1493",
@@ -15365,7 +15857,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "EB Design BC5000 Ultra",
     "description": "Authentic factory-sealed Elf Bar EB Design BC5000 Ultra - Dragon Fruit Banana Berry. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15384,7 +15877,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1494",
@@ -15396,7 +15889,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "EB Design BC5000 Ultra",
     "description": "Authentic factory-sealed Elf Bar EB Design BC5000 Ultra - Grape Honeydew. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15415,7 +15909,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1495",
@@ -15427,7 +15921,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "EB Design BC5000 Ultra",
     "description": "Authentic factory-sealed Elf Bar EB Design BC5000 Ultra - Kiwi Dragon Fruit Berry. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15446,7 +15941,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1496",
@@ -15458,7 +15953,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "EB Design BC5000 Ultra",
     "description": "Authentic factory-sealed Elf Bar EB Design BC5000 Ultra - Kiwi Passion Fruit Guava. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15477,7 +15973,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1497",
@@ -15489,7 +15985,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "EB Design BC5000 Ultra",
     "description": "Authentic factory-sealed Elf Bar EB Design BC5000 Ultra - Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15508,7 +16005,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1498",
@@ -15520,7 +16017,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "EB Design BC5000 Ultra",
     "description": "Authentic factory-sealed Elf Bar EB Design BC5000 Ultra - Orange Soda. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15539,7 +16037,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1499",
@@ -15551,7 +16049,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "EB Design BC5000 Ultra",
     "description": "Authentic factory-sealed Elf Bar EB Design BC5000 Ultra - Raspberry Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15570,7 +16069,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1500",
@@ -15582,7 +16081,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "EB Design BC5000 Ultra",
     "description": "Authentic factory-sealed Elf Bar EB Design BC5000 Ultra - Strawberry Mango. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15601,7 +16101,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1501",
@@ -15613,7 +16113,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "EB Design BC5000 Ultra",
     "description": "Authentic factory-sealed Elf Bar EB Design BC5000 Ultra - Strawberry Watermelon Bubble Gum. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15632,7 +16133,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1502",
@@ -15644,7 +16145,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "EB Design BC5000 Ultra",
     "description": "Authentic factory-sealed Elf Bar EB Design BC5000 Ultra - Strawberry Watermelon Peach. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15663,7 +16165,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1503",
@@ -15675,7 +16177,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "EB Design BC5000 Ultra",
     "description": "Authentic factory-sealed Elf Bar EB Design BC5000 Ultra - Tobacco. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15694,7 +16197,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1504",
@@ -15706,7 +16209,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "EB Design BC5000 Ultra",
     "description": "Authentic factory-sealed Elf Bar EB Design BC5000 Ultra - Tropical Rainbow Blast. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15725,7 +16229,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1505",
@@ -15737,7 +16241,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "EB Design BC5000 Ultra",
     "description": "Authentic factory-sealed Elf Bar EB Design BC5000 Ultra - Watermelon Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15756,7 +16261,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1506",
@@ -15768,7 +16273,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "EB Design BC5000 Ultra",
     "description": "Authentic factory-sealed Elf Bar EB Design BC5000 Ultra - Watermelon Bubblegum. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15787,7 +16293,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1507",
@@ -15799,7 +16305,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "EB Design BC5000 Ultra",
     "description": "Authentic factory-sealed Elf Bar EB Design BC5000 Ultra - Fuji Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15818,7 +16325,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1508",
@@ -15830,7 +16337,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "EB Design BC5000 Ultra",
     "description": "Authentic factory-sealed Elf Bar EB Design BC5000 Ultra - Blackberry Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15849,7 +16357,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1509",
@@ -15861,7 +16369,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "EB Design BC5000 Ultra",
     "description": "Authentic factory-sealed Elf Bar EB Design BC5000 Ultra - Peach Mango Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15880,7 +16389,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1510",
@@ -15892,7 +16401,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "EB Design BC5000 Ultra",
     "description": "Authentic factory-sealed Elf Bar EB Design BC5000 Ultra - Lemon Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15911,7 +16421,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1511",
@@ -15923,7 +16433,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "EB Design BC5000 Ultra",
     "description": "Authentic factory-sealed Elf Bar EB Design BC5000 Ultra - Clear. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15942,7 +16453,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1512",
@@ -15954,7 +16465,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "EB Design BC5000 Ultra",
     "description": "Authentic factory-sealed Elf Bar EB Design BC5000 Ultra - Miami Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -15973,7 +16485,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1513",
@@ -15985,7 +16497,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "EB Design BC5000 Ultra",
     "description": "Authentic factory-sealed Elf Bar EB Design BC5000 Ultra - Cotton Candy. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16004,7 +16517,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1514",
@@ -16016,7 +16529,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "EB Design BC5000 Ultra",
     "description": "Authentic factory-sealed Elf Bar EB Design BC5000 Ultra - Strawberry Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16035,7 +16549,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1515",
@@ -16047,7 +16561,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "EB Design BC5000 Ultra",
     "description": "Authentic factory-sealed Elf Bar EB Design BC5000 Ultra - Sour Apple. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16066,7 +16581,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1516",
@@ -16078,7 +16593,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "EB Design BC5000 Ultra",
     "description": "Authentic factory-sealed Elf Bar EB Design BC5000 Ultra - Triple Berry Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16097,7 +16613,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1517",
@@ -16109,7 +16625,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North FT12000 Zero Lag",
     "description": "Authentic factory-sealed North North FT12000 Zero Lag - Blue Razz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12,
+    "zoho_rate": 12,
+    "rate": 17,
     "retail_msrp": 23.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16128,7 +16645,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1518",
@@ -16140,7 +16657,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North FT12000 Zero Lag",
     "description": "Authentic factory-sealed North North FT12000 Zero Lag - Cherry Banana. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12,
+    "zoho_rate": 12,
+    "rate": 17,
     "retail_msrp": 23.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16159,7 +16677,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1519",
@@ -16171,7 +16689,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North FT12000 Zero Lag",
     "description": "Authentic factory-sealed North North FT12000 Zero Lag - Cherry Pucker. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12,
+    "zoho_rate": 12,
+    "rate": 17,
     "retail_msrp": 23.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16190,7 +16709,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1520",
@@ -16202,7 +16721,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North FT12000 Zero Lag",
     "description": "Authentic factory-sealed North North FT12000 Zero Lag - Clear. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12,
+    "zoho_rate": 12,
+    "rate": 17,
     "retail_msrp": 23.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16221,7 +16741,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1521",
@@ -16233,7 +16753,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North FT12000 Zero Lag",
     "description": "Authentic factory-sealed North North FT12000 Zero Lag - Cool Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12,
+    "zoho_rate": 12,
+    "rate": 17,
     "retail_msrp": 23.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16252,7 +16773,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1522",
@@ -16264,7 +16785,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North FT12000 Zero Lag",
     "description": "Authentic factory-sealed North North FT12000 Zero Lag - Crown Peach. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12,
+    "zoho_rate": 12,
+    "rate": 17,
     "retail_msrp": 23.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16283,7 +16805,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1523",
@@ -16295,7 +16817,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North FT12000 Zero Lag",
     "description": "Authentic factory-sealed North North FT12000 Zero Lag - Frozen Raspberry. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12,
+    "zoho_rate": 12,
+    "rate": 17,
     "retail_msrp": 23.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16314,7 +16837,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1524",
@@ -16326,7 +16849,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North FT12000 Zero Lag",
     "description": "Authentic factory-sealed North North FT12000 Zero Lag - Gummy Bear. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/cbd-relax-gummies-1000mg.png",
-    "rate": 12,
+    "zoho_rate": 12,
+    "rate": 17,
     "retail_msrp": 23.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16345,7 +16869,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1525",
@@ -16357,7 +16881,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North FT12000 Zero Lag",
     "description": "Authentic factory-sealed North North FT12000 Zero Lag - Kiwi Dragon Fruit. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12,
+    "zoho_rate": 12,
+    "rate": 17,
     "retail_msrp": 23.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16376,7 +16901,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1526",
@@ -16388,7 +16913,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North FT12000 Zero Lag",
     "description": "Authentic factory-sealed North North FT12000 Zero Lag - Lemon Cola. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12,
+    "zoho_rate": 12,
+    "rate": 17,
     "retail_msrp": 23.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16407,7 +16933,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1527",
@@ -16419,7 +16945,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North FT12000 Zero Lag",
     "description": "Authentic factory-sealed North North FT12000 Zero Lag - Miami Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12,
+    "zoho_rate": 12,
+    "rate": 17,
     "retail_msrp": 23.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16438,7 +16965,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1528",
@@ -16450,7 +16977,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North FT12000 Zero Lag",
     "description": "Authentic factory-sealed North North FT12000 Zero Lag - Mocha Frappe. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12,
+    "zoho_rate": 12,
+    "rate": 17,
     "retail_msrp": 23.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16469,7 +16997,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1529",
@@ -16481,7 +17009,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North FT12000 Zero Lag",
     "description": "Authentic factory-sealed North North FT12000 Zero Lag - Night Crawler. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12,
+    "zoho_rate": 12,
+    "rate": 17,
     "retail_msrp": 23.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16500,7 +17029,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1530",
@@ -16512,7 +17041,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North FT12000 Zero Lag",
     "description": "Authentic factory-sealed North North FT12000 Zero Lag - Pina Colada. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12,
+    "zoho_rate": 12,
+    "rate": 17,
     "retail_msrp": 23.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16531,7 +17061,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1531",
@@ -16543,7 +17073,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North FT12000 Zero Lag",
     "description": "Authentic factory-sealed North North FT12000 Zero Lag - Pineapple Passion. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12,
+    "zoho_rate": 12,
+    "rate": 17,
     "retail_msrp": 23.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16562,7 +17093,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1532",
@@ -16574,7 +17105,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North FT12000 Zero Lag",
     "description": "Authentic factory-sealed North North FT12000 Zero Lag - Raspberry Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12,
+    "zoho_rate": 12,
+    "rate": 17,
     "retail_msrp": 23.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16593,7 +17125,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1533",
@@ -16605,7 +17137,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North FT12000 Zero Lag",
     "description": "Authentic factory-sealed North North FT12000 Zero Lag - Strawberry Banana. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12,
+    "zoho_rate": 12,
+    "rate": 17,
     "retail_msrp": 23.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16624,7 +17157,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1534",
@@ -16636,7 +17169,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North FT12000 Zero Lag",
     "description": "Authentic factory-sealed North North FT12000 Zero Lag - Strawberry Vanilla Wafer. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12,
+    "zoho_rate": 12,
+    "rate": 17,
     "retail_msrp": 23.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16655,7 +17189,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1535",
@@ -16667,7 +17201,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North FT12000 Zero Lag",
     "description": "Authentic factory-sealed North North FT12000 Zero Lag - Watermelon Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12,
+    "zoho_rate": 12,
+    "rate": 17,
     "retail_msrp": 23.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16686,7 +17221,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1536",
@@ -16698,7 +17233,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North FT12000 Zero Lag",
     "description": "Authentic factory-sealed North North FT12000 Zero Lag - Vanilla Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12,
+    "zoho_rate": 12,
+    "rate": 17,
     "retail_msrp": 23.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16717,7 +17253,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1537",
@@ -16729,7 +17265,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North Stellar 20K Dual Screen",
     "description": "Authentic factory-sealed North North Stellar 20K Dual Screen - Blue Razz Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 13.5,
+    "zoho_rate": 13.5,
+    "rate": 18.5,
     "retail_msrp": 26.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16748,7 +17285,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1538",
@@ -16760,7 +17297,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North Stellar 20K Dual Screen",
     "description": "Authentic factory-sealed North North Stellar 20K Dual Screen - Miami Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 13.5,
+    "zoho_rate": 13.5,
+    "rate": 18.5,
     "retail_msrp": 26.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16779,7 +17317,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1539",
@@ -16791,7 +17329,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North Stellar 20K Dual Screen",
     "description": "Authentic factory-sealed North North Stellar 20K Dual Screen - Strawberry Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 13.5,
+    "zoho_rate": 13.5,
+    "rate": 18.5,
     "retail_msrp": 26.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16810,7 +17349,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1540",
@@ -16822,7 +17361,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North Stellar 20K Dual Screen",
     "description": "Authentic factory-sealed North North Stellar 20K Dual Screen - Juicy Peach Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 13.5,
+    "zoho_rate": 13.5,
+    "rate": 18.5,
     "retail_msrp": 26.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16841,7 +17381,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1541",
@@ -16853,7 +17393,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North Stellar 20K Dual Screen",
     "description": "Authentic factory-sealed North North Stellar 20K Dual Screen - Sour Apple Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 13.5,
+    "zoho_rate": 13.5,
+    "rate": 18.5,
     "retail_msrp": 26.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16872,7 +17413,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1542",
@@ -16884,7 +17425,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North Stellar 20K Dual Screen",
     "description": "Authentic factory-sealed North North Stellar 20K Dual Screen - Watermelon Bubblegum. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 13.5,
+    "zoho_rate": 13.5,
+    "rate": 18.5,
     "retail_msrp": 26.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16903,7 +17445,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1543",
@@ -16915,7 +17457,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North Stellar 20K Dual Screen",
     "description": "Authentic factory-sealed North North Stellar 20K Dual Screen - Cool Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 13.5,
+    "zoho_rate": 13.5,
+    "rate": 18.5,
     "retail_msrp": 26.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16934,7 +17477,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1544",
@@ -16946,7 +17489,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North Stellar 20K Dual Screen",
     "description": "Authentic factory-sealed North North Stellar 20K Dual Screen - Tropical Summer. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 13.5,
+    "zoho_rate": 13.5,
+    "rate": 18.5,
     "retail_msrp": 26.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16965,7 +17509,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1545",
@@ -16977,7 +17521,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North Stellar 20K Dual Screen",
     "description": "Authentic factory-sealed North North Stellar 20K Dual Screen - Cherry Lemon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 13.5,
+    "zoho_rate": 13.5,
+    "rate": 18.5,
     "retail_msrp": 26.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -16996,7 +17541,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.109Z"
+    "last_modified_time": "2026-09-16T21:25:32.622Z"
   },
   {
     "id": "ZOHO-ITM-1546",
@@ -17008,7 +17553,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "North Stellar 20K Dual Screen",
     "description": "Authentic factory-sealed North North Stellar 20K Dual Screen - Clear Arctic. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 13.5,
+    "zoho_rate": 13.5,
+    "rate": 18.5,
     "retail_msrp": 26.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17027,7 +17573,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1547",
@@ -17039,7 +17585,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Spaceman Prism 20K (Smoktech Collab)",
     "description": "Authentic factory-sealed Spaceman Spaceman Prism 20K (Smoktech Collab) - Dark Grapefruit. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 13.25,
+    "zoho_rate": 13.25,
+    "rate": 18.25,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17058,7 +17605,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1548",
@@ -17070,7 +17617,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Spaceman Prism 20K (Smoktech Collab)",
     "description": "Authentic factory-sealed Spaceman Spaceman Prism 20K (Smoktech Collab) - Apple Kiwi Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 13.25,
+    "zoho_rate": 13.25,
+    "rate": 18.25,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17089,7 +17637,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1549",
@@ -17101,7 +17649,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Spaceman Prism 20K (Smoktech Collab)",
     "description": "Authentic factory-sealed Spaceman Spaceman Prism 20K (Smoktech Collab) - Blue Razz Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 13.25,
+    "zoho_rate": 13.25,
+    "rate": 18.25,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17120,7 +17669,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1550",
@@ -17132,7 +17681,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Spaceman Prism 20K (Smoktech Collab)",
     "description": "Authentic factory-sealed Spaceman Spaceman Prism 20K (Smoktech Collab) - Blue Razz Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 13.25,
+    "zoho_rate": 13.25,
+    "rate": 18.25,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17151,7 +17701,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1551",
@@ -17163,7 +17713,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Spaceman Prism 20K (Smoktech Collab)",
     "description": "Authentic factory-sealed Spaceman Spaceman Prism 20K (Smoktech Collab) - Cali Lemonade. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 13.25,
+    "zoho_rate": 13.25,
+    "rate": 18.25,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17182,7 +17733,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1552",
@@ -17194,7 +17745,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Spaceman Prism 20K (Smoktech Collab)",
     "description": "Authentic factory-sealed Spaceman Spaceman Prism 20K (Smoktech Collab) - Candy Trio. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 13.25,
+    "zoho_rate": 13.25,
+    "rate": 18.25,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17213,7 +17765,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1553",
@@ -17225,7 +17777,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Spaceman Prism 20K (Smoktech Collab)",
     "description": "Authentic factory-sealed Spaceman Spaceman Prism 20K (Smoktech Collab) - Cherry Bomb. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 13.25,
+    "zoho_rate": 13.25,
+    "rate": 18.25,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17244,7 +17797,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1554",
@@ -17256,7 +17809,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Spaceman Prism 20K (Smoktech Collab)",
     "description": "Authentic factory-sealed Spaceman Spaceman Prism 20K (Smoktech Collab) - Dragonache. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 13.25,
+    "zoho_rate": 13.25,
+    "rate": 18.25,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17275,7 +17829,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1555",
@@ -17287,7 +17841,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Spaceman Prism 20K (Smoktech Collab)",
     "description": "Authentic factory-sealed Spaceman Spaceman Prism 20K (Smoktech Collab) - Fresh Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 13.25,
+    "zoho_rate": 13.25,
+    "rate": 18.25,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17306,7 +17861,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1556",
@@ -17318,7 +17873,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Spaceman Prism 20K (Smoktech Collab)",
     "description": "Authentic factory-sealed Spaceman Spaceman Prism 20K (Smoktech Collab) - Miami Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 13.25,
+    "zoho_rate": 13.25,
+    "rate": 18.25,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17337,7 +17893,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1557",
@@ -17349,7 +17905,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Spaceman Prism 20K (Smoktech Collab)",
     "description": "Authentic factory-sealed Spaceman Spaceman Prism 20K (Smoktech Collab) - Pineapple Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 13.25,
+    "zoho_rate": 13.25,
+    "rate": 18.25,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17368,7 +17925,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1558",
@@ -17380,7 +17937,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Spaceman Prism 20K (Smoktech Collab)",
     "description": "Authentic factory-sealed Spaceman Spaceman Prism 20K (Smoktech Collab) - Prism Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 13.25,
+    "zoho_rate": 13.25,
+    "rate": 18.25,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17399,7 +17957,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1559",
@@ -17411,7 +17969,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Spaceman Prism 20K (Smoktech Collab)",
     "description": "Authentic factory-sealed Spaceman Spaceman Prism 20K (Smoktech Collab) - Rainbow Belt. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 13.25,
+    "zoho_rate": 13.25,
+    "rate": 18.25,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17430,7 +17989,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1560",
@@ -17442,7 +18001,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Spaceman Prism 20K (Smoktech Collab)",
     "description": "Authentic factory-sealed Spaceman Spaceman Prism 20K (Smoktech Collab) - Strawberry Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 13.25,
+    "zoho_rate": 13.25,
+    "rate": 18.25,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17461,7 +18021,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1561",
@@ -17473,7 +18033,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Spaceman Prism 20K (Smoktech Collab)",
     "description": "Authentic factory-sealed Spaceman Spaceman Prism 20K (Smoktech Collab) - Triple Strawberry. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 13.25,
+    "zoho_rate": 13.25,
+    "rate": 18.25,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17492,7 +18053,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1562",
@@ -17504,7 +18065,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Spaceman Prism 20K (Smoktech Collab)",
     "description": "Authentic factory-sealed Spaceman Spaceman Prism 20K (Smoktech Collab) - Watermelon Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 13.25,
+    "zoho_rate": 13.25,
+    "rate": 18.25,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17523,7 +18085,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1563",
@@ -17535,7 +18097,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Spaceman Prism 20K (Smoktech Collab)",
     "description": "Authentic factory-sealed Spaceman Spaceman Prism 20K (Smoktech Collab) - Triple Grape. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 13.25,
+    "zoho_rate": 13.25,
+    "rate": 18.25,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17554,7 +18117,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1564",
@@ -17566,7 +18129,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Spaceman Prism 20K (Smoktech Collab)",
     "description": "Authentic factory-sealed Spaceman Spaceman Prism 20K (Smoktech Collab) - Sour Apple Ice. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 13.25,
+    "zoho_rate": 13.25,
+    "rate": 18.25,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17585,7 +18149,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1565",
@@ -17597,7 +18161,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Spaceman Prism 20K (Smoktech Collab)",
     "description": "Authentic factory-sealed Spaceman Spaceman Prism 20K (Smoktech Collab) - Banana Cake. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 13.25,
+    "zoho_rate": 13.25,
+    "rate": 18.25,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17616,7 +18181,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1566",
@@ -17628,7 +18193,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Spaceman Prism 20K (Smoktech Collab)",
     "description": "Authentic factory-sealed Spaceman Spaceman Prism 20K (Smoktech Collab) - Blueberry Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 13.25,
+    "zoho_rate": 13.25,
+    "rate": 18.25,
     "retail_msrp": 25.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17647,7 +18213,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1567",
@@ -17659,7 +18225,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Iron Mike 15K Knockout",
     "description": "Authentic factory-sealed Tyson 2.0 Iron Mike 15K Knockout - Apple Punch. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17678,7 +18245,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1568",
@@ -17690,7 +18257,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Iron Mike 15K Knockout",
     "description": "Authentic factory-sealed Tyson 2.0 Iron Mike 15K Knockout - Blue Razz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17709,7 +18277,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1569",
@@ -17721,7 +18289,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Iron Mike 15K Knockout",
     "description": "Authentic factory-sealed Tyson 2.0 Iron Mike 15K Knockout - Cool Mint. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17740,7 +18309,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1570",
@@ -17752,7 +18321,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Iron Mike 15K Knockout",
     "description": "Authentic factory-sealed Tyson 2.0 Iron Mike 15K Knockout - Frozen Banana. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17771,7 +18341,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1571",
@@ -17783,7 +18353,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Iron Mike 15K Knockout",
     "description": "Authentic factory-sealed Tyson 2.0 Iron Mike 15K Knockout - Frozen Blueberry. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17802,7 +18373,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1572",
@@ -17814,7 +18385,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Iron Mike 15K Knockout",
     "description": "Authentic factory-sealed Tyson 2.0 Iron Mike 15K Knockout - Frozen Grape. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17833,7 +18405,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1573",
@@ -17845,7 +18417,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Iron Mike 15K Knockout",
     "description": "Authentic factory-sealed Tyson 2.0 Iron Mike 15K Knockout - Frozen Mango. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17864,7 +18437,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1574",
@@ -17876,7 +18449,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Iron Mike 15K Knockout",
     "description": "Authentic factory-sealed Tyson 2.0 Iron Mike 15K Knockout - Frozen Peach. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17895,7 +18469,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1575",
@@ -17907,7 +18481,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Iron Mike 15K Knockout",
     "description": "Authentic factory-sealed Tyson 2.0 Iron Mike 15K Knockout - Fuji Apple. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17926,7 +18501,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1576",
@@ -17938,7 +18513,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Iron Mike 15K Knockout",
     "description": "Authentic factory-sealed Tyson 2.0 Iron Mike 15K Knockout - Grape Razz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17957,7 +18533,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1577",
@@ -17969,7 +18545,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Iron Mike 15K Knockout",
     "description": "Authentic factory-sealed Tyson 2.0 Iron Mike 15K Knockout - Lush Lime. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -17988,7 +18565,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1578",
@@ -18000,7 +18577,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Iron Mike 15K Knockout",
     "description": "Authentic factory-sealed Tyson 2.0 Iron Mike 15K Knockout - Melonhead. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18019,7 +18597,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1579",
@@ -18031,7 +18609,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Iron Mike 15K Knockout",
     "description": "Authentic factory-sealed Tyson 2.0 Iron Mike 15K Knockout - Mintberry. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18050,7 +18629,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1580",
@@ -18062,7 +18641,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Iron Mike 15K Knockout",
     "description": "Authentic factory-sealed Tyson 2.0 Iron Mike 15K Knockout - Peach Mango. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18081,7 +18661,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1581",
@@ -18093,7 +18673,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Iron Mike 15K Knockout",
     "description": "Authentic factory-sealed Tyson 2.0 Iron Mike 15K Knockout - Pineapple Mango. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18112,7 +18693,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1582",
@@ -18124,7 +18705,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Iron Mike 15K Knockout",
     "description": "Authentic factory-sealed Tyson 2.0 Iron Mike 15K Knockout - Raspberry Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18143,7 +18725,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1583",
@@ -18155,7 +18737,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Iron Mike 15K Knockout",
     "description": "Authentic factory-sealed Tyson 2.0 Iron Mike 15K Knockout - Strawberry Banana. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18174,7 +18757,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1584",
@@ -18186,7 +18769,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Iron Mike 15K Knockout",
     "description": "Authentic factory-sealed Tyson 2.0 Iron Mike 15K Knockout - Tobacco. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18205,7 +18789,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1585",
@@ -18217,7 +18801,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Iron Mike 15K Knockout",
     "description": "Authentic factory-sealed Tyson 2.0 Iron Mike 15K Knockout - Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-15k.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18236,7 +18821,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1586",
@@ -18248,7 +18833,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Iron Mike 15K Knockout",
     "description": "Authentic factory-sealed Tyson 2.0 Iron Mike 15K Knockout - White Gummy Bear. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/cbd-relax-gummies-1000mg.png",
-    "rate": 12.5,
+    "zoho_rate": 12.5,
+    "rate": 17.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18267,7 +18853,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1587",
@@ -18279,7 +18865,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "XROS 4 Pod System Kit",
     "description": "Authentic factory-sealed Vaporesso XROS 4 Pod System Kit - Kit - Black. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 19.5,
+    "zoho_rate": 19.5,
+    "rate": 24.5,
     "retail_msrp": 36.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18296,7 +18883,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1588",
@@ -18308,7 +18895,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "XROS 4 Pod System Kit",
     "description": "Authentic factory-sealed Vaporesso XROS 4 Pod System Kit - Kit - Silver. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 19.5,
+    "zoho_rate": 19.5,
+    "rate": 24.5,
     "retail_msrp": 36.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18325,7 +18913,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1589",
@@ -18337,7 +18925,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "XROS 4 Pod System Kit",
     "description": "Authentic factory-sealed Vaporesso XROS 4 Pod System Kit - Kit - Blue. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 19.5,
+    "zoho_rate": 19.5,
+    "rate": 24.5,
     "retail_msrp": 36.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18354,7 +18943,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1590",
@@ -18366,7 +18955,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "XROS 4 Pod System Kit",
     "description": "Authentic factory-sealed Vaporesso XROS 4 Pod System Kit - Kit - Sunset Neon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 19.5,
+    "zoho_rate": 19.5,
+    "rate": 24.5,
     "retail_msrp": 36.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18383,7 +18973,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1591",
@@ -18395,7 +18985,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "XROS 4 Pod System Kit",
     "description": "Authentic factory-sealed Vaporesso XROS 4 Pod System Kit - Kit - Champagne Gold. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 19.5,
+    "zoho_rate": 19.5,
+    "rate": 24.5,
     "retail_msrp": 36.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18412,7 +19003,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1592",
@@ -18424,7 +19015,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "XROS 4 Pod System Kit",
     "description": "Authentic factory-sealed Vaporesso XROS 4 Pod System Kit - Kit - Pastel Palette. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 19.5,
+    "zoho_rate": 19.5,
+    "rate": 24.5,
     "retail_msrp": 36.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18441,7 +19033,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1593",
@@ -18453,7 +19045,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "XROS 4 Pod System Kit",
     "description": "Authentic factory-sealed Vaporesso XROS 4 Pod System Kit - Kit - Bloody Mary. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 19.5,
+    "zoho_rate": 19.5,
+    "rate": 24.5,
     "retail_msrp": 36.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18470,7 +19063,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1594",
@@ -18482,7 +19075,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "XROS 4 Pod System Kit",
     "description": "Authentic factory-sealed Vaporesso XROS 4 Pod System Kit - Kit - Green. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 19.5,
+    "zoho_rate": 19.5,
+    "rate": 24.5,
     "retail_msrp": 36.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18499,7 +19093,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1595",
@@ -18511,7 +19105,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "XROS Pro Pod Kit",
     "description": "Authentic factory-sealed Vaporesso XROS Pro Pod Kit - Pro Kit - Black. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 23.5,
+    "zoho_rate": 23.5,
+    "rate": 28.5,
     "retail_msrp": 44.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18528,7 +19123,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1596",
@@ -18540,7 +19135,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "XROS Pro Pod Kit",
     "description": "Authentic factory-sealed Vaporesso XROS Pro Pod Kit - Pro Kit - Space Grey. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 23.5,
+    "zoho_rate": 23.5,
+    "rate": 28.5,
     "retail_msrp": 44.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18557,7 +19153,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1597",
@@ -18569,7 +19165,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "XROS Pro Pod Kit",
     "description": "Authentic factory-sealed Vaporesso XROS Pro Pod Kit - Pro Kit - Red. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 23.5,
+    "zoho_rate": 23.5,
+    "rate": 28.5,
     "retail_msrp": 44.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18586,7 +19183,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1598",
@@ -18598,7 +19195,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "XROS Pro Pod Kit",
     "description": "Authentic factory-sealed Vaporesso XROS Pro Pod Kit - Pro Kit - Orange. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 23.5,
+    "zoho_rate": 23.5,
+    "rate": 28.5,
     "retail_msrp": 44.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18615,7 +19213,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1599",
@@ -18627,7 +19225,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "XROS Replacement Pod 4-Packs (COREX 2.0)",
     "description": "Authentic factory-sealed Vaporesso XROS Replacement Pod 4-Packs (COREX 2.0) - XROS Series Mesh Pods 0.4 ohm 4pk. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18644,7 +19243,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1600",
@@ -18656,7 +19255,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "XROS Replacement Pod 4-Packs (COREX 2.0)",
     "description": "Authentic factory-sealed Vaporesso XROS Replacement Pod 4-Packs (COREX 2.0) - XROS Series Mesh Pods 0.6 ohm 4pk. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18673,7 +19273,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1601",
@@ -18685,7 +19285,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "XROS Replacement Pod 4-Packs (COREX 2.0)",
     "description": "Authentic factory-sealed Vaporesso XROS Replacement Pod 4-Packs (COREX 2.0) - XROS Series Mesh Pods 0.8 ohm 4pk. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18702,7 +19303,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1602",
@@ -18714,7 +19315,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "XROS Replacement Pod 4-Packs (COREX 2.0)",
     "description": "Authentic factory-sealed Vaporesso XROS Replacement Pod 4-Packs (COREX 2.0) - XROS Series Mesh Pods 1.0 ohm 4pk. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18731,7 +19333,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1603",
@@ -18743,7 +19345,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "XROS Replacement Pod 4-Packs (COREX 2.0)",
     "description": "Authentic factory-sealed Vaporesso XROS Replacement Pod 4-Packs (COREX 2.0) - XROS Series Mesh Pods 1.2 ohm 4pk. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 9.75,
+    "zoho_rate": 9.75,
+    "rate": 11.75,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18760,7 +19363,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1604",
@@ -18772,7 +19375,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Luxe XR Max 80W Pod Mod",
     "description": "Authentic factory-sealed Vaporesso Luxe XR Max 80W Pod Mod - Kit - Black. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 34,
+    "zoho_rate": 34,
+    "rate": 39,
     "retail_msrp": 64.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18789,7 +19393,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1605",
@@ -18801,7 +19405,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Luxe XR Max 80W Pod Mod",
     "description": "Authentic factory-sealed Vaporesso Luxe XR Max 80W Pod Mod - Kit - Grey. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 34,
+    "zoho_rate": 34,
+    "rate": 39,
     "retail_msrp": 64.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18818,7 +19423,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1606",
@@ -18830,7 +19435,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Luxe XR Max 80W Pod Mod",
     "description": "Authentic factory-sealed Vaporesso Luxe XR Max 80W Pod Mod - Kit - Silver. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 34,
+    "zoho_rate": 34,
+    "rate": 39,
     "retail_msrp": 64.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18847,7 +19453,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1607",
@@ -18859,7 +19465,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Luxe XR Max 80W Pod Mod",
     "description": "Authentic factory-sealed Vaporesso Luxe XR Max 80W Pod Mod - Kit - Blue. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 34,
+    "zoho_rate": 34,
+    "rate": 39,
     "retail_msrp": 64.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18876,7 +19483,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1608",
@@ -18888,7 +19495,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Luxe XR Max 80W Pod Mod",
     "description": "Authentic factory-sealed Vaporesso Luxe XR Max 80W Pod Mod - Kit - Coral Orange. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 34,
+    "zoho_rate": 34,
+    "rate": 39,
     "retail_msrp": 64.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18905,7 +19513,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1609",
@@ -18917,7 +19525,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Novo 5 Pod Kit 30W",
     "description": "Authentic factory-sealed SMOK Novo 5 Pod Kit 30W - Kit - Silver Black Cobra. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-novo-5.png",
-    "rate": 18,
+    "zoho_rate": 18,
+    "rate": 23,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18934,7 +19543,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1610",
@@ -18946,7 +19555,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Novo 5 Pod Kit 30W",
     "description": "Authentic factory-sealed SMOK Novo 5 Pod Kit 30W - Kit - Silver Red Cobra. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-novo-5.png",
-    "rate": 18,
+    "zoho_rate": 18,
+    "rate": 23,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18963,7 +19573,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1611",
@@ -18975,7 +19585,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Novo 5 Pod Kit 30W",
     "description": "Authentic factory-sealed SMOK Novo 5 Pod Kit 30W - Kit - 7-Color Cobra. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-novo-5.png",
-    "rate": 18,
+    "zoho_rate": 18,
+    "rate": 23,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -18992,7 +19603,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1612",
@@ -19004,7 +19615,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Novo 5 Pod Kit 30W",
     "description": "Authentic factory-sealed SMOK Novo 5 Pod Kit 30W - Kit - Green Blue Cobra. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-novo-5.png",
-    "rate": 18,
+    "zoho_rate": 18,
+    "rate": 23,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19021,7 +19633,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1613",
@@ -19033,7 +19645,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Novo 5 Pod Kit 30W",
     "description": "Authentic factory-sealed SMOK Novo 5 Pod Kit 30W - Kit - White Cobra. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-novo-5.png",
-    "rate": 18,
+    "zoho_rate": 18,
+    "rate": 23,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19050,7 +19663,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1614",
@@ -19062,7 +19675,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Novo 5 Pod Kit 30W",
     "description": "Authentic factory-sealed SMOK Novo 5 Pod Kit 30W - Kit - Black Carbon Fiber. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-novo-5.png",
-    "rate": 18,
+    "zoho_rate": 18,
+    "rate": 23,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19079,7 +19693,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1615",
@@ -19091,7 +19705,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Novo 5 Pod Kit 30W",
     "description": "Authentic factory-sealed SMOK Novo 5 Pod Kit 30W - Kit - Fluid 7-Color. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-novo-5.png",
-    "rate": 18,
+    "zoho_rate": 18,
+    "rate": 23,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19108,7 +19723,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1616",
@@ -19120,7 +19735,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Novo 5 Pod Kit 30W",
     "description": "Authentic factory-sealed SMOK Novo 5 Pod Kit 30W - Kit - Fluid Black Grey. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-novo-5.png",
-    "rate": 18,
+    "zoho_rate": 18,
+    "rate": 23,
     "retail_msrp": 34.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19137,7 +19753,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1617",
@@ -19149,7 +19765,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Nord 5 80W Pod System Kit",
     "description": "Authentic factory-sealed SMOK Nord 5 80W Pod System Kit - Kit - Red Grey Dart. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 24.5,
+    "zoho_rate": 24.5,
+    "rate": 29.5,
     "retail_msrp": 46.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19166,7 +19783,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1618",
@@ -19178,7 +19795,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Nord 5 80W Pod System Kit",
     "description": "Authentic factory-sealed SMOK Nord 5 80W Pod System Kit - Kit - Blue Pink Dart. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 24.5,
+    "zoho_rate": 24.5,
+    "rate": 29.5,
     "retail_msrp": 46.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19195,7 +19813,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1619",
@@ -19207,7 +19825,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Nord 5 80W Pod System Kit",
     "description": "Authentic factory-sealed SMOK Nord 5 80W Pod System Kit - Kit - Green Blue Dart. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 24.5,
+    "zoho_rate": 24.5,
+    "rate": 29.5,
     "retail_msrp": 46.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19224,7 +19843,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1620",
@@ -19236,7 +19855,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Nord 5 80W Pod System Kit",
     "description": "Authentic factory-sealed SMOK Nord 5 80W Pod System Kit - Kit - 7-Color Dart. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 24.5,
+    "zoho_rate": 24.5,
+    "rate": 29.5,
     "retail_msrp": 46.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19253,7 +19873,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1621",
@@ -19265,7 +19885,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Nord 5 80W Pod System Kit",
     "description": "Authentic factory-sealed SMOK Nord 5 80W Pod System Kit - Kit - Fluid Black Grey. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 24.5,
+    "zoho_rate": 24.5,
+    "rate": 29.5,
     "retail_msrp": 46.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19282,7 +19903,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1622",
@@ -19294,7 +19915,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Nord 5 80W Pod System Kit",
     "description": "Authentic factory-sealed SMOK Nord 5 80W Pod System Kit - Kit - Leather Black. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 24.5,
+    "zoho_rate": 24.5,
+    "rate": 29.5,
     "retail_msrp": 46.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19311,7 +19933,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1623",
@@ -19323,7 +19945,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Nord 5 80W Pod System Kit",
     "description": "Authentic factory-sealed SMOK Nord 5 80W Pod System Kit - Kit - Leather Beige. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 24.5,
+    "zoho_rate": 24.5,
+    "rate": 29.5,
     "retail_msrp": 46.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19340,7 +19963,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1624",
@@ -19352,7 +19975,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "RPM Replacement Coils 5-Packs",
     "description": "Authentic factory-sealed SMOK RPM Replacement Coils 5-Packs - RPM Mesh 0.4 ohm Coils 5pk. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19369,7 +19993,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1625",
@@ -19381,7 +20005,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "RPM Replacement Coils 5-Packs",
     "description": "Authentic factory-sealed SMOK RPM Replacement Coils 5-Packs - RPM Triple 0.6 ohm Coils 5pk. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19398,7 +20023,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1626",
@@ -19410,7 +20035,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "RPM Replacement Coils 5-Packs",
     "description": "Authentic factory-sealed SMOK RPM Replacement Coils 5-Packs - RPM DC 0.8 ohm MTL Coils 5pk. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19427,7 +20053,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1627",
@@ -19439,7 +20065,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "RPM Replacement Coils 5-Packs",
     "description": "Authentic factory-sealed SMOK RPM Replacement Coils 5-Packs - RPM SC 1.0 ohm Coils 5pk. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19456,7 +20083,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1628",
@@ -19468,7 +20095,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "RPM Replacement Coils 5-Packs",
     "description": "Authentic factory-sealed SMOK RPM Replacement Coils 5-Packs - RPM Quartz 1.2 ohm Coils 5pk. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19485,7 +20113,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1629",
@@ -19497,7 +20125,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "RPM Replacement Coils 5-Packs",
     "description": "Authentic factory-sealed SMOK RPM Replacement Coils 5-Packs - RPM 3 Meshed 0.15 ohm 5pk. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19514,7 +20143,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1630",
@@ -19526,7 +20155,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "RPM Replacement Coils 5-Packs",
     "description": "Authentic factory-sealed SMOK RPM Replacement Coils 5-Packs - RPM 3 Meshed 0.23 ohm 5pk. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19543,7 +20173,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1631",
@@ -19555,7 +20185,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "RPM Replacement Coils 5-Packs",
     "description": "Authentic factory-sealed SMOK RPM Replacement Coils 5-Packs - LP1 Meshed 0.8 ohm 5pk. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19572,7 +20203,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1632",
@@ -19584,7 +20215,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "RPM Replacement Coils 5-Packs",
     "description": "Authentic factory-sealed SMOK RPM Replacement Coils 5-Packs - LP1 Meshed 0.9 ohm 5pk. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19601,7 +20233,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1633",
@@ -19613,7 +20245,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "RPM Replacement Coils 5-Packs",
     "description": "Authentic factory-sealed SMOK RPM Replacement Coils 5-Packs - LP1 Meshed 1.2 ohm 5pk. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19630,7 +20263,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.623Z"
   },
   {
     "id": "ZOHO-ITM-1634",
@@ -19642,7 +20275,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Drag 4 177W Starter Kit",
     "description": "Authentic factory-sealed Voopoo Drag 4 177W Starter Kit - Kit - Black + Walnut. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 42,
+    "zoho_rate": 42,
+    "rate": 47,
     "retail_msrp": 79.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19659,7 +20293,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1635",
@@ -19671,7 +20305,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Drag 4 177W Starter Kit",
     "description": "Authentic factory-sealed Voopoo Drag 4 177W Starter Kit - Kit - Gunmetal + Rosewood. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 42,
+    "zoho_rate": 42,
+    "rate": 47,
     "retail_msrp": 79.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19688,7 +20323,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1636",
@@ -19700,7 +20335,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Drag 4 177W Starter Kit",
     "description": "Authentic factory-sealed Voopoo Drag 4 177W Starter Kit - Kit - Gunmetal + Tropical Orange. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 42,
+    "zoho_rate": 42,
+    "rate": 47,
     "retail_msrp": 79.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19717,7 +20353,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1637",
@@ -19729,7 +20365,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Drag 4 177W Starter Kit",
     "description": "Authentic factory-sealed Voopoo Drag 4 177W Starter Kit - Kit - Gunmetal + Ocean Blue. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 42,
+    "zoho_rate": 42,
+    "rate": 47,
     "retail_msrp": 79.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19746,7 +20383,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1638",
@@ -19758,7 +20395,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Drag 4 177W Starter Kit",
     "description": "Authentic factory-sealed Voopoo Drag 4 177W Starter Kit - Kit - Black + Dark Walnut. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 42,
+    "zoho_rate": 42,
+    "rate": 47,
     "retail_msrp": 79.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19775,7 +20413,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1639",
@@ -19787,7 +20425,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Argus G2 Pod System Kit",
     "description": "Authentic factory-sealed Voopoo Argus G2 Pod System Kit - Kit - Peachy Pink. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 19,
+    "zoho_rate": 19,
+    "rate": 24,
     "retail_msrp": 35.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19804,7 +20443,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1640",
@@ -19816,7 +20455,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Argus G2 Pod System Kit",
     "description": "Authentic factory-sealed Voopoo Argus G2 Pod System Kit - Kit - Iris Blue. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 19,
+    "zoho_rate": 19,
+    "rate": 24,
     "retail_msrp": 35.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19833,7 +20473,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1641",
@@ -19845,7 +20485,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Argus G2 Pod System Kit",
     "description": "Authentic factory-sealed Voopoo Argus G2 Pod System Kit - Kit - Space Grey. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 19,
+    "zoho_rate": 19,
+    "rate": 24,
     "retail_msrp": 35.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19862,7 +20503,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1642",
@@ -19874,7 +20515,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Argus G2 Pod System Kit",
     "description": "Authentic factory-sealed Voopoo Argus G2 Pod System Kit - Kit - Glossy Black. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 19,
+    "zoho_rate": 19,
+    "rate": 24,
     "retail_msrp": 35.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19891,7 +20533,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1643",
@@ -19903,7 +20545,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Argus G2 Pod System Kit",
     "description": "Authentic factory-sealed Voopoo Argus G2 Pod System Kit - Kit - Astral Silver. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 19,
+    "zoho_rate": 19,
+    "rate": 24,
     "retail_msrp": 35.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19920,7 +20563,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1644",
@@ -19932,7 +20575,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "PnP Replacement Coils 5-Packs",
     "description": "Authentic factory-sealed Voopoo PnP Replacement Coils 5-Packs - PnP-VM1 0.3 ohm 5pk. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19949,7 +20593,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1645",
@@ -19961,7 +20605,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "PnP Replacement Coils 5-Packs",
     "description": "Authentic factory-sealed Voopoo PnP Replacement Coils 5-Packs - PnP-VM5 0.2 ohm 5pk. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -19978,7 +20623,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1646",
@@ -19990,7 +20635,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "PnP Replacement Coils 5-Packs",
     "description": "Authentic factory-sealed Voopoo PnP Replacement Coils 5-Packs - PnP-VM6 0.15 ohm 5pk. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20007,7 +20653,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1647",
@@ -20019,7 +20665,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "PnP Replacement Coils 5-Packs",
     "description": "Authentic factory-sealed Voopoo PnP Replacement Coils 5-Packs - PnP-TW15 0.15 ohm 5pk. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20036,7 +20683,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1648",
@@ -20048,7 +20695,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "PnP Replacement Coils 5-Packs",
     "description": "Authentic factory-sealed Voopoo PnP Replacement Coils 5-Packs - PnP-TW30 0.30 ohm 5pk. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/vaporesso-xros-4.png",
-    "rate": 11.75,
+    "zoho_rate": 11.75,
+    "rate": 16.75,
     "retail_msrp": 22.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20065,7 +20713,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1649",
@@ -20077,7 +20725,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Aegis Legend 3 200W Starter Kit",
     "description": "Authentic factory-sealed Geekvape Aegis Legend 3 200W Starter Kit - Kit - Titanium Grey. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-kit.png",
-    "rate": 48,
+    "zoho_rate": 48,
+    "rate": 53,
     "retail_msrp": 89.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20094,7 +20743,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1650",
@@ -20106,7 +20755,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Aegis Legend 3 200W Starter Kit",
     "description": "Authentic factory-sealed Geekvape Aegis Legend 3 200W Starter Kit - Kit - Dark Grey. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-kit.png",
-    "rate": 48,
+    "zoho_rate": 48,
+    "rate": 53,
     "retail_msrp": 89.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20123,7 +20773,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1651",
@@ -20135,7 +20785,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Aegis Legend 3 200W Starter Kit",
     "description": "Authentic factory-sealed Geekvape Aegis Legend 3 200W Starter Kit - Kit - Black. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-kit.png",
-    "rate": 48,
+    "zoho_rate": 48,
+    "rate": 53,
     "retail_msrp": 89.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20152,7 +20803,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1652",
@@ -20164,7 +20815,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Aegis Legend 3 200W Starter Kit",
     "description": "Authentic factory-sealed Geekvape Aegis Legend 3 200W Starter Kit - Kit - Silver. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-kit.png",
-    "rate": 48,
+    "zoho_rate": 48,
+    "rate": 53,
     "retail_msrp": 89.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20181,7 +20833,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1653",
@@ -20193,7 +20845,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Aegis Legend 3 200W Starter Kit",
     "description": "Authentic factory-sealed Geekvape Aegis Legend 3 200W Starter Kit - Kit - Blue. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-kit.png",
-    "rate": 48,
+    "zoho_rate": 48,
+    "rate": 53,
     "retail_msrp": 89.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20210,7 +20863,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1654",
@@ -20222,7 +20875,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Aegis Legend 3 200W Starter Kit",
     "description": "Authentic factory-sealed Geekvape Aegis Legend 3 200W Starter Kit - Kit - Red. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-kit.png",
-    "rate": 48,
+    "zoho_rate": 48,
+    "rate": 53,
     "retail_msrp": 89.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20239,7 +20893,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1655",
@@ -20251,7 +20905,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Aegis Legend 3 200W Starter Kit",
     "description": "Authentic factory-sealed Geekvape Aegis Legend 3 200W Starter Kit - Kit - Golden. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-kit.png",
-    "rate": 48,
+    "zoho_rate": 48,
+    "rate": 53,
     "retail_msrp": 89.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20268,7 +20923,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1656",
@@ -20280,7 +20935,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Aegis Legend 3 200W Starter Kit",
     "description": "Authentic factory-sealed Geekvape Aegis Legend 3 200W Starter Kit - Kit - Rainbow. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-kit.png",
-    "rate": 48,
+    "zoho_rate": 48,
+    "rate": 53,
     "retail_msrp": 89.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20297,7 +20953,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1657",
@@ -20309,7 +20965,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Wenax Q Pod System Kit",
     "description": "Authentic factory-sealed Geekvape Wenax Q Pod System Kit - Kit - Cobalt Blue. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-pod.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20326,7 +20983,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1658",
@@ -20338,7 +20995,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Wenax Q Pod System Kit",
     "description": "Authentic factory-sealed Geekvape Wenax Q Pod System Kit - Kit - Rose Pink. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-pod.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20355,7 +21013,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.110Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1659",
@@ -20367,7 +21025,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Wenax Q Pod System Kit",
     "description": "Authentic factory-sealed Geekvape Wenax Q Pod System Kit - Kit - Sakura Pink. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-pod.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20384,7 +21043,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1660",
@@ -20396,7 +21055,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Wenax Q Pod System Kit",
     "description": "Authentic factory-sealed Geekvape Wenax Q Pod System Kit - Kit - Gradient Violet. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-60k.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20413,7 +21073,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1661",
@@ -20425,7 +21085,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Wenax Q Pod System Kit",
     "description": "Authentic factory-sealed Geekvape Wenax Q Pod System Kit - Kit - Black. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-pod.png",
-    "rate": 15.5,
+    "zoho_rate": 15.5,
+    "rate": 20.5,
     "retail_msrp": 29.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20442,7 +21103,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1662",
@@ -20454,7 +21115,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Z Sub-Ohm Replacement Coils 5-Packs",
     "description": "Authentic factory-sealed Geekvape Z Sub-Ohm Replacement Coils 5-Packs - Z0.15 XM Coil 0.15 ohm 5pk. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-pod.png",
-    "rate": 12,
+    "zoho_rate": 12,
+    "rate": 17,
     "retail_msrp": 23.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20471,7 +21133,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1663",
@@ -20483,7 +21145,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Z Sub-Ohm Replacement Coils 5-Packs",
     "description": "Authentic factory-sealed Geekvape Z Sub-Ohm Replacement Coils 5-Packs - Z0.2 Coil 0.2 ohm 5pk. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-pod.png",
-    "rate": 12,
+    "zoho_rate": 12,
+    "rate": 17,
     "retail_msrp": 23.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20500,7 +21163,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1664",
@@ -20512,7 +21175,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Z Sub-Ohm Replacement Coils 5-Packs",
     "description": "Authentic factory-sealed Geekvape Z Sub-Ohm Replacement Coils 5-Packs - Z0.25 Dual Coil 0.25 ohm 5pk. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-25k.png",
-    "rate": 12,
+    "zoho_rate": 12,
+    "rate": 17,
     "retail_msrp": 23.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20529,7 +21193,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1665",
@@ -20541,7 +21205,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Z Sub-Ohm Replacement Coils 5-Packs",
     "description": "Authentic factory-sealed Geekvape Z Sub-Ohm Replacement Coils 5-Packs - Z0.4 Coil 0.4 ohm 5pk. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-pod.png",
-    "rate": 12,
+    "zoho_rate": 12,
+    "rate": 17,
     "retail_msrp": 23.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20558,7 +21223,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1666",
@@ -20570,7 +21235,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Z Sub-Ohm Replacement Coils 5-Packs",
     "description": "Authentic factory-sealed Geekvape Z Sub-Ohm Replacement Coils 5-Packs - B-Series 0.4 ohm 5pk. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/geekbar-pod.png",
-    "rate": 12,
+    "zoho_rate": 12,
+    "rate": 17,
     "retail_msrp": 23.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20587,7 +21253,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1667",
@@ -20599,7 +21265,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds 60ml Freebase E-Liquid",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds 60ml Freebase E-Liquid - Blood Orange Mango Snow Cone 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-60ml.png",
-    "rate": 7.5,
+    "zoho_rate": 7.5,
+    "rate": 9.5,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20618,7 +21285,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1668",
@@ -20630,7 +21297,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds 60ml Freebase E-Liquid",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds 60ml Freebase E-Liquid - Blood Orange Mango Snow Cone 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-60ml.png",
-    "rate": 7.5,
+    "zoho_rate": 7.5,
+    "rate": 9.5,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20649,7 +21317,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1669",
@@ -20661,7 +21329,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds 60ml Freebase E-Liquid",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds 60ml Freebase E-Liquid - Apple Peach Strawberry 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-60ml.png",
-    "rate": 7.5,
+    "zoho_rate": 7.5,
+    "rate": 9.5,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20680,7 +21349,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1670",
@@ -20692,7 +21361,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds 60ml Freebase E-Liquid",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds 60ml Freebase E-Liquid - Apple Peach Strawberry 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-60ml.png",
-    "rate": 7.5,
+    "zoho_rate": 7.5,
+    "rate": 9.5,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20711,7 +21381,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1671",
@@ -20723,7 +21393,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds 60ml Freebase E-Liquid",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds 60ml Freebase E-Liquid - Blueberry Limeade 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-60ml.png",
-    "rate": 7.5,
+    "zoho_rate": 7.5,
+    "rate": 9.5,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20742,7 +21413,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1672",
@@ -20754,7 +21425,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds 60ml Freebase E-Liquid",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds 60ml Freebase E-Liquid - Blueberry Limeade 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-60ml.png",
-    "rate": 7.5,
+    "zoho_rate": 7.5,
+    "rate": 9.5,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20773,7 +21445,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1673",
@@ -20785,7 +21457,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds 60ml Freebase E-Liquid",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds 60ml Freebase E-Liquid - Tres Leches 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-60ml.png",
-    "rate": 7.5,
+    "zoho_rate": 7.5,
+    "rate": 9.5,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20804,7 +21477,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1674",
@@ -20816,7 +21489,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds 60ml Freebase E-Liquid",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds 60ml Freebase E-Liquid - Tres Leches 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-60ml.png",
-    "rate": 7.5,
+    "zoho_rate": 7.5,
+    "rate": 9.5,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20835,7 +21509,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1675",
@@ -20847,7 +21521,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds 60ml Freebase E-Liquid",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds 60ml Freebase E-Liquid - Menthol 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-60ml.png",
-    "rate": 7.5,
+    "zoho_rate": 7.5,
+    "rate": 9.5,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20866,7 +21541,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1676",
@@ -20878,7 +21553,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds 60ml Freebase E-Liquid",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds 60ml Freebase E-Liquid - Menthol 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-60ml.png",
-    "rate": 7.5,
+    "zoho_rate": 7.5,
+    "rate": 9.5,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20897,7 +21573,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1677",
@@ -20909,7 +21585,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds 60ml Freebase E-Liquid",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds 60ml Freebase E-Liquid - Citrus Peach 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-60ml.png",
-    "rate": 7.5,
+    "zoho_rate": 7.5,
+    "rate": 9.5,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20928,7 +21605,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1678",
@@ -20940,7 +21617,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds 60ml Freebase E-Liquid",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds 60ml Freebase E-Liquid - Citrus Peach 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-60ml.png",
-    "rate": 7.5,
+    "zoho_rate": 7.5,
+    "rate": 9.5,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20959,7 +21637,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1679",
@@ -20971,7 +21649,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds 60ml Freebase E-Liquid",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds 60ml Freebase E-Liquid - Watermelon Cream 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-60ml.png",
-    "rate": 7.5,
+    "zoho_rate": 7.5,
+    "rate": 9.5,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -20990,7 +21669,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1680",
@@ -21002,7 +21681,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds 60ml Freebase E-Liquid",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds 60ml Freebase E-Liquid - Watermelon Cream 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-60ml.png",
-    "rate": 7.5,
+    "zoho_rate": 7.5,
+    "rate": 9.5,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21021,7 +21701,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1681",
@@ -21033,7 +21713,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds 60ml Freebase E-Liquid",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds 60ml Freebase E-Liquid - Strawberry Kiwi 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-60ml.png",
-    "rate": 7.5,
+    "zoho_rate": 7.5,
+    "rate": 9.5,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21052,7 +21733,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1682",
@@ -21064,7 +21745,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds 60ml Freebase E-Liquid",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds 60ml Freebase E-Liquid - Strawberry Kiwi 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-60ml.png",
-    "rate": 7.5,
+    "zoho_rate": 7.5,
+    "rate": 9.5,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21083,7 +21765,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1683",
@@ -21095,7 +21777,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds 60ml Freebase E-Liquid",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds 60ml Freebase E-Liquid - Lemon Meringue Pie 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-60ml.png",
-    "rate": 7.5,
+    "zoho_rate": 7.5,
+    "rate": 9.5,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21114,7 +21797,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1684",
@@ -21126,7 +21809,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds 60ml Freebase E-Liquid",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds 60ml Freebase E-Liquid - Lemon Meringue Pie 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-60ml.png",
-    "rate": 7.5,
+    "zoho_rate": 7.5,
+    "rate": 9.5,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21145,7 +21829,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1685",
@@ -21157,7 +21841,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds 60ml Freebase E-Liquid",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds 60ml Freebase E-Liquid - Pineapple Guava 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-60ml.png",
-    "rate": 7.5,
+    "zoho_rate": 7.5,
+    "rate": 9.5,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21176,7 +21861,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1686",
@@ -21188,7 +21873,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds 60ml Freebase E-Liquid",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds 60ml Freebase E-Liquid - Pineapple Guava 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-60ml.png",
-    "rate": 7.5,
+    "zoho_rate": 7.5,
+    "rate": 9.5,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21207,7 +21893,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1687",
@@ -21219,7 +21905,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds 60ml Freebase E-Liquid",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds 60ml Freebase E-Liquid - Mango Berries 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-60ml.png",
-    "rate": 7.5,
+    "zoho_rate": 7.5,
+    "rate": 9.5,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21238,7 +21925,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1688",
@@ -21250,7 +21937,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds 60ml Freebase E-Liquid",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds 60ml Freebase E-Liquid - Mango Berries 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-60ml.png",
-    "rate": 7.5,
+    "zoho_rate": 7.5,
+    "rate": 9.5,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21269,7 +21957,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1689",
@@ -21281,7 +21969,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds 60ml Freebase E-Liquid",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds 60ml Freebase E-Liquid - Caramel Brulee 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-60ml.png",
-    "rate": 7.5,
+    "zoho_rate": 7.5,
+    "rate": 9.5,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21300,7 +21989,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1690",
@@ -21312,7 +22001,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds 60ml Freebase E-Liquid",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds 60ml Freebase E-Liquid - Caramel Brulee 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-60ml.png",
-    "rate": 7.5,
+    "zoho_rate": 7.5,
+    "rate": 9.5,
     "retail_msrp": 18.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21331,7 +22021,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1691",
@@ -21343,7 +22033,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds Salt Nic 30ml",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds Salt Nic 30ml - Salt - Blood Orange Mango 35mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-salts-30ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21362,7 +22053,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1692",
@@ -21374,7 +22065,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds Salt Nic 30ml",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds Salt Nic 30ml - Salt - Blood Orange Mango 50mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-salts-30ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21393,7 +22085,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1693",
@@ -21405,7 +22097,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds Salt Nic 30ml",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds Salt Nic 30ml - Salt - Apple Peach Strawberry 35mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-salts-30ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21424,7 +22117,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1694",
@@ -21436,7 +22129,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds Salt Nic 30ml",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds Salt Nic 30ml - Salt - Apple Peach Strawberry 50mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-salts-30ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21455,7 +22149,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1695",
@@ -21467,7 +22161,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds Salt Nic 30ml",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds Salt Nic 30ml - Salt - Blueberry Limeade 35mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-salts-30ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21486,7 +22181,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.624Z"
   },
   {
     "id": "ZOHO-ITM-1696",
@@ -21498,7 +22193,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds Salt Nic 30ml",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds Salt Nic 30ml - Salt - Blueberry Limeade 50mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-salts-30ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21517,7 +22213,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1697",
@@ -21529,7 +22225,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds Salt Nic 30ml",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds Salt Nic 30ml - Salt - Menthol 35mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-salts-30ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21548,7 +22245,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1698",
@@ -21560,7 +22257,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds Salt Nic 30ml",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds Salt Nic 30ml - Salt - Menthol 50mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-salts-30ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21579,7 +22277,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1699",
@@ -21591,7 +22289,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds Salt Nic 30ml",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds Salt Nic 30ml - Salt - Watermelon Cream 35mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-salts-30ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21610,7 +22309,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1700",
@@ -21622,7 +22321,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds Salt Nic 30ml",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds Salt Nic 30ml - Salt - Watermelon Cream 50mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-salts-30ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21641,7 +22341,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1701",
@@ -21653,7 +22353,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds Salt Nic 30ml",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds Salt Nic 30ml - Salt - Mango Berries 35mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-salts-30ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21672,7 +22373,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1702",
@@ -21684,7 +22385,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds Salt Nic 30ml",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds Salt Nic 30ml - Salt - Mango Berries 50mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-salts-30ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21703,7 +22405,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1703",
@@ -21715,7 +22417,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds Salt Nic 30ml",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds Salt Nic 30ml - Salt - Tobacco 35mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-salts-30ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21734,7 +22437,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1704",
@@ -21746,7 +22449,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Coastal Clouds Salt Nic 30ml",
     "description": "Authentic factory-sealed Coastal Clouds Coastal Clouds Salt Nic 30ml - Salt - Tobacco 50mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/coastal-clouds-salts-30ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21765,7 +22469,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1705",
@@ -21777,7 +22481,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Naked 100 60ml Freebase",
     "description": "Authentic factory-sealed Naked 100 Naked 100 60ml Freebase - Hawaiian POG 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21796,7 +22501,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1706",
@@ -21808,7 +22513,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Naked 100 60ml Freebase",
     "description": "Authentic factory-sealed Naked 100 Naked 100 60ml Freebase - Hawaiian POG 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21827,7 +22533,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1707",
@@ -21839,7 +22545,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Naked 100 60ml Freebase",
     "description": "Authentic factory-sealed Naked 100 Naked 100 60ml Freebase - Lava Flow 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21858,7 +22565,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1708",
@@ -21870,7 +22577,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Naked 100 60ml Freebase",
     "description": "Authentic factory-sealed Naked 100 Naked 100 60ml Freebase - Lava Flow 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21889,7 +22597,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1709",
@@ -21901,7 +22609,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Naked 100 60ml Freebase",
     "description": "Authentic factory-sealed Naked 100 Naked 100 60ml Freebase - Really Berry 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21920,7 +22629,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1710",
@@ -21932,7 +22641,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Naked 100 60ml Freebase",
     "description": "Authentic factory-sealed Naked 100 Naked 100 60ml Freebase - Really Berry 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21951,7 +22661,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1711",
@@ -21963,7 +22673,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Naked 100 60ml Freebase",
     "description": "Authentic factory-sealed Naked 100 Naked 100 60ml Freebase - Maui Sun 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -21982,7 +22693,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1712",
@@ -21994,7 +22705,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Naked 100 60ml Freebase",
     "description": "Authentic factory-sealed Naked 100 Naked 100 60ml Freebase - Maui Sun 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22013,7 +22725,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1713",
@@ -22025,7 +22737,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Naked 100 60ml Freebase",
     "description": "Authentic factory-sealed Naked 100 Naked 100 60ml Freebase - Crisp Menthol 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22044,7 +22757,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1714",
@@ -22056,7 +22769,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Naked 100 60ml Freebase",
     "description": "Authentic factory-sealed Naked 100 Naked 100 60ml Freebase - Crisp Menthol 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22075,7 +22789,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1715",
@@ -22087,7 +22801,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Naked 100 60ml Freebase",
     "description": "Authentic factory-sealed Naked 100 Naked 100 60ml Freebase - Straw Lime 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22106,7 +22821,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1716",
@@ -22118,7 +22833,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Naked 100 60ml Freebase",
     "description": "Authentic factory-sealed Naked 100 Naked 100 60ml Freebase - Straw Lime 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22137,7 +22853,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1717",
@@ -22149,7 +22865,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Naked 100 60ml Freebase",
     "description": "Authentic factory-sealed Naked 100 Naked 100 60ml Freebase - American Patriots 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22168,7 +22885,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1718",
@@ -22180,7 +22897,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Naked 100 60ml Freebase",
     "description": "Authentic factory-sealed Naked 100 Naked 100 60ml Freebase - American Patriots 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22199,7 +22917,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1719",
@@ -22211,7 +22929,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Naked 100 Max Salt 30ml",
     "description": "Authentic factory-sealed Naked 100 Naked 100 Max Salt 30ml - Max Salt - Hawaiian POG 35mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 7,
+    "zoho_rate": 7,
+    "rate": 9,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22230,7 +22949,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1720",
@@ -22242,7 +22961,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Naked 100 Max Salt 30ml",
     "description": "Authentic factory-sealed Naked 100 Naked 100 Max Salt 30ml - Max Salt - Hawaiian POG 50mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 7,
+    "zoho_rate": 7,
+    "rate": 9,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22261,7 +22981,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1721",
@@ -22273,7 +22993,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Naked 100 Max Salt 30ml",
     "description": "Authentic factory-sealed Naked 100 Naked 100 Max Salt 30ml - Max Salt - Lava Flow 35mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 7,
+    "zoho_rate": 7,
+    "rate": 9,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22292,7 +23013,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1722",
@@ -22304,7 +23025,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Naked 100 Max Salt 30ml",
     "description": "Authentic factory-sealed Naked 100 Naked 100 Max Salt 30ml - Max Salt - Lava Flow 50mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 7,
+    "zoho_rate": 7,
+    "rate": 9,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22323,7 +23045,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1723",
@@ -22335,7 +23057,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Naked 100 Max Salt 30ml",
     "description": "Authentic factory-sealed Naked 100 Naked 100 Max Salt 30ml - Max Salt - Really Berry 35mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 7,
+    "zoho_rate": 7,
+    "rate": 9,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22354,7 +23077,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1724",
@@ -22366,7 +23089,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Naked 100 Max Salt 30ml",
     "description": "Authentic factory-sealed Naked 100 Naked 100 Max Salt 30ml - Max Salt - Really Berry 50mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 7,
+    "zoho_rate": 7,
+    "rate": 9,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22385,7 +23109,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1725",
@@ -22397,7 +23121,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Naked 100 Max Salt 30ml",
     "description": "Authentic factory-sealed Naked 100 Naked 100 Max Salt 30ml - Max Salt - Crisp Menthol 35mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 7,
+    "zoho_rate": 7,
+    "rate": 9,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22416,7 +23141,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1726",
@@ -22428,7 +23153,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Naked 100 Max Salt 30ml",
     "description": "Authentic factory-sealed Naked 100 Naked 100 Max Salt 30ml - Max Salt - Crisp Menthol 50mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 7,
+    "zoho_rate": 7,
+    "rate": 9,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22447,7 +23173,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1727",
@@ -22459,7 +23185,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Naked 100 Max Salt 30ml",
     "description": "Authentic factory-sealed Naked 100 Naked 100 Max Salt 30ml - Max Salt - American Patriots 35mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 7,
+    "zoho_rate": 7,
+    "rate": 9,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22478,7 +23205,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1728",
@@ -22490,7 +23217,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Naked 100 Max Salt 30ml",
     "description": "Authentic factory-sealed Naked 100 Naked 100 Max Salt 30ml - Max Salt - American Patriots 50mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 7,
+    "zoho_rate": 7,
+    "rate": 9,
     "retail_msrp": 16.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22509,7 +23237,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1729",
@@ -22521,7 +23249,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Juice Head 100ml Freebase",
     "description": "Authentic factory-sealed Juice Head Juice Head 100ml Freebase - Peach Pear 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22540,7 +23269,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1730",
@@ -22552,7 +23281,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Juice Head 100ml Freebase",
     "description": "Authentic factory-sealed Juice Head Juice Head 100ml Freebase - Peach Pear 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22571,7 +23301,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1731",
@@ -22583,7 +23313,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Juice Head 100ml Freebase",
     "description": "Authentic factory-sealed Juice Head Juice Head 100ml Freebase - Blueberry Lemon 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22602,7 +23333,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1732",
@@ -22614,7 +23345,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Juice Head 100ml Freebase",
     "description": "Authentic factory-sealed Juice Head Juice Head 100ml Freebase - Blueberry Lemon 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22633,7 +23365,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1733",
@@ -22645,7 +23377,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Juice Head 100ml Freebase",
     "description": "Authentic factory-sealed Juice Head Juice Head 100ml Freebase - Watermelon Lime 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22664,7 +23397,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1734",
@@ -22676,7 +23409,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Juice Head 100ml Freebase",
     "description": "Authentic factory-sealed Juice Head Juice Head 100ml Freebase - Watermelon Lime 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22695,7 +23429,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1735",
@@ -22707,7 +23441,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Juice Head 100ml Freebase",
     "description": "Authentic factory-sealed Juice Head Juice Head 100ml Freebase - Strawberry Kiwi 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22726,7 +23461,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1736",
@@ -22738,7 +23473,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Juice Head 100ml Freebase",
     "description": "Authentic factory-sealed Juice Head Juice Head 100ml Freebase - Strawberry Kiwi 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22757,7 +23493,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1737",
@@ -22769,7 +23505,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Juice Head 100ml Freebase",
     "description": "Authentic factory-sealed Juice Head Juice Head 100ml Freebase - Guava Peach 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22788,7 +23525,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1738",
@@ -22800,7 +23537,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Juice Head 100ml Freebase",
     "description": "Authentic factory-sealed Juice Head Juice Head 100ml Freebase - Guava Peach 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22819,7 +23557,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1739",
@@ -22831,7 +23569,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Juice Head 100ml Freebase",
     "description": "Authentic factory-sealed Juice Head Juice Head 100ml Freebase - Freeze Peach Pear 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22850,7 +23589,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1740",
@@ -22862,7 +23601,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Juice Head 100ml Freebase",
     "description": "Authentic factory-sealed Juice Head Juice Head 100ml Freebase - Freeze Peach Pear 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22881,7 +23621,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1741",
@@ -22893,7 +23633,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Juice Head 100ml Freebase",
     "description": "Authentic factory-sealed Juice Head Juice Head 100ml Freebase - Freeze Watermelon Lime 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22912,7 +23653,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1742",
@@ -22924,7 +23665,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Juice Head 100ml Freebase",
     "description": "Authentic factory-sealed Juice Head Juice Head 100ml Freebase - Freeze Watermelon Lime 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22943,7 +23685,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1743",
@@ -22955,7 +23697,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Juice Head 100ml Freebase",
     "description": "Authentic factory-sealed Juice Head Juice Head 100ml Freebase - Freeze Blueberry Lemon 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -22974,7 +23717,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1744",
@@ -22986,7 +23729,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Juice Head 100ml Freebase",
     "description": "Authentic factory-sealed Juice Head Juice Head 100ml Freebase - Freeze Blueberry Lemon 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-100ml.png",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23005,7 +23749,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1745",
@@ -23017,7 +23761,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Juice Head Salts 30ml",
     "description": "Authentic factory-sealed Juice Head Juice Head Salts 30ml - Salts - Peach Pear 35mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-salts-30ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23036,7 +23781,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1746",
@@ -23048,7 +23793,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Juice Head Salts 30ml",
     "description": "Authentic factory-sealed Juice Head Juice Head Salts 30ml - Salts - Peach Pear 50mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-salts-30ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23067,7 +23813,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1747",
@@ -23079,7 +23825,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Juice Head Salts 30ml",
     "description": "Authentic factory-sealed Juice Head Juice Head Salts 30ml - Salts - Blueberry Lemon 35mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-salts-30ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23098,7 +23845,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1748",
@@ -23110,7 +23857,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Juice Head Salts 30ml",
     "description": "Authentic factory-sealed Juice Head Juice Head Salts 30ml - Salts - Blueberry Lemon 50mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-salts-30ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23129,7 +23877,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1749",
@@ -23141,7 +23889,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Juice Head Salts 30ml",
     "description": "Authentic factory-sealed Juice Head Juice Head Salts 30ml - Salts - Watermelon Lime 35mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-salts-30ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23160,7 +23909,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1750",
@@ -23172,7 +23921,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Juice Head Salts 30ml",
     "description": "Authentic factory-sealed Juice Head Juice Head Salts 30ml - Salts - Watermelon Lime 50mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-salts-30ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23191,7 +23941,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1751",
@@ -23203,7 +23953,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Juice Head Salts 30ml",
     "description": "Authentic factory-sealed Juice Head Juice Head Salts 30ml - Salts - Strawberry Kiwi 35mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-salts-30ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23222,7 +23973,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1752",
@@ -23234,7 +23985,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Juice Head Salts 30ml",
     "description": "Authentic factory-sealed Juice Head Juice Head Salts 30ml - Salts - Strawberry Kiwi 50mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-salts-30ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23253,7 +24005,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1753",
@@ -23265,7 +24017,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Juice Head Salts 30ml",
     "description": "Authentic factory-sealed Juice Head Juice Head Salts 30ml - Salts - Guava Peach 35mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-salts-30ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23284,7 +24037,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1754",
@@ -23296,7 +24049,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Juice Head Salts 30ml",
     "description": "Authentic factory-sealed Juice Head Juice Head Salts 30ml - Salts - Guava Peach 50mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/juice-head-salts-30ml.png",
-    "rate": 7.25,
+    "zoho_rate": 7.25,
+    "rate": 9.25,
     "retail_msrp": 17.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23315,7 +24069,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1755",
@@ -23327,7 +24081,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Twist 120ml Twin Pack (2 x 60ml)",
     "description": "Authentic factory-sealed Twist E-Liquids Twist 120ml Twin Pack (2 x 60ml) - Pink No. 1 (Pink Punch Lemonade) 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/twist-120ml.jpg",
-    "rate": 9.5,
+    "zoho_rate": 9.5,
+    "rate": 11.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23346,7 +24101,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1756",
@@ -23358,7 +24113,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Twist 120ml Twin Pack (2 x 60ml)",
     "description": "Authentic factory-sealed Twist E-Liquids Twist 120ml Twin Pack (2 x 60ml) - Pink No. 1 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/twist-120ml.jpg",
-    "rate": 9.5,
+    "zoho_rate": 9.5,
+    "rate": 11.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23377,7 +24133,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1757",
@@ -23389,7 +24145,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Twist 120ml Twin Pack (2 x 60ml)",
     "description": "Authentic factory-sealed Twist E-Liquids Twist 120ml Twin Pack (2 x 60ml) - Crimson No. 1 (Strawberry Crush) 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/twist-120ml.jpg",
-    "rate": 9.5,
+    "zoho_rate": 9.5,
+    "rate": 11.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23408,7 +24165,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1758",
@@ -23420,7 +24177,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Twist 120ml Twin Pack (2 x 60ml)",
     "description": "Authentic factory-sealed Twist E-Liquids Twist 120ml Twin Pack (2 x 60ml) - Crimson No. 1 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/twist-120ml.jpg",
-    "rate": 9.5,
+    "zoho_rate": 9.5,
+    "rate": 11.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23439,7 +24197,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1759",
@@ -23451,7 +24209,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Twist 120ml Twin Pack (2 x 60ml)",
     "description": "Authentic factory-sealed Twist E-Liquids Twist 120ml Twin Pack (2 x 60ml) - Green No. 1 (Honeydew Melon) 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/twist-120ml.jpg",
-    "rate": 9.5,
+    "zoho_rate": 9.5,
+    "rate": 11.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23470,7 +24229,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1760",
@@ -23482,7 +24241,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Twist 120ml Twin Pack (2 x 60ml)",
     "description": "Authentic factory-sealed Twist E-Liquids Twist 120ml Twin Pack (2 x 60ml) - Green No. 1 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/twist-120ml.jpg",
-    "rate": 9.5,
+    "zoho_rate": 9.5,
+    "rate": 11.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23501,7 +24261,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1761",
@@ -23513,7 +24273,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Twist 120ml Twin Pack (2 x 60ml)",
     "description": "Authentic factory-sealed Twist E-Liquids Twist 120ml Twin Pack (2 x 60ml) - Wild Red (Wild Watermelon Lemonade) 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/twist-120ml.jpg",
-    "rate": 9.5,
+    "zoho_rate": 9.5,
+    "rate": 11.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23532,7 +24293,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1762",
@@ -23544,7 +24305,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Twist 120ml Twin Pack (2 x 60ml)",
     "description": "Authentic factory-sealed Twist E-Liquids Twist 120ml Twin Pack (2 x 60ml) - Wild Red 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/twist-120ml.jpg",
-    "rate": 9.5,
+    "zoho_rate": 9.5,
+    "rate": 11.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23563,7 +24325,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.111Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1763",
@@ -23575,7 +24337,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Twist 120ml Twin Pack (2 x 60ml)",
     "description": "Authentic factory-sealed Twist E-Liquids Twist 120ml Twin Pack (2 x 60ml) - Space No. 1 (Strawberry Kiwi Pop) 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/twist-120ml.jpg",
-    "rate": 9.5,
+    "zoho_rate": 9.5,
+    "rate": 11.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23594,7 +24357,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.625Z"
   },
   {
     "id": "ZOHO-ITM-1764",
@@ -23606,7 +24369,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Twist 120ml Twin Pack (2 x 60ml)",
     "description": "Authentic factory-sealed Twist E-Liquids Twist 120ml Twin Pack (2 x 60ml) - Space No. 1 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/twist-120ml.jpg",
-    "rate": 9.5,
+    "zoho_rate": 9.5,
+    "rate": 11.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23625,7 +24389,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1765",
@@ -23637,7 +24401,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Twist 120ml Twin Pack (2 x 60ml)",
     "description": "Authentic factory-sealed Twist E-Liquids Twist 120ml Twin Pack (2 x 60ml) - Rainbow No. 1 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/twist-120ml.jpg",
-    "rate": 9.5,
+    "zoho_rate": 9.5,
+    "rate": 11.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23656,7 +24421,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1766",
@@ -23668,7 +24433,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Twist 120ml Twin Pack (2 x 60ml)",
     "description": "Authentic factory-sealed Twist E-Liquids Twist 120ml Twin Pack (2 x 60ml) - Rainbow No. 1 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/twist-120ml.jpg",
-    "rate": 9.5,
+    "zoho_rate": 9.5,
+    "rate": 11.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23687,7 +24453,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1767",
@@ -23699,7 +24465,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Twist 120ml Twin Pack (2 x 60ml)",
     "description": "Authentic factory-sealed Twist E-Liquids Twist 120ml Twin Pack (2 x 60ml) - Frosted Amber (Cookie Twist) 3mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/twist-120ml.jpg",
-    "rate": 9.5,
+    "zoho_rate": 9.5,
+    "rate": 11.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23718,7 +24485,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1768",
@@ -23730,7 +24497,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Twist 120ml Twin Pack (2 x 60ml)",
     "description": "Authentic factory-sealed Twist E-Liquids Twist 120ml Twin Pack (2 x 60ml) - Frosted Amber 6mg. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/twist-120ml.jpg",
-    "rate": 9.5,
+    "zoho_rate": 9.5,
+    "rate": 11.5,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23749,7 +24517,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1769",
@@ -23761,7 +24529,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OPMS Gold Liquid Extract 8.8ml Shot",
     "description": "Authentic factory-sealed OPMS OPMS Gold Liquid Extract 8.8ml Shot - Gold Liquid Extract Shot 8.8ml Single. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/opms-gold-liquid-extract.jpg",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23779,7 +24548,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1770",
@@ -23791,7 +24560,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OPMS Gold Liquid Extract 8.8ml Shot",
     "description": "Authentic factory-sealed OPMS OPMS Gold Liquid Extract 8.8ml Shot - Gold Liquid Extract Shot 8.8ml (12ct Counter Box). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/opms-gold-liquid-extract.jpg",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23809,7 +24579,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1771",
@@ -23821,7 +24591,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OPMS Gold Liquid Extract 8.8ml Shot",
     "description": "Authentic factory-sealed OPMS OPMS Gold Liquid Extract 8.8ml Shot - Gold Liquid Extract Shot 8.8ml (45ct Master Case). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/opms-gold-liquid-extract.jpg",
-    "rate": 11.5,
+    "zoho_rate": 11.5,
+    "rate": 16.5,
     "retail_msrp": 21.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23839,7 +24610,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1772",
@@ -23851,7 +24622,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OPMS Black Liquid Extract 8.8ml Shot",
     "description": "Authentic factory-sealed OPMS OPMS Black Liquid Extract 8.8ml Shot - Black Liquid Extract Shot 8.8ml Single. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/opms-black-liquid-extract.jpg",
-    "rate": 12.75,
+    "zoho_rate": 12.75,
+    "rate": 17.75,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23869,7 +24641,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1773",
@@ -23881,7 +24653,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OPMS Black Liquid Extract 8.8ml Shot",
     "description": "Authentic factory-sealed OPMS OPMS Black Liquid Extract 8.8ml Shot - Black Liquid Extract Shot 8.8ml (12ct Counter Box). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/opms-black-liquid-extract.jpg",
-    "rate": 12.75,
+    "zoho_rate": 12.75,
+    "rate": 17.75,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23899,7 +24672,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1774",
@@ -23911,7 +24684,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OPMS Black Liquid Extract 8.8ml Shot",
     "description": "Authentic factory-sealed OPMS OPMS Black Liquid Extract 8.8ml Shot - Black Liquid Extract Shot 8.8ml (45ct Master Case). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/opms-black-liquid-extract.jpg",
-    "rate": 12.75,
+    "zoho_rate": 12.75,
+    "rate": 17.75,
     "retail_msrp": 24.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23929,7 +24703,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1775",
@@ -23941,7 +24715,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OPMS Gold Extract Capsules",
     "description": "Authentic factory-sealed OPMS OPMS Gold Extract Capsules - Gold Extract Capsules 2-Count Pack. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/opms-gold-liquid-extract.jpg",
-    "rate": 19,
+    "zoho_rate": 19,
+    "rate": 24,
     "retail_msrp": 38.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23958,7 +24733,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1776",
@@ -23970,7 +24745,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OPMS Gold Extract Capsules",
     "description": "Authentic factory-sealed OPMS OPMS Gold Extract Capsules - Gold Extract Capsules 3-Count Pack. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/opms-gold-liquid-extract.jpg",
-    "rate": 19,
+    "zoho_rate": 19,
+    "rate": 24,
     "retail_msrp": 38.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -23987,7 +24763,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1777",
@@ -23999,7 +24775,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OPMS Gold Extract Capsules",
     "description": "Authentic factory-sealed OPMS OPMS Gold Extract Capsules - Gold Extract Capsules 5-Count Pack. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/opms-gold-liquid-extract.jpg",
-    "rate": 19,
+    "zoho_rate": 19,
+    "rate": 24,
     "retail_msrp": 38.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -24016,7 +24793,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1778",
@@ -24028,7 +24805,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OPMS Gold Extract Capsules",
     "description": "Authentic factory-sealed OPMS OPMS Gold Extract Capsules - Gold Extract Capsules (16pk Display Box 2ct). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/opms-gold-liquid-extract.jpg",
-    "rate": 19,
+    "zoho_rate": 19,
+    "rate": 24,
     "retail_msrp": 38.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -24045,7 +24823,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1779",
@@ -24057,7 +24835,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OPMS Gold Extract Capsules",
     "description": "Authentic factory-sealed OPMS OPMS Gold Extract Capsules - Gold Extract Capsules (16pk Display Box 3ct). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/opms-gold-liquid-extract.jpg",
-    "rate": 19,
+    "zoho_rate": 19,
+    "rate": 24,
     "retail_msrp": 38.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -24074,7 +24853,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1780",
@@ -24086,7 +24865,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OPMS Gold Extract Capsules",
     "description": "Authentic factory-sealed OPMS OPMS Gold Extract Capsules - Gold Extract Capsules (16pk Display Box 5ct). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/opms-gold-liquid-extract.jpg",
-    "rate": 19,
+    "zoho_rate": 19,
+    "rate": 24,
     "retail_msrp": 38.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -24103,7 +24883,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1781",
@@ -24115,7 +24895,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OPMS Black Extract Capsules",
     "description": "Authentic factory-sealed OPMS OPMS Black Extract Capsules - Black Extract Capsules 2-Count Pack. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/opms-black-liquid-extract.jpg",
-    "rate": 21.5,
+    "zoho_rate": 21.5,
+    "rate": 26.5,
     "retail_msrp": 42.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -24132,7 +24913,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1782",
@@ -24144,7 +24925,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OPMS Black Extract Capsules",
     "description": "Authentic factory-sealed OPMS OPMS Black Extract Capsules - Black Extract Capsules 3-Count Pack. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/opms-black-liquid-extract.jpg",
-    "rate": 21.5,
+    "zoho_rate": 21.5,
+    "rate": 26.5,
     "retail_msrp": 42.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -24161,7 +24943,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1783",
@@ -24173,7 +24955,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OPMS Black Extract Capsules",
     "description": "Authentic factory-sealed OPMS OPMS Black Extract Capsules - Black Extract Capsules 5-Count Pack. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/opms-black-liquid-extract.jpg",
-    "rate": 21.5,
+    "zoho_rate": 21.5,
+    "rate": 26.5,
     "retail_msrp": 42.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -24190,7 +24973,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1784",
@@ -24202,7 +24985,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OPMS Black Extract Capsules",
     "description": "Authentic factory-sealed OPMS OPMS Black Extract Capsules - Black Extract Capsules (16pk Display Box 2ct). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/opms-black-liquid-extract.jpg",
-    "rate": 21.5,
+    "zoho_rate": 21.5,
+    "rate": 26.5,
     "retail_msrp": 42.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -24219,7 +25003,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1785",
@@ -24231,7 +25015,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OPMS Black Extract Capsules",
     "description": "Authentic factory-sealed OPMS OPMS Black Extract Capsules - Black Extract Capsules (16pk Display Box 3ct). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/opms-black-liquid-extract.jpg",
-    "rate": 21.5,
+    "zoho_rate": 21.5,
+    "rate": 26.5,
     "retail_msrp": 42.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -24248,7 +25033,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1786",
@@ -24260,7 +25045,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OPMS Black Extract Capsules",
     "description": "Authentic factory-sealed OPMS OPMS Black Extract Capsules - Black Extract Capsules (16pk Display Box 5ct). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/opms-black-liquid-extract.jpg",
-    "rate": 21.5,
+    "zoho_rate": 21.5,
+    "rate": 26.5,
     "retail_msrp": 42.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -24277,7 +25063,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1787",
@@ -24289,7 +25075,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OPMS Silver Pure Kratom Powder",
     "description": "Authentic factory-sealed OPMS OPMS Silver Pure Kratom Powder - Silver Maeng Da 16oz Powder. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/opms-gold-liquid-extract.jpg",
-    "rate": 22,
+    "zoho_rate": 22,
+    "rate": 27,
     "retail_msrp": 45,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -24306,7 +25093,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1788",
@@ -24318,7 +25105,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OPMS Silver Pure Kratom Powder",
     "description": "Authentic factory-sealed OPMS OPMS Silver Pure Kratom Powder - Silver Thai 16oz Powder. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/opms-gold-liquid-extract.jpg",
-    "rate": 22,
+    "zoho_rate": 22,
+    "rate": 27,
     "retail_msrp": 45,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -24335,7 +25123,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1789",
@@ -24347,7 +25135,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OPMS Silver Pure Kratom Powder",
     "description": "Authentic factory-sealed OPMS OPMS Silver Pure Kratom Powder - Silver Malay 16oz Powder. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/opms-gold-liquid-extract.jpg",
-    "rate": 22,
+    "zoho_rate": 22,
+    "rate": 27,
     "retail_msrp": 45,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -24364,7 +25153,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1790",
@@ -24376,7 +25165,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "OPMS Silver Pure Kratom Powder",
     "description": "Authentic factory-sealed OPMS OPMS Silver Pure Kratom Powder - Silver Bali 16oz Powder. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/opms-gold-liquid-extract.jpg",
-    "rate": 22,
+    "zoho_rate": 22,
+    "rate": 27,
     "retail_msrp": 45,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -24393,7 +25183,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1791",
@@ -24405,7 +25195,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MIT45 Liquid Extract Shots & Pouches",
     "description": "Authentic factory-sealed MIT45 MIT45 Liquid Extract Shots & Pouches - MIT45 Gold Liquid Shot 15ml (Single). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/kratom-capsules-maeng-da.jpg",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -24422,7 +25213,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1792",
@@ -24434,7 +25225,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MIT45 Liquid Extract Shots & Pouches",
     "description": "Authentic factory-sealed MIT45 MIT45 Liquid Extract Shots & Pouches - MIT45 Gold Liquid Shot 15ml (12ct Display). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/kratom-capsules-maeng-da.jpg",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -24451,7 +25243,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1793",
@@ -24463,7 +25255,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MIT45 Liquid Extract Shots & Pouches",
     "description": "Authentic factory-sealed MIT45 MIT45 Liquid Extract Shots & Pouches - MIT45 Super K Extra Strong 30ml (Single). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/kratom-capsules-maeng-da.jpg",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -24480,7 +25273,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1794",
@@ -24492,7 +25285,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MIT45 Liquid Extract Shots & Pouches",
     "description": "Authentic factory-sealed MIT45 MIT45 Liquid Extract Shots & Pouches - MIT45 Super K Extra Strong 30ml (12ct Display). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/kratom-capsules-maeng-da.jpg",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -24509,7 +25303,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1795",
@@ -24521,7 +25315,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MIT45 Liquid Extract Shots & Pouches",
     "description": "Authentic factory-sealed MIT45 MIT45 Liquid Extract Shots & Pouches - MIT45 Boost Liquid Energy Shot (12ct Display). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/kratom-capsules-maeng-da.jpg",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -24538,7 +25333,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1796",
@@ -24550,7 +25345,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MIT45 Liquid Extract Shots & Pouches",
     "description": "Authentic factory-sealed MIT45 MIT45 Liquid Extract Shots & Pouches - MIT45 GO Liquid Kratom Gel Pouches (12ct Display). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/kratom-capsules-maeng-da.jpg",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -24567,7 +25363,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1797",
@@ -24579,7 +25375,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MIT45 Liquid Extract Shots & Pouches",
     "description": "Authentic factory-sealed MIT45 MIT45 Liquid Extract Shots & Pouches - MIT45 Raw Leaf Capsules 250ct Bottle. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/kratom-capsules-maeng-da.jpg",
-    "rate": 10.5,
+    "zoho_rate": 10.5,
+    "rate": 15.5,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -24596,7 +25393,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
   },
   {
     "id": "ZOHO-ITM-1798",
@@ -24608,6 +25405,1517 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "MIT45 Liquid Extract Shots & Pouches",
     "description": "Authentic factory-sealed MIT45 MIT45 Liquid Extract Shots & Pouches - MIT45 Raw Leaf Capsules 500ct Bottle. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/kratom-capsules-maeng-da.jpg",
+    "zoho_rate": 10.5,
+    "rate": 15.5,
+    "retail_msrp": 19.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1799",
+    "zoho_item_id": "ZOHO-ITM-1799",
+    "sku": "REM-GREENVEI-799",
+    "name": "Remarkable Herbs Remarkable Herbs Premium Powder - Green Vein Indo Powder 8oz",
+    "brand": "Remarkable Herbs",
+    "category": "Kratom",
+    "subcategory": "Remarkable Herbs Premium Powder",
+    "description": "Authentic factory-sealed Remarkable Herbs Remarkable Herbs Premium Powder - Green Vein Indo Powder 8oz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/kratom-capsules-maeng-da.jpg",
+    "zoho_rate": 14.5,
+    "rate": 19.5,
+    "retail_msrp": 29.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1800",
+    "zoho_item_id": "ZOHO-ITM-1800",
+    "sku": "REM-GREENVEI-800",
+    "name": "Remarkable Herbs Remarkable Herbs Premium Powder - Green Vein Malay Powder 8oz",
+    "brand": "Remarkable Herbs",
+    "category": "Kratom",
+    "subcategory": "Remarkable Herbs Premium Powder",
+    "description": "Authentic factory-sealed Remarkable Herbs Remarkable Herbs Premium Powder - Green Vein Malay Powder 8oz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/kratom-capsules-maeng-da.jpg",
+    "zoho_rate": 14.5,
+    "rate": 19.5,
+    "retail_msrp": 29.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1801",
+    "zoho_item_id": "ZOHO-ITM-1801",
+    "sku": "REM-MAENGDAP-801",
+    "name": "Remarkable Herbs Remarkable Herbs Premium Powder - Maeng Da Powder 8oz",
+    "brand": "Remarkable Herbs",
+    "category": "Kratom",
+    "subcategory": "Remarkable Herbs Premium Powder",
+    "description": "Authentic factory-sealed Remarkable Herbs Remarkable Herbs Premium Powder - Maeng Da Powder 8oz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/kratom-capsules-maeng-da.jpg",
+    "zoho_rate": 14.5,
+    "rate": 19.5,
+    "retail_msrp": 29.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1802",
+    "zoho_item_id": "ZOHO-ITM-1802",
+    "sku": "REM-REDVEINB-802",
+    "name": "Remarkable Herbs Remarkable Herbs Premium Powder - Red Vein Bali Powder 8oz",
+    "brand": "Remarkable Herbs",
+    "category": "Kratom",
+    "subcategory": "Remarkable Herbs Premium Powder",
+    "description": "Authentic factory-sealed Remarkable Herbs Remarkable Herbs Premium Powder - Red Vein Bali Powder 8oz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/kratom-capsules-maeng-da.jpg",
+    "zoho_rate": 14.5,
+    "rate": 19.5,
+    "retail_msrp": 29.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1803",
+    "zoho_item_id": "ZOHO-ITM-1803",
+    "sku": "REM-MAENGDAP-803",
+    "name": "Remarkable Herbs Remarkable Herbs Premium Powder - Maeng Da Powder 20oz Value Pouch",
+    "brand": "Remarkable Herbs",
+    "category": "Kratom",
+    "subcategory": "Remarkable Herbs Premium Powder",
+    "description": "Authentic factory-sealed Remarkable Herbs Remarkable Herbs Premium Powder - Maeng Da Powder 20oz Value Pouch. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/kratom-capsules-maeng-da.jpg",
+    "zoho_rate": 14.5,
+    "rate": 19.5,
+    "retail_msrp": 29.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1804",
+    "zoho_item_id": "ZOHO-ITM-1804",
+    "sku": "REM-GREENVEI-804",
+    "name": "Remarkable Herbs Remarkable Herbs Premium Powder - Green Vein Malay Powder 20oz Pouch",
+    "brand": "Remarkable Herbs",
+    "category": "Kratom",
+    "subcategory": "Remarkable Herbs Premium Powder",
+    "description": "Authentic factory-sealed Remarkable Herbs Remarkable Herbs Premium Powder - Green Vein Malay Powder 20oz Pouch. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/kratom-capsules-maeng-da.jpg",
+    "zoho_rate": 14.5,
+    "rate": 19.5,
+    "retail_msrp": 29.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1805",
+    "zoho_item_id": "ZOHO-ITM-1805",
+    "sku": "MOD-TAPOUT3G-805",
+    "name": "Modus Tap Out Blend 3g Disposable - Tap Out 3g - Lemon Vuitton",
+    "brand": "Modus",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "Tap Out Blend 3g Disposable",
+    "description": "Authentic factory-sealed Modus Tap Out Blend 3g Disposable - Tap Out 3g - Lemon Vuitton. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 13.5,
+    "rate": 18.5,
+    "retail_msrp": 29.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "size": "3 Grams",
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1806",
+    "zoho_item_id": "ZOHO-ITM-1806",
+    "sku": "MOD-TAPOUT3G-806",
+    "name": "Modus Tap Out Blend 3g Disposable - Tap Out 3g - Trap Star",
+    "brand": "Modus",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "Tap Out Blend 3g Disposable",
+    "description": "Authentic factory-sealed Modus Tap Out Blend 3g Disposable - Tap Out 3g - Trap Star. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 13.5,
+    "rate": 18.5,
+    "retail_msrp": 29.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "size": "3 Grams",
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1807",
+    "zoho_item_id": "ZOHO-ITM-1807",
+    "sku": "MOD-TAPOUT3G-807",
+    "name": "Modus Tap Out Blend 3g Disposable - Tap Out 3g - Jealousy",
+    "brand": "Modus",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "Tap Out Blend 3g Disposable",
+    "description": "Authentic factory-sealed Modus Tap Out Blend 3g Disposable - Tap Out 3g - Jealousy. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 13.5,
+    "rate": 18.5,
+    "retail_msrp": 29.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "size": "3 Grams",
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1808",
+    "zoho_item_id": "ZOHO-ITM-1808",
+    "sku": "MOD-TAPOUT3G-808",
+    "name": "Modus Tap Out Blend 3g Disposable - Tap Out 3g - Apple Fritter",
+    "brand": "Modus",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "Tap Out Blend 3g Disposable",
+    "description": "Authentic factory-sealed Modus Tap Out Blend 3g Disposable - Tap Out 3g - Apple Fritter. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 13.5,
+    "rate": 18.5,
+    "retail_msrp": 29.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "size": "3 Grams",
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1809",
+    "zoho_item_id": "ZOHO-ITM-1809",
+    "sku": "MOD-TAPOUT3G-809",
+    "name": "Modus Tap Out Blend 3g Disposable - Tap Out 3g - Mega Hurtz",
+    "brand": "Modus",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "Tap Out Blend 3g Disposable",
+    "description": "Authentic factory-sealed Modus Tap Out Blend 3g Disposable - Tap Out 3g - Mega Hurtz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 13.5,
+    "rate": 18.5,
+    "retail_msrp": 29.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "size": "3 Grams",
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1810",
+    "zoho_item_id": "ZOHO-ITM-1810",
+    "sku": "MOD-TAPOUT3G-810",
+    "name": "Modus Tap Out Blend 3g Disposable - Tap Out 3g - Zlushie",
+    "brand": "Modus",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "Tap Out Blend 3g Disposable",
+    "description": "Authentic factory-sealed Modus Tap Out Blend 3g Disposable - Tap Out 3g - Zlushie. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 13.5,
+    "rate": 18.5,
+    "retail_msrp": 29.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "size": "3 Grams",
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1811",
+    "zoho_item_id": "ZOHO-ITM-1811",
+    "sku": "MOD-UPPERCUT-811",
+    "name": "Modus Uppercut Blend 3g Disposable - Uppercut 3g - Alaskan Thunder Fuck",
+    "brand": "Modus",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "Uppercut Blend 3g Disposable",
+    "description": "Authentic factory-sealed Modus Uppercut Blend 3g Disposable - Uppercut 3g - Alaskan Thunder Fuck. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 13.5,
+    "rate": 18.5,
+    "retail_msrp": 29.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "size": "3 Grams",
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1812",
+    "zoho_item_id": "ZOHO-ITM-1812",
+    "sku": "MOD-UPPERCUT-812",
+    "name": "Modus Uppercut Blend 3g Disposable - Uppercut 3g - Guzzlerz",
+    "brand": "Modus",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "Uppercut Blend 3g Disposable",
+    "description": "Authentic factory-sealed Modus Uppercut Blend 3g Disposable - Uppercut 3g - Guzzlerz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 13.5,
+    "rate": 18.5,
+    "retail_msrp": 29.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "size": "3 Grams",
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1813",
+    "zoho_item_id": "ZOHO-ITM-1813",
+    "sku": "MOD-UPPERCUT-813",
+    "name": "Modus Uppercut Blend 3g Disposable - Uppercut 3g - Oreoz",
+    "brand": "Modus",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "Uppercut Blend 3g Disposable",
+    "description": "Authentic factory-sealed Modus Uppercut Blend 3g Disposable - Uppercut 3g - Oreoz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 13.5,
+    "rate": 18.5,
+    "retail_msrp": 29.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "size": "3 Grams",
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1814",
+    "zoho_item_id": "ZOHO-ITM-1814",
+    "sku": "MOD-UPPERCUT-814",
+    "name": "Modus Uppercut Blend 3g Disposable - Uppercut 3g - Watermelon Zkittlez",
+    "brand": "Modus",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "Uppercut Blend 3g Disposable",
+    "description": "Authentic factory-sealed Modus Uppercut Blend 3g Disposable - Uppercut 3g - Watermelon Zkittlez. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 13.5,
+    "rate": 18.5,
+    "retail_msrp": 29.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "size": "3 Grams",
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1815",
+    "zoho_item_id": "ZOHO-ITM-1815",
+    "sku": "HID-VVS2GPIN-815",
+    "name": "Hidden Hills Club VVS Diamond 2g Disposable & Gummies - VVS 2g - Pink Rozay",
+    "brand": "Hidden Hills Club",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "VVS Diamond 2g Disposable & Gummies",
+    "description": "Authentic factory-sealed Hidden Hills Club VVS Diamond 2g Disposable & Gummies - VVS 2g - Pink Rozay. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 14,
+    "rate": 19,
+    "retail_msrp": 32.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1816",
+    "zoho_item_id": "ZOHO-ITM-1816",
+    "sku": "HID-VVS2GLON-816",
+    "name": "Hidden Hills Club VVS Diamond 2g Disposable & Gummies - VVS 2g - London Jelly",
+    "brand": "Hidden Hills Club",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "VVS Diamond 2g Disposable & Gummies",
+    "description": "Authentic factory-sealed Hidden Hills Club VVS Diamond 2g Disposable & Gummies - VVS 2g - London Jelly. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 14,
+    "rate": 19,
+    "retail_msrp": 32.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1817",
+    "zoho_item_id": "ZOHO-ITM-1817",
+    "sku": "HID-VVS2GWHI-817",
+    "name": "Hidden Hills Club VVS Diamond 2g Disposable & Gummies - VVS 2g - White Gummy",
+    "brand": "Hidden Hills Club",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "VVS Diamond 2g Disposable & Gummies",
+    "description": "Authentic factory-sealed Hidden Hills Club VVS Diamond 2g Disposable & Gummies - VVS 2g - White Gummy. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 14,
+    "rate": 19,
+    "retail_msrp": 32.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1818",
+    "zoho_item_id": "ZOHO-ITM-1818",
+    "sku": "HID-NIGHTNIG-818",
+    "name": "Hidden Hills Club VVS Diamond 2g Disposable & Gummies - Night Night Blend Gummies 1000mg Sweet Dreams",
+    "brand": "Hidden Hills Club",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "VVS Diamond 2g Disposable & Gummies",
+    "description": "Authentic factory-sealed Hidden Hills Club VVS Diamond 2g Disposable & Gummies - Night Night Blend Gummies 1000mg Sweet Dreams. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 14,
+    "rate": 19,
+    "retail_msrp": 32.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1819",
+    "zoho_item_id": "ZOHO-ITM-1819",
+    "sku": "HID-FIREFIRE-819",
+    "name": "Hidden Hills Club VVS Diamond 2g Disposable & Gummies - Fire Fire Live Resin Gummies 1000mg Citrus Punch",
+    "brand": "Hidden Hills Club",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "VVS Diamond 2g Disposable & Gummies",
+    "description": "Authentic factory-sealed Hidden Hills Club VVS Diamond 2g Disposable & Gummies - Fire Fire Live Resin Gummies 1000mg Citrus Punch. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 14,
+    "rate": 19,
+    "retail_msrp": 32.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1820",
+    "zoho_item_id": "ZOHO-ITM-1820",
+    "sku": "HID-SHIELDBL-820",
+    "name": "Hidden Hills Club VVS Diamond 2g Disposable & Gummies - Shield Blend 510 Carts 2g - Strawberry Cough",
+    "brand": "Hidden Hills Club",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "VVS Diamond 2g Disposable & Gummies",
+    "description": "Authentic factory-sealed Hidden Hills Club VVS Diamond 2g Disposable & Gummies - Shield Blend 510 Carts 2g - Strawberry Cough. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 14,
+    "rate": 19,
+    "retail_msrp": 32.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1821",
+    "zoho_item_id": "ZOHO-ITM-1821",
+    "sku": "HID-SHIELDBL-821",
+    "name": "Hidden Hills Club VVS Diamond 2g Disposable & Gummies - Shield Blend 510 Carts 2g - Granddaddy Purple",
+    "brand": "Hidden Hills Club",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "VVS Diamond 2g Disposable & Gummies",
+    "description": "Authentic factory-sealed Hidden Hills Club VVS Diamond 2g Disposable & Gummies - Shield Blend 510 Carts 2g - Granddaddy Purple. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 14,
+    "rate": 19,
+    "retail_msrp": 32.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1822",
+    "zoho_item_id": "ZOHO-ITM-1822",
+    "sku": "URB-THCADIAM-822",
+    "name": "Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - THCA Diamond Indoor Flower Prerolls 5pk - Wedding Cake",
+    "brand": "Urb",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "Finest Flowers Live Resin Diamond Prerolls & Disposables",
+    "description": "Authentic factory-sealed Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - THCA Diamond Indoor Flower Prerolls 5pk - Wedding Cake. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 12.5,
+    "rate": 17.5,
+    "retail_msrp": 26.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1823",
+    "zoho_item_id": "ZOHO-ITM-1823",
+    "sku": "URB-THCADIAM-823",
+    "name": "Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - THCA Diamond Indoor Flower Prerolls 5pk - Gelato",
+    "brand": "Urb",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "Finest Flowers Live Resin Diamond Prerolls & Disposables",
+    "description": "Authentic factory-sealed Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - THCA Diamond Indoor Flower Prerolls 5pk - Gelato. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 12.5,
+    "rate": 17.5,
+    "retail_msrp": 26.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1824",
+    "zoho_item_id": "ZOHO-ITM-1824",
+    "sku": "URB-THCADIAM-824",
+    "name": "Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - THCA Diamond Indoor Flower Prerolls 5pk - Skywalker OG",
+    "brand": "Urb",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "Finest Flowers Live Resin Diamond Prerolls & Disposables",
+    "description": "Authentic factory-sealed Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - THCA Diamond Indoor Flower Prerolls 5pk - Skywalker OG. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 12.5,
+    "rate": 17.5,
+    "retail_msrp": 26.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1825",
+    "zoho_item_id": "ZOHO-ITM-1825",
+    "sku": "URB-THCADIAM-825",
+    "name": "Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - THCA Diamond Indoor Flower Prerolls 5pk - Sour Diesel",
+    "brand": "Urb",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "Finest Flowers Live Resin Diamond Prerolls & Disposables",
+    "description": "Authentic factory-sealed Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - THCA Diamond Indoor Flower Prerolls 5pk - Sour Diesel. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 12.5,
+    "rate": 17.5,
+    "retail_msrp": 26.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1826",
+    "zoho_item_id": "ZOHO-ITM-1826",
+    "sku": "URB-SMARTDEV-826",
+    "name": "Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - Smart Device 3g Disposable - Liquid Badder Guava Gelato",
+    "brand": "Urb",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "Finest Flowers Live Resin Diamond Prerolls & Disposables",
+    "description": "Authentic factory-sealed Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - Smart Device 3g Disposable - Liquid Badder Guava Gelato. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 12.5,
+    "rate": 17.5,
+    "retail_msrp": 26.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1827",
+    "zoho_item_id": "ZOHO-ITM-1827",
+    "sku": "URB-SMARTDEV-827",
+    "name": "Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - Smart Device 3g Disposable - Live Resin Watermelon Shortcake",
+    "brand": "Urb",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "Finest Flowers Live Resin Diamond Prerolls & Disposables",
+    "description": "Authentic factory-sealed Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - Smart Device 3g Disposable - Live Resin Watermelon Shortcake. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 12.5,
+    "rate": 17.5,
+    "retail_msrp": 26.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1828",
+    "zoho_item_id": "ZOHO-ITM-1828",
+    "sku": "URB-SMARTDEV-828",
+    "name": "Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - Smart Device 3g Disposable - Blue Watermelon",
+    "brand": "Urb",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "Finest Flowers Live Resin Diamond Prerolls & Disposables",
+    "description": "Authentic factory-sealed Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - Smart Device 3g Disposable - Blue Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 12.5,
+    "rate": 17.5,
+    "retail_msrp": 26.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1829",
+    "zoho_item_id": "ZOHO-ITM-1829",
+    "sku": "URB-HIGHPOTE-829",
+    "name": "Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - High Potency Delta 9 Live Rosin Gummies 35ct Jar",
+    "brand": "Urb",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "Finest Flowers Live Resin Diamond Prerolls & Disposables",
+    "description": "Authentic factory-sealed Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - High Potency Delta 9 Live Rosin Gummies 35ct Jar. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 12.5,
+    "rate": 17.5,
+    "retail_msrp": 26.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1830",
+    "zoho_item_id": "ZOHO-ITM-1830",
+    "sku": "FLY-HEAVYHIT-830",
+    "name": "Flying Monkey Heavy Hitter & King Kong Disposables - Heavy Hitter 2g - Blueberry Afgoo",
+    "brand": "Flying Monkey",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "Heavy Hitter & King Kong Disposables",
+    "description": "Authentic factory-sealed Flying Monkey Heavy Hitter & King Kong Disposables - Heavy Hitter 2g - Blueberry Afgoo. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 13,
+    "rate": 18,
+    "retail_msrp": 28.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1831",
+    "zoho_item_id": "ZOHO-ITM-1831",
+    "sku": "FLY-HEAVYHIT-831",
+    "name": "Flying Monkey Heavy Hitter & King Kong Disposables - Heavy Hitter 2g - Mango Crush",
+    "brand": "Flying Monkey",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "Heavy Hitter & King Kong Disposables",
+    "description": "Authentic factory-sealed Flying Monkey Heavy Hitter & King Kong Disposables - Heavy Hitter 2g - Mango Crush. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 13,
+    "rate": 18,
+    "retail_msrp": 28.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.626Z"
+  },
+  {
+    "id": "ZOHO-ITM-1832",
+    "zoho_item_id": "ZOHO-ITM-1832",
+    "sku": "FLY-HEAVYHIT-832",
+    "name": "Flying Monkey Heavy Hitter & King Kong Disposables - Heavy Hitter 2g - Sour Apple Killer",
+    "brand": "Flying Monkey",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "Heavy Hitter & King Kong Disposables",
+    "description": "Authentic factory-sealed Flying Monkey Heavy Hitter & King Kong Disposables - Heavy Hitter 2g - Sour Apple Killer. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 13,
+    "rate": 18,
+    "retail_msrp": 28.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
+  },
+  {
+    "id": "ZOHO-ITM-1833",
+    "zoho_item_id": "ZOHO-ITM-1833",
+    "sku": "FLY-HEAVYHIT-833",
+    "name": "Flying Monkey Heavy Hitter & King Kong Disposables - Heavy Hitter 2g - Strawnana",
+    "brand": "Flying Monkey",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "Heavy Hitter & King Kong Disposables",
+    "description": "Authentic factory-sealed Flying Monkey Heavy Hitter & King Kong Disposables - Heavy Hitter 2g - Strawnana. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/raw-classic-king-size-box.png",
+    "zoho_rate": 13,
+    "rate": 18,
+    "retail_msrp": 28.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
+  },
+  {
+    "id": "ZOHO-ITM-1834",
+    "zoho_item_id": "ZOHO-ITM-1834",
+    "sku": "FLY-KINGKONG-834",
+    "name": "Flying Monkey Heavy Hitter & King Kong Disposables - King Kong 2.5g - Bonkers",
+    "brand": "Flying Monkey",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "Heavy Hitter & King Kong Disposables",
+    "description": "Authentic factory-sealed Flying Monkey Heavy Hitter & King Kong Disposables - King Kong 2.5g - Bonkers. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 13,
+    "rate": 18,
+    "retail_msrp": 28.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
+  },
+  {
+    "id": "ZOHO-ITM-1835",
+    "zoho_item_id": "ZOHO-ITM-1835",
+    "sku": "FLY-KINGKONG-835",
+    "name": "Flying Monkey Heavy Hitter & King Kong Disposables - King Kong 2.5g - White Runtz",
+    "brand": "Flying Monkey",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "Heavy Hitter & King Kong Disposables",
+    "description": "Authentic factory-sealed Flying Monkey Heavy Hitter & King Kong Disposables - King Kong 2.5g - White Runtz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 13,
+    "rate": 18,
+    "retail_msrp": 28.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
+  },
+  {
+    "id": "ZOHO-ITM-1836",
+    "zoho_item_id": "ZOHO-ITM-1836",
+    "sku": "FLY-KINGKONG-836",
+    "name": "Flying Monkey Heavy Hitter & King Kong Disposables - King Kong 2.5g - Maybach Kush",
+    "brand": "Flying Monkey",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "Heavy Hitter & King Kong Disposables",
+    "description": "Authentic factory-sealed Flying Monkey Heavy Hitter & King Kong Disposables - King Kong 2.5g - Maybach Kush. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 13,
+    "rate": 18,
+    "retail_msrp": 28.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
+  },
+  {
+    "id": "ZOHO-ITM-1837",
+    "zoho_item_id": "ZOHO-ITM-1837",
+    "sku": "FLY-DELTA8TH-837",
+    "name": "Flying Monkey Heavy Hitter & King Kong Disposables - Delta 8 THC Gummies 500mg (20ct)",
+    "brand": "Flying Monkey",
+    "category": "THCA, CBD & Delta",
+    "subcategory": "Heavy Hitter & King Kong Disposables",
+    "description": "Authentic factory-sealed Flying Monkey Heavy Hitter & King Kong Disposables - Delta 8 THC Gummies 500mg (20ct). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/thca-diamond-prerolls.png",
+    "zoho_rate": 13,
+    "rate": 18,
+    "retail_msrp": 28.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
+  },
+  {
+    "id": "ZOHO-ITM-1838",
+    "zoho_item_id": "ZOHO-ITM-1838",
+    "sku": "DIA-HEAVYBEA-838",
+    "name": "Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Heavy Beaker Water Pipe 10-inch 7mm Clear",
+    "brand": "Diamond Glass",
+    "category": "Pipes & Glass",
+    "subcategory": "Classic Heavy Beakers & Tubes (7mm Borosilicate)",
+    "description": "Authentic factory-sealed Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Heavy Beaker Water Pipe 10-inch 7mm Clear. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/glass-beaker-10in.jpg",
+    "zoho_rate": 28,
+    "rate": 33,
+    "retail_msrp": 69.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
+  },
+  {
+    "id": "ZOHO-ITM-1839",
+    "zoho_item_id": "ZOHO-ITM-1839",
+    "sku": "DIA-HEAVYBEA-839",
+    "name": "Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Heavy Beaker Water Pipe 12-inch 7mm Emerald Green Accents",
+    "brand": "Diamond Glass",
+    "category": "Pipes & Glass",
+    "subcategory": "Classic Heavy Beakers & Tubes (7mm Borosilicate)",
+    "description": "Authentic factory-sealed Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Heavy Beaker Water Pipe 12-inch 7mm Emerald Green Accents. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/glass-beaker-10in.jpg",
+    "zoho_rate": 28,
+    "rate": 33,
+    "retail_msrp": 69.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
+  },
+  {
+    "id": "ZOHO-ITM-1840",
+    "zoho_item_id": "ZOHO-ITM-1840",
+    "sku": "DIA-HEAVYBEA-840",
+    "name": "Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Heavy Beaker Water Pipe 14-inch 9mm Super Thick Teal Accents",
+    "brand": "Diamond Glass",
+    "category": "Pipes & Glass",
+    "subcategory": "Classic Heavy Beakers & Tubes (7mm Borosilicate)",
+    "description": "Authentic factory-sealed Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Heavy Beaker Water Pipe 14-inch 9mm Super Thick Teal Accents. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/glass-beaker-10in.jpg",
+    "zoho_rate": 28,
+    "rate": 33,
+    "retail_msrp": 69.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
+  },
+  {
+    "id": "ZOHO-ITM-1841",
+    "zoho_item_id": "ZOHO-ITM-1841",
+    "sku": "DIA-HEAVYBEA-841",
+    "name": "Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Heavy Beaker Water Pipe 16-inch 9mm Tri-Color Monster Beaker",
+    "brand": "Diamond Glass",
+    "category": "Pipes & Glass",
+    "subcategory": "Classic Heavy Beakers & Tubes (7mm Borosilicate)",
+    "description": "Authentic factory-sealed Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Heavy Beaker Water Pipe 16-inch 9mm Tri-Color Monster Beaker. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/glass-beaker-10in.jpg",
+    "zoho_rate": 28,
+    "rate": 33,
+    "retail_msrp": 69.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
+  },
+  {
+    "id": "ZOHO-ITM-1842",
+    "zoho_item_id": "ZOHO-ITM-1842",
+    "sku": "DIA-STRAIGHT-842",
+    "name": "Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Straight Tube Water Pipe 12-inch with Ice Pinch Clear",
+    "brand": "Diamond Glass",
+    "category": "Pipes & Glass",
+    "subcategory": "Classic Heavy Beakers & Tubes (7mm Borosilicate)",
+    "description": "Authentic factory-sealed Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Straight Tube Water Pipe 12-inch with Ice Pinch Clear. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/glass-beaker-10in.jpg",
+    "zoho_rate": 28,
+    "rate": 33,
+    "retail_msrp": 69.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
+  },
+  {
+    "id": "ZOHO-ITM-1843",
+    "zoho_item_id": "ZOHO-ITM-1843",
+    "sku": "DIA-STRAIGHT-843",
+    "name": "Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Straight Tube Water Pipe 14-inch 7mm Midnight Black Rim",
+    "brand": "Diamond Glass",
+    "category": "Pipes & Glass",
+    "subcategory": "Classic Heavy Beakers & Tubes (7mm Borosilicate)",
+    "description": "Authentic factory-sealed Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Straight Tube Water Pipe 14-inch 7mm Midnight Black Rim. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/glass-beaker-10in.jpg",
+    "zoho_rate": 28,
+    "rate": 33,
+    "retail_msrp": 69.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
+  },
+  {
+    "id": "ZOHO-ITM-1844",
+    "zoho_item_id": "ZOHO-ITM-1844",
+    "sku": "DIA-HONEYCOM-844",
+    "name": "Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Honeycomb Perc to Matrix Diffuser Water Pipe 14-inch",
+    "brand": "Diamond Glass",
+    "category": "Pipes & Glass",
+    "subcategory": "Classic Heavy Beakers & Tubes (7mm Borosilicate)",
+    "description": "Authentic factory-sealed Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Honeycomb Perc to Matrix Diffuser Water Pipe 14-inch. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/glass-beaker-10in.jpg",
+    "zoho_rate": 28,
+    "rate": 33,
+    "retail_msrp": 69.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
+  },
+  {
+    "id": "ZOHO-ITM-1845",
+    "zoho_item_id": "ZOHO-ITM-1845",
+    "sku": "DIA-TREEPERC-845",
+    "name": "Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Tree Perc Double Chamber Beaker Bong 15-inch",
+    "brand": "Diamond Glass",
+    "category": "Pipes & Glass",
+    "subcategory": "Classic Heavy Beakers & Tubes (7mm Borosilicate)",
+    "description": "Authentic factory-sealed Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Tree Perc Double Chamber Beaker Bong 15-inch. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/glass-beaker-10in.jpg",
+    "zoho_rate": 28,
+    "rate": 33,
+    "retail_msrp": 69.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
+  },
+  {
+    "id": "ZOHO-ITM-1846",
+    "zoho_item_id": "ZOHO-ITM-1846",
+    "sku": "DIA-INLINEMA-846",
+    "name": "Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Inline Matrix Recycler Rig 8-inch with 14mm Banger",
+    "brand": "Diamond Glass",
+    "category": "Pipes & Glass",
+    "subcategory": "Classic Heavy Beakers & Tubes (7mm Borosilicate)",
+    "description": "Authentic factory-sealed Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Inline Matrix Recycler Rig 8-inch with 14mm Banger. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/glass-beaker-10in.jpg",
+    "zoho_rate": 28,
+    "rate": 33,
+    "retail_msrp": 69.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
+  },
+  {
+    "id": "ZOHO-ITM-1847",
+    "zoho_item_id": "ZOHO-ITM-1847",
+    "sku": "DIA-KLEINREC-847",
+    "name": "Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Klein Recycler Dab Rig 9-inch Clear with Amber Accents",
+    "brand": "Diamond Glass",
+    "category": "Pipes & Glass",
+    "subcategory": "Classic Heavy Beakers & Tubes (7mm Borosilicate)",
+    "description": "Authentic factory-sealed Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Klein Recycler Dab Rig 9-inch Clear with Amber Accents. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/glass-beaker-10in.jpg",
+    "zoho_rate": 28,
+    "rate": 33,
+    "retail_msrp": 69.99,
+    "available_stock": 50,
+    "stock_on_hand": 50,
+    "stock_status": "in_stock",
+    "status": "active",
+    "unit": "Pack",
+    "min_order_qty": 1,
+    "bulk_pricing": [],
+    "specs": {
+      "origin": "USA Distributed · Licensed OK Warehouse"
+    },
+    "features": [
+      "Factory Sealed Case Master Packaging",
+      "Authentic Verification QR Codes",
+      "Same-Day OKC Warehouse Pickup Available"
+    ],
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
+  },
+  {
+    "id": "ZOHO-ITM-1848",
+    "zoho_item_id": "ZOHO-ITM-1848",
+    "sku": "DIA-HEAVYTHI-848",
+    "name": "Diamond Glass Glass Accessories & Quartz Hardware - Heavy Thick Spoon Pipe 4-inch Multi-Frit (10ct Display)",
+    "brand": "Diamond Glass",
+    "category": "Pipes & Glass",
+    "subcategory": "Glass Accessories & Quartz Hardware",
+    "description": "Authentic factory-sealed Diamond Glass Glass Accessories & Quartz Hardware - Heavy Thick Spoon Pipe 4-inch Multi-Frit (10ct Display). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
+    "image_url": "/products/glass-spoon-pipe-4in.jpg",
+    "zoho_rate": 8.5,
     "rate": 10.5,
     "retail_msrp": 19.99,
     "available_stock": 50,
@@ -24625,1467 +26933,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1799",
-    "zoho_item_id": "ZOHO-ITM-1799",
-    "sku": "REM-GREENVEI-799",
-    "name": "Remarkable Herbs Remarkable Herbs Premium Powder - Green Vein Indo Powder 8oz",
-    "brand": "Remarkable Herbs",
-    "category": "Kratom",
-    "subcategory": "Remarkable Herbs Premium Powder",
-    "description": "Authentic factory-sealed Remarkable Herbs Remarkable Herbs Premium Powder - Green Vein Indo Powder 8oz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/kratom-capsules-maeng-da.jpg",
-    "rate": 14.5,
-    "retail_msrp": 29.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1800",
-    "zoho_item_id": "ZOHO-ITM-1800",
-    "sku": "REM-GREENVEI-800",
-    "name": "Remarkable Herbs Remarkable Herbs Premium Powder - Green Vein Malay Powder 8oz",
-    "brand": "Remarkable Herbs",
-    "category": "Kratom",
-    "subcategory": "Remarkable Herbs Premium Powder",
-    "description": "Authentic factory-sealed Remarkable Herbs Remarkable Herbs Premium Powder - Green Vein Malay Powder 8oz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/kratom-capsules-maeng-da.jpg",
-    "rate": 14.5,
-    "retail_msrp": 29.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1801",
-    "zoho_item_id": "ZOHO-ITM-1801",
-    "sku": "REM-MAENGDAP-801",
-    "name": "Remarkable Herbs Remarkable Herbs Premium Powder - Maeng Da Powder 8oz",
-    "brand": "Remarkable Herbs",
-    "category": "Kratom",
-    "subcategory": "Remarkable Herbs Premium Powder",
-    "description": "Authentic factory-sealed Remarkable Herbs Remarkable Herbs Premium Powder - Maeng Da Powder 8oz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/kratom-capsules-maeng-da.jpg",
-    "rate": 14.5,
-    "retail_msrp": 29.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1802",
-    "zoho_item_id": "ZOHO-ITM-1802",
-    "sku": "REM-REDVEINB-802",
-    "name": "Remarkable Herbs Remarkable Herbs Premium Powder - Red Vein Bali Powder 8oz",
-    "brand": "Remarkable Herbs",
-    "category": "Kratom",
-    "subcategory": "Remarkable Herbs Premium Powder",
-    "description": "Authentic factory-sealed Remarkable Herbs Remarkable Herbs Premium Powder - Red Vein Bali Powder 8oz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/kratom-capsules-maeng-da.jpg",
-    "rate": 14.5,
-    "retail_msrp": 29.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1803",
-    "zoho_item_id": "ZOHO-ITM-1803",
-    "sku": "REM-MAENGDAP-803",
-    "name": "Remarkable Herbs Remarkable Herbs Premium Powder - Maeng Da Powder 20oz Value Pouch",
-    "brand": "Remarkable Herbs",
-    "category": "Kratom",
-    "subcategory": "Remarkable Herbs Premium Powder",
-    "description": "Authentic factory-sealed Remarkable Herbs Remarkable Herbs Premium Powder - Maeng Da Powder 20oz Value Pouch. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/kratom-capsules-maeng-da.jpg",
-    "rate": 14.5,
-    "retail_msrp": 29.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1804",
-    "zoho_item_id": "ZOHO-ITM-1804",
-    "sku": "REM-GREENVEI-804",
-    "name": "Remarkable Herbs Remarkable Herbs Premium Powder - Green Vein Malay Powder 20oz Pouch",
-    "brand": "Remarkable Herbs",
-    "category": "Kratom",
-    "subcategory": "Remarkable Herbs Premium Powder",
-    "description": "Authentic factory-sealed Remarkable Herbs Remarkable Herbs Premium Powder - Green Vein Malay Powder 20oz Pouch. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/kratom-capsules-maeng-da.jpg",
-    "rate": 14.5,
-    "retail_msrp": 29.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1805",
-    "zoho_item_id": "ZOHO-ITM-1805",
-    "sku": "MOD-TAPOUT3G-805",
-    "name": "Modus Tap Out Blend 3g Disposable - Tap Out 3g - Lemon Vuitton",
-    "brand": "Modus",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "Tap Out Blend 3g Disposable",
-    "description": "Authentic factory-sealed Modus Tap Out Blend 3g Disposable - Tap Out 3g - Lemon Vuitton. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 13.5,
-    "retail_msrp": 29.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "size": "3 Grams",
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1806",
-    "zoho_item_id": "ZOHO-ITM-1806",
-    "sku": "MOD-TAPOUT3G-806",
-    "name": "Modus Tap Out Blend 3g Disposable - Tap Out 3g - Trap Star",
-    "brand": "Modus",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "Tap Out Blend 3g Disposable",
-    "description": "Authentic factory-sealed Modus Tap Out Blend 3g Disposable - Tap Out 3g - Trap Star. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 13.5,
-    "retail_msrp": 29.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "size": "3 Grams",
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1807",
-    "zoho_item_id": "ZOHO-ITM-1807",
-    "sku": "MOD-TAPOUT3G-807",
-    "name": "Modus Tap Out Blend 3g Disposable - Tap Out 3g - Jealousy",
-    "brand": "Modus",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "Tap Out Blend 3g Disposable",
-    "description": "Authentic factory-sealed Modus Tap Out Blend 3g Disposable - Tap Out 3g - Jealousy. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 13.5,
-    "retail_msrp": 29.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "size": "3 Grams",
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1808",
-    "zoho_item_id": "ZOHO-ITM-1808",
-    "sku": "MOD-TAPOUT3G-808",
-    "name": "Modus Tap Out Blend 3g Disposable - Tap Out 3g - Apple Fritter",
-    "brand": "Modus",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "Tap Out Blend 3g Disposable",
-    "description": "Authentic factory-sealed Modus Tap Out Blend 3g Disposable - Tap Out 3g - Apple Fritter. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 13.5,
-    "retail_msrp": 29.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "size": "3 Grams",
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1809",
-    "zoho_item_id": "ZOHO-ITM-1809",
-    "sku": "MOD-TAPOUT3G-809",
-    "name": "Modus Tap Out Blend 3g Disposable - Tap Out 3g - Mega Hurtz",
-    "brand": "Modus",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "Tap Out Blend 3g Disposable",
-    "description": "Authentic factory-sealed Modus Tap Out Blend 3g Disposable - Tap Out 3g - Mega Hurtz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 13.5,
-    "retail_msrp": 29.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "size": "3 Grams",
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1810",
-    "zoho_item_id": "ZOHO-ITM-1810",
-    "sku": "MOD-TAPOUT3G-810",
-    "name": "Modus Tap Out Blend 3g Disposable - Tap Out 3g - Zlushie",
-    "brand": "Modus",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "Tap Out Blend 3g Disposable",
-    "description": "Authentic factory-sealed Modus Tap Out Blend 3g Disposable - Tap Out 3g - Zlushie. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 13.5,
-    "retail_msrp": 29.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "size": "3 Grams",
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1811",
-    "zoho_item_id": "ZOHO-ITM-1811",
-    "sku": "MOD-UPPERCUT-811",
-    "name": "Modus Uppercut Blend 3g Disposable - Uppercut 3g - Alaskan Thunder Fuck",
-    "brand": "Modus",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "Uppercut Blend 3g Disposable",
-    "description": "Authentic factory-sealed Modus Uppercut Blend 3g Disposable - Uppercut 3g - Alaskan Thunder Fuck. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 13.5,
-    "retail_msrp": 29.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "size": "3 Grams",
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1812",
-    "zoho_item_id": "ZOHO-ITM-1812",
-    "sku": "MOD-UPPERCUT-812",
-    "name": "Modus Uppercut Blend 3g Disposable - Uppercut 3g - Guzzlerz",
-    "brand": "Modus",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "Uppercut Blend 3g Disposable",
-    "description": "Authentic factory-sealed Modus Uppercut Blend 3g Disposable - Uppercut 3g - Guzzlerz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 13.5,
-    "retail_msrp": 29.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "size": "3 Grams",
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1813",
-    "zoho_item_id": "ZOHO-ITM-1813",
-    "sku": "MOD-UPPERCUT-813",
-    "name": "Modus Uppercut Blend 3g Disposable - Uppercut 3g - Oreoz",
-    "brand": "Modus",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "Uppercut Blend 3g Disposable",
-    "description": "Authentic factory-sealed Modus Uppercut Blend 3g Disposable - Uppercut 3g - Oreoz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 13.5,
-    "retail_msrp": 29.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "size": "3 Grams",
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1814",
-    "zoho_item_id": "ZOHO-ITM-1814",
-    "sku": "MOD-UPPERCUT-814",
-    "name": "Modus Uppercut Blend 3g Disposable - Uppercut 3g - Watermelon Zkittlez",
-    "brand": "Modus",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "Uppercut Blend 3g Disposable",
-    "description": "Authentic factory-sealed Modus Uppercut Blend 3g Disposable - Uppercut 3g - Watermelon Zkittlez. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 13.5,
-    "retail_msrp": 29.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "size": "3 Grams",
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1815",
-    "zoho_item_id": "ZOHO-ITM-1815",
-    "sku": "HID-VVS2GPIN-815",
-    "name": "Hidden Hills Club VVS Diamond 2g Disposable & Gummies - VVS 2g - Pink Rozay",
-    "brand": "Hidden Hills Club",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "VVS Diamond 2g Disposable & Gummies",
-    "description": "Authentic factory-sealed Hidden Hills Club VVS Diamond 2g Disposable & Gummies - VVS 2g - Pink Rozay. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 14,
-    "retail_msrp": 32.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1816",
-    "zoho_item_id": "ZOHO-ITM-1816",
-    "sku": "HID-VVS2GLON-816",
-    "name": "Hidden Hills Club VVS Diamond 2g Disposable & Gummies - VVS 2g - London Jelly",
-    "brand": "Hidden Hills Club",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "VVS Diamond 2g Disposable & Gummies",
-    "description": "Authentic factory-sealed Hidden Hills Club VVS Diamond 2g Disposable & Gummies - VVS 2g - London Jelly. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 14,
-    "retail_msrp": 32.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1817",
-    "zoho_item_id": "ZOHO-ITM-1817",
-    "sku": "HID-VVS2GWHI-817",
-    "name": "Hidden Hills Club VVS Diamond 2g Disposable & Gummies - VVS 2g - White Gummy",
-    "brand": "Hidden Hills Club",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "VVS Diamond 2g Disposable & Gummies",
-    "description": "Authentic factory-sealed Hidden Hills Club VVS Diamond 2g Disposable & Gummies - VVS 2g - White Gummy. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 14,
-    "retail_msrp": 32.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1818",
-    "zoho_item_id": "ZOHO-ITM-1818",
-    "sku": "HID-NIGHTNIG-818",
-    "name": "Hidden Hills Club VVS Diamond 2g Disposable & Gummies - Night Night Blend Gummies 1000mg Sweet Dreams",
-    "brand": "Hidden Hills Club",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "VVS Diamond 2g Disposable & Gummies",
-    "description": "Authentic factory-sealed Hidden Hills Club VVS Diamond 2g Disposable & Gummies - Night Night Blend Gummies 1000mg Sweet Dreams. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 14,
-    "retail_msrp": 32.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1819",
-    "zoho_item_id": "ZOHO-ITM-1819",
-    "sku": "HID-FIREFIRE-819",
-    "name": "Hidden Hills Club VVS Diamond 2g Disposable & Gummies - Fire Fire Live Resin Gummies 1000mg Citrus Punch",
-    "brand": "Hidden Hills Club",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "VVS Diamond 2g Disposable & Gummies",
-    "description": "Authentic factory-sealed Hidden Hills Club VVS Diamond 2g Disposable & Gummies - Fire Fire Live Resin Gummies 1000mg Citrus Punch. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 14,
-    "retail_msrp": 32.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1820",
-    "zoho_item_id": "ZOHO-ITM-1820",
-    "sku": "HID-SHIELDBL-820",
-    "name": "Hidden Hills Club VVS Diamond 2g Disposable & Gummies - Shield Blend 510 Carts 2g - Strawberry Cough",
-    "brand": "Hidden Hills Club",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "VVS Diamond 2g Disposable & Gummies",
-    "description": "Authentic factory-sealed Hidden Hills Club VVS Diamond 2g Disposable & Gummies - Shield Blend 510 Carts 2g - Strawberry Cough. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 14,
-    "retail_msrp": 32.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1821",
-    "zoho_item_id": "ZOHO-ITM-1821",
-    "sku": "HID-SHIELDBL-821",
-    "name": "Hidden Hills Club VVS Diamond 2g Disposable & Gummies - Shield Blend 510 Carts 2g - Granddaddy Purple",
-    "brand": "Hidden Hills Club",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "VVS Diamond 2g Disposable & Gummies",
-    "description": "Authentic factory-sealed Hidden Hills Club VVS Diamond 2g Disposable & Gummies - Shield Blend 510 Carts 2g - Granddaddy Purple. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 14,
-    "retail_msrp": 32.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1822",
-    "zoho_item_id": "ZOHO-ITM-1822",
-    "sku": "URB-THCADIAM-822",
-    "name": "Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - THCA Diamond Indoor Flower Prerolls 5pk - Wedding Cake",
-    "brand": "Urb",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "Finest Flowers Live Resin Diamond Prerolls & Disposables",
-    "description": "Authentic factory-sealed Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - THCA Diamond Indoor Flower Prerolls 5pk - Wedding Cake. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 12.5,
-    "retail_msrp": 26.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1823",
-    "zoho_item_id": "ZOHO-ITM-1823",
-    "sku": "URB-THCADIAM-823",
-    "name": "Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - THCA Diamond Indoor Flower Prerolls 5pk - Gelato",
-    "brand": "Urb",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "Finest Flowers Live Resin Diamond Prerolls & Disposables",
-    "description": "Authentic factory-sealed Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - THCA Diamond Indoor Flower Prerolls 5pk - Gelato. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 12.5,
-    "retail_msrp": 26.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1824",
-    "zoho_item_id": "ZOHO-ITM-1824",
-    "sku": "URB-THCADIAM-824",
-    "name": "Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - THCA Diamond Indoor Flower Prerolls 5pk - Skywalker OG",
-    "brand": "Urb",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "Finest Flowers Live Resin Diamond Prerolls & Disposables",
-    "description": "Authentic factory-sealed Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - THCA Diamond Indoor Flower Prerolls 5pk - Skywalker OG. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 12.5,
-    "retail_msrp": 26.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1825",
-    "zoho_item_id": "ZOHO-ITM-1825",
-    "sku": "URB-THCADIAM-825",
-    "name": "Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - THCA Diamond Indoor Flower Prerolls 5pk - Sour Diesel",
-    "brand": "Urb",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "Finest Flowers Live Resin Diamond Prerolls & Disposables",
-    "description": "Authentic factory-sealed Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - THCA Diamond Indoor Flower Prerolls 5pk - Sour Diesel. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 12.5,
-    "retail_msrp": 26.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1826",
-    "zoho_item_id": "ZOHO-ITM-1826",
-    "sku": "URB-SMARTDEV-826",
-    "name": "Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - Smart Device 3g Disposable - Liquid Badder Guava Gelato",
-    "brand": "Urb",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "Finest Flowers Live Resin Diamond Prerolls & Disposables",
-    "description": "Authentic factory-sealed Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - Smart Device 3g Disposable - Liquid Badder Guava Gelato. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 12.5,
-    "retail_msrp": 26.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1827",
-    "zoho_item_id": "ZOHO-ITM-1827",
-    "sku": "URB-SMARTDEV-827",
-    "name": "Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - Smart Device 3g Disposable - Live Resin Watermelon Shortcake",
-    "brand": "Urb",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "Finest Flowers Live Resin Diamond Prerolls & Disposables",
-    "description": "Authentic factory-sealed Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - Smart Device 3g Disposable - Live Resin Watermelon Shortcake. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 12.5,
-    "retail_msrp": 26.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1828",
-    "zoho_item_id": "ZOHO-ITM-1828",
-    "sku": "URB-SMARTDEV-828",
-    "name": "Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - Smart Device 3g Disposable - Blue Watermelon",
-    "brand": "Urb",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "Finest Flowers Live Resin Diamond Prerolls & Disposables",
-    "description": "Authentic factory-sealed Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - Smart Device 3g Disposable - Blue Watermelon. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 12.5,
-    "retail_msrp": 26.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1829",
-    "zoho_item_id": "ZOHO-ITM-1829",
-    "sku": "URB-HIGHPOTE-829",
-    "name": "Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - High Potency Delta 9 Live Rosin Gummies 35ct Jar",
-    "brand": "Urb",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "Finest Flowers Live Resin Diamond Prerolls & Disposables",
-    "description": "Authentic factory-sealed Urb Finest Flowers Live Resin Diamond Prerolls & Disposables - High Potency Delta 9 Live Rosin Gummies 35ct Jar. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 12.5,
-    "retail_msrp": 26.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1830",
-    "zoho_item_id": "ZOHO-ITM-1830",
-    "sku": "FLY-HEAVYHIT-830",
-    "name": "Flying Monkey Heavy Hitter & King Kong Disposables - Heavy Hitter 2g - Blueberry Afgoo",
-    "brand": "Flying Monkey",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "Heavy Hitter & King Kong Disposables",
-    "description": "Authentic factory-sealed Flying Monkey Heavy Hitter & King Kong Disposables - Heavy Hitter 2g - Blueberry Afgoo. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 13,
-    "retail_msrp": 28.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1831",
-    "zoho_item_id": "ZOHO-ITM-1831",
-    "sku": "FLY-HEAVYHIT-831",
-    "name": "Flying Monkey Heavy Hitter & King Kong Disposables - Heavy Hitter 2g - Mango Crush",
-    "brand": "Flying Monkey",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "Heavy Hitter & King Kong Disposables",
-    "description": "Authentic factory-sealed Flying Monkey Heavy Hitter & King Kong Disposables - Heavy Hitter 2g - Mango Crush. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 13,
-    "retail_msrp": 28.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1832",
-    "zoho_item_id": "ZOHO-ITM-1832",
-    "sku": "FLY-HEAVYHIT-832",
-    "name": "Flying Monkey Heavy Hitter & King Kong Disposables - Heavy Hitter 2g - Sour Apple Killer",
-    "brand": "Flying Monkey",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "Heavy Hitter & King Kong Disposables",
-    "description": "Authentic factory-sealed Flying Monkey Heavy Hitter & King Kong Disposables - Heavy Hitter 2g - Sour Apple Killer. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 13,
-    "retail_msrp": 28.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1833",
-    "zoho_item_id": "ZOHO-ITM-1833",
-    "sku": "FLY-HEAVYHIT-833",
-    "name": "Flying Monkey Heavy Hitter & King Kong Disposables - Heavy Hitter 2g - Strawnana",
-    "brand": "Flying Monkey",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "Heavy Hitter & King Kong Disposables",
-    "description": "Authentic factory-sealed Flying Monkey Heavy Hitter & King Kong Disposables - Heavy Hitter 2g - Strawnana. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/raw-classic-king-size-box.png",
-    "rate": 13,
-    "retail_msrp": 28.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1834",
-    "zoho_item_id": "ZOHO-ITM-1834",
-    "sku": "FLY-KINGKONG-834",
-    "name": "Flying Monkey Heavy Hitter & King Kong Disposables - King Kong 2.5g - Bonkers",
-    "brand": "Flying Monkey",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "Heavy Hitter & King Kong Disposables",
-    "description": "Authentic factory-sealed Flying Monkey Heavy Hitter & King Kong Disposables - King Kong 2.5g - Bonkers. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 13,
-    "retail_msrp": 28.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1835",
-    "zoho_item_id": "ZOHO-ITM-1835",
-    "sku": "FLY-KINGKONG-835",
-    "name": "Flying Monkey Heavy Hitter & King Kong Disposables - King Kong 2.5g - White Runtz",
-    "brand": "Flying Monkey",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "Heavy Hitter & King Kong Disposables",
-    "description": "Authentic factory-sealed Flying Monkey Heavy Hitter & King Kong Disposables - King Kong 2.5g - White Runtz. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 13,
-    "retail_msrp": 28.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1836",
-    "zoho_item_id": "ZOHO-ITM-1836",
-    "sku": "FLY-KINGKONG-836",
-    "name": "Flying Monkey Heavy Hitter & King Kong Disposables - King Kong 2.5g - Maybach Kush",
-    "brand": "Flying Monkey",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "Heavy Hitter & King Kong Disposables",
-    "description": "Authentic factory-sealed Flying Monkey Heavy Hitter & King Kong Disposables - King Kong 2.5g - Maybach Kush. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 13,
-    "retail_msrp": 28.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1837",
-    "zoho_item_id": "ZOHO-ITM-1837",
-    "sku": "FLY-DELTA8TH-837",
-    "name": "Flying Monkey Heavy Hitter & King Kong Disposables - Delta 8 THC Gummies 500mg (20ct)",
-    "brand": "Flying Monkey",
-    "category": "THCA, CBD & Delta",
-    "subcategory": "Heavy Hitter & King Kong Disposables",
-    "description": "Authentic factory-sealed Flying Monkey Heavy Hitter & King Kong Disposables - Delta 8 THC Gummies 500mg (20ct). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/thca-diamond-prerolls.png",
-    "rate": 13,
-    "retail_msrp": 28.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1838",
-    "zoho_item_id": "ZOHO-ITM-1838",
-    "sku": "DIA-HEAVYBEA-838",
-    "name": "Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Heavy Beaker Water Pipe 10-inch 7mm Clear",
-    "brand": "Diamond Glass",
-    "category": "Pipes & Glass",
-    "subcategory": "Classic Heavy Beakers & Tubes (7mm Borosilicate)",
-    "description": "Authentic factory-sealed Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Heavy Beaker Water Pipe 10-inch 7mm Clear. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/glass-beaker-10in.jpg",
-    "rate": 28,
-    "retail_msrp": 69.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1839",
-    "zoho_item_id": "ZOHO-ITM-1839",
-    "sku": "DIA-HEAVYBEA-839",
-    "name": "Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Heavy Beaker Water Pipe 12-inch 7mm Emerald Green Accents",
-    "brand": "Diamond Glass",
-    "category": "Pipes & Glass",
-    "subcategory": "Classic Heavy Beakers & Tubes (7mm Borosilicate)",
-    "description": "Authentic factory-sealed Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Heavy Beaker Water Pipe 12-inch 7mm Emerald Green Accents. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/glass-beaker-10in.jpg",
-    "rate": 28,
-    "retail_msrp": 69.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1840",
-    "zoho_item_id": "ZOHO-ITM-1840",
-    "sku": "DIA-HEAVYBEA-840",
-    "name": "Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Heavy Beaker Water Pipe 14-inch 9mm Super Thick Teal Accents",
-    "brand": "Diamond Glass",
-    "category": "Pipes & Glass",
-    "subcategory": "Classic Heavy Beakers & Tubes (7mm Borosilicate)",
-    "description": "Authentic factory-sealed Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Heavy Beaker Water Pipe 14-inch 9mm Super Thick Teal Accents. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/glass-beaker-10in.jpg",
-    "rate": 28,
-    "retail_msrp": 69.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1841",
-    "zoho_item_id": "ZOHO-ITM-1841",
-    "sku": "DIA-HEAVYBEA-841",
-    "name": "Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Heavy Beaker Water Pipe 16-inch 9mm Tri-Color Monster Beaker",
-    "brand": "Diamond Glass",
-    "category": "Pipes & Glass",
-    "subcategory": "Classic Heavy Beakers & Tubes (7mm Borosilicate)",
-    "description": "Authentic factory-sealed Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Heavy Beaker Water Pipe 16-inch 9mm Tri-Color Monster Beaker. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/glass-beaker-10in.jpg",
-    "rate": 28,
-    "retail_msrp": 69.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1842",
-    "zoho_item_id": "ZOHO-ITM-1842",
-    "sku": "DIA-STRAIGHT-842",
-    "name": "Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Straight Tube Water Pipe 12-inch with Ice Pinch Clear",
-    "brand": "Diamond Glass",
-    "category": "Pipes & Glass",
-    "subcategory": "Classic Heavy Beakers & Tubes (7mm Borosilicate)",
-    "description": "Authentic factory-sealed Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Straight Tube Water Pipe 12-inch with Ice Pinch Clear. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/glass-beaker-10in.jpg",
-    "rate": 28,
-    "retail_msrp": 69.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1843",
-    "zoho_item_id": "ZOHO-ITM-1843",
-    "sku": "DIA-STRAIGHT-843",
-    "name": "Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Straight Tube Water Pipe 14-inch 7mm Midnight Black Rim",
-    "brand": "Diamond Glass",
-    "category": "Pipes & Glass",
-    "subcategory": "Classic Heavy Beakers & Tubes (7mm Borosilicate)",
-    "description": "Authentic factory-sealed Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Straight Tube Water Pipe 14-inch 7mm Midnight Black Rim. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/glass-beaker-10in.jpg",
-    "rate": 28,
-    "retail_msrp": 69.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1844",
-    "zoho_item_id": "ZOHO-ITM-1844",
-    "sku": "DIA-HONEYCOM-844",
-    "name": "Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Honeycomb Perc to Matrix Diffuser Water Pipe 14-inch",
-    "brand": "Diamond Glass",
-    "category": "Pipes & Glass",
-    "subcategory": "Classic Heavy Beakers & Tubes (7mm Borosilicate)",
-    "description": "Authentic factory-sealed Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Honeycomb Perc to Matrix Diffuser Water Pipe 14-inch. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/glass-beaker-10in.jpg",
-    "rate": 28,
-    "retail_msrp": 69.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1845",
-    "zoho_item_id": "ZOHO-ITM-1845",
-    "sku": "DIA-TREEPERC-845",
-    "name": "Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Tree Perc Double Chamber Beaker Bong 15-inch",
-    "brand": "Diamond Glass",
-    "category": "Pipes & Glass",
-    "subcategory": "Classic Heavy Beakers & Tubes (7mm Borosilicate)",
-    "description": "Authentic factory-sealed Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Tree Perc Double Chamber Beaker Bong 15-inch. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/glass-beaker-10in.jpg",
-    "rate": 28,
-    "retail_msrp": 69.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1846",
-    "zoho_item_id": "ZOHO-ITM-1846",
-    "sku": "DIA-INLINEMA-846",
-    "name": "Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Inline Matrix Recycler Rig 8-inch with 14mm Banger",
-    "brand": "Diamond Glass",
-    "category": "Pipes & Glass",
-    "subcategory": "Classic Heavy Beakers & Tubes (7mm Borosilicate)",
-    "description": "Authentic factory-sealed Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Inline Matrix Recycler Rig 8-inch with 14mm Banger. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/glass-beaker-10in.jpg",
-    "rate": 28,
-    "retail_msrp": 69.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1847",
-    "zoho_item_id": "ZOHO-ITM-1847",
-    "sku": "DIA-KLEINREC-847",
-    "name": "Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Klein Recycler Dab Rig 9-inch Clear with Amber Accents",
-    "brand": "Diamond Glass",
-    "category": "Pipes & Glass",
-    "subcategory": "Classic Heavy Beakers & Tubes (7mm Borosilicate)",
-    "description": "Authentic factory-sealed Diamond Glass Classic Heavy Beakers & Tubes (7mm Borosilicate) - Klein Recycler Dab Rig 9-inch Clear with Amber Accents. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/glass-beaker-10in.jpg",
-    "rate": 28,
-    "retail_msrp": 69.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
-  },
-  {
-    "id": "ZOHO-ITM-1848",
-    "zoho_item_id": "ZOHO-ITM-1848",
-    "sku": "DIA-HEAVYTHI-848",
-    "name": "Diamond Glass Glass Accessories & Quartz Hardware - Heavy Thick Spoon Pipe 4-inch Multi-Frit (10ct Display)",
-    "brand": "Diamond Glass",
-    "category": "Pipes & Glass",
-    "subcategory": "Glass Accessories & Quartz Hardware",
-    "description": "Authentic factory-sealed Diamond Glass Glass Accessories & Quartz Hardware - Heavy Thick Spoon Pipe 4-inch Multi-Frit (10ct Display). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
-    "image_url": "/products/glass-spoon-pipe-4in.jpg",
-    "rate": 8.5,
-    "retail_msrp": 19.99,
-    "available_stock": 50,
-    "stock_on_hand": 50,
-    "stock_status": "in_stock",
-    "status": "active",
-    "unit": "Pack",
-    "min_order_qty": 1,
-    "bulk_pricing": [],
-    "specs": {
-      "origin": "USA Distributed · Licensed OK Warehouse"
-    },
-    "features": [
-      "Factory Sealed Case Master Packaging",
-      "Authentic Verification QR Codes",
-      "Same-Day OKC Warehouse Pickup Available"
-    ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1849",
@@ -26097,7 +26945,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Glass Accessories & Quartz Hardware",
     "description": "Authentic factory-sealed Diamond Glass Glass Accessories & Quartz Hardware - Heavy Thick Spoon Pipe 5-inch Chameleon Glass. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/glass-spoon-pipe-4in.jpg",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26114,7 +26963,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1850",
@@ -26126,7 +26975,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Glass Accessories & Quartz Hardware",
     "description": "Authentic factory-sealed Diamond Glass Glass Accessories & Quartz Hardware - Sherlock Hand Pipe 6-inch Swirl Accent. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/glass-spoon-pipe-4in.jpg",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26143,7 +26993,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1851",
@@ -26155,7 +27005,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Glass Accessories & Quartz Hardware",
     "description": "Authentic factory-sealed Diamond Glass Glass Accessories & Quartz Hardware - Quartz Banger 14mm Male 90-Degree Flat Top 4mm Base. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/glass-spoon-pipe-4in.jpg",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26172,7 +27023,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1852",
@@ -26184,7 +27035,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Glass Accessories & Quartz Hardware",
     "description": "Authentic factory-sealed Diamond Glass Glass Accessories & Quartz Hardware - Quartz Banger 14mm Male Terp Slurper with Marble Set. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/glass-spoon-pipe-4in.jpg",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26201,7 +27053,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1853",
@@ -26213,7 +27065,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Glass Accessories & Quartz Hardware",
     "description": "Authentic factory-sealed Diamond Glass Glass Accessories & Quartz Hardware - Glass Bubble Carb Cap Directional Airflow. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/glass-spoon-pipe-4in.jpg",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26230,7 +27083,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1854",
@@ -26242,7 +27095,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Glass Accessories & Quartz Hardware",
     "description": "Authentic factory-sealed Diamond Glass Glass Accessories & Quartz Hardware - 14mm to 18mm Glass Downstem 4.5-inch Diffused 6-Slit. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/glass-spoon-pipe-4in.jpg",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26259,7 +27113,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1855",
@@ -26271,7 +27125,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Glass Accessories & Quartz Hardware",
     "description": "Authentic factory-sealed Diamond Glass Glass Accessories & Quartz Hardware - Glass Ash Catcher 14mm 90-Degree Showerhead Perc. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/glass-spoon-pipe-4in.jpg",
-    "rate": 8.5,
+    "zoho_rate": 8.5,
+    "rate": 10.5,
     "retail_msrp": 19.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26288,7 +27143,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.112Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1856",
@@ -26300,7 +27155,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Platinum Cured Silicone Pipes & Rigs",
     "description": "Authentic factory-sealed Eyce Platinum Cured Silicone Pipes & Rigs - Eyce Silicone Beaker Water Pipe - Winter. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/eyce-silicone-beaker.png",
-    "rate": 22.5,
+    "zoho_rate": 22.5,
+    "rate": 27.5,
     "retail_msrp": 49.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26317,7 +27173,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1857",
@@ -26329,7 +27185,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Platinum Cured Silicone Pipes & Rigs",
     "description": "Authentic factory-sealed Eyce Platinum Cured Silicone Pipes & Rigs - Eyce Silicone Beaker Water Pipe - Smoke. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 22.5,
+    "zoho_rate": 22.5,
+    "rate": 27.5,
     "retail_msrp": 49.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26346,7 +27203,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1858",
@@ -26358,7 +27215,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Platinum Cured Silicone Pipes & Rigs",
     "description": "Authentic factory-sealed Eyce Platinum Cured Silicone Pipes & Rigs - Eyce Silicone Beaker Water Pipe - Creature. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/eyce-silicone-beaker.png",
-    "rate": 22.5,
+    "zoho_rate": 22.5,
+    "rate": 27.5,
     "retail_msrp": 49.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26375,7 +27233,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1859",
@@ -26387,7 +27245,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Platinum Cured Silicone Pipes & Rigs",
     "description": "Authentic factory-sealed Eyce Platinum Cured Silicone Pipes & Rigs - Eyce Silicone Beaker Water Pipe - Black. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/eyce-silicone-beaker.png",
-    "rate": 22.5,
+    "zoho_rate": 22.5,
+    "rate": 27.5,
     "retail_msrp": 49.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26404,7 +27263,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1860",
@@ -26416,7 +27275,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Platinum Cured Silicone Pipes & Rigs",
     "description": "Authentic factory-sealed Eyce Platinum Cured Silicone Pipes & Rigs - Eyce Silicone Rig II - Winter. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/eyce-silicone-beaker.png",
-    "rate": 22.5,
+    "zoho_rate": 22.5,
+    "rate": 27.5,
     "retail_msrp": 49.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26433,7 +27293,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1861",
@@ -26445,7 +27305,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Platinum Cured Silicone Pipes & Rigs",
     "description": "Authentic factory-sealed Eyce Platinum Cured Silicone Pipes & Rigs - Eyce Silicone Rig II - Smoke. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 22.5,
+    "zoho_rate": 22.5,
+    "rate": 27.5,
     "retail_msrp": 49.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26462,7 +27323,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1862",
@@ -26474,7 +27335,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Platinum Cured Silicone Pipes & Rigs",
     "description": "Authentic factory-sealed Eyce Platinum Cured Silicone Pipes & Rigs - Eyce Silicone Spoon Pipe with Glass Bowl - Smoke. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 22.5,
+    "zoho_rate": 22.5,
+    "rate": 27.5,
     "retail_msrp": 49.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26491,7 +27353,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1863",
@@ -26503,7 +27365,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Platinum Cured Silicone Pipes & Rigs",
     "description": "Authentic factory-sealed Eyce Platinum Cured Silicone Pipes & Rigs - Eyce Silicone Spoon Pipe with Glass Bowl - Rasta. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/eyce-silicone-beaker.png",
-    "rate": 22.5,
+    "zoho_rate": 22.5,
+    "rate": 27.5,
     "retail_msrp": 49.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26520,7 +27383,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1864",
@@ -26532,7 +27395,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Platinum Cured Silicone Pipes & Rigs",
     "description": "Authentic factory-sealed Eyce Platinum Cured Silicone Pipes & Rigs - Eyce Silicone Spoon Pipe with Glass Bowl - Creature. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/eyce-silicone-beaker.png",
-    "rate": 22.5,
+    "zoho_rate": 22.5,
+    "rate": 27.5,
     "retail_msrp": 49.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26549,7 +27413,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1865",
@@ -26561,7 +27425,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Platinum Cured Silicone Pipes & Rigs",
     "description": "Authentic factory-sealed Eyce Platinum Cured Silicone Pipes & Rigs - Eyce Silicone ORAFLEX Beaker Water Pipe. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/eyce-silicone-beaker.png",
-    "rate": 22.5,
+    "zoho_rate": 22.5,
+    "rate": 27.5,
     "retail_msrp": 49.99,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26578,7 +27443,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1866",
@@ -26590,7 +27455,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Official RAW Rolling Papers & Cones Master Cartons",
     "description": "Authentic factory-sealed RAW Official RAW Rolling Papers & Cones Master Cartons - RAW Classic King Size Slim Papers (50-Pack Full Box). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raw-classic-king-size-box.png",
-    "rate": 22,
+    "zoho_rate": 22,
+    "rate": 27,
     "retail_msrp": 48,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26607,7 +27473,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1867",
@@ -26619,7 +27485,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Official RAW Rolling Papers & Cones Master Cartons",
     "description": "Authentic factory-sealed RAW Official RAW Rolling Papers & Cones Master Cartons - RAW Classic 1-1/4 Size Papers (24-Pack Full Box). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raw-classic-king-size-box.png",
-    "rate": 22,
+    "zoho_rate": 22,
+    "rate": 27,
     "retail_msrp": 48,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26636,7 +27503,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1868",
@@ -26648,7 +27515,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Official RAW Rolling Papers & Cones Master Cartons",
     "description": "Authentic factory-sealed RAW Official RAW Rolling Papers & Cones Master Cartons - RAW Black King Size Slim Papers Ultra-Thin (50-Pack Full Box). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raw-classic-king-size-box.png",
-    "rate": 22,
+    "zoho_rate": 22,
+    "rate": 27,
     "retail_msrp": 48,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26665,7 +27533,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1869",
@@ -26677,7 +27545,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Official RAW Rolling Papers & Cones Master Cartons",
     "description": "Authentic factory-sealed RAW Official RAW Rolling Papers & Cones Master Cartons - RAW Black 1-1/4 Size Papers (24-Pack Full Box). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raw-classic-king-size-box.png",
-    "rate": 22,
+    "zoho_rate": 22,
+    "rate": 27,
     "retail_msrp": 48,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26694,7 +27563,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1870",
@@ -26706,7 +27575,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Official RAW Rolling Papers & Cones Master Cartons",
     "description": "Authentic factory-sealed RAW Official RAW Rolling Papers & Cones Master Cartons - RAW Organic Hemp King Size Slim Papers (50-Pack Full Box). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raw-classic-king-size-box.png",
-    "rate": 22,
+    "zoho_rate": 22,
+    "rate": 27,
     "retail_msrp": 48,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26723,7 +27593,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1871",
@@ -26735,7 +27605,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Official RAW Rolling Papers & Cones Master Cartons",
     "description": "Authentic factory-sealed RAW Official RAW Rolling Papers & Cones Master Cartons - RAW Organic Hemp 1-1/4 Papers (24-Pack Full Box). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raw-classic-king-size-box.png",
-    "rate": 22,
+    "zoho_rate": 22,
+    "rate": 27,
     "retail_msrp": 48,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26752,7 +27623,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1872",
@@ -26764,7 +27635,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Official RAW Rolling Papers & Cones Master Cartons",
     "description": "Authentic factory-sealed RAW Official RAW Rolling Papers & Cones Master Cartons - RAW Classic Pre-Rolled Cones 1-1/4 (32-Pack Retail Box). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raw-classic-king-size-box.png",
-    "rate": 22,
+    "zoho_rate": 22,
+    "rate": 27,
     "retail_msrp": 48,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26781,7 +27653,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1873",
@@ -26793,7 +27665,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Official RAW Rolling Papers & Cones Master Cartons",
     "description": "Authentic factory-sealed RAW Official RAW Rolling Papers & Cones Master Cartons - RAW Classic Pre-Rolled Cones King Size (20-Pack Retail Box). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raw-classic-king-size-box.png",
-    "rate": 22,
+    "zoho_rate": 22,
+    "rate": 27,
     "retail_msrp": 48,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26810,7 +27683,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1874",
@@ -26822,7 +27695,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Official RAW Rolling Papers & Cones Master Cartons",
     "description": "Authentic factory-sealed RAW Official RAW Rolling Papers & Cones Master Cartons - RAW Classic Pre-Rolled Cones King Size (Bulk 800-Count Tub). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raw-classic-king-size-box.png",
-    "rate": 22,
+    "zoho_rate": 22,
+    "rate": 27,
     "retail_msrp": 48,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26839,7 +27713,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1875",
@@ -26851,7 +27725,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Official RAW Rolling Papers & Cones Master Cartons",
     "description": "Authentic factory-sealed RAW Official RAW Rolling Papers & Cones Master Cartons - RAW Classic Pre-Rolled Cones 1-1/4 (Bulk 900-Count Tub). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raw-classic-king-size-box.png",
-    "rate": 22,
+    "zoho_rate": 22,
+    "rate": 27,
     "retail_msrp": 48,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26868,7 +27743,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1876",
@@ -26880,7 +27755,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Official RAW Rolling Papers & Cones Master Cartons",
     "description": "Authentic factory-sealed RAW Official RAW Rolling Papers & Cones Master Cartons - RAW Rolling Tray Metal Large (14x11 inch Classic). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raw-classic-king-size-box.png",
-    "rate": 22,
+    "zoho_rate": 22,
+    "rate": 27,
     "retail_msrp": 48,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26897,7 +27773,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1877",
@@ -26909,7 +27785,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Official RAW Rolling Papers & Cones Master Cartons",
     "description": "Authentic factory-sealed RAW Official RAW Rolling Papers & Cones Master Cartons - RAW Rolling Tray Metal Medium (11x7 inch Classic). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raw-classic-king-size-box.png",
-    "rate": 22,
+    "zoho_rate": 22,
+    "rate": 27,
     "retail_msrp": 48,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26926,7 +27803,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1878",
@@ -26938,7 +27815,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Official RAW Rolling Papers & Cones Master Cartons",
     "description": "Authentic factory-sealed RAW Official RAW Rolling Papers & Cones Master Cartons - RAW Cone Loader 1-1/4 & King Size Kit. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raw-classic-king-size-box.png",
-    "rate": 22,
+    "zoho_rate": 22,
+    "rate": 27,
     "retail_msrp": 48,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26955,7 +27833,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1879",
@@ -26967,7 +27845,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Official RAW Rolling Papers & Cones Master Cartons",
     "description": "Authentic factory-sealed RAW Official RAW Rolling Papers & Cones Master Cartons - RAW Hemp Wick 100ft Ball. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/raw-classic-king-size-box.png",
-    "rate": 22,
+    "zoho_rate": 22,
+    "rate": 27,
     "retail_msrp": 48,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -26984,7 +27863,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1880",
@@ -26996,7 +27875,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Natural Leaf Cones Display Boxes",
     "description": "Authentic factory-sealed King Palm Natural Leaf Cones Display Boxes - King Palm Slim 2pk (24ct Counter Display). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/king-palm-cones-display.png",
-    "rate": 19.5,
+    "zoho_rate": 19.5,
+    "rate": 24.5,
     "retail_msrp": 42,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -27013,7 +27893,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1881",
@@ -27025,7 +27905,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Natural Leaf Cones Display Boxes",
     "description": "Authentic factory-sealed King Palm Natural Leaf Cones Display Boxes - King Palm Mini 5pk (15ct Counter Display). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/king-palm-cones-display.png",
-    "rate": 19.5,
+    "zoho_rate": 19.5,
+    "rate": 24.5,
     "retail_msrp": 42,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -27042,7 +27923,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1882",
@@ -27054,7 +27935,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Natural Leaf Cones Display Boxes",
     "description": "Authentic factory-sealed King Palm Natural Leaf Cones Display Boxes - King Palm Rollie 4pk (20ct Counter Display). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/king-palm-cones-display.png",
-    "rate": 19.5,
+    "zoho_rate": 19.5,
+    "rate": 24.5,
     "retail_msrp": 42,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -27071,7 +27953,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1883",
@@ -27083,7 +27965,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Natural Leaf Cones Display Boxes",
     "description": "Authentic factory-sealed King Palm Natural Leaf Cones Display Boxes - King Palm King 2pk (20ct Counter Display). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/king-palm-cones-display.png",
-    "rate": 19.5,
+    "zoho_rate": 19.5,
+    "rate": 24.5,
     "retail_msrp": 42,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -27100,7 +27983,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1884",
@@ -27112,7 +27995,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Natural Leaf Cones Display Boxes",
     "description": "Authentic factory-sealed King Palm Natural Leaf Cones Display Boxes - King Palm Flavor Mini 2pk - Magic Mint (20ct Display). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/king-palm-cones-display.png",
-    "rate": 19.5,
+    "zoho_rate": 19.5,
+    "rate": 24.5,
     "retail_msrp": 42,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -27129,7 +28013,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1885",
@@ -27141,7 +28025,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Natural Leaf Cones Display Boxes",
     "description": "Authentic factory-sealed King Palm Natural Leaf Cones Display Boxes - King Palm Flavor Mini 2pk - Watermelon Wave (20ct Display). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/king-palm-cones-display.png",
-    "rate": 19.5,
+    "zoho_rate": 19.5,
+    "rate": 24.5,
     "retail_msrp": 42,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -27158,7 +28043,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1886",
@@ -27170,7 +28055,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Natural Leaf Cones Display Boxes",
     "description": "Authentic factory-sealed King Palm Natural Leaf Cones Display Boxes - King Palm Flavor Mini 2pk - Berry Terps (20ct Display). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/king-palm-cones-display.png",
-    "rate": 19.5,
+    "zoho_rate": 19.5,
+    "rate": 24.5,
     "retail_msrp": 42,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -27187,7 +28073,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1887",
@@ -27199,7 +28085,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Natural Leaf Cones Display Boxes",
     "description": "Authentic factory-sealed King Palm Natural Leaf Cones Display Boxes - King Palm Flavor Mini 2pk - Banana Cream (20ct Display). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/king-palm-cones-display.png",
-    "rate": 19.5,
+    "zoho_rate": 19.5,
+    "rate": 24.5,
     "retail_msrp": 42,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -27216,7 +28103,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1888",
@@ -27228,7 +28115,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Natural Leaf Cones Display Boxes",
     "description": "Authentic factory-sealed King Palm Natural Leaf Cones Display Boxes - King Palm Flavor Mini 2pk - Mango OG (20ct Display). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/king-palm-cones-display.png",
-    "rate": 19.5,
+    "zoho_rate": 19.5,
+    "rate": 24.5,
     "retail_msrp": 42,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -27245,7 +28133,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1889",
@@ -27257,7 +28145,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Torches, Butane, Scales & Grinders",
     "description": "Authentic factory-sealed Smoke Essentials Torches, Butane, Scales & Grinders - Newport Zero Extra Purified Butane 300ml (12-Can Master Case). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 18,
+    "zoho_rate": 18,
+    "rate": 23,
     "retail_msrp": 38,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -27274,7 +28163,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1890",
@@ -27286,7 +28175,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Torches, Butane, Scales & Grinders",
     "description": "Authentic factory-sealed Smoke Essentials Torches, Butane, Scales & Grinders - Neon 11x Ultra Refined Butane 400ml (12-Can Master Case). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 18,
+    "zoho_rate": 18,
+    "rate": 23,
     "retail_msrp": 38,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -27303,7 +28193,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1891",
@@ -27315,7 +28205,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Torches, Butane, Scales & Grinders",
     "description": "Authentic factory-sealed Smoke Essentials Torches, Butane, Scales & Grinders - Special Blue Monster Multi-Angle Torch (Display Box). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 18,
+    "zoho_rate": 18,
+    "rate": 23,
     "retail_msrp": 38,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -27332,7 +28223,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1892",
@@ -27344,7 +28235,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Torches, Butane, Scales & Grinders",
     "description": "Authentic factory-sealed Smoke Essentials Torches, Butane, Scales & Grinders - Scorch Torch Triple Jet Flame Torch with Punch Cutter (9ct Display). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 18,
+    "zoho_rate": 18,
+    "rate": 23,
     "retail_msrp": 38,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -27361,7 +28253,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1893",
@@ -27373,7 +28265,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Torches, Butane, Scales & Grinders",
     "description": "Authentic factory-sealed Smoke Essentials Torches, Butane, Scales & Grinders - Blink Neon Double Jet Torch Lighter (12ct Display Box). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 18,
+    "zoho_rate": 18,
+    "rate": 23,
     "retail_msrp": 38,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -27390,7 +28283,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1894",
@@ -27402,7 +28295,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Torches, Butane, Scales & Grinders",
     "description": "Authentic factory-sealed Smoke Essentials Torches, Butane, Scales & Grinders - Precision Digital Pocket Scale 0.01g x 500g (10ct Display). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 18,
+    "zoho_rate": 18,
+    "rate": 23,
     "retail_msrp": 38,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -27419,7 +28313,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1895",
@@ -27431,7 +28325,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Torches, Butane, Scales & Grinders",
     "description": "Authentic factory-sealed Smoke Essentials Torches, Butane, Scales & Grinders - Precision Digital Pocket Scale 0.1g x 1000g (10ct Display). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 18,
+    "zoho_rate": 18,
+    "rate": 23,
     "retail_msrp": 38,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -27448,7 +28343,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1896",
@@ -27460,7 +28355,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Torches, Butane, Scales & Grinders",
     "description": "Authentic factory-sealed Smoke Essentials Torches, Butane, Scales & Grinders - Aircraft Grade Aluminum 4-Piece Herb Grinder 63mm Matte Black. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 18,
+    "zoho_rate": 18,
+    "rate": 23,
     "retail_msrp": 38,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -27477,7 +28373,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1897",
@@ -27489,7 +28385,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Torches, Butane, Scales & Grinders",
     "description": "Authentic factory-sealed Smoke Essentials Torches, Butane, Scales & Grinders - Aircraft Grade Aluminum 4-Piece Herb Grinder 50mm Gunmetal. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 18,
+    "zoho_rate": 18,
+    "rate": 23,
     "retail_msrp": 38,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -27506,7 +28403,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1898",
@@ -27518,7 +28415,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Torches, Butane, Scales & Grinders",
     "description": "Authentic factory-sealed Smoke Essentials Torches, Butane, Scales & Grinders - Aircraft Grade Aluminum 4-Piece Herb Grinder 63mm Rainbow Neo-Chrome. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 18,
+    "zoho_rate": 18,
+    "rate": 23,
     "retail_msrp": 38,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -27535,7 +28433,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1899",
@@ -27547,7 +28445,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Torches, Butane, Scales & Grinders",
     "description": "Authentic factory-sealed Smoke Essentials Torches, Butane, Scales & Grinders - Cookies 510 Thread Variable Voltage Battery (24ct Display). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 18,
+    "zoho_rate": 18,
+    "rate": 23,
     "retail_msrp": 38,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -27564,7 +28463,7 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.627Z"
   },
   {
     "id": "ZOHO-ITM-1900",
@@ -27576,7 +28475,8 @@ export const ZOHO_CATALOG_SNAPSHOT = [
     "subcategory": "Torches, Butane, Scales & Grinders",
     "description": "Authentic factory-sealed Smoke Essentials Torches, Butane, Scales & Grinders - Yocan Kodo Pro 510 Box Mod OLED Display (20ct Counter Box). Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.",
     "image_url": "/products/smok-nord-coils.png",
-    "rate": 18,
+    "zoho_rate": 18,
+    "rate": 23,
     "retail_msrp": 38,
     "available_stock": 50,
     "stock_on_hand": 50,
@@ -27593,6 +28493,6 @@ export const ZOHO_CATALOG_SNAPSHOT = [
       "Authentic Verification QR Codes",
       "Same-Day OKC Warehouse Pickup Available"
     ],
-    "last_modified_time": "2026-09-15T16:53:30.113Z"
+    "last_modified_time": "2026-09-16T21:25:32.628Z"
   }
 ] as const;

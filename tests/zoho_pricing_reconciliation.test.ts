@@ -52,8 +52,8 @@ function createTestItem(data: Partial<InventoryItem> & { sku: string; name: stri
   };
 }
 
-// ── TEST A: Zoho price = $10, Website incorrectly says $15 ───────────────────
-test('TEST A: Website price $15 is reconciled to authoritative Zoho price $10', () => {
+// ── TEST A: Zoho price = $10, Website incorrectly says $12 ───────────────────
+test('TEST A: Website price $12 is reconciled to authoritative Zoho price $10 with +$5 import rule ($15)', () => {
   const websiteItems: InventoryItem[] = [
     createTestItem({
       id: 'item-pulse-101',
@@ -62,7 +62,7 @@ test('TEST A: Website price $15 is reconciled to authoritative Zoho price $10', 
       name: 'Geek Bar Pulse 15K - Black Cherry',
       brand: 'Geekbar',
       category: 'Disposable Vapes',
-      rate: 15.0, // Incorrect website price
+      rate: 12.0, // Incorrect website price
       available_stock: 50,
       stock_on_hand: 50,
       stock_status: 'in_stock',
@@ -88,18 +88,20 @@ test('TEST A: Website price $15 is reconciled to authoritative Zoho price $10', 
 
   assert.equal(report.matched_count, 1, 'Product must be matched');
   assert.equal(report.updated_count, 1, 'Product price must be updated');
-  assert.equal(updatedItems[0].rate, 10.0, 'Website selling price must be updated to $10.00 from Zoho');
+  assert.equal(updatedItems[0].rate, 15.0, 'Website selling price must be $15.00 ($10.00 Zoho rate + $5.00 markup)');
+  assert.equal(updatedItems[0].zoho_rate, 10.0, 'Original Zoho price must be preserved as $10.00 without being overridden');
   assert.notEqual(updatedItems[0].rate, 6.5, 'Cost purchase_rate ($6.50) must NEVER be used as selling price');
   assert.equal(report.audits[0].sync_status, 'RECONCILED_UPDATED');
-  assert.equal(report.audits[0].old_website_price, 15.0);
-  assert.equal(report.audits[0].new_website_price, 10.0);
+  assert.equal(report.audits[0].old_website_price, 12.0);
+  assert.equal(report.audits[0].new_website_price, 15.0);
+  assert.equal(report.audits[0].zoho_price, 10.0);
 });
 
-// ── TEST B: Image importer finds image with price $18, price stays $10 ────────
+// ── TEST B: Image importer finds image with price $18, price stays $15 ($10+$5) ───
 test('TEST B: Image importer finds external image with price $18 -> Image updates, price remains $10', () => {
   const store = new InventoryStore();
 
-  // 1. Initial product with authoritative Zoho rate = $10.00
+  // 1. Initial product with authoritative Zoho rate = $10.00 (Website rate = $15.00)
   const initialItem: InventoryItem = createTestItem({
     id: 'test-foger-30k',
     zoho_item_id: 'ZOHO-FOG-30K',
@@ -107,7 +109,8 @@ test('TEST B: Image importer finds external image with price $18 -> Image update
     name: 'Foger Switch Pro 30K',
     brand: 'Foger',
     category: 'Disposable Vapes',
-    rate: 10.0,
+    zoho_rate: 10.0,
+    rate: 15.0,
     image_url: '/products/foger-old.jpg',
     available_stock: 50,
     stock_on_hand: 50,
@@ -119,7 +122,7 @@ test('TEST B: Image importer finds external image with price $18 -> Image update
     last_modified_time: new Date().toISOString(),
   });
 
-  // Synchronize price
+  // Synchronize price strictly from Zoho rate = 10.0 (applies +$5 rule to website selling price)
   store.syncZohoPrice(initialItem.sku, 10.0);
 
   // 2. Image importer discovers new authentic image from an external distributor website
@@ -145,10 +148,11 @@ test('TEST B: Image importer finds external image with price $18 -> Image update
   // 4. Update the item's image via store's updateProductImage
   store.updateProductImage(initialItem.sku, externalScrapedImage);
 
-  // 5. Verify the website selling price REMAINS $10.00 and NEVER changes to $18.00
+  // 5. Verify the website selling price REMAINS $15.00 ($10 Zoho + $5) and NEVER changes to $18.00
   const currentItem = store.getItem(initialItem.sku);
   if (currentItem) {
-    assert.equal(currentItem.rate, 10.0, 'Website selling price MUST remain $10.00 despite external website price $18.00');
+    assert.equal(currentItem.rate, 15.0, 'Website selling price MUST remain $15.00 ($10 Zoho + $5) despite external website price $18.00');
+    assert.equal(currentItem.zoho_rate, 10.0, 'Zoho original price must remain $10.00');
     assert.equal(
       currentItem.image_url,
       'https://authorized-distributor.com/images/foger-switch-pro-new.jpg',
@@ -157,7 +161,7 @@ test('TEST B: Image importer finds external image with price $18 -> Image update
   }
 });
 
-// ── TEST C: Change Zoho price from $10 to $12 -> normal sync -> price = $12 ───
+// ── TEST C: Change Zoho price from $10 to $12 -> normal sync -> website price = $17 ($12+$5) ───
 test('TEST C: Change Zoho price from $10 to $12 propagates correctly via sync', () => {
   const websiteItems: InventoryItem[] = [
     createTestItem({
@@ -167,7 +171,8 @@ test('TEST C: Change Zoho price from $10 to $12 propagates correctly via sync', 
       name: 'Raz LTX 25K',
       brand: 'Raz',
       category: 'Disposable Vapes',
-      rate: 10.0, // Existing price
+      zoho_rate: 10.0,
+      rate: 15.0, // Existing website price ($10 + $5)
       available_stock: 50,
       stock_on_hand: 50,
       stock_status: 'in_stock',
@@ -185,16 +190,18 @@ test('TEST C: Change Zoho price from $10 to $12 propagates correctly via sync', 
       item_id: 'ZOHO-RAZ-25K',
       sku: 'RAZ-LTX-25K',
       name: 'Raz LTX 25K',
-      rate: 12.0, // New updated price
+      rate: 12.0, // New updated price in Zoho
     },
   ];
 
   const { updatedItems, report } = reconcileWebsitePrices(websiteItems, updatedZohoCatalog);
 
-  assert.equal(updatedItems[0].rate, 12.0, 'Website price must automatically update to $12.00');
+  assert.equal(updatedItems[0].rate, 17.0, 'Website price must automatically update to $17.00 ($12 Zoho + $5)');
+  assert.equal(updatedItems[0].zoho_rate, 12.0, 'Zoho price must update to $12.00 in zoho_rate');
   assert.equal(report.updated_count, 1);
-  assert.equal(report.audits[0].old_website_price, 10.0);
-  assert.equal(report.audits[0].new_website_price, 12.0);
+  assert.equal(report.audits[0].old_website_price, 15.0);
+  assert.equal(report.audits[0].new_website_price, 17.0);
+  assert.equal(report.audits[0].zoho_price, 12.0);
   assert.equal(report.audits[0].sync_status, 'RECONCILED_UPDATED');
 });
 
@@ -231,10 +238,11 @@ test('TEST D: Image cannot be found -> Image remains blank/existing, price remai
   const audit = productImageRegistry.reviewProductImage('custom-glass-beaker', 'REJECT', undefined, 'No match found');
   assert.equal(audit?.imageUrl, undefined, 'Image registry should have undefined URL when rejected');
 
-  // Verify store preserves rate = 28.0
+  // Verify store preserves Zoho rate and computes website rate = $33.00 ($28.00 + $5.00)
   const reconciled = store.syncZohoPrice(itemWithZohoPrice.sku, 28.0);
   if (reconciled) {
-    assert.equal(reconciled.rate, 28.0, 'Price must remain Zoho price $28.00 when image is missing');
+    assert.equal(reconciled.zoho_rate, 28.0, 'Zoho price must remain $28.00');
+    assert.equal(reconciled.rate, 33.0, 'Website selling price must be $33.00 ($28 Zoho + $5)');
   }
 });
 
@@ -343,8 +351,10 @@ test('TEST F: Two products with similar names but different SKUs receive correct
 
   const { updatedItems } = reconcileWebsitePrices(websiteItems, zohoItems);
 
-  assert.equal(updatedItems[0].rate, 12.5, '15k item must receive $12.50');
-  assert.equal(updatedItems[1].rate, 17.5, '60k item must receive $17.50');
+  assert.equal(updatedItems[0].zoho_rate, 12.5, '15k item must have Zoho rate $12.50');
+  assert.equal(updatedItems[0].rate, 17.5, '15k item website price must be $17.50 ($12.50 + $5)');
+  assert.equal(updatedItems[1].zoho_rate, 17.5, '60k item must have Zoho rate $17.50');
+  assert.equal(updatedItems[1].rate, 22.5, '60k item website price must be $22.50 ($17.50 + $5)');
 });
 
 // ── TEST G: Parent product with multiple variants with different prices ──────
@@ -403,7 +413,7 @@ test('TEST G: Parent product with multiple variants with different rates shows c
   });
 
   // Zoho has different rates for different variants:
-  // 0.6 ohm = $11.50, 0.8 ohm = $11.00, 1.2 ohm = $9.75
+  // 0.6 ohm = $11.50, 0.8 ohm = $11.00, 1.2 ohm = $9.75 (under $10)
   const zohoParent: RawZohoItemLike = {
     item_id: 'ZOHO-VAP-XROS',
     sku: 'VAP-XROS-COILS',
@@ -429,7 +439,7 @@ test('TEST G: Parent product with multiple variants with different rates shows c
         variant_id: 'VAR-XROS-12',
         sku: 'VAP-XROS-12-OHM',
         name: '1.2 ohm Regular (4-pack)',
-        rate: 9.75,
+        rate: 9.75, // Under $10 -> + $2
       },
     ],
   };
@@ -438,9 +448,12 @@ test('TEST G: Parent product with multiple variants with different rates shows c
   const reconciledVariants = updatedItems[0].variants!;
 
   assert.equal(reconciledVariants.length, 3);
-  assert.equal(reconciledVariants[0].rate, 11.5, '0.6 ohm variant must have Zoho rate $11.50');
-  assert.equal(reconciledVariants[1].rate, 11.0, '0.8 ohm variant must have Zoho rate $11.00');
-  assert.equal(reconciledVariants[2].rate, 9.75, '1.2 ohm variant must have Zoho rate $9.75');
+  assert.equal(reconciledVariants[0].zoho_rate, 11.5, '0.6 ohm variant must have Zoho rate $11.50');
+  assert.equal(reconciledVariants[0].rate, 16.5, '0.6 ohm variant website rate must be $16.50 ($11.50 + $5)');
+  assert.equal(reconciledVariants[1].zoho_rate, 11.0, '0.8 ohm variant must have Zoho rate $11.00');
+  assert.equal(reconciledVariants[1].rate, 16.0, '0.8 ohm variant website rate must be $16.00 ($11.00 + $5)');
+  assert.equal(reconciledVariants[2].zoho_rate, 9.75, '1.2 ohm variant must have Zoho rate $9.75');
+  assert.equal(reconciledVariants[2].rate, 11.75, '1.2 ohm variant website rate must be $11.75 ($9.75 + $2 because < $10)');
 });
 
 // ── TEST H: Image updater strictly rejects forbidden pricing fields ──────────
@@ -512,8 +525,6 @@ test('TEST I: Real-time Zoho webhook price change automatically updates website 
   // 1. Initial product GB-PULSE-15K in store
   const itemBefore = store.getItem('GB-PULSE-15K');
   assert.ok(itemBefore, 'Catalog item GB-PULSE-15K must exist in store');
-  const initialRate = itemBefore.rate;
-  assert.equal(typeof initialRate, 'number', 'Initial rate must be a valid number');
 
   // 2. Zoho pushes an automated price update webhook: rate -> $22.00
   const firstVariant = itemBefore.variants?.[0];
@@ -536,13 +547,91 @@ test('TEST I: Real-time Zoho webhook price change automatically updates website 
   const handled = store.handleZohoWebhook(webhookPayload);
   assert.equal(handled, true, 'Webhook should be handled successfully');
 
-  // 3. Verify the website selling price subsequently displays $22.00
+  // 3. Verify the website selling price subsequently displays $27.00 ($22 + $5)
   const itemAfter = store.getItem('GB-PULSE-15K');
   assert.ok(itemAfter, 'Item must exist after webhook update');
-  assert.equal(itemAfter.rate, 22.0, 'Website selling price must automatically update to $22.00');
+  assert.equal(itemAfter.zoho_rate, 22.0, 'Zoho price in zoho_rate must be $22.00');
+  assert.equal(itemAfter.rate, 27.0, 'Website selling price must automatically update to $27.00 ($22 Zoho + $5)');
   assert.equal(itemAfter.available_stock, 48, 'Stock must update to 48');
   if (firstVariant && itemAfter.variants && itemAfter.variants[0]) {
-    assert.equal(itemAfter.variants[0].rate, 22.5, 'Variant rate must update to $22.50');
+    assert.equal(itemAfter.variants[0].zoho_rate, 22.5, 'Variant zoho_rate must be $22.50');
+    assert.equal(itemAfter.variants[0].rate, 27.5, 'Variant website rate must update to $27.50 ($22.50 + $5)');
   }
+});
+
+// ── TEST J: Zoho price $40 -> Website price $45 (5 more than Zoho) ───────────
+test('TEST J: If Zoho price is $40, website price is $45 and Zoho price remains $40', () => {
+  const websiteItems: InventoryItem[] = [
+    createTestItem({
+      id: 'item-premium-device-40',
+      zoho_item_id: 'ZOHO-PREM-40',
+      sku: 'PREM-DEV-40',
+      name: 'Premium Wholesale Hardware Unit',
+      brand: 'VaporTech',
+      category: 'Vape Mods & Kits',
+      rate: 0,
+      available_stock: 50,
+      stock_on_hand: 50,
+      stock_status: 'in_stock',
+      status: 'active',
+      unit: 'Pack',
+      min_order_qty: 1,
+      bulk_pricing: [],
+      last_modified_time: new Date().toISOString(),
+    }),
+  ];
+
+  const zohoItems: RawZohoItemLike[] = [
+    {
+      item_id: 'ZOHO-PREM-40',
+      sku: 'PREM-DEV-40',
+      name: 'Premium Wholesale Hardware Unit',
+      rate: 40.0, // Zoho price $40
+    },
+  ];
+
+  const { updatedItems, report } = reconcileWebsitePrices(websiteItems, zohoItems);
+
+  assert.equal(updatedItems[0].rate, 45.0, 'Website price must be $45.00 ($40 Zoho + $5)');
+  assert.equal(updatedItems[0].zoho_rate, 40.0, 'Zoho price in zoho_rate must remain $40.00');
+  assert.equal(report.updated_count, 1);
+});
+
+// ── TEST K: Zoho price < $10 (e.g. $8.00) -> Website price is $10 ($8 + $2) ──
+test('TEST K: If Zoho price is less than $10, website price increases by $2', () => {
+  const websiteItems: InventoryItem[] = [
+    createTestItem({
+      id: 'item-coil-pack-8',
+      zoho_item_id: 'ZOHO-COIL-8',
+      sku: 'COIL-PACK-8',
+      name: 'Replacement Coil 5-Pack',
+      brand: 'Smok',
+      category: 'Accessories',
+      rate: 0,
+      available_stock: 50,
+      stock_on_hand: 50,
+      stock_status: 'in_stock',
+      status: 'active',
+      unit: 'Pack',
+      min_order_qty: 1,
+      bulk_pricing: [],
+      last_modified_time: new Date().toISOString(),
+    }),
+  ];
+
+  const zohoItems: RawZohoItemLike[] = [
+    {
+      item_id: 'ZOHO-COIL-8',
+      sku: 'COIL-PACK-8',
+      name: 'Replacement Coil 5-Pack',
+      rate: 8.0, // Zoho price $8 (< $10)
+    },
+  ];
+
+  const { updatedItems, report } = reconcileWebsitePrices(websiteItems, zohoItems);
+
+  assert.equal(updatedItems[0].rate, 10.0, 'Website price must be $10.00 ($8 Zoho + $2)');
+  assert.equal(updatedItems[0].zoho_rate, 8.0, 'Zoho price in zoho_rate must remain $8.00');
+  assert.equal(report.updated_count, 1);
 });
 

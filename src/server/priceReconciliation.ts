@@ -179,13 +179,35 @@ export function matchWebsiteVariantToZoho(
 // ── One-Time & Ongoing Price Reconciliation Engine ───────────────────────────
 
 /**
+ * Calculates the website selling price for products imported from Zoho.
+ * Rules:
+ *  - Every product imported from Zoho has its website price increased by $5.
+ *  - If the price of the item on Zoho is less than $10, increase by $2 instead.
+ *  - E.g.: Zoho $40.00 -> Website $45.00
+ *  - E.g.: Zoho $12.50 -> Website $17.50
+ *  - E.g.: Zoho $7.50 -> Website $9.50
+ *  - E.g.: Zoho $8.00 -> Website $10.00
+ *  - Unpriced or non-positive rates remain 0.
+ *  - The original Zoho price is never overwritten; it is preserved in zoho_rate.
+ */
+export function calculateWebsitePrice(zohoRate: number | null | undefined): number {
+  if (typeof zohoRate !== 'number' || isNaN(zohoRate) || zohoRate <= 0) {
+    return 0;
+  }
+  if (zohoRate < 10) {
+    return Number((zohoRate + 2).toFixed(2));
+  }
+  return Number((zohoRate + 5).toFixed(2));
+}
+
+/**
  * Reconciles website product prices strictly against verified Zoho Inventory data.
  *
  * Rules:
- *  - website price = Zoho rate
- *  - website variant price = Zoho variant rate
+ *  - website price = Zoho rate + $5 (or + $2 if Zoho rate < $10)
+ *  - website variant price = Zoho variant rate + $5 (or + $2 if Zoho variant rate < $10)
  *  - NEVER use purchase_rate as website price
- *  - DO NOT invent retail price or markup
+ *  - Preserves exact Zoho price in zoho_rate without overriding Zoho itself
  *  - If Zoho rate is absent/invalid: preserve last verified Zoho selling price,
  *    mark for admin review, and NEVER use scraped or external prices.
  */
@@ -210,8 +232,8 @@ export function reconcileWebsitePrices(
         sku: item.sku,
         zoho_item_id: item.zoho_item_id || '',
         old_website_price: item.rate,
-        zoho_price: item.rate,
-        new_website_price: item.rate,
+        zoho_price: item.zoho_rate ?? item.rate ?? 0,
+        new_website_price: item.rate ?? 0,
         sync_status: 'UNMATCHED_IN_ZOHO',
         timestamp: new Date().toISOString(),
       });
@@ -232,11 +254,13 @@ export function reconcileWebsitePrices(
     const oldPrice = item.rate ?? null;
     let newPrice = oldPrice;
     let syncStatus: PriceAuditRecord['sync_status'] = 'ALREADY_MATCHED';
+    let zohoRate = item.zoho_rate ?? (hasValidZohoRate ? Number(rawRate) : (oldPrice ?? 0));
 
     if (hasValidZohoRate) {
-      const zohoRate = Number(rawRate);
-      if (oldPrice !== zohoRate) {
-        newPrice = zohoRate;
+      zohoRate = Number(rawRate);
+      const expectedWebsitePrice = calculateWebsitePrice(zohoRate);
+      if (oldPrice !== expectedWebsitePrice || item.zoho_rate !== zohoRate) {
+        newPrice = expectedWebsitePrice;
         syncStatus = 'RECONCILED_UPDATED';
         updatedCount++;
       }
@@ -255,21 +279,24 @@ export function reconcileWebsitePrices(
         const vOldPrice = v.rate ?? null;
         let vNewPrice = vOldPrice;
         let vStatus = 'ALREADY_MATCHED';
+        let zvRate = v.zoho_rate ?? (hasValidZohoRate ? zohoRate : (vOldPrice ?? 0));
 
         if (Array.isArray(zohoMatch.variants) && zohoMatch.variants.length > 0) {
           const zVariantMatch = matchWebsiteVariantToZoho(v, zohoMatch.variants);
           if (zVariantMatch && zVariantMatch.rate !== undefined && !isNaN(Number(zVariantMatch.rate))) {
-            const zvRate = Number(zVariantMatch.rate);
-            if (vOldPrice !== zvRate) {
-              vNewPrice = zvRate;
+            zvRate = Number(zVariantMatch.rate);
+            const zvExpected = calculateWebsitePrice(zvRate);
+            if (vOldPrice !== zvExpected || v.zoho_rate !== zvRate) {
+              vNewPrice = zvExpected;
               vStatus = 'RECONCILED_UPDATED';
             }
           } else if (hasValidZohoRate && (vOldPrice === null || vOldPrice === 0)) {
-            // If variant has no specific rate in Zoho but parent has valid rate
-            vNewPrice = Number(rawRate);
+            zvRate = zohoRate;
+            vNewPrice = calculateWebsitePrice(zvRate);
           }
         } else if (hasValidZohoRate && (vOldPrice === null || vOldPrice === 0)) {
-          vNewPrice = Number(rawRate);
+          zvRate = zohoRate;
+          vNewPrice = calculateWebsitePrice(zvRate);
         }
 
         variantAudits!.push({
@@ -277,13 +304,14 @@ export function reconcileWebsitePrices(
           variant_sku: v.variant_sku,
           variant_name: v.variant_name,
           old_price: vOldPrice,
-          zoho_price: vNewPrice ?? 0,
+          zoho_price: zvRate,
           new_price: vNewPrice ?? 0,
           sync_status: vStatus,
         });
 
         return {
           ...v,
+          zoho_rate: zvRate,
           rate: vNewPrice ?? 0,
         };
       });
@@ -294,7 +322,7 @@ export function reconcileWebsitePrices(
       sku: item.sku,
       zoho_item_id: String(zohoMatch.item_id || item.zoho_item_id),
       old_website_price: oldPrice,
-      zoho_price: hasValidZohoRate ? Number(rawRate) : (oldPrice ?? 0),
+      zoho_price: zohoRate,
       new_website_price: newPrice ?? 0,
       sync_status: syncStatus,
       variant_audits: variantAudits,
@@ -305,6 +333,7 @@ export function reconcileWebsitePrices(
     updatedItems.push({
       ...item,
       zoho_item_id: String(zohoMatch.item_id || item.zoho_item_id),
+      zoho_rate: zohoRate,
       rate: newPrice ?? 0,
       // retail_msrp only if Zoho explicitly returned sales_rate
       retail_msrp: zohoMatch.sales_rate ? Number(zohoMatch.sales_rate) : item.retail_msrp,

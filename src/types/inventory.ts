@@ -11,6 +11,7 @@ export interface InventoryVariant {
   stock_on_hand: number;
   available_stock: number;
   stock_status: StockStatus;
+  zoho_rate?: number; // Original authoritative rate from Zoho Inventory
   rate?: number;
 }
 
@@ -31,7 +32,8 @@ export interface InventoryItem {
   description: string;
   image_url: string;
   gallery_images?: string[];
-  rate: number | null; // Wholesale unit price (null if unauthorized)
+  zoho_rate?: number; // Original authoritative rate from Zoho Inventory (never overridden)
+  rate: number | null; // Wholesale unit price with website markup applied (null if unauthorized)
   has_pricing_access?: boolean;
   retail_msrp?: number;
   purchase_rate?: number;

@@ -11,6 +11,7 @@
  */
 
 import type { InventoryItem, InventoryVariant, StockStatus } from '../types/inventory.js';
+import { calculateWebsitePrice } from './priceReconciliation.js';
 
 export interface ZohoApiConfig {
   clientId?: string;
@@ -256,6 +257,7 @@ export class ZohoInventoryClient {
     const parentRate = typeof raw.rate === 'number' && !isNaN(raw.rate)
       ? raw.rate
       : (raw.rate !== undefined && raw.rate !== null && !isNaN(Number(raw.rate)) ? Number(raw.rate) : 0);
+    const parentWebsiteRate = calculateWebsitePrice(parentRate);
 
     // Build variants if item group
     const variants: InventoryVariant[] = Array.isArray(raw.variants)
@@ -265,9 +267,10 @@ export class ZohoInventoryClient {
         if (vStock <= 0) vStatus = 'out_of_stock';
         else if (vStock <= lowStockThreshold) vStatus = 'low_stock';
 
-        const vRate = typeof v.rate === 'number' && !isNaN(v.rate)
+        const vZohoRate = typeof v.rate === 'number' && !isNaN(v.rate)
           ? v.rate
           : (v.rate !== undefined && v.rate !== null && !isNaN(Number(v.rate)) ? Number(v.rate) : parentRate);
+        const vWebsiteRate = calculateWebsitePrice(vZohoRate);
 
         return {
           variant_id: String(v.item_id || v.variant_id),
@@ -278,7 +281,8 @@ export class ZohoInventoryClient {
           stock_on_hand: vStock,
           available_stock: vStock,
           stock_status: vStatus,
-          rate: vRate,
+          zoho_rate: vZohoRate,
+          rate: vWebsiteRate,
         };
       })
       : [];
@@ -293,7 +297,8 @@ export class ZohoInventoryClient {
       subcategory: raw.subcategory || raw.cf_subcategory,
       description: String(raw.description || raw.item_description || ''),
       image_url: raw.image_url || raw.image_name || '',
-      rate: parentRate,
+      zoho_rate: parentRate,
+      rate: parentWebsiteRate,
       retail_msrp: raw.sales_rate ? Number(raw.sales_rate) : (raw.retail_msrp ? Number(raw.retail_msrp) : undefined),
       purchase_rate: raw.purchase_rate ? Number(raw.purchase_rate) : undefined,
       available_stock: availableStock,

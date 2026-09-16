@@ -16,7 +16,7 @@ import type {
 } from '../types/inventory.js';
 import { PRODUCTS, type WholesaleProduct } from '../lib/productDatabase.js';
 import { productImageRegistry } from './productImageRegistry.js';
-import { validateImageUpdatePayload, reconcileWebsitePrices } from './priceReconciliation.js';
+import { validateImageUpdatePayload, reconcileWebsitePrices, calculateWebsitePrice } from './priceReconciliation.js';
 
 
 // Seed pricing for wholesale B2B display
@@ -105,7 +105,8 @@ export class InventoryStore {
       const zohoItemId = String(zohoCounter++);
       const verifiedImage = productImageRegistry.getVerifiedImageUrl(p.id);
       const image = verifiedImage || '';
-      const rate = PRODUCT_RATES[p.id] || (p.pricePerUnit > 0 ? p.pricePerUnit : 0);
+      const zohoRate = PRODUCT_RATES[p.id] || (p.pricePerUnit > 0 ? p.pricePerUnit : 0);
+      const rate = calculateWebsitePrice(zohoRate);
 
       // Create variants if product has flavors or options
       const variants = p.flavours && p.flavours.length > 0
@@ -123,6 +124,7 @@ export class InventoryStore {
             stock_on_hand: vStock,
             available_stock: vStock,
             stock_status: vStatus,
+            zoho_rate: zohoRate,
             rate: rate,
           };
         })
@@ -139,6 +141,7 @@ export class InventoryStore {
         description: `${p.name} supplied directly from Wholesale of Oklahoma central OKC warehouse. High commercial turnover for dispensaries, smoke shops, and convenience stores.`,
         image_url: image,
         gallery_images: image ? [image] : [],
+        zoho_rate: zohoRate,
         rate: rate,
         available_stock: stock,
         stock_on_hand: stock,
@@ -252,7 +255,8 @@ export class InventoryStore {
 
     // 1. Authoritative price update (Zoho rate -> website selling price)
     if (rawRate !== undefined && rawRate >= 0) {
-      foundItem.rate = rawRate;
+      foundItem.zoho_rate = rawRate;
+      foundItem.rate = calculateWebsitePrice(rawRate);
       updated = true;
     }
 
@@ -267,7 +271,8 @@ export class InventoryStore {
             (v) => (vTargetId && String(v.variant_id) === vTargetId) || (vTargetSku && v.variant_sku.toLowerCase() === vTargetSku)
           );
           if (matchVar) {
-            matchVar.rate = vRate;
+            matchVar.zoho_rate = vRate;
+            matchVar.rate = calculateWebsitePrice(vRate);
             updated = true;
           }
         }
@@ -334,25 +339,28 @@ export class InventoryStore {
    */
   public syncZohoPrice(
     idOrSku: string,
-    newRate: number,
+    newZohoRate: number,
     variantRates?: Record<string, number>
   ): InventoryItem | null {
-    if (typeof newRate !== 'number' || isNaN(newRate) || newRate < 0) {
-      throw new Error(`Invalid Zoho rate provided for ${idOrSku}: ${newRate}`);
+    if (typeof newZohoRate !== 'number' || isNaN(newZohoRate) || newZohoRate < 0) {
+      throw new Error(`Invalid Zoho rate provided for ${idOrSku}: ${newZohoRate}`);
     }
 
     const item = this.getItem(idOrSku);
     if (!item) return null;
 
-    item.rate = newRate;
+    item.zoho_rate = newZohoRate;
+    item.rate = calculateWebsitePrice(newZohoRate);
 
     // Sync variant rates if provided
     if (variantRates && Array.isArray(item.variants)) {
       for (const variant of item.variants) {
         if (variantRates[variant.variant_id] !== undefined) {
-          variant.rate = variantRates[variant.variant_id];
+          variant.zoho_rate = variantRates[variant.variant_id];
+          variant.rate = calculateWebsitePrice(variantRates[variant.variant_id]);
         } else if (variantRates[variant.variant_sku] !== undefined) {
-          variant.rate = variantRates[variant.variant_sku];
+          variant.zoho_rate = variantRates[variant.variant_sku];
+          variant.rate = calculateWebsitePrice(variantRates[variant.variant_sku]);
         }
       }
     }

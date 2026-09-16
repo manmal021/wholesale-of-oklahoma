@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import { productImageRegistry } from '../src/server/productImageRegistry.js';
+import { calculateWebsitePrice } from '../src/server/priceReconciliation.js';
 import type { InventoryItem } from '../src/types/inventory.js';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -1177,6 +1178,9 @@ function generateZohoCatalog(): InventoryItem[] {
           description: `${productName} distributed by Wholesale of Oklahoma. Available for wholesale case order with live pricing and immediate dispatch.`,
         });
 
+        const zohoRate = s.rate;
+        const websiteRate = calculateWebsitePrice(zohoRate);
+
         const item: InventoryItem = {
           id: itemId,
           zoho_item_id: itemId,
@@ -1187,7 +1191,8 @@ function generateZohoCatalog(): InventoryItem[] {
           subcategory: s.model,
           description: `Authentic factory-sealed ${productName}. Licensed Oklahoma B2B distribution direct from Oklahoma City warehouse. Anti-counterfeit verification QR code intact on every carton.`,
           image_url: imageUrl,
-          rate: s.rate,
+          zoho_rate: zohoRate,
+          rate: websiteRate,
           retail_msrp: s.msrp || undefined,
           purchase_rate: undefined,
           available_stock: 50,
