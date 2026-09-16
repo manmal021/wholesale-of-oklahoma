@@ -83,23 +83,29 @@ export default function AdminProductsAvailability() {
     loadData();
   }, []);
 
-  const handleSetOverride = async (product: ProductItem, isBlocked: boolean, reasonText: string) => {
+  const handleSetOverride = async (
+    product: ProductItem,
+    statusOverride: 'AVAILABLE' | 'LOW_STOCK' | 'TEMPORARILY_UNAVAILABLE' | 'OUT_OF_STOCK',
+    reasonText?: string
+  ) => {
     setActionLoadingId(product.id);
     setFeedbackMessage(null);
     try {
+      const isBlocked = statusOverride === 'TEMPORARILY_UNAVAILABLE' || statusOverride === 'OUT_OF_STOCK';
       await setAdminProductOverride({
         productId: product.id,
         sku: product.sku,
         productName: product.name,
         isOutOfStockOnline: isBlocked,
-        reason: reasonText,
+        statusOverride,
+        reason: reasonText || `Marked ${statusOverride.replace(/_/g, ' ')} by administrator`,
       });
 
       setFeedbackMessage({
         type: 'success',
-        text: isBlocked
-          ? `Product "${product.name}" marked Temporarily Unavailable online. Zoho inventory was preserved.`
-          : `Online availability override cleared for "${product.name}". Restored to live Zoho sync.`,
+        text: statusOverride === 'AVAILABLE'
+          ? `Product "${product.name}" online override removed. Restored to live Zoho sync.`
+          : `Product "${product.name}" marked as "${statusOverride.replace(/_/g, ' ')}". Product data and physical inventory preserved.`,
       });
 
       await loadData();
@@ -367,21 +373,46 @@ export default function AdminProductsAvailability() {
                         </td>
 
                         <td className="px-6 py-4">
-                          {activeOv ? (
-                            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-rose-50 text-rose-700 border border-rose-200">
-                              <Ban className="w-3 h-3" />
-                              Temporarily Unavailable
-                            </span>
-                          ) : prod.available_stock > 0 ? (
-                            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
-                              <CheckCircle2 className="w-3 h-3" />
-                              Available (Zoho Live)
-                            </span>
-                          ) : (
-                            <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600 border border-slate-200">
-                              Out of Stock
-                            </span>
-                          )}
+                          {(() => {
+                            const status = activeOv?.statusOverride || (activeOv?.isOutOfStockOnline ? 'TEMPORARILY_UNAVAILABLE' : null);
+                            if (status === 'TEMPORARILY_UNAVAILABLE') {
+                              return (
+                                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-amber-50 text-amber-800 border border-amber-200">
+                                  <Ban className="w-3 h-3 text-amber-600" />
+                                  Temporarily Unavailable
+                                </span>
+                              );
+                            }
+                            if (status === 'OUT_OF_STOCK') {
+                              return (
+                                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-rose-50 text-rose-700 border border-rose-200">
+                                  <Ban className="w-3 h-3 text-rose-600" />
+                                  Out of Stock (Manual)
+                                </span>
+                              );
+                            }
+                            if (status === 'LOW_STOCK') {
+                              return (
+                                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-orange-50 text-orange-700 border border-orange-200">
+                                  <AlertTriangle className="w-3 h-3 text-orange-500" />
+                                  Low Stock Override
+                                </span>
+                              );
+                            }
+                            if (prod.available_stock > 0) {
+                              return (
+                                <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                                  <CheckCircle2 className="w-3 h-3 text-emerald-600" />
+                                  Available (Zoho Live)
+                                </span>
+                              );
+                            }
+                            return (
+                              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-bold bg-slate-100 text-slate-600 border border-slate-200">
+                                Out of Stock (0 Zoho)
+                              </span>
+                            );
+                          })()}
                           {activeOv?.reason && (
                             <div className="text-[10px] text-slate-500 mt-1 max-w-xs truncate" title={activeOv.reason}>
                               Note: {activeOv.reason}
@@ -390,27 +421,31 @@ export default function AdminProductsAvailability() {
                         </td>
 
                         <td className="px-6 py-4 text-right">
-                          {activeOv ? (
-                            <button
-                              onClick={() => handleSetOverride(prod, false, 'Cleared override by administrator')}
+                          <div className="inline-flex items-center gap-2 justify-end">
+                            <select
                               disabled={isBusy}
-                              className="px-3 py-1.5 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-800 border border-emerald-200 text-xs font-bold transition-all cursor-pointer inline-flex items-center gap-1.5"
+                              value={activeOv?.statusOverride || (activeOv?.isOutOfStockOnline ? 'TEMPORARILY_UNAVAILABLE' : 'AVAILABLE')}
+                              onChange={(e) => handleSetOverride(prod, e.target.value as any)}
+                              className="px-2.5 py-1.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-800 font-bold text-xs focus:outline-none focus:border-[#FF6B00] cursor-pointer"
                             >
-                              {isBusy ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <CheckCircle2 className="w-3.5 h-3.5" />}
-                              <span>Restore Zoho Live</span>
-                            </button>
-                          ) : (
-                            <div className="inline-flex items-center gap-1.5">
+                              <option value="AVAILABLE">Available (Live Zoho)</option>
+                              <option value="LOW_STOCK">Low Stock</option>
+                              <option value="TEMPORARILY_UNAVAILABLE">Temporarily Unavailable</option>
+                              <option value="OUT_OF_STOCK">Out of Stock</option>
+                            </select>
+
+                            {activeOv && (
                               <button
-                                onClick={() => handleSetOverride(prod, true, 'Marked temporarily unavailable by administrator')}
+                                onClick={() => handleSetOverride(prod, 'AVAILABLE', 'Cleared override by administrator')}
                                 disabled={isBusy}
-                                className="px-3 py-1.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-800 border border-rose-200 text-xs font-bold transition-all cursor-pointer inline-flex items-center gap-1.5"
+                                className="px-2.5 py-1.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 border border-slate-200 text-xs font-semibold transition-all cursor-pointer inline-flex items-center gap-1"
+                                title="Reset to Live Zoho sync"
                               >
-                                {isBusy ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <Ban className="w-3.5 h-3.5" />}
-                                <span>Mark Unavailable</span>
+                                {isBusy ? <Loader2 className="w-3 h-3 animate-spin" /> : <RefreshCw className="w-3 h-3" />}
+                                <span className="hidden sm:inline">Reset</span>
                               </button>
-                            </div>
-                          )}
+                            )}
+                          </div>
                         </td>
                       </tr>
                     );

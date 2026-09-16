@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, type ReactNode } from 'react';
 import {
   LogIn,
   LogOut,
@@ -36,6 +36,7 @@ import WhyChooseUs from './components/WhyChooseUs';
 import { getDraftOrder } from './lib/mangoAI';
 import AdminLogin from './components/admin/AdminLogin';
 import AdminActivation from './components/admin/AdminActivation';
+import AdminResetPassword from './components/admin/AdminResetPassword';
 import AdminDashboard from './components/admin/AdminDashboard';
 import AdminApplicationsList from './components/admin/AdminApplicationsList';
 import AdminApplicationDetail from './components/admin/AdminApplicationDetail';
@@ -62,6 +63,66 @@ interface CurrentUser {
   has_pricing_access: boolean;
 }
 
+function AdminRouteGuard({ children }: { children: ReactNode }) {
+  const [isVerifying, setIsVerifying] = useState(true);
+  const [isAuthorized, setIsAuthorized] = useState(() => {
+    try {
+      const token = localStorage.getItem('woo_session_token');
+      const rawUser = localStorage.getItem('woo_user');
+      if (token && rawUser) {
+        const u = JSON.parse(rawUser);
+        return u.role === 'admin';
+      }
+    } catch (_) {}
+    return false;
+  });
+
+  useEffect(() => {
+    let active = true;
+    const token = localStorage.getItem('woo_session_token');
+    const headers: Record<string, string> = token ? { 'x-session-token': token } : {};
+
+    fetch('/api/auth/me', { headers })
+      .then((res) => res.json())
+      .then((data) => {
+        if (!active) return;
+        if (data.authenticated && data.user?.role === 'admin') {
+          setIsAuthorized(true);
+          setIsVerifying(false);
+        } else {
+          try {
+            localStorage.removeItem('woo_session_token');
+            localStorage.removeItem('woo_user');
+          } catch (_) {}
+          window.location.replace('/admin/login');
+        }
+      })
+      .catch(() => {
+        if (!active) return;
+        if (isAuthorized) {
+          setIsVerifying(false);
+        } else {
+          window.location.replace('/admin/login');
+        }
+      });
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  if (isVerifying && !isAuthorized) {
+    return (
+      <div className="min-h-screen bg-[#F8FAFC] flex flex-col items-center justify-center text-slate-500">
+        <div className="w-10 h-10 border-4 border-[#FF6B00] border-t-transparent rounded-full animate-spin mb-3" />
+        <p className="text-xs font-bold uppercase tracking-wider text-slate-600">Verifying Administrator Privileges...</p>
+      </div>
+    );
+  }
+
+  return <>{children}</>;
+}
+
 export default function App() {
   const pathname = typeof window !== 'undefined' ? window.location.pathname.toLowerCase().replace(/\/$/, '') || '/' : '/';
 
@@ -72,54 +133,67 @@ export default function App() {
     if (pathname === '/admin/activate') {
       return <AdminActivation />;
     }
-
-    // Secure Admin Guard: Redirect unauthenticated or non-admin visitors immediately to /admin/login
-    let isAdmin = false;
-    if (typeof window !== 'undefined') {
-      try {
-        const token = localStorage.getItem('woo_session_token');
-        const rawUser = localStorage.getItem('woo_user');
-        if (token && rawUser) {
-          const u = JSON.parse(rawUser);
-          if (u && u.role === 'admin') {
-            isAdmin = true;
-          }
-        }
-      } catch (_) {}
-    }
-
-    if (!isAdmin) {
-      if (typeof window !== 'undefined') {
-        window.location.replace('/admin/login');
-      }
-      return <AdminLogin />;
+    if (pathname === '/admin/reset-password') {
+      return <AdminResetPassword />;
     }
 
     if (pathname.startsWith('/admin/orders/')) {
       const rawId = window.location.pathname.replace(/^\/admin\/orders\//i, '').replace(/\/$/, '').trim();
-      return <AdminOrderDetail orderId={rawId} />;
+      return (
+        <AdminRouteGuard>
+          <AdminOrderDetail orderId={rawId} />
+        </AdminRouteGuard>
+      );
     }
     if (pathname === '/admin/orders') {
-      return <AdminOrdersList />;
+      return (
+        <AdminRouteGuard>
+          <AdminOrdersList />
+        </AdminRouteGuard>
+      );
     }
     if (pathname === '/admin/products' || pathname === '/admin/products/availability') {
-      return <AdminProductsAvailability />;
+      return (
+        <AdminRouteGuard>
+          <AdminProductsAvailability />
+        </AdminRouteGuard>
+      );
     }
     if (pathname === '/admin/inventory-mismatches') {
-      return <AdminInventoryMismatches />;
+      return (
+        <AdminRouteGuard>
+          <AdminInventoryMismatches />
+        </AdminRouteGuard>
+      );
     }
     if (pathname.startsWith('/admin/customer-applications/')) {
       const rawId = window.location.pathname.replace(/^\/admin\/customer-applications\//i, '').replace(/\/$/, '').trim();
-      return <AdminApplicationDetail applicationId={rawId} />;
+      return (
+        <AdminRouteGuard>
+          <AdminApplicationDetail applicationId={rawId} />
+        </AdminRouteGuard>
+      );
     }
     if (pathname === '/admin/customer-applications') {
-      return <AdminApplicationsList />;
+      return (
+        <AdminRouteGuard>
+          <AdminApplicationsList />
+        </AdminRouteGuard>
+      );
     }
     if (pathname === '/admin/customers') {
-      return <AdminCustomersList />;
+      return (
+        <AdminRouteGuard>
+          <AdminCustomersList />
+        </AdminRouteGuard>
+      );
     }
     if (pathname === '/admin') {
-      return <AdminDashboard />;
+      return (
+        <AdminRouteGuard>
+          <AdminDashboard />
+        </AdminRouteGuard>
+      );
     }
   }
   if (pathname === '/activate') {

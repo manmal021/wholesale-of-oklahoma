@@ -109,9 +109,31 @@ function hasApprovedPricingAccess(req: Request): boolean {
 }
 
 function sanitizeItemForClient(item: any, hasPricingAccess: boolean) {
+  const override =
+    databaseStore.getProductOnlineOverride(item.id) ||
+    (item.sku ? databaseStore.getProductOnlineOverride(item.sku) : undefined);
+  const isOverridden = Boolean(override && override.active);
+  const status = override?.statusOverride;
   const isBlockedOnline =
-    databaseStore.isProductBlockedOnline(item.id) ||
-    (item.sku && databaseStore.isProductBlockedOnline(item.sku));
+    isOverridden && (status === 'OUT_OF_STOCK' || status === 'TEMPORARILY_UNAVAILABLE' || override?.isOutOfStockOnline);
+  const isLowStock = isOverridden && status === 'LOW_STOCK';
+
+  let effectiveStockStatus = item.stock_status;
+  let effectiveAvailableStock = item.available_stock;
+  let isTemporarilyBlocked = false;
+
+  if (isBlockedOnline) {
+    effectiveStockStatus = 'out_of_stock';
+    effectiveAvailableStock = 0;
+    isTemporarilyBlocked = true;
+  } else if (isLowStock) {
+    effectiveStockStatus = 'low_stock';
+    effectiveAvailableStock = Math.min(effectiveAvailableStock > 0 ? effectiveAvailableStock : 5, 5);
+  } else if (isOverridden && status === 'AVAILABLE') {
+    effectiveStockStatus = 'in_stock';
+    effectiveAvailableStock = effectiveAvailableStock > 0 ? effectiveAvailableStock : 50;
+    isTemporarilyBlocked = false;
+  }
 
   if (hasPricingAccess) {
     const base = {
@@ -119,17 +141,14 @@ function sanitizeItemForClient(item: any, hasPricingAccess: boolean) {
       bulk_pricing: [],
       bulkPricing: [],
       has_pricing_access: true,
+      stock_status: effectiveStockStatus,
+      available_stock: effectiveAvailableStock,
+      is_temporarily_blocked: isTemporarilyBlocked,
+      availability_override: isOverridden ? status : undefined,
     };
-    if (isBlockedOnline) {
-      return {
-        ...base,
-        stock_status: 'out_of_stock',
-        available_stock: 0,
-        is_temporarily_blocked: true,
-      };
-    }
     return base;
   }
+
   const safe = { ...item };
   delete safe.rate;
   delete safe.pricePerUnit;
@@ -150,10 +169,11 @@ function sanitizeItemForClient(item: any, hasPricingAccess: boolean) {
     bulk_pricing: [],
     bulkPricing: [],
     has_pricing_access: false,
-    pricing_notice: isBlockedOnline ? 'Temporarily Out of Stock' : 'Login to View Wholesale Pricing',
-    stock_status: isBlockedOnline ? 'out_of_stock' : safe.stock_status,
-    available_stock: isBlockedOnline ? 0 : safe.available_stock,
-    is_temporarily_blocked: isBlockedOnline,
+    pricing_notice: isTemporarilyBlocked ? 'Temporarily Out of Stock' : 'Login to View Wholesale Pricing',
+    stock_status: effectiveStockStatus,
+    available_stock: effectiveAvailableStock,
+    is_temporarily_blocked: isTemporarilyBlocked,
+    availability_override: isOverridden ? status : undefined,
   };
 }
 
@@ -1403,8 +1423,31 @@ apiApp.post(['/auth/forgot-password', '/api/auth/forgot-password'], rateLimit(5,
     return err(res, 400, 'A valid email address is required.');
   }
 
-  const user = authStore.getUser(cleanEmail);
+  const isConfiguredAdmin = cleanEmail === ADMIN_EMAIL.toLowerCase().trim();
+  let user = authStore.getUser(cleanEmail);
   const cust = databaseStore.getCustomerByEmail(cleanEmail);
+
+  if (isConfiguredAdmin && !user) {
+    const setup = authStore.ensureInitialAdmin(cleanEmail);
+    user = setup.user;
+  }
+
+  const isAdminUser = role === 'admin' || isConfiguredAdmin || user?.role === 'admin';
+
+  if (isAdminUser) {
+    const { token, resetUrl } = authStore.createAdminPasswordResetToken(cleanEmail);
+    databaseStore.addAuditLog({
+      event: 'PASSWORD_RESET_REQUESTED',
+      targetEmail: cleanEmail,
+      details: { role: 'admin' },
+    });
+    return ok(res, {
+      success: true,
+      role: 'admin',
+      message: 'If an administrator account exists with this email address, password reset instructions have been sent.',
+      ...(process.env.NODE_ENV !== 'production' ? { devResetUrl: resetUrl } : {}),
+    });
+  }
 
   if (user || cust) {
     const tokenRecord = databaseStore.createSecurityToken({
@@ -1419,7 +1462,7 @@ apiApp.post(['/auth/forgot-password', '/api/auth/forgot-password'], rateLimit(5,
       targetEmail: cleanEmail,
     });
 
-    await emailService.sendPasswordResetEmail(cleanEmail, tokenRecord.token, role === 'admin' || user?.role === 'admin');
+    await emailService.sendPasswordResetEmail(cleanEmail, tokenRecord.token, false);
   }
 
   // Always return generic success to protect against email enumeration (OWASP)
@@ -1430,12 +1473,95 @@ apiApp.post(['/auth/forgot-password', '/api/auth/forgot-password'], rateLimit(5,
 });
 
 /**
+ * POST /api/auth/admin/request-activation
+ * Dispatches an initial administrator activation link if the admin account has not yet set credentials.
+ * Rate limited to 5 per 15 minutes.
+ */
+apiApp.post(['/auth/admin/request-activation', '/api/auth/admin/request-activation'], rateLimit(5, 15 * 60 * 1000), (req: Request, res: Response) => {
+  const { email } = req.body || {};
+  const cleanEmail = String(email || '').toLowerCase().trim();
+
+  if (!cleanEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
+    return err(res, 400, 'A valid administrator email address is required.');
+  }
+
+  const isConfiguredAdmin = cleanEmail === ADMIN_EMAIL.toLowerCase().trim();
+  const existingUser = authStore.getUser(cleanEmail);
+
+  if (!isConfiguredAdmin && (!existingUser || existingUser.role !== 'admin')) {
+    return ok(res, {
+      success: true,
+      message: 'If this email belongs to an administrator, an activation link has been dispatched.',
+    });
+  }
+
+  if (existingUser && authStore.hasPasswordSet(cleanEmail)) {
+    return ok(res, {
+      success: true,
+      alreadyActive: true,
+      message: 'This administrator account has already been activated. Please log in or use Forgot Password to reset credentials.',
+    });
+  }
+
+  const { token, activationUrl } = authStore.createAdminActivationToken(cleanEmail);
+
+  databaseStore.addAuditLog({
+    event: 'ADMIN_ACTIVATION_REQUESTED' as any,
+    targetEmail: cleanEmail,
+  });
+
+  return ok(res, {
+    success: true,
+    message: 'An administrator activation link has been dispatched to your email.',
+    ...(process.env.NODE_ENV !== 'production' ? { devActivationUrl: activationUrl } : {}),
+  });
+});
+
+/**
+ * POST /api/admin/invite
+ * Invites a new administrator. Protected by requireAdminAuth or ADMIN_SECRET_KEY.
+ */
+apiApp.post(['/admin/invite', '/api/admin/invite'], requireAdminAuth, (req: Request, res: Response) => {
+  const { email, contactName, phone } = req.body || {};
+  const cleanEmail = String(email || '').toLowerCase().trim();
+
+  if (!cleanEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(cleanEmail)) {
+    return err(res, 400, 'A valid email address is required.');
+  }
+
+  const session = getSessionUser(req);
+  const adminId = session?.userId || 'admin_master';
+
+  const { token, activationUrl } = authStore.createAdminActivationToken(cleanEmail);
+  const user = authStore.getUser(cleanEmail);
+  if (user) {
+    if (contactName) user.contactName = String(contactName).trim();
+    if (phone) user.phone = String(phone).trim();
+  }
+
+  databaseStore.addAuditLog({
+    event: 'ADMIN_INVITED' as any,
+    targetEmail: cleanEmail,
+    adminId,
+    details: { invitedBy: session?.email || 'admin' },
+  });
+
+  return ok(res, {
+    success: true,
+    email: cleanEmail,
+    message: `Administrator invitation dispatched to ${cleanEmail}.`,
+    ...(process.env.NODE_ENV !== 'production' ? { devActivationUrl: activationUrl } : {}),
+  });
+});
+
+/**
  * POST /api/auth/reset-password
  * Consumes single-use reset token and updates password.
  * Rate limited to 10 per 15 minutes.
  */
 apiApp.post(['/auth/reset-password', '/api/auth/reset-password'], rateLimit(10, 15 * 60 * 1000), (req: Request, res: Response) => {
-  const { token, password } = req.body || {};
+  const { token } = req.body || {};
+  const password = req.body?.password || req.body?.newPassword;
 
   if (!token || typeof token !== 'string') {
     return err(res, 400, 'Password reset token is required.');
@@ -2450,25 +2576,29 @@ registerPost(['/admin/orders/:id/internal-notes', '/api/admin/orders/:id/interna
  */
 registerPost(['/admin/products/:id/temporary-override', '/api/admin/products/:id/temporary-override'], requireAdminAuth, (req: Request, res: Response) => {
   const productId = req.params.id || (req.params as any)[0];
-  const { isOutOfStockOnline, reason, sku, productName } = req.body || {};
+  const { isOutOfStockOnline, statusOverride, reason, sku, productName } = req.body || {};
 
   const session = getSessionUser(req);
   const adminId = session?.userId || 'admin_staff';
 
-  if (isOutOfStockOnline === false) {
+  if (isOutOfStockOnline === false || statusOverride === 'AVAILABLE') {
     const success = databaseStore.removeProductOnlineOverride(productId, adminId);
-    return ok(res, { success, message: `Product ${productId} online override removed.` });
+    return ok(res, { success, message: `Product ${productId} online override removed. Restored to live Zoho sync.` });
   }
+
+  const status = statusOverride || (isOutOfStockOnline ? 'TEMPORARILY_UNAVAILABLE' : 'AVAILABLE');
 
   const override = databaseStore.setProductOnlineOverride({
     productId,
     sku: sku || productId,
     name: productName || productId,
-    reason: reason || 'Manually marked out of stock online by administrator',
+    reason: reason || `Marked ${status.replace(/_/g, ' ')} by administrator`,
+    statusOverride: status,
+    isOutOfStockOnline: status === 'TEMPORARILY_UNAVAILABLE' || status === 'OUT_OF_STOCK',
     reportedBy: adminId,
   });
 
-  return ok(res, { success: true, message: `Product ${productId} marked out of stock online.`, override });
+  return ok(res, { success: true, message: `Product ${productId} availability set to ${status}.`, override });
 });
 
 /**

@@ -18,6 +18,10 @@ test.before(async () => {
   process.env.NODE_ENV = 'production'; // Enforce strict production auth
   process.env.ADMIN_NOTIFICATION_EMAIL = TEST_ADMIN_EMAIL;
 
+  // Clean test admin state to ensure deterministic initial bootstrap
+  authStore.deleteUser(TEST_ADMIN_EMAIL);
+  authStore.ensureInitialAdmin(TEST_ADMIN_EMAIL);
+
   await new Promise<void>((resolve) => {
     server = http.createServer(apiApp);
     server.listen(0, '127.0.0.1', () => {
@@ -563,4 +567,163 @@ test('Audit Trail: All security events logged without exposing secrets or tokens
     assert.ok(!str.includes('AdminSecurePass'), 'Passwords must never be logged');
     assert.ok(!str.includes('CustomerSecurePass'), 'Passwords must never be logged');
   }
+});
+
+// ---------------------------------------------------------------------------
+// 11. Admin Password Reset via /admin/reset-password
+// ---------------------------------------------------------------------------
+test('Admin Reset: /api/auth/forgot-password dispatches link pointing to /admin/reset-password', async () => {
+  const res = await fetch(`${baseUrl}/api/auth/forgot-password`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: TEST_ADMIN_EMAIL, role: 'admin' }),
+  });
+  assert.equal(res.status, 200);
+
+  const outbox = getOutboxEntries();
+  const resetEmail = outbox.filter((e) => e.to === TEST_ADMIN_EMAIL && e.subject.includes('Administrator Password Reset')).pop();
+  assert.ok(resetEmail, 'Admin reset email must be in outbox');
+  assert.ok(resetEmail.actionUrl.includes('/admin/reset-password?token='), 'Admin reset email must point to /admin/reset-password');
+
+  const tokenMatch = resetEmail.actionUrl.match(/token=([a-f0-9]+)/);
+  assert.ok(tokenMatch);
+  const resetToken = tokenMatch[1];
+
+  // Complete reset with valid password
+  const completeRes = await fetch(`${baseUrl}/api/auth/reset-password`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ token: resetToken, password: 'UpdatedAdminPass2026!' }),
+  });
+  assert.equal(completeRes.status, 200);
+
+  // Login with new admin credentials
+  const loginRes = await fetch(`${baseUrl}/api/auth/login`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: TEST_ADMIN_EMAIL, password: 'UpdatedAdminPass2026!' }),
+  });
+  assert.equal(loginRes.status, 200);
+  const data = await loginRes.json();
+  assert.equal(data.user.role, 'admin');
+
+  // Verify wrong password fails
+  const badLogin = await fetch(`${baseUrl}/api/auth/login`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: TEST_ADMIN_EMAIL, password: 'WrongPassword!' }),
+  });
+  assert.equal(badLogin.status, 401);
+});
+
+// ---------------------------------------------------------------------------
+// 12. Admin Request Setup Link & Invite Secondary Admin
+// ---------------------------------------------------------------------------
+test('Admin Setup & Invite: Request activation dispatches setup link and admin can invite new staff', async () => {
+  const newStaffEmail = 'dispatcher@wholesaleofoklahoma.com';
+
+  // Existing admin invites new admin
+  const inviteRes = await fetch(`${baseUrl}/api/admin/invite`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${adminToken}`,
+    },
+    body: JSON.stringify({
+      email: newStaffEmail,
+      contactName: 'Assistant Dispatcher',
+      phone: '(405) 555-0188',
+    }),
+  });
+  assert.equal(inviteRes.status, 200);
+
+  const outbox = getOutboxEntries();
+  const inviteEmail = outbox.filter((e) => e.to === newStaffEmail && e.subject.includes('Activate Your Wholesale of Oklahoma Administrator Account')).pop();
+  assert.ok(inviteEmail, 'Invite email must be sent to new admin');
+  assert.ok(inviteEmail.actionUrl.includes('/admin/activate?token='));
+
+  // Extract token and activate new admin
+  const token = inviteEmail.actionUrl.match(/token=([a-f0-9]+)/)[1];
+  const activateRes = await fetch(`${baseUrl}/api/auth/activate`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ token, password: 'StaffAdminPass2026!' }),
+  });
+  assert.equal(activateRes.status, 200);
+  const actData = await activateRes.json();
+  assert.equal(actData.role, 'admin');
+
+  // New admin logs in successfully
+  const staffLoginRes = await fetch(`${baseUrl}/api/auth/login`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ email: newStaffEmail, password: 'StaffAdminPass2026!' }),
+  });
+  assert.equal(staffLoginRes.status, 200);
+  const staffData = await staffLoginRes.json();
+  assert.equal(staffData.user.role, 'admin');
+
+  // Test logout
+  const logoutRes = await fetch(`${baseUrl}/api/auth/logout`, {
+    method: 'POST',
+    headers: { Authorization: `Bearer ${staffData.token}` },
+  });
+  assert.equal(logoutRes.status, 200);
+});
+
+// ---------------------------------------------------------------------------
+// 13. Product Availability Overrides (4-state management)
+// ---------------------------------------------------------------------------
+test('Product Availability: Admin can toggle Available, Low Stock, Temporarily Unavailable, Out of Stock', async () => {
+  const testProdId = 'geekbar-15k';
+
+  // 1. Mark Temporarily Unavailable
+  const unavailRes = await fetch(`${baseUrl}/api/admin/products/${testProdId}/temporary-override`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${adminToken}`,
+    },
+    body: JSON.stringify({ statusOverride: 'TEMPORARILY_UNAVAILABLE', reason: 'Physical warehouse count discrepancy' }),
+  });
+  assert.equal(unavailRes.status, 200);
+
+  // Check storefront query reflects out of stock online
+  const storeRes1 = await fetch(`${baseUrl}/api/inventory/${testProdId}`);
+  assert.equal(storeRes1.status, 200);
+  const item1 = await storeRes1.json();
+  assert.equal(item1.is_temporarily_blocked, true);
+  assert.equal(item1.stock_status, 'out_of_stock');
+
+  // 2. Mark Low Stock
+  const lowRes = await fetch(`${baseUrl}/api/admin/products/${testProdId}/temporary-override`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${adminToken}`,
+    },
+    body: JSON.stringify({ statusOverride: 'LOW_STOCK', reason: 'Only 3 left in physical bin' }),
+  });
+  assert.equal(lowRes.status, 200);
+
+  const storeRes2 = await fetch(`${baseUrl}/api/inventory/${testProdId}`);
+  assert.equal(storeRes2.status, 200);
+  const item2 = await storeRes2.json();
+  assert.equal(item2.stock_status, 'low_stock');
+
+  // 3. Restore Available
+  const availRes = await fetch(`${baseUrl}/api/admin/products/${testProdId}/temporary-override`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${adminToken}`,
+    },
+    body: JSON.stringify({ statusOverride: 'AVAILABLE' }),
+  });
+  assert.equal(availRes.status, 200);
+
+  const storeRes3 = await fetch(`${baseUrl}/api/inventory/${testProdId}`);
+  assert.equal(storeRes3.status, 200);
+  const item3 = await storeRes3.json();
+  assert.equal(item3.is_temporarily_blocked, false);
 });

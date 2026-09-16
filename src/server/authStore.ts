@@ -40,6 +40,7 @@ export interface SessionRecord {
 class AuthStore {
   private users: Map<string, UserRecord> = new Map(); // keyed by email (lowercase)
   private sessions: Map<string, SessionRecord> = new Map(); // keyed by session token
+  private revokedTokens: Set<string> = new Set(); // blacklisted revoked/logged out tokens
 
   constructor() {
     // 1. Restore persistent users from databaseStore
@@ -64,25 +65,14 @@ class AuthStore {
       });
     }
 
-    // 3. Seed internal backup admin if not present
-    if (!this.users.has('admin@wholesaleofoklahoma.com')) {
-      this.seedUser({
-        email: 'admin@wholesaleofoklahoma.com',
-        password: 'AdminSecret2026!',
-        role: 'admin',
-        businessName: 'Wholesale of Oklahoma Dispatch',
-        contactName: 'Head Dispatcher',
-        phone: '(405) 768-2975',
-      });
-    }
-
-    // 4. Ensure initial administrator for order2wholesaleofoklahoma@gmail.com
+    // 3. Ensure primary administrator account
     this.ensureInitialAdmin();
   }
 
-  public ensureInitialAdmin(): void {
-    const adminEmail = ADMIN_EMAIL.toLowerCase().trim();
+  public ensureInitialAdmin(targetEmail?: string): { user: UserRecord; token?: string } {
+    const adminEmail = (targetEmail || ADMIN_EMAIL).toLowerCase().trim();
     let user = this.users.get(adminEmail);
+    let isNew = false;
     if (!user) {
       const id = `usr_admin_${crypto.randomBytes(6).toString('hex')}`;
       user = {
@@ -91,27 +81,109 @@ class AuthStore {
         passwordHash: 'UNSET',
         salt: crypto.randomBytes(16).toString('hex'),
         role: 'admin',
-        businessName: 'Wholesale of Oklahoma',
+        businessName: 'Wholesale of Oklahoma Dispatch',
         contactName: 'Site Administrator',
         phone: '(405) 768-2975',
         createdAt: new Date().toISOString(),
       };
       this.users.set(adminEmail, user);
       databaseStore.saveUser(user);
+      isNew = true;
       console.log(`[AuthStore] 🛡 Initial administrator account record prepared for ${adminEmail}`);
-
-      // Create single-use 24-hour setup token if no active token exists
-      const tokenRecord = databaseStore.createSecurityToken({
-        type: 'ADMIN_ACTIVATION',
-        email: adminEmail,
-        targetId: id,
-        durationHours: 24,
-      });
-
-      emailService.sendAdminSetupInvite(adminEmail, tokenRecord.token).catch((err) => {
-        console.warn('[AuthStore] Warning: Could not dispatch initial admin setup email:', err.message);
-      });
+    } else if (user.role !== 'admin') {
+      user.role = 'admin';
+      databaseStore.saveUser(user);
     }
+
+    let token: string | undefined;
+    // If password is UNSET, check if there is an active activation token; if none, generate fresh one
+    if (user.passwordHash === 'UNSET') {
+      const activeTokens = databaseStore.getActiveTokensForEmail(adminEmail, 'ADMIN_ACTIVATION');
+      if (activeTokens.length === 0 || isNew) {
+        const tokenRecord = databaseStore.createSecurityToken({
+          type: 'ADMIN_ACTIVATION',
+          email: adminEmail,
+          targetId: user.id,
+          durationHours: 24,
+        });
+        token = tokenRecord.token;
+        emailService.sendAdminSetupInvite(adminEmail, tokenRecord.token).catch((err) => {
+          console.warn('[AuthStore] Warning: Could not dispatch initial admin setup email:', err.message);
+        });
+      } else {
+        token = activeTokens[0].token;
+      }
+    }
+
+    return { user, token };
+  }
+
+  public createAdminActivationToken(email: string): { token: string; activationUrl: string } {
+    const adminEmail = email.toLowerCase().trim();
+    let user = this.users.get(adminEmail);
+    if (!user) {
+      const setup = this.ensureInitialAdmin(adminEmail);
+      user = setup.user;
+    }
+
+    // Revoke any previous unused activation tokens to prevent replay
+    databaseStore.revokeTokensForEmail(adminEmail, 'ADMIN_ACTIVATION');
+
+    const tokenRecord = databaseStore.createSecurityToken({
+      type: 'ADMIN_ACTIVATION',
+      email: adminEmail,
+      targetId: user.id,
+      durationHours: 24,
+    });
+
+    emailService.sendAdminSetupInvite(adminEmail, tokenRecord.token).catch((err) => {
+      console.warn('[AuthStore] Warning: Could not dispatch admin setup email:', err.message);
+    });
+
+    const siteUrl = process.env.SITE_URL || process.env.APP_URL || 'https://www.wholesaleofoklahoma.com';
+    const activationUrl = `${siteUrl.replace(/\/$/, '')}/admin/activate?token=${encodeURIComponent(tokenRecord.token)}`;
+
+    return { token: tokenRecord.token, activationUrl };
+  }
+
+  public createAdminPasswordResetToken(email: string): { token: string; resetUrl: string } {
+    const adminEmail = email.toLowerCase().trim();
+    let user = this.users.get(adminEmail);
+    if (!user) {
+      const setup = this.ensureInitialAdmin(adminEmail);
+      user = setup.user;
+    }
+
+    // Revoke any previous unused reset tokens
+    databaseStore.revokeTokensForEmail(adminEmail, 'PASSWORD_RESET');
+
+    const tokenRecord = databaseStore.createSecurityToken({
+      type: 'PASSWORD_RESET',
+      email: adminEmail,
+      targetId: user.id,
+      durationHours: 2,
+    });
+
+    emailService.sendPasswordResetEmail(adminEmail, tokenRecord.token, true).catch((err) => {
+      console.warn('[AuthStore] Warning: Could not dispatch admin password reset email:', err.message);
+    });
+
+    const siteUrl = process.env.SITE_URL || process.env.APP_URL || 'https://www.wholesaleofoklahoma.com';
+    const resetUrl = `${siteUrl.replace(/\/$/, '')}/admin/reset-password?token=${encodeURIComponent(tokenRecord.token)}`;
+
+    return { token: tokenRecord.token, resetUrl };
+  }
+
+  public isAdmin(email: string): boolean {
+    const user = this.users.get(email.toLowerCase().trim());
+    return Boolean(user && user.role === 'admin');
+  }
+
+  public deleteUser(email: string): boolean {
+    const clean = email.toLowerCase().trim();
+    const existed = this.users.delete(clean);
+    databaseStore.deleteUser(clean);
+    return existed;
   }
 
   private hashPassword(password: string, salt: string): string {
@@ -393,6 +465,7 @@ class AuthStore {
 
   public validateSession(token: string): SessionRecord | null {
     if (!token || typeof token !== 'string') return null;
+    if (this.revokedTokens.has(token)) return null;
 
     // 1. Check local session cache if present
     const cachedSession = this.sessions.get(token);
@@ -467,7 +540,9 @@ class AuthStore {
   }
 
   public revokeSession(token: string) {
+    if (!token) return;
     this.sessions.delete(token);
+    this.revokedTokens.add(token);
   }
 
   public updateUserRole(email: string, newRole: UserRole): boolean {

@@ -179,11 +179,14 @@ export interface InventoryMismatchRecord {
   resolutionNotes?: string;
 }
 
+export type ProductAvailabilityState = 'AVAILABLE' | 'LOW_STOCK' | 'TEMPORARILY_UNAVAILABLE' | 'OUT_OF_STOCK';
+
 export interface InventoryOverrideRecord {
   productId: string;
   sku: string;
   name: string;
   isOutOfStockOnline: boolean;
+  statusOverride?: ProductAvailabilityState;
   reportedBy: string;
   reportedAt: string;
   reason: string;
@@ -430,7 +433,8 @@ export async function setAdminProductOverride(params: {
   productId: string;
   sku?: string;
   productName?: string;
-  isOutOfStockOnline: boolean;
+  isOutOfStockOnline?: boolean;
+  statusOverride?: ProductAvailabilityState;
   reason: string;
 }): Promise<void> {
   const res = await fetch(`/api/admin/products/${params.productId}/temporary-override`, {

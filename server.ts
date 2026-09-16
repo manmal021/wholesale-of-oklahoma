@@ -21,6 +21,7 @@ dotenv.config();
 
 import { apiRouter } from './src/server/apiRouter.js';
 import { scheduleTokenRefresh, refreshAccessToken } from './src/server/zohoAuth.js';
+import { authStore } from './src/server/authStore.js';
 
 import fs from 'fs';
 import { PRODUCTS } from './src/lib/productDatabase.js';
@@ -50,6 +51,56 @@ app.use((_req, res, next) => {
 // ── Parsing Middleware ──────────────────────────────────────────────────────
 app.use(express.json({ limit: '15mb' }));
 app.use(express.urlencoded({ extended: true, limit: '15mb' }));
+
+// ── Server-Side Administrative Route Guard ─────────────────────────────────
+const PUBLIC_ADMIN_PATHS = ['/admin/login', '/admin/activate', '/admin/reset-password'];
+
+app.use('/admin', (req, res, next) => {
+  const rawPath = req.path.toLowerCase().replace(/\/$/, '') || '/';
+  const fullAdminPath = ('/admin' + (rawPath === '/' ? '' : rawPath)).toLowerCase();
+
+  // Allow public admin onboarding & recovery pages
+  if (
+    PUBLIC_ADMIN_PATHS.includes(fullAdminPath) ||
+    PUBLIC_ADMIN_PATHS.some((p) => fullAdminPath.startsWith(p))
+  ) {
+    return next();
+  }
+
+  // Extract session token from cookie, x-session-token header, or Authorization Bearer header
+  let token: string | null = null;
+  const cookieHeader = req.headers.cookie || '';
+  const match = cookieHeader.match(/woo_session=([^;]+)/);
+  if (match && match[1]) {
+    token = match[1].trim();
+  } else if (typeof req.headers['x-session-token'] === 'string' && req.headers['x-session-token'].trim()) {
+    token = req.headers['x-session-token'].trim();
+  } else if (
+    typeof req.headers.authorization === 'string' &&
+    req.headers.authorization.toLowerCase().startsWith('bearer ')
+  ) {
+    token = req.headers.authorization.slice(7).trim();
+  }
+
+  const session = token ? authStore.validateSession(token) : null;
+
+  if (!session) {
+    // Unauthenticated user -> redirect immediately to /admin/login
+    return res.redirect(302, '/admin/login');
+  }
+
+  if (session.role !== 'admin') {
+    // Authenticated customer/visitor without admin privileges -> redirect away to customer account
+    return res.redirect(302, '/account');
+  }
+
+  // Admin authenticated: enforce strict no-cache headers for administrative portals
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
+
+  next();
+});
 
 // ── API Routes ──────────────────────────────────────────────────────────────
 // /api/inventory/*, /api/zoho/*, /api/chat

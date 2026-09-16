@@ -288,11 +288,18 @@ export interface FulfillmentConfig {
   };
 }
 
+export type ProductAvailabilityOverride =
+  | 'AVAILABLE'
+  | 'LOW_STOCK'
+  | 'TEMPORARILY_UNAVAILABLE'
+  | 'OUT_OF_STOCK';
+
 export interface InventoryOverrideRecord {
   productId: string;
   sku: string;
   name: string;
   isOutOfStockOnline: boolean;
+  statusOverride?: ProductAvailabilityOverride;
   reportedBy: string;
   reportedAt: string;
   reason: string;
@@ -580,6 +587,46 @@ class DatabaseStore {
     if (!user || !user.email) return;
     this.users.set(user.email.toLowerCase().trim(), user);
     this.persistToDisk();
+  }
+
+  public deleteUser(email: string): boolean {
+    const clean = email.toLowerCase().trim();
+    const existed = this.users.delete(clean);
+    if (existed) {
+      this.persistToDisk();
+    }
+    return existed;
+  }
+
+  public getActiveTokensForEmail(email: string, type?: SecurityTokenType): SecurityTokenRecord[] {
+    const clean = email.toLowerCase().trim();
+    const now = Date.now();
+    const matches: SecurityTokenRecord[] = [];
+    for (const record of this.tokens.values()) {
+      if (record.email === clean && !record.isRevoked && !record.usedAt && record.expiresAt > now) {
+        if (!type || record.type === type) {
+          matches.push(record);
+        }
+      }
+    }
+    return matches;
+  }
+
+  public revokeTokensForEmail(email: string, type?: SecurityTokenType): number {
+    const clean = email.toLowerCase().trim();
+    let count = 0;
+    for (const record of this.tokens.values()) {
+      if (record.email === clean && !record.isRevoked && !record.usedAt) {
+        if (!type || record.type === type) {
+          record.isRevoked = true;
+          count++;
+        }
+      }
+    }
+    if (count > 0) {
+      this.persistToDisk();
+    }
+    return count;
   }
 
   public persistToDisk(): void {
@@ -1744,12 +1791,18 @@ class DatabaseStore {
     name: string;
     reportedBy: string;
     reason: string;
+    statusOverride?: ProductAvailabilityOverride;
+    isOutOfStockOnline?: boolean;
   }): InventoryOverrideRecord {
+    const status = params.statusOverride || (params.isOutOfStockOnline !== false ? 'TEMPORARILY_UNAVAILABLE' : 'AVAILABLE');
+    const isOut = status === 'TEMPORARILY_UNAVAILABLE' || status === 'OUT_OF_STOCK';
+
     const record: InventoryOverrideRecord = {
       productId: params.productId,
       sku: params.sku,
       name: params.name,
-      isOutOfStockOnline: true,
+      isOutOfStockOnline: isOut,
+      statusOverride: status,
       reportedBy: params.reportedBy,
       reportedAt: new Date().toISOString(),
       reason: params.reason,
@@ -1765,7 +1818,7 @@ class DatabaseStore {
       event: 'PRODUCT_TEMPORARILY_DISABLED',
       targetId: params.productId,
       adminId: params.reportedBy,
-      details: { sku: params.sku, name: params.name, reason: params.reason },
+      details: { sku: params.sku, name: params.name, reason: params.reason, statusOverride: status },
     });
 
     this.persistToDisk();
@@ -1778,6 +1831,7 @@ class DatabaseStore {
 
     existing.active = false;
     existing.isOutOfStockOnline = false;
+    existing.statusOverride = 'AVAILABLE';
     this.inventoryOverrides.delete(existing.productId);
     if (existing.sku) {
       this.inventoryOverrides.delete(existing.sku);
@@ -1792,6 +1846,10 @@ class DatabaseStore {
 
     this.persistToDisk();
     return true;
+  }
+
+  public getProductOnlineOverride(idOrSku: string): InventoryOverrideRecord | undefined {
+    return this.inventoryOverrides.get(idOrSku);
   }
 
   public isProductBlockedOnline(idOrSku: string): boolean {

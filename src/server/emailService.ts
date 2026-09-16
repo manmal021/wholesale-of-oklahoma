@@ -28,9 +28,11 @@ export const ADMIN_EMAIL = process.env.ADMIN_NOTIFICATION_EMAIL || 'order2wholes
 
 function getSiteUrl(): string {
   if (process.env.SITE_URL) return process.env.SITE_URL.replace(/\/$/, '');
-  if (process.env.APP_URL) return process.env.APP_URL.replace(/\/$/, '');
+  const isProd = process.env.NODE_ENV === 'production' || Boolean(process.env.VERCEL);
+  if (!isProd && process.env.APP_URL) return process.env.APP_URL.replace(/\/$/, '');
   if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL.replace(/\/$/, '')}`;
-  return 'https://wholesaleofoklahoma.com';
+  if (process.env.APP_URL && !process.env.APP_URL.includes('localhost')) return process.env.APP_URL.replace(/\/$/, '');
+  return 'https://www.wholesaleofoklahoma.com';
 }
 
 export interface EmailDispatchResult {
@@ -587,8 +589,12 @@ Wholesale of Oklahoma
     isAdmin = false
   ): Promise<EmailDispatchResult> {
     const siteUrl = getSiteUrl();
-    const resetUrl = `${siteUrl}/reset-password?token=${encodeURIComponent(resetToken)}${isAdmin ? '&role=admin' : ''}`;
-    const subject = 'Wholesale of Oklahoma Password Reset Request';
+    const resetUrl = isAdmin
+      ? `${siteUrl}/admin/reset-password?token=${encodeURIComponent(resetToken)}`
+      : `${siteUrl}/reset-password?token=${encodeURIComponent(resetToken)}`;
+    const subject = isAdmin
+      ? 'Wholesale of Oklahoma Administrator Password Reset'
+      : 'Wholesale of Oklahoma Password Reset Request';
 
     const html = `
 <!DOCTYPE html>
