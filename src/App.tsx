@@ -675,7 +675,7 @@ export default function App() {
                 fontFamily: '"Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
               }}
             >
-              Oklahoma’s Wholesale{' '}
+              Wholesale of Oklahoma{' '}
               <span className="text-[#FF6B00]">
                 Distribution Partner
               </span>
@@ -757,7 +757,7 @@ export default function App() {
               </span>
             </div>
             <p className="text-slate-600 text-xs leading-relaxed mb-5 max-w-xs font-medium">
-              Wholesale of Oklahoma supplies qualified dispensaries, vape stores, and smoke shops with direct warehouse inventory and dedicated retail service.
+              Wholesale of Oklahoma supplies qualified dispensaries, vape stores, and retail partners with direct warehouse inventory and dedicated retail service.
             </p>
             <div className="flex gap-3">
               <a
@@ -888,11 +888,11 @@ export default function App() {
                   W
                 </span>
                 <h4 className="text-sm font-black text-slate-900 uppercase tracking-wider">
-                  Wholesale of OK
+                  Wholesale of Oklahoma
                 </h4>
               </div>
               <p className="text-slate-500 leading-relaxed">
-                Premier Oklahoma B2B master distributor supplying verified dispensaries, smoke shops, and convenience stores with direct manufacturer inventory.
+                Premier Wholesale of Oklahoma B2B master distributor supplying verified dispensaries, vape stores, and convenience stores with direct manufacturer inventory.
               </p>
               <div className="space-y-1.5 pt-1 text-slate-600">
                 <p className="flex items-center gap-1.5 text-[11px]">
@@ -961,7 +961,7 @@ export default function App() {
                   { label: 'THCA & Hemp', id: 'THCA, CBD & Delta' },
                   { label: 'Premium Kratom', id: 'Kratom' },
                   { label: 'Rolling Papers & Cones', id: 'Accessories' },
-                  { label: 'Smoke Shop Novelties', id: 'Novelties' },
+                  { label: 'Wholesale Novelties', id: 'Novelties' },
                 ].map((cat) => (
                   <li key={cat.id}>
                     <button
@@ -1025,7 +1025,7 @@ export default function App() {
                 </li>
                 <li>
                   <a href="#why-us" className="hover:text-[#FF6B00] transition-colors">
-                    Why Wholesale of OK
+                    Why Wholesale of Oklahoma
                   </a>
                 </li>
                 <li>

@@ -181,7 +181,7 @@ function normalizeItem(raw: any): InventoryItem {
       })
     : [];
 
-  const rawBrand = String(raw.brand || raw.cf_brand || raw.manufacturer || 'Wholesale of OK');
+  const rawBrand = String(raw.brand || raw.cf_brand || raw.manufacturer || 'Wholesale of Oklahoma');
   const rawName = String(raw.name || 'Unnamed Product');
   const rawCategory = String(raw.category_name || raw.category || 'General');
   const rawSku = String(raw.sku || `SKU-${raw.item_id}`);

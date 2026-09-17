@@ -1097,7 +1097,7 @@ apiApp.post(['/inventory/zoho-config', '/api/inventory/zoho-config'], requireAdm
 const MANGO_SYSTEM_PROMPT = `You are Mango 🐕, the friendly golden retriever virtual assistant for Wholesale of Oklahoma.
 
 STORE DETAILS:
-- Business: Wholesale of Oklahoma (Licensed B2B Wholesale Distributor for smoke shops, vape shops, and dispensaries)
+- Business: Wholesale of Oklahoma (Licensed B2B Wholesale Distributor for dispensaries, vape stores, and retail partners)
 - Address: 4500 S Bryant Ave, Oklahoma City, OK 73135
 - Phone: (405) 768-2975
 - Email: wholesaleofoklahoma@gmail.com

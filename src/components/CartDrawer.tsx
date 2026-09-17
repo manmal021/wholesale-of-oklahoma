@@ -967,7 +967,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                     type="text"
                     value={businessName}
                     onChange={(e) => setBusinessName(e.target.value)}
-                    placeholder="e.g. Sooner State Smoke & Vape LLC"
+                    placeholder="e.g. Wholesale of Oklahoma Retail Partner LLC"
                     className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white"
                   />
                 </div>

@@ -135,7 +135,7 @@ export const FeaturedBrands: React.FC<FeaturedBrandsProps> = ({ onSelectBrand })
               </h3>
 
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl">
-                Wholesale of Oklahoma is a primary wholesale distribution channel for authentic VOZOL hardware in the region. Full cases, high-velocity SKU restocks, and multi-tier volume pricing available for licensed convenience stores and smoke shops.
+                Wholesale of Oklahoma is a primary wholesale distribution channel for authentic VOZOL hardware in the region. Full cases, high-velocity SKU restocks, and multi-tier volume pricing available for licensed convenience stores, dispensaries, and Wholesale of Oklahoma retail partners.
               </p>
 
               {/* Popular VOZOL Models */}

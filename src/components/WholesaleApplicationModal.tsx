@@ -366,7 +366,7 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                       required
                       value={businessName}
                       onChange={(e) => setBusinessName(e.target.value)}
-                      placeholder="e.g. Sooner State Vapor LLC"
+                      placeholder="e.g. Wholesale of Oklahoma Retail Partner LLC"
                       className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white transition-colors"
                     />
                   </div>
@@ -379,7 +379,7 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                       type="text"
                       value={dba}
                       onChange={(e) => setDba(e.target.value)}
-                      placeholder="e.g. Sooner Vapor"
+                      placeholder="e.g. Wholesale Retail Partner"
                       className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white transition-colors"
                     />
                   </div>
@@ -394,7 +394,7 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                       className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 focus:outline-none focus:border-[#FF6B00] focus:bg-white transition-colors cursor-pointer"
                     >
                       <option value="vape_shop">Vape & Smoke Retailer</option>
-                      <option value="smoke_shop">Smoke Shop / Head Shop</option>
+                      <option value="smoke_shop">Retail Smoke & Specialty Shop</option>
                       <option value="dispensary">Licensed Dispensary</option>
                       <option value="c_store">Convenience Store</option>
                       <option value="distributor">Sub-Distributor / Jobber</option>

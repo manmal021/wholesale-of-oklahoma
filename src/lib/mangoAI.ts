@@ -131,7 +131,7 @@ export function addToOrderDirect(
       id: invItem.id || invItem.sku,
       sku: invItem.sku,
       name: invItem.name,
-      brand: invItem.brand || match?.brand || 'Wholesale of OK',
+      brand: invItem.brand || match?.brand || 'Wholesale of Oklahoma',
       category: (match?.category || invItem.category || 'General') as any,
       subcategory: (match?.subcategory || invItem.subcategory || 'General') as any,
       features: invItem.features || match?.features || [],
@@ -334,7 +334,7 @@ function handleWithLocalEngine(userText: string): { text: string; toolResults: M
   // 4. Pickup / Delivery / Shipping
   if (q.includes('pickup') || q.includes('delivery') || q.includes('deliver') || q.includes('ship')) {
     return {
-      text: `Woof! Yes, we offer fast Oklahoma fulfillment! 🐕\n\n• **Same-Day OKC Warehouse Pickup:** Available at 4500 S Bryant Ave, Oklahoma City.\n• **Oklahoma Metro Direct Delivery:** We deliver directly to dispensaries, vape shops, and smoke shops in the OKC metro area.\n• **Statewide Shipping:** Fast fulfillment across Oklahoma.\n\nCall **(405) 768-2975** to confirm immediate availability for today!`,
+      text: `Woof! Yes, we offer fast Oklahoma fulfillment! 🐕\n\n• **Same-Day OKC Warehouse Pickup:** Available at 4500 S Bryant Ave, Oklahoma City.\n• **Oklahoma Metro Direct Delivery:** We deliver directly to Wholesale of Oklahoma retail partners, dispensaries, and vape stores in the OKC metro area.\n• **Statewide Shipping:** Fast fulfillment across Oklahoma.\n\nCall **(405) 768-2975** to confirm immediate availability for today!`,
       toolResults: [],
     };
   }
@@ -351,7 +351,7 @@ function handleWithLocalEngine(userText: string): { text: string; toolResults: M
     q.includes('tier')
   ) {
     return {
-      text: `Woof woof! 🐕 **Wholesale of Oklahoma** is a licensed B2B master distributor supplying dispensaries, smoke shops, and vape shops across the state!\n\n• **Tiered Volume Pricing:** The more cases you order, the higher your profit margins.\n• **No Huge Minimums:** Order from single cartons to master cases based on your store's cash flow.\n• **Phone Quotes:** Because wholesale prices fluctuate with master volume discounts, call **(405) 768-2975** for today's best rates!\n\n👉 Want to check inventory and select items? Click the **Inventory** tab above to browse and build your order!`,
+      text: `Woof woof! 🐕 **Wholesale of Oklahoma** is a licensed B2B master distributor supplying dispensaries, retail partners, and vape stores across the state!\n\n• **Tiered Volume Pricing:** The more cases you order, the higher your profit margins.\n• **No Huge Minimums:** Order from single cartons to master cases based on your store's cash flow.\n• **Phone Quotes:** Because wholesale prices fluctuate with master volume discounts, call **(405) 768-2975** for today's best rates!\n\n👉 Want to check inventory and select items? Click the **Inventory** tab above to browse and build your order!`,
       toolResults: [],
     };
   }
@@ -374,7 +374,7 @@ function handleWithLocalEngine(userText: string): { text: string; toolResults: M
     q.includes('delta')
   ) {
     return {
-      text: `Woof! We carry full inventory across all major smoke shop and vape categories: 🐕\n\n• **Disposable Vapes:** Geekbar Pulse 15k / 25k / 60k, Raz 25k LTX, Vozol 50k, Foger 30k.\n• **Hardware & Mods:** Vaporesso XROS 4 kits, replacement pods, SMOK coils, Yocan & Cookies 510 batteries.\n• **Vape Juices:** Juice Head, Coastal Clouds, Sadboy, Twist (100ml bottles & Salt Nics).\n• **Pipes & Glass:** Heavy borosilicate beaker bongs, spoon hand pipes, silicone pipes.\n• **THCA, CBD & Delta:** THCA diamond infused pre-rolls, live resin disposables, CBD gummies.\n• **Kratom:** O.P.M.S. Gold & Black liquid extract shots, Green Maeng Da capsules.\n• **Novelties & Accessories:** 0.01g scales, grinders, torches, RAW papers, King Palm, Newport butane.\n\n👉 **To browse products with quantity selectors (1-20) and add to cart**, tap the **Inventory** tab at the top of this window, or scroll down to the **Best Sellers** section on our website!`,
+      text: `Woof! We carry full inventory across all major Wholesale of Oklahoma wholesale categories: 🐕\n\n• **Disposable Vapes:** Geekbar Pulse 15k / 25k / 60k, Raz 25k LTX, Vozol 50k, Foger 30k.\n• **Hardware & Mods:** Vaporesso XROS 4 kits, replacement pods, SMOK coils, Yocan & Cookies 510 batteries.\n• **Vape Juices:** Juice Head, Coastal Clouds, Sadboy, Twist (100ml bottles & Salt Nics).\n• **Pipes & Glass:** Heavy borosilicate beaker bongs, spoon hand pipes, silicone pipes.\n• **THCA, CBD & Delta:** THCA diamond infused pre-rolls, live resin disposables, CBD gummies.\n• **Kratom:** O.P.M.S. Gold & Black liquid extract shots, Green Maeng Da capsules.\n• **Novelties & Accessories:** 0.01g scales, grinders, torches, RAW papers, King Palm, Newport butane.\n\n👉 **To browse products with quantity selectors (1-20) and add to cart**, tap the **Inventory** tab at the top of this window, or scroll down to the **Best Sellers** section on our website!`,
       toolResults: [],
     };
   }
@@ -427,7 +427,7 @@ function handleWithLocalEngine(userText: string): { text: string; toolResults: M
 const SYSTEM_PROMPT = `You are Mango 🐕, the friendly golden retriever virtual assistant for Wholesale of Oklahoma.
 
 STORE DETAILS:
-- Business: Wholesale of Oklahoma (Licensed B2B Wholesale Distributor for smoke shops, vape shops, and dispensaries)
+- Business: Wholesale of Oklahoma (Licensed B2B Wholesale Distributor for dispensaries, vape stores, and retail partners)
 - Address: 4500 S Bryant Ave, Oklahoma City, OK 73135
 - Phone: (405) 768-2975
 - Email: wholesaleofoklahoma@gmail.com

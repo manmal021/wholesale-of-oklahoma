@@ -91,7 +91,7 @@ export default function StoreDetails() {
                 Reliable Oklahoma Direct Delivery
               </h3>
               <p className="mt-3 text-slate-600 text-xs sm:text-sm leading-relaxed">
-                Wholesale of Oklahoma streamlines smoke shop and dispensary supply loops. With zero-hassle local pickup in OKC or express dispatch directly to your front counter, we handle bulk logistics for Geekbar, Raz, Foger, Vozol, and other top-circulating brands.
+                Wholesale of Oklahoma streamlines retailer and dispensary supply loops. With zero-hassle local pickup in OKC or express dispatch directly to your front counter, we handle bulk logistics for Geekbar, Raz, Foger, Vozol, and other top-circulating brands.
               </p>
             </div>
 

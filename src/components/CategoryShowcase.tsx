@@ -90,7 +90,7 @@ export const CategoryShowcase: React.FC<CategoryShowcaseProps> = ({ onSelectCate
             Wholesale <span className="text-[#FF6B00]">Product Categories</span>
           </h2>
           <p className="mt-4 text-slate-600 text-base sm:text-lg leading-relaxed">
-            Direct warehouse stock for retail convenience stores, dispensaries, and smoke shops. Only active, in-stock catalog categories are listed.
+            Direct warehouse stock for Wholesale of Oklahoma retail partners, convenience stores, and dispensaries. Only active, in-stock catalog categories are listed.
           </p>
         </div>
 

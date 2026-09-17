@@ -153,9 +153,9 @@ test('Wholesale: Application flow validates FEIN, 21+ certification and returns 
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
-      businessName: 'Sooner State Smoke Shop LLC',
+      businessName: 'Wholesale of Oklahoma Retail Partner LLC',
       contactName: 'Taylor Morgan',
-      email: `taylor_${Date.now()}@soonersmoke.com`,
+      email: `taylor_${Date.now()}@wholesaleofoklahomapartner.com`,
       phone: '(405) 555-4321',
       fein: '73-9876543',
       licenseNumber: 'OK-RESALE-7721',

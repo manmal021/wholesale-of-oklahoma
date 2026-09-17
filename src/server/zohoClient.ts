@@ -292,7 +292,7 @@ export class ZohoInventoryClient {
       zoho_item_id: String(raw.item_id),
       sku: String(raw.sku || `SKU-${raw.item_id}`),
       name: String(raw.name),
-      brand: String(raw.brand || raw.cf_brand || 'Wholesale of OK'),
+      brand: String(raw.brand || raw.cf_brand || 'Wholesale of Oklahoma'),
       category: String(raw.category_name || raw.category || 'General Wholesale'),
       subcategory: raw.subcategory || raw.cf_subcategory,
       description: String(raw.description || raw.item_description || ''),

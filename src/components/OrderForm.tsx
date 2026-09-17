@@ -87,7 +87,7 @@ export default function OrderForm() {
       // 2. Also send notification to dispatch via Web3Forms
       const formData = new FormData();
       formData.append('access_key', '1ebec85d-15fd-4f21-9513-ef05685850bc');
-      formData.append('subject', 'New Wholesale Restock Request — Wholesale of OK');
+      formData.append('subject', 'New Wholesale Restock Request — Wholesale of Oklahoma');
       formData.append('from_name', 'Wholesale of Oklahoma Orders');
       formData.append('Name', name);
       formData.append('Business Name', businessName);
@@ -260,7 +260,7 @@ export default function OrderForm() {
                     required
                     value={businessName}
                     onChange={(e) => setBusinessName(e.target.value)}
-                    placeholder="e.g. Oklahoma City Vape Hub"
+                    placeholder="e.g. Wholesale of Oklahoma Retail Partner"
                     className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-[#FF6B00] focus:bg-white transition-colors text-slate-900 placeholder-slate-400"
                   />
                 </div>

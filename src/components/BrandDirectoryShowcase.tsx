@@ -81,7 +81,7 @@ const BRAND_DIRECTORY: BrandItem[] = [
     slug: 'raz',
     tagline: 'Genuine Leather Chassis & HD Animation Interface',
     category: 'Disposables',
-    badge: 'Top Smoke Shop Velocity',
+    badge: 'Top Wholesale Velocity',
     heroImage: '/products/raz-25k.png',
     galleryImages: ['/products/raz-25k.png', '/products/raz-pod.png'],
     specs: {
@@ -428,7 +428,7 @@ export const BrandDirectoryShowcase: React.FC<BrandDirectoryShowcaseProps> = ({
               </h3>
 
               <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl">
-                Wholesale of Oklahoma operates a closed wholesale distribution network exclusively for licensed dispensaries, vape stores, smoke shops, and retailers. 
+                Wholesale of Oklahoma operates a closed wholesale distribution network exclusively for licensed Wholesale of Oklahoma retail partners, dispensaries, vape stores, and commercial retailers. 
                 Log in to your account to instantly browse full Zoho inventory stock levels, master case rates, and volume discounts.
               </p>
 

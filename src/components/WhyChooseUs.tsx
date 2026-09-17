@@ -17,7 +17,7 @@ const ADVANTAGES = [
     icon: DollarSign,
     title: 'Competitive Wholesale Pricing',
     description:
-      'Direct-from-factory master carton pricing designed to maximize retail margins for convenience stores, dispensaries, and smoke shops.',
+      'Direct-from-factory master carton pricing designed to maximize retail margins for convenience stores, dispensaries, and Wholesale of Oklahoma retail partners.',
   },
   {
     icon: MapPin,

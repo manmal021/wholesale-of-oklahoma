@@ -138,7 +138,7 @@ export class InventoryStore {
         brand: p.brand,
         category: p.category,
         subcategory: p.subcategory,
-        description: `${p.name} supplied directly from Wholesale of Oklahoma central OKC warehouse. High commercial turnover for dispensaries, smoke shops, and convenience stores.`,
+        description: `${p.name} supplied directly from Wholesale of Oklahoma central OKC warehouse. High commercial turnover for Wholesale of Oklahoma retail partners, dispensaries, and convenience stores.`,
         image_url: image,
         gallery_images: image ? [image] : [],
         zoho_rate: zohoRate,

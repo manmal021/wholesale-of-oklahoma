@@ -97,7 +97,7 @@ export default function GallerySlider() {
               Inside Our <span className="text-[#FF6B00]">Warehouse</span>
             </h2>
             <p className="text-slate-600 text-sm mt-2 max-w-md">
-              A look inside Wholesale of Oklahoma — our products, shelves, and what makes us the go-to supplier for smoke shops across OKC.
+              A look inside Wholesale of Oklahoma — our products, shelves, and what makes Wholesale of Oklahoma the go-to supplier across OKC.
             </p>
           </div>
           <span className="text-xs text-slate-500 font-semibold self-start sm:self-end">
