@@ -423,6 +423,37 @@ const STORAGE_DIR = isVercel
   : LOCAL_STORAGE_DIR;
 const DB_FILE = path.join(STORAGE_DIR, 'database_state.json');
 
+const DEFAULT_PENDING_APPLICATION: WholesaleApplicationRecord = {
+  id: 'WOA-APP-93168',
+  businessName: 'Vape City Express',
+  dba: 'Vape City',
+  contactFirstName: 'Alice',
+  contactLastName: 'City',
+  contactName: 'Alice City',
+  email: 'alice@vapecityexpress.com',
+  phone: '(405) 555-0999',
+  fein: '73-7777777',
+  licenseNumber: 'OK-TOB-77777',
+  businessType: 'vape_shop',
+  address: {
+    street: '777 Express Way',
+    city: 'Oklahoma City',
+    state: 'OK',
+    zip: '73109',
+  },
+  documents: [
+    {
+      documentId: 'doc_permit_93168',
+      documentType: 'sales_tax_permit',
+      filename: 'taxpermit.pdf',
+    },
+  ],
+  ageCertified: true,
+  taxExemptCertified: true,
+  status: 'PENDING',
+  submittedAt: '2026-09-18T20:15:23.189Z',
+};
+
 class DatabaseStore {
   private applications: Map<string, WholesaleApplicationRecord> = new Map(); // keyed by id
   private applicationsByEmail: Map<string, string[]> = new Map(); // email -> id[]
@@ -810,6 +841,7 @@ class DatabaseStore {
 
   private seedDefaultsIfEmpty(): void {
     if (this.applications.size === 0 && process.env.NODE_ENV !== 'test') {
+      let seededFromDisk = false;
       if (fs.existsSync(COMMITTED_SEED_FILE)) {
         try {
           const raw = fs.readFileSync(COMMITTED_SEED_FILE, 'utf-8');
@@ -822,10 +854,16 @@ class DatabaseStore {
               if (!existing.includes(app.id)) existing.push(app.id);
               this.applicationsByEmail.set(emailKey, existing);
             }
-            this.persistToDisk();
+            seededFromDisk = true;
           }
         } catch (_) {}
       }
+
+      if (!seededFromDisk && this.applications.size === 0) {
+        this.applications.set(DEFAULT_PENDING_APPLICATION.id, { ...DEFAULT_PENDING_APPLICATION });
+        this.applicationsByEmail.set(DEFAULT_PENDING_APPLICATION.email, [DEFAULT_PENDING_APPLICATION.id]);
+      }
+      this.persistToDisk();
     }
 
     // Only seed sample approved account if explicitly requested via SEED_DEMO_DATA=true
