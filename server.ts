@@ -103,8 +103,9 @@ app.use('/admin', (req, res, next) => {
 });
 
 // ── API Routes ──────────────────────────────────────────────────────────────
-// /api/inventory/*, /api/zoho/*, /api/chat
+// /api/inventory/*, /api/zoho/*, /api/chat, /admin/applications/:id/approve
 app.use('/api', apiRouter);
+app.use(apiRouter);
 
 // ── Static Frontend ─────────────────────────────────────────────────────────
 app.use(express.static(path.join(__dirname, 'dist')));

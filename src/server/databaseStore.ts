@@ -821,7 +821,15 @@ class DatabaseStore {
   }
 
   public getApplication(id: string): WholesaleApplicationRecord | undefined {
-    return this.applications.get(id);
+    if (!id || typeof id !== 'string') return undefined;
+    const cleanId = id.trim();
+    const direct = this.applications.get(cleanId);
+    if (direct) return direct;
+    const lower = cleanId.toLowerCase();
+    for (const app of this.applications.values()) {
+      if (app.id.toLowerCase() === lower) return app;
+    }
+    return undefined;
   }
 
   public findApplicationsByEmail(email: string): WholesaleApplicationRecord[] {
@@ -878,12 +886,12 @@ class DatabaseStore {
   }
 
   public deleteApplication(id: string): boolean {
-    const app = this.applications.get(id);
+    const app = this.getApplication(id);
     if (!app) return false;
-    this.applications.delete(id);
+    this.applications.delete(app.id);
     const email = app.email.toLowerCase().trim();
     const existing = this.applicationsByEmail.get(email) || [];
-    this.applicationsByEmail.set(email, existing.filter((appId) => appId !== id));
+    this.applicationsByEmail.set(email, existing.filter((appId) => appId !== app.id));
     this.persistToDisk();
     return true;
   }
@@ -944,7 +952,15 @@ class DatabaseStore {
   }
 
   public getCustomer(id: string): CustomerRecord | undefined {
-    return this.customers.get(id);
+    if (!id || typeof id !== 'string') return undefined;
+    const cleanId = id.trim();
+    const direct = this.customers.get(cleanId);
+    if (direct) return direct;
+    const lower = cleanId.toLowerCase();
+    for (const cust of this.customers.values()) {
+      if (cust.id.toLowerCase() === lower) return cust;
+    }
+    return undefined;
   }
 
   public getCustomerByEmail(email: string): CustomerRecord | undefined {
@@ -1028,9 +1044,9 @@ class DatabaseStore {
   }
 
   public deleteCustomer(id: string): boolean {
-    const customer = this.customers.get(id);
+    const customer = this.getCustomer(id);
     if (!customer) return false;
-    this.customers.delete(id);
+    this.customers.delete(customer.id);
     this.customersByEmail.delete(customer.email.toLowerCase().trim());
     this.persistToDisk();
     return true;

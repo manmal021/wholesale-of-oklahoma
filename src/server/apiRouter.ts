@@ -1944,6 +1944,8 @@ apiApp.post(['/wholesale/apply', '/api/wholesale/apply'], rateLimit(50, 15 * 60 
   return ok(res, {
     success: true,
     applicationId: newApp.id,
+    id: newApp.id,
+    application: newApp,
     status: newApp.status,
     message: 'Your Wholesale of Oklahoma account application has been received and is currently under review.',
   });
@@ -2036,6 +2038,8 @@ apiApp.get(
   [
     '/admin/applications/:id',
     '/api/admin/applications/:id',
+    '/admin/customer-applications/:id',
+    '/api/admin/customer-applications/:id',
     '/admin/customers/:id',
     '/api/admin/customers/:id',
   ],
@@ -2115,13 +2119,10 @@ const handleCustomerApproval = async (req: Request, res: Response) => {
     return err(res, 403, 'Unauthorized approval attempt.');
   }
 
-  if (!customer && app) {
+  if (app) {
     customer = databaseStore.createOrUpdateCustomerFromApplication(app, adminId);
   } else if (customer) {
     customer = databaseStore.reactivateCustomer(customer.id, adminId);
-    if (app) {
-      databaseStore.updateApplicationStatus(app.id, 'APPROVED', adminId, 'Approved by administrator');
-    }
   }
 
   if (!customer) {
@@ -2254,36 +2255,42 @@ const handleCustomerRejection = async (req: Request, res: Response) => {
 };
 
 /**
- * POST & PATCH /api/admin/applications/:id/approve & /api/admin/customers/:id/approve
+ * POST & PATCH /api/admin/applications/:id/approve & aliases
  */
-apiApp.post(
-  ['/admin/applications/:id/approve', '/api/admin/applications/:id/approve', '/admin/customers/:id/approve', '/api/admin/customers/:id/approve'],
-  requireAdminAuth,
-  handleCustomerApproval
-);
-apiApp.patch(
-  ['/admin/applications/:id/approve', '/api/admin/applications/:id/approve', '/admin/customers/:id/approve', '/api/admin/customers/:id/approve'],
-  requireAdminAuth,
-  handleCustomerApproval
-);
+const APPROVE_ROUTES = [
+  '/admin/applications/:id/approve',
+  '/api/admin/applications/:id/approve',
+  '/admin/customer-applications/:id/approve',
+  '/api/admin/customer-applications/:id/approve',
+  '/admin/customers/:id/approve',
+  '/api/admin/customers/:id/approve',
+];
+apiApp.post(APPROVE_ROUTES, requireAdminAuth, handleCustomerApproval);
+apiApp.patch(APPROVE_ROUTES, requireAdminAuth, handleCustomerApproval);
 
 /**
- * POST & PATCH /api/admin/applications/:id/reject & /api/admin/customers/:id/reject
+ * POST & PATCH /api/admin/applications/:id/reject & aliases (including /deny)
  */
-apiApp.post(
-  ['/admin/applications/:id/reject', '/api/admin/applications/:id/reject', '/admin/customers/:id/reject', '/api/admin/customers/:id/reject'],
-  requireAdminAuth,
-  handleCustomerRejection
-);
-apiApp.patch(
-  ['/admin/applications/:id/reject', '/api/admin/applications/:id/reject', '/admin/customers/:id/reject', '/api/admin/customers/:id/reject'],
-  requireAdminAuth,
-  handleCustomerRejection
-);
+const REJECT_ROUTES = [
+  '/admin/applications/:id/reject',
+  '/api/admin/applications/:id/reject',
+  '/admin/customer-applications/:id/reject',
+  '/api/admin/customer-applications/:id/reject',
+  '/admin/customers/:id/reject',
+  '/api/admin/customers/:id/reject',
+  '/admin/applications/:id/deny',
+  '/api/admin/applications/:id/deny',
+  '/admin/customer-applications/:id/deny',
+  '/api/admin/customer-applications/:id/deny',
+  '/admin/customers/:id/deny',
+  '/api/admin/customers/:id/deny',
+];
+apiApp.post(REJECT_ROUTES, requireAdminAuth, handleCustomerRejection);
+apiApp.patch(REJECT_ROUTES, requireAdminAuth, handleCustomerRejection);
 
 /**
  * PATCH /api/admin/customers/:id/status & /api/admin/applications/:id/status
- * Allows authorized status changes: 'approved' | 'rejected' | 'suspended' | 'reactivated' | 'pending'
+ * Allows authorized status changes: 'approved' | 'rejected' | 'suspended' | 'reactivated' | 'pending' | 'denied'
  */
 apiApp.patch(
   [
@@ -2291,6 +2298,8 @@ apiApp.patch(
     '/api/admin/customers/:id/status',
     '/admin/applications/:id/status',
     '/api/admin/applications/:id/status',
+    '/admin/customer-applications/:id/status',
+    '/api/admin/customer-applications/:id/status',
   ],
   requireAdminAuth,
   async (req: Request, res: Response) => {
@@ -2298,7 +2307,7 @@ apiApp.patch(
     const { status, reason } = req.body || {};
     const targetStatus = String(status || '').toLowerCase().trim();
 
-    const VALID_STATUSES = ['approved', 'rejected', 'suspended', 'reactivated', 'pending'];
+    const VALID_STATUSES = ['approved', 'rejected', 'suspended', 'reactivated', 'pending', 'denied', 'deny'];
     if (!VALID_STATUSES.includes(targetStatus)) {
       return err(res, 400, `Invalid status "${status}". Allowed values: ${VALID_STATUSES.join(', ')}.`);
     }
@@ -2306,7 +2315,7 @@ apiApp.patch(
     if (targetStatus === 'approved') {
       return handleCustomerApproval(req, res);
     }
-    if (targetStatus === 'rejected') {
+    if (targetStatus === 'rejected' || targetStatus === 'denied' || targetStatus === 'deny') {
       return handleCustomerRejection(req, res);
     }
     if (targetStatus === 'suspended') {
@@ -2456,6 +2465,75 @@ apiApp.post(['/admin/customers/:id/reactivate', '/api/admin/customers/:id/reacti
   console.log(`[API /admin/customers/reactivate] 🟢 Customer ${customer.email} (${id}) REACTIVATED.`);
   return ok(res, { success: true, message: `Customer account ${id} reactivated.`, customer });
 });
+
+/**
+ * DELETE /api/admin/applications/:id
+ * Removes an application and associated customer account / auth credentials.
+ */
+apiApp.delete(
+  [
+    '/admin/applications/:id',
+    '/api/admin/applications/:id',
+    '/admin/customer-applications/:id',
+    '/api/admin/customer-applications/:id',
+  ],
+  requireAdminAuth,
+  (req: Request, res: Response) => {
+    const id = req.params.id;
+    const app = databaseStore.getApplication(id);
+    if (!app) {
+      return err(res, 404, `Application ${id} not found.`);
+    }
+
+    const email = app.email;
+    databaseStore.deleteApplication(app.id);
+
+    if (app.customerId) {
+      databaseStore.deleteCustomer(app.customerId);
+    }
+    const cust = databaseStore.getCustomerByEmail(email);
+    if (cust) {
+      databaseStore.deleteCustomer(cust.id);
+    }
+    authStore.deleteUser(email);
+
+    return ok(res, {
+      success: true,
+      message: `Application ${id} and associated account records removed.`,
+    });
+  }
+);
+
+/**
+ * DELETE /api/admin/customers/:id
+ * Removes a customer and associated auth user.
+ */
+apiApp.delete(
+  [
+    '/admin/customers/:id',
+    '/api/admin/customers/:id',
+  ],
+  requireAdminAuth,
+  (req: Request, res: Response) => {
+    const id = req.params.id;
+    const customer = databaseStore.getCustomer(id);
+    if (!customer) {
+      return err(res, 404, `Customer ${id} not found.`);
+    }
+
+    const email = customer.email;
+    databaseStore.deleteCustomer(customer.id);
+    if (customer.applicationId) {
+      databaseStore.deleteApplication(customer.applicationId);
+    }
+    authStore.deleteUser(email);
+
+    return ok(res, {
+      success: true,
+      message: `Customer ${id} and associated auth user removed.`,
+    });
+  }
+);
 
 /**
  * POST /api/admin/customers/:id/generate-activation

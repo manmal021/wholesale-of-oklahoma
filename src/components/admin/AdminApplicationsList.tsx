@@ -51,6 +51,75 @@ export default function AdminApplicationsList() {
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
+  const [actionSuccess, setActionSuccess] = useState<string | null>(null);
+  const [processingAppId, setProcessingAppId] = useState<string | null>(null);
+
+  const handleQuickApprove = async (app: Application) => {
+    setProcessingAppId(app.id);
+    setErrorMessage(null);
+    setActionSuccess(null);
+    try {
+      const token = typeof window !== 'undefined' ? (localStorage.getItem('woo_session_token') || '') : '';
+      const headers: Record<string, string> = {
+        'Content-Type': 'application/json',
+        ...(token ? { 'x-session-token': token } : {}),
+      };
+
+      const res = await fetch(`/api/admin/applications/${app.id}/approve`, {
+        method: 'POST',
+        headers,
+        credentials: 'same-origin',
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.message || data.error || 'Failed to approve application.');
+      }
+      setActionSuccess(`Application for "${app.businessName}" (${app.email}) has been APPROVED. Activation link dispatched.`);
+      setApplications((prev) =>
+        prev.map((a) => (a.id === app.id ? { ...a, status: 'APPROVED' } : a))
+      );
+    } catch (err: any) {
+      setErrorMessage(err.message || 'Approval failed.');
+    } finally {
+      setProcessingAppId(null);
+    }
+  };
+
+  const handleQuickDeny = async (app: Application) => {
+    const reason = window.prompt(`Enter reason for declining application for "${app.businessName}" (optional):`, 'Application declined by compliance review');
+    if (reason === null) return; // User cancelled prompt
+
+    setProcessingAppId(app.id);
+    setErrorMessage(null);
+    setActionSuccess(null);
+    try {
+      const token = typeof window !== 'undefined' ? (localStorage.getItem('woo_session_token') || '') : '';
+      const headers: Record<string, string> = {
+        'Content-Type': 'application/json',
+        ...(token ? { 'x-session-token': token } : {}),
+      };
+
+      const res = await fetch(`/api/admin/applications/${app.id}/reject`, {
+        method: 'POST',
+        headers,
+        credentials: 'same-origin',
+        body: JSON.stringify({ reason }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.message || data.error || 'Failed to decline application.');
+      }
+      setActionSuccess(`Application for "${app.businessName}" (${app.email}) has been DECLINED.`);
+      setApplications((prev) =>
+        prev.map((a) => (a.id === app.id ? { ...a, status: 'REJECTED' } : a))
+      );
+    } catch (err: any) {
+      setErrorMessage(err.message || 'Rejection failed.');
+    } finally {
+      setProcessingAppId(null);
+    }
+  };
+
   const fetchApplications = async () => {
     setIsLoading(true);
     setErrorMessage(null);
@@ -126,6 +195,20 @@ export default function AdminApplicationsList() {
 
       {/* Main List Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-8 py-8 space-y-6">
+        {actionSuccess && (
+          <div className="p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm flex items-center gap-2.5 shadow-xs">
+            <CheckCircle2 className="w-5 h-5 shrink-0 text-emerald-600" />
+            <span className="font-semibold">{actionSuccess}</span>
+          </div>
+        )}
+
+        {errorMessage && (
+          <div className="p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 text-sm flex items-center gap-2.5 shadow-xs">
+            <XCircle className="w-5 h-5 shrink-0 text-rose-600" />
+            <span>{errorMessage}</span>
+          </div>
+        )}
+
         {/* Filter Controls & Search */}
         <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
           {/* Status Filter Tabs */}
@@ -138,15 +221,17 @@ export default function AdminApplicationsList() {
                   onClick={() => setStatusFilter(tab)}
                   className={`px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
                     active
-                      ? tab === 'PENDING'
-                        ? 'bg-amber-500 text-slate-950 shadow-xs'
-                        : tab === 'APPROVED'
+                      ? tab === 'APPROVED'
                         ? 'bg-emerald-600 text-white shadow-xs'
+                        : tab === 'REJECTED'
+                        ? 'bg-rose-600 text-white shadow-xs'
+                        : tab === 'SUSPENDED'
+                        ? 'bg-purple-600 text-white shadow-xs'
                         : 'bg-[#FF6B00] text-white shadow-xs'
                       : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                   }`}
                 >
-                  {tab === 'PENDING' ? 'Pending Review' : tab}
+                  {tab === 'ALL' ? 'All Applications' : tab}
                 </button>
               );
             })}
@@ -173,12 +258,6 @@ export default function AdminApplicationsList() {
           </form>
         </div>
 
-        {errorMessage && (
-          <div className="p-4 rounded-2xl bg-rose-50 border border-rose-200 text-rose-700 text-sm">
-            {errorMessage}
-          </div>
-        )}
-
         {/* Applications Table / Cards */}
         {isLoading ? (
           <div className="py-20 text-center space-y-3">
@@ -189,7 +268,7 @@ export default function AdminApplicationsList() {
           <div className="bg-white border border-slate-200 rounded-3xl p-12 text-center space-y-3 shadow-xs">
             <FileText className="w-10 h-10 text-slate-300 mx-auto" />
             <h3 className="text-base font-bold text-slate-900">No applications found</h3>
-            <p className="text-xs text-slate-500 max-w-sm mx-auto">
+            <p className="text-xs text-slate-500">
               There are currently no customer applications matching the filter "{statusFilter}".
             </p>
           </div>
@@ -254,12 +333,60 @@ export default function AdminApplicationsList() {
                   </div>
                 </div>
 
-                <div className="flex items-center gap-3 shrink-0 w-full md:w-auto justify-end">
+                <div className="flex flex-wrap items-center gap-2.5 shrink-0 w-full md:w-auto justify-end">
+                  {/* Quick Approve / Deny Actions */}
+                  {app.status === 'PENDING' && (
+                    <>
+                      <button
+                        type="button"
+                        onClick={() => handleQuickDeny(app)}
+                        disabled={processingAppId === app.id}
+                        className="px-3 py-2 rounded-xl border border-rose-200 bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs flex items-center gap-1.5 transition-colors cursor-pointer"
+                        title="Deny / Reject Application"
+                      >
+                        <XCircle className="w-3.5 h-3.5" />
+                        <span>Deny</span>
+                      </button>
+
+                      <button
+                        type="button"
+                        onClick={() => handleQuickApprove(app)}
+                        disabled={processingAppId === app.id}
+                        className="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1.5 transition-colors shadow-xs cursor-pointer"
+                        title="Approve Account & Dispatch Activation"
+                      >
+                        {processingAppId === app.id ? (
+                          <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                        ) : (
+                          <CheckCircle2 className="w-3.5 h-3.5" />
+                        )}
+                        <span>Approve</span>
+                      </button>
+                    </>
+                  )}
+
+                  {app.status === 'REJECTED' && (
+                    <button
+                      type="button"
+                      onClick={() => handleQuickApprove(app)}
+                      disabled={processingAppId === app.id}
+                      className="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs flex items-center gap-1.5 transition-colors shadow-xs cursor-pointer"
+                      title="Re-Approve Account"
+                    >
+                      {processingAppId === app.id ? (
+                        <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                      ) : (
+                        <CheckCircle2 className="w-3.5 h-3.5" />
+                      )}
+                      <span>Approve</span>
+                    </button>
+                  )}
+
                   <a
                     href={`/admin/customer-applications/${app.id}`}
-                    className="w-full md:w-auto px-4 py-2.5 rounded-xl bg-slate-100 hover:bg-[#FF6B00] text-slate-800 hover:text-white font-bold text-xs border border-slate-200 hover:border-[#FF6B00] transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
+                    className="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-[#FF6B00] text-slate-800 hover:text-white font-bold text-xs border border-slate-200 hover:border-[#FF6B00] transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
                   >
-                    <span>View Application</span>
+                    <span>View</span>
                     <ChevronRight className="w-3.5 h-3.5" />
                   </a>
                 </div>

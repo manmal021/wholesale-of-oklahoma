@@ -112,37 +112,38 @@
     {
       "id": "usr_84112367e39a8cdc",
       "email": "admin@wholesaleofoklahoma.com",
-      "passwordHash": "1f806abb9f30a9cbfa68f8e0b6cf6ee59d2b6b2690dfb42986af17887d0cafbf98359050d35d5dca32599ac8c21c1666173904480058b0be6abbdcf9078abfff",
-      "salt": "19c18abd730df3a4b9afe5199104f115",
+      "passwordHash": "f27545fc7e7e70e7d1b122eb01ecf4f26561b99eb7699d5f1fd8eedb897aaf3233fe91b8415c280a86ee0937a974596ecfc05a1b6ec4fd7d6d5c68dab6b2c976",
+      "salt": "ccc34edf2c88570b61fc0d11751b3c65",
       "role": "admin",
       "businessName": "Wholesale of Oklahoma Dispatch",
       "contactName": "Head Dispatcher",
       "phone": "(405) 768-2975",
-      "createdAt": "2026-09-15T23:09:41.601Z"
+      "createdAt": "2026-09-15T23:09:41.601Z",
+      "lastLoginAt": "2026-09-18T19:24:36.101Z"
     },
     {
       "id": "usr_admin_233f6e9e1c13",
       "email": "dispatcher@wholesaleofoklahoma.com",
-      "passwordHash": "9ebf21d65f9f1aae5e2b81c6b1a260abd5245a47ab104dfb986e7eecdf332a8413a13b60b3c927eac08dfca28aef156b374c4b229e547bb5df225769e2cfd801",
-      "salt": "1feba96da0c5b55d2a340f1e5a7416db",
+      "passwordHash": "5c4f563146a38b0b73ac460af43f84c0b8b6a3bef5abc7b6c2fd2d4a5561efd26f567a0168e7b0fb00565a96fa3cacd47ea4916f990392ed0455461049380753",
+      "salt": "d74079317e02b07be59dd00b8289a20a",
       "role": "admin",
       "businessName": "Wholesale of Oklahoma Dispatch",
       "contactName": "Site Administrator",
       "phone": "(405) 768-2975",
       "createdAt": "2026-09-16T20:55:26.730Z",
-      "lastLoginAt": "2026-09-18T18:49:40.227Z"
+      "lastLoginAt": "2026-09-18T19:12:41.868Z"
     },
     {
-      "id": "usr_admin_198961ff5781",
+      "id": "usr_admin_ba63ad2d2515",
       "email": "order2wholesaleofoklahoma@gmail.com",
-      "passwordHash": "ba0a2616bf68fbd64eb912a3c5dcf7acdf6d956fc8051c5a713d7e185e3cfa02317ec115341d3943914e974196d718efd95964fd2e9195018fa7f2fc6ad84b84",
-      "salt": "97d37bb80b783303ef8cf250d03791b0",
+      "passwordHash": "da1e6d1c7c371e93220325d2bc62bb9732617633984c97ac4169c9089f986edc121d0df334d9642143df4dfdba3c041b192f6c7966a107cb9adf7422402a7749",
+      "salt": "60355bf36d3f3ecfab653edd9cbe5427",
       "role": "admin",
       "businessName": "Wholesale of Oklahoma Dispatch",
       "contactName": "Site Administrator",
       "phone": "(405) 768-2975",
-      "createdAt": "2026-09-18T18:49:39.446Z",
-      "lastLoginAt": "2026-09-18T18:49:40.091Z"
+      "createdAt": "2026-09-18T19:12:41.035Z",
+      "lastLoginAt": "2026-09-18T19:12:41.732Z"
     }
   ]
 }

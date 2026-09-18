@@ -67,6 +67,7 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [actionSuccess, setActionSuccess] = useState<string | null>(null);
+  const [actionError, setActionError] = useState<string | null>(null);
 
   // Modal dialog states
   const [confirmApproveOpen, setConfirmApproveOpen] = useState(false);
@@ -114,9 +115,11 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
   const handleApprove = async () => {
     setIsProcessingAction(true);
     setErrorMessage(null);
+    setActionError(null);
     try {
       const token = typeof window !== 'undefined' ? (localStorage.getItem('woo_session_token') || '') : '';
       const headers: Record<string, string> = {
+        'Content-Type': 'application/json',
         ...(token ? { 'x-session-token': token } : {}),
       };
 
@@ -130,9 +133,11 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
         throw new Error(data.message || data.error || 'Failed to approve application.');
       }
       setConfirmApproveOpen(false);
+      setActionError(null);
       setActionSuccess(`ACCOUNT APPROVED! Activation invitation dispatched to ${data.customer?.email || app?.email}.`);
       fetchDetail();
     } catch (err: any) {
+      setActionError(err.message || 'Approval failed.');
       setErrorMessage(err.message || 'Approval failed.');
     } finally {
       setIsProcessingAction(false);
@@ -142,6 +147,7 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
   const handleReject = async () => {
     setIsProcessingAction(true);
     setErrorMessage(null);
+    setActionError(null);
     try {
       const token = typeof window !== 'undefined' ? (localStorage.getItem('woo_session_token') || '') : '';
       const headers: Record<string, string> = {
@@ -153,16 +159,18 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
         method: 'POST',
         headers,
         credentials: 'same-origin',
-        body: JSON.stringify({ reason: rejectReason }),
+        body: JSON.stringify({ reason: rejectReason || 'Application declined by compliance review' }),
       });
       const data = await res.json();
       if (!res.ok) {
         throw new Error(data.message || data.error || 'Failed to reject application.');
       }
       setConfirmRejectOpen(false);
-      setActionSuccess(`Application ${applicationId} has been rejected.`);
+      setActionError(null);
+      setActionSuccess(`Application ${applicationId} has been declined.`);
       fetchDetail();
     } catch (err: any) {
+      setActionError(err.message || 'Rejection failed.');
       setErrorMessage(err.message || 'Rejection failed.');
     } finally {
       setIsProcessingAction(false);
@@ -495,22 +503,29 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
               </div>
 
               <div className="flex flex-wrap items-center gap-3">
+                {(app.status === 'PENDING' || app.status === 'REJECTED') && (
+                  <button
+                    onClick={() => {
+                      setActionError(null);
+                      setConfirmApproveOpen(true);
+                    }}
+                    className="px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-xs flex items-center gap-2 cursor-pointer"
+                  >
+                    <CheckCircle2 className="w-4 h-4" />
+                    {app.status === 'REJECTED' ? 'Re-Approve Account' : 'Approve Account'}
+                  </button>
+                )}
+
                 {app.status === 'PENDING' && (
-                  <>
-                    <button
-                      onClick={() => setConfirmRejectOpen(true)}
-                      className="px-5 py-2.5 rounded-xl border border-rose-200 bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
-                    >
-                      Reject Application
-                    </button>
-                    <button
-                      onClick={() => setConfirmApproveOpen(true)}
-                      className="px-6 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider transition-colors shadow-xs flex items-center gap-2 cursor-pointer"
-                    >
-                      <CheckCircle2 className="w-4 h-4" />
-                      Approve Account
-                    </button>
-                  </>
+                  <button
+                    onClick={() => {
+                      setActionError(null);
+                      setConfirmRejectOpen(true);
+                    }}
+                    className="px-5 py-2.5 rounded-xl border border-rose-200 bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
+                  >
+                    Reject Application
+                  </button>
                 )}
 
                 {app.status === 'APPROVED' && (
@@ -553,10 +568,19 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
               </p>
             </div>
 
+            {actionError && (
+              <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-medium">
+                {actionError}
+              </div>
+            )}
+
             <div className="flex items-center gap-3 justify-end pt-2">
               <button
                 type="button"
-                onClick={() => setConfirmApproveOpen(false)}
+                onClick={() => {
+                  setActionError(null);
+                  setConfirmApproveOpen(false);
+                }}
                 disabled={isProcessingAction}
                 className="px-4 py-2.5 rounded-xl border border-slate-200 hover:bg-slate-100 text-xs font-semibold text-slate-700 cursor-pointer"
               >
@@ -597,6 +621,12 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
               </p>
             </div>
 
+            {actionError && (
+              <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-medium">
+                {actionError}
+              </div>
+            )}
+
             <div>
               <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">
                 Internal Review Note <span className="text-slate-400">(Optional)</span>
@@ -613,7 +643,10 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
             <div className="flex items-center gap-3 justify-end pt-2">
               <button
                 type="button"
-                onClick={() => setConfirmRejectOpen(false)}
+                onClick={() => {
+                  setActionError(null);
+                  setConfirmRejectOpen(false);
+                }}
                 disabled={isProcessingAction}
                 className="px-4 py-2.5 rounded-xl border border-slate-200 hover:bg-slate-100 text-xs font-semibold text-slate-700 cursor-pointer"
               >
