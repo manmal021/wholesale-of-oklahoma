@@ -543,6 +543,11 @@ class DatabaseStore {
           }
         }
 
+        if (this.applications.size === 0 && process.env.NODE_ENV !== 'test') {
+          this.applications.set(DEFAULT_PENDING_APPLICATION.id, { ...DEFAULT_PENDING_APPLICATION });
+          this.applicationsByEmail.set(DEFAULT_PENDING_APPLICATION.email, [DEFAULT_PENDING_APPLICATION.id]);
+        }
+
         if (Array.isArray(state.customers)) {
           for (const c of state.customers) {
             this.customers.set(c.id, c);
@@ -632,11 +637,21 @@ class DatabaseStore {
       if (!fs.existsSync(targetFile)) {
         if (fs.existsSync(COMMITTED_SEED_FILE)) targetFile = COMMITTED_SEED_FILE;
         else if (fs.existsSync(LOCAL_DB_FILE)) targetFile = LOCAL_DB_FILE;
-        else return;
+        else {
+          if (this.applications.size === 0 && process.env.NODE_ENV !== 'test') {
+            this.applications.set(DEFAULT_PENDING_APPLICATION.id, { ...DEFAULT_PENDING_APPLICATION });
+            this.applicationsByEmail.set(DEFAULT_PENDING_APPLICATION.email, [DEFAULT_PENDING_APPLICATION.id]);
+          }
+          return;
+        }
       }
       const stat = fs.statSync(targetFile);
       if (stat.mtimeMs > this.lastLoadedMtime) {
         this.loadFromDisk();
+      }
+      if (this.applications.size === 0 && process.env.NODE_ENV !== 'test') {
+        this.applications.set(DEFAULT_PENDING_APPLICATION.id, { ...DEFAULT_PENDING_APPLICATION });
+        this.applicationsByEmail.set(DEFAULT_PENDING_APPLICATION.email, [DEFAULT_PENDING_APPLICATION.id]);
       }
     } catch (_) {}
   }
