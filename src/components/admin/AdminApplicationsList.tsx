@@ -56,11 +56,17 @@ export default function AdminApplicationsList() {
     setErrorMessage(null);
 
     try {
+      const token = typeof window !== 'undefined' ? (localStorage.getItem('woo_session_token') || '') : '';
+      const authHeader: Record<string, string> = token ? { 'x-session-token': token } : {};
+
       const q = new URLSearchParams();
       if (statusFilter) q.set('status', statusFilter);
       if (search) q.set('search', search);
 
-      const res = await fetch(`/api/admin/applications?${q.toString()}`);
+      const res = await fetch(`/api/admin/applications?${q.toString()}`, {
+        headers: authHeader,
+        credentials: 'same-origin',
+      });
       if (res.status === 401 || res.status === 403) {
         window.location.href = '/admin/login';
         return;

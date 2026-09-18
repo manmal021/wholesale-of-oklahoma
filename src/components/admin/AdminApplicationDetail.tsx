@@ -81,7 +81,13 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
     setIsLoading(true);
     setErrorMessage(null);
     try {
-      const res = await fetch(`/api/admin/applications/${applicationId}`);
+      const token = typeof window !== 'undefined' ? (localStorage.getItem('woo_session_token') || '') : '';
+      const authHeader: Record<string, string> = token ? { 'x-session-token': token } : {};
+
+      const res = await fetch(`/api/admin/applications/${applicationId}`, {
+        headers: authHeader,
+        credentials: 'same-origin',
+      });
       if (res.status === 401 || res.status === 403) {
         window.location.href = '/admin/login';
         return;
@@ -109,8 +115,15 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
     setIsProcessingAction(true);
     setErrorMessage(null);
     try {
+      const token = typeof window !== 'undefined' ? (localStorage.getItem('woo_session_token') || '') : '';
+      const headers: Record<string, string> = {
+        ...(token ? { 'x-session-token': token } : {}),
+      };
+
       const res = await fetch(`/api/admin/applications/${applicationId}/approve`, {
         method: 'POST',
+        headers,
+        credentials: 'same-origin',
       });
       const data = await res.json();
       if (!res.ok) {
@@ -130,9 +143,16 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
     setIsProcessingAction(true);
     setErrorMessage(null);
     try {
+      const token = typeof window !== 'undefined' ? (localStorage.getItem('woo_session_token') || '') : '';
+      const headers: Record<string, string> = {
+        'Content-Type': 'application/json',
+        ...(token ? { 'x-session-token': token } : {}),
+      };
+
       const res = await fetch(`/api/admin/applications/${applicationId}/reject`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
+        credentials: 'same-origin',
         body: JSON.stringify({ reason: rejectReason }),
       });
       const data = await res.json();
@@ -155,9 +175,16 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
     setIsProcessingAction(true);
     setErrorMessage(null);
     try {
+      const token = typeof window !== 'undefined' ? (localStorage.getItem('woo_session_token') || '') : '';
+      const headers: Record<string, string> = {
+        'Content-Type': 'application/json',
+        ...(token ? { 'x-session-token': token } : {}),
+      };
+
       const res = await fetch(`/api/admin/customers/${targetCustId}/suspend`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers,
+        credentials: 'same-origin',
         body: JSON.stringify({ reason: suspendReason }),
       });
       const data = await res.json();
@@ -178,8 +205,15 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
     setIsProcessingAction(true);
     setErrorMessage(null);
     try {
+      const token = typeof window !== 'undefined' ? (localStorage.getItem('woo_session_token') || '') : '';
+      const headers: Record<string, string> = {
+        ...(token ? { 'x-session-token': token } : {}),
+      };
+
       const res = await fetch(`/api/admin/customers/${targetCustId}/reactivate`, {
         method: 'POST',
+        headers,
+        credentials: 'same-origin',
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || data.error || 'Failed to reactivate account.');

@@ -59,11 +59,17 @@ export default function AdminCustomersList() {
     setErrorMessage(null);
 
     try {
+      const token = typeof window !== 'undefined' ? (localStorage.getItem('woo_session_token') || '') : '';
+      const authHeader: Record<string, string> = token ? { 'x-session-token': token } : {};
+
       const q = new URLSearchParams();
       if (statusFilter && statusFilter !== 'ALL') q.set('status', statusFilter);
       if (search) q.set('search', search);
 
-      const res = await fetch(`/api/admin/customers?${q.toString()}`);
+      const res = await fetch(`/api/admin/customers?${q.toString()}`, {
+        headers: authHeader,
+        credentials: 'same-origin',
+      });
       if (res.status === 401 || res.status === 403) {
         window.location.href = '/admin/login';
         return;
@@ -99,8 +105,16 @@ export default function AdminCustomersList() {
     if (!window.confirm(confirmMsg)) return;
 
     try {
+      const token = typeof window !== 'undefined' ? (localStorage.getItem('woo_session_token') || '') : '';
+      const headers: Record<string, string> = {
+        'Content-Type': 'application/json',
+        ...(token ? { 'x-session-token': token } : {}),
+      };
+
       const res = await fetch(`/api/admin/customers/${cust.id}/${action}`, {
         method: 'POST',
+        headers,
+        credentials: 'same-origin',
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || 'Operation failed');

@@ -87,10 +87,13 @@ export default function AdminDashboard() {
     setIsLoading(true);
     setErrorMessage(null);
     try {
+      const token = typeof window !== 'undefined' ? (localStorage.getItem('woo_session_token') || '') : '';
+      const authHeader: Record<string, string> = token ? { 'x-session-token': token } : {};
+
       const [statsRes, logsRes, appsRes] = await Promise.all([
-        fetch('/api/admin/stats'),
-        fetch('/api/admin/audit-logs'),
-        fetch('/api/admin/applications?status=ALL'),
+        fetch('/api/admin/stats', { headers: authHeader, credentials: 'same-origin' }),
+        fetch('/api/admin/audit-logs', { headers: authHeader, credentials: 'same-origin' }),
+        fetch('/api/admin/applications?status=ALL', { headers: authHeader, credentials: 'same-origin' }),
       ]);
 
       if (statsRes.status === 401 || statsRes.status === 403) {
