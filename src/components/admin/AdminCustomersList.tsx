@@ -11,7 +11,10 @@ import {
   Mail,
   Phone,
   MapPin,
-  ShieldCheck
+  ShieldCheck,
+  Key,
+  Copy,
+  Check
 } from 'lucide-react';
 
 interface Customer {
@@ -36,6 +39,7 @@ interface Customer {
   approvedAt?: string;
   activatedAt?: string;
   suspendedAt?: string;
+  temporaryPassword?: string;
 }
 
 export default function AdminCustomersList() {
@@ -53,6 +57,17 @@ export default function AdminCustomersList() {
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [actionSuccess, setActionSuccess] = useState<string | null>(null);
+  const [copiedPasswordId, setCopiedPasswordId] = useState<string | null>(null);
+
+  const handleCopyPassword = async (id: string, text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedPasswordId(id);
+      setTimeout(() => setCopiedPasswordId(null), 2500);
+    } catch {
+      // ignore
+    }
+  };
 
   const fetchCustomers = async () => {
     setIsLoading(true);
@@ -260,6 +275,20 @@ export default function AdminCustomersList() {
                     ) : (
                       <span className="text-[10px] font-bold text-amber-700 bg-amber-50 px-2 py-0.5 rounded border border-amber-200">
                         Activation Pending
+                      </span>
+                    )}
+                    {c.temporaryPassword && (
+                      <span className="inline-flex items-center gap-1.5 text-[10px] font-mono font-bold text-slate-800 bg-slate-100 px-2.5 py-0.5 rounded-md border border-slate-300">
+                        <Key className="w-3 h-3 text-emerald-600" />
+                        <span>PWD: {c.temporaryPassword}</span>
+                        <button
+                          type="button"
+                          onClick={() => handleCopyPassword(c.id, c.temporaryPassword!)}
+                          className="hover:text-emerald-600 transition-colors cursor-pointer"
+                          title="Copy Password"
+                        >
+                          {copiedPasswordId === c.id ? <Check className="w-3 h-3 text-emerald-600" /> : <Copy className="w-3 h-3" />}
+                        </button>
                       </span>
                     )}
                   </div>

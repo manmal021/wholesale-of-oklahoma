@@ -22,8 +22,41 @@ export interface UserRecord {
   phone: string;
   fein?: string;
   licenseNumber?: string;
+  assignedPassword?: string;
   createdAt: string;
   lastLoginAt?: string;
+}
+
+/**
+ * Generates a random, cryptographically secure 10-character password.
+ * Guarantees at least 1 uppercase letter, 1 lowercase letter, 1 number, and 1 symbol.
+ */
+export function generateCustomerPassword(length = 10): string {
+  const upper = 'ABCDEFGHJKLMNPQRSTUVWXYZ';
+  const lower = 'abcdefghijkmnpqrstuvwxyz';
+  const digits = '23456789';
+  const symbols = '!@#$%&*?';
+  const all = upper + lower + digits + symbols;
+
+  // Guarantee at least 1 character from each category
+  const chars: string[] = [
+    upper[crypto.randomInt(0, upper.length)],
+    lower[crypto.randomInt(0, lower.length)],
+    digits[crypto.randomInt(0, digits.length)],
+    symbols[crypto.randomInt(0, symbols.length)],
+  ];
+
+  while (chars.length < length) {
+    chars.push(all[crypto.randomInt(0, all.length)]);
+  }
+
+  // Cryptographic Fisher-Yates shuffle
+  for (let i = chars.length - 1; i > 0; i--) {
+    const j = crypto.randomInt(0, i + 1);
+    [chars[i], chars[j]] = [chars[j], chars[i]];
+  }
+
+  return chars.join('');
 }
 
 export interface SessionRecord {
@@ -249,9 +282,81 @@ class AuthStore {
     databaseStore.saveUser(user);
   }
 
-  public setPassword(email: string, password: string): UserRecord {
+  public setPassword(email: string, password: string, assignedPassword?: string): UserRecord {
     const cleanEmail = email.toLowerCase().trim();
     let user = this.users.get(cleanEmail);
+    const salt = crypto.randomBytes(16).toString('hex');
+    const passwordHash = this.hashPassword(password, salt);
+    const effectiveAssigned = assignedPassword || password;
+    const isConfiguredAdmin =
+      cleanEmail === (process.env.ADMIN_NOTIFICATION_EMAIL || ADMIN_EMAIL).toLowerCase().trim() ||
+      user?.role === 'admin';
+
+    if (!user) {
+      const id = `usr_${crypto.randomBytes(8).toString('hex')}`;
+      user = {
+        id,
+        email: cleanEmail,
+        passwordHash,
+        salt,
+        role: isConfiguredAdmin ? 'admin' : 'approved_customer',
+        businessName: '',
+        contactName: '',
+        phone: '',
+        assignedPassword: effectiveAssigned,
+        createdAt: new Date().toISOString(),
+      };
+      this.users.set(cleanEmail, user);
+      databaseStore.saveUser(user);
+      return user;
+    }
+
+    user.salt = salt;
+    user.passwordHash = passwordHash;
+    if (user.role !== 'admin' && !isConfiguredAdmin) {
+      user.role = 'approved_customer';
+    }
+    user.assignedPassword = effectiveAssigned;
+    databaseStore.saveUser(user);
+    return user;
+  }
+
+  public getAssignedPassword(email: string): string | undefined {
+    const user = this.users.get(email.toLowerCase().trim());
+    return user?.assignedPassword;
+  }
+
+  public clearPassword(email: string): void {
+    const cleanEmail = email.toLowerCase().trim();
+    const user = this.users.get(cleanEmail);
+    if (user) {
+      user.passwordHash = 'REVOKED';
+      user.assignedPassword = undefined;
+      user.role = 'visitor';
+      databaseStore.saveUser(user);
+    }
+    this.revokeSessionsForEmail(cleanEmail);
+  }
+
+  public revokeSessionsForEmail(email: string): void {
+    const cleanEmail = email.toLowerCase().trim();
+    for (const [token, session] of this.sessions.entries()) {
+      if (session.email.toLowerCase().trim() === cleanEmail) {
+        this.sessions.delete(token);
+        this.revokedTokens.add(token);
+      }
+    }
+  }
+
+  public hasPasswordSet(email: string): boolean {
+    const user = this.users.get(email.toLowerCase().trim());
+    return Boolean(user && user.passwordHash && user.passwordHash !== 'UNSET' && user.passwordHash !== 'REVOKED');
+  }
+
+  public provisionCustomer(customer: CustomerRecord, initialPassword?: string): UserRecord {
+    const cleanEmail = customer.email.toLowerCase().trim();
+    let user = this.users.get(cleanEmail);
+    const password = initialPassword || generateCustomerPassword(10);
     const salt = crypto.randomBytes(16).toString('hex');
     const passwordHash = this.hashPassword(password, salt);
 
@@ -263,42 +368,12 @@ class AuthStore {
         passwordHash,
         salt,
         role: 'approved_customer',
-        businessName: '',
-        contactName: '',
-        phone: '',
-        createdAt: new Date().toISOString(),
-      };
-      this.users.set(cleanEmail, user);
-      return user;
-    }
-
-    user.salt = salt;
-    user.passwordHash = passwordHash;
-    databaseStore.saveUser(user);
-    return user;
-  }
-
-  public hasPasswordSet(email: string): boolean {
-    const user = this.users.get(email.toLowerCase().trim());
-    return Boolean(user && user.passwordHash && user.passwordHash !== 'UNSET');
-  }
-
-  public provisionCustomer(customer: CustomerRecord): UserRecord {
-    const cleanEmail = customer.email.toLowerCase().trim();
-    let user = this.users.get(cleanEmail);
-    if (!user) {
-      const id = `usr_${crypto.randomBytes(8).toString('hex')}`;
-      user = {
-        id,
-        email: cleanEmail,
-        passwordHash: 'UNSET',
-        salt: crypto.randomBytes(16).toString('hex'),
-        role: 'approved_customer',
         businessName: customer.businessName,
         contactName: customer.contactName,
         phone: customer.phone,
         fein: customer.fein,
         licenseNumber: customer.licenseNumber,
+        assignedPassword: password,
         createdAt: new Date().toISOString(),
       };
       this.users.set(cleanEmail, user);
@@ -306,6 +381,9 @@ class AuthStore {
       user.role = 'approved_customer';
       user.businessName = customer.businessName;
       user.contactName = customer.contactName;
+      user.salt = salt;
+      user.passwordHash = passwordHash;
+      user.assignedPassword = password;
     }
     databaseStore.saveUser(user);
     return user;

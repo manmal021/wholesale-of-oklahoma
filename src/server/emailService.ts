@@ -479,14 +479,16 @@ Wholesale of Oklahoma
   }
 
   /**
-   * 3. Customer Account Approved with Secure Activation Token Link.
+   * 3. Customer Account Approved with Assigned Password / Credentials.
    */
   public async sendCustomerAccountApproved(
     app: WholesaleApplicationRecord,
-    activationToken: string
+    assignedPassword?: string,
+    activationToken?: string
   ): Promise<EmailDispatchResult> {
     const siteUrl = getSiteUrl();
-    const activationUrl = `${siteUrl}/activate?token=${encodeURIComponent(activationToken)}`;
+    const loginUrl = `${siteUrl}/account/login`;
+    const activationUrl = activationToken ? `${siteUrl}/activate?token=${encodeURIComponent(activationToken)}` : loginUrl;
     const subject = 'Your Wholesale of Oklahoma Account Has Been Approved';
 
     const html = `
@@ -502,6 +504,10 @@ Wholesale of Oklahoma
     .body { padding: 32px 24px; }
     h2 { font-size: 22px; color: #10B981; margin-top: 0; }
     p { color: #B8BDC5; font-size: 14px; line-height: 1.6; }
+    .cred-box { background: #1E293B; border: 1px solid #334155; border-radius: 12px; padding: 20px; margin: 24px 0; }
+    .cred-row { margin: 8px 0; font-size: 14px; color: #E2E8F0; }
+    .cred-label { color: #94A3B8; font-weight: 600; width: 120px; display: inline-block; }
+    .cred-val { font-family: monospace; font-size: 16px; font-weight: 700; color: #38BDF8; background: #0F172A; padding: 4px 10px; border-radius: 6px; }
     .btn-container { text-align: center; margin: 32px 0; }
     .btn { display: inline-block; background: #FF6B00; color: #FFFFFF !important; font-weight: 700; font-size: 16px; text-decoration: none; padding: 14px 32px; border-radius: 10px; }
     .security-note { background: #101317; border: 1px solid #2A3038; border-radius: 10px; padding: 14px; font-size: 12px; color: #858C96; margin-top: 24px; }
@@ -514,26 +520,31 @@ Wholesale of Oklahoma
       <div class="logo">WHOLESALE OF OKLAHOMA</div>
     </div>
     <div class="body">
-      <h2>🎉 Congratulations! Your Account is Approved</h2>
+      <h2>🎉 Congratulations! Your Wholesale Account is Approved</h2>
       <p>Dear ${app.contactName},</p>
       <p>
         Your wholesale purchasing application for <strong>${app.businessName}</strong> has been officially verified and approved.
       </p>
-      <p>
-        Click the secure button below to activate your wholesale account and create your password:
-      </p>
+
+      ${assignedPassword ? `
+      <div class="cred-box">
+        <h3 style="margin-top: 0; color: #F8FAFC; font-size: 15px;">Your Login Credentials:</h3>
+        <div class="cred-row"><span class="cred-label">Username:</span> <span class="cred-val">${app.email}</span></div>
+        <div class="cred-row"><span class="cred-label">Password:</span> <span class="cred-val">${assignedPassword}</span></div>
+      </div>
+      ` : ''}
 
       <div class="btn-container">
-        <a href="${activationUrl}" class="btn">ACTIVATE MY ACCOUNT</a>
+        <a href="${assignedPassword ? loginUrl : activationUrl}" class="btn">SIGN IN & START SHOPPING</a>
       </div>
 
       <div class="security-note">
-        <strong>Security Notice:</strong><br>
-        For your protection, this single-use activation link expires in 48 hours. After creating your password, you will be able to sign in, view live wholesale rates, and place orders directly.
+        <strong>Wholesale Access Active:</strong><br>
+        You now have access to verified wholesale pricing, volume-tiered discounts, and ordering. You can change your password at any time in your account settings.
       </div>
 
       <p style="margin-top: 24px;">
-        If you have questions, please reach out to dispatch at (405) 768-2975 or reply directly.
+        If you have questions, please reach out to dispatch at (405) 768-2975.
       </p>
 
       <p style="margin-top: 28px;">
@@ -555,11 +566,15 @@ Congratulations,
 
 Your Wholesale of Oklahoma wholesale account for ${app.businessName} has been approved.
 
-Click the secure link below to activate your account and create your password:
-${activationUrl}
+${assignedPassword ? `
+Your Login Credentials:
+Username: ${app.email}
+Password: ${assignedPassword}
 
-For security, this activation link expires after 48 hours.
-After creating your password, you can sign in and access your wholesale shopping account.
+Sign in here: ${loginUrl}
+` : `
+Activate your account here: ${activationUrl}
+`}
 
 Wholesale of Oklahoma
 `;
@@ -569,7 +584,55 @@ Wholesale of Oklahoma
       subject,
       html,
       text,
-      actionUrl: activationUrl,
+      actionUrl: activationToken ? activationUrl : loginUrl,
+    });
+  }
+
+  public async sendCustomerCredentialsEmail(
+    email: string,
+    businessName: string,
+    password: string
+  ): Promise<EmailDispatchResult> {
+    const siteUrl = getSiteUrl();
+    const loginUrl = `${siteUrl}/account/login`;
+    const subject = `Your Wholesale of Oklahoma Account Credentials – ${businessName}`;
+
+    const html = `
+<!DOCTYPE html>
+<html>
+<head><meta charset="utf-8"></head>
+<body style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0B0D10; color: #F7F7F5; margin: 0; padding: 24px;">
+  <div style="max-width: 600px; margin: 0 auto; background: #15191F; border: 1px solid #2A3038; border-radius: 16px; overflow: hidden; padding: 32px 24px;">
+    <h2 style="color: #10B981; margin-top: 0;">Wholesale of Oklahoma Access Credentials</h2>
+    <p style="color: #B8BDC5; font-size: 14px;">Here are the login credentials for <strong>${businessName}</strong>:</p>
+    <div style="background: #1E293B; border: 1px solid #334155; border-radius: 12px; padding: 20px; margin: 24px 0;">
+      <p style="margin: 6px 0; color: #E2E8F0; font-size: 14px;"><strong>Username (Email):</strong> <code style="font-size: 15px; color: #38BDF8;">${email}</code></p>
+      <p style="margin: 6px 0; color: #E2E8F0; font-size: 14px;"><strong>Password:</strong> <code style="font-size: 16px; font-weight: bold; color: #38BDF8;">${password}</code></p>
+    </div>
+    <div style="text-align: center; margin: 30px 0;">
+      <a href="${loginUrl}" style="background: #FF6B00; color: #ffffff; text-decoration: none; padding: 14px 28px; border-radius: 10px; font-weight: bold; display: inline-block;">SIGN IN TO WHOLESALE PORTAL</a>
+    </div>
+    <p style="color: #64748B; font-size: 12px;">Contact dispatch at (405) 768-2975 if you need any assistance.</p>
+  </div>
+</body>
+</html>`;
+
+    const text = `
+Wholesale of Oklahoma Access Credentials
+
+Business: ${businessName}
+Username: ${email}
+Password: ${password}
+
+Sign in here: ${loginUrl}
+`;
+
+    return this.sendMail({
+      to: email,
+      subject,
+      html,
+      text,
+      actionUrl: loginUrl,
     });
   }
 

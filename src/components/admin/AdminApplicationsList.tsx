@@ -14,7 +14,12 @@ import {
   Building2,
   Mail,
   Phone,
-  MapPin
+  MapPin,
+  Key,
+  Copy,
+  Check,
+  X,
+  Send
 } from 'lucide-react';
 
 interface Application {
@@ -53,6 +58,24 @@ export default function AdminApplicationsList() {
 
   const [actionSuccess, setActionSuccess] = useState<string | null>(null);
   const [processingAppId, setProcessingAppId] = useState<string | null>(null);
+  const [approvedModalCredentials, setApprovedModalCredentials] = useState<{
+    businessName: string;
+    username: string;
+    password: string;
+    loginUrl?: string;
+    welcomeMessage?: string;
+  } | null>(null);
+  const [copiedKey, setCopiedKey] = useState<string | null>(null);
+
+  const handleCopy = async (text: string, key: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setCopiedKey(key);
+      setTimeout(() => setCopiedKey(null), 2500);
+    } catch {
+      // ignore
+    }
+  };
 
   const handleQuickApprove = async (app: Application) => {
     setProcessingAppId(app.id);
@@ -74,7 +97,16 @@ export default function AdminApplicationsList() {
       if (!res.ok) {
         throw new Error(data.message || data.error || 'Failed to approve application.');
       }
-      setActionSuccess(`Application for "${app.businessName}" (${app.email}) has been APPROVED. Activation link dispatched.`);
+      setActionSuccess(`Application for "${app.businessName}" (${app.email}) has been APPROVED.`);
+      if (data.credentials) {
+        setApprovedModalCredentials({
+          businessName: app.businessName,
+          username: data.credentials.username,
+          password: data.credentials.password,
+          loginUrl: data.credentials.loginUrl,
+          welcomeMessage: data.credentials.welcomeMessage,
+        });
+      }
       setApplications((prev) =>
         prev.map((a) => (a.id === app.id ? { ...a, status: 'APPROVED' } : a))
       );
@@ -395,6 +427,102 @@ export default function AdminApplicationsList() {
           </div>
         )}
       </div>
+
+      {/* QUICK APPROVE CREDENTIALS MODAL */}
+      {approvedModalCredentials && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/75 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="bg-slate-900 border border-slate-700 rounded-3xl p-6 sm:p-8 max-w-lg w-full text-white space-y-6 shadow-2xl relative">
+            <button
+              type="button"
+              onClick={() => setApprovedModalCredentials(null)}
+              className="absolute top-5 right-5 p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors cursor-pointer"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center">
+                <Key className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-white">Account Approved!</h3>
+                <p className="text-xs text-slate-400">
+                  Credentials generated for {approvedModalCredentials.businessName}
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-emerald-950/40 border border-emerald-500/30 rounded-2xl p-4 text-xs text-emerald-200 space-y-1">
+              <div className="font-semibold text-emerald-300 flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                Customer Can Now Sign In & Shop
+              </div>
+              <p className="text-slate-300">
+                You can manually copy these credentials or copy the welcome message to send directly to the customer.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4">
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Username (Email)</span>
+                <div className="flex items-center justify-between mt-1">
+                  <span className="font-mono text-sm text-white font-medium select-all">{approvedModalCredentials.username}</span>
+                  <button
+                    type="button"
+                    onClick={() => handleCopy(approvedModalCredentials.username, 'modal_email')}
+                    className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors cursor-pointer"
+                    title="Copy Username"
+                  >
+                    {copiedKey === 'modal_email' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                  </button>
+                </div>
+              </div>
+
+              <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4">
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+                  Assigned 10-Digit Password (Upper, Lower, Number, Symbol)
+                </span>
+                <div className="flex items-center justify-between mt-1">
+                  <span className="font-mono text-base font-bold tracking-wider text-emerald-400 select-all">
+                    {approvedModalCredentials.password}
+                  </span>
+                  <button
+                    type="button"
+                    onClick={() => handleCopy(approvedModalCredentials.password, 'modal_password')}
+                    className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors cursor-pointer"
+                    title="Copy Password"
+                  >
+                    {copiedKey === 'modal_password' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-2 flex flex-col sm:flex-row items-center justify-between gap-3">
+              <button
+                type="button"
+                onClick={() => {
+                  const msg = approvedModalCredentials.welcomeMessage ||
+                    `Hello ${approvedModalCredentials.businessName},\n\nYour Wholesale of Oklahoma account has been approved!\n\nYou can now log in at https://www.wholesaleofoklahoma.com with:\nUsername: ${approvedModalCredentials.username}\nPassword: ${approvedModalCredentials.password}\n\nOnce logged in, wholesale pricing and ordering will be unlocked.\n\nThank you,\nWholesale of Oklahoma`;
+                  handleCopy(msg, 'modal_msg');
+                }}
+                className="w-full sm:w-auto px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white font-medium text-xs flex items-center justify-center gap-2 cursor-pointer border border-white/15 transition-colors"
+              >
+                {copiedKey === 'modal_msg' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                {copiedKey === 'modal_msg' ? 'Message Copied!' : 'Copy Welcome Message'}
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setApprovedModalCredentials(null)}
+                className="w-full sm:w-auto px-6 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
+              >
+                Done
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

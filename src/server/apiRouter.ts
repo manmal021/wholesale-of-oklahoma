@@ -51,7 +51,7 @@ import {
   type OrderRecord,
 } from './databaseStore.js';
 import { emailService, ADMIN_EMAIL } from './emailService.js';
-import { authStore, type UserRole, type SessionRecord } from './authStore.js';
+import { authStore, generateCustomerPassword, type UserRole, type SessionRecord } from './authStore.js';
 import { documentStore } from './documentStore.js';
 import { productImageRegistry } from './productImageRegistry.js';
 import { PRODUCTS } from '../lib/productDatabase.js';
@@ -2071,7 +2071,23 @@ apiApp.get(
       return err(res, 404, `Customer or application ${id} not found.`);
     }
 
-    return ok(res, { success: true, application: app, customer });
+    const effectiveEmail = customer?.email || app?.email || '';
+    const assignedPassword =
+      customer?.temporaryPassword ||
+      app?.assignedPassword ||
+      (effectiveEmail ? authStore.getAssignedPassword(effectiveEmail) : undefined);
+
+    const credentials =
+      assignedPassword && effectiveEmail
+        ? {
+            username: effectiveEmail,
+            password: assignedPassword,
+            loginUrl: '/account/login',
+            welcomeMessage: `Welcome to Wholesale of Oklahoma!\nYour wholesale purchasing account for "${customer?.businessName || app?.businessName}" has been approved.\n\nLogin Credentials:\nUsername: ${effectiveEmail}\nPassword: ${assignedPassword}\n\nSign in here: https://www.wholesaleofoklahoma.com/account/login`,
+          }
+        : undefined;
+
+    return ok(res, { success: true, application: app, customer, assignedPassword, credentials });
   }
 );
 
@@ -2119,18 +2135,23 @@ const handleCustomerApproval = async (req: Request, res: Response) => {
     return err(res, 403, 'Unauthorized approval attempt.');
   }
 
+  // Generate random 10-character password containing uppercase, lowercase, number, and symbols
+  const generatedPassword = generateCustomerPassword(10);
+
   if (app) {
-    customer = databaseStore.createOrUpdateCustomerFromApplication(app, adminId);
+    customer = databaseStore.createOrUpdateCustomerFromApplication(app, adminId, generatedPassword);
   } else if (customer) {
     customer = databaseStore.reactivateCustomer(customer.id, adminId);
+    customer = databaseStore.setCustomerTemporaryPassword(customer.id, generatedPassword);
   }
 
   if (!customer) {
     return err(res, 500, 'Could not create customer record.');
   }
 
-  // Provision customer in authStore with approved_customer role
-  authStore.provisionCustomer(customer);
+  // Provision customer in authStore with approved_customer role and assigned password
+  authStore.provisionCustomer(customer, generatedPassword);
+  authStore.setPassword(customer.email, generatedPassword);
   authStore.updateUserRole(customer.email, 'approved_customer');
 
   // Generate single-use 48h activation token
@@ -2148,26 +2169,34 @@ const handleCustomerApproval = async (req: Request, res: Response) => {
     targetEmail: customer.email,
     adminId,
     adminEmail,
-    details: { customerId: customer.id, applicationId: app?.id },
+    details: { customerId: customer.id, applicationId: app?.id, assignedPasswordLength: generatedPassword.length },
   });
 
-  // Send Activation Email to customer
+  // Dispatch Approval Email (including credentials)
   if (app) {
-    try {
-      await emailService.sendCustomerAccountApproved(app, tokenRecord.token);
-    } catch (emailErr: any) {
-      console.warn('[API /admin/approve] Email send error:', emailErr.message);
-    }
+    emailService.sendCustomerAccountApproved(app, generatedPassword, tokenRecord.token).catch((emailErr) => {
+      console.warn('[API /admin/approve] Email send warning:', emailErr.message);
+    });
   }
 
-  console.log(`[API /admin/approve] 🟢 Approved customer ${customer.businessName} (${customer.email}) by ${adminEmail}`);
+  console.log(`[API /admin/approve] 🟢 Approved customer ${customer.businessName} (${customer.email}) by ${adminEmail} with 10-char password assigned.`);
+
+  const siteUrl = 'https://www.wholesaleofoklahoma.com';
+  const welcomeMessage = `Welcome to Wholesale of Oklahoma!\nYour wholesale purchasing account for "${customer.businessName}" has been approved.\n\nLogin Credentials:\nUsername: ${customer.email}\nPassword: ${generatedPassword}\n\nSign in here: ${siteUrl}/account/login`;
 
   return ok(res, {
     success: true,
     status: 'APPROVED',
-    message: `Account approved. Activation email dispatched to ${customer.email}.`,
+    message: `Account approved for ${customer.businessName}. Assigned password: ${generatedPassword}`,
     customer,
     application: app,
+    assignedPassword: generatedPassword,
+    credentials: {
+      username: customer.email,
+      password: generatedPassword,
+      loginUrl: '/account/login',
+      welcomeMessage,
+    },
     activationToken: tokenRecord.token,
     activationUrl: `/activate?token=${tokenRecord.token}`,
   });
@@ -2224,6 +2253,8 @@ const handleCustomerRejection = async (req: Request, res: Response) => {
   const targetEmail = app?.email || customer?.email || '';
   if (targetEmail) {
     authStore.updateUserRole(targetEmail, 'visitor');
+    authStore.clearPassword(targetEmail);
+    authStore.revokeSessionsForEmail(targetEmail);
   }
 
   databaseStore.addAuditLog({
@@ -2531,6 +2562,118 @@ apiApp.delete(
     return ok(res, {
       success: true,
       message: `Customer ${id} and associated auth user removed.`,
+    });
+  }
+);
+
+/**
+ * POST /api/admin/applications/:id/reset-password & /api/admin/customers/:id/reset-password
+ * Regenerates a random 10-character password on demand for an approved customer.
+ */
+apiApp.post(
+  [
+    '/admin/applications/:id/reset-password',
+    '/api/admin/applications/:id/reset-password',
+    '/admin/customer-applications/:id/reset-password',
+    '/api/admin/customer-applications/:id/reset-password',
+    '/admin/customers/:id/reset-password',
+    '/api/admin/customers/:id/reset-password',
+  ],
+  requireAdminAuth,
+  (req: Request, res: Response) => {
+    const id = req.params.id;
+    let app = databaseStore.getApplication(id);
+    let customer = databaseStore.getCustomer(id);
+    if (!app && customer?.applicationId) app = databaseStore.getApplication(customer.applicationId);
+    if (!customer && app?.customerId) customer = databaseStore.getCustomer(app.customerId);
+    if (!customer && app?.email) customer = databaseStore.getCustomerByEmail(app.email);
+
+    const email = customer?.email || app?.email;
+    if (!email) {
+      return err(res, 404, `Customer or application ${id} not found.`);
+    }
+
+    const newPassword = generateCustomerPassword(10);
+    authStore.setPassword(email, newPassword);
+    authStore.updateUserRole(email, 'approved_customer');
+
+    if (customer) {
+      databaseStore.setCustomerTemporaryPassword(customer.id, newPassword);
+    }
+    if (app) {
+      app.assignedPassword = newPassword;
+      databaseStore.persistToDisk();
+    }
+
+    const businessName = customer?.businessName || app?.businessName || 'Wholesale Partner';
+    const welcomeMessage = `Welcome to Wholesale of Oklahoma!\nYour wholesale purchasing account for "${businessName}" has been updated.\n\nLogin Credentials:\nUsername: ${email}\nPassword: ${newPassword}\n\nSign in here: https://www.wholesaleofoklahoma.com/account/login`;
+
+    return ok(res, {
+      success: true,
+      message: `New random 10-character password generated for ${email}.`,
+      credentials: {
+        username: email,
+        password: newPassword,
+        welcomeMessage,
+      },
+    });
+  }
+);
+
+/**
+ * POST /api/admin/applications/:id/send-credentials & /api/admin/customers/:id/send-credentials
+ * Emails the credentials directly to the customer.
+ */
+apiApp.post(
+  [
+    '/admin/applications/:id/send-credentials',
+    '/api/admin/applications/:id/send-credentials',
+    '/admin/customer-applications/:id/send-credentials',
+    '/api/admin/customer-applications/:id/send-credentials',
+    '/admin/customers/:id/send-credentials',
+    '/api/admin/customers/:id/send-credentials',
+  ],
+  requireAdminAuth,
+  async (req: Request, res: Response) => {
+    const id = req.params.id;
+    let app = databaseStore.getApplication(id);
+    let customer = databaseStore.getCustomer(id);
+    if (!app && customer?.applicationId) app = databaseStore.getApplication(customer.applicationId);
+    if (!customer && app?.customerId) customer = databaseStore.getCustomer(app.customerId);
+    if (!customer && app?.email) customer = databaseStore.getCustomerByEmail(app.email);
+
+    const email = customer?.email || app?.email;
+    if (!email) {
+      return err(res, 404, `Customer or application ${id} not found.`);
+    }
+
+    let password = customer?.temporaryPassword || app?.assignedPassword || authStore.getAssignedPassword(email);
+    if (!password) {
+      password = generateCustomerPassword(10);
+      authStore.setPassword(email, password);
+      authStore.updateUserRole(email, 'approved_customer');
+      if (customer) databaseStore.setCustomerTemporaryPassword(customer.id, password);
+      if (app) {
+        app.assignedPassword = password;
+        databaseStore.persistToDisk();
+      }
+    }
+
+    const businessName = customer?.businessName || app?.businessName || 'Wholesale Partner';
+
+    try {
+      await emailService.sendCustomerCredentialsEmail(email, businessName, password);
+    } catch (emailErr: any) {
+      console.warn('[API /admin/send-credentials] Warning: email dispatch issue:', emailErr.message);
+    }
+
+    return ok(res, {
+      success: true,
+      message: `Credentials successfully dispatched to ${email}.`,
+      credentials: {
+        username: email,
+        password,
+      },
     });
   }
 );

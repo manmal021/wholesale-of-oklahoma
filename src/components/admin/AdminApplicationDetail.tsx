@@ -17,7 +17,12 @@ import {
   AlertCircle,
   Download,
   Check,
-  X
+  X,
+  Copy,
+  Key,
+  Eye,
+  EyeOff,
+  Send
 } from 'lucide-react';
 
 interface ApplicationDetailProps {
@@ -52,6 +57,7 @@ interface ApplicationData {
   reviewedBy?: string;
   reviewNotes?: string;
   customerId?: string;
+  assignedPassword?: string;
   documents?: Array<{
     id?: string;
     documentId?: string;
@@ -78,6 +84,28 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
   const [suspendReason, setSuspendReason] = useState('');
   const [isProcessingAction, setIsProcessingAction] = useState(false);
 
+  // Credentials & Password state
+  const [assignedCredentials, setAssignedCredentials] = useState<{
+    username: string;
+    password: string;
+    welcomeMessage?: string;
+  } | null>(null);
+  const [credentialsModalOpen, setCredentialsModalOpen] = useState(false);
+  const [showPassword, setShowPassword] = useState(true);
+  const [copiedKey, setCopiedKey] = useState<string | null>(null);
+  const [isResettingPassword, setIsResettingPassword] = useState(false);
+  const [isSendingCredentials, setIsSendingCredentials] = useState(false);
+
+  const handleCopy = (text: string, key: string) => {
+    try {
+      if (typeof navigator !== 'undefined' && navigator.clipboard) {
+        navigator.clipboard.writeText(text);
+      }
+      setCopiedKey(key);
+      setTimeout(() => setCopiedKey(null), 2500);
+    } catch (_) {}
+  };
+
   const fetchDetail = async () => {
     setIsLoading(true);
     setErrorMessage(null);
@@ -101,6 +129,18 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
 
       setApp(data.application);
       if (data.customer) setCustomer(data.customer);
+
+      if (data.credentials) {
+        setAssignedCredentials(data.credentials);
+      } else if (data.assignedPassword || data.application.assignedPassword || data.customer?.temporaryPassword) {
+        const pwd = data.assignedPassword || data.application.assignedPassword || data.customer?.temporaryPassword;
+        const email = data.application.email || data.customer?.email;
+        setAssignedCredentials({
+          username: email,
+          password: pwd,
+          welcomeMessage: `Welcome to Wholesale of Oklahoma!\nYour wholesale purchasing account for "${data.application.businessName}" has been approved.\n\nLogin Credentials:\nUsername: ${email}\nPassword: ${pwd}\n\nSign in here: https://www.wholesaleofoklahoma.com/account/login`,
+        });
+      }
     } catch (err: any) {
       setErrorMessage(err.message || 'Failed to load application.');
     } finally {
@@ -134,13 +174,73 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
       }
       setConfirmApproveOpen(false);
       setActionError(null);
-      setActionSuccess(`ACCOUNT APPROVED! Activation invitation dispatched to ${data.customer?.email || app?.email}.`);
+      if (data.credentials) {
+        setAssignedCredentials(data.credentials);
+        setCredentialsModalOpen(true);
+      }
+      setActionSuccess(`ACCOUNT APPROVED! Random 10-character password assigned for ${data.customer?.email || app?.email}.`);
       fetchDetail();
     } catch (err: any) {
       setActionError(err.message || 'Approval failed.');
       setErrorMessage(err.message || 'Approval failed.');
     } finally {
       setIsProcessingAction(false);
+    }
+  };
+
+  const handleResetPassword = async () => {
+    if (!confirm('Generate a new random 10-character password for this customer?')) return;
+    setIsResettingPassword(true);
+    setActionError(null);
+    try {
+      const token = typeof window !== 'undefined' ? (localStorage.getItem('woo_session_token') || '') : '';
+      const headers: Record<string, string> = {
+        'Content-Type': 'application/json',
+        ...(token ? { 'x-session-token': token } : {}),
+      };
+
+      const res = await fetch(`/api/admin/applications/${applicationId}/reset-password`, {
+        method: 'POST',
+        headers,
+        credentials: 'same-origin',
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || 'Failed to reset password.');
+      if (data.credentials) {
+        setAssignedCredentials(data.credentials);
+        setCredentialsModalOpen(true);
+      }
+      setActionSuccess('New 10-character password generated successfully!');
+      fetchDetail();
+    } catch (err: any) {
+      setActionError(err.message || 'Password generation failed.');
+    } finally {
+      setIsResettingPassword(false);
+    }
+  };
+
+  const handleSendCredentials = async () => {
+    setIsSendingCredentials(true);
+    setActionError(null);
+    try {
+      const token = typeof window !== 'undefined' ? (localStorage.getItem('woo_session_token') || '') : '';
+      const headers: Record<string, string> = {
+        'Content-Type': 'application/json',
+        ...(token ? { 'x-session-token': token } : {}),
+      };
+
+      const res = await fetch(`/api/admin/applications/${applicationId}/send-credentials`, {
+        method: 'POST',
+        headers,
+        credentials: 'same-origin',
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || 'Failed to dispatch credentials email.');
+      setActionSuccess(`Login credentials successfully emailed to ${app?.email}.`);
+    } catch (err: any) {
+      setActionError(err.message || 'Email dispatch failed.');
+    } finally {
+      setIsSendingCredentials(false);
     }
   };
 
@@ -496,6 +596,146 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
               </div>
             )}
 
+            {/* ASSIGNED ACCESS CREDENTIALS CARD */}
+            {app.status === 'APPROVED' && (
+              <div className="bg-gradient-to-r from-emerald-950/90 via-slate-900 to-indigo-950/90 border border-emerald-500/30 rounded-3xl p-6 sm:p-7 text-white shadow-xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-80 h-80 bg-emerald-500/10 rounded-full blur-3xl pointer-events-none -mr-20 -mt-20" />
+                
+                <div className="relative z-10 flex flex-col md:flex-row md:items-start justify-between gap-6">
+                  <div className="space-y-2">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-9 h-9 rounded-xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center">
+                        <Key className="w-5 h-5" />
+                      </div>
+                      <div>
+                        <h3 className="text-base font-bold text-white flex items-center gap-2">
+                          Customer Login & Access Credentials
+                          <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 text-[10px] font-semibold tracking-wide border border-emerald-500/30 uppercase">
+                            Active Account
+                          </span>
+                        </h3>
+                        <p className="text-xs text-slate-300">
+                          These credentials allow the customer to sign in to the portal and shop at wholesale pricing.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => setCredentialsModalOpen(true)}
+                      className="px-3.5 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold tracking-wide border border-white/15 transition-all flex items-center gap-1.5 cursor-pointer"
+                    >
+                      <Eye className="w-3.5 h-3.5" />
+                      Full Credentials View
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleResetPassword}
+                      disabled={isResettingPassword}
+                      className="px-3.5 py-2 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 text-xs font-semibold tracking-wide border border-amber-500/30 transition-all flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
+                      title="Generate a new 10-digit secure password"
+                    >
+                      <RefreshCw className={`w-3.5 h-3.5 ${isResettingPassword ? 'animate-spin' : ''}`} />
+                      {isResettingPassword ? 'Regenerating...' : 'Regenerate'}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleSendCredentials}
+                      disabled={isSendingCredentials}
+                      className="px-4 py-2 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold tracking-wide transition-all shadow-md flex items-center gap-1.5 cursor-pointer disabled:opacity-50"
+                    >
+                      <Send className="w-3.5 h-3.5" />
+                      {isSendingCredentials ? 'Sending...' : 'Email Credentials'}
+                    </button>
+                  </div>
+                </div>
+
+                <div className="mt-5 grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {/* Username Field */}
+                  <div className="bg-slate-950/60 border border-white/10 rounded-2xl p-4 flex items-center justify-between gap-3">
+                    <div className="min-w-0">
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+                        Login Username (Email)
+                      </span>
+                      <span className="font-mono text-sm text-white font-medium truncate block select-all">
+                        {app.email}
+                      </span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => handleCopy(app.email, 'email')}
+                      className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 transition-colors shrink-0 cursor-pointer"
+                      title="Copy Username"
+                    >
+                      {copiedKey === 'email' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                    </button>
+                  </div>
+
+                  {/* Password Field */}
+                  <div className="bg-slate-950/60 border border-white/10 rounded-2xl p-4 flex items-center justify-between gap-3">
+                    <div className="min-w-0 flex-1">
+                      <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+                        Assigned 10-Digit Password
+                      </span>
+                      <div className="flex items-center gap-2 mt-0.5">
+                        <span className="font-mono text-sm font-bold tracking-wider text-emerald-400 truncate">
+                          {showPassword 
+                            ? (assignedCredentials?.password || app.assignedPassword || '••••••••••') 
+                            : '••••••••••'}
+                        </span>
+                        <span className="text-[10px] text-slate-400 hidden sm:inline">
+                          (Upper, Lower, Number, Symbol)
+                        </span>
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-1.5 shrink-0">
+                      <button
+                        type="button"
+                        onClick={() => setShowPassword(!showPassword)}
+                        className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 transition-colors cursor-pointer"
+                        title={showPassword ? 'Hide Password' : 'Show Password'}
+                      >
+                        {showPassword ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => {
+                          const pwd = assignedCredentials?.password || app.assignedPassword;
+                          if (pwd) handleCopy(pwd, 'password');
+                        }}
+                        className="p-2 rounded-lg bg-white/5 hover:bg-white/10 text-slate-300 hover:text-white border border-white/10 transition-colors cursor-pointer"
+                        title="Copy Password"
+                      >
+                        {copiedKey === 'password' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Manual Sharing helper */}
+                <div className="mt-4 pt-4 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-slate-300">
+                  <div className="flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 text-amber-400 shrink-0" />
+                    <span>Admin manual delivery: You can send these credentials directly via email, SMS, or copy the welcome script.</span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => {
+                      const pwd = assignedCredentials?.password || app.assignedPassword || '';
+                      const msg = `Hello ${app.contactName || app.businessName},\n\nYour Wholesale of Oklahoma account has been approved!\n\nYou can now log in at https://www.wholesaleofoklahoma.com with:\nUsername: ${app.email}\nPassword: ${pwd}\n\nOnce logged in, wholesale pricing and ordering will be unlocked.\n\nThank you,\nWholesale of Oklahoma`;
+                      handleCopy(msg, 'message');
+                    }}
+                    className="px-3 py-1.5 rounded-lg bg-white/5 hover:bg-white/10 text-emerald-300 border border-emerald-500/20 text-[11px] font-medium flex items-center gap-1.5 transition-colors cursor-pointer"
+                  >
+                    {copiedKey === 'message' ? <Check className="w-3.5 h-3.5 text-emerald-400" /> : <Copy className="w-3.5 h-3.5" />}
+                    {copiedKey === 'message' ? 'Message Copied!' : 'Copy Welcome Message'}
+                  </button>
+                </div>
+              </div>
+            )}
+
             {/* ACTION TOOLBAR */}
             <div className="bg-white border border-slate-200 rounded-3xl p-6 flex flex-wrap items-center justify-between gap-4 shadow-xs">
               <div className="text-xs text-slate-500">
@@ -746,6 +986,101 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
                 className="px-5 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center gap-2 cursor-pointer"
               >
                 {isProcessingAction ? 'Reactivating...' : 'Reactivate Account'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* CREDENTIALS DIALOG MODAL */}
+      {credentialsModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/75 backdrop-blur-sm animate-in fade-in duration-200">
+          <div className="bg-slate-900 border border-slate-700 rounded-3xl p-6 sm:p-8 max-w-lg w-full text-white space-y-6 shadow-2xl relative">
+            <button
+              type="button"
+              onClick={() => setCredentialsModalOpen(false)}
+              className="absolute top-5 right-5 p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors cursor-pointer"
+            >
+              <X className="w-5 h-5" />
+            </button>
+
+            <div className="flex items-center gap-3">
+              <div className="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 flex items-center justify-center">
+                <Key className="w-6 h-6" />
+              </div>
+              <div>
+                <h3 className="text-lg font-bold text-white">Customer Access Credentials</h3>
+                <p className="text-xs text-slate-400">
+                  Approved account credentials for {app?.businessName}
+                </p>
+              </div>
+            </div>
+
+            <div className="bg-emerald-950/40 border border-emerald-500/30 rounded-2xl p-4 text-xs text-emerald-200 space-y-1">
+              <div className="font-semibold text-emerald-300 flex items-center gap-1.5">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400" />
+                Account Approved & Portal Access Enabled
+              </div>
+              <p className="text-slate-300">
+                The customer can now log in at <strong>wholesaleofoklahoma.com</strong> using their email address and the assigned 10-digit password below.
+              </p>
+            </div>
+
+            <div className="space-y-3">
+              <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4">
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Username (Email)</span>
+                <div className="flex items-center justify-between mt-1">
+                  <span className="font-mono text-sm text-white font-medium select-all">{app?.email}</span>
+                  <button
+                    type="button"
+                    onClick={() => app?.email && handleCopy(app.email, 'modal_email')}
+                    className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors cursor-pointer"
+                  >
+                    {copiedKey === 'modal_email' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                  </button>
+                </div>
+              </div>
+
+              <div className="bg-slate-950/80 border border-slate-800 rounded-2xl p-4">
+                <span className="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">
+                  Assigned 10-Digit Password (Upper, Lower, Number, Symbol)
+                </span>
+                <div className="flex items-center justify-between mt-1">
+                  <span className="font-mono text-base font-bold tracking-wider text-emerald-400 select-all">
+                    {assignedCredentials?.password || app?.assignedPassword || '••••••••••'}
+                  </span>
+                  <div className="flex items-center gap-1.5">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const pwd = assignedCredentials?.password || app?.assignedPassword;
+                        if (pwd) handleCopy(pwd, 'modal_password');
+                      }}
+                      className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 transition-colors cursor-pointer"
+                    >
+                      {copiedKey === 'modal_password' ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
+              <button
+                type="button"
+                onClick={handleSendCredentials}
+                disabled={isSendingCredentials}
+                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs uppercase tracking-wider transition-colors flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50"
+              >
+                <Send className="w-4 h-4" />
+                {isSendingCredentials ? 'Sending Email...' : 'Email to Customer'}
+              </button>
+              <button
+                type="button"
+                onClick={() => setCredentialsModalOpen(false)}
+                className="w-full sm:w-auto px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-semibold text-xs tracking-wider transition-colors cursor-pointer"
+              >
+                Close
               </button>
             </div>
           </div>

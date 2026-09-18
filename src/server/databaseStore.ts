@@ -51,6 +51,7 @@ export interface WholesaleApplicationRecord {
   reviewedBy?: string;
   reviewNotes?: string;
   customerId?: string;
+  assignedPassword?: string;
 }
 
 export interface CustomerRecord {
@@ -76,6 +77,8 @@ export interface CustomerRecord {
   approvedAt?: string;
   approvedBy?: string;
   activatedAt?: string;
+  temporaryPassword?: string;
+  temporaryPasswordAssignedAt?: string;
   suspendedAt?: string;
   suspendedBy?: string;
   suspendedReason?: string;
@@ -873,13 +876,24 @@ class DatabaseStore {
     adminId: string,
     reviewNotes?: string
   ): WholesaleApplicationRecord | null {
-    const app = this.applications.get(id);
+    const app = this.getApplication(id);
     if (!app) return null;
 
     app.status = status;
     app.reviewedAt = new Date().toISOString();
     app.reviewedBy = adminId;
     if (reviewNotes) app.reviewNotes = reviewNotes;
+
+    if (status === 'REJECTED') {
+      app.assignedPassword = undefined;
+      if (app.customerId) {
+        const cust = this.getCustomer(app.customerId);
+        if (cust) {
+          cust.temporaryPassword = undefined;
+          cust.temporaryPasswordAssignedAt = undefined;
+        }
+      }
+    }
 
     this.persistToDisk();
     return app;
@@ -900,7 +914,8 @@ class DatabaseStore {
 
   public createOrUpdateCustomerFromApplication(
     app: WholesaleApplicationRecord,
-    approvedByAdminId: string
+    approvedByAdminId: string,
+    temporaryPassword?: string
   ): CustomerRecord {
     const cleanEmail = app.email.toLowerCase().trim();
     let customer = this.customersByEmail.get(cleanEmail);
@@ -919,6 +934,10 @@ class DatabaseStore {
       customer.licenseNumber = app.licenseNumber;
       customer.businessType = app.businessType;
       customer.address = app.address;
+      if (temporaryPassword) {
+        customer.temporaryPassword = temporaryPassword;
+        customer.temporaryPasswordAssignedAt = now;
+      }
     } else {
       const id = `cust_${crypto.randomBytes(8).toString('hex')}`;
       customer = {
@@ -937,16 +956,40 @@ class DatabaseStore {
         createdAt: now,
         approvedAt: now,
         approvedBy: approvedByAdminId,
+        temporaryPassword: temporaryPassword || undefined,
+        temporaryPasswordAssignedAt: temporaryPassword ? now : undefined,
       };
       this.customers.set(id, customer);
       this.customersByEmail.set(cleanEmail, customer);
     }
 
+    if (temporaryPassword) {
+      app.assignedPassword = temporaryPassword;
+    }
     app.customerId = customer.id;
     app.status = 'APPROVED';
     app.reviewedAt = now;
     app.reviewedBy = approvedByAdminId;
 
+    this.persistToDisk();
+    return customer;
+  }
+
+  public setCustomerTemporaryPassword(
+    idOrEmail: string,
+    password: string
+  ): CustomerRecord | undefined {
+    let customer = this.getCustomer(idOrEmail) || this.getCustomerByEmail(idOrEmail);
+    if (!customer) return undefined;
+    const now = new Date().toISOString();
+    customer.temporaryPassword = password;
+    customer.temporaryPasswordAssignedAt = now;
+    if (customer.applicationId) {
+      const app = this.getApplication(customer.applicationId);
+      if (app) {
+        app.assignedPassword = password;
+      }
+    }
     this.persistToDisk();
     return customer;
   }
