@@ -208,7 +208,7 @@ class EmailService {
     if (smtpHost || (smtpUser && smtpPass)) {
       try {
         console.log(`[EmailService] 📤 Dispatching email to ${options.to} via SMTP...`);
-        let transporter: nodemailer.Transporter;
+        let transporter: any;
 
         if (smtpUser && (smtpUser.endsWith('@gmail.com') || process.env.GMAIL_USER || process.env.GMAIL_APP_PASSWORD)) {
           transporter = nodemailer.createTransport({

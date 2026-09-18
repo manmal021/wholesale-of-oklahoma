@@ -1938,6 +1938,17 @@ apiApp.get(['/admin/stats', '/api/admin/stats'], requireAdminAuth, (_req: Reques
 });
 
 /**
+ * POST /api/admin/purge-data
+ * Completely resets and clears all customer applications, approved accounts, orders,
+ * inventory mismatches, and audit logs, keeping administrative accounts safe.
+ */
+apiApp.post(['/admin/purge-data', '/api/admin/purge-data'], requireAdminAuth, (_req: Request, res: Response) => {
+  databaseStore.purgeAllCustomerData();
+  const stats = databaseStore.getDashboardStats();
+  return ok(res, { success: true, message: 'All customer and portal data has been purged.', stats });
+});
+
+/**
  * GET /api/admin/applications
  * Returns filtered list of wholesale customer applications.
  */

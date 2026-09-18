@@ -8,4 +8,6 @@ coverage/
 !.env.example
 storage/
 *.pem
+*.backup.*.json
+
 

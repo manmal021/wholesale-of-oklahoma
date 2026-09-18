@@ -21,6 +21,8 @@ test.before(async () => {
   // Clean test admin state to ensure deterministic initial bootstrap
   authStore.deleteUser(TEST_ADMIN_EMAIL);
   authStore.ensureInitialAdmin(TEST_ADMIN_EMAIL);
+  databaseStore.seedDemoAccounts();
+  authStore.seedRetailerTestAccount();
 
   await new Promise<void>((resolve) => {
     server = http.createServer(apiApp);
@@ -33,6 +35,7 @@ test.before(async () => {
 });
 
 test.after(async () => {
+  databaseStore.purgeAllCustomerData();
   await new Promise<void>((resolve) => server.close(() => resolve()));
 });
 

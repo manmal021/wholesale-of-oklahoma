@@ -8,6 +8,9 @@ import { inventoryStore } from '../src/server/inventoryStore.js';
 import { wholesaleStore } from '../src/server/wholesaleStore.js';
 import { PRODUCTS } from '../src/lib/productDatabase.js';
 
+import { databaseStore } from '../src/server/databaseStore.js';
+import { authStore } from '../src/server/authStore.js';
+
 // Setup test server instance
 let server: http.Server;
 let baseUrl: string;
@@ -16,6 +19,10 @@ const TEST_ADMIN_KEY = 'test_production_hardening_secret_key_2026';
 test.before(async () => {
   process.env.ADMIN_SECRET_KEY = TEST_ADMIN_KEY;
   process.env.NODE_ENV = 'production'; // Enforce strict production auth checks
+
+  // Ensure test fixtures are available for this suite
+  databaseStore.seedDemoAccounts();
+  authStore.seedRetailerTestAccount();
 
   await new Promise<void>((resolve) => {
     server = http.createServer(apiApp);
@@ -28,6 +35,7 @@ test.before(async () => {
 });
 
 test.after(async () => {
+  databaseStore.purgeAllCustomerData();
   await new Promise<void>((resolve) => server.close(() => resolve()));
 });
 

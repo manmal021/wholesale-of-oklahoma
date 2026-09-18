@@ -653,85 +653,129 @@ class DatabaseStore {
     }
   }
 
+  public purgeAllCustomerData(): void {
+    this.applications.clear();
+    this.applicationsByEmail.clear();
+    this.customers.clear();
+    this.customersByEmail.clear();
+    this.tokens.clear();
+    this.auditLogs = [];
+    this.orders.clear();
+    this.ordersByCustomerEmail.clear();
+    this.inventoryMismatches.clear();
+    this.inventoryOverrides.clear();
+    this.customerAddresses.clear();
+
+    // Preserve only administrator users
+    for (const [email, user] of this.users.entries()) {
+      if (user.role !== 'admin') {
+        this.users.delete(email);
+      }
+    }
+
+    // Clean up uploaded document files
+    try {
+      const docDir = path.join(STORAGE_DIR, 'documents');
+      if (fs.existsSync(docDir)) {
+        for (const file of fs.readdirSync(docDir)) {
+          if (file.endsWith('.pdf') || file.endsWith('.jpg') || file.endsWith('.png')) {
+            try {
+              fs.unlinkSync(path.join(docDir, file));
+            } catch (_) {}
+          }
+        }
+      }
+    } catch (_) {}
+
+    this.persistToDisk();
+    console.log('[DatabaseStore] 🧹 All customer, application, order, and audit log data has been purged.');
+  }
+
+  public seedDemoAccounts(): void {
+    const seedAppId = 'WOA-APP-10001';
+    const seedCustomerId = 'cust_okcvapor10001';
+    const seedApp: WholesaleApplicationRecord = {
+      id: seedAppId,
+      businessName: 'OKC Vapor Lounge LLC',
+      dba: 'OKC Vapor',
+      contactFirstName: 'Alex',
+      contactLastName: 'Mercer',
+      contactName: 'Alex Mercer',
+      email: 'alex@okcvaporlounge.com',
+      phone: '(405) 555-0199',
+      fein: '73-1234567',
+      licenseNumber: 'OK-TOB-89214',
+      businessType: 'vape_shop',
+      address: {
+        street: '123 SW 29th St',
+        city: 'Oklahoma City',
+        state: 'OK',
+        zip: '73109',
+      },
+      ageCertified: true,
+      taxExemptCertified: true,
+      status: 'APPROVED',
+      submittedAt: new Date(Date.now() - 7 * 86400000).toISOString(),
+      reviewedAt: new Date(Date.now() - 6 * 86400000).toISOString(),
+      reviewedBy: 'system_admin',
+      reviewNotes: 'Verified OTC Resale Permit and FEIN with Oklahoma Tax Commission.',
+      customerId: seedCustomerId,
+    };
+
+    const seedCustomer: CustomerRecord = {
+      id: seedCustomerId,
+      applicationId: seedAppId,
+      businessName: seedApp.businessName,
+      dba: seedApp.dba,
+      contactName: seedApp.contactName,
+      email: seedApp.email,
+      phone: seedApp.phone,
+      fein: seedApp.fein,
+      licenseNumber: seedApp.licenseNumber,
+      businessType: seedApp.businessType,
+      address: seedApp.address,
+      status: 'APPROVED',
+      createdAt: seedApp.submittedAt,
+      approvedAt: seedApp.reviewedAt,
+      approvedBy: 'system_admin',
+      activatedAt: seedApp.reviewedAt,
+    };
+
+    const retailerCust: CustomerRecord = {
+      id: 'cust_retailer01',
+      applicationId: seedAppId,
+      businessName: 'OKC Vapor Lounge LLC',
+      dba: 'OKC Vapor',
+      contactName: 'Alex Mercer',
+      email: 'retailer@okcvapor.com',
+      phone: '(405) 555-0199',
+      fein: '73-1234567',
+      licenseNumber: 'OK-TOB-89214',
+      businessType: 'vape_shop',
+      address: seedApp.address,
+      status: 'APPROVED',
+      createdAt: seedApp.submittedAt,
+      approvedAt: seedApp.reviewedAt,
+      approvedBy: 'system_admin',
+      activatedAt: seedApp.reviewedAt,
+    };
+
+    this.applications.set(seedAppId, seedApp);
+    this.applicationsByEmail.set(seedApp.email, [seedAppId]);
+    this.applicationsByEmail.set('retailer@okcvapor.com', [seedAppId]);
+    this.customers.set(seedCustomerId, seedCustomer);
+    this.customers.set(retailerCust.id, retailerCust);
+    this.customersByEmail.set(seedApp.email, seedCustomer);
+    this.customersByEmail.set('retailer@okcvapor.com', retailerCust);
+    this.persistToDisk();
+  }
+
   private seedDefaultsIfEmpty(): void {
-    // Seed approved verified account for testing/dispatch if no applications exist
-    if (this.applications.size === 0) {
-      const seedAppId = 'WOA-APP-10001';
-      const seedCustomerId = 'cust_okcvapor10001';
-      const seedApp: WholesaleApplicationRecord = {
-        id: seedAppId,
-        businessName: 'OKC Vapor Lounge LLC',
-        dba: 'OKC Vapor',
-        contactFirstName: 'Alex',
-        contactLastName: 'Mercer',
-        contactName: 'Alex Mercer',
-        email: 'alex@okcvaporlounge.com',
-        phone: '(405) 555-0199',
-        fein: '73-1234567',
-        licenseNumber: 'OK-TOB-89214',
-        businessType: 'vape_shop',
-        address: {
-          street: '123 SW 29th St',
-          city: 'Oklahoma City',
-          state: 'OK',
-          zip: '73109',
-        },
-        ageCertified: true,
-        taxExemptCertified: true,
-        status: 'APPROVED',
-        submittedAt: new Date(Date.now() - 7 * 86400000).toISOString(),
-        reviewedAt: new Date(Date.now() - 6 * 86400000).toISOString(),
-        reviewedBy: 'system_admin',
-        reviewNotes: 'Verified OTC Resale Permit and FEIN with Oklahoma Tax Commission.',
-        customerId: seedCustomerId,
-      };
-
-      const seedCustomer: CustomerRecord = {
-        id: seedCustomerId,
-        applicationId: seedAppId,
-        businessName: seedApp.businessName,
-        dba: seedApp.dba,
-        contactName: seedApp.contactName,
-        email: seedApp.email,
-        phone: seedApp.phone,
-        fein: seedApp.fein,
-        licenseNumber: seedApp.licenseNumber,
-        businessType: seedApp.businessType,
-        address: seedApp.address,
-        status: 'APPROVED',
-        createdAt: seedApp.submittedAt,
-        approvedAt: seedApp.reviewedAt,
-        approvedBy: 'system_admin',
-        activatedAt: seedApp.reviewedAt,
-      };
-
-      const retailerCust: CustomerRecord = {
-        id: 'cust_retailer01',
-        applicationId: seedAppId,
-        businessName: 'OKC Vapor Lounge LLC',
-        dba: 'OKC Vapor',
-        contactName: 'Alex Mercer',
-        email: 'retailer@okcvapor.com',
-        phone: '(405) 555-0199',
-        fein: '73-1234567',
-        licenseNumber: 'OK-TOB-89214',
-        businessType: 'vape_shop',
-        address: seedApp.address,
-        status: 'APPROVED',
-        createdAt: seedApp.submittedAt,
-        approvedAt: seedApp.reviewedAt,
-        approvedBy: 'system_admin',
-        activatedAt: seedApp.reviewedAt,
-      };
-
-      this.applications.set(seedAppId, seedApp);
-      this.applicationsByEmail.set(seedApp.email, [seedAppId]);
-      this.applicationsByEmail.set('retailer@okcvapor.com', [seedAppId]);
-      this.customers.set(seedCustomerId, seedCustomer);
-      this.customers.set(retailerCust.id, retailerCust);
-      this.customersByEmail.set(seedApp.email, seedCustomer);
-      this.customersByEmail.set('retailer@okcvapor.com', retailerCust);
-      this.persistToDisk();
+    // Only seed sample approved account if explicitly requested via SEED_DEMO_DATA=true
+    if (process.env.SEED_DEMO_DATA === 'true') {
+      if (this.applications.size === 0) {
+        this.seedDemoAccounts();
+      }
     }
   }
 

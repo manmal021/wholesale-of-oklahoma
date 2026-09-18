@@ -51,7 +51,17 @@ class AuthStore {
       }
     }
 
-    // 2. Seed pre-verified test account for customer verification if not present
+    // 2. Seed pre-verified test account ONLY if explicitly enabled via SEED_DEMO_DATA=true
+    if (process.env.SEED_DEMO_DATA === 'true') {
+      this.seedRetailerTestAccount();
+    }
+
+
+    // 3. Ensure primary administrator account
+    this.ensureInitialAdmin();
+  }
+
+  public seedRetailerTestAccount(): void {
     if (!this.users.has('retailer@okcvapor.com')) {
       this.seedUser({
         email: 'retailer@okcvapor.com',
@@ -64,9 +74,6 @@ class AuthStore {
         licenseNumber: 'OK-TOB-89214',
       });
     }
-
-    // 3. Ensure primary administrator account
-    this.ensureInitialAdmin();
   }
 
   public ensureInitialAdmin(targetEmail?: string): { user: UserRecord; token?: string } {

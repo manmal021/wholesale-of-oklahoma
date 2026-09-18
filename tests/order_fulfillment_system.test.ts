@@ -788,3 +788,8 @@ test('Security & RBAC: Regular customer cannot access admin order endpoints or m
   });
   assert.equal(idorActionRes.status, 404);
 });
+
+test.after(async () => {
+  databaseStore.purgeAllCustomerData();
+  await new Promise<void>((resolve) => server.close(() => resolve()));
+});
