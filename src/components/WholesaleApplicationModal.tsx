@@ -51,15 +51,16 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
   const [taxExemptCertified, setTaxExemptCertified] = useState(false);
 
   // Document Upload States
-  const [resaleDoc, setResaleDoc] = useState<UploadedDocState>({ file: null, status: 'idle' });
+  const [taxPermitDoc, setTaxPermitDoc] = useState<UploadedDocState>({ file: null, status: 'idle' });
   const [licenseDoc, setLicenseDoc] = useState<UploadedDocState>({ file: null, status: 'idle' });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [duplicateType, setDuplicateType] = useState<'PENDING' | 'APPROVED' | 'REJECTED' | 'SUSPENDED' | null>(null);
   const [applicationSuccess, setApplicationSuccess] = useState<{ id: string; businessName: string; email: string } | null>(null);
+  const [fieldErrors, setFieldErrors] = useState<Record<string, string>>({});
 
-  const resaleInputRef = useRef<HTMLInputElement>(null);
+  const taxPermitInputRef = useRef<HTMLInputElement>(null);
   const licenseInputRef = useRef<HTMLInputElement>(null);
 
   // Close on Escape key
@@ -84,7 +85,7 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
     });
   };
 
-  const uploadDocument = async (file: File, docType: 'resale_certificate' | 'business_license') => {
+  const uploadDocument = async (file: File, docType: 'sales_tax_permit' | 'resale_certificate' | 'business_license') => {
     const base64 = await fileToBase64(file);
     const res = await fetch('/api/wholesale/upload', {
       method: 'POST',
@@ -110,32 +111,68 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
     setErrorMessage(null);
     setDuplicateType(null);
 
+    // ── Front-end field validation ──
+    const newFieldErrors: Record<string, string> = {};
+
     if (!contactFirstName.trim() || !contactLastName.trim()) {
-      setErrorMessage('Please provide both first and last name for the authorized contact.');
-      return;
+      newFieldErrors.contactName = 'Please provide both first and last name for the authorized contact.';
+    }
+
+    const emailRegexFE = /^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$/;
+    if (!email.trim() || !emailRegexFE.test(email.trim())) {
+      newFieldErrors.email = 'Please enter a valid business email address (e.g. purchasing@company.com).';
+    }
+
+    const phoneDigits = phone.replace(/\D/g, '');
+    if (phoneDigits.length < 10) {
+      newFieldErrors.phone = 'Please enter a valid 10-digit phone number (e.g. (405) 555-0199).';
+    }
+
+    if (street.trim().length < 3) {
+      newFieldErrors.street = 'Please enter a valid street address.';
+    }
+    if (city.trim().length < 2) {
+      newFieldErrors.city = 'Please enter a valid city name.';
+    }
+    if (state.trim().length < 2) {
+      newFieldErrors.state = 'State is required (e.g. OK).';
+    }
+    const zipRegexFE = /^\d{5}(-\d{4})?$/;
+    if (!zipRegexFE.test(zip.trim())) {
+      newFieldErrors.zip = 'Enter a valid ZIP code (e.g. 73109).';
+    }
+
+    if (!taxPermitDoc.file) {
+      newFieldErrors.taxPermit = 'A Sales Tax Permit document (JPG, JPEG, PNG, or PDF) is required.';
     }
 
     if (!ageCertified) {
-      setErrorMessage('You must certify that you are at least 21 years of age and authorized to purchase for this business.');
+      newFieldErrors.ageCertified = 'You must certify that you are at least 21 years of age and authorized to purchase for this business.';
+    }
+
+    if (Object.keys(newFieldErrors).length > 0) {
+      setFieldErrors(newFieldErrors);
+      setErrorMessage('Please fix the highlighted fields before submitting.');
       return;
     }
+    setFieldErrors({});
 
     setIsSubmitting(true);
 
     try {
       const uploadedDocs = [];
 
-      // 1. Upload Resale Certificate if selected
-      if (resaleDoc.file) {
+      // 1. Upload Sales Tax Permit (mandatory)
+      if (taxPermitDoc.file) {
         try {
-          const resResale = await uploadDocument(resaleDoc.file, 'resale_certificate');
+          const resPermit = await uploadDocument(taxPermitDoc.file, 'sales_tax_permit');
           uploadedDocs.push({
-            id: resResale.documentId,
-            type: 'resale_certificate',
-            filename: resaleDoc.file.name,
+            id: resPermit.documentId,
+            type: 'sales_tax_permit',
+            filename: taxPermitDoc.file.name,
           });
         } catch (uploadErr: any) {
-          throw new Error(`Resale certificate upload failed: ${uploadErr.message}`);
+          throw new Error(`Sales Tax Permit upload failed: ${uploadErr.message}`);
         }
       }
 
@@ -225,6 +262,7 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
     setApplicationSuccess(null);
     setErrorMessage(null);
     setDuplicateType(null);
+    setFieldErrors({});
     onClose();
   };
 
@@ -448,10 +486,11 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                       type="email"
                       required
                       value={email}
-                      onChange={(e) => setEmail(e.target.value)}
+                      onChange={(e) => { setEmail(e.target.value); setFieldErrors((prev) => ({ ...prev, email: '' })); }}
                       placeholder="purchasing@company.com"
-                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white transition-colors"
+                      className={`w-full bg-slate-50 border rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white transition-colors ${fieldErrors.email ? 'border-rose-400 focus:border-rose-500' : 'border-slate-300 focus:border-[#FF6B00]'}`}
                     />
+                    {fieldErrors.email && <p className="mt-1 text-xs text-rose-600">{fieldErrors.email}</p>}
                   </div>
 
                   <div>
@@ -462,10 +501,11 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                       type="tel"
                       required
                       value={phone}
-                      onChange={(e) => setPhone(e.target.value)}
+                      onChange={(e) => { setPhone(e.target.value); setFieldErrors((prev) => ({ ...prev, phone: '' })); }}
                       placeholder="(405) 555-0199"
-                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white transition-colors"
+                      className={`w-full bg-slate-50 border rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white transition-colors ${fieldErrors.phone ? 'border-rose-400 focus:border-rose-500' : 'border-slate-300 focus:border-[#FF6B00]'}`}
                     />
+                    {fieldErrors.phone && <p className="mt-1 text-xs text-rose-600">{fieldErrors.phone}</p>}
                   </div>
                 </div>
               </div>
@@ -486,10 +526,11 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                       type="text"
                       required
                       value={street}
-                      onChange={(e) => setStreet(e.target.value)}
+                      onChange={(e) => { setStreet(e.target.value); setFieldErrors((prev) => ({ ...prev, street: '' })); }}
                       placeholder="123 SW 29th St"
-                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white transition-colors"
+                      className={`w-full bg-slate-50 border rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white transition-colors ${fieldErrors.street ? 'border-rose-400 focus:border-rose-500' : 'border-slate-300 focus:border-[#FF6B00]'}`}
                     />
+                    {fieldErrors.street && <p className="mt-1 text-xs text-rose-600">{fieldErrors.street}</p>}
                   </div>
 
                   <div>
@@ -500,10 +541,11 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                       type="text"
                       required
                       value={city}
-                      onChange={(e) => setCity(e.target.value)}
+                      onChange={(e) => { setCity(e.target.value); setFieldErrors((prev) => ({ ...prev, city: '' })); }}
                       placeholder="Oklahoma City"
-                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white transition-colors"
+                      className={`w-full bg-slate-50 border rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white transition-colors ${fieldErrors.city ? 'border-rose-400 focus:border-rose-500' : 'border-slate-300 focus:border-[#FF6B00]'}`}
                     />
+                    {fieldErrors.city && <p className="mt-1 text-xs text-rose-600">{fieldErrors.city}</p>}
                   </div>
 
                   <div>
@@ -514,10 +556,11 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                       type="text"
                       required
                       value={state}
-                      onChange={(e) => setState(e.target.value)}
+                      onChange={(e) => { setState(e.target.value); setFieldErrors((prev) => ({ ...prev, state: '' })); }}
                       placeholder="OK"
-                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white transition-colors"
+                      className={`w-full bg-slate-50 border rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white transition-colors ${fieldErrors.state ? 'border-rose-400 focus:border-rose-500' : 'border-slate-300 focus:border-[#FF6B00]'}`}
                     />
+                    {fieldErrors.state && <p className="mt-1 text-xs text-rose-600">{fieldErrors.state}</p>}
                   </div>
 
                   <div>
@@ -528,10 +571,11 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                       type="text"
                       required
                       value={zip}
-                      onChange={(e) => setZip(e.target.value)}
+                      onChange={(e) => { setZip(e.target.value); setFieldErrors((prev) => ({ ...prev, zip: '' })); }}
                       placeholder="73109"
-                      className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white transition-colors"
+                      className={`w-full bg-slate-50 border rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none focus:bg-white transition-colors ${fieldErrors.zip ? 'border-rose-400 focus:border-rose-500' : 'border-slate-300 focus:border-[#FF6B00]'}`}
                     />
+                    {fieldErrors.zip && <p className="mt-1 text-xs text-rose-600">{fieldErrors.zip}</p>}
                   </div>
                 </div>
               </div>
@@ -598,45 +642,57 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                   </div>
                 </div>
 
-                {/* Optional Document Uploads */}
+                {/* Document Uploads */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
-                    <span className="text-xs font-semibold text-slate-900 block">
-                      Resale Certificate / Tax Exemption (PDF / Image)
-                    </span>
+                  {/* Sales Tax Permit — REQUIRED */}
+                  <div className={`p-3.5 rounded-xl space-y-2 border-2 ${fieldErrors.taxPermit ? 'bg-rose-50 border-rose-400' : taxPermitDoc.file ? 'bg-emerald-50 border-emerald-300' : 'bg-slate-50 border-[#FF6B00]/60'}`}>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-bold text-slate-900 block">
+                        Sales Tax Permit <span className="text-[#FF6B00]">*</span>
+                      </span>
+                      <span className="text-xs font-semibold uppercase tracking-wide text-[#FF6B00] bg-orange-50 border border-orange-200 px-2 py-0.5 rounded-full">Required</span>
+                    </div>
+                    <p className="text-xs text-slate-500">PDF, JPG, JPEG, or PNG — max 10MB</p>
                     <input
                       type="file"
-                      ref={resaleInputRef}
+                      ref={taxPermitInputRef}
                       accept=".pdf,.png,.jpg,.jpeg"
                       className="hidden"
                       onChange={(e) => {
                         const file = e.target.files?.[0] || null;
-                        setResaleDoc({ file, status: file ? 'uploaded' : 'idle' });
+                        setTaxPermitDoc({ file, status: file ? 'uploaded' : 'idle' });
+                        setFieldErrors((prev) => ({ ...prev, taxPermit: '' }));
                       }}
                     />
                     <button
                       type="button"
-                      onClick={() => resaleInputRef.current?.click()}
-                      className="w-full py-2 px-3 rounded-lg bg-white hover:bg-slate-100 border border-slate-300 text-xs font-medium text-slate-700 flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                      onClick={() => taxPermitInputRef.current?.click()}
+                      className={`w-full py-2 px-3 rounded-lg border text-xs font-medium flex items-center justify-center gap-2 transition-colors cursor-pointer ${taxPermitDoc.file ? 'bg-emerald-50 border-emerald-300 text-emerald-800 hover:bg-emerald-100' : fieldErrors.taxPermit ? 'bg-rose-50 border-rose-300 text-rose-700 hover:bg-rose-100' : 'bg-white hover:bg-orange-50 border-[#FF6B00]/50 text-slate-700'}`}
                     >
-                      {resaleDoc.file ? (
+                      {taxPermitDoc.file ? (
                         <>
                           <FileCheck className="w-3.5 h-3.5 text-emerald-600" />
-                          <span className="truncate">{resaleDoc.file.name}</span>
+                          <span className="truncate">{taxPermitDoc.file.name}</span>
                         </>
                       ) : (
                         <>
                           <Upload className="w-3.5 h-3.5 text-[#FF6B00]" />
-                          <span>Attach Resale Permit</span>
+                          <span>Attach Sales Tax Permit</span>
                         </>
                       )}
                     </button>
+                    {fieldErrors.taxPermit && <p className="text-xs text-rose-600 font-medium">{fieldErrors.taxPermit}</p>}
                   </div>
 
+                  {/* Business License — Optional */}
                   <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
-                    <span className="text-xs font-semibold text-slate-900 block">
-                      Tobacco / Business License (PDF / Image)
-                    </span>
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-semibold text-slate-900 block">
+                        Tobacco / Business License
+                      </span>
+                      <span className="text-xs text-slate-400">Optional</span>
+                    </div>
+                    <p className="text-xs text-slate-500">PDF, JPG, JPEG, or PNG — max 10MB</p>
                     <input
                       type="file"
                       ref={licenseInputRef}

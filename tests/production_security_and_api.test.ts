@@ -39,6 +39,18 @@ test.after(async () => {
   await new Promise<void>((resolve) => server.close(() => resolve()));
 });
 
+/** Upload a minimal valid PDF as a Sales Tax Permit and return the doc entry */
+async function uploadSecurityTestPermit(): Promise<{ id: string; type: string; filename: string }> {
+  const minPdfB64 = Buffer.from('%PDF-1.4 1 0 obj<</Type /Catalog>>endobj').toString('base64');
+  const r = await fetch(`${baseUrl}/api/wholesale/upload`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ fileBase64: minPdfB64, filename: 'permit.pdf', documentType: 'sales_tax_permit' }),
+  });
+  const d = await r.json();
+  return { id: d.documentId, type: 'sales_tax_permit', filename: 'permit.pdf' };
+}
+
 // ---------------------------------------------------------------------------
 // 1. Technical SEO & Public Discovery Verification (Rules 5, 7, 8, 9)
 // ---------------------------------------------------------------------------
@@ -157,6 +169,7 @@ test('Integrity: Orders reject malformed or blank contact information', async ()
 // 5. Wholesale Customer Application & Regulatory Compliance (Rules 29, 30)
 // ---------------------------------------------------------------------------
 test('Wholesale: Application flow validates FEIN, 21+ certification and returns Reference ID', async () => {
+  const permitDoc = await uploadSecurityTestPermit();
   const res = await fetch(`${baseUrl}/api/wholesale/apply`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -176,6 +189,7 @@ test('Wholesale: Application flow validates FEIN, 21+ certification and returns 
       },
       ageCertified: true,
       taxExemptCertified: true,
+      documents: [permitDoc],
     }),
   });
 
@@ -187,16 +201,22 @@ test('Wholesale: Application flow validates FEIN, 21+ certification and returns 
 });
 
 test('Wholesale: Application rejects submission if 21+ age verification is omitted', async () => {
+  const permitDoc = await uploadSecurityTestPermit();
   const res = await fetch(`${baseUrl}/api/wholesale/apply`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       businessName: 'Unverified Retailer',
       contactName: 'John',
-      email: 'john@unverified.com',
+      contactFirstName: 'John',
+      contactLastName: 'Doe',
+      email: `john_unverified_${Date.now()}@unverified.com`,
       phone: '(405) 555-0000',
       fein: '73-0000000',
-      ageCertified: false, // Omitted
+      businessType: 'other',
+      address: { street: '100 Test St', city: 'Tulsa', state: 'OK', zip: '74101' },
+      ageCertified: false, // Omitted — must be rejected
+      documents: [permitDoc],
     }),
   });
   assert.equal(res.status, 400);

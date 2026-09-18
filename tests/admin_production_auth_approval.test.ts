@@ -52,6 +52,18 @@ function createTestSession(data: {
   return authStore.createSession(dummyUser);
 }
 
+/** Upload a minimal valid PDF as a Sales Tax Permit and return the doc entry */
+async function uploadAdminTestPermit(): Promise<{ id: string; type: string; filename: string }> {
+  const minPdfB64 = Buffer.from('%PDF-1.4 1 0 obj<</Type /Catalog>>endobj').toString('base64');
+  const r = await fetch(`${baseUrl}/api/wholesale/upload`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ fileBase64: minPdfB64, filename: 'permit.pdf', documentType: 'sales_tax_permit' }),
+  });
+  const d = await r.json();
+  return { id: d.documentId, type: 'sales_tax_permit', filename: 'permit.pdf' };
+}
+
 test.before(async () => {
   process.env.NODE_ENV = 'production';
   process.env.ADMIN_NOTIFICATION_EMAIL = TEST_ADMIN_EMAIL;
@@ -270,6 +282,7 @@ test('Customer Application & Approval Workflow: Submit -> Pending -> Approve -> 
   const applicantEmail = `david_${timestamp}@prairiesmoke.com`;
 
   // Step A: New wholesale application submission
+  const permitDoc = await uploadAdminTestPermit();
   const appData = {
     businessName: `Prairie Smoke & Vape Lounge LLC ${timestamp}`,
     dba: 'Prairie Smoke',
@@ -288,6 +301,7 @@ test('Customer Application & Approval Workflow: Submit -> Pending -> Approve -> 
     },
     ageCertified: true,
     taxExemptCertified: true,
+    documents: [permitDoc],
   };
 
   const applyRes = await fetch(`${baseUrl}/api/wholesale/apply`, {
@@ -397,6 +411,7 @@ test('Customer Rejection & Suspension: Block unauthorized ordering and state tra
   const rejectEmail = `reject_${timestamp}@smokeoutlet.com`;
 
   // Submit another application
+  const permitDoc2 = await uploadAdminTestPermit();
   const appRes = await fetch(`${baseUrl}/api/wholesale/apply`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -417,6 +432,7 @@ test('Customer Rejection & Suspension: Block unauthorized ordering and state tra
       },
       ageCertified: true,
       taxExemptCertified: true,
+      documents: [permitDoc2],
     }),
   });
   assert.equal(appRes.status, 200, 'Wholesale application submission must succeed');

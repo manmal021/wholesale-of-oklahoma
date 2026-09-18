@@ -20,7 +20,7 @@ export interface DocumentRecord {
   originalName: string;
   mimeType: string;
   size: number;
-  documentType: 'resale_certificate' | 'business_license' | 'other';
+  documentType: 'sales_tax_permit' | 'resale_certificate' | 'business_license' | 'other';
   storedPath: string;
   uploadedAt: string;
 }
@@ -72,7 +72,7 @@ class DocumentStore {
   public saveDocument(
     buffer: Buffer,
     originalName: string,
-    documentType: 'resale_certificate' | 'business_license' | 'other'
+    documentType: 'sales_tax_permit' | 'resale_certificate' | 'business_license' | 'other'
   ): DocumentRecord {
     // 1. Enforce size limit (10MB)
     const MAX_SIZE = 10 * 1024 * 1024;

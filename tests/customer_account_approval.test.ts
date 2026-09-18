@@ -117,6 +117,22 @@ let testAppId: string;
 const testApplicantEmail = `purchasing_${Date.now()}@thunderokvapes.com`;
 
 test('Customer Application: Valid submission creates PENDING record, sends admin & customer emails', async () => {
+  // First upload a Sales Tax Permit (required since this session)
+  // Use a minimal valid PDF magic-byte buffer encoded as base64
+  const minimalPdfBase64 = Buffer.from('%PDF-1.4 1 0 obj<</Type /Catalog>>endobj').toString('base64');
+  const uploadRes = await fetch(`${baseUrl}/api/wholesale/upload`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      fileBase64: minimalPdfBase64,
+      filename: 'sales_tax_permit.pdf',
+      documentType: 'sales_tax_permit',
+    }),
+  });
+  assert.equal(uploadRes.status, 200, 'Sales Tax Permit upload must succeed');
+  const uploadData = await uploadRes.json();
+  assert.ok(uploadData.documentId, 'Upload must return a documentId');
+
   const res = await fetch(`${baseUrl}/api/wholesale/apply`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -140,6 +156,7 @@ test('Customer Application: Valid submission creates PENDING record, sends admin
       notes: 'Interested in bulk carton orders of disposable vapes.',
       ageCertified: true,
       taxExemptCertified: true,
+      documents: [{ id: uploadData.documentId, type: 'sales_tax_permit', filename: 'sales_tax_permit.pdf' }],
     }),
   });
 
@@ -168,6 +185,23 @@ test('Customer Application: Valid submission creates PENDING record, sends admin
   assert.ok(customerConfirmation, 'Applicant confirmation email must be sent');
 });
 
+// Base64-encoded minimal PDF (magic bytes: %PDF)
+const MINIMAL_PDF_B64 = Buffer.from('%PDF-1.4 1 0 obj<</Type /Catalog>>endobj').toString('base64');
+
+/** Cached shared permit doc — uploaded once and reused across all tests to avoid rate limit */
+let _sharedPermitDoc: { id: string; type: string; filename: string } | null = null;
+async function getSharedPermitDoc() {
+  if (_sharedPermitDoc) return _sharedPermitDoc;
+  const r = await fetch(`${baseUrl}/api/wholesale/upload`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ fileBase64: MINIMAL_PDF_B64, filename: 'permit.pdf', documentType: 'sales_tax_permit' }),
+  });
+  const d = await r.json();
+  _sharedPermitDoc = { id: d.documentId, type: 'sales_tax_permit', filename: 'permit.pdf' };
+  return _sharedPermitDoc!;
+}
+
 test('Customer Application: Rejects missing required fields with 400', async () => {
   // Missing Business Name
   const res1 = await fetch(`${baseUrl}/api/wholesale/apply`, {
@@ -185,6 +219,7 @@ test('Customer Application: Rejects missing required fields with 400', async () 
   assert.equal(res1.status, 400);
 
   // Missing FEIN
+  const doc2 = await getSharedPermitDoc();
   const res2 = await fetch(`${baseUrl}/api/wholesale/apply`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -195,11 +230,13 @@ test('Customer Application: Rejects missing required fields with 400', async () 
       email: 'sam@sample.com',
       phone: '(405) 555-1234',
       ageCertified: true,
+      documents: [doc2],
     }),
   });
   assert.equal(res2.status, 400);
 
   // Invalid email format
+  const doc3 = await getSharedPermitDoc();
   const res3 = await fetch(`${baseUrl}/api/wholesale/apply`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -211,11 +248,13 @@ test('Customer Application: Rejects missing required fields with 400', async () 
       phone: '(405) 555-1234',
       fein: '73-1111111',
       ageCertified: true,
+      documents: [doc3],
     }),
   });
   assert.equal(res3.status, 400);
 
   // Age certification false
+  const doc4 = await getSharedPermitDoc();
   const res4 = await fetch(`${baseUrl}/api/wholesale/apply`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -227,15 +266,116 @@ test('Customer Application: Rejects missing required fields with 400', async () 
       phone: '(405) 555-1234',
       fein: '73-1111111',
       ageCertified: false,
+      address: { street: '123 Main St', city: 'Tulsa', state: 'OK', zip: '74101' },
+      documents: [doc4],
     }),
   });
   assert.equal(res4.status, 400);
 });
 
 // ---------------------------------------------------------------------------
+// 2b. New Validation Rules: Phone, ZIP, Address, Missing Permit
+// ---------------------------------------------------------------------------
+
+test('Validation: Invalid phone number (too short) returns 400', async () => {
+  const doc = await getSharedPermitDoc();
+  const res = await fetch(`${baseUrl}/api/wholesale/apply`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      businessName: 'Phone Test LLC',
+      contactFirstName: 'Pat',
+      contactLastName: 'Smith',
+      email: `phonetest_${Date.now()}@example.com`,
+      phone: '123',           // too short — only 3 digits
+      fein: '73-9999999',
+      businessType: 'vape_shop',
+      address: { street: '100 N Main', city: 'Enid', state: 'OK', zip: '73701' },
+      ageCertified: true,
+      documents: [doc],
+    }),
+  });
+  assert.equal(res.status, 400, 'Short phone should be rejected with 400');
+  const data = await res.json();
+  assert.ok(data.error.toLowerCase().includes('phone'), `Expected phone error, got: ${data.error}`);
+});
+
+test('Validation: Invalid ZIP code returns 400', async () => {
+  const doc = await getSharedPermitDoc();
+  const res = await fetch(`${baseUrl}/api/wholesale/apply`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      businessName: 'ZIP Test LLC',
+      contactFirstName: 'Casey',
+      contactLastName: 'Brown',
+      email: `ziptest_${Date.now()}@example.com`,
+      phone: '(405) 555-7777',
+      fein: '73-8888888',
+      businessType: 'c_store',
+      address: { street: '50 S Broadway', city: 'Norman', state: 'OK', zip: 'ABCDE' }, // invalid ZIP
+      ageCertified: true,
+      documents: [doc],
+    }),
+  });
+  assert.equal(res.status, 400, 'Invalid ZIP code should be rejected with 400');
+  const data = await res.json();
+  assert.ok(data.error.toLowerCase().includes('zip'), `Expected ZIP error, got: ${data.error}`);
+});
+
+test('Validation: Missing Sales Tax Permit document returns 400', async () => {
+  const res = await fetch(`${baseUrl}/api/wholesale/apply`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      businessName: 'No Permit LLC',
+      contactFirstName: 'Dana',
+      contactLastName: 'Lee',
+      email: `nopermit_${Date.now()}@example.com`,
+      phone: '(405) 555-4321',
+      fein: '73-7777777',
+      businessType: 'smoke_shop',
+      address: { street: '200 E Oak Ave', city: 'Edmond', state: 'OK', zip: '73003' },
+      ageCertified: true,
+      documents: [],          // empty — no permit provided
+    }),
+  });
+  assert.equal(res.status, 400, 'Missing Sales Tax Permit should be rejected with 400');
+  const data = await res.json();
+  assert.ok(
+    data.error.toLowerCase().includes('sales tax') || data.error.toLowerCase().includes('permit'),
+    `Expected Sales Tax Permit error, got: ${data.error}`
+  );
+});
+
+test('Validation: Invalid email format (missing TLD) returns 400', async () => {
+  const doc = await getSharedPermitDoc();
+  const res = await fetch(`${baseUrl}/api/wholesale/apply`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      businessName: 'Email Test LLC',
+      contactFirstName: 'Morgan',
+      contactLastName: 'Davis',
+      email: 'badformat@nodomain',  // missing TLD
+      phone: '(918) 555-2222',
+      fein: '73-6666666',
+      businessType: 'vape_shop',
+      address: { street: '300 W Main St', city: 'Lawton', state: 'OK', zip: '73501' },
+      ageCertified: true,
+      documents: [doc],
+    }),
+  });
+  assert.equal(res.status, 400, 'Email missing TLD should be rejected with 400');
+  const data = await res.json();
+  assert.ok(data.error.toLowerCase().includes('email'), `Expected email error, got: ${data.error}`);
+});
+
+// ---------------------------------------------------------------------------
 // 3. Duplicate Application Protection
 // ---------------------------------------------------------------------------
 test('Duplicate Protection: Submitting duplicate for PENDING email returns 409 APPLICATION_PENDING', async () => {
+  const doc = await getSharedPermitDoc();
   const res = await fetch(`${baseUrl}/api/wholesale/apply`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -246,7 +386,10 @@ test('Duplicate Protection: Submitting duplicate for PENDING email returns 409 A
       email: testApplicantEmail, // Same email already pending
       phone: '(405) 555-8822',
       fein: '73-9876543',
+      businessType: 'vape_shop',
+      address: { street: '4500 NW 23rd St', city: 'Oklahoma City', state: 'OK', zip: '73127' },
       ageCertified: true,
+      documents: [doc],
     }),
   });
 
@@ -257,6 +400,7 @@ test('Duplicate Protection: Submitting duplicate for PENDING email returns 409 A
 });
 
 test('Duplicate Protection: Submitting application for already APPROVED email returns 409 ACCOUNT_ALREADY_EXISTS', async () => {
+  const doc = await getSharedPermitDoc();
   const res = await fetch(`${baseUrl}/api/wholesale/apply`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -267,7 +411,10 @@ test('Duplicate Protection: Submitting application for already APPROVED email re
       email: 'retailer@okcvapor.com', // Seeded approved account
       phone: '(405) 555-0199',
       fein: '73-1234567',
+      businessType: 'vape_shop',
+      address: { street: '100 NW 23rd St', city: 'Oklahoma City', state: 'OK', zip: '73127' },
       ageCertified: true,
+      documents: [doc],
     }),
   });
 
