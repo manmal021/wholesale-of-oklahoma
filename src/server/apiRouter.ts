@@ -2009,7 +2009,7 @@ apiApp.post(['/admin/purge-data', '/api/admin/purge-data'], requireAdminAuth, (_
  */
 apiApp.get(['/admin/applications', '/api/admin/applications', '/wholesale/admin/applications', '/api/wholesale/admin/applications'], requireAdminAuth, (req: Request, res: Response) => {
   const params = q(req);
-  const statusFilter = params.status as any;
+  const statusFilter = params.status ? String(params.status).toUpperCase().trim() : undefined;
   const search = params.search;
 
   const list = databaseStore.listApplications(statusFilter, search);
@@ -2022,7 +2022,7 @@ apiApp.get(['/admin/applications', '/api/admin/applications', '/wholesale/admin/
  */
 apiApp.get(['/admin/customers', '/api/admin/customers'], requireAdminAuth, (req: Request, res: Response) => {
   const params = q(req);
-  const statusFilter = params.status as any;
+  const statusFilter = params.status ? String(params.status).toUpperCase().trim() : undefined;
   const search = params.search;
 
   const customers = databaseStore.listCustomers(statusFilter, search);

@@ -1,5 +1,36 @@
 {
-  "applications": [],
+  "applications": [
+    {
+      "id": "WOA-APP-93168",
+      "businessName": "Vape City Express",
+      "dba": "Vape City",
+      "contactFirstName": "Alice",
+      "contactLastName": "City",
+      "contactName": "Alice City",
+      "email": "alice@vapecityexpress.com",
+      "phone": "(405) 555-0999",
+      "fein": "73-7777777",
+      "licenseNumber": "OK-TOB-77777",
+      "businessType": "vape_shop",
+      "address": {
+        "street": "777 Express Way",
+        "city": "Oklahoma City",
+        "state": "OK",
+        "zip": "73109"
+      },
+      "documents": [
+        {
+          "id": "doc_permit_93168",
+          "type": "sales_tax_permit",
+          "filename": "taxpermit.pdf"
+        }
+      ],
+      "ageCertified": true,
+      "taxExemptCertified": true,
+      "status": "PENDING",
+      "submittedAt": "2026-09-18T20:15:23.189Z"
+    }
+  ],
   "customers": [],
   "tokens": [],
   "auditLogs": [],
@@ -124,26 +155,28 @@
     {
       "id": "usr_admin_233f6e9e1c13",
       "email": "dispatcher@wholesaleofoklahoma.com",
-      "passwordHash": "5c4f563146a38b0b73ac460af43f84c0b8b6a3bef5abc7b6c2fd2d4a5561efd26f567a0168e7b0fb00565a96fa3cacd47ea4916f990392ed0455461049380753",
-      "salt": "d74079317e02b07be59dd00b8289a20a",
+      "passwordHash": "12267739d9449f09fc6afc2fa25d342a548f214b2ae090b4c52d83961210a67842f6dbcff60055f696269f57533748d961dc5348c248b1dc29368808e3621619",
+      "salt": "d9c739c4dba924f1b0f4eebf8f6c0cb9",
       "role": "admin",
       "businessName": "Wholesale of Oklahoma Dispatch",
       "contactName": "Site Administrator",
       "phone": "(405) 768-2975",
       "createdAt": "2026-09-16T20:55:26.730Z",
-      "lastLoginAt": "2026-09-18T19:12:41.868Z"
+      "lastLoginAt": "2026-09-18T20:23:43.651Z",
+      "assignedPassword": "StaffAdminPass2026!"
     },
     {
-      "id": "usr_admin_ba63ad2d2515",
+      "id": "usr_admin_eb099f284e8e",
       "email": "order2wholesaleofoklahoma@gmail.com",
-      "passwordHash": "da1e6d1c7c371e93220325d2bc62bb9732617633984c97ac4169c9089f986edc121d0df334d9642143df4dfdba3c041b192f6c7966a107cb9adf7422402a7749",
-      "salt": "60355bf36d3f3ecfab653edd9cbe5427",
+      "passwordHash": "63dc8388d62737166171300264c4da5cd1f868f249684edecc5569ad5a49d3f50ddd59ff26f5c96825293a281f7531d6f63f258a108f352295a39bf64ec617d8",
+      "salt": "65c0fc42da14d88919d2963bc62c63fd",
       "role": "admin",
       "businessName": "Wholesale of Oklahoma Dispatch",
       "contactName": "Site Administrator",
       "phone": "(405) 768-2975",
-      "createdAt": "2026-09-18T19:12:41.035Z",
-      "lastLoginAt": "2026-09-18T19:12:41.732Z"
+      "createdAt": "2026-09-18T20:23:42.768Z",
+      "assignedPassword": "UpdatedAdminPass2026!",
+      "lastLoginAt": "2026-09-18T20:23:43.514Z"
     }
   ]
 }

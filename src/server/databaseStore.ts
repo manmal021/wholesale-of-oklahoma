@@ -439,6 +439,7 @@ class DatabaseStore {
   private inventoryMismatches: Map<string, InventoryMismatchRecord> = new Map(); // id -> record
   private customerAddresses: Map<string, CustomerSavedAddress[]> = new Map(); // customerId -> addresses[]
   private users: Map<string, any> = new Map(); // keyed by email (lowercase)
+  private lastLoadedMtime = 0;
 
   constructor() {
     this.ensureStorageDir();
@@ -482,8 +483,24 @@ class DatabaseStore {
       }
 
       if (fs.existsSync(fileToLoad)) {
+        try {
+          this.lastLoadedMtime = fs.statSync(fileToLoad).mtimeMs;
+        } catch (_) {}
+
         const raw = fs.readFileSync(fileToLoad, 'utf-8');
         const state: DatabaseState = JSON.parse(raw);
+
+        // Reset in-memory collections so reloads do not keep deleted records
+        this.applications.clear();
+        this.applicationsByEmail.clear();
+        this.customers.clear();
+        this.customersByEmail.clear();
+        this.tokens.clear();
+        this.orders.clear();
+        this.ordersByCustomerEmail.clear();
+        this.inventoryOverrides.clear();
+        this.inventoryMismatches.clear();
+        this.customerAddresses.clear();
 
         if (Array.isArray(state.applications)) {
           for (const app of state.applications) {
@@ -578,6 +595,21 @@ class DatabaseStore {
     }
   }
 
+  private syncFromDisk(): void {
+    try {
+      let targetFile = DB_FILE;
+      if (!fs.existsSync(targetFile)) {
+        if (fs.existsSync(COMMITTED_SEED_FILE)) targetFile = COMMITTED_SEED_FILE;
+        else if (fs.existsSync(LOCAL_DB_FILE)) targetFile = LOCAL_DB_FILE;
+        else return;
+      }
+      const stat = fs.statSync(targetFile);
+      if (stat.mtimeMs > this.lastLoadedMtime) {
+        this.loadFromDisk();
+      }
+    } catch (_) {}
+  }
+
   public getUsers(): any[] {
     return Array.from(this.users.values());
   }
@@ -651,6 +683,9 @@ class DatabaseStore {
       const tempFile = `${DB_FILE}.tmp.${Date.now()}`;
       fs.writeFileSync(tempFile, JSON.stringify(state, null, 2), 'utf-8');
       fs.renameSync(tempFile, DB_FILE);
+      try {
+        this.lastLoadedMtime = fs.statSync(DB_FILE).mtimeMs;
+      } catch (_) {}
     } catch (err: any) {
       console.warn('[DatabaseStore] Could not persist database to disk (expected in serverless/read-only):', err.message);
     }
@@ -774,6 +809,25 @@ class DatabaseStore {
   }
 
   private seedDefaultsIfEmpty(): void {
+    if (this.applications.size === 0 && process.env.NODE_ENV !== 'test') {
+      if (fs.existsSync(COMMITTED_SEED_FILE)) {
+        try {
+          const raw = fs.readFileSync(COMMITTED_SEED_FILE, 'utf-8');
+          const state: DatabaseState = JSON.parse(raw);
+          if (Array.isArray(state.applications) && state.applications.length > 0) {
+            for (const app of state.applications) {
+              this.applications.set(app.id, app);
+              const emailKey = app.email.toLowerCase().trim();
+              const existing = this.applicationsByEmail.get(emailKey) || [];
+              if (!existing.includes(app.id)) existing.push(app.id);
+              this.applicationsByEmail.set(emailKey, existing);
+            }
+            this.persistToDisk();
+          }
+        } catch (_) {}
+      }
+    }
+
     // Only seed sample approved account if explicitly requested via SEED_DEMO_DATA=true
     if (process.env.SEED_DEMO_DATA === 'true') {
       if (this.applications.size === 0) {
@@ -824,6 +878,7 @@ class DatabaseStore {
   }
 
   public getApplication(id: string): WholesaleApplicationRecord | undefined {
+    this.syncFromDisk();
     if (!id || typeof id !== 'string') return undefined;
     const cleanId = id.trim();
     const direct = this.applications.get(cleanId);
@@ -836,22 +891,26 @@ class DatabaseStore {
   }
 
   public findApplicationsByEmail(email: string): WholesaleApplicationRecord[] {
+    this.syncFromDisk();
     const cleanEmail = email.toLowerCase().trim();
     const ids = this.applicationsByEmail.get(cleanEmail) || [];
     return ids.map((id) => this.applications.get(id)!).filter(Boolean);
   }
 
   public getLatestApplicationForEmail(email: string): WholesaleApplicationRecord | undefined {
+    this.syncFromDisk();
     const list = this.findApplicationsByEmail(email);
     if (list.length === 0) return undefined;
     return list.sort((a, b) => new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime())[0];
   }
 
-  public listApplications(statusFilter?: ApplicationStatus | 'ALL', search?: string): WholesaleApplicationRecord[] {
+  public listApplications(statusFilter?: ApplicationStatus | 'ALL' | string, search?: string): WholesaleApplicationRecord[] {
+    this.syncFromDisk();
     let list = Array.from(this.applications.values());
 
-    if (statusFilter && statusFilter !== 'ALL') {
-      list = list.filter((a) => a.status === statusFilter);
+    const normalizedFilter = statusFilter ? String(statusFilter).toUpperCase().trim() : undefined;
+    if (normalizedFilter && normalizedFilter !== 'ALL') {
+      list = list.filter((a) => (a.status ? a.status.toUpperCase() : '') === normalizedFilter);
     }
 
     if (search && search.trim()) {
@@ -863,7 +922,7 @@ class DatabaseStore {
           a.email.toLowerCase().includes(q) ||
           a.phone.includes(q) ||
           a.id.toLowerCase().includes(q) ||
-          (a.address && a.address.city.toLowerCase().includes(q))
+          (a.address && a.address.city && a.address.city.toLowerCase().includes(q))
       );
     }
 
@@ -995,6 +1054,7 @@ class DatabaseStore {
   }
 
   public getCustomer(id: string): CustomerRecord | undefined {
+    this.syncFromDisk();
     if (!id || typeof id !== 'string') return undefined;
     const cleanId = id.trim();
     const direct = this.customers.get(cleanId);
@@ -1007,14 +1067,17 @@ class DatabaseStore {
   }
 
   public getCustomerByEmail(email: string): CustomerRecord | undefined {
+    this.syncFromDisk();
     return this.customersByEmail.get(email.toLowerCase().trim());
   }
 
-  public listCustomers(statusFilter?: ApplicationStatus | 'ALL', search?: string): CustomerRecord[] {
+  public listCustomers(statusFilter?: ApplicationStatus | 'ALL' | string, search?: string): CustomerRecord[] {
+    this.syncFromDisk();
     let list = Array.from(this.customers.values());
 
-    if (statusFilter && statusFilter !== 'ALL') {
-      list = list.filter((c) => c.status === statusFilter);
+    const normalizedFilter = statusFilter ? String(statusFilter).toUpperCase().trim() : undefined;
+    if (normalizedFilter && normalizedFilter !== 'ALL') {
+      list = list.filter((c) => (c.status ? c.status.toUpperCase() : '') === normalizedFilter);
     }
 
     if (search && search.trim()) {
@@ -1025,7 +1088,7 @@ class DatabaseStore {
           c.contactName.toLowerCase().includes(q) ||
           c.email.toLowerCase().includes(q) ||
           c.phone.includes(q) ||
-          (c.address && c.address.city.toLowerCase().includes(q))
+          (c.address && c.address.city && c.address.city.toLowerCase().includes(q))
       );
     }
 
@@ -2128,6 +2191,7 @@ class DatabaseStore {
     inventoryIssues: number;
     activeOverrides: number;
   } {
+    this.syncFromDisk();
     let pending = 0;
     let approved = 0;
     let rejected = 0;
