@@ -18402,8 +18402,8 @@
     {
       "id": "usr_admin_master",
       "email": "order2wholesaleofoklahoma@gmail.com",
-      "passwordHash": "UNSET",
-      "salt": "e85025b6a6830b182d561f6b7df1828a",
+      "passwordHash": "197933efff4d5c223fc318a35cd56c16b834583c68ff6361e63e945231e3e01159987aadf84ae9226d0e196f9e354d718ebf56a30441558f817f4761634e993d",
+      "salt": "041f1e3708606b4e5a22df12435ed924",
       "role": "admin",
       "businessName": "Wholesale of Oklahoma Dispatch",
       "contactName": "Site Administrator",

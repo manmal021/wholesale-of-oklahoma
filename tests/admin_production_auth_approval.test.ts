@@ -178,6 +178,22 @@ test('Route Guard: Authenticated admin is permitted access to /admin/dashboard',
   assert.equal(data.user, TEST_ADMIN_EMAIL);
 });
 
+test('Admin Auth: Admin logs in directly with order2wholesaleofoklahoma@gmail.com and Wholesale@4500!', async () => {
+  const loginRes = await fetch(`${baseUrl}/api/auth/login`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      email: TEST_ADMIN_EMAIL,
+      password: 'Wholesale@4500!',
+    }),
+  });
+  assert.equal(loginRes.status, 200, 'Admin login with Wholesale@4500! must return 200');
+  const loginData = await loginRes.json();
+  assert.equal(loginData.success, true);
+  assert.equal(loginData.user.role, 'admin');
+  assert.ok(loginData.token, 'Must return active session token');
+});
+
 // ---------------------------------------------------------------------------
 // 2. Admin Forgot Password & Password Reset Flow End-to-End
 // ---------------------------------------------------------------------------

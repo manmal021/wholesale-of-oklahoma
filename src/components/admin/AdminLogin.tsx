@@ -47,7 +47,7 @@ export default function AdminLogin() {
           setIsUnactivated(true);
           throw new Error('Your administrator account has not set a password yet. Please request an activation link below to set your credentials.');
         }
-        throw new Error('Invalid email or password.');
+        throw new Error(msg || 'Invalid email or password.');
       }
 
       if (data.user?.role !== 'admin') {
@@ -58,6 +58,7 @@ export default function AdminLogin() {
         try {
           localStorage.setItem('woo_session_token', data.token);
           localStorage.setItem('woo_user', JSON.stringify(data.user));
+          document.cookie = `woo_session=${data.token}; path=/; max-age=604800; SameSite=Lax`;
         } catch (_) {}
       }
 
