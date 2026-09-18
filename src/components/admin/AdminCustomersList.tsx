@@ -40,7 +40,15 @@ interface Customer {
 
 export default function AdminCustomersList() {
   const [customers, setCustomers] = useState<Customer[]>([]);
-  const [statusFilter, setStatusFilter] = useState<'APPROVED' | 'SUSPENDED' | 'ALL'>('ALL');
+  const [statusFilter, setStatusFilter] = useState<'APPROVED' | 'SUSPENDED' | 'ALL'>(() => {
+    if (typeof window !== 'undefined') {
+      const param = new URLSearchParams(window.location.search).get('status')?.toUpperCase();
+      if (param === 'APPROVED' || param === 'SUSPENDED' || param === 'ALL') {
+        return param;
+      }
+    }
+    return 'ALL';
+  });
   const [search, setSearch] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);

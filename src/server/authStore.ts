@@ -95,6 +95,16 @@ class AuthStore {
       databaseStore.saveUser(user);
     }
 
+    // Check if initial admin password is provided in environment variables
+    const initialEnvPass = process.env.ADMIN_INITIAL_PASSWORD || process.env.ADMIN_PASSWORD;
+    if (user.passwordHash === 'UNSET' && initialEnvPass && initialEnvPass.trim().length >= 8) {
+      const salt = crypto.randomBytes(16).toString('hex');
+      user.salt = salt;
+      user.passwordHash = this.hashPassword(initialEnvPass.trim(), salt);
+      databaseStore.saveUser(user);
+      console.log(`[AuthStore] 🛡 Administrator password securely initialized from environment variable for ${adminEmail}`);
+    }
+
     let token: string | undefined;
     // If password is UNSET, check if there is an active activation token; if none, generate fresh one
     if (user.passwordHash === 'UNSET') {
@@ -118,7 +128,7 @@ class AuthStore {
     return { user, token };
   }
 
-  public createAdminActivationToken(email: string): { token: string; activationUrl: string } {
+  public async createAdminActivationToken(email: string): Promise<{ token: string; activationUrl: string; dispatch?: any }> {
     const adminEmail = email.toLowerCase().trim();
     let user = this.users.get(adminEmail);
     if (!user) {
@@ -136,17 +146,22 @@ class AuthStore {
       durationHours: 24,
     });
 
-    emailService.sendAdminSetupInvite(adminEmail, tokenRecord.token).catch((err) => {
-      console.warn('[AuthStore] Warning: Could not dispatch admin setup email:', err.message);
-    });
-
-    const siteUrl = process.env.SITE_URL || process.env.APP_URL || 'https://www.wholesaleofoklahoma.com';
+    const isProd = process.env.NODE_ENV === 'production' || Boolean(process.env.VERCEL);
+    const siteUrl = process.env.SITE_URL || (isProd ? 'https://www.wholesaleofoklahoma.com' : (process.env.APP_URL || 'https://www.wholesaleofoklahoma.com'));
     const activationUrl = `${siteUrl.replace(/\/$/, '')}/admin/activate?token=${encodeURIComponent(tokenRecord.token)}`;
 
-    return { token: tokenRecord.token, activationUrl };
+    let dispatch: any;
+    try {
+      dispatch = await emailService.sendAdminSetupInvite(adminEmail, tokenRecord.token);
+    } catch (err: any) {
+      console.error('[AuthStore] ❌ Error dispatching admin setup email:', err.message);
+      dispatch = { success: false, error: err.message };
+    }
+
+    return { token: tokenRecord.token, activationUrl, dispatch };
   }
 
-  public createAdminPasswordResetToken(email: string): { token: string; resetUrl: string } {
+  public async createAdminPasswordResetToken(email: string): Promise<{ token: string; resetUrl: string; dispatch?: any }> {
     const adminEmail = email.toLowerCase().trim();
     let user = this.users.get(adminEmail);
     if (!user) {
@@ -164,14 +179,19 @@ class AuthStore {
       durationHours: 2,
     });
 
-    emailService.sendPasswordResetEmail(adminEmail, tokenRecord.token, true).catch((err) => {
-      console.warn('[AuthStore] Warning: Could not dispatch admin password reset email:', err.message);
-    });
-
-    const siteUrl = process.env.SITE_URL || process.env.APP_URL || 'https://www.wholesaleofoklahoma.com';
+    const isProd = process.env.NODE_ENV === 'production' || Boolean(process.env.VERCEL);
+    const siteUrl = process.env.SITE_URL || (isProd ? 'https://www.wholesaleofoklahoma.com' : (process.env.APP_URL || 'https://www.wholesaleofoklahoma.com'));
     const resetUrl = `${siteUrl.replace(/\/$/, '')}/admin/reset-password?token=${encodeURIComponent(tokenRecord.token)}`;
 
-    return { token: tokenRecord.token, resetUrl };
+    let dispatch: any;
+    try {
+      dispatch = await emailService.sendPasswordResetEmail(adminEmail, tokenRecord.token, true);
+    } catch (err: any) {
+      console.error('[AuthStore] ❌ Error dispatching admin password reset email:', err.message);
+      dispatch = { success: false, error: err.message };
+    }
+
+    return { token: tokenRecord.token, resetUrl, dispatch };
   }
 
   public isAdmin(email: string): boolean {

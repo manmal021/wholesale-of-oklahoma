@@ -18397,5 +18397,31 @@
       "resolved": false
     }
   ],
-  "customerAddresses": []
+  "customerAddresses": [],
+  "users": [
+    {
+      "id": "usr_admin_master",
+      "email": "order2wholesaleofoklahoma@gmail.com",
+      "passwordHash": "UNSET",
+      "salt": "e85025b6a6830b182d561f6b7df1828a",
+      "role": "admin",
+      "businessName": "Wholesale of Oklahoma Dispatch",
+      "contactName": "Site Administrator",
+      "phone": "(405) 768-2975",
+      "createdAt": "2026-09-15T00:00:00.000Z"
+    },
+    {
+      "id": "usr_retailer_seed",
+      "email": "retailer@okcvapor.com",
+      "passwordHash": "246d706b14ebecf85a195cfe133942c58effdff0441d19bdd9af33979d0ed3a273c7ae2c0520e54ac901c1f9d8b5ed652d25d390f70c87c4550666c32be0ba2b",
+      "salt": "2391e1297d1a68b3e22577bd7963a7a6",
+      "role": "approved_customer",
+      "businessName": "OKC Vapor Lounge LLC",
+      "contactName": "Alex Mercer",
+      "phone": "(405) 555-0199",
+      "fein": "73-1234567",
+      "licenseNumber": "OK-TOB-89214",
+      "createdAt": "2026-09-15T00:00:00.000Z"
+    }
+  ]
 }

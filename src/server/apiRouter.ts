@@ -832,6 +832,9 @@ apiApp.get(['/inventory/:id', '/api/inventory/:id'], async (req: Request, res: R
  */
 apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60 * 1000), async (req: Request, res: Response) => {
   const session = getSessionUser(req);
+  const effectiveEmail = String(req.body?.email || session?.email || '').toLowerCase().trim();
+
+  // Enforce customer account approval status (OWASP A01 / Rule 16)
   if (session) {
     if (session.role !== 'approved_customer' && session.role !== 'admin') {
       return res.status(403).json({
@@ -847,9 +850,62 @@ apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60
           message: 'Your account has been suspended. Please contact dispatch at (405) 768-2975.',
         });
       }
+      if (cust && cust.status === 'REJECTED') {
+        return res.status(403).json({
+          error: 'ACCOUNT_REJECTED',
+          message: 'Your wholesale account application was rejected.',
+        });
+      }
+      if (cust && cust.status === 'PENDING') {
+        return res.status(403).json({
+          error: 'ACCOUNT_PENDING',
+          message: 'Your wholesale account is pending review. Wholesale ordering requires an approved account.',
+        });
+      }
     }
-  } else if (process.env.STRICT_AUTH_CHECKOUT === 'true') {
-    return err(res, 401, 'Authentication required to submit wholesale orders');
+  } else {
+    // Non-session order submission: verify customer and application status
+    if (effectiveEmail) {
+      const cust = databaseStore.getCustomerByEmail(effectiveEmail);
+      if (cust) {
+        if (cust.status === 'SUSPENDED') {
+          return res.status(403).json({
+            error: 'ACCOUNT_SUSPENDED',
+            message: 'Your account has been suspended. Please contact dispatch at (405) 768-2975.',
+          });
+        }
+        if (cust.status === 'REJECTED') {
+          return res.status(403).json({
+            error: 'ACCOUNT_REJECTED',
+            message: 'Your wholesale account application was not approved.',
+          });
+        }
+        if (cust.status === 'PENDING') {
+          return res.status(403).json({
+            error: 'ACCOUNT_PENDING',
+            message: 'Your wholesale account application is currently under review.',
+          });
+        }
+      }
+      const app = databaseStore.getLatestApplicationForEmail(effectiveEmail);
+      if (app && (!cust || cust.status !== 'APPROVED')) {
+        if (app.status === 'PENDING') {
+          return res.status(403).json({
+            error: 'ACCOUNT_PENDING',
+            message: 'Your wholesale account application is currently under review.',
+          });
+        }
+        if (app.status === 'REJECTED') {
+          return res.status(403).json({
+            error: 'ACCOUNT_REJECTED',
+            message: 'Your wholesale account application was not approved.',
+          });
+        }
+      }
+    }
+    if (process.env.STRICT_AUTH_CHECKOUT === 'true') {
+      return err(res, 401, 'Authentication required to submit wholesale orders');
+    }
   }
 
   const {
@@ -871,7 +927,6 @@ apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60
 
   const effectiveCustName = (customerName || session?.contactName || '').trim();
   const effectiveBizName = (businessName || session?.businessName || '').trim();
-  const effectiveEmail = (email || session?.email || '').toLowerCase().trim();
   const customerRec = session ? databaseStore.getCustomer(session.userId) : null;
   const effectivePhone = (phone || customerRec?.phone || '').trim();
 
@@ -1435,16 +1490,25 @@ apiApp.post(['/auth/forgot-password', '/api/auth/forgot-password'], rateLimit(5,
   const isAdminUser = role === 'admin' || isConfiguredAdmin || user?.role === 'admin';
 
   if (isAdminUser) {
-    const { token, resetUrl } = authStore.createAdminPasswordResetToken(cleanEmail);
+    const { token, resetUrl, dispatch } = await authStore.createAdminPasswordResetToken(cleanEmail);
     databaseStore.addAuditLog({
       event: 'PASSWORD_RESET_REQUESTED',
       targetEmail: cleanEmail,
       details: { role: 'admin' },
     });
+
+    if (dispatch && dispatch.success === false) {
+      console.error(`[API /auth/forgot-password] ❌ Email provider failed to send admin reset email to ${cleanEmail}:`, dispatch.error);
+      return res.status(502).json({
+        success: false,
+        error: `Failed to deliver password reset email: ${dispatch.error || 'Provider rejected request'}`,
+      });
+    }
+
     return ok(res, {
       success: true,
       role: 'admin',
-      message: 'If an administrator account exists with this email address, password reset instructions have been sent.',
+      message: 'Password reset instructions have been sent to your administrator email.',
       ...(process.env.NODE_ENV !== 'production' ? { devResetUrl: resetUrl } : {}),
     });
   }
@@ -1462,10 +1526,17 @@ apiApp.post(['/auth/forgot-password', '/api/auth/forgot-password'], rateLimit(5,
       targetEmail: cleanEmail,
     });
 
-    await emailService.sendPasswordResetEmail(cleanEmail, tokenRecord.token, false);
+    const dispatch = await emailService.sendPasswordResetEmail(cleanEmail, tokenRecord.token, false);
+    if (dispatch && dispatch.success === false) {
+      console.error(`[API /auth/forgot-password] ❌ Email dispatch failed for customer ${cleanEmail}:`, dispatch.error);
+      return res.status(502).json({
+        success: false,
+        error: `Failed to deliver password reset email: ${dispatch.error || 'Provider rejected request'}`,
+      });
+    }
   }
 
-  // Always return generic success to protect against email enumeration (OWASP)
+  // Generic success for non-admin to prevent email enumeration (OWASP)
   return ok(res, {
     success: true,
     message: 'If an account exists with this email address, password reset instructions have been sent.',
@@ -1477,7 +1548,7 @@ apiApp.post(['/auth/forgot-password', '/api/auth/forgot-password'], rateLimit(5,
  * Dispatches an initial administrator activation link if the admin account has not yet set credentials.
  * Rate limited to 5 per 15 minutes.
  */
-apiApp.post(['/auth/admin/request-activation', '/api/auth/admin/request-activation'], rateLimit(5, 15 * 60 * 1000), (req: Request, res: Response) => {
+apiApp.post(['/auth/admin/request-activation', '/api/auth/admin/request-activation'], rateLimit(5, 15 * 60 * 1000), async (req: Request, res: Response) => {
   const { email } = req.body || {};
   const cleanEmail = String(email || '').toLowerCase().trim();
 
@@ -1503,12 +1574,20 @@ apiApp.post(['/auth/admin/request-activation', '/api/auth/admin/request-activati
     });
   }
 
-  const { token, activationUrl } = authStore.createAdminActivationToken(cleanEmail);
+  const { token, activationUrl, dispatch } = await authStore.createAdminActivationToken(cleanEmail);
 
   databaseStore.addAuditLog({
     event: 'ADMIN_ACTIVATION_REQUESTED' as any,
     targetEmail: cleanEmail,
   });
+
+  if (dispatch && dispatch.success === false) {
+    console.error(`[API /auth/admin/request-activation] ❌ Activation email dispatch failed for ${cleanEmail}:`, dispatch.error);
+    return res.status(502).json({
+      success: false,
+      error: `Failed to dispatch activation email: ${dispatch.error || 'Provider rejected request'}`,
+    });
+  }
 
   return ok(res, {
     success: true,
@@ -1521,7 +1600,7 @@ apiApp.post(['/auth/admin/request-activation', '/api/auth/admin/request-activati
  * POST /api/admin/invite
  * Invites a new administrator. Protected by requireAdminAuth or ADMIN_SECRET_KEY.
  */
-apiApp.post(['/admin/invite', '/api/admin/invite'], requireAdminAuth, (req: Request, res: Response) => {
+apiApp.post(['/admin/invite', '/api/admin/invite'], requireAdminAuth, async (req: Request, res: Response) => {
   const { email, contactName, phone } = req.body || {};
   const cleanEmail = String(email || '').toLowerCase().trim();
 
@@ -1532,7 +1611,7 @@ apiApp.post(['/admin/invite', '/api/admin/invite'], requireAdminAuth, (req: Requ
   const session = getSessionUser(req);
   const adminId = session?.userId || 'admin_master';
 
-  const { token, activationUrl } = authStore.createAdminActivationToken(cleanEmail);
+  const { token, activationUrl, dispatch } = await authStore.createAdminActivationToken(cleanEmail);
   const user = authStore.getUser(cleanEmail);
   if (user) {
     if (contactName) user.contactName = String(contactName).trim();
@@ -1545,6 +1624,13 @@ apiApp.post(['/admin/invite', '/api/admin/invite'], requireAdminAuth, (req: Requ
     adminId,
     details: { invitedBy: session?.email || 'admin' },
   });
+
+  if (dispatch && dispatch.success === false) {
+    return res.status(502).json({
+      success: false,
+      error: `Failed to dispatch invitation email: ${dispatch.error || 'Provider rejected request'}`,
+    });
+  }
 
   return ok(res, {
     success: true,
@@ -1865,128 +1951,8 @@ apiApp.get(['/admin/applications', '/api/admin/applications', '/wholesale/admin/
 });
 
 /**
- * GET /api/admin/applications/:id
- * Returns complete submitted data for a single application.
- */
-apiApp.get(['/admin/applications/:id', '/api/admin/applications/:id'], requireAdminAuth, (req: Request, res: Response) => {
-  const id = req.params.id;
-  const app = databaseStore.getApplication(id);
-  if (!app) {
-    return err(res, 404, `Application ${id} not found.`);
-  }
-
-  const customer = app.customerId ? databaseStore.getCustomer(app.customerId) : undefined;
-  return ok(res, { success: true, application: app, customer });
-});
-
-/**
- * POST /api/admin/applications/:id/approve
- * Approves application, creates customer record, generates 48h activation token,
- * and sends customer activation email.
- */
-apiApp.post(['/admin/applications/:id/approve', '/api/admin/applications/:id/approve'], requireAdminAuth, async (req: Request, res: Response) => {
-  const id = req.params.id;
-  const app = databaseStore.getApplication(id);
-
-  if (!app) {
-    return err(res, 404, `Application ${id} not found.`);
-  }
-
-  if (app.status === 'APPROVED') {
-    return err(res, 400, `Application ${id} is already approved.`);
-  }
-
-  const session = getSessionUser(req);
-  const adminId = session?.userId || 'admin_master';
-  const adminEmail = session?.email || ADMIN_EMAIL;
-
-  // 1. Create or update customer record in databaseStore
-  const customer = databaseStore.createOrUpdateCustomerFromApplication(app, adminId);
-
-  // 2. Provision customer user record in authStore
-  authStore.provisionCustomer(customer);
-
-  // 3. Generate single-use 48h activation token
-  const tokenRecord = databaseStore.createSecurityToken({
-    type: 'CUSTOMER_ACTIVATION',
-    email: customer.email,
-    targetId: customer.id,
-    durationHours: 48,
-  });
-
-  // 4. Audit Log
-  databaseStore.addAuditLog({
-    event: 'APPLICATION_APPROVED',
-    targetId: app.id,
-    targetEmail: customer.email,
-    adminId,
-    adminEmail,
-    details: { customerId: customer.id },
-  });
-
-  // 5. Send Activation Email to customer
-  try {
-    await emailService.sendCustomerAccountApproved(app, tokenRecord.token);
-  } catch (emailErr: any) {
-    console.warn('[API /admin/applications/:id/approve] Email send error:', emailErr.message);
-  }
-
-  console.log(`[API /admin/approve] 🟢 Approved application ${app.id} for ${customer.businessName} (${customer.email}) by ${adminEmail}`);
-
-  return ok(res, {
-    success: true,
-    message: `Account approved. Activation email dispatched to ${customer.email}.`,
-    customer,
-    application: app,
-    activationToken: tokenRecord.token,
-    activationUrl: `/activate?token=${tokenRecord.token}`,
-  });
-});
-
-/**
- * POST /api/admin/applications/:id/reject
- * Rejects application with optional reason, logs audit event, and sends notification email.
- */
-apiApp.post(['/admin/applications/:id/reject', '/api/admin/applications/:id/reject'], requireAdminAuth, async (req: Request, res: Response) => {
-  const id = req.params.id;
-  const { reason } = req.body || {};
-
-  const app = databaseStore.getApplication(id);
-  if (!app) {
-    return err(res, 404, `Application ${id} not found.`);
-  }
-
-  const session = getSessionUser(req);
-  const adminId = session?.userId || 'admin_master';
-  const adminEmail = session?.email || ADMIN_EMAIL;
-
-  const updated = databaseStore.updateApplicationStatus(id, 'REJECTED', adminId, reason);
-
-  databaseStore.addAuditLog({
-    event: 'APPLICATION_REJECTED',
-    targetId: id,
-    targetEmail: app.email,
-    adminId,
-    adminEmail,
-    details: { reason },
-  });
-
-  try {
-    await emailService.sendCustomerAccountRejected(app);
-  } catch (emailErr: any) {
-    console.warn('[API /admin/applications/:id/reject] Email send error:', emailErr.message);
-  }
-
-  return ok(res, {
-    success: true,
-    message: `Application ${id} has been rejected.`,
-    application: updated,
-  });
-});
-
-/**
  * GET /api/admin/customers
- * Returns list of customer accounts.
+ * Returns list of customer accounts and applications.
  */
 apiApp.get(['/admin/customers', '/api/admin/customers'], requireAdminAuth, (req: Request, res: Response) => {
   const params = q(req);
@@ -1994,8 +1960,382 @@ apiApp.get(['/admin/customers', '/api/admin/customers'], requireAdminAuth, (req:
   const search = params.search;
 
   const customers = databaseStore.listCustomers(statusFilter, search);
-  return ok(res, { success: true, total: customers.length, customers });
+  const applications = databaseStore.listApplications(statusFilter, search);
+  return ok(res, { success: true, total: customers.length, customers, applications });
 });
+
+/**
+ * GET /api/admin/customers/:id and GET /api/admin/applications/:id
+ * Returns complete submitted application and customer record.
+ */
+apiApp.get(
+  [
+    '/admin/applications/:id',
+    '/api/admin/applications/:id',
+    '/admin/customers/:id',
+    '/api/admin/customers/:id',
+  ],
+  requireAdminAuth,
+  (req: Request, res: Response) => {
+    const id = req.params.id;
+    let app = databaseStore.getApplication(id);
+    let customer = databaseStore.getCustomer(id);
+
+    if (!app && customer) {
+      if (customer.applicationId) {
+        app = databaseStore.getApplication(customer.applicationId);
+      }
+      if (!app) {
+        app = databaseStore.getLatestApplicationForEmail(customer.email);
+      }
+    }
+
+    if (!customer && app) {
+      if (app.customerId) {
+        customer = databaseStore.getCustomer(app.customerId);
+      }
+      if (!customer) {
+        customer = databaseStore.getCustomerByEmail(app.email);
+      }
+    }
+
+    if (!app && !customer) {
+      return err(res, 404, `Customer or application ${id} not found.`);
+    }
+
+    return ok(res, { success: true, application: app, customer });
+  }
+);
+
+/**
+ * Shared Customer Approval Handler (POST & PATCH)
+ */
+const handleCustomerApproval = async (req: Request, res: Response) => {
+  const id = req.params.id;
+  let app = databaseStore.getApplication(id);
+  let customer = databaseStore.getCustomer(id);
+
+  if (!app && customer) {
+    if (customer.applicationId) {
+      app = databaseStore.getApplication(customer.applicationId);
+    }
+    if (!app) {
+      app = databaseStore.getLatestApplicationForEmail(customer.email);
+    }
+  }
+
+  if (!customer && app) {
+    if (app.customerId) {
+      customer = databaseStore.getCustomer(app.customerId);
+    }
+    if (!customer) {
+      customer = databaseStore.getCustomerByEmail(app.email);
+    }
+  }
+
+  if (!app && !customer) {
+    return err(res, 404, `Customer or application ${id} not found.`);
+  }
+
+  if ((app && app.status === 'APPROVED') || (customer && customer.status === 'APPROVED')) {
+    return err(res, 400, `Account ${id} is already approved.`);
+  }
+
+  const session = getSessionUser(req);
+  const adminId = session?.userId || 'admin_master';
+  const adminEmail = session?.email || ADMIN_EMAIL;
+
+  // Anti-Self-Approval: Admin cannot approve their own separate customer account to prevent privilege escalation
+  const targetEmail = (app?.email || customer?.email || '').toLowerCase().trim();
+  if (session?.email && session.email.toLowerCase().trim() === targetEmail && session.role !== 'admin') {
+    return err(res, 403, 'Unauthorized approval attempt.');
+  }
+
+  if (!customer && app) {
+    customer = databaseStore.createOrUpdateCustomerFromApplication(app, adminId);
+  } else if (customer) {
+    customer = databaseStore.reactivateCustomer(customer.id, adminId);
+    if (app) {
+      databaseStore.updateApplicationStatus(app.id, 'APPROVED', adminId, 'Approved by administrator');
+    }
+  }
+
+  if (!customer) {
+    return err(res, 500, 'Could not create customer record.');
+  }
+
+  // Provision customer in authStore with approved_customer role
+  authStore.provisionCustomer(customer);
+  authStore.updateUserRole(customer.email, 'approved_customer');
+
+  // Generate single-use 48h activation token
+  const tokenRecord = databaseStore.createSecurityToken({
+    type: 'CUSTOMER_ACTIVATION',
+    email: customer.email,
+    targetId: customer.id,
+    durationHours: 48,
+  });
+
+  // Audit Log
+  databaseStore.addAuditLog({
+    event: 'APPLICATION_APPROVED',
+    targetId: app?.id || customer.id,
+    targetEmail: customer.email,
+    adminId,
+    adminEmail,
+    details: { customerId: customer.id, applicationId: app?.id },
+  });
+
+  // Send Activation Email to customer
+  if (app) {
+    try {
+      await emailService.sendCustomerAccountApproved(app, tokenRecord.token);
+    } catch (emailErr: any) {
+      console.warn('[API /admin/approve] Email send error:', emailErr.message);
+    }
+  }
+
+  console.log(`[API /admin/approve] 🟢 Approved customer ${customer.businessName} (${customer.email}) by ${adminEmail}`);
+
+  return ok(res, {
+    success: true,
+    status: 'APPROVED',
+    message: `Account approved. Activation email dispatched to ${customer.email}.`,
+    customer,
+    application: app,
+    activationToken: tokenRecord.token,
+    activationUrl: `/activate?token=${tokenRecord.token}`,
+  });
+};
+
+/**
+ * Shared Customer Rejection Handler (POST & PATCH)
+ */
+const handleCustomerRejection = async (req: Request, res: Response) => {
+  const id = req.params.id;
+  const { reason } = req.body || {};
+
+  let app = databaseStore.getApplication(id);
+  let customer = databaseStore.getCustomer(id);
+
+  if (!app && customer) {
+    if (customer.applicationId) {
+      app = databaseStore.getApplication(customer.applicationId);
+    }
+    if (!app) {
+      app = databaseStore.getLatestApplicationForEmail(customer.email);
+    }
+  }
+
+  if (!customer && app) {
+    if (app.customerId) {
+      customer = databaseStore.getCustomer(app.customerId);
+    }
+    if (!customer) {
+      customer = databaseStore.getCustomerByEmail(app.email);
+    }
+  }
+
+  if (!app && !customer) {
+    return err(res, 404, `Customer or application ${id} not found.`);
+  }
+
+  if (app && app.status === 'REJECTED') {
+    return err(res, 400, `Application ${id} is already rejected.`);
+  }
+
+  const session = getSessionUser(req);
+  const adminId = session?.userId || 'admin_master';
+  const adminEmail = session?.email || ADMIN_EMAIL;
+
+  let updatedApp = app;
+  if (app) {
+    updatedApp = databaseStore.updateApplicationStatus(app.id, 'REJECTED', adminId, reason);
+  }
+  if (customer) {
+    databaseStore.suspendCustomer(customer.id, adminId, reason || 'Wholesale application rejected');
+  }
+
+  const targetEmail = app?.email || customer?.email || '';
+  if (targetEmail) {
+    authStore.updateUserRole(targetEmail, 'visitor');
+  }
+
+  databaseStore.addAuditLog({
+    event: 'APPLICATION_REJECTED',
+    targetId: id,
+    targetEmail,
+    adminId,
+    adminEmail,
+    details: { reason },
+  });
+
+  if (app) {
+    try {
+      await emailService.sendCustomerAccountRejected(app);
+    } catch (emailErr: any) {
+      console.warn('[API /admin/reject] Email send error:', emailErr.message);
+    }
+  }
+
+  console.log(`[API /admin/reject] 🔴 Rejected application/customer ${id} by ${adminEmail}`);
+
+  return ok(res, {
+    success: true,
+    status: 'REJECTED',
+    message: `Application ${id} has been rejected.`,
+    application: updatedApp,
+    customer,
+  });
+};
+
+/**
+ * POST & PATCH /api/admin/applications/:id/approve & /api/admin/customers/:id/approve
+ */
+apiApp.post(
+  ['/admin/applications/:id/approve', '/api/admin/applications/:id/approve', '/admin/customers/:id/approve', '/api/admin/customers/:id/approve'],
+  requireAdminAuth,
+  handleCustomerApproval
+);
+apiApp.patch(
+  ['/admin/applications/:id/approve', '/api/admin/applications/:id/approve', '/admin/customers/:id/approve', '/api/admin/customers/:id/approve'],
+  requireAdminAuth,
+  handleCustomerApproval
+);
+
+/**
+ * POST & PATCH /api/admin/applications/:id/reject & /api/admin/customers/:id/reject
+ */
+apiApp.post(
+  ['/admin/applications/:id/reject', '/api/admin/applications/:id/reject', '/admin/customers/:id/reject', '/api/admin/customers/:id/reject'],
+  requireAdminAuth,
+  handleCustomerRejection
+);
+apiApp.patch(
+  ['/admin/applications/:id/reject', '/api/admin/applications/:id/reject', '/admin/customers/:id/reject', '/api/admin/customers/:id/reject'],
+  requireAdminAuth,
+  handleCustomerRejection
+);
+
+/**
+ * PATCH /api/admin/customers/:id/status & /api/admin/applications/:id/status
+ * Allows authorized status changes: 'approved' | 'rejected' | 'suspended' | 'reactivated' | 'pending'
+ */
+apiApp.patch(
+  [
+    '/admin/customers/:id/status',
+    '/api/admin/customers/:id/status',
+    '/admin/applications/:id/status',
+    '/api/admin/applications/:id/status',
+  ],
+  requireAdminAuth,
+  async (req: Request, res: Response) => {
+    const id = req.params.id;
+    const { status, reason } = req.body || {};
+    const targetStatus = String(status || '').toLowerCase().trim();
+
+    const VALID_STATUSES = ['approved', 'rejected', 'suspended', 'reactivated', 'pending'];
+    if (!VALID_STATUSES.includes(targetStatus)) {
+      return err(res, 400, `Invalid status "${status}". Allowed values: ${VALID_STATUSES.join(', ')}.`);
+    }
+
+    if (targetStatus === 'approved') {
+      return handleCustomerApproval(req, res);
+    }
+    if (targetStatus === 'rejected') {
+      return handleCustomerRejection(req, res);
+    }
+    if (targetStatus === 'suspended') {
+      let customer = databaseStore.getCustomer(id);
+      let app = databaseStore.getApplication(id);
+      if (!customer && app) {
+        if (app.customerId) customer = databaseStore.getCustomer(app.customerId);
+        if (!customer) customer = databaseStore.getCustomerByEmail(app.email);
+      }
+      if (!customer && !app) return err(res, 404, `Customer or Application ${id} not found.`);
+
+      const session = getSessionUser(req);
+      const adminId = session?.userId || 'admin_master';
+      let updatedCustomer = null;
+      let updatedApp = null;
+
+      if (customer) {
+        updatedCustomer = databaseStore.suspendCustomer(customer.id, adminId, reason);
+        authStore.updateUserRole(customer.email, 'visitor');
+      }
+      if (app) {
+        updatedApp = databaseStore.updateApplicationStatus(app.id, 'SUSPENDED', adminId, reason);
+        if (!customer) authStore.updateUserRole(app.email, 'visitor');
+      }
+
+      databaseStore.addAuditLog({
+        event: 'ACCOUNT_SUSPENDED',
+        targetId: customer?.id || app?.id || id,
+        targetEmail: customer?.email || app?.email || '',
+        adminId,
+        details: { reason },
+      });
+      return ok(res, {
+        success: true,
+        status: 'SUSPENDED',
+        message: `Account or application ${id} suspended.`,
+        customer: updatedCustomer,
+        application: updatedApp,
+      });
+    }
+
+    if (targetStatus === 'reactivated') {
+      let customer = databaseStore.getCustomer(id);
+      let app = databaseStore.getApplication(id);
+      if (!customer && app) {
+        if (app.customerId) customer = databaseStore.getCustomer(app.customerId);
+        if (!customer) customer = databaseStore.getCustomerByEmail(app.email);
+      }
+      if (!customer && !app) return err(res, 404, `Customer or Application ${id} not found.`);
+
+      const session = getSessionUser(req);
+      const adminId = session?.userId || 'admin_master';
+      let updatedCustomer = null;
+      let updatedApp = null;
+
+      if (customer) {
+        updatedCustomer = databaseStore.reactivateCustomer(customer.id, adminId);
+        authStore.updateUserRole(customer.email, 'approved_customer');
+      }
+      if (app) {
+        updatedApp = databaseStore.updateApplicationStatus(app.id, 'APPROVED', adminId, reason);
+      }
+
+      databaseStore.addAuditLog({
+        event: 'ACCOUNT_REACTIVATED',
+        targetId: customer?.id || app?.id || id,
+        targetEmail: customer?.email || app?.email || '',
+        adminId,
+      });
+      return ok(res, {
+        success: true,
+        status: 'APPROVED',
+        message: `Customer account ${id} reactivated.`,
+        customer: updatedCustomer,
+        application: updatedApp,
+      });
+    }
+
+    if (targetStatus === 'pending') {
+      const app = databaseStore.getApplication(id);
+      if (!app) return err(res, 404, `Application ${id} not found.`);
+      const session = getSessionUser(req);
+      const adminId = session?.userId || 'admin_master';
+      const updatedApp = databaseStore.updateApplicationStatus(app.id, 'PENDING', adminId, reason);
+      return ok(res, {
+        success: true,
+        status: 'PENDING',
+        message: `Application ${id} status set to pending.`,
+        application: updatedApp,
+      });
+    }
+  }
+);
 
 /**
  * POST /api/admin/customers/:id/suspend
@@ -2012,6 +2352,15 @@ apiApp.post(['/admin/customers/:id/suspend', '/api/admin/customers/:id/suspend']
   if (!customer) {
     return err(res, 404, `Customer ${id} not found.`);
   }
+
+  authStore.updateUserRole(customer.email, 'visitor');
+  databaseStore.addAuditLog({
+    event: 'ACCOUNT_SUSPENDED',
+    targetId: customer.id,
+    targetEmail: customer.email,
+    adminId,
+    details: { reason },
+  });
 
   console.log(`[API /admin/customers/suspend] ⛔ Customer ${customer.email} (${id}) SUSPENDED.`);
   return ok(res, { success: true, message: `Customer account ${id} suspended.`, customer });
@@ -2031,6 +2380,14 @@ apiApp.post(['/admin/customers/:id/reactivate', '/api/admin/customers/:id/reacti
   if (!customer) {
     return err(res, 404, `Customer ${id} not found.`);
   }
+
+  authStore.updateUserRole(customer.email, 'approved_customer');
+  databaseStore.addAuditLog({
+    event: 'ACCOUNT_REACTIVATED',
+    targetId: customer.id,
+    targetEmail: customer.email,
+    adminId,
+  });
 
   console.log(`[API /admin/customers/reactivate] 🟢 Customer ${customer.email} (${id}) REACTIVATED.`);
   return ok(res, { success: true, message: `Customer account ${id} reactivated.`, customer });

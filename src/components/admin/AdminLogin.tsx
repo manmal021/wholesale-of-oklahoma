@@ -75,6 +75,7 @@ export default function AdminLogin() {
     if (!emailToUse) return;
 
     setIsSubmitting(true);
+    setErrorMessage(null);
     setDevLink(null);
 
     try {
@@ -85,6 +86,9 @@ export default function AdminLogin() {
       });
 
       const data = await res.json();
+      if (!res.ok || data.success === false) {
+        throw new Error(data.error || data.message || 'Could not dispatch setup invitation.');
+      }
       setActivationSent(true);
       setRecoverySent(true);
       setRecoveryMsg(data.message || 'Activation instructions dispatched to administrator email.');
@@ -92,9 +96,7 @@ export default function AdminLogin() {
         setDevLink(data.devActivationUrl);
       }
     } catch (err: any) {
-      setActivationSent(true);
-      setRecoverySent(true);
-      setRecoveryMsg('If an administrator account exists, activation instructions have been sent.');
+      setErrorMessage(err.message || 'Failed to dispatch activation instructions.');
     } finally {
       setIsSubmitting(false);
     }
@@ -106,6 +108,7 @@ export default function AdminLogin() {
     if (!clean) return;
 
     setIsSubmitting(true);
+    setErrorMessage(null);
     setDevLink(null);
 
     try {
@@ -115,14 +118,16 @@ export default function AdminLogin() {
         body: JSON.stringify({ email: clean, role: 'admin' }),
       });
       const data = await res.json();
+      if (!res.ok || data.success === false) {
+        throw new Error(data.error || data.message || 'Could not dispatch password reset email.');
+      }
       setRecoverySent(true);
-      setRecoveryMsg(data.message || 'Password reset link dispatched.');
+      setRecoveryMsg(data.message || 'Password reset email sent.');
       if (data.devResetUrl) {
         setDevLink(data.devResetUrl);
       }
-    } catch (_) {
-      setRecoverySent(true);
-      setRecoveryMsg('If an administrator account exists with this email address, password reset instructions have been sent.');
+    } catch (err: any) {
+      setErrorMessage(err.message || 'Failed to dispatch password reset email.');
     } finally {
       setIsSubmitting(false);
     }

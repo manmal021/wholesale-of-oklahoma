@@ -38,7 +38,15 @@ interface Application {
 
 export default function AdminApplicationsList() {
   const [applications, setApplications] = useState<Application[]>([]);
-  const [statusFilter, setStatusFilter] = useState<'PENDING' | 'APPROVED' | 'REJECTED' | 'SUSPENDED' | 'ALL'>('PENDING');
+  const [statusFilter, setStatusFilter] = useState<'PENDING' | 'APPROVED' | 'REJECTED' | 'SUSPENDED' | 'ALL'>(() => {
+    if (typeof window !== 'undefined') {
+      const param = new URLSearchParams(window.location.search).get('status')?.toUpperCase();
+      if (param === 'PENDING' || param === 'APPROVED' || param === 'REJECTED' || param === 'SUSPENDED' || param === 'ALL') {
+        return param;
+      }
+    }
+    return 'PENDING';
+  });
   const [search, setSearch] = useState('');
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);

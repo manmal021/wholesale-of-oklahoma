@@ -14,6 +14,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import nodemailer from 'nodemailer';
 import {
   DEFAULT_FULFILLMENT_CONFIG,
   type WholesaleApplicationRecord,
@@ -30,7 +31,6 @@ function getSiteUrl(): string {
   if (process.env.SITE_URL) return process.env.SITE_URL.replace(/\/$/, '');
   const isProd = process.env.NODE_ENV === 'production' || Boolean(process.env.VERCEL);
   if (!isProd && process.env.APP_URL) return process.env.APP_URL.replace(/\/$/, '');
-  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL.replace(/\/$/, '')}`;
   if (process.env.APP_URL && !process.env.APP_URL.includes('localhost')) return process.env.APP_URL.replace(/\/$/, '');
   return 'https://www.wholesaleofoklahoma.com';
 }
@@ -40,7 +40,9 @@ export interface EmailDispatchResult {
   messageId?: string;
   recipient: string;
   subject: string;
+  provider?: string;
   error?: string;
+  queuedOutbox?: boolean;
 }
 
 class EmailService {
@@ -73,12 +75,19 @@ class EmailService {
     text: string;
     actionUrl?: string;
   }): Promise<EmailDispatchResult> {
+    const isVercel = Boolean(process.env.VERCEL || process.env.VERCEL_ENV);
     const resendApiKey = process.env.RESEND_API_KEY || process.env.EMAIL_API_KEY;
+    const sendgridApiKey = process.env.SENDGRID_API_KEY;
     const fromAddress = process.env.EMAIL_FROM || 'Wholesale of Oklahoma <orders@wholesaleofoklahoma.com>';
+
+    const smtpHost = process.env.SMTP_HOST || process.env.EMAIL_HOST;
+    const smtpUser = process.env.SMTP_USER || process.env.EMAIL_USER || process.env.GMAIL_USER;
+    const smtpPass = process.env.SMTP_PASS || process.env.EMAIL_PASS || process.env.GMAIL_APP_PASSWORD || process.env.GMAIL_PASSWORD;
 
     // 1. Send via Resend REST API if key is present
     if (resendApiKey && resendApiKey.startsWith('re_')) {
       try {
+        console.log(`[EmailService] 📤 Dispatching email to ${options.to} via Resend...`);
         const response = await fetch('https://api.resend.com/emails', {
           method: 'POST',
           headers: {
@@ -103,13 +112,23 @@ class EmailService {
             provider: 'resend',
             actionUrl: options.actionUrl,
           });
-          console.log(`[EmailService] 📧 Delivered email to ${options.to} via Resend (ID: ${data.id})`);
-          return { success: true, messageId: data.id, recipient: options.to, subject: options.subject };
+          console.log(`[EmailService] ✅ Delivered email to ${options.to} via Resend (ID: ${data.id})`);
+          return { success: true, messageId: data.id, recipient: options.to, subject: options.subject, provider: 'resend' };
         } else {
-          throw new Error(data.message || 'Resend API returned error status');
+          const errMsg = data.message || `Resend API returned error status ${response.status}`;
+          console.error(`[EmailService] ❌ Resend API rejected dispatch to ${options.to}:`, errMsg);
+          this.logEmailDelivery({
+            to: options.to,
+            subject: options.subject,
+            status: 'FAILED',
+            provider: 'resend',
+            error: errMsg,
+            actionUrl: options.actionUrl,
+          });
+          return { success: false, error: errMsg, recipient: options.to, subject: options.subject, provider: 'resend' };
         }
       } catch (err: any) {
-        console.warn(`[EmailService] ⚠ Resend dispatch failed (${err.message}). Logging to persistent outbox.`);
+        console.error(`[EmailService] ❌ Resend dispatch network error (${err.message})`);
         this.logEmailDelivery({
           to: options.to,
           subject: options.subject,
@@ -118,10 +137,128 @@ class EmailService {
           error: err.message,
           actionUrl: options.actionUrl,
         });
+        return { success: false, error: err.message, recipient: options.to, subject: options.subject, provider: 'resend' };
       }
     }
 
-    // 2. Fallback / Default: Log securely to persistent outbox
+    // 2. Send via SendGrid REST API if key is present
+    if (sendgridApiKey && sendgridApiKey.startsWith('SG.')) {
+      try {
+        console.log(`[EmailService] 📤 Dispatching email to ${options.to} via SendGrid...`);
+        const fromEmailMatch = fromAddress.match(/<([^>]+)>/) || [null, fromAddress];
+        const senderEmail = fromEmailMatch[1] || fromAddress;
+        const senderName = fromAddress.includes('<') ? fromAddress.split('<')[0].trim() : 'Wholesale of Oklahoma';
+
+        const response = await fetch('https://api.sendgrid.com/v3/mail/send', {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${sendgridApiKey}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            personalizations: [{ to: [{ email: options.to }] }],
+            from: { email: senderEmail, name: senderName },
+            subject: options.subject,
+            content: [
+              { type: 'text/plain', value: options.text },
+              { type: 'text/html', value: options.html },
+            ],
+          }),
+        });
+
+        if (response.ok || response.status === 202) {
+          const msgId = response.headers.get('x-message-id') || `sg_${Date.now()}`;
+          this.logEmailDelivery({
+            to: options.to,
+            subject: options.subject,
+            status: 'DELIVERED_EXTERNAL',
+            provider: 'sendgrid',
+            actionUrl: options.actionUrl,
+          });
+          console.log(`[EmailService] ✅ Delivered email to ${options.to} via SendGrid (ID: ${msgId})`);
+          return { success: true, messageId: msgId, recipient: options.to, subject: options.subject, provider: 'sendgrid' };
+        } else {
+          const errText = await response.text();
+          console.error(`[EmailService] ❌ SendGrid API rejected dispatch to ${options.to}:`, errText);
+          this.logEmailDelivery({
+            to: options.to,
+            subject: options.subject,
+            status: 'FAILED',
+            provider: 'sendgrid',
+            error: errText,
+            actionUrl: options.actionUrl,
+          });
+          return { success: false, error: errText, recipient: options.to, subject: options.subject, provider: 'sendgrid' };
+        }
+      } catch (err: any) {
+        console.error(`[EmailService] ❌ SendGrid dispatch network error (${err.message})`);
+        this.logEmailDelivery({
+          to: options.to,
+          subject: options.subject,
+          status: 'FAILED',
+          provider: 'sendgrid',
+          error: err.message,
+          actionUrl: options.actionUrl,
+        });
+        return { success: false, error: err.message, recipient: options.to, subject: options.subject, provider: 'sendgrid' };
+      }
+    }
+
+    // 3. Send via SMTP / Gmail App Password if configured
+    if (smtpHost || (smtpUser && smtpPass)) {
+      try {
+        console.log(`[EmailService] 📤 Dispatching email to ${options.to} via SMTP...`);
+        let transporter: nodemailer.Transporter;
+
+        if (smtpUser && (smtpUser.endsWith('@gmail.com') || process.env.GMAIL_USER || process.env.GMAIL_APP_PASSWORD)) {
+          transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user: smtpUser,
+              pass: smtpPass,
+            },
+          });
+        } else {
+          transporter = nodemailer.createTransport({
+            host: smtpHost || 'localhost',
+            port: Number(process.env.SMTP_PORT || process.env.EMAIL_PORT || 587),
+            secure: process.env.SMTP_SECURE === 'true' || process.env.SMTP_PORT === '465',
+            auth: smtpUser && smtpPass ? { user: smtpUser, pass: smtpPass } : undefined,
+          });
+        }
+
+        const info = await transporter.sendMail({
+          from: fromAddress,
+          to: options.to,
+          subject: options.subject,
+          text: options.text,
+          html: options.html,
+        });
+
+        this.logEmailDelivery({
+          to: options.to,
+          subject: options.subject,
+          status: 'DELIVERED_EXTERNAL',
+          provider: 'smtp',
+          actionUrl: options.actionUrl,
+        });
+        console.log(`[EmailService] ✅ Delivered email to ${options.to} via SMTP (ID: ${info.messageId})`);
+        return { success: true, messageId: info.messageId, recipient: options.to, subject: options.subject, provider: 'smtp' };
+      } catch (err: any) {
+        console.error(`[EmailService] ❌ SMTP dispatch error (${err.message})`);
+        this.logEmailDelivery({
+          to: options.to,
+          subject: options.subject,
+          status: 'FAILED',
+          provider: 'smtp',
+          error: err.message,
+          actionUrl: options.actionUrl,
+        });
+        return { success: false, error: err.message, recipient: options.to, subject: options.subject, provider: 'smtp' };
+      }
+    }
+
+    // 4. Fallback / Default Outbox Logging (Dev, CI, and seed environments)
     this.logEmailDelivery({
       to: options.to,
       subject: options.subject,
@@ -135,11 +272,25 @@ class EmailService {
       console.log(`[EmailService] 🔗 Secure Action Link: ${options.actionUrl}`);
     }
 
+    // In a live Vercel deployment where the user specifically needs real delivery, warn if no provider is configured
+    if (isVercel && process.env.STRICT_EMAIL_DELIVERY === 'true') {
+      const noProviderError = 'No email provider configured (RESEND_API_KEY, SENDGRID_API_KEY, or SMTP credentials missing in Vercel environment variables).';
+      console.error(`[EmailService] ⚠ Live delivery failed: ${noProviderError}`);
+      return {
+        success: false,
+        error: noProviderError,
+        recipient: options.to,
+        subject: options.subject,
+        provider: 'none',
+      };
+    }
+
     return {
       success: true,
       recipient: options.to,
       subject: options.subject,
       messageId: `local_${Date.now()}`,
+      queuedOutbox: true,
     };
   }
 

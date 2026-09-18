@@ -85,6 +85,9 @@ export default function AdminResetPassword() {
       }
 
       setIsSuccess(true);
+      setTimeout(() => {
+        window.location.href = '/admin/login?reset=success';
+      }, 2000);
     } catch (err: any) {
       setFormError(err.message || 'Error updating administrator password.');
     } finally {

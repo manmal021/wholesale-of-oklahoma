@@ -35,7 +35,7 @@ async function bootstrap() {
   console.log(`  Authorization Role : ${user.role.toUpperCase()}`);
 
   // 2. Generate a fresh 24-hour single-use cryptographic activation token
-  const { token, activationUrl } = authStore.createAdminActivationToken(targetEmail);
+  const { token, activationUrl } = await authStore.createAdminActivationToken(targetEmail);
 
   // 3. Log audit event
   databaseStore.addAuditLog({

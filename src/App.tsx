@@ -166,15 +166,26 @@ export default function App() {
         </AdminRouteGuard>
       );
     }
-    if (pathname.startsWith('/admin/customer-applications/')) {
-      const rawId = window.location.pathname.replace(/^\/admin\/customer-applications\//i, '').replace(/\/$/, '').trim();
+    if (pathname.startsWith('/admin/customer-applications/') || pathname.startsWith('/admin/applications/')) {
+      const rawId = window.location.pathname
+        .replace(/^\/admin\/(customer-applications|applications)\//i, '')
+        .replace(/\/$/, '')
+        .trim();
       return (
         <AdminRouteGuard>
           <AdminApplicationDetail applicationId={rawId} />
         </AdminRouteGuard>
       );
     }
-    if (pathname === '/admin/customer-applications') {
+    if (pathname.startsWith('/admin/customers/')) {
+      const rawId = window.location.pathname.replace(/^\/admin\/customers\//i, '').replace(/\/$/, '').trim();
+      return (
+        <AdminRouteGuard>
+          <AdminApplicationDetail applicationId={rawId} />
+        </AdminRouteGuard>
+      );
+    }
+    if (pathname === '/admin/customer-applications' || pathname === '/admin/applications') {
       return (
         <AdminRouteGuard>
           <AdminApplicationsList />
@@ -188,7 +199,7 @@ export default function App() {
         </AdminRouteGuard>
       );
     }
-    if (pathname === '/admin') {
+    if (pathname === '/admin' || pathname === '/admin/dashboard') {
       return (
         <AdminRouteGuard>
           <AdminDashboard />

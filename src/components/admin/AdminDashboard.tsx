@@ -44,6 +44,24 @@ interface AuditLog {
   details?: Record<string, any>;
 }
 
+interface RecentApplication {
+  id: string;
+  businessName: string;
+  dba?: string;
+  contactName: string;
+  email: string;
+  phone: string;
+  businessType: string;
+  address?: {
+    street?: string;
+    city?: string;
+    state?: string;
+    zip?: string;
+  };
+  status: 'PENDING' | 'APPROVED' | 'REJECTED' | 'SUSPENDED';
+  submittedAt: string;
+}
+
 export default function AdminDashboard() {
   const [stats, setStats] = useState<Stats>({
     pending: 0,
@@ -61,6 +79,7 @@ export default function AdminDashboard() {
     activeOverrides: 0,
   });
   const [logs, setLogs] = useState<AuditLog[]>([]);
+  const [recentApplications, setRecentApplications] = useState<RecentApplication[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
@@ -68,9 +87,10 @@ export default function AdminDashboard() {
     setIsLoading(true);
     setErrorMessage(null);
     try {
-      const [statsRes, logsRes] = await Promise.all([
+      const [statsRes, logsRes, appsRes] = await Promise.all([
         fetch('/api/admin/stats'),
         fetch('/api/admin/audit-logs'),
+        fetch('/api/admin/applications?status=ALL'),
       ]);
 
       if (statsRes.status === 401 || statsRes.status === 403) {
@@ -86,6 +106,13 @@ export default function AdminDashboard() {
       const logsData = await logsRes.json();
       if (logsData.logs) {
         setLogs(logsData.logs.slice(0, 10));
+      }
+
+      if (appsRes.ok) {
+        const appsData = await appsRes.json();
+        if (appsData.applications) {
+          setRecentApplications(appsData.applications.slice(0, 8));
+        }
       }
     } catch (err: any) {
       setErrorMessage('Failed to connect to administrative server.');
@@ -241,52 +268,80 @@ export default function AdminDashboard() {
         {/* Counter Metrics Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
           {/* Pending */}
-          <div className="p-5 rounded-2xl bg-white border border-amber-200 space-y-2 relative overflow-hidden shadow-xs">
+          <a
+            href="/admin/customer-applications?status=PENDING"
+            className="p-5 rounded-2xl bg-white border border-amber-200 hover:border-amber-400 hover:shadow-md transition-all group block space-y-2 relative overflow-hidden"
+            title="View Pending Applications"
+          >
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Pending Review</span>
-              <div className="w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600 border border-amber-200">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 group-hover:text-amber-700 transition-colors">Pending Review</span>
+              <div className="w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600 border border-amber-200 group-hover:bg-amber-100 transition-colors">
                 <Clock className="w-4 h-4" />
               </div>
             </div>
-            <div className="text-3xl font-black text-slate-900">{stats.pending}</div>
+            <div className="text-3xl font-black text-slate-900 group-hover:text-amber-600 transition-colors flex items-center justify-between">
+              <span>{stats.pending}</span>
+              <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-amber-600" />
+            </div>
             <p className="text-[11px] text-slate-500">Applicants awaiting verification</p>
-          </div>
+          </a>
 
           {/* Approved */}
-          <div className="p-5 rounded-2xl bg-white border border-emerald-200 space-y-2 shadow-xs">
+          <a
+            href="/admin/customers?status=APPROVED"
+            className="p-5 rounded-2xl bg-white border border-emerald-200 hover:border-emerald-400 hover:shadow-md transition-all group block space-y-2"
+            title="View Approved Wholesale Customers"
+          >
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Approved Accounts</span>
-              <div className="w-8 h-8 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-600 border border-emerald-200">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 group-hover:text-emerald-700 transition-colors">Approved Accounts</span>
+              <div className="w-8 h-8 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-600 border border-emerald-200 group-hover:bg-emerald-100 transition-colors">
                 <CheckCircle2 className="w-4 h-4" />
               </div>
             </div>
-            <div className="text-3xl font-black text-emerald-600">{stats.approved}</div>
+            <div className="text-3xl font-black text-emerald-600 flex items-center justify-between">
+              <span>{stats.approved}</span>
+              <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-emerald-600" />
+            </div>
             <p className="text-[11px] text-slate-500">Active wholesale purchasing access</p>
-          </div>
+          </a>
 
           {/* Rejected */}
-          <div className="p-5 rounded-2xl bg-white border border-rose-200 space-y-2 shadow-xs">
+          <a
+            href="/admin/customer-applications?status=REJECTED"
+            className="p-5 rounded-2xl bg-white border border-rose-200 hover:border-rose-400 hover:shadow-md transition-all group block space-y-2"
+            title="View Rejected Applications"
+          >
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Rejected</span>
-              <div className="w-8 h-8 rounded-lg bg-rose-50 flex items-center justify-center text-rose-600 border border-rose-200">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 group-hover:text-rose-700 transition-colors">Rejected</span>
+              <div className="w-8 h-8 rounded-lg bg-rose-50 flex items-center justify-center text-rose-600 border border-rose-200 group-hover:bg-rose-100 transition-colors">
                 <XCircle className="w-4 h-4" />
               </div>
             </div>
-            <div className="text-3xl font-black text-rose-600">{stats.rejected}</div>
+            <div className="text-3xl font-black text-rose-600 flex items-center justify-between">
+              <span>{stats.rejected}</span>
+              <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-rose-600" />
+            </div>
             <p className="text-[11px] text-slate-500">Declined wholesale applications</p>
-          </div>
+          </a>
 
           {/* Suspended */}
-          <div className="p-5 rounded-2xl bg-white border border-purple-200 space-y-2 shadow-xs">
+          <a
+            href="/admin/customer-applications?status=SUSPENDED"
+            className="p-5 rounded-2xl bg-white border border-purple-200 hover:border-purple-400 hover:shadow-md transition-all group block space-y-2"
+            title="View Suspended Accounts"
+          >
             <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-500">Suspended</span>
-              <div className="w-8 h-8 rounded-lg bg-purple-50 flex items-center justify-center text-purple-600 border border-purple-200">
+              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 group-hover:text-purple-700 transition-colors">Suspended</span>
+              <div className="w-8 h-8 rounded-lg bg-purple-50 flex items-center justify-center text-purple-600 border border-purple-200 group-hover:bg-purple-100 transition-colors">
                 <Ban className="w-4 h-4" />
               </div>
             </div>
-            <div className="text-3xl font-black text-purple-600">{stats.suspended}</div>
+            <div className="text-3xl font-black text-purple-600 flex items-center justify-between">
+              <span>{stats.suspended}</span>
+              <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-purple-600" />
+            </div>
             <p className="text-[11px] text-slate-500">Accounts with revoked access</p>
-          </div>
+          </a>
         </div>
 
         {/* Operational Warehouse & Order Fulfillment Row */}
@@ -371,6 +426,123 @@ export default function AdminDashboard() {
               <p className="text-[10px] text-slate-500">Manual stock overrides</p>
             </a>
           </div>
+        </div>
+
+        {/* Recent Customer Applications Section */}
+        <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 space-y-6 shadow-xs">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <div className="flex items-center gap-2">
+                <h3 className="text-base sm:text-lg font-bold text-slate-900 flex items-center gap-2">
+                  <FileText className="w-5 h-5 text-[#FF6B00]" />
+                  Recent Customer Applications
+                </h3>
+                {stats.pending > 0 && (
+                  <span className="bg-amber-100 text-amber-800 text-[10px] font-black px-2 py-0.5 rounded-full border border-amber-200">
+                    {stats.pending} Pending
+                  </span>
+                )}
+              </div>
+              <p className="text-xs text-slate-500">
+                Newly submitted wholesale business applications requiring identity, FEIN, and permit review
+              </p>
+            </div>
+            <div className="flex items-center gap-3">
+              <a
+                href="/admin/customer-applications"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FF6B00] hover:text-[#E05E00] hover:underline"
+              >
+                <span>View All Applications</span>
+                <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            </div>
+          </div>
+
+          {recentApplications.length === 0 ? (
+            <div className="text-center py-12 rounded-2xl bg-slate-50 border border-dashed border-slate-200 text-xs text-slate-500">
+              No customer applications submitted yet.
+            </div>
+          ) : (
+            <div className="overflow-x-auto">
+              <table className="w-full text-left text-xs">
+                <thead>
+                  <tr className="border-b border-slate-200 text-[11px] uppercase tracking-wider text-slate-500 font-bold bg-slate-50/50">
+                    <th className="py-3 px-4">Business</th>
+                    <th className="py-3 px-4">Contact</th>
+                    <th className="py-3 px-4">Business Type</th>
+                    <th className="py-3 px-4">Submitted</th>
+                    <th className="py-3 px-4">Status</th>
+                    <th className="py-3 px-4 text-right">Action</th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100">
+                  {recentApplications.map((app) => (
+                    <tr key={app.id} className="hover:bg-slate-50/70 transition-colors">
+                      <td className="py-3.5 px-4">
+                        <div className="font-bold text-slate-900">{app.businessName}</div>
+                        {app.dba && <div className="text-[11px] text-slate-400">DBA: {app.dba}</div>}
+                        {app.address && (app.address.city || app.address.state) && (
+                          <div className="text-[10px] text-slate-400">
+                            {[app.address.city, app.address.state].filter(Boolean).join(', ')}
+                          </div>
+                        )}
+                      </td>
+                      <td className="py-3.5 px-4">
+                        <div className="font-medium text-slate-800">{app.contactName}</div>
+                        <div className="text-[11px] text-slate-500">{app.email}</div>
+                        <div className="text-[10px] text-slate-400">{app.phone}</div>
+                      </td>
+                      <td className="py-3.5 px-4 text-slate-600 capitalize">
+                        {app.businessType?.replace(/_/g, ' ') || 'Wholesale'}
+                      </td>
+                      <td className="py-3.5 px-4 text-slate-500 whitespace-nowrap">
+                        {new Date(app.submittedAt).toLocaleDateString()}
+                      </td>
+                      <td className="py-3.5 px-4 whitespace-nowrap">
+                        {app.status === 'PENDING' && (
+                          <span className="inline-flex items-center gap-1 bg-amber-50 text-amber-700 border border-amber-200 text-[10px] font-bold px-2 py-0.5 rounded-full">
+                            <Clock className="w-3 h-3 text-amber-500" />
+                            Pending Review
+                          </span>
+                        )}
+                        {app.status === 'APPROVED' && (
+                          <span className="inline-flex items-center gap-1 bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold px-2 py-0.5 rounded-full">
+                            <CheckCircle2 className="w-3 h-3 text-emerald-500" />
+                            Approved
+                          </span>
+                        )}
+                        {app.status === 'REJECTED' && (
+                          <span className="inline-flex items-center gap-1 bg-rose-50 text-rose-700 border border-rose-200 text-[10px] font-bold px-2 py-0.5 rounded-full">
+                            <XCircle className="w-3 h-3 text-rose-500" />
+                            Rejected
+                          </span>
+                        )}
+                        {app.status === 'SUSPENDED' && (
+                          <span className="inline-flex items-center gap-1 bg-purple-50 text-purple-700 border border-purple-200 text-[10px] font-bold px-2 py-0.5 rounded-full">
+                            <Ban className="w-3 h-3 text-purple-500" />
+                            Suspended
+                          </span>
+                        )}
+                      </td>
+                      <td className="py-3.5 px-4 text-right whitespace-nowrap">
+                        <a
+                          href={`/admin/customer-applications/${app.id}`}
+                          className={`inline-flex items-center gap-1 px-3 py-1.5 rounded-xl font-bold text-xs transition-colors ${
+                            app.status === 'PENDING'
+                              ? 'bg-[#FF6B00] text-white hover:bg-[#E05E00] shadow-xs'
+                              : 'bg-slate-100 text-slate-700 hover:bg-slate-200 border border-slate-200'
+                          }`}
+                        >
+                          <span>{app.status === 'PENDING' ? 'Review & Approve' : 'Details'}</span>
+                          <ArrowRight className="w-3.5 h-3.5" />
+                        </a>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )}
         </div>
 
         {/* Recent Audit Activity */}
