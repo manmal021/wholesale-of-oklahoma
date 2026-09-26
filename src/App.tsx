@@ -687,12 +687,12 @@ export default function App() {
             isMirrored={false}
             isColorInverted={false}
             isClear={true}
-            overlayOpacity={isDark ? 45 : 25}
+            overlayOpacity={isDark ? 25 : 10}
             overlayTheme={theme}
           />
 
           {/* Editorial Light & Obsidian Dark Gradients & Soft Warm Glowing Orbs */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-[#F8FAFC]/70 to-[#F8FAFC] dark:from-[#0A0E17]/95 dark:via-[#0A0E17]/80 dark:to-[#0A0E17] pointer-events-none z-10 transition-colors duration-300" />
+          <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-[#F8FAFC]/20 to-[#F8FAFC]/70 dark:from-[#0A0E17]/60 dark:via-[#0A0E17]/30 dark:to-[#0A0E17]/80 pointer-events-none z-10 transition-colors duration-300" />
           <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden">
             <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#FF6B00] opacity-10 dark:opacity-25 blur-[140px]" />
             <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-[#FF6B00] opacity-10 dark:opacity-20 blur-[120px]" />

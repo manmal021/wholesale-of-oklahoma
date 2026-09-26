@@ -26,10 +26,10 @@ export default function BoomerangVideoBg({
     <div className={className ?? 'absolute inset-0 w-full h-full'}>
       <video
         ref={videoRef}
-        className="absolute inset-0 z-0 w-full h-full object-cover select-none pointer-events-none transition-all duration-500 opacity-60"
+        className="absolute inset-0 z-0 w-full h-full object-cover select-none pointer-events-none transition-all duration-500 opacity-90"
         style={{
           transform: isMirrored ? 'scaleX(-1)' : 'scaleX(1)',
-          filter: `brightness(${isClear ? '1.15' : '1.0'}) contrast(${isClear ? '1.1' : '1.0'}) ${isColorInverted ? 'invert(0)' : 'invert(0)'}`,
+          filter: `brightness(${isClear ? '1.25' : '1.0'}) contrast(${isClear ? '1.15' : '1.0'})`,
         }}
         autoPlay={true}
         loop={true}
@@ -47,10 +47,10 @@ export default function BoomerangVideoBg({
       />
       <div className={`absolute inset-0 pointer-events-none bg-gradient-to-t transition-all duration-300 ${
         overlayTheme === 'light'
-          ? 'from-[#F8FAFC] via-[#F8FAFC]/75 to-white/90'
+          ? 'from-[#F8FAFC]/30 via-transparent to-white/10'
           : isClear
           ? 'from-[#0f172A]/40 via-transparent to-[#0f172A]/10'
-          : 'from-[#0f172A]/85 via-transparent to-[#0f172A]/40'
+          : 'from-[#0f172A]/70 via-transparent to-[#0f172A]/30'
       }`} />
     </div>
   );
