@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback, type ReactNode } from 'react';
+import { useState, useEffect, useCallback, useRef, type ReactNode } from 'react';
 import {
   LogIn,
   LogOut,
@@ -292,6 +292,18 @@ export default function App() {
     } catch {
       setCurrentUser(null);
     }
+  }, []);
+
+  // Scroll-triggered entrance animations via IntersectionObserver
+  useEffect(() => {
+    const els = document.querySelectorAll('.anim-hidden, .anim-hidden-left, .anim-hidden-right, .anim-hidden-scale');
+    if (!els.length) return;
+    const io = new IntersectionObserver(
+      (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('anim-visible'); io.unobserve(e.target); } }),
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
   }, []);
 
   useEffect(() => {
@@ -694,40 +706,40 @@ export default function App() {
           {/* Editorial Light & Obsidian Dark Gradients & Soft Warm Glowing Orbs */}
           <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-[#F8FAFC]/20 to-[#F8FAFC]/70 dark:from-[#0A0E17]/60 dark:via-[#0A0E17]/30 dark:to-[#0A0E17]/80 pointer-events-none z-10 transition-colors duration-300" />
           <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden">
-            <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#FF6B00] opacity-10 dark:opacity-25 blur-[140px]" />
-            <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-[#FF6B00] opacity-10 dark:opacity-20 blur-[120px]" />
+            <div className="orb-drift absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#FF6B00] opacity-10 dark:opacity-25 blur-[140px]" />
+            <div className="orb-drift-r absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-[#FF6B00] opacity-10 dark:opacity-20 blur-[120px]" />
           </div>
 
           {/* Central Display Hero Copy */}
           <div className={`relative z-10 flex flex-col items-center text-center ${showDisclaimer ? 'pt-32 sm:pt-40 md:pt-44' : 'pt-24 sm:pt-28 md:pt-32'} px-4 sm:px-6`}>
-            <div className="inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-md text-slate-800 text-xs font-semibold px-4 py-1.5 rounded-full mb-6 border border-slate-200 shadow-sm">
+            <div className="hero-badge-enter animate-woo-badge inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-md text-slate-800 text-xs font-semibold px-4 py-1.5 rounded-full mb-6 border border-slate-200 shadow-sm">
               <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
               <span className="font-extrabold text-[11px] uppercase tracking-wider text-[#FF6B00]">Licensed Oklahoma Wholesaler · 5.0 Star</span>
             </div>
 
             {/* Headline */}
             <h1
-              className="font-extrabold leading-[0.95] text-slate-900 text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.75rem] xl:text-[5.5rem] tracking-[-0.04em] max-w-5xl drop-shadow-xs"
+              className="hero-title-enter font-extrabold leading-[0.95] text-slate-900 text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.75rem] xl:text-[5.5rem] tracking-[-0.04em] max-w-5xl drop-shadow-xs"
               style={{
                 fontFamily: '"Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
               }}
             >
               Wholesale of Oklahoma{' '}
-              <span className="text-[#FF6B00]">
+              <span className="text-shimmer">
                 Distribution Partner
               </span>
             </h1>
 
             {/* Supporting Text */}
-            <p className="mt-6 text-slate-600 text-sm sm:text-base md:text-lg font-medium leading-relaxed max-w-2xl mx-auto px-2">
+            <p className="hero-sub-enter mt-6 text-slate-600 text-sm sm:text-base md:text-lg font-medium leading-relaxed max-w-2xl mx-auto px-2">
               Leading brands, competitive wholesale pricing, and reliable service for qualified retailers.
             </p>
 
             {/* Central Hero Action Buttons */}
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4 z-10">
+            <div className="hero-cta-enter mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4 z-10">
               <a
                 href="#brands"
-                className="bg-[#FF6B00] hover:bg-[#E85F00] text-white text-xs sm:text-sm font-extrabold px-7 py-3.5 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2 uppercase tracking-wider"
+                className="btn-glow bg-[#FF6B00] hover:bg-[#E85F00] text-white text-xs sm:text-sm font-extrabold px-7 py-3.5 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2 uppercase tracking-wider"
               >
                 <Layers className="w-4 h-4" />
                 <span>Explore Brands Portfolio</span>
@@ -769,24 +781,24 @@ export default function App() {
             </div>
 
             {/* Trust Value Badges */}
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-[11px] font-semibold text-slate-700">
-              <span className="bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-200 shadow-xs flex items-center gap-1.5">
+            <div className="hero-trust-enter mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-[11px] font-semibold text-slate-700">
+              <span className="card-lift bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-200 shadow-xs flex items-center gap-1.5">
                 ⚡ Same-Day OKC Pickup
               </span>
-              <span className="bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-200 shadow-xs flex items-center gap-1.5">
+              <span className="card-lift bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-200 shadow-xs flex items-center gap-1.5">
                 📦 Direct Wholesale Pricing
               </span>
-              <span className="bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-200 shadow-xs flex items-center gap-1.5">
+              <span className="card-lift bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-200 shadow-xs flex items-center gap-1.5">
                 🔒 Licensed Master Distributor
               </span>
-              <span className="bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-200 shadow-xs flex items-center gap-1.5">
+              <span className="card-lift bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-200 shadow-xs flex items-center gap-1.5">
                 🚚 Statewide Metro Dispatch
               </span>
             </div>
           </div>
 
           {/* Bottom-left corporate profile badge */}
-          <div className="hidden xl:block absolute left-6 md:left-10 bottom-6 sm:bottom-8 md:bottom-10 z-10 max-w-sm bg-white/95 backdrop-blur-md border border-slate-200 p-5 rounded-[24px] shadow-lg text-slate-800">
+          <div className="hero-card-enter card-lift hidden xl:block absolute left-6 md:left-10 bottom-6 sm:bottom-8 md:bottom-10 z-10 max-w-sm bg-white/95 backdrop-blur-md border border-slate-200 p-5 rounded-[24px] shadow-lg text-slate-800">
             <div className="flex items-center gap-2 text-[#FF6B00] mb-3">
               <Sparkles className="w-4 h-4 text-[#FF6B00]" />
               <span className="text-sm font-bold tracking-wide">
@@ -815,15 +827,17 @@ export default function App() {
         </section>
 
         {/* 2. Official Wholesale Brands Showcase with Hardware & Packaging Images */}
-        <BrandDirectoryShowcase
-          isLoggedIn={Boolean(currentUser)}
-          onBrandClick={handleBrandClick}
-          onOpenLogin={() => setIsLoginModalOpen(true)}
-          onOpenApplication={() => setIsWholesaleModalOpen(true)}
-        />
+        <div className="anim-hidden">
+          <BrandDirectoryShowcase
+            isLoggedIn={Boolean(currentUser)}
+            onBrandClick={handleBrandClick}
+            onOpenLogin={() => setIsLoginModalOpen(true)}
+            onOpenApplication={() => setIsWholesaleModalOpen(true)}
+          />
+        </div>
 
         {/* 3. Dynamic Category Showcase Section */}
-        <CategoryShowcase />
+        <div className="anim-hidden anim-delay-1"><CategoryShowcase /></div>
 
         {/* 4. Inside the Login Gateway: Display all 900+ Products Imported from Zoho with Pricing */}
         {currentUser ? (
@@ -887,19 +901,19 @@ export default function App() {
         )}
 
         {/* 5 & 6. Why Wholesale of Oklahoma & Ready to Buy Wholesale CTA */}
-        <WhyChooseUs onOpenApplication={() => setIsWholesaleModalOpen(true)} />
+        <div className="anim-hidden"><WhyChooseUs onOpenApplication={() => setIsWholesaleModalOpen(true)} /></div>
 
         {/* 7. Separate Direct Restock Order Request Form */}
-        <OrderForm />
+        <div className="anim-hidden anim-delay-1"><OrderForm /></div>
 
         {/* 8. Verified Customer Reviews Slider */}
-        <ReviewSlider />
+        <div className="anim-hidden"><ReviewSlider /></div>
 
         {/* 9. Warehouse Photo Gallery */}
-        <GallerySlider />
+        <div className="anim-hidden anim-delay-2"><GallerySlider /></div>
 
         {/* 10. Complete Contact Directories with Map representation */}
-        <StoreDetails />
+        <div className="anim-hidden"><StoreDetails /></div>
       </main>
 
       {/* Regulatory Warning & Comprehensive Compliance Footer */}
