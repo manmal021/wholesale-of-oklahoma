@@ -45,9 +45,14 @@ import AdminOrdersList from './components/admin/AdminOrdersList';
 import AdminOrderDetail from './components/admin/AdminOrderDetail';
 import AdminInventoryMismatches from './components/admin/AdminInventoryMismatches';
 import AdminProductsAvailability from './components/admin/AdminProductsAvailability';
+import AdminReviewPortal from './components/admin/AdminReviewPortal';
 import AccountActivation from './components/customer/AccountActivation';
 import CustomerAccountPage from './components/customer/CustomerAccountPage';
+import CustomerPortal from './components/customer/CustomerPortal';
 import PasswordResetPage from './components/customer/PasswordResetPage';
+import ThemeToggle from './components/ThemeToggle';
+import { useTheme } from './lib/useTheme';
+import { initTheme } from './lib/theme';
 
 const BG_VIDEO = '/transi.mp4';
 
@@ -124,6 +129,11 @@ function AdminRouteGuard({ children }: { children: ReactNode }) {
 }
 
 export default function App() {
+  useEffect(() => {
+    initTheme();
+  }, []);
+
+  const { theme, isDark } = useTheme();
   const pathname = typeof window !== 'undefined' ? window.location.pathname.toLowerCase().replace(/\/$/, '') || '/' : '/';
 
   if (pathname.startsWith('/admin')) {
@@ -206,9 +216,19 @@ export default function App() {
         </AdminRouteGuard>
       );
     }
+    if (pathname === '/admin/review') {
+      return (
+        <AdminRouteGuard>
+          <AdminReviewPortal />
+        </AdminRouteGuard>
+      );
+    }
   }
   if (pathname === '/activate') {
     return <AccountActivation />;
+  }
+  if (pathname === '/portal') {
+    return <CustomerPortal />;
   }
   if (pathname === '/account' || pathname === '/account/orders' || pathname === '/account/addresses') {
     return <CustomerAccountPage />;
@@ -342,7 +362,7 @@ export default function App() {
   ];
 
   return (
-    <div className="w-full min-h-screen bg-[#F8FAFC] text-[#0F172A] selection:bg-[#FF6B00]/30 selection:text-white relative font-sans">
+    <div className="w-full min-h-screen bg-[#F8FAFC] dark:bg-[#0A0E17] text-[#0F172A] dark:text-[#F8FAFC] selection:bg-[#FF6B00]/30 selection:text-white relative font-sans transition-colors duration-200">
       {/* 21+ Age Gate Modal (Regulatory Compliance) */}
       <AgeGateModal />
 
@@ -361,13 +381,13 @@ export default function App() {
           <aside
             role="alert"
             aria-label="Website notice"
-            className="w-full bg-amber-50 border-b-2 border-amber-300 text-amber-950 px-4 sm:px-8 py-3 sm:py-3.5 shadow-sm flex items-center justify-center gap-2.5 sm:gap-3.5 text-center"
+            className="w-full bg-amber-50 dark:bg-amber-950/40 border-b-2 border-amber-300 dark:border-amber-700/60 text-amber-950 dark:text-amber-200 px-4 sm:px-8 py-3 sm:py-3.5 shadow-sm flex items-center justify-center gap-2.5 sm:gap-3.5 text-center transition-colors"
           >
             <span className="inline-flex items-center gap-1.5 bg-[#FF6B00] text-white text-xs sm:text-sm font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-sm shrink-0">
               <AlertTriangle className="w-4 h-4 text-white" />
               Notice
             </span>
-            <p className="text-sm sm:text-base md:text-lg font-bold tracking-wide text-amber-950">
+            <p className="text-sm sm:text-base md:text-lg font-bold tracking-wide text-amber-950 dark:text-amber-100">
               Website under construction. Prices may not accurately reflect the original price.
             </p>
           </aside>
@@ -377,26 +397,26 @@ export default function App() {
         <nav
           className={`w-full flex items-center justify-between px-4 sm:px-6 md:px-10 transition-all duration-300 ${
             scrolled
-              ? 'bg-white/95 backdrop-blur-md py-3 shadow-sm border-b border-slate-200 text-slate-900'
-              : 'bg-white/80 backdrop-blur-xs py-4 sm:py-6 border-b border-slate-200/50 text-slate-900'
+              ? 'bg-white/95 dark:bg-[#0B0F17]/95 backdrop-blur-md py-3 shadow-sm border-b border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white'
+              : 'bg-white/80 dark:bg-[#0B0F17]/85 backdrop-blur-xs py-4 sm:py-6 border-b border-slate-200/50 dark:border-slate-800/60 text-slate-900 dark:text-white'
           }`}
         >
           <div className="flex items-center gap-2">
             <a
               href="#overview"
-              className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 flex items-center gap-2 select-none hover:text-[#FF6B00] transition-colors"
+              className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 dark:text-white flex items-center gap-2 select-none hover:text-[#FF6B00] dark:hover:text-[#FF7A1A] transition-colors"
             >
               <span>Wholesale of Oklahoma</span>
             </a>
           </div>
 
           {/* Desktop Central Navigation Pill */}
-          <div className="hidden lg:flex items-center gap-1 bg-white/90 backdrop-blur-md rounded-full pl-6 pr-2 py-1 shadow-sm border border-slate-200">
+          <div className="hidden lg:flex items-center gap-1 bg-white/90 dark:bg-[#162032]/90 backdrop-blur-md rounded-full pl-6 pr-2 py-1 shadow-sm border border-slate-200 dark:border-slate-700/60">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className="text-xs px-3 py-2 font-semibold text-slate-600 hover:text-[#FF6B00] transition-colors"
+                className="text-xs px-3 py-2 font-semibold text-slate-600 dark:text-slate-300 hover:text-[#FF6B00] dark:hover:text-[#FF7A1A] transition-colors"
               >
                 {link.label}
               </a>
@@ -410,7 +430,7 @@ export default function App() {
 
             {/* Auth-Aware Desktop Buttons */}
             {currentUser ? (
-              <div className="flex items-center gap-2 ml-2 pl-2 border-l border-slate-200">
+              <div className="flex items-center gap-2 ml-2 pl-2 border-l border-slate-200 dark:border-slate-700">
                 {currentUser.role === 'admin' && (
                   <a
                     href="/admin"
@@ -438,7 +458,7 @@ export default function App() {
                 <button
                   type="button"
                   onClick={handleLogout}
-                  className="text-xs font-semibold text-slate-500 hover:text-slate-900 px-2.5 py-1.5 rounded-full transition-colors flex items-center gap-1 cursor-pointer"
+                  className="text-xs font-semibold text-slate-500 hover:text-slate-900 dark:hover:text-white px-2.5 py-1.5 rounded-full transition-colors flex items-center gap-1 cursor-pointer"
                   title="Logout from wholesale portal"
                 >
                   <LogOut className="w-3.5 h-3.5" />
@@ -446,18 +466,18 @@ export default function App() {
                 </button>
               </div>
             ) : (
-              <div className="flex items-center gap-1 ml-2 pl-2 border-l border-slate-200">
+              <div className="flex items-center gap-1 ml-2 pl-2 border-l border-slate-200 dark:border-slate-700">
                 <button
                   type="button"
                   onClick={() => setIsWholesaleModalOpen(true)}
-                  className="text-xs font-bold text-slate-600 hover:text-[#FF6B00] px-3 py-1.5 rounded-full transition-colors cursor-pointer"
+                  className="text-xs font-bold text-slate-600 dark:text-slate-300 hover:text-[#FF6B00] px-3 py-1.5 rounded-full transition-colors cursor-pointer"
                 >
                   Apply
                 </button>
                 <button
                   type="button"
                   onClick={() => setIsLoginModalOpen(true)}
-                  className="text-xs font-bold text-slate-800 bg-slate-100 hover:bg-slate-200 px-3.5 py-1.5 rounded-full transition-colors cursor-pointer border border-slate-300 flex items-center gap-1.5"
+                  className="text-xs font-bold text-slate-800 dark:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 px-3.5 py-1.5 rounded-full transition-colors cursor-pointer border border-slate-300 dark:border-slate-600 flex items-center gap-1.5"
                 >
                   <LogIn className="w-3.5 h-3.5 text-[#FF6B00]" />
                   Login
@@ -468,10 +488,13 @@ export default function App() {
 
           {/* Right Action Links */}
           <div className="flex items-center gap-2 sm:gap-3">
+            {/* Header Theme Mode Switcher */}
+            <ThemeToggle variant="header-button" />
+
             {/* Desktop & Mobile Cart Trigger in Header */}
             <button
               onClick={() => setIsCartOpen(true)}
-              className="flex items-center gap-2 text-xs font-bold text-slate-800 hover:text-[#FF6B00] transition-colors cursor-pointer bg-white hover:bg-slate-50 px-3.5 py-2 rounded-full border border-slate-300 shadow-sm"
+              className="flex items-center gap-2 text-xs font-bold text-slate-800 dark:text-slate-200 hover:text-[#FF6B00] transition-colors cursor-pointer bg-white dark:bg-[#162032] hover:bg-slate-50 dark:hover:bg-[#1E293B] px-3.5 py-2 rounded-full border border-slate-300 dark:border-slate-700 shadow-sm"
               aria-label={`Open Cart (${cartUnits} units)`}
             >
               <ShoppingBag className="w-4 h-4 text-[#FF6B00]" />
@@ -485,7 +508,7 @@ export default function App() {
 
             <a
               href="tel:4057682975"
-              className="hidden sm:flex items-center gap-1.5 text-xs font-extrabold text-[#FF6B00] hover:text-[#E85F00] transition-colors cursor-pointer bg-white hover:bg-slate-50 px-4 py-2 rounded-full border border-slate-300 shadow-sm"
+              className="hidden sm:flex items-center gap-1.5 text-xs font-extrabold text-[#FF6B00] hover:text-[#E85F00] transition-colors cursor-pointer bg-white dark:bg-[#162032] hover:bg-slate-50 dark:hover:bg-[#1E293B] px-4 py-2 rounded-full border border-slate-300 dark:border-slate-700 shadow-sm"
             >
               <Phone className="w-3.5 h-3.5 text-[#FF6B00]" />
               (405) 768-2975
@@ -525,23 +548,26 @@ export default function App() {
 
       {/* Mobile Navigation Drawer */}
       <div
-        className={`lg:hidden fixed top-0 right-0 bottom-0 z-50 w-[85%] max-w-sm bg-white border-l border-slate-200 text-slate-900 shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+        className={`lg:hidden fixed top-0 right-0 bottom-0 z-50 w-[85%] max-w-sm bg-white dark:bg-[#0F172A] border-l border-slate-200 dark:border-slate-800 text-slate-900 dark:text-white shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
           menuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <div className="flex flex-col h-full pt-20 px-8 pb-8">
-          <div className="flex items-center justify-between pb-4 border-b border-slate-200 mb-2">
+          <div className="flex items-center justify-between pb-4 border-b border-slate-200 dark:border-slate-800 mb-2">
             <span className="text-[10px] uppercase font-bold tracking-widest text-[#FF6B00]">
               Navigation Links
             </span>
             <button
               onClick={() => setMenuOpen(false)}
-              className="w-8 h-8 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-600 hover:text-slate-900 cursor-pointer"
+              className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:text-slate-900 dark:hover:text-white cursor-pointer"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
           <div className="flex flex-col gap-1">
+            <div className="mb-2">
+              <ThemeToggle variant="mobile-row" />
+            </div>
             {navLinks.map((link, i) => (
               <a
                 key={link.href}
@@ -653,7 +679,7 @@ export default function App() {
       {/* Main Content Landmark (WCAG 2.2 AA) */}
       <main id="main-content">
         {/* 1. Hero Header Section */}
-        <section id="overview" className="relative w-full min-h-screen sm:h-screen overflow-hidden bg-[#F8FAFC]">
+        <section id="overview" className="relative w-full min-h-screen sm:h-screen overflow-hidden bg-[#F8FAFC] dark:bg-[#0A0E17] transition-colors duration-200">
           {/* Seamless Canvas Boomerang Loop Background */}
           <BoomerangVideoBg
             src={BG_VIDEO}
@@ -661,15 +687,15 @@ export default function App() {
             isMirrored={false}
             isColorInverted={false}
             isClear={true}
-            overlayOpacity={25}
-            overlayTheme="light"
+            overlayOpacity={isDark ? 45 : 25}
+            overlayTheme={theme}
           />
 
-          {/* Editorial Light Gradients & Soft Warm Glowing Orbs */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-[#F8FAFC]/70 to-[#F8FAFC] pointer-events-none z-10" />
+          {/* Editorial Light & Obsidian Dark Gradients & Soft Warm Glowing Orbs */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white/90 via-[#F8FAFC]/70 to-[#F8FAFC] dark:from-[#0A0E17]/95 dark:via-[#0A0E17]/80 dark:to-[#0A0E17] pointer-events-none z-10 transition-colors duration-300" />
           <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden">
-            <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#FF6B00] opacity-10 blur-[140px]" />
-            <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-[#FF6B00] opacity-10 blur-[120px]" />
+            <div className="absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#FF6B00] opacity-10 dark:opacity-25 blur-[140px]" />
+            <div className="absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-[#FF6B00] opacity-10 dark:opacity-20 blur-[120px]" />
           </div>
 
           {/* Central Display Hero Copy */}
@@ -1238,6 +1264,9 @@ export default function App() {
 
       {/* Mango AI Virtual Assistant — Wholesale of Oklahoma */}
       <MangoChat />
+
+      {/* Persistent Sticky Floating Dark/Light Theme Button with Color Combo Display */}
+      <ThemeToggle variant="sticky-pill" />
     </div>
   );
 }

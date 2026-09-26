@@ -1,16 +1,23 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --bg-primary: #F8FAFC;
   --bg-secondary: #FFFFFF;
+  --bg-tertiary: #F1F5F9;
   --surface-elevated: #FFFFFF;
+  --surface-card: #FFFFFF;
+  --surface-card-hover: #F8FAFC;
   --text-primary: #0F172A;
   --text-secondary: #334155;
   --text-muted: #64748B;
   --accent-primary: #FF6B00;
   --accent-hover: #E85F00;
+  --accent-glow: rgba(255, 107, 0, 0.25);
   --border-subtle: #E2E8F0;
   --border-light: #CBD5E1;
+  --border-highlight: rgba(255, 107, 0, 0.4);
   --success: #10B981;
   --error: #EF4444;
   --warning: #F59E0B;
@@ -21,10 +28,37 @@
   --transition-normal: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* ── Wholesale of Oklahoma Dark Theme Color Combo ──
+   Palette: Deep Obsidian (#0A0E17) + Midnight Slate (#0F172A) + Electric Amber (#FF6B00 / #FF7A1A) + Silver Slate (#CBD5E1) */
+html.dark,
+body.dark,
+[data-theme="dark"] {
+  --bg-primary: #0A0E17;
+  --bg-secondary: #0F172A;
+  --bg-tertiary: #162032;
+  --surface-elevated: #162032;
+  --surface-card: #111827;
+  --surface-card-hover: #182236;
+  --text-primary: #F8FAFC;
+  --text-secondary: #CBD5E1;
+  --text-muted: #94A3B8;
+  --accent-primary: #FF7A1A;
+  --accent-hover: #FF8E3C;
+  --accent-glow: rgba(255, 107, 0, 0.35);
+  --border-subtle: #1E293B;
+  --border-light: #334155;
+  --border-highlight: rgba(255, 107, 0, 0.45);
+  --success: #34D399;
+  --error: #F87171;
+  --warning: #FBBF24;
+  color-scheme: dark;
+}
+
 html {
   scroll-behavior: smooth;
   background-color: var(--bg-primary);
   color: var(--text-primary);
+  transition: background-color 250ms ease, color 200ms ease;
 }
 
 html,
@@ -32,16 +66,214 @@ body,
 #root {
   min-height: 100%;
   margin: 0;
-  background-color: #F8FAFC;
-  color: #0F172A;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   font-family: 'Inter', 'Neue Haas Grotesk Text Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background-color: #F8FAFC;
+  background-color: var(--bg-primary);
   overflow-x: hidden;
+}
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Global Dark Theme Utility Overrides
+   Ensures seamless deep dark aesthetics across all existing components
+   ───────────────────────────────────────────────────────────────────────────── */
+
+/* Backgrounds */
+html.dark .bg-white {
+  background-color: #111827 !important;
+}
+
+html.dark .bg-white\/95 {
+  background-color: rgba(17, 24, 39, 0.95) !important;
+}
+
+html.dark .bg-white\/90 {
+  background-color: rgba(17, 24, 39, 0.90) !important;
+}
+
+html.dark .bg-white\/80 {
+  background-color: rgba(17, 24, 39, 0.82) !important;
+}
+
+html.dark .bg-\[\#F8FAFC\] {
+  background-color: #0A0E17 !important;
+}
+
+html.dark .bg-slate-50 {
+  background-color: #0F172A !important;
+}
+
+html.dark .bg-slate-50\/60 {
+  background-color: rgba(15, 23, 42, 0.65) !important;
+}
+
+html.dark .bg-slate-50\/80 {
+  background-color: rgba(15, 23, 42, 0.85) !important;
+}
+
+html.dark .bg-slate-100 {
+  background-color: #162032 !important;
+}
+
+html.dark .bg-slate-200 {
+  background-color: #1E293B !important;
+}
+
+html.dark .hover\:bg-white:hover {
+  background-color: #162032 !important;
+}
+
+html.dark .hover\:bg-slate-50:hover {
+  background-color: #162032 !important;
+}
+
+html.dark .hover\:bg-slate-100:hover {
+  background-color: #1E293B !important;
+}
+
+html.dark .hover\:bg-slate-200:hover {
+  background-color: #26354D !important;
+}
+
+/* Accent pastel backgrounds in dark mode */
+html.dark .bg-orange-50 {
+  background-color: rgba(255, 107, 0, 0.12) !important;
+}
+
+html.dark .bg-orange-50\/50 {
+  background-color: rgba(255, 107, 0, 0.08) !important;
+}
+
+html.dark .bg-amber-50 {
+  background-color: rgba(245, 158, 11, 0.12) !important;
+}
+
+html.dark .bg-amber-50\/80 {
+  background-color: rgba(245, 158, 11, 0.10) !important;
+}
+
+html.dark .bg-emerald-50 {
+  background-color: rgba(16, 185, 129, 0.12) !important;
+}
+
+html.dark .bg-rose-50 {
+  background-color: rgba(244, 63, 94, 0.12) !important;
+}
+
+/* Text Colors */
+html.dark .text-slate-900 {
+  color: #F8FAFC !important;
+}
+
+html.dark .text-slate-800 {
+  color: #F1F5F9 !important;
+}
+
+html.dark .text-slate-700 {
+  color: #E2E8F0 !important;
+}
+
+html.dark .text-slate-600 {
+  color: #94A3B8 !important;
+}
+
+html.dark .text-slate-500 {
+  color: #64748B !important;
+}
+
+html.dark .text-amber-950 {
+  color: #FDE68A !important;
+}
+
+html.dark .text-amber-800 {
+  color: #FCD34D !important;
+}
+
+html.dark .text-emerald-700,
+html.dark .text-emerald-800 {
+  color: #6EE7B7 !important;
+}
+
+html.dark .text-rose-600,
+html.dark .text-rose-700 {
+  color: #FDA4AF !important;
+}
+
+/* Borders */
+html.dark .border-slate-100 {
+  border-color: #162032 !important;
+}
+
+html.dark .border-slate-200 {
+  border-color: #1E293B !important;
+}
+
+html.dark .border-slate-300 {
+  border-color: #334155 !important;
+}
+
+html.dark .border-slate-200\/50 {
+  border-color: rgba(30, 41, 59, 0.6) !important;
+}
+
+html.dark .border-orange-200 {
+  border-color: rgba(255, 107, 0, 0.3) !important;
+}
+
+html.dark .border-amber-200,
+html.dark .border-amber-300 {
+  border-color: rgba(245, 158, 11, 0.35) !important;
+}
+
+html.dark .border-emerald-200 {
+  border-color: rgba(16, 185, 129, 0.3) !important;
+}
+
+html.dark .divide-slate-100 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #162032 !important;
+}
+
+html.dark .divide-slate-200 > :not([hidden]) ~ :not([hidden]) {
+  border-color: #1E293B !important;
+}
+
+/* Inputs, Textareas, Selects */
+html.dark input:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]),
+html.dark textarea,
+html.dark select {
+  background-color: #162032 !important;
+  color: #F8FAFC !important;
+  border-color: #334155 !important;
+}
+
+html.dark input:focus:not([type="checkbox"]):not([type="radio"]):not([type="submit"]):not([type="button"]),
+html.dark textarea:focus,
+html.dark select:focus {
+  border-color: #FF6B00 !important;
+  box-shadow: 0 0 0 2px rgba(255, 107, 0, 0.25) !important;
+}
+
+html.dark input::placeholder,
+html.dark textarea::placeholder {
+  color: #64748B !important;
+}
+
+/* Dark Shadows */
+html.dark .shadow-sm,
+html.dark .shadow-xs {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.6) !important;
+}
+
+html.dark .shadow-md,
+html.dark .shadow-lg,
+html.dark .shadow-xl,
+html.dark .shadow-2xl {
+  box-shadow: 0 12px 30px -6px rgba(0, 0, 0, 0.75), 0 0 20px rgba(255, 107, 0, 0.05) !important;
 }
 
 /* Fluid Typography Utilities */
@@ -114,11 +346,23 @@ body {
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 }
 
+html.dark .btn-secondary {
+  background-color: #162032;
+  color: #F8FAFC;
+  border-color: #334155;
+}
+
 .btn-secondary:hover {
   background-color: #F8FAFC;
   border-color: #FF6B00;
   color: #FF6B00;
   transform: translateY(-1px);
+}
+
+html.dark .btn-secondary:hover {
+  background-color: #1E293B;
+  border-color: #FF7A1A;
+  color: #FF7A1A;
 }
 
 .btn-secondary:active {
@@ -136,6 +380,10 @@ body {
   background: transparent;
   border: none;
   padding: 0;
+}
+
+html.dark .btn-tertiary {
+  color: #94A3B8;
 }
 
 .btn-tertiary:hover {

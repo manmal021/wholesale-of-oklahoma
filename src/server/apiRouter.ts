@@ -2826,6 +2826,25 @@ const registerDelete = (paths: string[], ...handlers: any[]) => {
 };
 
 /**
+ * GET /api/customer/profile
+ * Returns the authenticated approved customer's full business profile.
+ */
+registerGet(['/customer/profile', '/api/customer/profile'], requireCustomerAuth, (req: Request, res: Response) => {
+  const session = getSessionUser(req)!;
+  // Look up by userId first, then by email
+  let customer = session.userId ? databaseStore.getCustomer(session.userId) : null;
+  if (!customer && session.email) {
+    customer = databaseStore.getCustomerByEmail(session.email);
+  }
+  if (!customer) {
+    return err(res, 404, 'Customer profile not found.');
+  }
+  // Return profile without sensitive internal fields
+  const { temporaryPassword: _tp, temporaryPasswordAssignedAt: _tpa, ...safeCustomer } = customer as any;
+  return ok(res, { success: true, customer: safeCustomer });
+});
+
+/**
  * GET /api/customer/addresses
  * List saved addresses for the authenticated customer.
  */

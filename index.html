@@ -9,6 +9,23 @@
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#F8FAFC" />
     <link rel="canonical" href="https://www.wholesaleofoklahoma.com/" />
+    <script>
+      (function() {
+        try {
+          var saved = localStorage.getItem('woo_theme');
+          var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+          if (saved === 'dark' || (!saved && prefersDark)) {
+            document.documentElement.classList.add('dark');
+            document.documentElement.setAttribute('data-theme', 'dark');
+            document.documentElement.style.colorScheme = 'dark';
+          } else {
+            document.documentElement.classList.remove('dark');
+            document.documentElement.setAttribute('data-theme', 'light');
+            document.documentElement.style.colorScheme = 'light';
+          }
+        } catch(e) {}
+      })();
+    </script>
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
