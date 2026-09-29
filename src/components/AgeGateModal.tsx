@@ -82,11 +82,11 @@ export default function AgeGateModal() {
 
             {/* Regulatory Notice Banner */}
             <div className="bg-orange-50/70 border border-orange-200 rounded-2xl p-4 text-left space-y-1">
-              <div className="flex items-center gap-2 text-[#FF6B00] text-[11px] font-bold uppercase tracking-wider">
+              <div className="flex items-center gap-2 text-[#111111] text-[11px] font-bold uppercase tracking-wider">
                 <AlertTriangle className="w-3.5 h-3.5" />
                 <span>Oklahoma & Federal Compliance:</span>
               </div>
-              <p className="text-[11px] text-slate-600 leading-snug">
+              <p className="text-[11px] text-[#111111] leading-snug">
                 Sales are restricted strictly to legal adults 21+ holding valid retail business credentials. Falsifying age or business identity is prohibited by law.
               </p>
             </div>

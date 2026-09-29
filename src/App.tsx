@@ -51,6 +51,7 @@ import CustomerAccountPage from './components/customer/CustomerAccountPage';
 import CustomerPortal from './components/customer/CustomerPortal';
 import PasswordResetPage from './components/customer/PasswordResetPage';
 import ThemeToggle from './components/ThemeToggle';
+import ProductSpotlight from './components/ProductSpotlight';
 import { useTheme } from './lib/useTheme';
 import { initTheme } from './lib/theme';
 
@@ -690,141 +691,245 @@ export default function App() {
 
       {/* Main Content Landmark (WCAG 2.2 AA) */}
       <main id="main-content">
-        {/* 1. Hero Header Section */}
-        <section id="overview" className="relative w-full min-h-screen sm:h-screen overflow-hidden bg-[#F8FAFC] dark:bg-[#0A0E17] transition-colors duration-200">
-          {/* Seamless Canvas Boomerang Loop Background */}
+        {/* 1. Hero Header Section — Linear clarity + Oklahoma Trust */}
+        <section id="overview" className="relative w-full min-h-screen overflow-hidden transition-colors duration-200" style={{ background: 'var(--bg-primary)' }}>
+          {/* Boomerang Video Background */}
           <BoomerangVideoBg
             src={BG_VIDEO}
             className="absolute inset-0 w-full h-full"
             isMirrored={false}
             isColorInverted={false}
             isClear={true}
-            overlayOpacity={isDark ? 25 : 10}
+            overlayOpacity={isDark ? 30 : 8}
             overlayTheme={theme}
           />
 
-          {/* Editorial Light & Obsidian Dark Gradients & Soft Warm Glowing Orbs */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white/40 via-[#F8FAFC]/20 to-[#F8FAFC]/70 dark:from-[#0A0E17]/60 dark:via-[#0A0E17]/30 dark:to-[#0A0E17]/80 pointer-events-none z-10 transition-colors duration-300" />
-          <div className="absolute inset-0 pointer-events-none z-10 overflow-hidden">
-            <div className="orb-drift absolute top-[-20%] left-[-10%] w-[600px] h-[600px] rounded-full bg-[#FF6B00] opacity-10 dark:opacity-25 blur-[140px]" />
-            <div className="orb-drift-r absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full bg-[#FF6B00] opacity-10 dark:opacity-20 blur-[120px]" />
+          {/* Linear-style dot grid */}
+          <div
+            className="absolute inset-0 pointer-events-none z-[3]"
+            style={{
+              backgroundImage: `radial-gradient(circle, ${isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.07)'} 1px, transparent 1px)`,
+              backgroundSize: '32px 32px',
+              maskImage: 'radial-gradient(ellipse 80% 80% at 50% 20%, black 40%, transparent 100%)',
+            }}
+          />
+
+          {/* Gradient fade */}
+          <div className="absolute inset-0 pointer-events-none z-[4]" style={{ background: isDark ? 'linear-gradient(to bottom, rgba(9,9,11,0.5) 0%, rgba(9,9,11,0.2) 40%, rgba(9,9,11,0.8) 100%)' : 'linear-gradient(to bottom, rgba(250,250,250,0.4) 0%, rgba(250,250,250,0.1) 40%, rgba(250,250,250,0.75) 100%)' }} />
+
+          {/* Ambient orange orbs */}
+          <div className="absolute inset-0 pointer-events-none z-[4] overflow-hidden">
+            <div className="orb-drift absolute top-[-15%] left-[-8%] w-[700px] h-[700px] rounded-full" style={{ background: 'var(--accent-primary)', opacity: isDark ? 0.14 : 0.06, filter: 'blur(160px)' }} />
+            <div className="orb-drift-r absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full" style={{ background: 'var(--accent-primary)', opacity: isDark ? 0.12 : 0.05, filter: 'blur(130px)' }} />
           </div>
 
-          {/* Central Display Hero Copy */}
-          <div className={`relative z-10 flex flex-col items-center text-center ${showDisclaimer ? 'pt-32 sm:pt-40 md:pt-44' : 'pt-24 sm:pt-28 md:pt-32'} px-4 sm:px-6`}>
-            <div className="hero-badge-enter animate-woo-badge inline-flex items-center gap-1.5 bg-white/95 backdrop-blur-md text-slate-800 text-xs font-semibold px-4 py-1.5 rounded-full mb-6 border border-slate-200 shadow-sm">
-              <Star className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
-              <span className="font-extrabold text-[11px] uppercase tracking-wider text-[#FF6B00]">Licensed Oklahoma Wholesaler · 5.0 Star</span>
-            </div>
+          {/* Hero content */}
+          <div className={`relative z-10 flex flex-col items-center text-center ${showDisclaimer ? 'pt-36 sm:pt-44 md:pt-48' : 'pt-28 sm:pt-32 md:pt-36'} px-4 sm:px-6 pb-20`}>
 
-            {/* Headline */}
-            <h1
-              className="hero-title-enter font-extrabold leading-[0.95] text-slate-900 text-[2.25rem] sm:text-5xl md:text-6xl lg:text-[4.75rem] xl:text-[5.5rem] tracking-[-0.04em] max-w-5xl drop-shadow-xs"
+            {/* Status badge — Linear command bar style */}
+            <div
+              className="hero-badge-enter animate-woo-badge inline-flex items-center gap-2.5 mb-7 px-4 py-1.5 rounded-full cursor-default select-none"
               style={{
-                fontFamily: '"Plus Jakarta Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+                background: 'var(--surface-overlay)',
+                backdropFilter: 'blur(12px)',
+                border: '1px solid var(--border-subtle)',
+                boxShadow: '0 2px 8px rgba(0,0,0,0.06)',
               }}
             >
-              Wholesale of Oklahoma{' '}
-              <span className="text-shimmer">
-                Distribution Partner
-              </span>
+              <span className="w-1.5 h-1.5 rounded-full animate-woo-ping" style={{ background: 'var(--accent-primary)' }} />
+              <Star className="w-3.5 h-3.5" style={{ fill: '#F59E0B', color: '#F59E0B' }} />
+              <span className="text-[11px] font-extrabold uppercase tracking-wider" style={{ color: 'var(--accent-primary)' }}>Licensed Oklahoma Wholesaler · 5.0 Star</span>
+            </div>
+
+            {/* Main headline — Linear-clean, single intent */}
+            <h1
+              className="hero-title-enter max-w-5xl"
+              style={{
+                fontFamily: "'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+                fontSize: 'clamp(2.5rem, 6vw + 0.4rem, 5.25rem)',
+                fontWeight: 800,
+                letterSpacing: '-0.04em',
+                lineHeight: 1.05,
+                color: 'var(--text-primary)',
+              }}
+            >
+              Oklahoma&apos;s Premier{' '}
+              <br className="hidden sm:block" />
+              <span className="text-shimmer">Wholesale Distribution</span>{' '}Partner
             </h1>
 
-            {/* Supporting Text */}
-            <p className="hero-sub-enter mt-6 text-slate-600 text-sm sm:text-base md:text-lg font-medium leading-relaxed max-w-2xl mx-auto px-2">
-              Leading brands, competitive wholesale pricing, and reliable service for qualified retailers.
+            {/* Supporting copy — short and directive */}
+            <p
+              className="hero-sub-enter mt-6 max-w-2xl mx-auto px-2"
+              style={{ fontSize: 'clamp(0.95rem, 1.5vw + 0.25rem, 1.125rem)', lineHeight: 1.65, color: 'var(--text-secondary)', fontWeight: 500 }}
+            >
+              900+ wholesale SKUs from 50+ top brands. Verified factory stock dispatched directly from our central OKC warehouse.
             </p>
 
-            {/* Central Hero Action Buttons */}
-            <div className="hero-cta-enter mt-8 flex flex-wrap items-center justify-center gap-3 sm:gap-4 z-10">
+            {/* CTA row */}
+            <div className="hero-cta-enter mt-8 flex flex-wrap items-center justify-center gap-3">
               <a
                 href="#brands"
-                className="btn-glow bg-[#FF6B00] hover:bg-[#E85F00] text-white text-xs sm:text-sm font-extrabold px-7 py-3.5 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2 uppercase tracking-wider"
+                className="btn-primary btn-glow"
+                style={{ fontSize: '0.875rem', padding: '0.75rem 1.75rem' }}
               >
                 <Layers className="w-4 h-4" />
-                <span>Explore Brands Portfolio</span>
+                Explore Brand Portfolio
               </a>
 
               <button
                 type="button"
                 onClick={() => setIsWholesaleModalOpen(true)}
-                className="bg-white hover:bg-slate-50 text-slate-900 text-xs sm:text-sm font-bold px-7 py-3.5 rounded-full border border-slate-300 transition-all duration-300 shadow-sm hover:scale-105 active:scale-95 flex items-center gap-2 cursor-pointer"
+                className="btn-secondary"
+                style={{ fontSize: '0.875rem', padding: '0.75rem 1.75rem' }}
               >
-                <UserCheck className="w-4 h-4 text-[#FF6B00]" />
-                <span>Apply for Wholesale Account</span>
+                <UserCheck className="w-4 h-4" />
+                Apply for Wholesale
               </button>
 
               {currentUser ? (
                 <button
                   type="button"
                   onClick={() => setIsCartOpen(true)}
-                  className="bg-white hover:bg-slate-50 text-slate-900 text-xs sm:text-sm font-bold px-6 py-3.5 rounded-full border border-slate-300 transition-all duration-300 shadow-sm hover:scale-105 active:scale-95 flex items-center gap-2 cursor-pointer"
+                  className="btn-secondary"
+                  style={{ fontSize: '0.875rem', padding: '0.75rem 1.5rem' }}
                 >
-                  <ShoppingBag className="w-4 h-4 text-[#FF6B00]" />
-                  <span>Wholesale Cart</span>
-                  {cartUnits > 0 && (
-                    <span className="bg-[#FF6B00] text-white text-[10px] font-black px-2 py-0.5 rounded-full">
-                      {cartUnits}
-                    </span>
-                  )}
+                  <ShoppingBag className="w-4 h-4" />
+                  Cart {cartUnits > 0 && <span className="ml-1 px-1.5 py-0.5 rounded-full text-[10px] font-black text-white" style={{ background: 'var(--accent-primary)' }}>{cartUnits}</span>}
                 </button>
               ) : (
                 <button
                   type="button"
                   onClick={() => setIsLoginModalOpen(true)}
-                  className="bg-white hover:bg-slate-50 text-slate-900 text-xs sm:text-sm font-bold px-6 py-3.5 rounded-full border border-slate-300 transition-all duration-300 shadow-sm hover:scale-105 active:scale-95 flex items-center gap-2 cursor-pointer"
+                  className="btn-secondary"
+                  style={{ fontSize: '0.875rem', padding: '0.75rem 1.5rem' }}
                 >
-                  <LogIn className="w-4 h-4 text-[#FF6B00]" />
-                  <span>Customer Login</span>
+                  <LogIn className="w-4 h-4" />
+                  Retailer Login
                 </button>
               )}
             </div>
 
-            {/* Trust Value Badges */}
-            <div className="hero-trust-enter mt-8 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-[11px] font-semibold text-slate-700">
-              <span className="card-lift bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-200 shadow-xs flex items-center gap-1.5">
-                ⚡ Same-Day OKC Pickup
-              </span>
-              <span className="card-lift bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-200 shadow-xs flex items-center gap-1.5">
-                📦 Direct Wholesale Pricing
-              </span>
-              <span className="card-lift bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-200 shadow-xs flex items-center gap-1.5">
-                🔒 Licensed Master Distributor
-              </span>
-              <span className="card-lift bg-white/95 backdrop-blur-md px-3.5 py-1.5 rounded-full border border-slate-200 shadow-xs flex items-center gap-1.5">
-                🚚 Statewide Metro Dispatch
-              </span>
+            {/* Stats grid — compact Linear tokens */}
+            <div className="hero-trust-enter mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl w-full mx-auto">
+              {[
+                { value: '900+', label: 'Active SKUs' },
+                { value: '5.0★', label: 'Avg. Rating' },
+                { value: '50+', label: 'Top Brands' },
+                { value: '24hr', label: 'Fast Review' },
+              ].map((stat) => (
+                <div
+                  key={stat.label}
+                  className="card-lift flex flex-col items-center py-3.5 px-4 rounded-2xl cursor-default"
+                  style={{ background: 'var(--surface-overlay)', backdropFilter: 'blur(12px)', border: '1px solid var(--border-subtle)' }}
+                >
+                  <span
+                    className="text-xl sm:text-2xl font-black tracking-tight"
+                    style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", color: 'var(--text-primary)', letterSpacing: '-0.025em' }}
+                  >
+                    {stat.value}
+                  </span>
+                  <span className="label-overline mt-0.5">{stat.label}</span>
+                </div>
+              ))}
+            </div>
+
+            {/* Trust pills */}
+            <div className="mt-5 flex flex-wrap items-center justify-center gap-2 text-[11px] font-semibold">
+              {['⚡ Same-Day OKC Pickup', '🔒 Licensed Master Distributor', '🚚 Statewide Metro Dispatch'].map((pill) => (
+                <span
+                  key={pill}
+                  className="card-lift px-3.5 py-1.5 rounded-full"
+                  style={{ background: 'var(--surface-overlay)', backdropFilter: 'blur(8px)', border: '1px solid var(--border-subtle)', color: 'var(--text-secondary)' }}
+                >
+                  {pill}
+                </span>
+              ))}
             </div>
           </div>
 
-          {/* Bottom-left corporate profile badge */}
-          <div className="hero-card-enter card-lift hidden xl:block absolute left-6 md:left-10 bottom-6 sm:bottom-8 md:bottom-10 z-10 max-w-sm bg-white/95 backdrop-blur-md border border-slate-200 p-5 rounded-[24px] shadow-lg text-slate-800">
-            <div className="flex items-center gap-2 text-[#FF6B00] mb-3">
-              <Sparkles className="w-4 h-4 text-[#FF6B00]" />
-              <span className="text-sm font-bold tracking-wide">
-                Wholesale of Oklahoma
-              </span>
+          {/* Bottom-left corporate card */}
+          <div
+            className="hero-card-enter card-lift hidden xl:block absolute left-8 bottom-8 z-10 p-5 rounded-2xl max-w-xs"
+            style={{ background: 'var(--surface-overlay)', backdropFilter: 'blur(16px)', border: '1px solid var(--border-subtle)', boxShadow: '0 12px 32px rgba(0,0,0,0.08)' }}
+          >
+            <div className="flex items-center gap-2 mb-3">
+              <Sparkles className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
+              <span className="text-sm font-bold" style={{ color: 'var(--text-primary)' }}>Wholesale of Oklahoma</span>
             </div>
-            <p className="text-slate-600 text-xs leading-relaxed mb-5 max-w-xs font-medium">
-              Wholesale of Oklahoma supplies qualified dispensaries, vape stores, and retail partners with direct warehouse inventory and dedicated retail service.
+            <p className="text-xs leading-relaxed mb-4" style={{ color: 'var(--text-secondary)' }}>
+              Direct warehouse inventory for licensed dispensaries, vape shops, and retail partners across Oklahoma.
             </p>
-            <div className="flex gap-3">
-              <a
-                href="#pricing"
-                className="bg-[#FF6B00] text-white text-xs font-bold px-5 py-2.5 rounded-full shadow hover:bg-[#E85F00] transition-colors"
-              >
-                Directions
-              </a>
-              <button
-                type="button"
-                onClick={() => setIsWholesaleModalOpen(true)}
-                className="border border-slate-300 text-slate-800 text-xs font-bold px-5 py-2.5 rounded-full hover:bg-slate-100 transition-colors cursor-pointer"
-              >
-                Apply for Account
-              </button>
+            <div className="flex gap-2.5">
+              <a href="#pricing" className="btn-primary" style={{ fontSize: '0.75rem', padding: '0.5rem 1rem' }}>Directions</a>
+              <button type="button" onClick={() => setIsWholesaleModalOpen(true)} className="btn-secondary" style={{ fontSize: '0.75rem', padding: '0.5rem 1rem', cursor: 'pointer' }}>Apply</button>
             </div>
           </div>
+
+          {/* Bottom-right warehouse card */}
+          <div
+            className="hero-card-enter card-lift hidden xl:block absolute right-8 bottom-8 z-10 p-4 rounded-2xl"
+            style={{ background: 'var(--surface-overlay)', backdropFilter: 'blur(16px)', border: '1px solid var(--border-subtle)', minWidth: '210px', boxShadow: '0 12px 32px rgba(0,0,0,0.08)' }}
+          >
+            <p className="label-overline mb-3" style={{ color: 'var(--accent-primary)' }}>Live Warehouse</p>
+            <div className="space-y-2.5">
+              {[
+                { label: 'Disposable Vapes', pct: 92 },
+                { label: 'Hardware & Mods', pct: 78 },
+                { label: 'Accessories', pct: 85 },
+              ].map((item) => (
+                <div key={item.label}>
+                  <div className="flex justify-between text-[10px] font-semibold mb-1" style={{ color: 'var(--text-muted)' }}>
+                    <span>{item.label}</span>
+                    <span style={{ color: 'var(--accent-primary)' }}>{item.pct}%</span>
+                  </div>
+                  <div className="h-1 rounded-full overflow-hidden" style={{ background: 'var(--border-subtle)' }}>
+                    <div
+                      className="h-full rounded-full"
+                      style={{ width: `${item.pct}%`, background: 'linear-gradient(90deg, var(--accent-primary), #FDBA74)' }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+            <p className="text-[9px] mt-3 font-medium" style={{ color: 'var(--text-faint)' }}>Updated live · OKC Warehouse</p>
+          </div>
+
+          {/* Scroll indicator */}
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 hidden sm:flex flex-col items-center gap-1" style={{ opacity: 0.5 }}>
+            <span className="label-overline">Scroll</span>
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} style={{ color: 'var(--accent-primary)', animation: 'woo-float 2s ease-in-out infinite' }}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+          </div>
         </section>
+
+        {/* Scrolling brand ticker strip */}
+        <div className="w-full bg-[#FF6B00] py-3 overflow-hidden border-y border-[#E85F00] z-20 relative">
+          <div className="ticker-track">
+            {[
+              '⚡ Same-Day OKC Pickup',
+              '📦 900+ Active SKUs',
+              '🏷️ Geekbar · Raz · Vozol · SMOK · Yocan · Vaporesso · Foger',
+              '🔒 Licensed Oklahoma Wholesaler',
+              '🚚 Statewide Metro Dispatch',
+              '⭐ 5.0 Star Rated Partner',
+              '📞 (405) 768-2975 · Call Live Dispatcher',
+              '⚡ Same-Day OKC Pickup',
+              '📦 900+ Active SKUs',
+              '🏷️ Geekbar · Raz · Vozol · SMOK · Yocan · Vaporesso · Foger',
+              '🔒 Licensed Oklahoma Wholesaler',
+              '🚚 Statewide Metro Dispatch',
+              '⭐ 5.0 Star Rated Partner',
+              '📞 (405) 768-2975 · Call Live Dispatcher',
+            ].map((item, i) => (
+              <span key={i} className="inline-flex items-center text-white text-xs font-bold uppercase tracking-wider px-6 whitespace-nowrap">
+                {item}
+                <span className="ml-6 w-1 h-1 rounded-full bg-white/50 inline-block" />
+              </span>
+            ))}
+          </div>
+        </div>
 
         {/* 2. Official Wholesale Brands Showcase with Hardware & Packaging Images */}
         <div className="anim-hidden">
@@ -836,10 +941,15 @@ export default function App() {
           />
         </div>
 
-        {/* 3. Dynamic Category Showcase Section */}
-        <div className="anim-hidden anim-delay-1"><CategoryShowcase /></div>
+        {/* 3. Product Spotlight — Apple/Nothing-style product closeup */}
+        <div className="anim-hidden anim-delay-1">
+          <ProductSpotlight onSelectBrand={handleBrandClick} />
+        </div>
 
-        {/* 4. Inside the Login Gateway: Display all 900+ Products Imported from Zoho with Pricing */}
+        {/* 4. Dynamic Category Showcase Section */}
+        <div className="anim-hidden anim-delay-2"><CategoryShowcase /></div>
+
+
         {currentUser ? (
           <div id="inventory" className="relative">
             <div className="bg-gradient-to-r from-[#FF6B00]/10 via-orange-50/50 to-orange-50/20 border-y border-orange-200 py-4 px-4 shadow-xs">

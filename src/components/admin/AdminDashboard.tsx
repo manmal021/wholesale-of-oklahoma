@@ -140,35 +140,45 @@ export default function AdminDashboard() {
   };
 
   return (
-    <div className="min-h-screen bg-[#F8FAFC] text-slate-900">
-      {/* Top Admin Navbar */}
-      <nav className="bg-white border-b border-slate-200 sticky top-0 z-40 px-4 sm:px-8 py-3.5 flex items-center justify-between shadow-xs">
+    <div className="min-h-screen" style={{ background: 'var(--bg-primary)', color: 'var(--text-primary)', fontFamily: "'Plus Jakarta Sans', 'Inter', sans-serif" }}>
+      {/* SaaS Top Bar — Linear/Resend style */}
+      <nav
+        className="sticky top-0 z-40 flex items-center justify-between px-4 sm:px-6 py-3"
+        style={{
+          background: 'var(--bg-secondary)',
+          borderBottom: '1px solid var(--border-subtle)',
+          backdropFilter: 'blur(12px)',
+        }}
+      >
         <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-xl bg-[#FF6B00] flex items-center justify-center text-white shadow-xs">
-            <ShieldAlert className="w-5 h-5" />
+          <div
+            className="w-7 h-7 rounded-lg flex items-center justify-center text-white text-xs font-black"
+            style={{ background: 'var(--accent-primary)' }}
+          >
+            W
           </div>
-          <div>
-            <div className="flex items-center gap-2">
-              <span className="font-extrabold text-sm sm:text-base tracking-tight text-slate-900">WHOLESALE OF OKLAHOMA</span>
-              <span className="bg-orange-50 border border-orange-200 text-[#FF6B00] text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Admin Portal</span>
-            </div>
-            <p className="text-[11px] text-slate-500">order2wholesaleofoklahoma@gmail.com</p>
+          <div className="flex items-center gap-2">
+            <span className="font-bold text-sm" style={{ color: 'var(--text-primary)', letterSpacing: '-0.01em' }}>
+              Wholesale of Oklahoma
+            </span>
+            <span className="badge badge-accent">Admin</span>
           </div>
         </div>
 
-        <div className="flex items-center gap-2 sm:gap-4">
+        <div className="flex items-center gap-2">
           <a
             href="/"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden sm:inline-flex items-center gap-1 text-xs text-slate-600 hover:text-slate-900 px-3 py-1.5 rounded-lg border border-slate-300 hover:bg-slate-50 transition-colors shadow-xs"
+            className="hidden sm:inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors"
+            style={{ color: 'var(--text-muted)', background: 'var(--bg-tertiary)', border: '1px solid var(--border-subtle)' }}
           >
             <span>Live Site</span>
             <ExternalLink className="w-3 h-3" />
           </a>
           <button
             onClick={handleLogout}
-            className="inline-flex items-center gap-1.5 text-xs text-rose-700 hover:text-rose-800 px-3 py-1.5 rounded-lg border border-rose-200 bg-rose-50 hover:bg-rose-100 transition-colors cursor-pointer shadow-xs"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-lg transition-colors cursor-pointer badge badge-error"
           >
             <LogOut className="w-3.5 h-3.5" />
             <span className="hidden sm:inline">Logout</span>
@@ -176,8 +186,59 @@ export default function AdminDashboard() {
         </div>
       </nav>
 
-      {/* Main Admin Content */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 py-8 space-y-8">
+      {/* SaaS layout: sidebar + content */}
+      <div className="flex">
+        {/* Left Sidebar */}
+        <aside
+          className="hidden lg:flex flex-col shrink-0"
+          style={{ width: '220px', borderRight: '1px solid var(--border-subtle)', background: 'var(--bg-secondary)', minHeight: 'calc(100vh - 48px)', padding: '1rem 0', position: 'sticky', top: '48px', height: 'calc(100vh - 48px)', overflowY: 'auto' }}
+        >
+          <div className="px-3 mb-2">
+            <p className="label-overline px-3 mb-1">Navigation</p>
+          </div>
+          <a href="/admin" className="saas-sidebar-item active">
+            <ShieldAlert className="w-4 h-4 shrink-0" />
+            <span className="flex-1">Dashboard</span>
+          </a>
+          <a href="/admin/customer-applications" className="saas-sidebar-item">
+            <FileText className="w-4 h-4 shrink-0" />
+            <span className="flex-1">Applications</span>
+            {(stats.pending ?? 0) > 0 && (
+              <span className="badge badge-accent" style={{ fontSize: '0.6rem', padding: '0.1rem 0.4rem' }}>
+                {stats.pending}
+              </span>
+            )}
+          </a>
+          <a href="/admin/customers" className="saas-sidebar-item">
+            <Users className="w-4 h-4 shrink-0" />
+            <span className="flex-1">Customers</span>
+          </a>
+          <a href="/admin/orders" className="saas-sidebar-item">
+            <Package className="w-4 h-4 shrink-0" />
+            <span className="flex-1">Orders</span>
+            {(stats.newOrders ?? 0) > 0 && (
+              <span className="badge badge-accent" style={{ fontSize: '0.6rem', padding: '0.1rem 0.4rem' }}>
+                {stats.newOrders}
+              </span>
+            )}
+          </a>
+          <a href="/admin/products" className="saas-sidebar-item">
+            <Layers className="w-4 h-4 shrink-0" />
+            <span className="flex-1">Products</span>
+          </a>
+          <a href="/admin/inventory-mismatches" className="saas-sidebar-item">
+            <AlertTriangle className="w-4 h-4 shrink-0" />
+            <span className="flex-1">Inventory Issues</span>
+          </a>
+          <a href="/admin/review" className="saas-sidebar-item">
+            <Search className="w-4 h-4 shrink-0" />
+            <span className="flex-1">Review Portal</span>
+          </a>
+        </aside>
+
+        {/* Main content */}
+        <div className="flex-1 min-w-0 px-4 sm:px-8 py-6 space-y-8">
+
         {/* Navigation Tabs */}
         <div className="flex flex-wrap gap-2 border-b border-slate-200 pb-4">
           <a
@@ -245,105 +306,84 @@ export default function AdminDashboard() {
         )}
 
         {/* Highlight Callout: Pending Review Action */}
-        <div className="p-6 sm:p-8 rounded-3xl bg-gradient-to-r from-amber-50 via-white to-white border border-amber-200 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 shadow-sm">
+        <div
+          className="p-6 sm:p-8 rounded-2xl flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6"
+          style={{ background: 'rgba(245,158,11,0.07)', border: '1px solid rgba(245,158,11,0.25)' }}
+        >
           <div className="space-y-2">
-            <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-800 bg-amber-100 px-3 py-1 rounded-full border border-amber-200">
-              <Clock className="w-3.5 h-3.5 text-amber-700" />
+            <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider" style={{ color: '#D97706' }}>
+              <Clock className="w-3.5 h-3.5" />
               <span>Pending Action Required</span>
             </div>
-            <h2 className="text-xl sm:text-2xl font-black text-slate-900">
+            <h2 className="text-xl sm:text-2xl font-black" style={{ color: 'var(--text-primary)', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '-0.025em' }}>
               {stats.pending} Customer {stats.pending === 1 ? 'Application' : 'Applications'} Pending Review
             </h2>
-            <p className="text-xs sm:text-sm text-slate-600 max-w-xl">
+            <p className="text-xs sm:text-sm max-w-xl" style={{ color: 'var(--text-muted)' }}>
               New wholesale accounts are placed in PENDING status. Review business licenses and FEIN tax identification to grant shopping privileges.
             </p>
           </div>
 
           <a
             href="/admin/customer-applications"
-            className="px-6 py-3.5 rounded-2xl bg-[#FF6B00] hover:bg-[#E05E00] text-white font-bold text-sm flex items-center gap-2 shadow-sm transition-all hover:scale-105 shrink-0"
+            className="btn-primary btn-glow shrink-0"
           >
-            <span>Review Pending Applications</span>
+            <span>Review Applications</span>
             <ArrowRight className="w-4 h-4" />
           </a>
         </div>
 
         {/* Counter Metrics Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
-          {/* Pending */}
-          <a
-            href="/admin/customer-applications?status=PENDING"
-            className="p-5 rounded-2xl bg-white border border-amber-200 hover:border-amber-400 hover:shadow-md transition-all group block space-y-2 relative overflow-hidden"
-            title="View Pending Applications"
-          >
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 group-hover:text-amber-700 transition-colors">Pending Review</span>
-              <div className="w-8 h-8 rounded-lg bg-amber-50 flex items-center justify-center text-amber-600 border border-amber-200 group-hover:bg-amber-100 transition-colors">
-                <Clock className="w-4 h-4" />
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+          <a href="/admin/customer-applications?status=PENDING" className="saas-stat-card block group">
+            <div className="flex items-center justify-between mb-3">
+              <span className="label-overline">Pending</span>
+              <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: 'rgba(245,158,11,0.1)' }}>
+                <Clock className="w-3.5 h-3.5" style={{ color: '#F59E0B' }} />
               </div>
             </div>
-            <div className="text-3xl font-black text-slate-900 group-hover:text-amber-600 transition-colors flex items-center justify-between">
-              <span>{stats.pending}</span>
-              <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-amber-600" />
+            <div className="text-3xl font-black" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '-0.035em', color: 'var(--text-primary)' }}>
+              {stats.pending}
             </div>
-            <p className="text-[11px] text-slate-500">Applicants awaiting verification</p>
+            <p className="text-xs mt-1" style={{ color: 'var(--text-faint)' }}>Awaiting verification</p>
           </a>
 
-          {/* Approved */}
-          <a
-            href="/admin/customers?status=APPROVED"
-            className="p-5 rounded-2xl bg-white border border-emerald-200 hover:border-emerald-400 hover:shadow-md transition-all group block space-y-2"
-            title="View Approved Wholesale Customers"
-          >
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 group-hover:text-emerald-700 transition-colors">Approved Accounts</span>
-              <div className="w-8 h-8 rounded-lg bg-emerald-50 flex items-center justify-center text-emerald-600 border border-emerald-200 group-hover:bg-emerald-100 transition-colors">
-                <CheckCircle2 className="w-4 h-4" />
+          <a href="/admin/customers?status=APPROVED" className="saas-stat-card block group">
+            <div className="flex items-center justify-between mb-3">
+              <span className="label-overline">Approved</span>
+              <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: 'rgba(16,185,129,0.1)' }}>
+                <CheckCircle2 className="w-3.5 h-3.5" style={{ color: '#10B981' }} />
               </div>
             </div>
-            <div className="text-3xl font-black text-emerald-600 flex items-center justify-between">
-              <span>{stats.approved}</span>
-              <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-emerald-600" />
+            <div className="text-3xl font-black" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '-0.035em', color: '#10B981' }}>
+              {stats.approved}
             </div>
-            <p className="text-[11px] text-slate-500">Active wholesale purchasing access</p>
+            <p className="text-xs mt-1" style={{ color: 'var(--text-faint)' }}>Active wholesale access</p>
           </a>
 
-          {/* Rejected */}
-          <a
-            href="/admin/customer-applications?status=REJECTED"
-            className="p-5 rounded-2xl bg-white border border-rose-200 hover:border-rose-400 hover:shadow-md transition-all group block space-y-2"
-            title="View Rejected Applications"
-          >
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 group-hover:text-rose-700 transition-colors">Rejected</span>
-              <div className="w-8 h-8 rounded-lg bg-rose-50 flex items-center justify-center text-rose-600 border border-rose-200 group-hover:bg-rose-100 transition-colors">
-                <XCircle className="w-4 h-4" />
+          <a href="/admin/customer-applications?status=REJECTED" className="saas-stat-card block group">
+            <div className="flex items-center justify-between mb-3">
+              <span className="label-overline">Rejected</span>
+              <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: 'rgba(239,68,68,0.1)' }}>
+                <XCircle className="w-3.5 h-3.5" style={{ color: '#EF4444' }} />
               </div>
             </div>
-            <div className="text-3xl font-black text-rose-600 flex items-center justify-between">
-              <span>{stats.rejected}</span>
-              <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-rose-600" />
+            <div className="text-3xl font-black" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '-0.035em', color: '#EF4444' }}>
+              {stats.rejected}
             </div>
-            <p className="text-[11px] text-slate-500">Declined wholesale applications</p>
+            <p className="text-xs mt-1" style={{ color: 'var(--text-faint)' }}>Declined applications</p>
           </a>
 
-          {/* Suspended */}
-          <a
-            href="/admin/customer-applications?status=SUSPENDED"
-            className="p-5 rounded-2xl bg-white border border-purple-200 hover:border-purple-400 hover:shadow-md transition-all group block space-y-2"
-            title="View Suspended Accounts"
-          >
-            <div className="flex items-center justify-between">
-              <span className="text-xs font-bold uppercase tracking-wider text-slate-500 group-hover:text-purple-700 transition-colors">Suspended</span>
-              <div className="w-8 h-8 rounded-lg bg-purple-50 flex items-center justify-center text-purple-600 border border-purple-200 group-hover:bg-purple-100 transition-colors">
-                <Ban className="w-4 h-4" />
+          <a href="/admin/customer-applications?status=SUSPENDED" className="saas-stat-card block group">
+            <div className="flex items-center justify-between mb-3">
+              <span className="label-overline">Suspended</span>
+              <div className="w-7 h-7 rounded-lg flex items-center justify-center" style={{ background: 'rgba(139,92,246,0.1)' }}>
+                <Ban className="w-3.5 h-3.5" style={{ color: '#8B5CF6' }} />
               </div>
             </div>
-            <div className="text-3xl font-black text-purple-600 flex items-center justify-between">
-              <span>{stats.suspended}</span>
-              <ArrowRight className="w-4 h-4 opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all text-purple-600" />
+            <div className="text-3xl font-black" style={{ fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '-0.035em', color: '#8B5CF6' }}>
+              {stats.suspended}
             </div>
-            <p className="text-[11px] text-slate-500">Accounts with revoked access</p>
+            <p className="text-xs mt-1" style={{ color: 'var(--text-faint)' }}>Revoked accounts</p>
           </a>
         </div>
 
@@ -593,7 +633,10 @@ export default function AdminDashboard() {
             </div>
           )}
         </div>
-      </div>
+        {/* End main content (flex-1) */}
+        </div>
+      {/* End saas sidebar+content flex */}
+    </div>
     </div>
   );
 }
