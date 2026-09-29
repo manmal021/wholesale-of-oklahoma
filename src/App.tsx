@@ -52,6 +52,7 @@ import CustomerPortal from './components/customer/CustomerPortal';
 import PasswordResetPage from './components/customer/PasswordResetPage';
 import ThemeToggle from './components/ThemeToggle';
 import ProductSpotlight from './components/ProductSpotlight';
+import BrandMarquee from './components/BrandMarquee';
 import { useTheme } from './lib/useTheme';
 import { initTheme } from './lib/theme';
 import { animate, stagger, createTimeline, onScroll } from 'animejs';
@@ -961,6 +962,9 @@ export default function App() {
             ))}
           </div>
         </div>
+
+        {/* Brand Marquee — infinite scrolling product image carousel */}
+        <BrandMarquee />
 
         {/* 2. Official Wholesale Brands Showcase with Hardware & Packaging Images */}
         <div className="anim-hidden">
