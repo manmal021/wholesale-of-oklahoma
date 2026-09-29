@@ -1,5 +1,6 @@
-﻿import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRight, Zap, Shield, Package, Star, ChevronRight } from 'lucide-react';
+import { animate, createTimeline, onScroll } from 'animejs';
 
 interface SpotlightProduct {
   name: string;
@@ -63,30 +64,55 @@ interface ProductSpotlightProps {
 
 export default function ProductSpotlight({ onSelectBrand }: ProductSpotlightProps) {
   const [activeIdx, setActiveIdx] = useState(0);
-  const [animating, setAnimating] = useState(false);
   const [imgLoaded, setImgLoaded] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+  const contentRef = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
+  // Scroll entrance — animate the whole section in
   useEffect(() => {
     if (!sectionRef.current) return;
-    const io = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) { setVisible(true); io.disconnect(); } },
-      { threshold: 0.15 }
-    );
-    io.observe(sectionRef.current);
-    return () => io.disconnect();
+    const cleanup = onScroll({
+      target: sectionRef.current,
+      enter: 'top 88%',
+      onEnter: () => {
+        setVisible(true);
+        animate(sectionRef.current!, {
+          opacity: [0, 1],
+          translateY: [40, 0],
+          duration: 900,
+          ease: 'outExpo',
+        });
+      },
+    });
+    return () => { if (typeof (cleanup as any)?.revert === 'function') (cleanup as any).revert(); };
   }, []);
 
   const handleSelect = (idx: number) => {
     if (idx === activeIdx) return;
-    setAnimating(true);
-    setImgLoaded(false);
-    setTimeout(() => {
-      setActiveIdx(idx);
-      setAnimating(false);
-    }, 200);
+    const content = contentRef.current;
+    if (!content) { setActiveIdx(idx); return; }
+
+    // Fade out current
+    animate(content, {
+      opacity: [1, 0],
+      translateY: [0, -12],
+      duration: 180,
+      ease: 'inQuad',
+      onComplete: () => {
+        setActiveIdx(idx);
+        setImgLoaded(false);
+        // Fade in new
+        animate(content, {
+          opacity: [0, 1],
+          translateY: [16, 0],
+          duration: 450,
+          ease: 'outExpo',
+        });
+      },
+    });
   };
+
 
   const product = SPOTLIGHT_PRODUCTS[activeIdx];
 
@@ -155,12 +181,8 @@ export default function ProductSpotlight({ onSelectBrand }: ProductSpotlightProp
 
         {/* Main spotlight card — Apple layout */}
         <div
+          ref={contentRef}
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
-          style={{
-            opacity: animating ? 0 : 1,
-            transform: animating ? 'translateY(10px)' : 'translateY(0)',
-            transition: 'opacity 0.25s ease, transform 0.25s ease',
-          }}
         >
           {/* Left: Product image — centered, dramatic */}
           <div className="flex items-center justify-center order-2 lg:order-1">

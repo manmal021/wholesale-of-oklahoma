@@ -1,5 +1,6 @@
 ﻿import React, { useEffect, useRef } from 'react';
 import { ArrowRight, ShieldCheck, Award, Zap, TrendingUp } from 'lucide-react';
+import { animate, stagger, onScroll } from 'animejs';
 
 interface Brand {
   name: string;
@@ -28,28 +29,45 @@ interface FeaturedBrandsProps {
 
 export const FeaturedBrands: React.FC<FeaturedBrandsProps> = ({ onSelectBrand }) => {
   const listRef = useRef<HTMLDivElement>(null);
+  const scrollCleanupRef = useRef<(() => void) | null>(null);
 
   useEffect(() => {
     if (!listRef.current) return;
-    const items = listRef.current.querySelectorAll('.brand-list-item');
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const el = entry.target as HTMLElement;
-            const delay = Number(el.dataset.delay || 0);
-            setTimeout(() => el.classList.add('brand-visible'), delay);
-            io.unobserve(el);
-          }
+    const items = listRef.current.querySelectorAll<HTMLElement>('.brand-list-item');
+    if (!items.length) return;
+
+    // Set initial invisible state
+    items.forEach((el) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(28px)';
+    });
+
+    // anime.js onScroll stagger
+    const cleanup = onScroll({
+      target: listRef.current,
+      enter: 'top 90%',
+      leave: 'bottom 0%',
+      onEnter: () => {
+        animate(items, {
+          opacity: [0, 1],
+          translateY: [28, 0],
+          duration: 700,
+          delay: stagger(55),
+          ease: 'outExpo',
         });
       },
-      { threshold: 0.08, rootMargin: '0px 0px -60px 0px' }
-    );
-    items.forEach((item) => io.observe(item));
-    return () => io.disconnect();
+    });
+
+    scrollCleanupRef.current = () => {
+      if (typeof (cleanup as any)?.revert === 'function') (cleanup as any).revert();
+    };
+
+    return () => {
+      scrollCleanupRef.current?.();
+    };
   }, []);
 
-  const handleClick = (slug: string, name: string) => {
+  const handleClick = (name: string) => {
     if (onSelectBrand) onSelectBrand(name);
     const el = document.getElementById('inventory');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
@@ -57,7 +75,6 @@ export const FeaturedBrands: React.FC<FeaturedBrandsProps> = ({ onSelectBrand })
 
   return (
     <section id="brands" className="py-24 relative overflow-hidden" style={{ background: 'var(--bg-primary)' }}>
-      {/* Ambient orb */}
       <div className="absolute -top-32 -right-32 w-[500px] h-[500px] rounded-full pointer-events-none"
         style={{ background: 'radial-gradient(circle, rgba(249,115,22,0.07) 0%, transparent 70%)' }} />
 
@@ -74,12 +91,11 @@ export const FeaturedBrands: React.FC<FeaturedBrandsProps> = ({ onSelectBrand })
               <span className="text-shimmer">Brands</span>
             </h2>
             <p className="body-lead mt-3 max-w-lg">
-              Direct factory allocation for the industry&apos;s most in-demand brands. All 
+              Direct factory allocation for the industry&apos;s most in-demand brands. All
               stock dispatched from our central OKC warehouse.
             </p>
           </div>
 
-          {/* Stats block */}
           <div className="flex gap-6 shrink-0">
             {[
               { value: '50+', label: 'Brands' },
@@ -96,28 +112,18 @@ export const FeaturedBrands: React.FC<FeaturedBrandsProps> = ({ onSelectBrand })
           </div>
         </div>
 
-        {/* Animated Brand List — DDD/Lusion style */}
+        {/* Animated Brand List */}
         <div ref={listRef}>
           {BRANDS.map((brand, idx) => (
             <div
               key={brand.slug}
-              data-delay={idx * 60}
-              onClick={() => handleClick(brand.slug, brand.name)}
+              onClick={() => handleClick(brand.name)}
               className="brand-list-item"
-              style={{
-                opacity: 0,
-                transform: 'translateY(20px)',
-                transition: `opacity 0.6s cubic-bezier(0.25,1,0.5,1), transform 0.6s cubic-bezier(0.25,1,0.5,1), border-color 200ms`,
-              }}
+              style={{ position: 'relative' }}
             >
               <div className="flex items-center gap-4 sm:gap-8 py-5 px-2 sm:px-4">
-                {/* Index number */}
                 <span className="brand-number hidden sm:block tabular-nums">{String(idx + 1).padStart(2, '0')}</span>
-
-                {/* Brand name */}
                 <span className="brand-name flex-1">{brand.name}</span>
-
-                {/* Meta — hidden on mobile, shown on md+ */}
                 <div className="hidden md:flex items-center gap-6 shrink-0">
                   <span className="label-overline">{brand.category}</span>
                   <span className="text-xs font-semibold px-2.5 py-1 rounded-full"
@@ -127,14 +133,10 @@ export const FeaturedBrands: React.FC<FeaturedBrandsProps> = ({ onSelectBrand })
                   <span className="label-overline">{brand.puffs}</span>
                   <span className="label-overline">{brand.skus} SKUs</span>
                 </div>
-
-                {/* Arrow */}
                 <span className="brand-arrow">
                   <ArrowRight className="w-5 h-5" style={{ color: 'var(--accent-primary)' }} />
                 </span>
               </div>
-
-              {/* Highlight accent bar */}
               {brand.highlight && (
                 <div className="absolute left-0 top-0 bottom-0 w-0.5"
                   style={{ background: 'var(--accent-primary)', opacity: 0.6 }} />
@@ -160,21 +162,12 @@ export const FeaturedBrands: React.FC<FeaturedBrandsProps> = ({ onSelectBrand })
               Volume Tier Pricing
             </span>
           </div>
-          <a href="#inventory"
-            className="btn-primary btn-glow text-sm"
-            style={{ minWidth: '180px' }}>
+          <a href="#inventory" className="btn-primary btn-glow text-sm" style={{ minWidth: '180px' }}>
             Browse All Products
             <ArrowRight className="w-4 h-4" />
           </a>
         </div>
       </div>
-
-      <style>{`
-        .brand-list-item.brand-visible {
-          opacity: 1 !important;
-          transform: translateY(0) !important;
-        }
-      `}</style>
     </section>
   );
 };

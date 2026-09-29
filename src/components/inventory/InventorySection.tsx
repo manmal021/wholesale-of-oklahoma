@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import {
   Search,
   RefreshCw,
@@ -24,6 +24,7 @@ import {
 } from '../../lib/inventoryApi';
 import { InventoryCard } from './InventoryCard';
 import { ProductDetailModal } from './ProductDetailModal';
+import { animate, stagger } from 'animejs';
 
 const CATEGORY_TABS = [
   { id: 'All', label: 'All Inventory', icon: '📦' },
@@ -79,6 +80,7 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
     total_items_synced: 0,
     items_with_errors: 0,
   });
+  const gridRef = useRef<HTMLDivElement | null>(null);
 
   // Modal states
   const [detailItem, setDetailItem] = useState<InventoryItem | null>(null);
@@ -239,6 +241,22 @@ export const InventorySection: React.FC<InventorySectionProps> = ({ initialBrand
   useEffect(() => {
     loadInventory(false);
   }, [loadInventory]);
+
+  // Stagger-animate product cards after every grid load
+  useEffect(() => {
+    if (loading) return;
+    const cards = document.querySelectorAll<HTMLElement>('.raycast-card');
+    if (!cards.length) return;
+    animate(cards, {
+      opacity: [0, 1],
+      translateY: [24, 0],
+      scale: [0.97, 1],
+      duration: 500,
+      delay: stagger(35, { start: 60 }),
+      ease: 'outExpo',
+    });
+  }, [loading, items]);
+
 
   const handleAddedToCart = (name: string, qty: number) => {
     setCartToast(`Added ${qty}x ${name} to Wholesale Cart!`);

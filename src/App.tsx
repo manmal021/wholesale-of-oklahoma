@@ -54,6 +54,7 @@ import ThemeToggle from './components/ThemeToggle';
 import ProductSpotlight from './components/ProductSpotlight';
 import { useTheme } from './lib/useTheme';
 import { initTheme } from './lib/theme';
+import { animate, stagger, createTimeline, onScroll } from 'animejs';
 
 const BG_VIDEO = '/transi.mp4';
 
@@ -295,16 +296,46 @@ export default function App() {
     }
   }, []);
 
-  // Scroll-triggered entrance animations via IntersectionObserver
+  // Hero entrance timeline — fires once on first load
   useEffect(() => {
-    const els = document.querySelectorAll('.anim-hidden, .anim-hidden-left, .anim-hidden-right, .anim-hidden-scale');
+    const tl = createTimeline({ defaults: { ease: 'outExpo' } });
+    tl
+      .add('.hero-badge-enter',    { opacity: [0, 1], translateY: [-12, 0], duration: 600 }, 200)
+      .add('.hero-title-enter',    { opacity: [0, 1], translateY: [32, 0],  duration: 800 }, 350)
+      .add('.hero-sub-enter',      { opacity: [0, 1], translateY: [20, 0],  duration: 600 }, 600)
+      .add('.hero-cta-enter > *',  { opacity: [0, 1], translateY: [16, 0],  duration: 500, delay: stagger(80) }, 800)
+      .add('.hero-trust-enter > *',{ opacity: [0, 1], translateY: [14, 0],  duration: 500, delay: stagger(60) }, 950)
+      .add('.hero-card-enter',     { opacity: [0, 1], translateY: [20, 0],  duration: 600, delay: stagger(120) }, 1050);
+    return () => { tl.cancel?.(); };
+  }, []);
+
+  // Scroll-triggered section entrances via anime.js onScroll
+  useEffect(() => {
+    const els = Array.from(document.querySelectorAll<HTMLElement>('.anim-hidden, .anim-hidden-left, .anim-hidden-right, .anim-hidden-scale'));
     if (!els.length) return;
-    const io = new IntersectionObserver(
-      (entries) => entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('anim-visible'); io.unobserve(e.target); } }),
-      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    els.forEach((el) => {
+      el.style.opacity = '0';
+      el.style.transform = el.classList.contains('anim-hidden-left')  ? 'translateX(-30px)'
+                         : el.classList.contains('anim-hidden-right') ? 'translateX(30px)'
+                         : el.classList.contains('anim-hidden-scale') ? 'scale(0.92)'
+                         : 'translateY(28px)';
+    });
+    const cleanups = els.map((el) =>
+      onScroll({
+        target: el,
+        enter: 'top 92%',
+        onEnter: () => animate(el, {
+          opacity: [0, 1],
+          translateY: el.classList.contains('anim-hidden') ? [28, 0] : undefined,
+          translateX: el.classList.contains('anim-hidden-left')  ? [-30, 0]
+                    : el.classList.contains('anim-hidden-right') ? [30, 0]  : undefined,
+          scale: el.classList.contains('anim-hidden-scale') ? [0.92, 1] : undefined,
+          duration: 750,
+          ease: 'outExpo',
+        }),
+      })
     );
-    els.forEach((el) => io.observe(el));
-    return () => io.disconnect();
+    return () => { cleanups.forEach((c) => { if (typeof (c as any)?.revert === 'function') (c as any).revert(); }); };
   }, []);
 
   useEffect(() => {
