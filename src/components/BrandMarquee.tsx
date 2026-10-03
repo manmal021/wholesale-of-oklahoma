@@ -41,6 +41,8 @@ function MarqueeCard({ item }: { item: MarqueeItem }) {
         <img
           src={item.src}
           alt={item.alt}
+          width="96"
+          height="96"
           loading="lazy"
           decoding="async"
           draggable={false}
@@ -83,22 +85,6 @@ export default function BrandMarquee() {
       aria-label="Featured brands we carry"
       className="brand-marquee-section"
     >
-      {/* Section header */}
-      <div className="brand-marquee-header">
-        <div className="section-label" style={{ marginBottom: '0.75rem' }}>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-          </svg>
-          Our Brand Portfolio
-        </div>
-        <h2 className="brand-marquee-title">
-          Featured Brands We Carry
-        </h2>
-        <p className="brand-marquee-sub">
-          Fast-moving wholesale inventory from trusted vape, smoke shop, and retail brands.
-        </p>
-      </div>
-
       {/* Dual marquee rows */}
       <div className="brand-marquee-rows">
         {/* Fade masks on left & right edges */}
@@ -111,3 +97,4 @@ export default function BrandMarquee() {
     </section>
   );
 }
+

@@ -26,11 +26,16 @@ import { authStore } from './src/server/authStore.js';
 import fs from 'fs';
 import { PRODUCTS } from './src/lib/productDatabase.js';
 
+import compression from 'compression';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = Number(process.env.PORT || 3000);
+
+// ── Compression Middleware (Gzip/Deflate for text/html/js/css/json) ─────────
+app.use(compression());
 
 // ── Security Headers Middleware (OWASP A02 / A05) ──────────────────────────
 app.use((_req, res, next) => {
@@ -43,7 +48,7 @@ app.use((_req, res, next) => {
   }
   res.setHeader(
     'Content-Security-Policy',
-    "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://db.onlinewebfonts.com; font-src 'self' https://fonts.gstatic.com https://db.onlinewebfonts.com data:; img-src 'self' data: https: blob:; media-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none';"
+    "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https: blob:; media-src 'self' data: blob:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none';"
   );
   next();
 });
@@ -108,7 +113,21 @@ app.use('/api', apiRouter);
 app.use(apiRouter);
 
 // ── Static Frontend ─────────────────────────────────────────────────────────
-app.use(express.static(path.join(__dirname, 'dist')));
+app.use(
+  express.static(path.join(__dirname, 'dist'), {
+    maxAge: 0,
+    setHeaders: (res, filePath) => {
+      // Fingerprinted assets in /assets/ get 1-year immutable cache
+      if (filePath.includes(path.sep + 'assets' + path.sep) || filePath.includes('/assets/')) {
+        res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+      } else if (/\.(jpg|jpeg|png|webp|svg|ico)$/i.test(filePath)) {
+        res.setHeader('Cache-Control', 'public, max-age=86400, stale-while-revalidate=604800');
+      } else {
+        res.setHeader('Cache-Control', 'public, max-age=0, must-revalidate');
+      }
+    },
+  })
+);
 
 // ── SEO & SPA Route Handler ─────────────────────────────────────────────────
 app.get('*', (req, res) => {

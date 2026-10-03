@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ArrowRight, Zap, Shield, Package, Star, ChevronRight } from 'lucide-react';
-import { animate, createTimeline, onScroll } from 'animejs';
+import { Zap, Shield, Package, Star, ChevronRight } from 'lucide-react';
 
 interface SpotlightProduct {
   name: string;
@@ -64,268 +63,154 @@ interface ProductSpotlightProps {
 
 export default function ProductSpotlight({ onSelectBrand }: ProductSpotlightProps) {
   const [activeIdx, setActiveIdx] = useState(0);
-  const [imgLoaded, setImgLoaded] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-  const contentRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const productRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-  // Scroll entrance — animate the whole section in
   useEffect(() => {
-    if (!sectionRef.current) return;
-    const cleanup = onScroll({
-      target: sectionRef.current,
-      enter: 'top 88%',
-      onEnter: () => {
-        setVisible(true);
-        animate(sectionRef.current!, {
-          opacity: [0, 1],
-          translateY: [40, 0],
-          duration: 900,
-          ease: 'outExpo',
-        });
-      },
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const index = Number(entry.target.getAttribute('data-index'));
+          setActiveIdx(index);
+        }
+      });
+    }, { threshold: 0.6 });
+
+    productRefs.current.forEach(ref => {
+      if (ref) observer.observe(ref);
     });
-    return () => { if (typeof (cleanup as any)?.revert === 'function') (cleanup as any).revert(); };
+
+    return () => observer.disconnect();
   }, []);
 
-  const handleSelect = (idx: number) => {
-    if (idx === activeIdx) return;
-    const content = contentRef.current;
-    if (!content) { setActiveIdx(idx); return; }
-
-    // Fade out current
-    animate(content, {
-      opacity: [1, 0],
-      translateY: [0, -12],
-      duration: 180,
-      ease: 'inQuad',
-      onComplete: () => {
-        setActiveIdx(idx);
-        setImgLoaded(false);
-        // Fade in new
-        animate(content, {
-          opacity: [0, 1],
-          translateY: [16, 0],
-          duration: 450,
-          ease: 'outExpo',
-        });
-      },
-    });
-  };
-
-
-  const product = SPOTLIGHT_PRODUCTS[activeIdx];
-
-  const handleCTA = () => {
-    if (onSelectBrand) onSelectBrand(product.brand);
-    const el = document.getElementById('inventory');
-    if (el) el.scrollIntoView({ behavior: 'smooth' });
-  };
+  const activeProduct = SPOTLIGHT_PRODUCTS[activeIdx];
 
   return (
-    <section
-      ref={sectionRef}
-      className="spotlight-section py-28 relative"
-      style={{ borderTop: '1px solid var(--border-subtle)', borderBottom: '1px solid var(--border-subtle)' }}
-    >
-      <div className="spotlight-gradient" />
-
-      {/* Scan line effect */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none" style={{ zIndex: 0 }}>
-        <div
-          className="absolute w-full h-px"
-          style={{
-            background: `linear-gradient(90deg, transparent, ${product.accentColor}40, transparent)`,
-            animation: 'woo-scan 6s ease-in-out infinite',
-          }}
-        />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Section label */}
-        <div className={`text-center mb-14 ${visible ? 'anim-hidden anim-visible' : 'anim-hidden'}`}>
-          <span className="section-label mb-4 inline-flex">
-            <Star className="w-3 h-3 fill-current" />
-            Product Spotlight
-          </span>
-          <h2 className="heading-1 mt-4" style={{ color: 'var(--text-primary)' }}>
-            Wholesale <span className="text-shimmer">Bestsellers</span>
-          </h2>
-          <p className="body-lead mt-3 max-w-lg mx-auto">
-            Our highest-velocity SKUs — direct from OKC warehouse with verified factory stock.
-          </p>
-        </div>
-
-        {/* Selector tabs */}
-        <div className="flex items-center justify-center gap-2 mb-16 flex-wrap">
-          {SPOTLIGHT_PRODUCTS.map((p, i) => (
-            <button
-              key={p.slug}
-              type="button"
-              onClick={() => handleSelect(i)}
-              className="relative px-5 py-2.5 rounded-full text-sm font-700 transition-all duration-200 cursor-pointer"
-              style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
-                fontWeight: 700,
-                background: i === activeIdx ? p.accentColor : 'var(--surface-card)',
-                color: i === activeIdx ? '#fff' : 'var(--text-muted)',
-                border: `1px solid ${i === activeIdx ? p.accentColor : 'var(--border-subtle)'}`,
-                boxShadow: i === activeIdx ? `0 4px 20px ${p.accentColor}40` : 'none',
-                transform: i === activeIdx ? 'scale(1.04)' : 'scale(1)',
-              }}
-            >
-              {p.brand}
-            </button>
-          ))}
-        </div>
-
-        {/* Main spotlight card — Apple layout */}
-        <div
-          ref={contentRef}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center"
-        >
-          {/* Left: Product image — centered, dramatic */}
-          <div className="flex items-center justify-center order-2 lg:order-1">
-            <div className="relative w-full max-w-sm mx-auto">
-              {/* Glow blob behind image */}
-              <div
-                className="absolute inset-0 rounded-full blur-3xl pointer-events-none"
-                style={{ background: `radial-gradient(circle, ${product.accentColor}25 0%, transparent 70%)`, transform: 'scale(1.3)' }}
-              />
-              <img
-                src={product.imageSrc}
-                alt={product.imageAlt}
-                onLoad={() => setImgLoaded(true)}
-                className="product-hero-img relative z-10 w-full"
-                style={{
-                  maxHeight: '460px',
-                  objectFit: 'contain',
-                  opacity: imgLoaded ? 1 : 0,
-                  transition: 'opacity 0.4s ease',
-                  filter: `drop-shadow(0 40px 80px ${product.accentColor}30)`,
-                }}
-                onError={(e) => {
-                  // Fallback to icon if image fails
-                  (e.target as HTMLImageElement).style.display = 'none';
-                  setImgLoaded(true);
-                }}
-              />
-              {/* Fallback render when no image */}
-              {!imgLoaded && (
-                <div className="relative z-10 w-full flex items-center justify-center"
-                  style={{ height: '300px' }}>
-                  <div className="w-40 h-40 rounded-3xl flex items-center justify-center text-8xl"
-                    style={{ background: `${product.accentColor}15`, border: `2px solid ${product.accentColor}30` }}>
-                    💨
-                  </div>
-                </div>
-              )}
-
-              {/* Floating badge */}
-              <div
-                className="absolute -top-4 -right-4 z-20 px-3 py-1.5 rounded-full text-xs font-black"
-                style={{ background: product.accentColor, color: '#fff', boxShadow: `0 4px 16px ${product.accentColor}50` }}
-              >
-                {product.badge}
+    <section className="bg-white border-y border-slate-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+          
+          {/* Left: Sticky Image Container */}
+          <div className="hidden lg:block relative">
+            <div className="sticky top-0 h-screen flex items-center justify-center">
+              <div className="relative w-full max-w-lg mx-auto transition-all duration-700">
+                {/* Dynamic Glow */}
+                <div
+                  className="absolute inset-0 rounded-full blur-3xl pointer-events-none transition-colors duration-700 ease-in-out"
+                  style={{ background: `radial-gradient(circle, ${activeProduct.accentColor}25 0%, transparent 70%)`, transform: 'scale(1.2)' }}
+                />
+                
+                {/* Images superimposed with opacity transitions */}
+                {SPOTLIGHT_PRODUCTS.map((p, i) => (
+                  <img
+                    key={p.slug}
+                    src={p.imageSrc}
+                    alt={p.imageAlt}
+                    className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-h-[500px] object-contain transition-all duration-700 ease-in-out"
+                    style={{
+                      opacity: i === activeIdx ? 1 : 0,
+                      transform: i === activeIdx ? 'translate(-50%, -50%) scale(1)' : 'translate(-50%, -50%) scale(0.95)',
+                      filter: `drop-shadow(0 40px 80px ${p.accentColor}30)`,
+                      zIndex: i === activeIdx ? 10 : 0
+                    }}
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).style.display = 'none';
+                    }}
+                  />
+                ))}
               </div>
             </div>
           </div>
 
-          {/* Right: Product info — Nothing/Linear editorial */}
-          <div className="order-1 lg:order-2 space-y-6">
-            {/* Brand label */}
-            <div className="flex items-center gap-2">
-              <span className="label-overline">{product.brand}</span>
-              <span style={{ color: 'var(--border-subtle)' }}>·</span>
-              <span className="label-overline">{product.puffs}</span>
+          {/* Right: Scrolling Content */}
+          <div ref={containerRef} className="py-20 lg:py-[30vh]">
+            {/* Header for mobile and context */}
+            <div className="mb-20">
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 bg-slate-100 rounded-full text-[10px] font-bold text-slate-500 uppercase tracking-wider mb-4 border border-slate-200">
+                <Star className="w-3 h-3 text-slate-400" />
+                Featured Innovations
+              </span>
+              <h2 className="text-3xl sm:text-5xl font-black text-slate-900 tracking-tight leading-tight">
+                Wholesale <span className="text-slate-400">Bestsellers</span>
+              </h2>
             </div>
 
-            {/* Product name — massive */}
-            <h3
-              style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
-                fontSize: 'clamp(2.5rem, 5vw, 4.5rem)',
-                fontWeight: 800,
-                letterSpacing: '-0.04em',
-                lineHeight: 1.0,
-                color: 'var(--text-primary)',
-              }}
-            >
-              {product.name}
-            </h3>
-
-            {/* Tagline — Apple-style italic */}
-            <p style={{ fontSize: '1.125rem', fontStyle: 'italic', color: product.accentColor, fontWeight: 600 }}>
-              {product.tagline}
-            </p>
-
-            {/* Description */}
-            <p className="body-lead" style={{ maxWidth: '480px' }}>
-              {product.description}
-            </p>
-
-            {/* Feature list */}
-            <ul className="space-y-2.5">
-              {product.features.map((feat) => (
-                <li key={feat} className="flex items-center gap-3">
-                  <span
-                    className="w-5 h-5 rounded-full flex items-center justify-center shrink-0"
-                    style={{ background: `${product.accentColor}15` }}
-                  >
-                    <Zap className="w-3 h-3" style={{ color: product.accentColor }} />
-                  </span>
-                  <span className="text-sm font-600" style={{ color: 'var(--text-secondary)', fontWeight: 600 }}>
-                    {feat}
-                  </span>
-                </li>
-              ))}
-            </ul>
-
-            {/* CTAs */}
-            <div className="flex items-center gap-3 pt-2">
-              <button
-                type="button"
-                onClick={handleCTA}
-                className="btn-primary btn-glow"
-                style={{ background: product.accentColor, boxShadow: `0 8px 24px ${product.accentColor}40` }}
+            {SPOTLIGHT_PRODUCTS.map((product, i) => (
+              <div
+                key={product.slug}
+                data-index={i}
+                ref={el => productRefs.current[i] = el}
+                className={`min-h-[70vh] flex flex-col justify-center transition-opacity duration-700 ${i === activeIdx ? 'opacity-100' : 'opacity-30 lg:opacity-100'}`}
               >
-                <Package className="w-4 h-4" />
-                Order Wholesale
-              </button>
-              <button
-                type="button"
-                onClick={handleCTA}
-                className="btn-secondary"
-              >
-                View Catalog
-                <ChevronRight className="w-4 h-4" />
-              </button>
-            </div>
+                {/* Mobile Image (Hidden on Desktop) */}
+                <div className="lg:hidden relative w-full max-w-sm mx-auto mb-10">
+                  <div className="absolute inset-0 rounded-full blur-3xl pointer-events-none" style={{ background: `radial-gradient(circle, ${product.accentColor}25 0%, transparent 70%)` }} />
+                  <img src={product.imageSrc} alt={product.imageAlt} className="relative z-10 w-full max-h-[350px] object-contain" />
+                </div>
 
-            {/* Trust note */}
-            <p className="flex items-center gap-1.5 text-xs" style={{ color: 'var(--text-faint)' }}>
-              <Shield className="w-3.5 h-3.5" />
-              Verified factory stock · OKC warehouse ready · Anti-counterfeit QR on every unit
-            </p>
+                <div className="space-y-6">
+                  {/* Brand label */}
+                  <div className="flex items-center gap-2">
+                    <span className="text-xs font-bold uppercase tracking-widest text-slate-500">{product.brand}</span>
+                    <span className="text-slate-300">·</span>
+                    <span className="text-xs font-bold uppercase tracking-widest text-slate-500">{product.puffs}</span>
+                  </div>
+
+                  {/* Product name */}
+                  <h3 className="text-4xl sm:text-6xl font-black tracking-tighter text-slate-900" style={{ lineHeight: 0.95 }}>
+                    {product.name}
+                  </h3>
+
+                  {/* Tagline */}
+                  <p className="text-xl sm:text-2xl font-semibold italic" style={{ color: product.accentColor }}>
+                    {product.tagline}
+                  </p>
+
+                  {/* Description */}
+                  <p className="text-base sm:text-lg text-slate-600 max-w-md leading-relaxed">
+                    {product.description}
+                  </p>
+
+                  {/* Feature list */}
+                  <ul className="space-y-3 pt-4">
+                    {product.features.map((feat) => (
+                      <li key={feat} className="flex items-center gap-3">
+                        <span className="w-6 h-6 rounded-full flex items-center justify-center shrink-0" style={{ background: `${product.accentColor}15` }}>
+                          <Zap className="w-3.5 h-3.5" style={{ color: product.accentColor }} />
+                        </span>
+                        <span className="text-sm font-bold text-slate-700">
+                          {feat}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  {/* CTAs */}
+                  <div className="flex flex-wrap items-center gap-4 pt-6">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        if (onSelectBrand) onSelectBrand(product.brand);
+                        const el = document.getElementById('inventory');
+                        if (el) el.scrollIntoView({ behavior: 'smooth' });
+                      }}
+                      className="text-white text-sm font-extrabold px-6 py-3.5 rounded-full shadow-lg transition-transform hover:scale-105 active:scale-95 flex items-center gap-2"
+                      style={{ background: product.accentColor, boxShadow: `0 8px 24px ${product.accentColor}40` }}
+                    >
+                      <Package className="w-4 h-4" />
+                      Order Wholesale
+                    </button>
+                  </div>
+
+                  {/* Trust note */}
+                  <p className="flex items-center gap-1.5 text-xs text-slate-400 font-medium pt-2">
+                    <Shield className="w-3.5 h-3.5" />
+                    Verified factory stock · OKC warehouse ready
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
-
-        {/* Bottom product navigator dots */}
-        <div className="flex items-center justify-center gap-2.5 mt-14">
-          {SPOTLIGHT_PRODUCTS.map((p, i) => (
-            <button
-              key={p.slug}
-              type="button"
-              onClick={() => handleSelect(i)}
-              className="transition-all duration-300 rounded-full cursor-pointer"
-              style={{
-                width: i === activeIdx ? '24px' : '8px',
-                height: '8px',
-                background: i === activeIdx ? product.accentColor : 'var(--border-subtle)',
-              }}
-              aria-label={`View ${p.brand} ${p.name}`}
-            />
-          ))}
         </div>
       </div>
     </section>

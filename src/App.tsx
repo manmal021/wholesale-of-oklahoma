@@ -966,23 +966,13 @@ export default function App() {
         {/* Brand Marquee — infinite scrolling product image carousel */}
         <BrandMarquee />
 
-        {/* 2. Official Wholesale Brands Showcase with Hardware & Packaging Images */}
-        <div className="anim-hidden">
-          <BrandDirectoryShowcase
-            isLoggedIn={Boolean(currentUser)}
-            onBrandClick={handleBrandClick}
-            onOpenLogin={() => setIsLoginModalOpen(true)}
-            onOpenApplication={() => setIsWholesaleModalOpen(true)}
-          />
-        </div>
-
-        {/* 3. Product Spotlight — Apple/Nothing-style product closeup */}
-        <div className="anim-hidden anim-delay-1">
+        {/* 3. Product Spotlight — Sticky scroll layout */}
+        <div className="relative">
           <ProductSpotlight onSelectBrand={handleBrandClick} />
         </div>
 
         {/* 4. Dynamic Category Showcase Section */}
-        <div className="anim-hidden anim-delay-2"><CategoryShowcase /></div>
+        <div className="relative"><CategoryShowcase /></div>
 
 
         {currentUser ? (
@@ -1045,20 +1035,33 @@ export default function App() {
           </div>
         )}
 
-        {/* 5 & 6. Why Wholesale of Oklahoma & Ready to Buy Wholesale CTA */}
-        <div className="anim-hidden"><WhyChooseUs onOpenApplication={() => setIsWholesaleModalOpen(true)} /></div>
+        {/* 5. Commercial Value / Why Wholesale of Oklahoma */}
+        <div className="relative"><WhyChooseUs onOpenApplication={() => setIsWholesaleModalOpen(true)} /></div>
 
-        {/* 7. Separate Direct Restock Order Request Form */}
-        <div className="anim-hidden anim-delay-1"><OrderForm /></div>
+        {/* 6. Oklahoma Service Area */}
+        <div className="relative"><OKCServiceMap /></div>
 
-        {/* 8. Verified Customer Reviews Slider */}
-        <div className="anim-hidden"><ReviewSlider /></div>
+        {/* 7. Brand Directory Showcase (Moved to Bottom) */}
+        <div className="relative border-t border-slate-200">
+          <BrandDirectoryShowcase
+            isLoggedIn={Boolean(currentUser)}
+            onBrandClick={handleBrandClick}
+            onOpenLogin={() => setIsLoginModalOpen(true)}
+            onOpenApplication={() => setIsWholesaleModalOpen(true)}
+          />
+        </div>
 
-        {/* 9. Warehouse Photo Gallery */}
-        <div className="anim-hidden anim-delay-2"><GallerySlider /></div>
+        {/* 8. Separate Direct Restock Order Request Form */}
+        <div className="relative"><OrderForm /></div>
 
-        {/* 10. Complete Contact Directories with Map representation */}
-        <div className="anim-hidden"><StoreDetails /></div>
+        {/* 9. Verified Customer Reviews Slider */}
+        <div className="relative"><ReviewSlider /></div>
+
+        {/* 10. Warehouse Photo Gallery */}
+        <div className="relative"><GallerySlider /></div>
+
+        {/* 11. Complete Contact Directories with Map representation */}
+        <div className="relative"><StoreDetails /></div>
       </main>
 
       {/* Regulatory Warning & Comprehensive Compliance Footer */}

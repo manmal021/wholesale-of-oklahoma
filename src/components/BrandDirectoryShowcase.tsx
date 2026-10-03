@@ -251,12 +251,8 @@ export const BrandDirectoryShowcase: React.FC<BrandDirectoryShowcaseProps> = ({
   };
 
   return (
-    <section id="brands" className="py-20 bg-[#F8FAFC] text-slate-900 relative overflow-hidden border-t border-slate-200">
-      {/* Ambient glowing backdrop */}
-      <div className="absolute top-1/4 -left-64 w-[500px] h-[500px] bg-[#FF6B00]/5 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-1/4 -right-64 w-[500px] h-[500px] bg-[#FF6B00]/5 rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-16">
+    <section id="brands" className="py-10 bg-[#F8FAFC] text-slate-900 relative overflow-hidden border-t border-slate-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-4">
@@ -265,11 +261,11 @@ export const BrandDirectoryShowcase: React.FC<BrandDirectoryShowcaseProps> = ({
             <span>Oklahoma Wholesale Brand Directory</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-slate-900 tracking-tight">
-            Official Wholesale <span className="text-[#FF6B00]">Brands & Hardware</span>
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+            Official Wholesale <span className="text-[#FF6B00]">Brand Directory</span>
           </h2>
 
-          <p className="text-slate-600 text-sm sm:text-base md:text-lg leading-relaxed">
+          <p className="text-slate-600 text-sm leading-relaxed max-w-2xl mx-auto">
             Direct warehouse distribution for Oklahoma’s highest-velocity smoke and vape brands.
             Explore authentic manufacturer product lines with guaranteed batch verification and direct OKC warehouse dispatch.
           </p>
@@ -413,23 +409,21 @@ export const BrandDirectoryShowcase: React.FC<BrandDirectoryShowcaseProps> = ({
         </div>
 
         {/* B2B Retailer Gateway Call-to-Action Card */}
-        <div className="bg-gradient-to-r from-orange-50/90 via-white to-orange-50/50 rounded-3xl p-8 sm:p-12 border-2 border-orange-200 shadow-xl relative overflow-hidden text-slate-900">
-          <div className="absolute -right-20 -bottom-20 w-80 h-80 bg-[#FF6B00]/10 rounded-full blur-3xl pointer-events-none" />
+        <div className="bg-gradient-to-r from-orange-50/90 via-white to-orange-50/50 rounded-2xl p-6 sm:p-8 border border-orange-200 shadow-sm relative overflow-hidden text-slate-900 mt-4">
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-            <div className="lg:col-span-8 space-y-4">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center relative z-10">
+            <div className="lg:col-span-8 space-y-3">
               <div className="inline-flex items-center gap-2 bg-orange-100 text-[#FF6B00] border border-orange-200 text-xs font-black uppercase tracking-wider px-3.5 py-1 rounded-full">
                 <Lock className="w-3.5 h-3.5" />
                 <span>Verified Retailer Gateway</span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-slate-900">
-                Access All <span className="text-[#FF6B00]">900+ Products</span> Imported from Zoho with Live Tier Pricing
+              <h3 className="text-xl sm:text-2xl font-black text-slate-900">
+                Browse <span className="text-[#FF6B00]">900+ Products</span> With Live Pricing
               </h3>
 
-              <p className="text-slate-600 text-sm sm:text-base leading-relaxed max-w-2xl">
-                Wholesale of Oklahoma operates a closed wholesale distribution network exclusively for licensed Wholesale of Oklahoma retail partners, dispensaries, vape stores, and commercial retailers. 
-                Log in to your account to instantly browse full Zoho inventory stock levels, master case rates, and volume discounts.
+              <p className="text-slate-600 text-sm leading-relaxed max-w-2xl">
+                Log in to your wholesale account to view live inventory levels, master case rates, and place orders directly.
               </p>
 
               <div className="flex flex-wrap gap-4 pt-2 text-xs font-semibold text-slate-600">

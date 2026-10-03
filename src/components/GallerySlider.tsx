@@ -129,6 +129,8 @@ export default function GallerySlider() {
                     src={images[imgIdx]}
                     alt={`Gallery photo ${imgIdx + 1}`}
                     className="w-full h-full object-cover"
+                    loading="lazy"
+                    decoding="async"
                     draggable={false}
                   />
                   {isCenter && (
@@ -177,21 +179,32 @@ export default function GallerySlider() {
           ))}
         </div>
 
-        {/* Thumbnail Strip */}
+        {/* Thumbnail Strip with Lightweight Compressed Thumbnails */}
         <div className="mt-6 flex gap-2 overflow-x-auto pb-2 scrollbar-hide">
-          {images.map((src, i) => (
-            <button
-              key={i}
-              onClick={() => setActiveIdx(i)}
-              className={`flex-shrink-0 w-16 h-12 sm:w-20 sm:h-14 rounded-lg overflow-hidden border-2 transition-all duration-300 cursor-pointer ${
-                i === activeIdx
-                  ? 'border-[#FF6B00] opacity-100 scale-105 shadow-sm'
-                  : 'border-slate-200 opacity-60 hover:opacity-90'
-              }`}
-            >
-              <img src={src} alt={`Thumb ${i + 1}`} className="w-full h-full object-cover" />
-            </button>
-          ))}
+          {images.map((src, i) => {
+            const thumbSrc = src.replace('/gallery/', '/gallery/thumbs/');
+            return (
+              <button
+                key={i}
+                onClick={() => setActiveIdx(i)}
+                className={`flex-shrink-0 w-16 h-12 sm:w-20 sm:h-14 rounded-lg overflow-hidden border-2 transition-all duration-300 cursor-pointer ${
+                  i === activeIdx
+                    ? 'border-[#FF6B00] opacity-100 scale-105 shadow-sm'
+                    : 'border-slate-200 opacity-60 hover:opacity-90'
+                }`}
+              >
+                <img
+                  src={thumbSrc}
+                  alt={`Thumb ${i + 1}`}
+                  className="w-full h-full object-cover"
+                  loading="lazy"
+                  decoding="async"
+                  width={80}
+                  height={56}
+                />
+              </button>
+            );
+          })}
         </div>
       </div>
 
