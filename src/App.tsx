@@ -31,7 +31,6 @@ import WholesaleApplicationModal from './components/WholesaleApplicationModal';
 import AgeGateModal from './components/AgeGateModal';
 import LoginModal from './components/LoginModal';
 import BrandDirectoryShowcase from './components/BrandDirectoryShowcase';
-import CategoryShowcase from './components/CategoryShowcase';
 import WhyChooseUs from './components/WhyChooseUs';
 import OKCServiceMap from './components/OKCServiceMap';
 import { getDraftOrder } from './lib/mangoAI';
@@ -884,29 +883,57 @@ export default function App() {
             </div>
             </div>
             
-            {/* Right Column: Visual Showcase */}
+            {/* Right Column: Visual Fulfillment Showcase without warehouse_team.jpg */}
             <div className="hidden lg:flex justify-end items-center relative pr-4 xl:pr-10">
-              <div className="relative w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl border border-white/20 transform hover:scale-[1.02] transition-transform duration-700 ease-out z-20">
-                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent z-10"></div>
-                <img 
-                  src="/warehouse_team.jpg" 
-                  alt="Oklahoma Wholesale Fulfillment Team" 
-                  className="w-full h-auto object-cover rounded-3xl"
-                />
-                
-                {/* Visual Overlay elements on image */}
-                <div className="absolute bottom-6 left-6 z-20 flex items-center gap-3">
-                  <div className="bg-[#FF6B00] text-white p-3 rounded-xl shadow-lg border border-[#FF6B00]/50">
-                    <Package className="w-6 h-6" />
+              <div 
+                className="relative w-full max-w-xl rounded-3xl p-8 border border-white/20 shadow-2xl transition-all duration-500 z-20"
+                style={{ 
+                  background: 'linear-gradient(135deg, rgba(15, 23, 42, 0.88), rgba(30, 41, 59, 0.82))', 
+                  backdropFilter: 'blur(20px)' 
+                }}
+              >
+                {/* Header */}
+                <div className="flex items-center justify-between pb-6 border-b border-slate-700/60 mb-6">
+                  <div className="flex items-center gap-3">
+                    <div className="w-12 h-12 rounded-2xl bg-[#FF6B00] text-white flex items-center justify-center shadow-lg shadow-orange-500/30">
+                      <Package className="w-6 h-6 stroke-[2.2]" />
+                    </div>
+                    <div>
+                      <h3 className="text-white font-black text-lg tracking-tight">Active Fulfillment</h3>
+                      <p className="text-slate-400 text-xs font-semibold">Central OKC Warehouse Hub</p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="text-white font-black text-lg drop-shadow-md">Active Fulfillment</h3>
-                    <p className="text-white/80 text-xs font-semibold">Same-day dispatch from OKC</p>
+                  <span className="inline-flex items-center gap-1.5 text-[11px] font-bold text-emerald-400 bg-emerald-950/60 border border-emerald-800/80 px-3 py-1 rounded-full">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                    Same-Day Dispatch
+                  </span>
+                </div>
+
+                {/* Logistics Metrics */}
+                <div className="grid grid-cols-2 gap-3.5 mb-6 text-xs">
+                  <div className="p-3.5 rounded-2xl bg-white/[0.04] border border-white/[0.08]">
+                    <span className="text-slate-400 text-[11px] block mb-1">Statewide Route</span>
+                    <span className="text-white font-black text-sm">Metro & Regional Dispatch</span>
                   </div>
+                  <div className="p-3.5 rounded-2xl bg-white/[0.04] border border-white/[0.08]">
+                    <span className="text-slate-400 text-[11px] block mb-1">Live Inventory</span>
+                    <span className="text-white font-black text-sm">900+ Master SKUs</span>
+                  </div>
+                </div>
+
+                {/* Pickup Address & Contact */}
+                <div className="flex items-center justify-between pt-4 border-t border-slate-700/60 text-xs text-slate-300">
+                  <span className="flex items-center gap-2">
+                    <ShieldCheck className="w-4 h-4 text-[#FF6B00]" />
+                    <span>4500 S Bryant Ave, OKC</span>
+                  </span>
+                  <a href="tel:4057682975" className="text-[#FF6B00] font-bold hover:underline">
+                    (405) 768-2975
+                  </a>
                 </div>
               </div>
               
-              {/* Decorative background glow behind image */}
+              {/* Decorative background glow */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#FF6B00]/10 blur-[100px] rounded-full z-0 pointer-events-none"></div>
             </div>
 
@@ -1003,13 +1030,10 @@ export default function App() {
           <ProductSpotlight onSelectBrand={handleBrandClick} />
         </div>
 
-        {/* 4. Dynamic Category Showcase Section */}
-        <div className="relative"><CategoryShowcase /></div>
-
-
-        {currentUser ? (
-          <div id="inventory" className="relative">
-            <div className="bg-gradient-to-r from-[#FF6B00]/10 via-orange-50/50 to-orange-50/20 border-y border-orange-200 py-4 px-4 shadow-xs">
+        {/* 4. Streamlined Catalog with Left-Side Category Navigation */}
+        <div id="catalog" className="relative">
+          {currentUser ? (
+            <div className="bg-gradient-to-r from-[#FF6B00]/10 via-orange-50/50 to-orange-50/20 border-y border-orange-200 py-3 px-4 shadow-xs">
               <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 px-4">
                 <div className="flex items-center gap-2.5">
                   <span className="bg-[#FF6B00] text-white text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-xs">
@@ -1030,42 +1054,40 @@ export default function App() {
                 </div>
               </div>
             </div>
-            <InventorySection initialBrand={activeBrandFilter} />
-          </div>
-        ) : (
-          <div id="retailer-gateway" className="py-14 bg-slate-50 text-center border-t border-slate-200">
-            <div className="max-w-4xl mx-auto px-4 space-y-4">
-              <div className="inline-flex items-center gap-2 bg-white text-[#FF6B00] border border-slate-200 text-xs font-black uppercase tracking-wider px-4 py-1.5 rounded-full shadow-xs">
-                <ShieldCheck className="w-4 h-4 text-[#FF6B00]" />
-                <span>Oklahoma Closed Wholesale Network</span>
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-black text-slate-900">
-                Login to Access Full 900+ Zoho Inventory Catalog & Wholesale Rates
-              </h3>
-              <p className="text-sm text-slate-600 max-w-xl mx-auto leading-relaxed">
-                In compliance with Oklahoma wholesale distribution regulations, catalog browsing with tiered case pricing and direct ordering is unlocked inside the retailer gateway for verified partners.
-              </p>
-              <div className="pt-3 flex flex-wrap items-center justify-center gap-3">
-                <button
-                  type="button"
-                  onClick={() => setIsLoginModalOpen(true)}
-                  className="bg-[#FF6B00] hover:bg-[#E85F00] text-white font-extrabold text-xs sm:text-sm px-8 py-4 rounded-full transition-all shadow-md hover:scale-105 active:scale-95 flex items-center gap-2 cursor-pointer uppercase tracking-wider"
-                >
-                  <LogIn className="w-4 h-4" />
-                  <span>Retailer Login</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setIsWholesaleModalOpen(true)}
-                  className="bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 hover:border-[#FF6B00] font-bold text-xs sm:text-sm px-7 py-3.5 rounded-full transition-all flex items-center gap-2 cursor-pointer shadow-xs"
-                >
-                  <UserPlus className="w-4 h-4 text-[#FF6B00]" />
-                  <span>Register Wholesale Account</span>
-                </button>
+          ) : (
+            <div className="bg-slate-50/80 border-y border-slate-200 py-2.5 px-4 text-xs">
+              <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+                <span className="text-slate-600 font-medium">
+                  🔒 <strong className="text-slate-900">Oklahoma Wholesale Network:</strong> Browse the catalog freely. Login or apply for a retailer account to unlock tier case pricing.
+                </span>
+                <div className="flex items-center gap-2">
+                  <button
+                    type="button"
+                    onClick={() => setIsLoginModalOpen(true)}
+                    className="text-[#FF6B00] font-bold hover:underline cursor-pointer"
+                  >
+                    Retailer Login →
+                  </button>
+                  <span className="text-slate-300">|</span>
+                  <button
+                    type="button"
+                    onClick={() => setIsWholesaleModalOpen(true)}
+                    className="text-slate-600 hover:text-slate-900 font-semibold cursor-pointer"
+                  >
+                    Apply for Account
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        )}
+          )}
+
+          <InventorySection 
+            initialBrand={activeBrandFilter} 
+            currentUser={currentUser}
+            onOpenLogin={() => setIsLoginModalOpen(true)}
+            onOpenApplication={() => setIsWholesaleModalOpen(true)}
+          />
+        </div>
 
         {/* 5. Commercial Value / Why Wholesale of Oklahoma */}
         <div className="relative"><WhyChooseUs onOpenApplication={() => setIsWholesaleModalOpen(true)} /></div>

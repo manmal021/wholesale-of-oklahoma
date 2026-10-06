@@ -8,6 +8,7 @@ interface MarqueeItem {
 
 // Row 1 — scrolls left
 const ROW_1: MarqueeItem[] = [
+  { src: '/products/ijoy_100k_showcase.png',      alt: 'iJOY XP100K 100,000 puffs disposable vape wholesale', label: 'iJOY 100K' },
   { src: '/products/vozol-50k.png',               alt: 'VOZOL 50K disposable vape wholesale',         label: 'VOZOL' },
   { src: '/products/geekbar-60k.png',             alt: 'Geek Bar 60K disposable vape wholesale',      label: 'Geek Bar 60K' },
   { src: '/products/geekbar-25k.png',             alt: 'Geek Bar 25K disposable vape',                label: 'Geek Bar 25K' },
