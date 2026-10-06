@@ -41,12 +41,11 @@ export default function OKCServiceMap() {
 
   // Initial pins
   useEffect(() => {
-    const count = window.innerWidth < 640 ? 4 : 6;
-    const areas = pickRandom(SERVICE_AREAS, count);
+    const areas = pickRandom(SERVICE_AREAS, 1);
     setPins(areas.map((area) => ({ area, key: counterRef.current++, fading: false })));
   }, []);
 
-  // Rotate every 30 seconds
+  // Rotate every 1 minute
   useEffect(() => {
     if (prefersReduced) return;
     const interval = setInterval(() => {
@@ -55,13 +54,12 @@ export default function OKCServiceMap() {
 
       // After fade-out, pick new
       const timeout = setTimeout(() => {
-        const count = window.innerWidth < 640 ? 4 : 6;
-        const areas = pickRandom(SERVICE_AREAS, count);
+        const areas = pickRandom(SERVICE_AREAS, 1);
         setPins(areas.map((area) => ({ area, key: counterRef.current++, fading: false })));
       }, 600);
 
       return () => clearTimeout(timeout);
-    }, 30000);
+    }, 60000);
     return () => clearInterval(interval);
   }, [prefersReduced]);
 
@@ -104,24 +102,22 @@ export default function OKCServiceMap() {
         </div>
 
         {/* SVG Map side */}
-        <div className="okc-map-visual" aria-label="Oklahoma service area map — general coverage illustration">
-          {/* Oklahoma state outline (simplified polygon) */}
+        <div className="okc-map-visual relative w-full h-[400px] rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-800 shadow-sm" aria-label="Oklahoma service area map — general coverage illustration">
+          <img 
+            src="/oklahoma-map.jpg" 
+            alt="Map of Oklahoma" 
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+          {/* Overlay SVG for pins */}
           <svg
             viewBox="0 0 100 100"
-            className="okc-map-svg"
+            className="absolute inset-0 w-full h-full z-10"
             aria-hidden="true"
             role="img"
           >
-            {/* Oklahoma state rough outline */}
-            <path
-              d="M5,30 L5,80 L88,80 L95,72 L95,30 L68,30 L68,15 L53,15 L53,30 Z"
-              fill="var(--okc-map-fill)"
-              stroke="var(--okc-map-border)"
-              strokeWidth="0.8"
-            />
             {/* OKC star marker — always visible */}
             <circle cx="47" cy="52" r="1.5" fill="var(--accent-primary)" opacity="0.9" />
-            <text x="50" y="53.5" fontSize="3.5" fill="var(--accent-primary)" fontWeight="700" fontFamily="sans-serif">OKC</text>
+            <text x="50" y="53.5" fontSize="3.5" fill="var(--accent-primary)" fontWeight="700" fontFamily="sans-serif" stroke="white" strokeWidth="0.5" paintOrder="stroke">OKC</text>
 
             {/* Animated service pins */}
             {pins.map(({ area, key, fading }) => (
@@ -154,9 +150,12 @@ export default function OKCServiceMap() {
                   x={area.x + 2.5}
                   y={area.y + 0.8}
                   fontSize="2.8"
-                  fill="var(--text-secondary)"
+                  fill="#1e293b"
                   fontFamily="sans-serif"
-                  fontWeight="600"
+                  fontWeight="800"
+                  stroke="white"
+                  strokeWidth="0.8"
+                  paintOrder="stroke"
                 >
                   {area.name}
                 </text>
