@@ -21,6 +21,7 @@ import {
   type OrderRecord,
   type OrderItemRecord,
 } from './databaseStore.js';
+import { applicationPdfService } from './applicationPdfService.js';
 
 const STORAGE_DIR = path.resolve(process.cwd(), 'storage');
 const EMAIL_LOG_FILE = path.join(STORAGE_DIR, 'email_outbox.log');
@@ -53,6 +54,10 @@ class EmailService {
     provider?: string;
     error?: string;
     actionUrl?: string;
+    attachments?: string[];
+    body?: string;
+    text?: string;
+    html?: string;
   }): void {
     try {
       if (!fs.existsSync(STORAGE_DIR)) {
@@ -74,6 +79,11 @@ class EmailService {
     html: string;
     text: string;
     actionUrl?: string;
+    attachments?: Array<{
+      filename: string;
+      content: Buffer | string;
+      contentType?: string;
+    }>;
   }): Promise<EmailDispatchResult> {
     const isVercel = Boolean(process.env.VERCEL || process.env.VERCEL_ENV);
     const resendApiKey = process.env.RESEND_API_KEY || process.env.EMAIL_API_KEY;
@@ -84,23 +94,34 @@ class EmailService {
     const smtpUser = process.env.SMTP_USER || process.env.EMAIL_USER || process.env.GMAIL_USER;
     const smtpPass = process.env.SMTP_PASS || process.env.EMAIL_PASS || process.env.GMAIL_APP_PASSWORD || process.env.GMAIL_PASSWORD;
 
+    const attachmentNames = options.attachments?.map((a) => a.filename);
+
     // 1. Send via Resend REST API if key is present
     if (resendApiKey && resendApiKey.startsWith('re_')) {
       try {
         console.log(`[EmailService] 📤 Dispatching email to ${options.to} via Resend...`);
+        const payload: Record<string, any> = {
+          from: fromAddress,
+          to: [options.to],
+          subject: options.subject,
+          html: options.html,
+          text: options.text,
+        };
+
+        if (options.attachments && options.attachments.length > 0) {
+          payload.attachments = options.attachments.map((att) => ({
+            filename: att.filename,
+            content: Buffer.isBuffer(att.content) ? att.content.toString('base64') : att.content,
+          }));
+        }
+
         const response = await fetch('https://api.resend.com/emails', {
           method: 'POST',
           headers: {
             Authorization: `Bearer ${resendApiKey}`,
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({
-            from: fromAddress,
-            to: [options.to],
-            subject: options.subject,
-            html: options.html,
-            text: options.text,
-          }),
+          body: JSON.stringify(payload),
         });
 
         const data = (await response.json()) as any;
@@ -111,6 +132,7 @@ class EmailService {
             status: 'DELIVERED_EXTERNAL',
             provider: 'resend',
             actionUrl: options.actionUrl,
+            attachments: attachmentNames,
           });
           console.log(`[EmailService] ✅ Delivered email to ${options.to} via Resend (ID: ${data.id})`);
           return { success: true, messageId: data.id, recipient: options.to, subject: options.subject, provider: 'resend' };
@@ -124,6 +146,7 @@ class EmailService {
             provider: 'resend',
             error: errMsg,
             actionUrl: options.actionUrl,
+            attachments: attachmentNames,
           });
           return { success: false, error: errMsg, recipient: options.to, subject: options.subject, provider: 'resend' };
         }
@@ -136,6 +159,7 @@ class EmailService {
           provider: 'resend',
           error: err.message,
           actionUrl: options.actionUrl,
+          attachments: attachmentNames,
         });
         return { success: false, error: err.message, recipient: options.to, subject: options.subject, provider: 'resend' };
       }
@@ -149,21 +173,32 @@ class EmailService {
         const senderEmail = fromEmailMatch[1] || fromAddress;
         const senderName = fromAddress.includes('<') ? fromAddress.split('<')[0].trim() : 'Wholesale of Oklahoma';
 
+        const payload: Record<string, any> = {
+          personalizations: [{ to: [{ email: options.to }] }],
+          from: { email: senderEmail, name: senderName },
+          subject: options.subject,
+          content: [
+            { type: 'text/plain', value: options.text },
+            { type: 'text/html', value: options.html },
+          ],
+        };
+
+        if (options.attachments && options.attachments.length > 0) {
+          payload.attachments = options.attachments.map((att) => ({
+            content: Buffer.isBuffer(att.content) ? att.content.toString('base64') : att.content,
+            filename: att.filename,
+            type: att.contentType || 'application/pdf',
+            disposition: 'attachment',
+          }));
+        }
+
         const response = await fetch('https://api.sendgrid.com/v3/mail/send', {
           method: 'POST',
           headers: {
             Authorization: `Bearer ${sendgridApiKey}`,
             'Content-Type': 'application/json',
           },
-          body: JSON.stringify({
-            personalizations: [{ to: [{ email: options.to }] }],
-            from: { email: senderEmail, name: senderName },
-            subject: options.subject,
-            content: [
-              { type: 'text/plain', value: options.text },
-              { type: 'text/html', value: options.html },
-            ],
-          }),
+          body: JSON.stringify(payload),
         });
 
         if (response.ok || response.status === 202) {
@@ -174,6 +209,7 @@ class EmailService {
             status: 'DELIVERED_EXTERNAL',
             provider: 'sendgrid',
             actionUrl: options.actionUrl,
+            attachments: attachmentNames,
           });
           console.log(`[EmailService] ✅ Delivered email to ${options.to} via SendGrid (ID: ${msgId})`);
           return { success: true, messageId: msgId, recipient: options.to, subject: options.subject, provider: 'sendgrid' };
@@ -187,6 +223,7 @@ class EmailService {
             provider: 'sendgrid',
             error: errText,
             actionUrl: options.actionUrl,
+            attachments: attachmentNames,
           });
           return { success: false, error: errText, recipient: options.to, subject: options.subject, provider: 'sendgrid' };
         }
@@ -199,6 +236,7 @@ class EmailService {
           provider: 'sendgrid',
           error: err.message,
           actionUrl: options.actionUrl,
+          attachments: attachmentNames,
         });
         return { success: false, error: err.message, recipient: options.to, subject: options.subject, provider: 'sendgrid' };
       }
@@ -227,13 +265,23 @@ class EmailService {
           });
         }
 
-        const info = await transporter.sendMail({
+        const mailOpts: Record<string, any> = {
           from: fromAddress,
           to: options.to,
           subject: options.subject,
           text: options.text,
           html: options.html,
-        });
+        };
+
+        if (options.attachments && options.attachments.length > 0) {
+          mailOpts.attachments = options.attachments.map((att) => ({
+            filename: att.filename,
+            content: att.content,
+            contentType: att.contentType || 'application/pdf',
+          }));
+        }
+
+        const info = await transporter.sendMail(mailOpts);
 
         this.logEmailDelivery({
           to: options.to,
@@ -241,6 +289,7 @@ class EmailService {
           status: 'DELIVERED_EXTERNAL',
           provider: 'smtp',
           actionUrl: options.actionUrl,
+          attachments: attachmentNames,
         });
         console.log(`[EmailService] ✅ Delivered email to ${options.to} via SMTP (ID: ${info.messageId})`);
         return { success: true, messageId: info.messageId, recipient: options.to, subject: options.subject, provider: 'smtp' };
@@ -253,21 +302,45 @@ class EmailService {
           provider: 'smtp',
           error: err.message,
           actionUrl: options.actionUrl,
+          attachments: attachmentNames,
         });
         return { success: false, error: err.message, recipient: options.to, subject: options.subject, provider: 'smtp' };
       }
     }
 
     // 4. Fallback / Default Outbox Logging (Dev, CI, and seed environments)
+    if (options.attachments && options.attachments.length > 0) {
+      try {
+        const outboxAttachDir = path.join(STORAGE_DIR, 'outbox_attachments');
+        if (!fs.existsSync(outboxAttachDir)) {
+          fs.mkdirSync(outboxAttachDir, { recursive: true });
+        }
+        for (const att of options.attachments) {
+          const buf = Buffer.isBuffer(att.content) ? att.content : Buffer.from(att.content, 'base64');
+          fs.writeFileSync(path.join(outboxAttachDir, att.filename), buf);
+          console.log(`[EmailService] 📎 Outbox attachment stored: ${att.filename} (${buf.length} bytes)`);
+        }
+      } catch (err: any) {
+        console.warn('[EmailService] Could not write outbox attachment:', err.message);
+      }
+    }
+
     this.logEmailDelivery({
       to: options.to,
       subject: options.subject,
       status: 'QUEUED_OUTBOX',
       provider: 'local_outbox',
       actionUrl: options.actionUrl,
+      attachments: attachmentNames,
+      body: options.text,
+      text: options.text,
+      html: options.html,
     });
 
     console.log(`[EmailService] ✉ Outbox entry created for ${options.to}: "${options.subject}"`);
+    if (attachmentNames && attachmentNames.length > 0) {
+      console.log(`[EmailService] 📎 Attached files (${attachmentNames.length}): ${attachmentNames.join(', ')}`);
+    }
     if (options.actionUrl) {
       console.log(`[EmailService] 🔗 Secure Action Link: ${options.actionUrl}`);
     }
@@ -297,13 +370,94 @@ class EmailService {
   // ── Email Templates ───────────────────────────────────────────────────────
 
   /**
-   * 1. Notification to Business Owner when an application is submitted.
+   * 1. Notification to Business Owner when a customer application is submitted.
+   * Sends clean summary of all customer details and attaches the generated application PDF.
    */
-  public async sendAdminNewApplicationNotification(app: WholesaleApplicationRecord): Promise<EmailDispatchResult> {
+  public async sendAdminNewApplicationNotification(
+    app: WholesaleApplicationRecord,
+    pdfAttachment?: { buffer: Buffer; filename: string } | null
+  ): Promise<EmailDispatchResult> {
     const siteUrl = getSiteUrl();
     const reviewUrl = `${siteUrl}/admin/customer-applications/${app.id}`;
-    const subject = `New Wholesale Account Application – ${app.businessName}`;
+    const applicantName = (
+      app.contactName ||
+      `${app.contactFirstName || ''} ${app.contactLastName || ''}`.trim() ||
+      'Applicant'
+    ).trim();
 
+    // Subject format: New Wholesale Application — [Business Name] — [Applicant Name]
+    const subject = `New Wholesale Application — ${app.businessName} — ${applicantName}`;
+
+    // Auto-generate application PDF if not already provided
+    let attachmentPayload = pdfAttachment;
+    if (!attachmentPayload) {
+      try {
+        attachmentPayload = await applicationPdfService.generateApplicationPdf(app);
+      } catch (pdfErr: any) {
+        console.warn(`[EmailService] Could not auto-generate PDF for email attachment: ${pdfErr.message}`);
+      }
+    }
+
+    const businessPhone = app.businessPhone || app.phone;
+    const physStreet = app.address?.street || 'Not provided';
+    const physCity = app.address?.city || '';
+    const physState = app.address?.state || 'OK';
+    const physZip = app.address?.zip || '';
+
+    const billingStr = app.billingAddress
+      ? `${app.billingAddress.street}, ${app.billingAddress.city}, ${app.billingAddress.state} ${app.billingAddress.zip}`
+      : `${physStreet}, ${physCity}, ${physState} ${physZip} (Same as Business Address)`;
+
+    const shippingStr = app.shippingAddress
+      ? `${app.shippingAddress.street}, ${app.shippingAddress.city}, ${app.shippingAddress.state} ${app.shippingAddress.zip}`
+      : `${physStreet}, ${physCity}, ${physState} ${physZip} (Same as Business Address)`;
+
+    const businessTypeFormatted = (app.businessType || 'other').replace(/_/g, ' ').toUpperCase();
+    const businessEntityFormatted = app.businessEntity || 'Commercial Entity';
+    const taxPermitFormatted = app.licenseNumber || app.salesTaxPermitNumber || 'Not provided';
+
+    const documentsList = app.documents && app.documents.length > 0
+      ? app.documents.map((d) => `• ${d.filename} [${(d.documentType || 'Document').replace(/_/g, ' ').toUpperCase()}]`).join('\n')
+      : 'None attached';
+
+    // Plain text summary (strict adherence to clean summary fields)
+    const text = `
+NEW WHOLESALE CUSTOMER APPLICATION
+Applicant Name: ${applicantName}
+Business Name: ${app.businessName}
+Email: ${app.email}
+Phone: ${app.phone}
+Business Phone: ${businessPhone}
+Business Address: ${physStreet}
+City: ${physCity}
+State: ${physState}
+ZIP: ${physZip}
+Billing Address: ${billingStr}
+Shipping Address: ${shippingStr}
+Business Type: ${businessTypeFormatted}
+Business Entity: ${businessEntityFormatted}
+Tax ID / EIN: ${app.fein}
+Sales Tax Permit Number: ${taxPermitFormatted}
+
+--- ADDITIONAL APPLICATION QUESTIONS & DETAILS ---
+DBA / Storefront Name: ${app.dba || 'None'}
+Website: ${app.website || 'None'}
+Application ID: ${app.id}
+Submission Date: ${new Date(app.submittedAt).toLocaleString()}
+Current Status: ${app.status || 'PENDING'}
+21+ Age Certification: ${app.ageCertified ? 'Yes (Certified 21+ and authorized by commercial entity)' : 'No'}
+Tax-Exempt Resale Certification: ${app.taxExemptCertified ? 'Yes (Commercial resale under OK Tax Commission)' : 'Standard Resale'}
+Customer Notes / Brand Inquiries: ${app.notes || 'None'}
+
+UPLOADED COMPLIANCE DOCUMENTS:
+${documentsList}
+${attachmentPayload ? `Generated PDF Attached: ${attachmentPayload.filename}` : ''}
+
+Review this application in the admin portal:
+${reviewUrl}
+`;
+
+    // Rich responsive HTML summary table
     const html = `
 <!DOCTYPE html>
 <html>
@@ -311,76 +465,89 @@ class EmailService {
   <meta charset="utf-8">
   <style>
     body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0B0D10; color: #F7F7F5; margin: 0; padding: 24px; }
-    .container { max-width: 600px; margin: 0 auto; background: #15191F; border: 1px solid #2A3038; border-radius: 16px; overflow: hidden; }
+    .container { max-width: 640px; margin: 0 auto; background: #15191F; border: 1px solid #2A3038; border-radius: 16px; overflow: hidden; }
     .header { background: #1B2027; padding: 24px; border-bottom: 1px solid #2A3038; text-align: center; }
     .logo { color: #FF6B00; font-size: 20px; font-weight: 800; letter-spacing: -0.5px; }
     .badge { display: inline-block; background: rgba(255, 107, 0, 0.15); color: #FF6B00; font-weight: 700; font-size: 11px; padding: 4px 10px; border-radius: 9999px; text-transform: uppercase; margin-top: 8px; }
     .body { padding: 32px 24px; }
     h2 { font-size: 20px; margin-top: 0; color: #F7F7F5; }
-    .info-table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 14px; }
-    .info-table td { padding: 10px 12px; border-bottom: 1px solid #2A3038; }
-    .info-table td.label { color: #858C96; width: 35%; font-weight: 600; }
+    .subhead { color: #B8BDC5; font-size: 14px; line-height: 1.5; margin-bottom: 20px; }
+    .section-title { font-size: 12px; font-weight: 700; color: #FF6B00; text-transform: uppercase; letter-spacing: 0.5px; margin: 24px 0 8px 0; border-bottom: 1px solid #2A3038; padding-bottom: 4px; }
+    .info-table { width: 100%; border-collapse: collapse; margin: 8px 0 16px 0; font-size: 13.5px; }
+    .info-table td { padding: 8px 10px; border-bottom: 1px solid #222831; }
+    .info-table td.label { color: #858C96; width: 38%; font-weight: 600; }
     .info-table td.val { color: #F7F7F5; font-weight: 500; }
-    .btn-container { text-align: center; margin-top: 32px; }
-    .btn { display: inline-block; background: #FF6B00; color: #FFFFFF !important; font-weight: 700; font-size: 15px; text-decoration: none; padding: 14px 28px; border-radius: 10px; }
-    .footer { padding: 20px 24px; background: #101317; font-size: 12px; color: #626871; text-align: center; border-top: 1px solid #2A3038; }
+    .attachment-box { background: rgba(255, 107, 0, 0.08); border: 1px solid rgba(255, 107, 0, 0.3); border-radius: 10px; padding: 14px 18px; margin: 20px 0; font-size: 13px; color: #F7F7F5; }
+    .btn-container { text-align: center; margin-top: 28px; }
+    .btn { display: inline-block; background: #FF6B00; color: #FFFFFF !important; font-weight: 700; font-size: 14px; text-decoration: none; padding: 14px 28px; border-radius: 10px; }
+    .footer { padding: 20px 24px; background: #101317; font-size: 11.5px; color: #626871; text-align: center; border-top: 1px solid #2A3038; line-height: 1.6; }
   </style>
 </head>
 <body>
   <div class="container">
     <div class="header">
       <div class="logo">WHOLESALE OF OKLAHOMA</div>
-      <div class="badge">New Wholesale Customer Application</div>
+      <div class="badge">NEW WHOLESALE CUSTOMER APPLICATION</div>
     </div>
     <div class="body">
-      <h2>New Wholesale Application Submitted</h2>
-      <p style="color: #B8BDC5; font-size: 14px; line-height: 1.5;">
-        A new retail business has submitted an application for an authorized B2B wholesale purchasing account.
+      <h2>New Wholesale Customer Application Submitted</h2>
+      <p class="subhead">
+        A new retail business has submitted an application for an authorized B2B wholesale purchasing account. Complete details and attached PDF copy below:
       </p>
 
+      <div class="section-title">Primary Application Summary</div>
       <table class="info-table">
+        <tr><td class="label">Applicant Name:</td><td class="val"><strong>${applicantName}</strong></td></tr>
         <tr><td class="label">Business Name:</td><td class="val"><strong>${app.businessName}</strong></td></tr>
-        ${app.dba ? `<tr><td class="label">DBA:</td><td class="val">${app.dba}</td></tr>` : ''}
-        <tr><td class="label">Contact Person:</td><td class="val">${app.contactName}</td></tr>
+        ${app.dba ? `<tr><td class="label">DBA / Storefront:</td><td class="val">${app.dba}</td></tr>` : ''}
         <tr><td class="label">Email:</td><td class="val"><a href="mailto:${app.email}" style="color:#FF6B00;">${app.email}</a></td></tr>
         <tr><td class="label">Phone:</td><td class="val">${app.phone}</td></tr>
-        <tr><td class="label">Address:</td><td class="val">${app.address.street}, ${app.address.city}, ${app.address.state} ${app.address.zip}</td></tr>
-        <tr><td class="label">Business Type:</td><td class="val">${app.businessType.replace('_', ' ').toUpperCase()}</td></tr>
-        <tr><td class="label">FEIN / Tax ID:</td><td class="val"><code>${app.fein}</code></td></tr>
-        <tr><td class="label">Resale Permit:</td><td class="val"><code>${app.licenseNumber || 'Not provided'}</code></td></tr>
-        <tr><td class="label">Application ID:</td><td class="val"><code>${app.id}</code></td></tr>
-        <tr><td class="label">Submitted:</td><td class="val">${new Date(app.submittedAt).toLocaleString()}</td></tr>
-        <tr><td class="label">Current Status:</td><td class="val"><span style="color:#F59E0B;font-weight:700;">PENDING REVIEW</span></td></tr>
+        <tr><td class="label">Business Phone:</td><td class="val">${businessPhone}</td></tr>
+        <tr><td class="label">Business Address:</td><td class="val">${physStreet}</td></tr>
+        <tr><td class="label">City:</td><td class="val">${physCity}</td></tr>
+        <tr><td class="label">State:</td><td class="val">${physState}</td></tr>
+        <tr><td class="label">ZIP:</td><td class="val">${physZip}</td></tr>
+        <tr><td class="label">Billing Address:</td><td class="val">${billingStr}</td></tr>
+        <tr><td class="label">Shipping Address:</td><td class="val">${shippingStr}</td></tr>
+        <tr><td class="label">Business Type:</td><td class="val">${businessTypeFormatted}</td></tr>
+        <tr><td class="label">Business Entity:</td><td class="val">${businessEntityFormatted}</td></tr>
+        <tr><td class="label">Tax ID / EIN:</td><td class="val"><code>${app.fein}</code></td></tr>
+        <tr><td class="label">Sales Tax Permit Number:</td><td class="val"><code>${taxPermitFormatted}</code></td></tr>
       </table>
 
+      <div class="section-title">Additional Questions & Details</div>
+      <table class="info-table">
+        ${app.website ? `<tr><td class="label">Website:</td><td class="val"><a href="${app.website}" style="color:#FF6B00;" target="_blank">${app.website}</a></td></tr>` : ''}
+        <tr><td class="label">Application ID:</td><td class="val"><code>${app.id}</code></td></tr>
+        <tr><td class="label">Submission Timestamp:</td><td class="val">${new Date(app.submittedAt).toLocaleString()}</td></tr>
+        <tr><td class="label">Current Status:</td><td class="val"><span style="color:#F59E0B;font-weight:700;">${app.status || 'PENDING'}</span></td></tr>
+        <tr><td class="label">21+ Age Certification:</td><td class="val">${app.ageCertified ? '✅ Certified (21+ Authorized)' : '❌ Not Certified'}</td></tr>
+        <tr><td class="label">Tax-Exempt Resale:</td><td class="val">${app.taxExemptCertified ? '✅ Certified (Commercial Resale)' : 'Standard Resale'}</td></tr>
+        ${app.notes ? `<tr><td class="label">Customer Inquiries / Notes:</td><td class="val">${app.notes}</td></tr>` : ''}
+      </table>
+
+      ${
+        attachmentPayload
+          ? `
+      <div class="attachment-box">
+        <strong>📎 Attached PDF:</strong> <code>${attachmentPayload.filename}</code><br>
+        <span style="color:#A0AEC0;font-size:12px;">Complete application record with embedded identification and permit documents has been attached to this email.</span>
+      </div>`
+          : ''
+      }
+
       <div class="btn-container">
-        <a href="${reviewUrl}" class="btn">REVIEW APPLICATION</a>
+        <a href="${reviewUrl}" class="btn">REVIEW APPLICATION IN PORTAL</a>
       </div>
     </div>
     <div class="footer">
       Wholesale of Oklahoma Dispatch · Licensed OK B2B Master Distributor<br>
-      Automated administrative notification. Do not reply to this email.
+      Automated business notification dispatched to <code>${ADMIN_EMAIL}</code>.<br>
+      Confidential trade information. Do not forward.
     </div>
   </div>
 </body>
 </html>`;
-
-    const text = `
-New Wholesale Account Application
-Business Name: ${app.businessName}
-Applicant: ${app.contactName}
-Email: ${app.email}
-Phone: ${app.phone}
-Address: ${app.address.street}, ${app.address.city}, ${app.address.state} ${app.address.zip}
-Business Type: ${app.businessType}
-Tax ID / FEIN: ${app.fein}
-Resale Permit: ${app.licenseNumber || 'N/A'}
-Application ID: ${app.id}
-Status: PENDING
-
-Review this application in the admin portal:
-${reviewUrl}
-`;
 
     return this.sendMail({
       to: ADMIN_EMAIL,
@@ -388,6 +555,15 @@ ${reviewUrl}
       html,
       text,
       actionUrl: reviewUrl,
+      attachments: attachmentPayload
+        ? [
+            {
+              filename: attachmentPayload.filename,
+              content: attachmentPayload.buffer,
+              contentType: 'application/pdf',
+            },
+          ]
+        : undefined,
     });
   }
 

@@ -49,15 +49,36 @@ interface ApplicationData {
   };
   website?: string;
   notes?: string;
+  applicationAnswers?: Record<string, any>;
   ageCertified: boolean;
   taxExemptCertified: boolean;
-  status: 'PENDING' | 'APPROVED' | 'REJECTED' | 'SUSPENDED';
+  status: 'PENDING' | 'APPROVED' | 'REJECTED' | 'SUSPENDED' | 'NEEDS_INFORMATION';
   submittedAt: string;
   reviewedAt?: string;
   reviewedBy?: string;
   reviewNotes?: string;
   customerId?: string;
   assignedPassword?: string;
+  businessEntity?: string;
+  businessPhone?: string;
+  salesTaxPermitNumber?: string;
+  billingAddress?: {
+    street: string;
+    city: string;
+    state: string;
+    zip: string;
+  };
+  shippingAddress?: {
+    street: string;
+    city: string;
+    state: string;
+    zip: string;
+  };
+  emailStatus?: 'sent' | 'failed' | 'pending';
+  emailError?: string;
+  emailSentAt?: string;
+  generatedPdfFilename?: string;
+  generatedPdfDocumentId?: string;
   documents?: Array<{
     id?: string;
     documentId?: string;
@@ -80,9 +101,12 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
   const [confirmRejectOpen, setConfirmRejectOpen] = useState(false);
   const [confirmSuspendOpen, setConfirmSuspendOpen] = useState(false);
   const [confirmReactivateOpen, setConfirmReactivateOpen] = useState(false);
+  const [confirmNeedsInfoOpen, setConfirmNeedsInfoOpen] = useState(false);
+  const [needsInfoReason, setNeedsInfoReason] = useState('');
   const [rejectReason, setRejectReason] = useState('');
   const [suspendReason, setSuspendReason] = useState('');
   const [isProcessingAction, setIsProcessingAction] = useState(false);
+  const [isResendingEmail, setIsResendingEmail] = useState(false);
 
   // Credentials & Password state
   const [assignedCredentials, setAssignedCredentials] = useState<{
@@ -335,6 +359,99 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
     }
   };
 
+  const handleSetNeedsInfo = async () => {
+    setIsProcessingAction(true);
+    setErrorMessage(null);
+    setActionError(null);
+    try {
+      const token = typeof window !== 'undefined' ? (localStorage.getItem('woo_session_token') || '') : '';
+      const headers: Record<string, string> = {
+        'Content-Type': 'application/json',
+        ...(token ? { 'x-session-token': token } : {}),
+      };
+
+      const res = await fetch(`/api/admin/applications/${applicationId}/status`, {
+        method: 'PATCH',
+        headers,
+        credentials: 'same-origin',
+        body: JSON.stringify({
+          status: 'needs_information',
+          reason: needsInfoReason || 'Additional verification documentation required',
+        }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.message || data.error || 'Failed to update status.');
+      }
+      setConfirmNeedsInfoOpen(false);
+      setActionSuccess(`Application ${applicationId} status set to Needs Information.`);
+      fetchDetail();
+    } catch (err: any) {
+      setActionError(err.message || 'Status update failed.');
+      setErrorMessage(err.message || 'Status update failed.');
+    } finally {
+      setIsProcessingAction(false);
+    }
+  };
+
+  const handleSetPending = async () => {
+    setIsProcessingAction(true);
+    setErrorMessage(null);
+    setActionError(null);
+    try {
+      const token = typeof window !== 'undefined' ? (localStorage.getItem('woo_session_token') || '') : '';
+      const headers: Record<string, string> = {
+        'Content-Type': 'application/json',
+        ...(token ? { 'x-session-token': token } : {}),
+      };
+
+      const res = await fetch(`/api/admin/applications/${applicationId}/status`, {
+        method: 'PATCH',
+        headers,
+        credentials: 'same-origin',
+        body: JSON.stringify({ status: 'pending' }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.message || data.error || 'Failed to set status to pending.');
+      }
+      setActionSuccess(`Application ${applicationId} returned to Pending review.`);
+      fetchDetail();
+    } catch (err: any) {
+      setActionError(err.message || 'Failed to update status.');
+    } finally {
+      setIsProcessingAction(false);
+    }
+  };
+
+  const handleResendEmail = async () => {
+    setIsResendingEmail(true);
+    setActionError(null);
+    try {
+      const token = typeof window !== 'undefined' ? (localStorage.getItem('woo_session_token') || '') : '';
+      const headers: Record<string, string> = {
+        'Content-Type': 'application/json',
+        ...(token ? { 'x-session-token': token } : {}),
+      };
+
+      const res = await fetch(`/api/admin/applications/${applicationId}/resend-email`, {
+        method: 'POST',
+        headers,
+        credentials: 'same-origin',
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        throw new Error(data.message || data.error || 'Failed to dispatch notification email.');
+      }
+      setActionSuccess(data.message || 'Notification email with application PDF dispatched to order2wholesaleofoklahoma@gmail.com!');
+      fetchDetail();
+    } catch (err: any) {
+      setActionError(err.message || 'Email dispatch failed.');
+    } finally {
+      setIsResendingEmail(false);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-slate-900">
       {/* Top Navbar */}
@@ -418,12 +535,14 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
                         ? 'bg-amber-50 border-amber-200 text-amber-700'
                         : app.status === 'APPROVED'
                         ? 'bg-emerald-50 border-emerald-200 text-emerald-700'
+                        : app.status === 'NEEDS_INFORMATION'
+                        ? 'bg-blue-50 border-blue-200 text-blue-700'
                         : app.status === 'SUSPENDED'
                         ? 'bg-purple-50 border-purple-200 text-purple-700'
                         : 'bg-rose-50 border-rose-200 text-rose-700'
                     }`}
                   >
-                    {app.status}
+                    {app.status === 'NEEDS_INFORMATION' ? 'NEEDS INFORMATION' : app.status}
                   </span>
                   <span className="text-xs text-slate-500">Submitted: {new Date(app.submittedAt).toLocaleString()}</span>
                 </div>
@@ -435,6 +554,85 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
                   {app.reviewedBy && <div className="text-[11px] text-slate-400">Reviewer: {app.reviewedBy}</div>}
                 </div>
               )}
+            </div>
+
+            {/* Email Delivery Status Banner */}
+            <div className="p-5 rounded-3xl bg-white border border-slate-200 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 shadow-xs">
+              <div className="flex items-start sm:items-center gap-3.5">
+                <div
+                  className={`w-11 h-11 rounded-2xl flex items-center justify-center shrink-0 border ${
+                    app.emailStatus === 'sent'
+                      ? 'bg-emerald-50 text-emerald-600 border-emerald-200'
+                      : app.emailStatus === 'failed'
+                      ? 'bg-rose-50 text-rose-600 border-rose-200'
+                      : 'bg-amber-50 text-amber-600 border-amber-200'
+                  }`}
+                >
+                  <Mail className="w-5 h-5" />
+                </div>
+                <div>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-xs font-bold uppercase tracking-wider text-slate-500">
+                      Business Email Delivery Status:
+                    </span>
+                    <span
+                      className={`text-[11px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${
+                        app.emailStatus === 'sent'
+                          ? 'bg-emerald-50 border-emerald-200 text-emerald-700'
+                          : app.emailStatus === 'failed'
+                          ? 'bg-rose-50 border-rose-200 text-rose-700'
+                          : 'bg-amber-50 border-amber-200 text-amber-700'
+                      }`}
+                    >
+                      {app.emailStatus === 'sent' ? 'SENT' : app.emailStatus === 'failed' ? 'FAILED' : 'PENDING'}
+                    </span>
+                  </div>
+                  <p className="text-xs text-slate-600 mt-1">
+                    Notification recipient:{' '}
+                    <span className="font-mono font-semibold text-slate-900">
+                      order2wholesaleofoklahoma@gmail.com
+                    </span>
+                    {app.emailSentAt && (
+                      <span className="text-slate-400 ml-2">
+                        • {new Date(app.emailSentAt).toLocaleString()}
+                      </span>
+                    )}
+                  </p>
+                  {app.emailError && (
+                    <p className="text-xs text-rose-600 font-medium mt-1">
+                      Reason: {app.emailError}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2.5 w-full md:w-auto justify-end">
+                <a
+                  href={`/api/admin/applications/${app.id}/pdf`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3.5 py-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-800 text-xs font-bold border border-slate-200 flex items-center gap-1.5 transition-colors cursor-pointer"
+                  title="View / Download Complete Application PDF"
+                >
+                  <Download className="w-3.5 h-3.5" />
+                  <span>Download Application PDF</span>
+                </a>
+
+                <button
+                  type="button"
+                  onClick={handleResendEmail}
+                  disabled={isResendingEmail}
+                  className="px-3.5 py-2 rounded-xl bg-[#FF6B00] hover:bg-[#e05e00] text-white text-xs font-bold flex items-center gap-1.5 transition-colors shadow-xs cursor-pointer disabled:opacity-50"
+                  title="Resend email notification with application PDF"
+                >
+                  {isResendingEmail ? (
+                    <Loader2 className="w-3.5 h-3.5 animate-spin" />
+                  ) : (
+                    <Send className="w-3.5 h-3.5" />
+                  )}
+                  <span>{isResendingEmail ? 'Sending...' : 'Resend Email'}</span>
+                </button>
+              </div>
             </div>
 
             {/* Application Data Grid */}
@@ -455,6 +653,12 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
                     <div>
                       <span className="text-slate-500 block">DBA / Trade Name:</span>
                       <span className="text-slate-800 font-medium">{app.dba}</span>
+                    </div>
+                  )}
+                  {app.businessEntity && (
+                    <div>
+                      <span className="text-slate-500 block">Business Entity:</span>
+                      <span className="text-slate-800 capitalize font-medium">{app.businessEntity.replace(/_/g, ' ')}</span>
                     </div>
                   )}
                   <div>
@@ -494,6 +698,12 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
                     <span className="text-slate-500 block">Phone:</span>
                     <span className="text-slate-800 font-mono">{app.phone}</span>
                   </div>
+                  {app.businessPhone && (
+                    <div>
+                      <span className="text-slate-500 block">Business Phone:</span>
+                      <span className="text-slate-800 font-mono">{app.businessPhone}</span>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -501,15 +711,37 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
               <div className="bg-white border border-slate-200 rounded-3xl p-6 space-y-4 shadow-xs">
                 <h3 className="text-xs font-bold uppercase tracking-wider text-[#FF6B00] flex items-center gap-2">
                   <MapPin className="w-4 h-4" />
-                  Physical Business Address
+                  Business Address
                 </h3>
 
-                <div className="space-y-2 text-xs">
-                  <span className="text-slate-900 font-medium block text-sm">{app.address?.street}</span>
-                  <span className="text-slate-700 block">
-                    {app.address?.city}, {app.address?.state} {app.address?.zip}
-                  </span>
-                  <span className="text-slate-500 block pt-1">Commercial delivery territory: OK</span>
+                <div className="space-y-3 text-xs">
+                  <div>
+                    <span className="text-slate-500 block font-semibold mb-0.5">Physical Address:</span>
+                    <span className="text-slate-900 font-medium block text-sm">{app.address?.street}</span>
+                    <span className="text-slate-700 block">
+                      {app.address?.city}, {app.address?.state} {app.address?.zip}
+                    </span>
+                  </div>
+
+                  {app.billingAddress && (app.billingAddress.street !== app.address?.street || app.billingAddress.zip !== app.address?.zip) && (
+                    <div className="pt-2 border-t border-slate-100">
+                      <span className="text-slate-500 block font-semibold mb-0.5">Billing Address:</span>
+                      <span className="text-slate-900 font-medium block">{app.billingAddress.street}</span>
+                      <span className="text-slate-700 block">
+                        {app.billingAddress.city}, {app.billingAddress.state} {app.billingAddress.zip}
+                      </span>
+                    </div>
+                  )}
+
+                  {app.shippingAddress && (app.shippingAddress.street !== app.address?.street || app.shippingAddress.zip !== app.address?.zip) && (
+                    <div className="pt-2 border-t border-slate-100">
+                      <span className="text-slate-500 block font-semibold mb-0.5">Shipping Address:</span>
+                      <span className="text-slate-900 font-medium block">{app.shippingAddress.street}</span>
+                      <span className="text-slate-700 block">
+                        {app.shippingAddress.city}, {app.shippingAddress.state} {app.shippingAddress.zip}
+                      </span>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -525,6 +757,12 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
                     <span className="text-slate-500 block">FEIN / Tax ID:</span>
                     <span className="text-sm font-mono font-bold text-slate-900">{app.fein}</span>
                   </div>
+                  {app.salesTaxPermitNumber && (
+                    <div>
+                      <span className="text-slate-500 block">Sales Tax Permit Number:</span>
+                      <span className="text-slate-800 font-mono font-bold">{app.salesTaxPermitNumber}</span>
+                    </div>
+                  )}
                   <div>
                     <span className="text-slate-500 block">Resale Permit / Tobacco License:</span>
                     <span className="text-slate-800 font-mono font-medium">
@@ -544,6 +782,27 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
                 </div>
               </div>
             </div>
+
+            {/* Application Questionnaire Answers (if provided) */}
+            {app.applicationAnswers && Object.keys(app.applicationAnswers).length > 0 && (
+              <div className="bg-white border border-slate-200 rounded-3xl p-6 space-y-3 shadow-xs">
+                <h3 className="text-xs font-bold uppercase tracking-wider text-[#FF6B00]">
+                  Application Questionnaire & Responses
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                  {Object.entries(app.applicationAnswers).map(([k, v]) => (
+                    <div key={k} className="p-3 rounded-xl bg-slate-50 border border-slate-200">
+                      <span className="text-slate-500 block font-semibold capitalize mb-1">
+                        {k.replace(/([A-Z])/g, ' $1').replace(/_/g, ' ')}
+                      </span>
+                      <span className="text-slate-900 font-medium break-words">
+                        {typeof v === 'boolean' ? (v ? 'Yes' : 'No') : String(v)}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Notes & Documents */}
             {(app.notes || (app.documents && app.documents.length > 0)) && (
@@ -743,7 +1002,7 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
               </div>
 
               <div className="flex flex-wrap items-center gap-3">
-                {(app.status === 'PENDING' || app.status === 'REJECTED') && (
+                {(app.status === 'PENDING' || app.status === 'REJECTED' || app.status === 'NEEDS_INFORMATION') && (
                   <button
                     onClick={() => {
                       setActionError(null);
@@ -756,7 +1015,7 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
                   </button>
                 )}
 
-                {app.status === 'PENDING' && (
+                {(app.status === 'PENDING' || app.status === 'NEEDS_INFORMATION') && (
                   <button
                     onClick={() => {
                       setActionError(null);
@@ -765,6 +1024,30 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
                     className="px-5 py-2.5 rounded-xl border border-rose-200 bg-rose-50 hover:bg-rose-100 text-rose-700 font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer"
                   >
                     Reject Application
+                  </button>
+                )}
+
+                {(app.status === 'PENDING' || app.status === 'REJECTED') && (
+                  <button
+                    onClick={() => {
+                      setActionError(null);
+                      setConfirmNeedsInfoOpen(true);
+                    }}
+                    className="px-5 py-2.5 rounded-xl border border-blue-200 bg-blue-50 hover:bg-blue-100 text-blue-700 font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer flex items-center gap-2"
+                  >
+                    <AlertCircle className="w-4 h-4" />
+                    Needs Information
+                  </button>
+                )}
+
+                {app.status === 'NEEDS_INFORMATION' && (
+                  <button
+                    onClick={handleSetPending}
+                    disabled={isProcessingAction}
+                    className="px-5 py-2.5 rounded-xl border border-amber-200 bg-amber-50 hover:bg-amber-100 text-amber-700 font-bold text-xs uppercase tracking-wider transition-colors cursor-pointer flex items-center gap-2"
+                  >
+                    <Clock className="w-4 h-4" />
+                    Return to Pending
                   </button>
                 )}
 
@@ -899,6 +1182,65 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
                 className="px-5 py-2.5 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center gap-2 cursor-pointer"
               >
                 {isProcessingAction ? 'Rejecting...' : 'Confirm Rejection'}
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* CONFIRMATION MODAL: NEEDS INFORMATION */}
+      {confirmNeedsInfoOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-xs">
+          <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 max-w-md w-full text-slate-900 space-y-5 shadow-2xl">
+            <div className="w-12 h-12 rounded-2xl bg-blue-50 text-blue-600 flex items-center justify-center border border-blue-200">
+              <AlertCircle className="w-7 h-7" />
+            </div>
+
+            <div className="space-y-2">
+              <h3 className="text-lg font-bold text-slate-900">Request Information?</h3>
+              <p className="text-xs text-slate-600 leading-relaxed">
+                Set status of <strong>{app?.businessName}</strong> to <strong>NEEDS INFORMATION</strong>. You can document the missing requirements below.
+              </p>
+            </div>
+
+            {actionError && (
+              <div className="p-3 rounded-xl bg-rose-50 border border-rose-200 text-rose-700 text-xs font-medium">
+                {actionError}
+              </div>
+            )}
+
+            <div>
+              <label className="block text-xs font-bold uppercase tracking-wider text-slate-500 mb-1">
+                Required Information Note
+              </label>
+              <input
+                type="text"
+                value={needsInfoReason}
+                onChange={(e) => setNeedsInfoReason(e.target.value)}
+                placeholder="e.g. Please provide a clear copy of Oklahoma sales tax permit"
+                className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-blue-500"
+              />
+            </div>
+
+            <div className="flex items-center gap-3 justify-end pt-2">
+              <button
+                type="button"
+                onClick={() => {
+                  setActionError(null);
+                  setConfirmNeedsInfoOpen(false);
+                }}
+                disabled={isProcessingAction}
+                className="px-4 py-2.5 rounded-xl border border-slate-200 hover:bg-slate-100 text-xs font-semibold text-slate-700 cursor-pointer"
+              >
+                Cancel
+              </button>
+              <button
+                type="button"
+                onClick={handleSetNeedsInfo}
+                disabled={isProcessingAction}
+                className="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs uppercase tracking-wider transition-colors flex items-center gap-2 cursor-pointer"
+              >
+                {isProcessingAction ? 'Updating...' : 'Set Needs Information'}
               </button>
             </div>
           </div>

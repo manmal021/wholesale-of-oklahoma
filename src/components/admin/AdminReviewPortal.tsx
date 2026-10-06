@@ -40,7 +40,7 @@ interface ApplicationSummary {
   businessName: string;
   contactName: string;
   email: string;
-  status: 'PENDING' | 'APPROVED' | 'REJECTED' | 'SUSPENDED';
+  status: 'PENDING' | 'APPROVED' | 'REJECTED' | 'SUSPENDED' | 'NEEDS_INFORMATION';
   submittedAt: string;
 }
 
@@ -87,10 +87,11 @@ function getAuthHeaders(): Record<string, string> {
 
 function StatusBadge({ status }: { status: string }) {
   const map: Record<string, { bg: string; text: string; dot: string; label: string }> = {
-    PENDING:   { bg: 'bg-amber-50 border border-amber-200',       text: 'text-amber-700',   dot: 'bg-amber-500',   label: 'Pending Review' },
-    APPROVED:  { bg: 'bg-emerald-50 border border-emerald-200',   text: 'text-emerald-700', dot: 'bg-emerald-500', label: 'Approved' },
-    REJECTED:  { bg: 'bg-red-50 border border-red-200',           text: 'text-red-700',     dot: 'bg-red-500',     label: 'Rejected' },
-    SUSPENDED: { bg: 'bg-slate-100 border border-slate-200',      text: 'text-slate-600',   dot: 'bg-slate-400',   label: 'Suspended' },
+    PENDING:           { bg: 'bg-amber-50 border border-amber-200',       text: 'text-amber-700',   dot: 'bg-amber-500',   label: 'Pending Review' },
+    NEEDS_INFORMATION: { bg: 'bg-blue-50 border border-blue-200',         text: 'text-blue-700',    dot: 'bg-blue-500',    label: 'Needs Information' },
+    APPROVED:          { bg: 'bg-emerald-50 border border-emerald-200',   text: 'text-emerald-700', dot: 'bg-emerald-500', label: 'Approved' },
+    REJECTED:          { bg: 'bg-red-50 border border-red-200',           text: 'text-red-700',     dot: 'bg-red-500',     label: 'Rejected' },
+    SUSPENDED:         { bg: 'bg-slate-100 border border-slate-200',      text: 'text-slate-600',   dot: 'bg-slate-400',   label: 'Suspended' },
   };
   const s = map[status] || map['PENDING'];
   return (

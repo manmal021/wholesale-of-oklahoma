@@ -53,6 +53,7 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
   // Document Upload States
   const [taxPermitDoc, setTaxPermitDoc] = useState<UploadedDocState>({ file: null, status: 'idle' });
   const [licenseDoc, setLicenseDoc] = useState<UploadedDocState>({ file: null, status: 'idle' });
+  const [driverLicenseDoc, setDriverLicenseDoc] = useState<UploadedDocState>({ file: null, status: 'idle' });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -62,6 +63,7 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
 
   const taxPermitInputRef = useRef<HTMLInputElement>(null);
   const licenseInputRef = useRef<HTMLInputElement>(null);
+  const driverLicenseInputRef = useRef<HTMLInputElement>(null);
 
   // Close on Escape key
   useEffect(() => {
@@ -85,7 +87,7 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
     });
   };
 
-  const uploadDocument = async (file: File, docType: 'sales_tax_permit' | 'resale_certificate' | 'business_license') => {
+  const uploadDocument = async (file: File, docType: 'sales_tax_permit' | 'resale_certificate' | 'business_license' | 'driver_license' | string) => {
     const base64 = await fileToBase64(file);
     const res = await fetch('/api/wholesale/upload', {
       method: 'POST',
@@ -187,6 +189,20 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
           });
         } catch (uploadErr: any) {
           throw new Error(`Business license upload failed: ${uploadErr.message}`);
+        }
+      }
+
+      // 3. Upload Driver License / ID if selected
+      if (driverLicenseDoc.file) {
+        try {
+          const resDL = await uploadDocument(driverLicenseDoc.file, 'driver_license');
+          uploadedDocs.push({
+            id: resDL.documentId,
+            type: 'driver_license',
+            filename: driverLicenseDoc.file.name,
+          });
+        } catch (uploadErr: any) {
+          throw new Error(`Driver License upload failed: ${uploadErr.message}`);
         }
       }
 
@@ -324,14 +340,14 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
               </div>
 
               <div className="p-6 rounded-2xl bg-slate-50 border border-slate-200 max-w-lg mx-auto text-sm text-slate-600 leading-relaxed text-left space-y-3">
-                <p className="font-semibold text-slate-900">
-                  Your Wholesale of Oklahoma account application is currently under review.
+                <p className="font-semibold text-slate-900 text-sm sm:text-base">
+                  Thank you. Your wholesale account application has been submitted and is currently under review. We will contact you after your application has been reviewed.
                 </p>
                 <p>
-                  Thank you for submitting your wholesale account application for <strong>{applicationSuccess.businessName}</strong>.
+                  Application details for <strong>{applicationSuccess.businessName}</strong> have been securely recorded in our database.
                 </p>
                 <p>
-                  Our compliance team will review your business information. If your application is approved, you will receive an email at <strong className="text-slate-900">{applicationSuccess.email}</strong> containing a secure link with instructions to activate your account and create your login credentials.
+                  Our compliance team will review your business credentials and uploaded documentation. If your application is approved, you will receive an email at <strong className="text-slate-900">{applicationSuccess.email}</strong> containing a secure link with instructions to activate your account and create your login credentials.
                 </p>
                 <div className="bg-amber-50 border border-amber-300 rounded-xl p-3.5 text-amber-900 text-xs font-medium">
                   <strong>Notice:</strong> Please do not submit another application while your current application is under review. You do not have shopping or login access yet.
@@ -643,20 +659,20 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                 </div>
 
                 {/* Document Uploads */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5 pt-2">
                   {/* Sales Tax Permit — REQUIRED */}
-                  <div className={`p-3.5 rounded-xl space-y-2 border-2 ${fieldErrors.taxPermit ? 'bg-rose-50 border-rose-400' : taxPermitDoc.file ? 'bg-emerald-50 border-emerald-300' : 'bg-slate-50 border-[#FF6B00]/60'}`}>
+                  <div className={`p-3 rounded-xl space-y-2 border-2 ${fieldErrors.taxPermit ? 'bg-rose-50 border-rose-400' : taxPermitDoc.file ? 'bg-emerald-50 border-emerald-300' : 'bg-slate-50 border-[#FF6B00]/60'}`}>
                     <div className="flex items-center justify-between">
                       <span className="text-xs font-bold text-slate-900 block">
                         Sales Tax Permit <span className="text-[#FF6B00]">*</span>
                       </span>
-                      <span className="text-xs font-semibold uppercase tracking-wide text-[#FF6B00] bg-orange-50 border border-orange-200 px-2 py-0.5 rounded-full">Required</span>
+                      <span className="text-[10px] font-bold uppercase tracking-wide text-[#FF6B00] bg-orange-50 border border-orange-200 px-1.5 py-0.5 rounded-full">Required</span>
                     </div>
-                    <p className="text-xs text-slate-500">PDF, JPG, JPEG, or PNG — max 10MB</p>
+                    <p className="text-[11px] text-slate-500">PDF, JPG, PNG — max 10MB</p>
                     <input
                       type="file"
                       ref={taxPermitInputRef}
-                      accept=".pdf,.png,.jpg,.jpeg"
+                      accept=".pdf,.png,.jpg,.jpeg,.webp"
                       className="hidden"
                       onChange={(e) => {
                         const file = e.target.files?.[0] || null;
@@ -667,17 +683,17 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                     <button
                       type="button"
                       onClick={() => taxPermitInputRef.current?.click()}
-                      className={`w-full py-2 px-3 rounded-lg border text-xs font-medium flex items-center justify-center gap-2 transition-colors cursor-pointer ${taxPermitDoc.file ? 'bg-emerald-50 border-emerald-300 text-emerald-800 hover:bg-emerald-100' : fieldErrors.taxPermit ? 'bg-rose-50 border-rose-300 text-rose-700 hover:bg-rose-100' : 'bg-white hover:bg-orange-50 border-[#FF6B00]/50 text-slate-700'}`}
+                      className={`w-full py-2 px-2.5 rounded-lg border text-xs font-medium flex items-center justify-center gap-1.5 transition-colors cursor-pointer ${taxPermitDoc.file ? 'bg-emerald-50 border-emerald-300 text-emerald-800 hover:bg-emerald-100' : fieldErrors.taxPermit ? 'bg-rose-50 border-rose-300 text-rose-700 hover:bg-rose-100' : 'bg-white hover:bg-orange-50 border-[#FF6B00]/50 text-slate-700'}`}
                     >
                       {taxPermitDoc.file ? (
                         <>
-                          <FileCheck className="w-3.5 h-3.5 text-emerald-600" />
+                          <FileCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                           <span className="truncate">{taxPermitDoc.file.name}</span>
                         </>
                       ) : (
                         <>
-                          <Upload className="w-3.5 h-3.5 text-[#FF6B00]" />
-                          <span>Attach Sales Tax Permit</span>
+                          <Upload className="w-3.5 h-3.5 text-[#FF6B00] shrink-0" />
+                          <span>Attach Tax Permit</span>
                         </>
                       )}
                     </button>
@@ -685,18 +701,18 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                   </div>
 
                   {/* Business License — Optional */}
-                  <div className="p-3.5 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
                     <div className="flex items-center justify-between">
-                      <span className="text-xs font-semibold text-slate-900 block">
-                        Tobacco / Business License
+                      <span className="text-xs font-semibold text-slate-900 block truncate">
+                        Business License
                       </span>
-                      <span className="text-xs text-slate-400">Optional</span>
+                      <span className="text-[10px] text-slate-400">Optional</span>
                     </div>
-                    <p className="text-xs text-slate-500">PDF, JPG, JPEG, or PNG — max 10MB</p>
+                    <p className="text-[11px] text-slate-500">PDF, JPG, PNG — max 10MB</p>
                     <input
                       type="file"
                       ref={licenseInputRef}
-                      accept=".pdf,.png,.jpg,.jpeg"
+                      accept=".pdf,.png,.jpg,.jpeg,.webp"
                       className="hidden"
                       onChange={(e) => {
                         const file = e.target.files?.[0] || null;
@@ -706,17 +722,55 @@ export default function WholesaleApplicationModal({ isOpen, onClose, onOpenLogin
                     <button
                       type="button"
                       onClick={() => licenseInputRef.current?.click()}
-                      className="w-full py-2 px-3 rounded-lg bg-white hover:bg-slate-100 border border-slate-300 text-xs font-medium text-slate-700 flex items-center justify-center gap-2 transition-colors cursor-pointer"
+                      className="w-full py-2 px-2.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-300 text-xs font-medium text-slate-700 flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
                     >
                       {licenseDoc.file ? (
                         <>
-                          <FileCheck className="w-3.5 h-3.5 text-emerald-600" />
+                          <FileCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
                           <span className="truncate">{licenseDoc.file.name}</span>
                         </>
                       ) : (
                         <>
-                          <Upload className="w-3.5 h-3.5 text-[#FF6B00]" />
-                          <span>Attach Retail License</span>
+                          <Upload className="w-3.5 h-3.5 text-[#FF6B00] shrink-0" />
+                          <span>Attach License</span>
+                        </>
+                      )}
+                    </button>
+                  </div>
+
+                  {/* Driver License / ID — Optional */}
+                  <div className="p-3 rounded-xl bg-slate-50 border border-slate-200 space-y-2">
+                    <div className="flex items-center justify-between">
+                      <span className="text-xs font-semibold text-slate-900 block truncate">
+                        Driver License / ID
+                      </span>
+                      <span className="text-[10px] text-slate-400">Optional</span>
+                    </div>
+                    <p className="text-[11px] text-slate-500">PDF, JPG, PNG — max 10MB</p>
+                    <input
+                      type="file"
+                      ref={driverLicenseInputRef}
+                      accept=".pdf,.png,.jpg,.jpeg,.webp"
+                      className="hidden"
+                      onChange={(e) => {
+                        const file = e.target.files?.[0] || null;
+                        setDriverLicenseDoc({ file, status: file ? 'uploaded' : 'idle' });
+                      }}
+                    />
+                    <button
+                      type="button"
+                      onClick={() => driverLicenseInputRef.current?.click()}
+                      className="w-full py-2 px-2.5 rounded-lg bg-white hover:bg-slate-100 border border-slate-300 text-xs font-medium text-slate-700 flex items-center justify-center gap-1.5 transition-colors cursor-pointer"
+                    >
+                      {driverLicenseDoc.file ? (
+                        <>
+                          <FileCheck className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+                          <span className="truncate">{driverLicenseDoc.file.name}</span>
+                        </>
+                      ) : (
+                        <>
+                          <Upload className="w-3.5 h-3.5 text-[#FF6B00] shrink-0" />
+                          <span>Attach ID / License</span>
                         </>
                       )}
                     </button>

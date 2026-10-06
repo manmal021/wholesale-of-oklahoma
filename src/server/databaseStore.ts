@@ -16,21 +16,36 @@ import path from 'path';
 import crypto from 'crypto';
 import os from 'os';
 
-export type ApplicationStatus = 'PENDING' | 'APPROVED' | 'REJECTED' | 'SUSPENDED';
+export type ApplicationStatus = 'PENDING' | 'APPROVED' | 'REJECTED' | 'SUSPENDED' | 'NEEDS_INFORMATION';
 
 export interface WholesaleApplicationRecord {
   id: string; // e.g. WOA-APP-48201
   businessName: string;
   dba?: string;
+  businessEntity?: string;
   contactFirstName: string;
   contactLastName: string;
   contactName: string;
   email: string; // lowercase trimmed
   phone: string;
+  businessPhone?: string;
   fein: string; // Tax ID / FEIN
   licenseNumber: string; // Resale Permit / Tobacco License
-  businessType: 'vape_shop' | 'smoke_shop' | 'dispensary' | 'c_store' | 'distributor' | 'other';
+  salesTaxPermitNumber?: string;
+  businessType: 'vape_shop' | 'smoke_shop' | 'dispensary' | 'c_store' | 'distributor' | 'other' | string;
   address: {
+    street: string;
+    city: string;
+    state: string;
+    zip: string;
+  };
+  billingAddress?: {
+    street: string;
+    city: string;
+    state: string;
+    zip: string;
+  };
+  shippingAddress?: {
     street: string;
     city: string;
     state: string;
@@ -38,6 +53,7 @@ export interface WholesaleApplicationRecord {
   };
   website?: string;
   notes?: string;
+  applicationAnswers?: Record<string, any>;
   documents?: Array<{
     documentId: string;
     documentType: string;
@@ -52,6 +68,11 @@ export interface WholesaleApplicationRecord {
   reviewNotes?: string;
   customerId?: string;
   assignedPassword?: string;
+  emailStatus?: 'pending' | 'sent' | 'failed';
+  emailError?: string;
+  emailSentAt?: string;
+  generatedPdfFilename?: string;
+  generatedPdfDocumentId?: string;
 }
 
 export interface CustomerRecord {
@@ -104,6 +125,9 @@ export type AuditEventType =
   | 'APPLICATION_SUBMITTED'
   | 'APPLICATION_APPROVED'
   | 'APPLICATION_REJECTED'
+  | 'APPLICATION_STATUS_UPDATED'
+  | 'APPLICATION_EMAIL_SENT'
+  | 'APPLICATION_EMAIL_FAILED'
   | 'ACCOUNT_ACTIVATED'
   | 'ACCOUNT_SUSPENDED'
   | 'ACCOUNT_REACTIVATED'
@@ -907,6 +931,7 @@ class DatabaseStore {
       email: cleanEmail,
       contactName,
       status: 'PENDING',
+      emailStatus: data.emailStatus || 'pending',
       submittedAt: new Date().toISOString(),
     };
 
@@ -1005,6 +1030,54 @@ class DatabaseStore {
           cust.temporaryPasswordAssignedAt = undefined;
         }
       }
+    }
+
+    this.persistToDisk();
+    return app;
+  }
+
+  public updateApplicationEmailStatus(
+    id: string,
+    status: 'sent' | 'failed' | 'pending',
+    error?: string
+  ): WholesaleApplicationRecord | null {
+    const app = this.getApplication(id);
+    if (!app) return null;
+
+    app.emailStatus = status;
+    if (status === 'sent') {
+      app.emailSentAt = new Date().toISOString();
+      app.emailError = undefined;
+    } else if (status === 'failed') {
+      app.emailError = error || 'Email delivery failed';
+    }
+
+    this.addAuditLog({
+      event: status === 'sent' ? 'APPLICATION_EMAIL_SENT' : 'APPLICATION_EMAIL_FAILED',
+      targetId: app.id,
+      targetEmail: app.email,
+      details: {
+        businessName: app.businessName,
+        status,
+        error: app.emailError,
+      },
+    });
+
+    this.persistToDisk();
+    return app;
+  }
+
+  public setApplicationPdf(
+    id: string,
+    filename: string,
+    documentId?: string
+  ): WholesaleApplicationRecord | null {
+    const app = this.getApplication(id);
+    if (!app) return null;
+
+    app.generatedPdfFilename = filename;
+    if (documentId) {
+      app.generatedPdfDocumentId = documentId;
     }
 
     this.persistToDisk();

@@ -56,6 +56,7 @@ import { documentStore } from './documentStore.js';
 import { productImageRegistry } from './productImageRegistry.js';
 import { PRODUCTS } from '../lib/productDatabase.js';
 import { reconcileWebsitePrices, matchWebsiteProductToZoho } from './priceReconciliation.js';
+import { applicationPdfService } from './applicationPdfService.js';
 import type { InventoryFilterParams } from '../types/inventory.js';
 
 export const apiApp = express();
@@ -1720,7 +1721,7 @@ apiApp.post(['/wholesale/upload', '/api/wholesale/upload'], rateLimit(100, 15 * 
       return err(res, 413, 'File exceeds the maximum allowed size of 10MB.');
     }
 
-    const validDocTypes = ['sales_tax_permit', 'resale_certificate', 'business_license', 'other'];
+    const validDocTypes = ['sales_tax_permit', 'resale_certificate', 'business_license', 'driver_license', 'id', 'other'];
     const sanitizedType = validDocTypes.includes(documentType) ? documentType : 'other';
 
     const record = documentStore.saveDocument(buffer, String(filename), sanitizedType as any);
@@ -1909,13 +1910,16 @@ apiApp.post(['/wholesale/apply', '/api/wholesale/apply'], rateLimit(50, 15 * 60 
   const newApp = databaseStore.createApplication({
     businessName: businessName.trim().slice(0, 150),
     dba: dba ? String(dba).trim().slice(0, 150) : undefined,
+    businessEntity: req.body?.businessEntity ? String(req.body.businessEntity).trim().slice(0, 60) : undefined,
     contactFirstName: effectiveFirstName.slice(0, 50),
     contactLastName: effectiveLastName.slice(0, 50),
     contactName: effectiveContactName.slice(0, 100),
     email: cleanEmail.slice(0, 120),
     phone: phone.trim().slice(0, 30),
+    businessPhone: req.body?.businessPhone ? String(req.body.businessPhone).trim().slice(0, 30) : phone.trim().slice(0, 30),
     fein: fein.trim().slice(0, 40),
     licenseNumber: String(licenseNumber || '').trim().slice(0, 50),
+    salesTaxPermitNumber: req.body?.salesTaxPermitNumber ? String(req.body.salesTaxPermitNumber).trim().slice(0, 50) : undefined,
     businessType: sanitizedBusinessType,
     address: {
       street: String(address?.street || '').trim().slice(0, 150),
@@ -1923,23 +1927,64 @@ apiApp.post(['/wholesale/apply', '/api/wholesale/apply'], rateLimit(50, 15 * 60 
       state: String(address?.state || 'OK').trim().slice(0, 20),
       zip: String(address?.zip || '').trim().slice(0, 10),
     },
+    billingAddress: req.body?.billingAddress ? {
+      street: String(req.body.billingAddress.street || '').trim().slice(0, 150),
+      city: String(req.body.billingAddress.city || '').trim().slice(0, 60),
+      state: String(req.body.billingAddress.state || 'OK').trim().slice(0, 20),
+      zip: String(req.body.billingAddress.zip || '').trim().slice(0, 10),
+    } : undefined,
+    shippingAddress: req.body?.shippingAddress ? {
+      street: String(req.body.shippingAddress.street || '').trim().slice(0, 150),
+      city: String(req.body.shippingAddress.city || '').trim().slice(0, 60),
+      state: String(req.body.shippingAddress.state || 'OK').trim().slice(0, 20),
+      zip: String(req.body.shippingAddress.zip || '').trim().slice(0, 10),
+    } : undefined,
     website: website ? String(website).trim().slice(0, 200) : undefined,
     notes: notes ? String(notes).trim().slice(0, 500) : undefined,
+    applicationAnswers: req.body?.applicationAnswers || undefined,
     documents: Array.isArray(documents) ? documents : [],
     ageCertified: Boolean(ageCertified),
     taxExemptCertified: Boolean(taxExemptCertified),
+    emailStatus: 'pending',
   });
 
-  // Dispatch Transactional Emails asynchronously (never block database submission on email provider failure)
-  emailService.sendAdminNewApplicationNotification(newApp).catch((emailErr) => {
-    console.warn(`[API /wholesale/apply] ⚠ Failed to send admin notification email: ${emailErr.message}`);
-  });
+  console.log(`[API /wholesale/apply] 🟢 Customer application securely stored in database: ${newApp.id} for "${newApp.businessName}" (${newApp.email})`);
 
+  // Generate complete application PDF server-side (incorporates all application info & uploaded docs)
+  let generatedPdf: { buffer: Buffer; filename: string } | null = null;
+  try {
+    generatedPdf = await applicationPdfService.generateApplicationPdf(newApp);
+    const pdfDocRecord = documentStore.saveDocument(
+      generatedPdf.buffer,
+      generatedPdf.filename,
+      'generated_application_pdf'
+    );
+    databaseStore.setApplicationPdf(newApp.id, generatedPdf.filename, pdfDocRecord.id);
+    console.log(`[API /wholesale/apply] 📄 Application PDF generated & saved: ${generatedPdf.filename}`);
+  } catch (pdfErr: any) {
+    console.error(`[API /wholesale/apply] ❌ Application PDF generation error: ${pdfErr.message}`);
+  }
+
+  // Attempt Email Delivery to Business Notification Address (order2wholesaleofoklahoma@gmail.com)
+  try {
+    const dispatchResult = await emailService.sendAdminNewApplicationNotification(newApp, generatedPdf);
+    if (dispatchResult.success) {
+      databaseStore.updateApplicationEmailStatus(newApp.id, 'sent');
+      console.log(`[API /wholesale/apply] 📧 Business application notification sent to ${ADMIN_EMAIL} for ${newApp.id}`);
+    } else {
+      const errReason = dispatchResult.error || 'Provider rejected notification dispatch';
+      databaseStore.updateApplicationEmailStatus(newApp.id, 'failed', errReason);
+      console.warn(`[API /wholesale/apply] ⚠ Business notification email failed for ${newApp.id}: ${errReason}`);
+    }
+  } catch (emailErr: any) {
+    console.error(`[API /wholesale/apply] ⚠ Exception sending admin email: ${emailErr.message}`);
+    databaseStore.updateApplicationEmailStatus(newApp.id, 'failed', emailErr.message);
+  }
+
+  // Dispatch Customer Confirmation Email asynchronously
   emailService.sendCustomerApplicationReceived(newApp).catch((emailErr) => {
     console.warn(`[API /wholesale/apply] ⚠ Failed to send customer confirmation email: ${emailErr.message}`);
   });
-
-  console.log(`[API /wholesale/apply] 🟢 New wholesale application stored: ${newApp.id} for "${newApp.businessName}" (${newApp.email})`);
 
   return ok(res, {
     success: true,
@@ -1947,7 +1992,8 @@ apiApp.post(['/wholesale/apply', '/api/wholesale/apply'], rateLimit(50, 15 * 60 
     id: newApp.id,
     application: newApp,
     status: newApp.status,
-    message: 'Your Wholesale of Oklahoma account application has been received and is currently under review.',
+    emailStatus: newApp.emailStatus,
+    message: 'Thank you. Your wholesale account application has been submitted and is currently under review. We will contact you after your application has been reviewed.',
   });
 });
 
@@ -2088,6 +2134,105 @@ apiApp.get(
         : undefined;
 
     return ok(res, { success: true, application: app, customer, assignedPassword, credentials });
+  }
+);
+
+/**
+ * GET /api/admin/applications/:id/pdf
+ * Generates/streams the official wholesale application PDF with embedded docs.
+ * Strict admin authentication required.
+ */
+apiApp.get(
+  [
+    '/admin/applications/:id/pdf',
+    '/api/admin/applications/:id/pdf',
+    '/admin/customer-applications/:id/pdf',
+    '/api/admin/customer-applications/:id/pdf',
+    '/wholesale/applications/:id/pdf',
+    '/api/wholesale/applications/:id/pdf',
+  ],
+  requireAdminAuth,
+  async (req: Request, res: Response) => {
+    const id = req.params.id;
+    const app = databaseStore.getApplication(id);
+    if (!app) {
+      return err(res, 404, `Application ${id} not found.`);
+    }
+
+    try {
+      let buffer: Buffer | null = null;
+      let filename = app.generatedPdfFilename;
+
+      if (app.generatedPdfDocumentId) {
+        const storedDoc = documentStore.getDocumentBuffer(app.generatedPdfDocumentId);
+        if (storedDoc && storedDoc.buffer) {
+          buffer = storedDoc.buffer;
+          filename = filename || storedDoc.record.originalName;
+        }
+      }
+
+      if (!buffer) {
+        const generated = await applicationPdfService.generateApplicationPdf(app);
+        buffer = generated.buffer;
+        filename = generated.filename;
+        const pdfDocRecord = documentStore.saveDocument(buffer, filename, 'generated_application_pdf');
+        databaseStore.setApplicationPdf(app.id, filename, pdfDocRecord.id);
+      }
+
+      res.setHeader('Content-Type', 'application/pdf');
+      res.setHeader('Content-Disposition', `inline; filename="${filename || `Wholesale-Application-${app.id}.pdf`}"`);
+      res.setHeader('X-Content-Type-Options', 'nosniff');
+      return res.send(buffer);
+    } catch (e: any) {
+      console.error(`[API /admin/applications/:id/pdf] Failed to produce PDF:`, e.message);
+      return err(res, 500, `Failed to generate application PDF: ${e.message}`);
+    }
+  }
+);
+
+/**
+ * POST /api/admin/applications/:id/resend-email
+ * Re-dispatches the business notification email with application PDF attachment.
+ */
+apiApp.post(
+  [
+    '/admin/applications/:id/resend-email',
+    '/api/admin/applications/:id/resend-email',
+    '/admin/customer-applications/:id/resend-email',
+    '/api/admin/customer-applications/:id/resend-email',
+  ],
+  requireAdminAuth,
+  async (req: Request, res: Response) => {
+    const id = req.params.id;
+    const app = databaseStore.getApplication(id);
+    if (!app) {
+      return err(res, 404, `Application ${id} not found.`);
+    }
+
+    try {
+      const generated = await applicationPdfService.generateApplicationPdf(app);
+      const emailResult = await emailService.sendAdminNewApplicationNotification(app, generated);
+
+      if (emailResult.success) {
+        databaseStore.updateApplicationEmailStatus(app.id, 'sent');
+        return ok(res, {
+          success: true,
+          emailStatus: 'sent',
+          message: `Application notification email successfully sent to ${ADMIN_EMAIL}.`,
+        });
+      } else {
+        const errReason = emailResult.error || 'Provider rejected notification dispatch';
+        databaseStore.updateApplicationEmailStatus(app.id, 'failed', errReason);
+        return ok(res, {
+          success: false,
+          emailStatus: 'failed',
+          message: `Failed to deliver email: ${errReason}`,
+        });
+      }
+    } catch (e: any) {
+      databaseStore.updateApplicationEmailStatus(app.id, 'failed', e.message);
+      return err(res, 500, `Email resend error: ${e.message}`);
+    }
   }
 );
 
@@ -2338,7 +2483,7 @@ apiApp.patch(
     const { status, reason } = req.body || {};
     const targetStatus = String(status || '').toLowerCase().trim();
 
-    const VALID_STATUSES = ['approved', 'rejected', 'suspended', 'reactivated', 'pending', 'denied', 'deny'];
+    const VALID_STATUSES = ['approved', 'rejected', 'suspended', 'reactivated', 'pending', 'denied', 'deny', 'needs_information', 'needs information'];
     if (!VALID_STATUSES.includes(targetStatus)) {
       return err(res, 400, `Invalid status "${status}". Allowed values: ${VALID_STATUSES.join(', ')}.`);
     }
@@ -2348,6 +2493,26 @@ apiApp.patch(
     }
     if (targetStatus === 'rejected' || targetStatus === 'denied' || targetStatus === 'deny') {
       return handleCustomerRejection(req, res);
+    }
+    if (targetStatus === 'needs_information' || targetStatus === 'needs information') {
+      const app = databaseStore.getApplication(id);
+      if (!app) return err(res, 404, `Application ${id} not found.`);
+      const session = getSessionUser(req);
+      const adminId = session?.userId || 'admin_master';
+      const updatedApp = databaseStore.updateApplicationStatus(app.id, 'NEEDS_INFORMATION', adminId, reason);
+      databaseStore.addAuditLog({
+        event: 'APPLICATION_STATUS_UPDATED',
+        targetId: id,
+        targetEmail: app.email,
+        adminId,
+        details: { status: 'NEEDS_INFORMATION', reason },
+      });
+      return ok(res, {
+        success: true,
+        status: 'NEEDS_INFORMATION',
+        message: `Application ${id} status set to Needs Information.`,
+        application: updatedApp,
+      });
     }
     if (targetStatus === 'suspended') {
       let customer = databaseStore.getCustomer(id);

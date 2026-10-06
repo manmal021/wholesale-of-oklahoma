@@ -20,7 +20,7 @@ export interface DocumentRecord {
   originalName: string;
   mimeType: string;
   size: number;
-  documentType: 'sales_tax_permit' | 'resale_certificate' | 'business_license' | 'other';
+  documentType: 'sales_tax_permit' | 'resale_certificate' | 'business_license' | 'driver_license' | 'id' | 'generated_application_pdf' | 'other' | string;
   storedPath: string;
   uploadedAt: string;
 }
@@ -63,6 +63,15 @@ class DocumentStore {
       return { isValid: true, detectedMime: 'image/png', ext: 'png' };
     }
 
+    // WebP magic bytes: RIFF....WEBP (0x52 0x49 0x46 0x46 .... 0x57 0x45 0x42 0x50)
+    if (
+      buffer.length >= 12 &&
+      buffer[0] === 0x52 && buffer[1] === 0x49 && buffer[2] === 0x46 && buffer[3] === 0x46 &&
+      buffer[8] === 0x57 && buffer[9] === 0x45 && buffer[10] === 0x42 && buffer[11] === 0x50
+    ) {
+      return { isValid: true, detectedMime: 'image/webp', ext: 'webp' };
+    }
+
     return { isValid: false };
   }
 
@@ -72,7 +81,7 @@ class DocumentStore {
   public saveDocument(
     buffer: Buffer,
     originalName: string,
-    documentType: 'sales_tax_permit' | 'resale_certificate' | 'business_license' | 'other'
+    documentType: 'sales_tax_permit' | 'resale_certificate' | 'business_license' | 'driver_license' | 'id' | 'generated_application_pdf' | 'other' | string
   ): DocumentRecord {
     // 1. Enforce size limit (10MB)
     const MAX_SIZE = 10 * 1024 * 1024;
@@ -83,7 +92,7 @@ class DocumentStore {
     // 2. Validate magic bytes
     const validation = this.validateMagicBytes(buffer);
     if (!validation.isValid || !validation.detectedMime || !validation.ext) {
-      throw new Error('Invalid file type. Only genuine PDF, JPG, and PNG documents are accepted.');
+      throw new Error('Invalid file type. Only genuine PDF, JPG, PNG, and WebP documents are accepted.');
     }
 
     // 3. Cryptographically random filename (prevents directory traversal & filename spoofing)

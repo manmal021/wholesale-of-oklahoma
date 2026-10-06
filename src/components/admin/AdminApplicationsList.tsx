@@ -19,7 +19,8 @@ import {
   Copy,
   Check,
   X,
-  Send
+  Send,
+  Download
 } from 'lucide-react';
 
 interface Application {
@@ -37,16 +38,19 @@ interface Application {
     state: string;
     zip: string;
   };
-  status: 'PENDING' | 'APPROVED' | 'REJECTED' | 'SUSPENDED';
+  status: 'PENDING' | 'APPROVED' | 'REJECTED' | 'SUSPENDED' | 'NEEDS_INFORMATION';
   submittedAt: string;
+  emailStatus?: 'sent' | 'failed' | 'pending';
+  emailError?: string;
+  generatedPdfFilename?: string;
 }
 
 export default function AdminApplicationsList() {
   const [applications, setApplications] = useState<Application[]>([]);
-  const [statusFilter, setStatusFilter] = useState<'PENDING' | 'APPROVED' | 'REJECTED' | 'SUSPENDED' | 'ALL'>(() => {
+  const [statusFilter, setStatusFilter] = useState<'PENDING' | 'NEEDS_INFORMATION' | 'APPROVED' | 'REJECTED' | 'SUSPENDED' | 'ALL'>(() => {
     if (typeof window !== 'undefined') {
       const param = new URLSearchParams(window.location.search).get('status')?.toUpperCase();
-      if (param === 'PENDING' || param === 'APPROVED' || param === 'REJECTED' || param === 'SUSPENDED' || param === 'ALL') {
+      if (param === 'PENDING' || param === 'NEEDS_INFORMATION' || param === 'APPROVED' || param === 'REJECTED' || param === 'SUSPENDED' || param === 'ALL') {
         return param;
       }
     }
@@ -245,7 +249,7 @@ export default function AdminApplicationsList() {
         <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
           {/* Status Filter Tabs */}
           <div className="flex flex-wrap items-center gap-1.5 p-1 bg-white border border-slate-200 rounded-2xl shadow-xs">
-            {(['PENDING', 'APPROVED', 'REJECTED', 'SUSPENDED', 'ALL'] as const).map((tab) => {
+            {(['PENDING', 'NEEDS_INFORMATION', 'APPROVED', 'REJECTED', 'SUSPENDED', 'ALL'] as const).map((tab) => {
               const active = statusFilter === tab;
               return (
                 <button
@@ -257,13 +261,15 @@ export default function AdminApplicationsList() {
                         ? 'bg-emerald-600 text-white shadow-xs'
                         : tab === 'REJECTED'
                         ? 'bg-rose-600 text-white shadow-xs'
+                        : tab === 'NEEDS_INFORMATION'
+                        ? 'bg-blue-600 text-white shadow-xs'
                         : tab === 'SUSPENDED'
                         ? 'bg-purple-600 text-white shadow-xs'
                         : 'bg-[#FF6B00] text-white shadow-xs'
                       : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                   }`}
                 >
-                  {tab === 'ALL' ? 'All Applications' : tab}
+                  {tab === 'ALL' ? 'All Applications' : tab === 'NEEDS_INFORMATION' ? 'Needs Info' : tab}
                 </button>
               );
             })}
@@ -325,13 +331,30 @@ export default function AdminApplicationsList() {
                           ? 'bg-amber-50 border-amber-200 text-amber-700'
                           : app.status === 'APPROVED'
                           ? 'bg-emerald-50 border-emerald-200 text-emerald-700'
+                          : app.status === 'NEEDS_INFORMATION'
+                          ? 'bg-blue-50 border-blue-200 text-blue-700'
                           : app.status === 'SUSPENDED'
                           ? 'bg-purple-50 border-purple-200 text-purple-700'
                           : 'bg-rose-50 border-rose-200 text-rose-700'
                       }`}
                     >
-                      {app.status}
+                      {app.status === 'NEEDS_INFORMATION' ? 'NEEDS INFORMATION' : app.status}
                     </span>
+
+                    {app.emailStatus && (
+                      <span
+                        className={`text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full border ${
+                          app.emailStatus === 'sent'
+                            ? 'bg-emerald-50 border-emerald-200 text-emerald-700'
+                            : app.emailStatus === 'failed'
+                            ? 'bg-rose-50 border-rose-200 text-rose-700'
+                            : 'bg-amber-50 border-amber-200 text-amber-700'
+                        }`}
+                        title={`Notification to order2wholesaleofoklahoma@gmail.com: ${app.emailStatus}`}
+                      >
+                        Email: {app.emailStatus}
+                      </span>
+                    )}
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-1.5 text-xs text-slate-600">
@@ -413,6 +436,16 @@ export default function AdminApplicationsList() {
                       <span>Approve</span>
                     </button>
                   )}
+
+                  <a
+                    href={`/api/admin/applications/${app.id}/pdf`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 hover:text-slate-900 border border-slate-200 transition-colors cursor-pointer"
+                    title="Download Official Application PDF"
+                  >
+                    <Download className="w-3.5 h-3.5" />
+                  </a>
 
                   <a
                     href={`/admin/customer-applications/${app.id}`}
