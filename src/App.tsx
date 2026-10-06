@@ -33,6 +33,7 @@ import LoginModal from './components/LoginModal';
 import BrandDirectoryShowcase from './components/BrandDirectoryShowcase';
 import CategoryShowcase from './components/CategoryShowcase';
 import WhyChooseUs from './components/WhyChooseUs';
+import OKCServiceMap from './components/OKCServiceMap';
 import { getDraftOrder } from './lib/mangoAI';
 import AdminLogin from './components/admin/AdminLogin';
 import AdminActivation from './components/admin/AdminActivation';
@@ -755,8 +756,11 @@ export default function App() {
             <div className="orb-drift-r absolute bottom-[-10%] right-[-5%] w-[500px] h-[500px] rounded-full" style={{ background: 'var(--accent-primary)', opacity: isDark ? 0.12 : 0.05, filter: 'blur(130px)' }} />
           </div>
 
-          {/* Hero content */}
-          <div className={`relative z-10 flex flex-col items-center text-center ${showDisclaimer ? 'pt-36 sm:pt-44 md:pt-48' : 'pt-28 sm:pt-32 md:pt-36'} px-4 sm:px-6 pb-20`}>
+          {/* Hero content - 2 Column Layout */}
+          <div className={`relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center max-w-[1920px] mx-auto ${showDisclaimer ? 'pt-36 sm:pt-44 md:pt-48' : 'pt-28 sm:pt-32 md:pt-36'} px-4 sm:px-6 lg:px-12 xl:px-20 pb-20`}>
+            
+            {/* Left Column: Text & CTA */}
+            <div className="flex flex-col items-center lg:items-start text-center lg:text-left xl:pl-10">
 
             {/* Status badge — Linear command bar style */}
             <div
@@ -792,14 +796,14 @@ export default function App() {
 
             {/* Supporting copy — short and directive */}
             <p
-              className="hero-sub-enter mt-6 max-w-2xl mx-auto px-2"
+              className="hero-sub-enter mt-6 max-w-2xl px-2 lg:px-0"
               style={{ fontSize: 'clamp(0.95rem, 1.5vw + 0.25rem, 1.125rem)', lineHeight: 1.65, color: 'var(--text-secondary)', fontWeight: 500 }}
             >
               900+ wholesale SKUs from 50+ top brands. Verified factory stock dispatched directly from our central OKC warehouse.
             </p>
 
             {/* CTA row */}
-            <div className="hero-cta-enter mt-8 flex flex-wrap items-center justify-center gap-3">
+            <div className="hero-cta-enter mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-3">
               <a
                 href="#brands"
                 className="btn-primary btn-glow"
@@ -843,7 +847,7 @@ export default function App() {
             </div>
 
             {/* Stats grid — compact Linear tokens */}
-            <div className="hero-trust-enter mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl w-full mx-auto">
+            <div className="hero-trust-enter mt-10 grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl w-full">
               {[
                 { value: '900+', label: 'Active SKUs' },
                 { value: '5.0★', label: 'Avg. Rating' },
@@ -867,7 +871,7 @@ export default function App() {
             </div>
 
             {/* Trust pills */}
-            <div className="mt-5 flex flex-wrap items-center justify-center gap-2 text-[11px] font-semibold">
+            <div className="mt-5 flex flex-wrap items-center justify-center lg:justify-start gap-2 text-[11px] font-semibold">
               {['⚡ Same-Day OKC Pickup', '🔒 Licensed Master Distributor', '🚚 Statewide Metro Dispatch'].map((pill) => (
                 <span
                   key={pill}
@@ -878,6 +882,34 @@ export default function App() {
                 </span>
               ))}
             </div>
+            </div>
+            
+            {/* Right Column: Visual Showcase */}
+            <div className="hidden lg:flex justify-end items-center relative pr-4 xl:pr-10">
+              <div className="relative w-full max-w-2xl rounded-3xl overflow-hidden shadow-2xl border border-white/20 transform hover:scale-[1.02] transition-transform duration-700 ease-out z-20">
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent z-10"></div>
+                <img 
+                  src="/warehouse_team.jpg" 
+                  alt="Oklahoma Wholesale Fulfillment Team" 
+                  className="w-full h-auto object-cover rounded-3xl"
+                />
+                
+                {/* Visual Overlay elements on image */}
+                <div className="absolute bottom-6 left-6 z-20 flex items-center gap-3">
+                  <div className="bg-[#FF6B00] text-white p-3 rounded-xl shadow-lg border border-[#FF6B00]/50">
+                    <Package className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-black text-lg drop-shadow-md">Active Fulfillment</h3>
+                    <p className="text-white/80 text-xs font-semibold">Same-day dispatch from OKC</p>
+                  </div>
+                </div>
+              </div>
+              
+              {/* Decorative background glow behind image */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-[#FF6B00]/10 blur-[100px] rounded-full z-0 pointer-events-none"></div>
+            </div>
+
           </div>
 
           {/* Bottom-left corporate card */}

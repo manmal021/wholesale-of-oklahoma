@@ -293,8 +293,8 @@ export default function ProductCatalog() {
       p.category,
       p.subcategory || '',
       p.size || '',
-      ...p.flavours,
-      ...p.features,
+      ...(p.flavours || []),
+      ...(p.features || []),
     ].join(' ').toLowerCase();
 
     return matchesCategory && haystack.includes(q);

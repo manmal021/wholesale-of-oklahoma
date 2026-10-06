@@ -103,6 +103,8 @@ export default function CustomerAccountPage() {
     );
   }
 
+  if (!userData) return null;
+
   return (
     <div className="min-h-screen bg-[#F8FAFC] text-slate-900">
       {/* Header */}
