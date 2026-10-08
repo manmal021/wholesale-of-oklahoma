@@ -22,6 +22,7 @@ dotenv.config();
 import { apiRouter } from './src/server/apiRouter.js';
 import { scheduleTokenRefresh, refreshAccessToken } from './src/server/zohoAuth.js';
 import { authStore } from './src/server/authStore.js';
+import { emailService as _emailServiceForBoot } from './src/server/emailService.js';
 
 import fs from 'fs';
 import { PRODUCTS } from './src/lib/productDatabase.js';
@@ -203,6 +204,30 @@ app.get('*', (req, res) => {
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
   res.send(html);
 });
+
+// ── Email Provider Boot Check ────────────────────────────────────────────────
+// Log a clear error at startup if no email provider is configured so the issue
+// is immediately visible in Vercel function logs.
+{
+  const emailStatus = _emailServiceForBoot.getProviderStatus();
+  if (!emailStatus.configured) {
+    if (Boolean(process.env.VERCEL || process.env.VERCEL_ENV)) {
+      console.error('\n' + '='.repeat(72));
+      console.error('❌  EMAIL PROVIDER NOT CONFIGURED — APPLICATION EMAILS WILL NOT BE SENT');
+      console.error('='.repeat(72));
+      console.error('   Fix: Go to Vercel Dashboard → Project → Settings → Environment Variables');
+      console.error('   Add : RESEND_API_KEY = re_xxxxxxxxxxxx');
+      console.error('   Get a free key at https://resend.com (3,000 emails/month free tier)');
+      console.error('   After adding the variable, redeploy for it to take effect.');
+      console.error('='.repeat(72) + '\n');
+    } else {
+      console.warn('[Email] ⚠  No email provider configured. Application emails will be logged to storage/email_outbox.log only.');
+      console.warn('[Email]    To send real emails, set GMAIL_USER + GMAIL_APP_PASSWORD (or RESEND_API_KEY) in .env');
+    }
+  } else {
+    console.log(`[Email] ✅ Email provider: ${emailStatus.provider.toUpperCase()} → ${emailStatus.adminEmail}`);
+  }
+}
 
 // ── Boot ─────────────────────────────────────────────────────────────────────
 const isServerless = Boolean(

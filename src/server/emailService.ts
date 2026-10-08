@@ -308,7 +308,7 @@ class EmailService {
       }
     }
 
-    // 4. Fallback / Default Outbox Logging (Dev, CI, and seed environments)
+    // 4. Fallback / Default Outbox Logging (Dev, CI, and seed environments only)
     if (options.attachments && options.attachments.length > 0) {
       try {
         const outboxAttachDir = path.join(STORAGE_DIR, 'outbox_attachments');
@@ -328,7 +328,7 @@ class EmailService {
     this.logEmailDelivery({
       to: options.to,
       subject: options.subject,
-      status: 'QUEUED_OUTBOX',
+      status: isVercel ? 'FAILED' : 'QUEUED_OUTBOX',
       provider: 'local_outbox',
       actionUrl: options.actionUrl,
       attachments: attachmentNames,
@@ -337,18 +337,19 @@ class EmailService {
       html: options.html,
     });
 
-    console.log(`[EmailService] ✉ Outbox entry created for ${options.to}: "${options.subject}"`);
-    if (attachmentNames && attachmentNames.length > 0) {
-      console.log(`[EmailService] 📎 Attached files (${attachmentNames.length}): ${attachmentNames.join(', ')}`);
-    }
-    if (options.actionUrl) {
-      console.log(`[EmailService] 🔗 Secure Action Link: ${options.actionUrl}`);
-    }
-
-    // In a live Vercel deployment where the user specifically needs real delivery, warn if no provider is configured
-    if (isVercel && process.env.STRICT_EMAIL_DELIVERY === 'true') {
-      const noProviderError = 'No email provider configured (RESEND_API_KEY, SENDGRID_API_KEY, or SMTP credentials missing in Vercel environment variables).';
-      console.error(`[EmailService] ⚠ Live delivery failed: ${noProviderError}`);
+    // ── CRITICAL: On Vercel (production serverless), the local outbox is ephemeral
+    // and never delivers real email. Always return failure so callers can mark the
+    // email status as 'failed' and the administrator knows action is required.
+    if (isVercel) {
+      const noProviderError =
+        'No email provider configured. Set RESEND_API_KEY in Vercel Environment Variables to enable email delivery. ' +
+        '(SENDGRID_API_KEY or SMTP/GMAIL credentials are also accepted as alternatives.)';
+      console.error(
+        `[EmailService] ❌ NO EMAIL PROVIDER: Email to ${options.to} was NOT delivered.\n` +
+        `  Subject : "${options.subject}"\n` +
+        `  Fix     : Add RESEND_API_KEY to Vercel → Project → Settings → Environment Variables.\n` +
+        `  Sign up : https://resend.com (free tier supports up to 3,000 emails/month)`
+      );
       return {
         success: false,
         error: noProviderError,
@@ -356,6 +357,15 @@ class EmailService {
         subject: options.subject,
         provider: 'none',
       };
+    }
+
+    // Local development / CI: outbox log is the expected behaviour
+    console.log(`[EmailService] ✉ [DEV] Outbox entry created for ${options.to}: "${options.subject}"`);
+    if (attachmentNames && attachmentNames.length > 0) {
+      console.log(`[EmailService] 📎 Attached files (${attachmentNames.length}): ${attachmentNames.join(', ')}`);
+    }
+    if (options.actionUrl) {
+      console.log(`[EmailService] 🔗 Secure Action Link: ${options.actionUrl}`);
     }
 
     return {
@@ -1650,6 +1660,72 @@ Contact dispatch at (405) 768-2975 with any questions.
       text,
       actionUrl: orderUrl,
     });
+  }
+  /**
+   * Sends a plain-text delivery test email to the admin notification address.
+   * Called by the /api/admin/email-test endpoint.
+   */
+  public async sendTestEmail(): Promise<EmailDispatchResult> {
+    return this.sendMail({
+      to: ADMIN_EMAIL,
+      subject: `[WOO Test] Email Delivery Verification — ${new Date().toISOString()}`,
+      html: `
+<!DOCTYPE html>
+<html>
+<body style="font-family: sans-serif; background: #0B0D10; color: #F7F7F5; padding: 24px;">
+  <div style="max-width: 500px; margin: 0 auto; background: #15191F; border: 1px solid #2A3038; border-radius: 12px; padding: 28px;">
+    <h2 style="color: #10B981; margin-top: 0;">✅ Email Delivery Test</h2>
+    <p style="color: #B8BDC5;">This is an automated verification email from the Wholesale of Oklahoma admin portal.</p>
+    <p style="color: #B8BDC5;">Sent at: <strong>${new Date().toISOString()}</strong></p>
+    <p style="color: #B8BDC5;">If you received this email, application notification emails are configured and working correctly.</p>
+  </div>
+</body>
+</html>`,
+      text: `Email Delivery Test — Wholesale of Oklahoma\n\nTimestamp: ${new Date().toISOString()}\n\nIf you received this, email delivery is working.\n\nAdmin email: ${ADMIN_EMAIL}`,
+    });
+  }
+
+  /**
+   * Returns the currently configured email provider and operational readiness status.
+   * Used by the /api/admin/email-status diagnostic endpoint.
+   * Does NOT expose any secret values.
+   */
+  public getProviderStatus(): {
+    configured: boolean;
+    provider: string;
+    adminEmail: string;
+    fromAddress: string;
+    isVercel: boolean;
+    warning?: string;
+  } {
+    const isV = Boolean(process.env.VERCEL || process.env.VERCEL_ENV);
+    const resendApiKey = process.env.RESEND_API_KEY || process.env.EMAIL_API_KEY;
+    const sendgridApiKey = process.env.SENDGRID_API_KEY;
+    const smtpHost = process.env.SMTP_HOST || process.env.EMAIL_HOST;
+    const smtpUser = process.env.SMTP_USER || process.env.EMAIL_USER || process.env.GMAIL_USER;
+    const smtpPass = process.env.SMTP_PASS || process.env.EMAIL_PASS || process.env.GMAIL_APP_PASSWORD || process.env.GMAIL_PASSWORD;
+    const fromAddress = process.env.EMAIL_FROM || 'Wholesale of Oklahoma <orders@wholesaleofoklahoma.com>';
+
+    if (resendApiKey && resendApiKey.startsWith('re_')) {
+      return { configured: true, provider: 'resend', adminEmail: ADMIN_EMAIL, fromAddress, isVercel: isV };
+    }
+    if (sendgridApiKey && sendgridApiKey.startsWith('SG.')) {
+      return { configured: true, provider: 'sendgrid', adminEmail: ADMIN_EMAIL, fromAddress, isVercel: isV };
+    }
+    if (smtpHost || (smtpUser && smtpPass)) {
+      return { configured: true, provider: 'smtp', adminEmail: ADMIN_EMAIL, fromAddress, isVercel: isV };
+    }
+
+    return {
+      configured: false,
+      provider: 'none',
+      adminEmail: ADMIN_EMAIL,
+      fromAddress,
+      isVercel: isV,
+      warning: isV
+        ? 'PRODUCTION: No email provider configured. Add RESEND_API_KEY to Vercel Environment Variables. Emails are NOT being delivered.'
+        : 'LOCAL DEV: No email provider configured. Emails are logged to storage/email_outbox.log only.',
+    };
   }
 }
 

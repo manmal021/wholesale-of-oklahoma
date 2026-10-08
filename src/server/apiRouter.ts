@@ -340,6 +340,96 @@ function q(req: Request): Record<string, string> {
 }
 
 // ============================================================================
+// SYSTEM HEALTH & EMAIL DIAGNOSTIC ROUTES
+// ============================================================================
+
+/**
+ * GET /api/health
+ * Public health check — returns system configuration status.
+ * Does NOT expose secrets. Safe to call from monitoring tools.
+ */
+apiApp.get(['/health', '/api/health'], (_req: Request, res: Response) => {
+  const emailStatus = emailService.getProviderStatus();
+  return ok(res, {
+    status: 'ok',
+    timestamp: new Date().toISOString(),
+    environment: process.env.VERCEL_ENV || process.env.NODE_ENV || 'development',
+    email: {
+      provider: emailStatus.provider,
+      configured: emailStatus.configured,
+      warning: emailStatus.warning || null,
+    },
+    zoho: {
+      configured: isZohoConfigured(),
+    },
+  });
+});
+
+/**
+ * GET /api/admin/email-status
+ * Admin-protected endpoint. Returns full email configuration status and admin recipient.
+ * Use this to verify that RESEND_API_KEY (or another provider) is correctly set in Vercel.
+ */
+apiApp.get(['/admin/email-status', '/api/admin/email-status'], requireAdminAuth, (_req: Request, res: Response) => {
+  const status = emailService.getProviderStatus();
+  return ok(res, {
+    success: true,
+    email: status,
+    instructions: status.configured
+      ? `Email provider "${status.provider}" is configured. Applications will be sent to ${status.adminEmail}.`
+      : [
+          'EMAIL DELIVERY IS NOT CONFIGURED.',
+          'To fix: Go to Vercel Dashboard → Your Project → Settings → Environment Variables.',
+          'Add one of the following:',
+          '  RESEND_API_KEY = re_xxxxxxxxxxxx   (get from https://resend.com)',
+          '  SENDGRID_API_KEY = SG.xxxxxxxxxxxx (get from https://sendgrid.com)',
+          '  GMAIL_USER + GMAIL_APP_PASSWORD    (Gmail App Password from myaccount.google.com/apppasswords)',
+          'After adding the variable, trigger a new Vercel deployment for it to take effect.',
+        ].join('\n'),
+  });
+});
+
+/**
+ * POST /api/admin/email-test
+ * Admin-protected endpoint. Sends a real test email to the admin address.
+ * Use to verify email delivery works end-to-end without submitting a full application.
+ */
+apiApp.post(['/admin/email-test', '/api/admin/email-test'], requireAdminAuth, async (_req: Request, res: Response) => {
+  const status = emailService.getProviderStatus();
+  if (!status.configured) {
+    return res.status(503).json({
+      success: false,
+      error: 'NO_PROVIDER',
+      message: 'No email provider is configured. Set RESEND_API_KEY in Vercel Environment Variables first.',
+      emailStatus: status,
+    });
+  }
+
+  try {
+    const result = await emailService.sendTestEmail();
+
+    if (result.success) {
+      return ok(res, {
+        success: true,
+        message: `Test email dispatched successfully via ${result.provider} to ${ADMIN_EMAIL}`,
+        messageId: result.messageId,
+        provider: result.provider,
+        recipient: result.recipient,
+      });
+    } else {
+      return res.status(500).json({
+        success: false,
+        error: result.error,
+        message: `Email delivery failed via ${result.provider}: ${result.error}`,
+        provider: result.provider,
+      });
+    }
+  } catch (e: any) {
+    return res.status(500).json({ success: false, error: e.message });
+  }
+});
+
+// ============================================================================
 // OAUTH ROUTES — /api/zoho/*
 // ============================================================================
 
