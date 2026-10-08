@@ -101,17 +101,7 @@ test('Customer Credentials & Login Flow: Approved customer receives 10-char pass
   assert(customerRecord, 'Customer record must be created');
   assert.strictEqual(customerRecord.temporaryPassword, assignedPassword);
 
-  authStore.provisionCustomer(
-    {
-      id: customerRecord.id,
-      email: customerRecord.email,
-      businessName: customerRecord.businessName,
-      contactName: customerRecord.contactName,
-      phone: customerRecord.phone,
-      applicationId: customerRecord.applicationId
-    },
-    assignedPassword
-  );
+  authStore.provisionCustomer(customerRecord, assignedPassword);
 
   // Authenticate using assigned password
   const loginResult = await authStore.login(customerRecord.email, assignedPassword);
