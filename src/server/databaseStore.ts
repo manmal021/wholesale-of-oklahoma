@@ -71,6 +71,10 @@ export interface WholesaleApplicationRecord {
   emailStatus?: 'pending' | 'sent' | 'failed';
   emailError?: string;
   emailSentAt?: string;
+  emailAttemptAt?: string;
+  emailMessageId?: string;
+  emailProvider?: string;
+  emailRetryCount?: number;
   generatedPdfFilename?: string;
   generatedPdfDocumentId?: string;
 }
@@ -1039,12 +1043,24 @@ class DatabaseStore {
   public updateApplicationEmailStatus(
     id: string,
     status: 'sent' | 'failed' | 'pending',
-    error?: string
+    error?: string,
+    details?: {
+      messageId?: string;
+      provider?: string;
+      incrementRetry?: boolean;
+    }
   ): WholesaleApplicationRecord | null {
     const app = this.getApplication(id);
     if (!app) return null;
 
     app.emailStatus = status;
+    app.emailAttemptAt = new Date().toISOString();
+    if (details?.provider) app.emailProvider = details.provider;
+    if (details?.messageId) app.emailMessageId = details.messageId;
+    if (details?.incrementRetry) {
+      app.emailRetryCount = (app.emailRetryCount || 0) + 1;
+    }
+
     if (status === 'sent') {
       app.emailSentAt = new Date().toISOString();
       app.emailError = undefined;
@@ -1059,6 +1075,9 @@ class DatabaseStore {
       details: {
         businessName: app.businessName,
         status,
+        provider: app.emailProvider,
+        messageId: app.emailMessageId,
+        retryCount: app.emailRetryCount,
         error: app.emailError,
       },
     });

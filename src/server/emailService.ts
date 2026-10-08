@@ -15,6 +15,7 @@
 import fs from 'fs';
 import path from 'path';
 import nodemailer from 'nodemailer';
+import { Resend } from 'resend';
 import {
   DEFAULT_FULFILLMENT_CONFIG,
   type WholesaleApplicationRecord,
@@ -26,7 +27,10 @@ import { applicationPdfService } from './applicationPdfService.js';
 const STORAGE_DIR = path.resolve(process.cwd(), 'storage');
 const EMAIL_LOG_FILE = path.join(STORAGE_DIR, 'email_outbox.log');
 
-export const ADMIN_EMAIL = process.env.ADMIN_NOTIFICATION_EMAIL || 'order2wholesaleofoklahoma@gmail.com';
+export const ADMIN_EMAIL =
+  process.env.APPLICATION_NOTIFICATION_EMAIL ||
+  process.env.ADMIN_NOTIFICATION_EMAIL ||
+  'order2wholesaleofoklahoma@gmail.com';
 
 function getSiteUrl(): string {
   if (process.env.SITE_URL) return process.env.SITE_URL.replace(/\/$/, '');
@@ -88,7 +92,10 @@ class EmailService {
     const isVercel = Boolean(process.env.VERCEL || process.env.VERCEL_ENV);
     const resendApiKey = process.env.RESEND_API_KEY || process.env.EMAIL_API_KEY;
     const sendgridApiKey = process.env.SENDGRID_API_KEY;
-    const fromAddress = process.env.EMAIL_FROM || 'Wholesale of Oklahoma <orders@wholesaleofoklahoma.com>';
+    const fromAddress =
+      process.env.RESEND_FROM_EMAIL ||
+      process.env.EMAIL_FROM ||
+      'Wholesale of Oklahoma <applications@wholesaleofoklahoma.com>';
 
     const smtpHost = process.env.SMTP_HOST || process.env.EMAIL_HOST;
     const smtpUser = process.env.SMTP_USER || process.env.EMAIL_USER || process.env.GMAIL_USER;
@@ -96,11 +103,13 @@ class EmailService {
 
     const attachmentNames = options.attachments?.map((a) => a.filename);
 
-    // 1. Send via Resend REST API if key is present
+    // 1. Send via official Resend SDK if key is present
     if (resendApiKey && resendApiKey.startsWith('re_')) {
       try {
-        console.log(`[EmailService] 📤 Dispatching email to ${options.to} via Resend...`);
-        const payload: Record<string, any> = {
+        console.log(`[EmailService] 📤 Dispatching email to ${options.to} via Resend SDK...`);
+        const resend = new Resend(resendApiKey);
+
+        const emailPayload: any = {
           from: fromAddress,
           to: [options.to],
           subject: options.subject,
@@ -109,23 +118,15 @@ class EmailService {
         };
 
         if (options.attachments && options.attachments.length > 0) {
-          payload.attachments = options.attachments.map((att) => ({
+          emailPayload.attachments = options.attachments.map((att) => ({
             filename: att.filename,
-            content: Buffer.isBuffer(att.content) ? att.content.toString('base64') : att.content,
+            content: Buffer.isBuffer(att.content) ? att.content : Buffer.from(att.content, 'base64'),
           }));
         }
 
-        const response = await fetch('https://api.resend.com/emails', {
-          method: 'POST',
-          headers: {
-            Authorization: `Bearer ${resendApiKey}`,
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(payload),
-        });
+        const { data, error } = await resend.emails.send(emailPayload);
 
-        const data = (await response.json()) as any;
-        if (response.ok && data.id) {
+        if (!error && data?.id) {
           this.logEmailDelivery({
             to: options.to,
             subject: options.subject,
@@ -135,9 +136,15 @@ class EmailService {
             attachments: attachmentNames,
           });
           console.log(`[EmailService] ✅ Delivered email to ${options.to} via Resend (ID: ${data.id})`);
-          return { success: true, messageId: data.id, recipient: options.to, subject: options.subject, provider: 'resend' };
+          return {
+            success: true,
+            messageId: data.id,
+            recipient: options.to,
+            subject: options.subject,
+            provider: 'resend',
+          };
         } else {
-          const errMsg = data.message || `Resend API returned error status ${response.status}`;
+          const errMsg = error?.message || 'Resend API returned failure';
           console.error(`[EmailService] ❌ Resend API rejected dispatch to ${options.to}:`, errMsg);
           this.logEmailDelivery({
             to: options.to,
@@ -148,7 +155,13 @@ class EmailService {
             actionUrl: options.actionUrl,
             attachments: attachmentNames,
           });
-          return { success: false, error: errMsg, recipient: options.to, subject: options.subject, provider: 'resend' };
+          return {
+            success: false,
+            error: errMsg,
+            recipient: options.to,
+            subject: options.subject,
+            provider: 'resend',
+          };
         }
       } catch (err: any) {
         console.error(`[EmailService] ❌ Resend dispatch network error (${err.message})`);
@@ -161,7 +174,13 @@ class EmailService {
           actionUrl: options.actionUrl,
           attachments: attachmentNames,
         });
-        return { success: false, error: err.message, recipient: options.to, subject: options.subject, provider: 'resend' };
+        return {
+          success: false,
+          error: err.message,
+          recipient: options.to,
+          subject: options.subject,
+          provider: 'resend',
+        };
       }
     }
 
@@ -395,8 +414,8 @@ class EmailService {
       'Applicant'
     ).trim();
 
-    // Subject format: New Wholesale Application — [Business Name] — [Applicant Name]
-    const subject = `New Wholesale Application — ${app.businessName} — ${applicantName}`;
+    // Subject format: New Customer Application - [Business Name] - [Application ID] (Task 2)
+    const subject = `New Customer Application - ${app.businessName} - ${app.id}`;
 
     // Auto-generate application PDF if not already provided
     let attachmentPayload = pdfAttachment;
@@ -1704,7 +1723,10 @@ Contact dispatch at (405) 768-2975 with any questions.
     const smtpHost = process.env.SMTP_HOST || process.env.EMAIL_HOST;
     const smtpUser = process.env.SMTP_USER || process.env.EMAIL_USER || process.env.GMAIL_USER;
     const smtpPass = process.env.SMTP_PASS || process.env.EMAIL_PASS || process.env.GMAIL_APP_PASSWORD || process.env.GMAIL_PASSWORD;
-    const fromAddress = process.env.EMAIL_FROM || 'Wholesale of Oklahoma <orders@wholesaleofoklahoma.com>';
+    const fromAddress =
+      process.env.RESEND_FROM_EMAIL ||
+      process.env.EMAIL_FROM ||
+      'Wholesale of Oklahoma <applications@wholesaleofoklahoma.com>';
 
     if (resendApiKey && resendApiKey.startsWith('re_')) {
       return { configured: true, provider: 'resend', adminEmail: ADMIN_EMAIL, fromAddress, isVercel: isV };

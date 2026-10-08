@@ -73,25 +73,18 @@ interface CurrentUser {
 
 function AdminRouteGuard({ children }: { children: ReactNode }) {
   const [isVerifying, setIsVerifying] = useState(true);
-  const [isAuthorized, setIsAuthorized] = useState(() => {
-    try {
-      const token = localStorage.getItem('woo_session_token');
-      const rawUser = localStorage.getItem('woo_user');
-      if (token && rawUser) {
-        const u = JSON.parse(rawUser);
-        return u.role === 'admin';
-      }
-    } catch (_) {}
-    return false;
-  });
+  const [isAuthorized, setIsAuthorized] = useState(false);
 
   useEffect(() => {
     let active = true;
-    const token = localStorage.getItem('woo_session_token');
+    const token = typeof window !== 'undefined' ? localStorage.getItem('woo_session_token') : null;
     const headers: Record<string, string> = token ? { 'x-session-token': token } : {};
 
-    fetch('/api/auth/me', { headers })
-      .then((res) => res.json())
+    fetch('/api/auth/me', { headers, credentials: 'same-origin' })
+      .then((res) => {
+        if (!res.ok) throw new Error('Unauthenticated');
+        return res.json();
+      })
       .then((data) => {
         if (!active) return;
         if (data.authenticated && data.user?.role === 'admin') {
@@ -107,11 +100,11 @@ function AdminRouteGuard({ children }: { children: ReactNode }) {
       })
       .catch(() => {
         if (!active) return;
-        if (isAuthorized) {
-          setIsVerifying(false);
-        } else {
-          window.location.replace('/admin/login');
-        }
+        try {
+          localStorage.removeItem('woo_session_token');
+          localStorage.removeItem('woo_user');
+        } catch (_) {}
+        window.location.replace('/admin/login');
       });
 
     return () => {

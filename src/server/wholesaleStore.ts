@@ -51,7 +51,7 @@ function toLegacyApp(record: WholesaleApplicationRecord): WholesaleApplication {
     phone: record.phone,
     fein: record.fein,
     licenseNumber: record.licenseNumber,
-    businessType: record.businessType,
+    businessType: record.businessType as WholesaleApplication['businessType'],
     address: record.address,
     ageCertified: record.ageCertified,
     taxExemptCertified: record.taxExemptCertified,

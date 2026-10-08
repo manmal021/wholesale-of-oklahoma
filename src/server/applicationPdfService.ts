@@ -420,76 +420,406 @@ export class ApplicationPdfService {
       { label: 'Submitted Document Manifest', value: docList, fullWidth: true },
     ]);
 
-    // ── 9. EMBED UPLOADED DOCUMENTS AS SUBSEQUENT PAGES ──────────────────────
-    if (app.documents && Array.isArray(app.documents) && app.documents.length > 0) {
-      for (const doc of app.documents) {
-        const docId = doc.documentId;
-        if (!docId) continue;
+    // ── 9. EMBED UPLOADED DOCUMENTS (PAGE 2: CUSTOMER VERIFICATION DOCUMENTS) ─
+    const docs = Array.isArray(app.documents) ? app.documents : [];
+    const dlDoc = docs.find((d: any) => {
+      const t = String(d.documentType || d.type || '').toLowerCase();
+      return t.includes('driver') || t === 'id' || t.includes('license_id');
+    });
+    const stpDoc = docs.find((d: any) => {
+      const t = String(d.documentType || d.type || '').toLowerCase();
+      return t.includes('tax') || t.includes('permit') || t.includes('resale');
+    });
 
-        const docRecord = documentStore.getDocumentBuffer(docId);
-        if (!docRecord || !docRecord.buffer) continue;
+    const isDocPdf = (docRecord: any) => {
+      return (
+        docRecord?.record?.mimeType === 'application/pdf' ||
+        (docRecord?.buffer &&
+          docRecord.buffer.length > 4 &&
+          docRecord.buffer[0] === 0x25 &&
+          docRecord.buffer[1] === 0x50 &&
+          docRecord.buffer[2] === 0x44 &&
+          docRecord.buffer[3] === 0x46)
+      );
+    };
 
-        const docTypeUpper = (doc.documentType || 'DOCUMENT')
-          .replace(/_/g, ' ')
-          .toUpperCase();
+    const dateStr = app.submittedAt ? new Date(app.submittedAt).toLocaleDateString() : new Date().toLocaleDateString();
 
-        const isPdf =
-          docRecord.record.mimeType === 'application/pdf' ||
-          (docRecord.buffer.length > 4 &&
-            docRecord.buffer[0] === 0x25 &&
-            docRecord.buffer[1] === 0x50 &&
-            docRecord.buffer[2] === 0x44 &&
-            docRecord.buffer[3] === 0x46);
+    // PAGE 2: Dedicated Verification Documents page
+    const page2 = pdfDoc.addPage([PAGE_WIDTH, PAGE_HEIGHT]);
+    const p2HeaderY = PAGE_HEIGHT - MARGIN_TOP;
 
-        if (isPdf) {
-          // Merge PDF pages directly into application PDF
-          try {
-            const externalPdf = await PDFDocument.load(docRecord.buffer);
-            const externalPages = await pdfDoc.copyPages(externalPdf, externalPdf.getPageIndices());
+    // Page 2 Header
+    page2.drawRectangle({
+      x: MARGIN_LEFT,
+      y: p2HeaderY + 12,
+      width: CONTENT_WIDTH,
+      height: 4,
+      color: COLOR_BRAND_ORANGE,
+    });
 
-            for (let idx = 0; idx < externalPages.length; idx++) {
-              const copiedPage = externalPages[idx];
-              pdfDoc.addPage(copiedPage);
+    page2.drawText('WHOLESALE OF OKLAHOMA', {
+      x: MARGIN_LEFT,
+      y: p2HeaderY - 6,
+      size: 15,
+      font: fontBold,
+      color: COLOR_BRAND_ORANGE,
+    });
 
-              // Draw neat top banner label above imported page
-              copiedPage.drawRectangle({
-                x: 0,
-                y: copiedPage.getHeight() - 24,
-                width: copiedPage.getWidth(),
-                height: 24,
-                color: COLOR_DARK_HEADER,
-              });
+    page2.drawText('PAGE 2: CUSTOMER VERIFICATION DOCUMENTS', {
+      x: MARGIN_LEFT,
+      y: p2HeaderY - 20,
+      size: 10,
+      font: fontBold,
+      color: COLOR_DARK_HEADER,
+    });
 
-              copiedPage.drawText(
-                sanitizeText(`ATTACHED DOCUMENT: ${docTypeUpper} - ${doc.filename} (Page ${idx + 1}/${externalPages.length})`),
-                {
-                  x: 20,
-                  y: copiedPage.getHeight() - 16,
-                  size: 8,
-                  font: fontBold,
-                  color: COLOR_BRAND_ORANGE,
-                }
-              );
-            }
-          } catch (pdfMergeErr: any) {
-            console.warn(`[ApplicationPdfService] Could not embed external PDF ${doc.filename}:`, pdfMergeErr.message);
+    page2.drawText(
+      sanitizeText(`Official Identity & Tax Exemption Verification • App Reference: ${app.id}`),
+      {
+        x: MARGIN_LEFT,
+        y: p2HeaderY - 32,
+        size: 7.5,
+        font: fontRegular,
+        color: COLOR_TEXT_MUTED,
+      }
+    );
+
+    const p2RightX = PAGE_WIDTH - MARGIN_RIGHT - 170;
+    page2.drawRectangle({
+      x: p2RightX,
+      y: p2HeaderY - 33,
+      width: 170,
+      height: 38,
+      color: COLOR_BG_LIGHT,
+      borderColor: COLOR_LINE_LIGHT,
+      borderWidth: 1,
+    });
+
+    page2.drawText(`APP ID: ${app.id}`, {
+      x: p2RightX + 8,
+      y: p2HeaderY - 11,
+      size: 8,
+      font: fontBold,
+      color: COLOR_DARK_HEADER,
+    });
+
+    page2.drawText(`DATE: ${dateStr}`, {
+      x: p2RightX + 8,
+      y: p2HeaderY - 21,
+      size: 7.5,
+      font: fontRegular,
+      color: COLOR_TEXT_MUTED,
+    });
+
+    page2.drawText('VERIFICATION DESK', {
+      x: p2RightX + 8,
+      y: p2HeaderY - 30,
+      size: 7,
+      font: fontBold,
+      color: COLOR_BRAND_ORANGE,
+    });
+
+    page2.drawLine({
+      start: { x: MARGIN_LEFT, y: p2HeaderY - 42 },
+      end: { x: PAGE_WIDTH - MARGIN_RIGHT, y: p2HeaderY - 42 },
+      color: COLOR_LINE_LIGHT,
+      thickness: 1,
+    });
+
+    // Two-column layout parameters
+    const colGap = 16;
+    const colWidth = (CONTENT_WIDTH - colGap) / 2; // 254 pt
+    const colTopY = p2HeaderY - 50;
+    const colCardHeight = 44;
+    const imgAreaTopY = colTopY - colCardHeight - 8;
+    const imgAreaBottomY = MARGIN_BOTTOM + 20;
+    const imgAreaHeight = imgAreaTopY - imgAreaBottomY; // ~600 pt
+
+    // --- LEFT COLUMN: DRIVER'S LICENSE ---
+    const leftX = MARGIN_LEFT;
+    page2.drawRectangle({
+      x: leftX,
+      y: colTopY - colCardHeight,
+      width: colWidth,
+      height: colCardHeight,
+      color: COLOR_BG_LIGHT,
+      borderColor: COLOR_LINE_LIGHT,
+      borderWidth: 1,
+    });
+    page2.drawRectangle({
+      x: leftX,
+      y: colTopY - colCardHeight,
+      width: 4,
+      height: colCardHeight,
+      color: COLOR_BRAND_ORANGE,
+    });
+    page2.drawText("LEFT SECTION: DRIVER'S LICENSE / ID", {
+      x: leftX + 10,
+      y: colTopY - 15,
+      size: 8.5,
+      font: fontBold,
+      color: COLOR_DARK_HEADER,
+    });
+    page2.drawText(
+      sanitizeText(dlDoc ? `File: ${dlDoc.filename}` : 'Status: No Driver License uploaded'),
+      {
+        x: leftX + 10,
+        y: colTopY - 28,
+        size: 7,
+        font: fontRegular,
+        color: COLOR_TEXT_MUTED,
+      }
+    );
+    page2.drawText(
+      sanitizeText(`Applicant: ${app.contactName || 'Authorized Contact'}`),
+      {
+        x: leftX + 10,
+        y: colTopY - 38,
+        size: 6.5,
+        font: fontRegular,
+        color: COLOR_TEXT_MUTED,
+      }
+    );
+
+    // Left Container Box
+    page2.drawRectangle({
+      x: leftX,
+      y: imgAreaBottomY,
+      width: colWidth,
+      height: imgAreaHeight,
+      color: rgb(0.98, 0.99, 1.0),
+      borderColor: COLOR_LINE_LIGHT,
+      borderWidth: 1,
+    });
+
+    // Render Left Document (Driver License)
+    const dlDocRecord = dlDoc?.documentId ? documentStore.getDocumentBuffer(dlDoc.documentId) : null;
+    if (dlDocRecord && dlDocRecord.buffer) {
+      if (isDocPdf(dlDocRecord)) {
+        page2.drawText('ATTACHED AS PDF DOCUMENT', {
+          x: leftX + 24,
+          y: imgAreaBottomY + imgAreaHeight / 2 + 10,
+          size: 9,
+          font: fontBold,
+          color: COLOR_BRAND_ORANGE,
+        });
+        page2.drawText('Driver license was provided as a PDF document.', {
+          x: leftX + 24,
+          y: imgAreaBottomY + imgAreaHeight / 2 - 6,
+          size: 7.5,
+          font: fontRegular,
+          color: COLOR_TEXT_DARK,
+        });
+        page2.drawText('Rendered in full on subsequent page.', {
+          x: leftX + 24,
+          y: imgAreaBottomY + imgAreaHeight / 2 - 18,
+          size: 7,
+          font: fontRegular,
+          color: COLOR_TEXT_MUTED,
+        });
+      } else {
+        try {
+          const pngBuffer = await sharp(dlDocRecord.buffer).rotate().png().toBuffer();
+          const embeddedImg = await pdfDoc.embedPng(pngBuffer);
+          const maxW = colWidth - 16;
+          const maxH = imgAreaHeight - 16;
+          const scale = Math.min(maxW / embeddedImg.width, maxH / embeddedImg.height, 1.0);
+          const drawW = embeddedImg.width * scale;
+          const drawH = embeddedImg.height * scale;
+          const drawX = leftX + (colWidth - drawW) / 2;
+          const drawY = imgAreaBottomY + (imgAreaHeight - drawH) / 2;
+
+          page2.drawImage(embeddedImg, {
+            x: drawX,
+            y: drawY,
+            width: drawW,
+            height: drawH,
+          });
+        } catch (imgErr: any) {
+          console.warn(`[ApplicationPdfService] Could not embed DL image:`, imgErr.message);
+        }
+      }
+    } else {
+      page2.drawText('NO DOCUMENT SUBMITTED', {
+        x: leftX + 40,
+        y: imgAreaBottomY + imgAreaHeight / 2,
+        size: 8,
+        font: fontBold,
+        color: COLOR_TEXT_MUTED,
+      });
+    }
+
+    // --- RIGHT COLUMN: SALES TAX PERMIT ---
+    const rightColX = leftX + colWidth + colGap;
+    page2.drawRectangle({
+      x: rightColX,
+      y: colTopY - colCardHeight,
+      width: colWidth,
+      height: colCardHeight,
+      color: COLOR_BG_LIGHT,
+      borderColor: COLOR_LINE_LIGHT,
+      borderWidth: 1,
+    });
+    page2.drawRectangle({
+      x: rightColX,
+      y: colTopY - colCardHeight,
+      width: 4,
+      height: colCardHeight,
+      color: COLOR_BRAND_ORANGE,
+    });
+    page2.drawText('RIGHT SECTION: SALES TAX PERMIT / RESALE', {
+      x: rightColX + 10,
+      y: colTopY - 15,
+      size: 8.5,
+      font: fontBold,
+      color: COLOR_DARK_HEADER,
+    });
+    page2.drawText(
+      sanitizeText(stpDoc ? `File: ${stpDoc.filename}` : 'Status: No Sales Tax Permit uploaded'),
+      {
+        x: rightColX + 10,
+        y: colTopY - 28,
+        size: 7,
+        font: fontRegular,
+        color: COLOR_TEXT_MUTED,
+      }
+    );
+    page2.drawText(
+      sanitizeText(`Permit Number: ${app.salesTaxPermitNumber || app.licenseNumber || 'On file'}`),
+      {
+        x: rightColX + 10,
+        y: colTopY - 38,
+        size: 6.5,
+        font: fontRegular,
+        color: COLOR_TEXT_MUTED,
+      }
+    );
+
+    // Right Container Box
+    page2.drawRectangle({
+      x: rightColX,
+      y: imgAreaBottomY,
+      width: colWidth,
+      height: imgAreaHeight,
+      color: rgb(0.98, 0.99, 1.0),
+      borderColor: COLOR_LINE_LIGHT,
+      borderWidth: 1,
+    });
+
+    // Render Right Document (Sales Tax Permit)
+    const stpDocRecord = stpDoc?.documentId ? documentStore.getDocumentBuffer(stpDoc.documentId) : null;
+    if (stpDocRecord && stpDocRecord.buffer) {
+      if (isDocPdf(stpDocRecord)) {
+        page2.drawText('ATTACHED AS PDF DOCUMENT', {
+          x: rightColX + 24,
+          y: imgAreaBottomY + imgAreaHeight / 2 + 10,
+          size: 9,
+          font: fontBold,
+          color: COLOR_BRAND_ORANGE,
+        });
+        page2.drawText('Sales tax permit was provided as a PDF document.', {
+          x: rightColX + 24,
+          y: imgAreaBottomY + imgAreaHeight / 2 - 6,
+          size: 7.5,
+          font: fontRegular,
+          color: COLOR_TEXT_DARK,
+        });
+        page2.drawText('Rendered in full on subsequent page.', {
+          x: rightColX + 24,
+          y: imgAreaBottomY + imgAreaHeight / 2 - 18,
+          size: 7,
+          font: fontRegular,
+          color: COLOR_TEXT_MUTED,
+        });
+      } else {
+        try {
+          const pngBuffer = await sharp(stpDocRecord.buffer).rotate().png().toBuffer();
+          const embeddedImg = await pdfDoc.embedPng(pngBuffer);
+          const maxW = colWidth - 16;
+          const maxH = imgAreaHeight - 16;
+          const scale = Math.min(maxW / embeddedImg.width, maxH / embeddedImg.height, 1.0);
+          const drawW = embeddedImg.width * scale;
+          const drawH = embeddedImg.height * scale;
+          const drawX = rightColX + (colWidth - drawW) / 2;
+          const drawY = imgAreaBottomY + (imgAreaHeight - drawH) / 2;
+
+          page2.drawImage(embeddedImg, {
+            x: drawX,
+            y: drawY,
+            width: drawW,
+            height: drawH,
+          });
+        } catch (imgErr: any) {
+          console.warn(`[ApplicationPdfService] Could not embed STP image:`, imgErr.message);
+        }
+      }
+    } else {
+      page2.drawText('NO DOCUMENT SUBMITTED', {
+        x: rightColX + 40,
+        y: imgAreaBottomY + imgAreaHeight / 2,
+        size: 8,
+        font: fontBold,
+        color: COLOR_TEXT_MUTED,
+      });
+    }
+
+    // ── 10. SUBSEQUENT PAGES: MERGE ALL PDF DOCUMENTS & OTHER UPLOADS ─────────
+    // Preserve ALL uploaded documents securely without silently discarding any
+    for (const doc of docs) {
+      const docId = doc.documentId;
+      if (!docId) continue;
+
+      const docRecord = documentStore.getDocumentBuffer(docId);
+      if (!docRecord || !docRecord.buffer) continue;
+
+      const docTypeUpper = (doc.documentType || (doc as any).type || 'DOCUMENT')
+        .replace(/_/g, ' ')
+        .toUpperCase();
+
+      if (isDocPdf(docRecord)) {
+        // Full PDF Document Import
+        try {
+          const externalPdf = await PDFDocument.load(docRecord.buffer);
+          const externalPages = await pdfDoc.copyPages(externalPdf, externalPdf.getPageIndices());
+
+          for (let idx = 0; idx < externalPages.length; idx++) {
+            const copiedPage = externalPages[idx];
+            pdfDoc.addPage(copiedPage);
+
+            copiedPage.drawRectangle({
+              x: 0,
+              y: copiedPage.getHeight() - 24,
+              width: copiedPage.getWidth(),
+              height: 24,
+              color: COLOR_DARK_HEADER,
+            });
+
+            copiedPage.drawText(
+              sanitizeText(`ATTACHED DOCUMENT: ${docTypeUpper} - ${doc.filename} (Page ${idx + 1}/${externalPages.length})`),
+              {
+                x: 20,
+                y: copiedPage.getHeight() - 16,
+                size: 8,
+                font: fontBold,
+                color: COLOR_BRAND_ORANGE,
+              }
+            );
           }
-        } else {
-          // Image file (JPG, PNG, WebP, etc.)
+        } catch (pdfMergeErr: any) {
+          console.warn(`[ApplicationPdfService] Could not embed external PDF ${doc.filename}:`, pdfMergeErr.message);
+        }
+      } else {
+        // If image is neither DL nor STP (e.g. business license), or if customer uploaded extra images
+        const isAlreadyOnPage2 = doc === dlDoc || doc === stpDoc;
+        if (!isAlreadyOnPage2) {
           try {
-            // Normalize image to PNG via sharp to ensure clean RGB color space and lossless quality
-            const pngBuffer = await sharp(docRecord.buffer)
-              .rotate() // Auto-orient according to EXIF
-              .png()
-              .toBuffer();
-
+            const pngBuffer = await sharp(docRecord.buffer).rotate().png().toBuffer();
             const embeddedImg = await pdfDoc.embedPng(pngBuffer);
-            const imgPage = pdfDoc.addPage([PAGE_WIDTH, PAGE_HEIGHT]);
+            const extraPage = pdfDoc.addPage([PAGE_WIDTH, PAGE_HEIGHT]);
 
-            // Top Header Box for Document
             const topBoxY = PAGE_HEIGHT - MARGIN_TOP;
-
-            imgPage.drawRectangle({
+            extraPage.drawRectangle({
               x: MARGIN_LEFT,
               y: topBoxY + 12,
               width: CONTENT_WIDTH,
@@ -497,7 +827,7 @@ export class ApplicationPdfService {
               color: COLOR_BRAND_ORANGE,
             });
 
-            imgPage.drawRectangle({
+            extraPage.drawRectangle({
               x: MARGIN_LEFT,
               y: topBoxY - 40,
               width: CONTENT_WIDTH,
@@ -507,7 +837,7 @@ export class ApplicationPdfService {
               borderWidth: 1,
             });
 
-            imgPage.drawText(sanitizeText(`ATTACHED DOCUMENT: ${docTypeUpper}`), {
+            extraPage.drawText(sanitizeText(`ATTACHED DOCUMENT: ${docTypeUpper}`), {
               x: MARGIN_LEFT + 14,
               y: topBoxY - 14,
               size: 11,
@@ -515,7 +845,7 @@ export class ApplicationPdfService {
               color: COLOR_BRAND_ORANGE,
             });
 
-            imgPage.drawText(sanitizeText(`File: ${doc.filename}  |  Reference ID: ${docId}`), {
+            extraPage.drawText(sanitizeText(`File: ${doc.filename}  |  Reference ID: ${docId}`), {
               x: MARGIN_LEFT + 14,
               y: topBoxY - 28,
               size: 8,
@@ -523,29 +853,22 @@ export class ApplicationPdfService {
               color: COLOR_TEXT_MUTED,
             });
 
-            // Available bounding area for image
             const areaWidth = CONTENT_WIDTH;
-            const areaHeight = topBoxY - 50 - (MARGIN_BOTTOM + 20); // Height available between header and footer
-
-            const imgW = embeddedImg.width;
-            const imgH = embeddedImg.height;
-
-            const scale = Math.min(areaWidth / imgW, areaHeight / imgH, 1.0);
-            const drawW = imgW * scale;
-            const drawH = imgH * scale;
-
-            // Center image within the bounding zone
+            const areaHeight = topBoxY - 50 - (MARGIN_BOTTOM + 20);
+            const scale = Math.min(areaWidth / embeddedImg.width, areaHeight / embeddedImg.height, 1.0);
+            const drawW = embeddedImg.width * scale;
+            const drawH = embeddedImg.height * scale;
             const drawX = MARGIN_LEFT + (areaWidth - drawW) / 2;
             const drawY = MARGIN_BOTTOM + 20 + (areaHeight - drawH) / 2;
 
-            imgPage.drawImage(embeddedImg, {
+            extraPage.drawImage(embeddedImg, {
               x: drawX,
               y: drawY,
               width: drawW,
               height: drawH,
             });
           } catch (imgErr: any) {
-            console.warn(`[ApplicationPdfService] Could not embed image ${doc.filename}:`, imgErr.message);
+            console.warn(`[ApplicationPdfService] Could not embed extra image ${doc.filename}:`, imgErr.message);
           }
         }
       }

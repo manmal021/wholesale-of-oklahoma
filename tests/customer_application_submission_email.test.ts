@@ -211,8 +211,8 @@ test('Customer Application Submission Flow: Complete End-to-End Audit & Verifica
   assert.ok(adminNotification, 'Email must be dispatched to order2wholesaleofoklahoma@gmail.com');
   assert.equal(
     adminNotification.subject,
-    'New Wholesale Application — Sooner Wholesale Distributors LLC — Caleb Montgomery',
-    'Subject must follow: New Wholesale Application — [Business Name] — [Applicant Name]'
+    `New Customer Application - Sooner Wholesale Distributors LLC - ${applicationId}`,
+    'Subject must follow: New Customer Application - [Business Name] - [Application ID]'
   );
 
   // Email Content Verification: clean summary of all submitted fields

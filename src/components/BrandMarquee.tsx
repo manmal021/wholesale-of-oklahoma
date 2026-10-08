@@ -35,7 +35,7 @@ const ROW_2: MarqueeItem[] = [
   { src: '/products/coastal-clouds-60ml.png',     alt: 'Coastal Clouds 60ml e-liquid wholesale',     label: 'Coastal Clouds' },
 ];
 
-function MarqueeCard({ item }: { item: MarqueeItem }) {
+function MarqueeCard({ item }: { item: MarqueeItem; key?: string }) {
   return (
     <div className="brand-marquee-card">
       <div className="brand-marquee-img-wrap">

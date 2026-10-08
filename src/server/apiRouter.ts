@@ -246,6 +246,12 @@ function validateAdminKey(req: Request): boolean {
 }
 
 function requireAdminAuth(req: Request, res: Response, next: () => void) {
+  // Prevent browser & CDN caching of sensitive admin data (Task 10)
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
+  res.setHeader('X-Robots-Tag', 'noindex, nofollow, noarchive');
+
   if (validateAdminKey(req)) {
     return next();
   }
@@ -264,6 +270,10 @@ function requireAdminAuth(req: Request, res: Response, next: () => void) {
 }
 
 function requireCustomerAuth(req: Request, res: Response, next: () => void) {
+  res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
+
   const session = getSessionUser(req);
   if (!session) {
     return err(res, 401, 'Unauthorized: Customer authentication required');
@@ -749,41 +759,15 @@ apiApp.get(['/inventory/meta', '/api/inventory/meta'], async (_req, res) => {
 
 /**
  * GET /api/inventory/admin/status
+ * Synchronized inventory and Zoho connection health for authenticated administrators.
  */
-apiApp.get(['/inventory/admin/status', '/api/inventory/admin/status'], (_req, res) => {
+apiApp.get(['/inventory/admin/status', '/api/inventory/admin/status'], requireAdminAuth, (_req, res) => {
   return ok(res, {
     sync_status: inventoryStore.getSyncStatus(),
     settings: inventoryStore.getSettings(),
     zoho_token: getTokenStatus(),
     zoho_source: isZohoConfigured() ? 'zoho_live' : 'sandbox_catalog',
   });
-});
-
-/**
- * GET /api/inventory/admin/images
- * Returns audit records and verified image metadata for all catalog items.
- */
-apiApp.get(['/inventory/admin/images', '/api/inventory/admin/images'], (_req, res) => {
-  return ok(res, {
-    audits: productImageRegistry.getAllAudits(),
-    total: productImageRegistry.getAllAudits().length,
-  });
-});
-
-/**
- * POST /api/inventory/admin/images/review
- * Allows admin to review, approve, update URL, or remove image assignments.
- */
-apiApp.post(['/inventory/admin/images/review', '/api/inventory/admin/images/review'], requireAdminAuth, (req, res) => {
-  const { productId, action, imageUrl, notes } = req.body || {};
-  if (!productId || !action) {
-    return err(res, 400, 'Missing productId or action (APPROVE | REJECT | UPDATE_URL | REMOVE)');
-  }
-  const updated = productImageRegistry.reviewProductImage(productId, action, imageUrl, notes);
-  if (!updated) {
-    return err(res, 404, `Product ${productId} not found in image registry`);
-  }
-  return ok(res, { success: true, audit: updated });
 });
 
 /**
@@ -2059,11 +2043,16 @@ apiApp.post(['/wholesale/apply', '/api/wholesale/apply'], rateLimit(50, 15 * 60 
   try {
     const dispatchResult = await emailService.sendAdminNewApplicationNotification(newApp, generatedPdf);
     if (dispatchResult.success) {
-      databaseStore.updateApplicationEmailStatus(newApp.id, 'sent');
+      databaseStore.updateApplicationEmailStatus(newApp.id, 'sent', undefined, {
+        messageId: dispatchResult.messageId,
+        provider: dispatchResult.provider,
+      });
       console.log(`[API /wholesale/apply] 📧 Business application notification sent to ${ADMIN_EMAIL} for ${newApp.id}`);
     } else {
       const errReason = dispatchResult.error || 'Provider rejected notification dispatch';
-      databaseStore.updateApplicationEmailStatus(newApp.id, 'failed', errReason);
+      databaseStore.updateApplicationEmailStatus(newApp.id, 'failed', errReason, {
+        provider: dispatchResult.provider,
+      });
       console.warn(`[API /wholesale/apply] ⚠ Business notification email failed for ${newApp.id}: ${errReason}`);
     }
   } catch (emailErr: any) {
@@ -2076,13 +2065,12 @@ apiApp.post(['/wholesale/apply', '/api/wholesale/apply'], rateLimit(50, 15 * 60 
     console.warn(`[API /wholesale/apply] ⚠ Failed to send customer confirmation email: ${emailErr.message}`);
   });
 
+  // Minimum required information only (Task 10: Zero PII / document data leakage)
   return ok(res, {
     success: true,
     applicationId: newApp.id,
     id: newApp.id,
-    application: newApp,
     status: newApp.status,
-    emailStatus: newApp.emailStatus,
     message: 'Thank you. Your wholesale account application has been submitted and is currently under review. We will contact you after your application has been reviewed.',
   });
 });
@@ -2304,15 +2292,24 @@ apiApp.post(
       const emailResult = await emailService.sendAdminNewApplicationNotification(app, generated);
 
       if (emailResult.success) {
-        databaseStore.updateApplicationEmailStatus(app.id, 'sent');
+        databaseStore.updateApplicationEmailStatus(app.id, 'sent', undefined, {
+          messageId: emailResult.messageId,
+          provider: emailResult.provider,
+          incrementRetry: true,
+        });
         return ok(res, {
           success: true,
           emailStatus: 'sent',
+          messageId: emailResult.messageId,
+          provider: emailResult.provider,
           message: `Application notification email successfully sent to ${ADMIN_EMAIL}.`,
         });
       } else {
         const errReason = emailResult.error || 'Provider rejected notification dispatch';
-        databaseStore.updateApplicationEmailStatus(app.id, 'failed', errReason);
+        databaseStore.updateApplicationEmailStatus(app.id, 'failed', errReason, {
+          provider: emailResult.provider,
+          incrementRetry: true,
+        });
         return ok(res, {
           success: false,
           emailStatus: 'failed',
@@ -2320,7 +2317,7 @@ apiApp.post(
         });
       }
     } catch (e: any) {
-      databaseStore.updateApplicationEmailStatus(app.id, 'failed', e.message);
+      databaseStore.updateApplicationEmailStatus(app.id, 'failed', e.message, { incrementRetry: true });
       return err(res, 500, `Email resend error: ${e.message}`);
     }
   }
