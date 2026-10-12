@@ -205,20 +205,47 @@ app.get('*', (req, res) => {
   res.send(html);
 });
 
-// ── Email Provider Boot Check ────────────────────────────────────────────────
-// Log a clear error at startup if no email provider is configured so the issue
-// is immediately visible in Vercel function logs.
+// ── Startup Configuration Validation ────────────────────────────────────────
 {
+  // SESSION_SECRET validation: a weak or default session secret compromises all session security.
+  const sessionSecret = process.env.SESSION_SECRET;
+  if (!sessionSecret || sessionSecret.length < 32 || sessionSecret.includes('generate_a_strong')) {
+    if (Boolean(process.env.VERCEL || process.env.VERCEL_ENV)) {
+      console.error('\n' + '='.repeat(72));
+      console.error('⚠️  SESSION_SECRET IS MISSING OR WEAK — SECURITY RISK');
+      console.error('   Fix: Vercel Dashboard → Project → Settings → Environment Variables');
+      console.error('   Add: SESSION_SECRET = <64 random hex characters>');
+      console.error('   Generate: node -e "require(\'crypto\').randomBytes(64).toString(\'hex\')"');
+      console.error('='.repeat(72) + '\n');
+    } else if (process.env.NODE_ENV === 'production') {
+      console.warn('[Security] ⚠  SESSION_SECRET is not set or too weak. Generate a strong 64-char secret.');
+    }
+  }
+
+  // Email provider boot check
   const emailStatus = _emailServiceForBoot.getProviderStatus();
   if (!emailStatus.configured) {
     if (Boolean(process.env.VERCEL || process.env.VERCEL_ENV)) {
       console.error('\n' + '='.repeat(72));
       console.error('❌  EMAIL PROVIDER NOT CONFIGURED — APPLICATION EMAILS WILL NOT BE SENT');
       console.error('='.repeat(72));
-      console.error('   Fix: Go to Vercel Dashboard → Project → Settings → Environment Variables');
-      console.error('   Add : RESEND_API_KEY = re_xxxxxxxxxxxx');
-      console.error('   Get a free key at https://resend.com (3,000 emails/month free tier)');
-      console.error('   After adding the variable, redeploy for it to take effect.');
+      console.error('   Customer applications submitted through the website will NOT arrive');
+      console.error('   at order2wholesaleofoklahoma@gmail.com until one of the following is set:\n');
+      console.error('   OPTION A — Gmail App Password (Recommended — easiest for Gmail users):');
+      console.error('     1. Go to https://myaccount.google.com/apppasswords');
+      console.error('     2. Sign in to the Gmail account: order2wholesaleofoklahoma@gmail.com');
+      console.error('     3. Create an App Password (name: "Wholesale Site" or any label)');
+      console.error('     4. In Vercel → Project → Settings → Environment Variables, add:');
+      console.error('        GMAIL_USER = order2wholesaleofoklahoma@gmail.com');
+      console.error('        GMAIL_APP_PASSWORD = <the 16-character app password from step 3>');
+      console.error('   OPTION B — Resend (transactional email service — free 3,000 emails/month):');
+      console.error('     1. Sign up at https://resend.com');
+      console.error('     2. Verify the domain wholesaleofoklahoma.com (add DNS TXT record)');
+      console.error('     3. Create an API key → copy it');
+      console.error('     4. In Vercel → Project → Settings → Environment Variables, add:');
+      console.error('        RESEND_API_KEY = re_xxxxxxxxxxxx');
+      console.error('     Optionally set: RESEND_FROM_EMAIL = Wholesale of Oklahoma <orders@wholesaleofoklahoma.com>');
+      console.error('\n   After adding the variable(s), redeploy for them to take effect.');
       console.error('='.repeat(72) + '\n');
     } else {
       console.warn('[Email] ⚠  No email provider configured. Application emails will be logged to storage/email_outbox.log only.');
