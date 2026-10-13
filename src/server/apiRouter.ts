@@ -293,6 +293,99 @@ function requireCustomerAuth(req: Request, res: Response, next: () => void) {
   return next();
 }
 
+/**
+ * Strict Catalog Authorization Middleware (Requirement 1 & OWASP A01)
+ * Restricts wholesale inventory, metadata, product queries, and orders to
+ * authenticated users with an APPROVED, ACTIVE customer account or administrator.
+ *
+ * Unauthenticated requests: HTTP 401
+ * Authenticated but pending, rejected, suspended, or unapproved: HTTP 403
+ */
+function requireCatalogAccess(req: Request, res: Response, next: () => void) {
+  res.setHeader('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  res.setHeader('Pragma', 'no-cache');
+  res.setHeader('Expires', '0');
+
+  // 1. Allow administrative master key bypass for automated testing / admin checks
+  if (validateAdminKey(req)) {
+    return next();
+  }
+
+  // 2. Validate session token
+  const session = getSessionUser(req);
+  if (!session) {
+    return res.status(401).json({
+      error: 'UNAUTHORIZED',
+      message: 'Authentication required. Please log in with your verified wholesale account to access the catalog.',
+    });
+  }
+
+  // 3. Admin accounts always have full catalog access
+  if (session.role === 'admin') {
+    (req as any).user = session;
+    return next();
+  }
+
+  // 4. Must be an approved customer
+  if (session.role !== 'approved_customer') {
+    return res.status(403).json({
+      error: 'CATALOG_ACCESS_FORBIDDEN',
+      message: 'Access to the wholesale catalog requires an approved retailer account.',
+      role: session.role,
+    });
+  }
+
+  // 5. Verify customer account status in database
+  const customer = session.userId ? databaseStore.getCustomer(session.userId) : databaseStore.getCustomerByEmail(session.email);
+  if (customer) {
+    if (customer.status === 'SUSPENDED') {
+      return res.status(403).json({
+        error: 'ACCOUNT_SUSPENDED',
+        message: 'Your wholesale account has been suspended. Please contact dispatch at (405) 768-2975.',
+      });
+    }
+    if (customer.status === 'REJECTED') {
+      return res.status(403).json({
+        error: 'ACCOUNT_REJECTED',
+        message: 'Your wholesale account application was not approved.',
+      });
+    }
+    if (customer.status !== 'APPROVED') {
+      return res.status(403).json({
+        error: 'ACCOUNT_NOT_APPROVED',
+        message: `Your account status is ${customer.status}. Wholesale catalog access requires an approved account.`,
+      });
+    }
+  }
+
+  // 6. Verify latest application status in database
+  const latestApp = databaseStore.getLatestApplicationForEmail(session.email);
+  if (latestApp) {
+    if (latestApp.status === 'SUSPENDED') {
+      return res.status(403).json({
+        error: 'ACCOUNT_SUSPENDED',
+        message: 'Your wholesale account has been suspended. Please contact dispatch at (405) 768-2975.',
+      });
+    }
+    if (latestApp.status === 'REJECTED' && (!customer || customer.status !== 'APPROVED')) {
+      return res.status(403).json({
+        error: 'ACCOUNT_REJECTED',
+        message: 'Your wholesale account application was not approved.',
+      });
+    }
+    if (latestApp.status === 'PENDING' && (!customer || customer.status !== 'APPROVED')) {
+      return res.status(403).json({
+        error: 'ACCOUNT_PENDING',
+        message: 'Your wholesale account application is currently under review.',
+      });
+    }
+  }
+
+  (req as any).user = session;
+  return next();
+}
+
+
 // ---------------------------------------------------------------------------
 // Boot: start background token refresh if already configured
 // ---------------------------------------------------------------------------
@@ -616,15 +709,11 @@ apiApp.get(['/zoho/status', '/api/zoho/status'], async (_req, res) => {
  * Returns paginated, filtered inventory.
  * Source: Zoho live (if configured) → local catalog seed (if not).
  */
-apiApp.get(['/inventory', '/api/inventory'], async (req: Request, res: Response) => {
+apiApp.get(['/inventory', '/api/inventory'], requireCatalogAccess, async (req: Request, res: Response) => {
   try {
-    const hasPricingAccess = hasApprovedPricingAccess(req);
+    const hasPricingAccess = true;
     res.setHeader('Vary', 'Cookie, Authorization, Accept');
-    if (hasPricingAccess) {
-      res.setHeader('Cache-Control', 'private, no-cache, no-store, must-revalidate');
-    } else {
-      res.setHeader('Cache-Control', 'public, max-age=15, stale-while-revalidate=60');
-    }
+    res.setHeader('Cache-Control', 'private, no-cache, no-store, must-revalidate');
 
     if (isZohoConfigured()) {
       try {
@@ -735,9 +824,9 @@ apiApp.get(['/inventory', '/api/inventory'], async (req: Request, res: Response)
  * GET /api/inventory/meta
  * Returns distinct categories, brands, product types for filter bars.
  */
-apiApp.get(['/inventory/meta', '/api/inventory/meta'], async (_req, res) => {
+apiApp.get(['/inventory/meta', '/api/inventory/meta'], requireCatalogAccess, async (_req, res) => {
   try {
-    res.setHeader('Cache-Control', 'public, max-age=120');
+    res.setHeader('Cache-Control', 'private, no-cache, no-store, must-revalidate');
 
     if (isZohoConfigured()) {
       try {
@@ -887,15 +976,11 @@ apiApp.post(['/inventory/webhook', '/api/inventory/webhook'], (req, res) => {
  * GET /api/inventory/:id
  * Returns a single item by Zoho item ID or SKU.
  */
-apiApp.get(['/inventory/:id', '/api/inventory/:id'], async (req: Request, res: Response) => {
+apiApp.get(['/inventory/:id', '/api/inventory/:id'], requireCatalogAccess, async (req: Request, res: Response) => {
   const id = req.params.id;
-  const hasPricingAccess = hasApprovedPricingAccess(req);
+  const hasPricingAccess = true;
   res.setHeader('Vary', 'Cookie, Authorization, Accept');
-  if (hasPricingAccess) {
-    res.setHeader('Cache-Control', 'private, no-cache, no-store, must-revalidate');
-  } else {
-    res.setHeader('Cache-Control', 'public, max-age=15, stale-while-revalidate=60');
-  }
+  res.setHeader('Cache-Control', 'private, no-cache, no-store, must-revalidate');
   try {
     if (isZohoConfigured()) {
       try {
@@ -918,7 +1003,7 @@ apiApp.get(['/inventory/:id', '/api/inventory/:id'], async (req: Request, res: R
  * Submits a wholesale order request into Zoho Inventory and databaseStore.
  * Supports PICKUP and DELIVERY with server-side rate and fee verification (Rule 16, 17 / OWASP A06).
  */
-apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60 * 1000), async (req: Request, res: Response) => {
+apiApp.post(['/inventory/orders', '/api/inventory/orders'], requireCatalogAccess, rateLimit(25, 5 * 60 * 1000), async (req: Request, res: Response) => {
   const session = getSessionUser(req);
   const effectiveEmail = String(req.body?.email || session?.email || '').toLowerCase().trim();
 
@@ -1402,7 +1487,18 @@ apiApp.post(['/auth/logout', '/api/auth/logout'], (req: Request, res: Response) 
     authStore.revokeSession(session.token);
   }
 
+  // Also revoke candidate tokens passed in custom header or Bearer auth
+  const headerToken = req.headers['x-session-token'];
+  if (typeof headerToken === 'string' && headerToken.trim()) {
+    authStore.revokeSession(headerToken.trim());
+  }
+  const authHeader = req.headers.authorization;
+  if (typeof authHeader === 'string' && authHeader.toLowerCase().startsWith('bearer ')) {
+    authStore.revokeSession(authHeader.slice(7).trim());
+  }
+
   res.setHeader('Set-Cookie', 'woo_session=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0');
+  res.setHeader('Clear-Site-Data', '"cache", "storage"');
   return ok(res, { success: true, message: 'Logged out successfully.' });
 });
 
@@ -1417,11 +1513,35 @@ apiApp.get(['/auth/me', '/api/auth/me'], (req: Request, res: Response) => {
       authenticated: false,
       role: 'visitor',
       has_pricing_access: false,
+      has_catalog_access: false,
       user: null,
     });
   }
 
-  const hasAccess = session.role === 'approved_customer' || session.role === 'admin';
+  let isAccountActive = true;
+  let status = 'APPROVED';
+  if (session.role === 'approved_customer') {
+    const cust = databaseStore.getCustomerByEmail(session.email);
+    if (cust) {
+      status = cust.status;
+      if (cust.status !== 'APPROVED') {
+        isAccountActive = false;
+      }
+    }
+    const latestApp = databaseStore.getLatestApplicationForEmail(session.email);
+    if (latestApp && latestApp.status !== 'APPROVED' && (!cust || cust.status !== 'APPROVED')) {
+      isAccountActive = false;
+      status = latestApp.status;
+    }
+  } else if (session.role === 'pending_customer') {
+    isAccountActive = false;
+    status = 'PENDING';
+  } else if (session.role === 'visitor') {
+    isAccountActive = false;
+    status = 'VISITOR';
+  }
+
+  const hasCatalogAccess = session.role === 'admin' || (session.role === 'approved_customer' && isAccountActive);
 
   return ok(res, {
     authenticated: true,
@@ -1430,11 +1550,14 @@ apiApp.get(['/auth/me', '/api/auth/me'], (req: Request, res: Response) => {
       id: session.userId,
       email: session.email,
       role: session.role,
+      status,
       businessName: session.businessName,
       contactName: session.contactName,
-      has_pricing_access: hasAccess,
+      has_pricing_access: hasCatalogAccess,
+      has_catalog_access: hasCatalogAccess,
     },
-    has_pricing_access: hasAccess,
+    has_pricing_access: hasCatalogAccess,
+    has_catalog_access: hasCatalogAccess,
   });
 });
 

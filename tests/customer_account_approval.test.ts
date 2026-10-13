@@ -442,17 +442,11 @@ test('Pending Protection: Pending user cannot log in and receives 403 ACCOUNT_PE
   assert.ok(data.message.includes('currently under review'));
 });
 
-test('Pending Protection: Unauthenticated requests to /api/inventory strip all wholesale pricing', async () => {
+test('Catalog Access Control: Unauthenticated requests to /api/inventory return 401 Unauthorized', async () => {
   const res = await fetch(`${baseUrl}/api/inventory`);
-  assert.equal(res.status, 200);
+  assert.equal(res.status, 401);
   const data = await res.json();
-  assert.equal(data.has_pricing_access, false);
-
-  if (Array.isArray(data.items) && data.items.length > 0) {
-    const firstItem = data.items[0];
-    assert.equal(firstItem.rate, null, 'Wholesale rate must be stripped');
-    assert.equal(firstItem.has_pricing_access, false);
-  }
+  assert.equal(data.error, 'UNAUTHORIZED');
 });
 
 // ---------------------------------------------------------------------------
@@ -633,12 +627,13 @@ test('Account Suspension: Admin suspends account -> customer login blocked & ses
   const loginData = await loginRes.json();
   assert.equal(loginData.error, 'ACCOUNT_SUSPENDED');
 
-  // Customer previous session token is rejected server-side
+  // Customer previous session token is rejected server-side with 403 Forbidden
   const inventoryRes = await fetch(`${baseUrl}/api/inventory`, {
     headers: { Authorization: `Bearer ${customerToken}` },
   });
+  assert.equal(inventoryRes.status, 403, 'Suspended customer receives 403 catalog forbidden');
   const inventoryData = await inventoryRes.json();
-  assert.equal(inventoryData.has_pricing_access, false, 'Suspended customer loses pricing access immediately');
+  assert.ok(['FORBIDDEN', 'CATALOG_ACCESS_FORBIDDEN', 'ACCOUNT_SUSPENDED'].includes(inventoryData.error));
 
   // Admin reactivates account
   const reactivateRes = await fetch(`${baseUrl}/api/admin/customers/${cust.id}/reactivate`, {
@@ -838,8 +833,10 @@ test('Product Availability: Admin can toggle Available, Low Stock, Temporarily U
   });
   assert.equal(unavailRes.status, 200);
 
-  // Check storefront query reflects out of stock online
-  const storeRes1 = await fetch(`${baseUrl}/api/inventory/${testProdId}`);
+  // Check storefront query reflects out of stock online (admin authenticated)
+  const storeRes1 = await fetch(`${baseUrl}/api/inventory/${testProdId}`, {
+    headers: { Authorization: `Bearer ${adminToken}` },
+  });
   assert.equal(storeRes1.status, 200);
   const item1 = await storeRes1.json();
   assert.equal(item1.is_temporarily_blocked, true);
@@ -856,7 +853,9 @@ test('Product Availability: Admin can toggle Available, Low Stock, Temporarily U
   });
   assert.equal(lowRes.status, 200);
 
-  const storeRes2 = await fetch(`${baseUrl}/api/inventory/${testProdId}`);
+  const storeRes2 = await fetch(`${baseUrl}/api/inventory/${testProdId}`, {
+    headers: { Authorization: `Bearer ${adminToken}` },
+  });
   assert.equal(storeRes2.status, 200);
   const item2 = await storeRes2.json();
   assert.equal(item2.stock_status, 'low_stock');
@@ -872,7 +871,9 @@ test('Product Availability: Admin can toggle Available, Low Stock, Temporarily U
   });
   assert.equal(availRes.status, 200);
 
-  const storeRes3 = await fetch(`${baseUrl}/api/inventory/${testProdId}`);
+  const storeRes3 = await fetch(`${baseUrl}/api/inventory/${testProdId}`, {
+    headers: { Authorization: `Bearer ${adminToken}` },
+  });
   assert.equal(storeRes3.status, 200);
   const item3 = await storeRes3.json();
   assert.equal(item3.is_temporarily_blocked, false);

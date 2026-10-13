@@ -18,6 +18,7 @@ import {
   Clock,
   Layers,
   ExternalLink,
+  Lock,
 } from 'lucide-react';
 import BoomerangVideoBg from './components/BoomerangVideoBg';
 import ReviewSlider from './components/ReviewSlider';
@@ -31,6 +32,7 @@ import WholesaleApplicationModal from './components/WholesaleApplicationModal';
 import AgeGateModal from './components/AgeGateModal';
 import LoginModal from './components/LoginModal';
 import BrandDirectoryShowcase from './components/BrandDirectoryShowcase';
+import { CatalogAccessRequired } from './components/CatalogAccessRequired';
 import WhyChooseUs from './components/WhyChooseUs';
 import OKCServiceMap from './components/OKCServiceMap';
 import { getDraftOrder } from './lib/mangoAI';
@@ -240,18 +242,27 @@ export default function App() {
   const [isWholesaleModalOpen, setIsWholesaleModalOpen] = useState(false);
   const [isLoginModalOpen, setIsLoginModalOpen] = useState(false);
   const [currentUser, setCurrentUser] = useState<CurrentUser | null>(null);
+  const [authChecked, setAuthChecked] = useState(false);
   const [cartUnits, setCartUnits] = useState(0);
   const [scrolled, setScrolled] = useState(false);
   const [activeBrandFilter, setActiveBrandFilter] = useState<string>('All');
 
+  const canAccessCatalog = Boolean(
+    currentUser &&
+    (currentUser.role === 'approved_customer' || currentUser.role === 'admin') &&
+    currentUser.has_pricing_access
+  );
+
   const handleBrandClick = (brandName: string) => {
+    if (!canAccessCatalog) {
+      setIsLoginModalOpen(true);
+      return;
+    }
     setActiveBrandFilter(brandName);
     window.dispatchEvent(new CustomEvent('woo-select-brand', { detail: brandName }));
-    const inventorySection = document.getElementById('inventory');
+    const inventorySection = document.getElementById('catalog');
     if (inventorySection) {
       inventorySection.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      setIsLoginModalOpen(true);
     }
   };
 
@@ -281,12 +292,15 @@ export default function App() {
         const data = await res.json();
         if (data.authenticated && data.user) {
           setCurrentUser(data.user);
+          setAuthChecked(true);
           return;
         }
       }
       setCurrentUser(null);
     } catch {
       setCurrentUser(null);
+    } finally {
+      setAuthChecked(true);
     }
   }, []);
 
@@ -387,11 +401,54 @@ export default function App() {
     window.location.reload();
   };
 
+  if (['/catalog', '/products', '/inventory', '/shop', '/wholesale-catalog'].includes(pathname)) {
+    if (!authChecked) {
+      return (
+        <div className="min-h-screen bg-[#F8FAFC] dark:bg-[#0A0E17] flex flex-col items-center justify-center text-slate-500">
+          <div className="w-10 h-10 border-4 border-[#FF6B00] border-t-transparent rounded-full animate-spin mb-3" />
+          <p className="text-xs font-bold uppercase tracking-wider text-slate-600 dark:text-slate-400">Verifying Wholesale Authorization...</p>
+        </div>
+      );
+    }
+    if (!canAccessCatalog) {
+      return (
+        <>
+          <CatalogAccessRequired
+            currentUser={currentUser}
+            onOpenLogin={() => setIsLoginModalOpen(true)}
+            onOpenApplication={() => setIsWholesaleModalOpen(true)}
+          />
+          <LoginModal
+            isOpen={isLoginModalOpen}
+            onClose={() => setIsLoginModalOpen(false)}
+            onOpenApplication={() => {
+              setIsLoginModalOpen(false);
+              setIsWholesaleModalOpen(true);
+            }}
+            onLoginSuccess={() => fetchCurrentUser()}
+          />
+          <WholesaleApplicationModal
+            isOpen={isWholesaleModalOpen}
+            onClose={() => setIsWholesaleModalOpen(false)}
+            onOpenLogin={() => {
+              setIsWholesaleModalOpen(false);
+              setIsLoginModalOpen(true);
+            }}
+          />
+        </>
+      );
+    }
+  }
+
   const navLinks = [
     { href: '#overview', label: 'Overview' },
+    ...(canAccessCatalog
+      ? [
+          { href: '#catalog', label: 'Catalog (900+)' },
+          { href: '#categories', label: 'Categories' },
+        ]
+      : []),
     { href: '#brands', label: 'Brands' },
-    { href: '#categories', label: 'Categories' },
-    { href: currentUser ? '#inventory' : '#retailer-gateway', label: currentUser ? 'Products (900+)' : 'Retailer Portal' },
     { href: '#why-us', label: 'Why Us' },
     { href: '#reviews', label: 'Reviews' },
     { href: '#gallery', label: 'Gallery' },
@@ -1018,69 +1075,79 @@ export default function App() {
         {/* Brand Marquee — infinite scrolling product image carousel */}
         <BrandMarquee />
 
-        {/* 3. Product Spotlight — Sticky scroll layout */}
-        <div className="relative">
-          <ProductSpotlight onSelectBrand={handleBrandClick} />
-        </div>
+        {/* 3. Product Spotlight — Sticky scroll layout (Approved Retailers Only) */}
+        {canAccessCatalog && (
+          <div className="relative">
+            <ProductSpotlight onSelectBrand={handleBrandClick} />
+          </div>
+        )}
 
-        {/* 4. Streamlined Catalog with Left-Side Category Navigation */}
-        <div id="catalog" className="relative">
-          {currentUser ? (
+        {/* 4. Streamlined Catalog with Left-Side Category Navigation (Approved Retailers Only) */}
+        {canAccessCatalog ? (
+          <div id="catalog" className="relative">
             <div className="bg-gradient-to-r from-[#FF6B00]/10 via-orange-50/50 to-orange-50/20 border-y border-orange-200 py-3 px-4 shadow-xs">
               <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 px-4">
                 <div className="flex items-center gap-2.5">
                   <span className="bg-[#FF6B00] text-white text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full shadow-xs">
                     Verified B2B Retailer
                   </span>
-                  <span className="text-sm font-bold text-slate-900">
-                    {currentUser.businessName || currentUser.contactName || currentUser.email}
+                  <span className="text-sm font-bold text-slate-900 dark:text-white">
+                    {currentUser?.businessName || currentUser?.contactName || currentUser?.email}
                   </span>
-                  <span className="hidden md:inline text-xs text-slate-500">
+                  <span className="hidden md:inline text-xs text-slate-500 dark:text-slate-400">
                     · Live Wholesale Tier Pricing & Case Stock Active
                   </span>
                 </div>
                 <div className="flex items-center gap-2 text-xs">
-                  <span className="text-emerald-700 font-semibold flex items-center gap-1 bg-emerald-50 border border-emerald-200 px-3 py-1 rounded-full">
+                  <span className="text-emerald-700 dark:text-emerald-400 font-semibold flex items-center gap-1 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/60 px-3 py-1 rounded-full">
                     <CheckCircle2 className="w-3.5 h-3.5" />
                     900+ Zoho SKUs Connected
                   </span>
                 </div>
               </div>
             </div>
-          ) : (
-            <div className="bg-slate-50/80 border-y border-slate-200 py-2.5 px-4 text-xs">
-              <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
-                <span className="text-slate-600 font-medium">
-                  🔒 <strong className="text-slate-900">Oklahoma Wholesale Network:</strong> Browse the catalog freely. Login or apply for a retailer account to unlock tier case pricing.
-                </span>
-                <div className="flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={() => setIsLoginModalOpen(true)}
-                    className="text-[#FF6B00] font-bold hover:underline cursor-pointer"
-                  >
-                    Retailer Login →
-                  </button>
-                  <span className="text-slate-300">|</span>
-                  <button
-                    type="button"
-                    onClick={() => setIsWholesaleModalOpen(true)}
-                    className="text-slate-600 hover:text-slate-900 font-semibold cursor-pointer"
-                  >
-                    Apply for Account
-                  </button>
-                </div>
+
+            <InventorySection 
+              initialBrand={activeBrandFilter} 
+              currentUser={currentUser}
+              onOpenLogin={() => setIsLoginModalOpen(true)}
+              onOpenApplication={() => setIsWholesaleModalOpen(true)}
+            />
+          </div>
+        ) : (
+          <div id="retailer-gateway" className="relative py-14 px-4 bg-gradient-to-b from-slate-50 to-orange-50/30 dark:from-[#0B0F17] dark:to-[#111827] border-y border-slate-200 dark:border-slate-800">
+            <div className="max-w-4xl mx-auto text-center space-y-4">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-black uppercase tracking-wider bg-orange-100 dark:bg-orange-950/60 text-[#FF6B00] border border-orange-200 dark:border-orange-800/80">
+                <Lock className="w-3.5 h-3.5" />
+                <span>Restricted B2B Distribution</span>
+              </div>
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 dark:text-white tracking-tight">
+                Wholesale Catalog Access Restricted
+              </h2>
+              <p className="text-sm sm:text-base text-slate-600 dark:text-slate-300 max-w-xl mx-auto leading-relaxed">
+                Live master inventory, 900+ Zoho SKUs, and case tier pricing are exclusively accessible to approved, licensed Oklahoma retail partners.
+              </p>
+              <div className="pt-2 flex flex-wrap items-center justify-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => setIsLoginModalOpen(true)}
+                  className="bg-[#FF6B00] hover:bg-[#E85F00] text-white text-xs font-black px-6 py-3.5 rounded-full transition-all shadow-md flex items-center gap-2 cursor-pointer"
+                >
+                  <Lock className="w-4 h-4" />
+                  <span>Retailer Login</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setIsWholesaleModalOpen(true)}
+                  className="bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-800 dark:text-white border border-slate-300 dark:border-slate-700 text-xs font-bold px-6 py-3.5 rounded-full transition-all flex items-center gap-2 cursor-pointer shadow-xs"
+                >
+                  <UserCheck className="w-4 h-4 text-[#FF6B00]" />
+                  <span>Apply for Wholesale Account</span>
+                </button>
               </div>
             </div>
-          )}
-
-          <InventorySection 
-            initialBrand={activeBrandFilter} 
-            currentUser={currentUser}
-            onOpenLogin={() => setIsLoginModalOpen(true)}
-            onOpenApplication={() => setIsWholesaleModalOpen(true)}
-          />
-        </div>
+          </div>
+        )}
 
         {/* 5. Commercial Value / Why Wholesale of Oklahoma */}
         <div className="relative"><WhyChooseUs onOpenApplication={() => setIsWholesaleModalOpen(true)} /></div>
@@ -1092,6 +1159,7 @@ export default function App() {
         <div className="relative border-t border-slate-200">
           <BrandDirectoryShowcase
             isLoggedIn={Boolean(currentUser)}
+            hasCatalogAccess={canAccessCatalog}
             onBrandClick={handleBrandClick}
             onOpenLogin={() => setIsLoginModalOpen(true)}
             onOpenApplication={() => setIsWholesaleModalOpen(true)}
@@ -1472,7 +1540,11 @@ export default function App() {
       />
 
       {/* Mango AI Virtual Assistant — Wholesale of Oklahoma */}
-      <MangoChat />
+      <MangoChat
+        currentUser={currentUser}
+        onOpenLogin={() => setIsLoginModalOpen(true)}
+        onOpenApplication={() => setIsWholesaleModalOpen(true)}
+      />
 
       {/* Persistent Sticky Floating Dark/Light Theme Button with Color Combo Display */}
       <ThemeToggle variant="sticky-pill" />
