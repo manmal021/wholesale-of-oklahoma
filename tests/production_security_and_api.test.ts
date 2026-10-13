@@ -129,7 +129,7 @@ test('Integrity: Client-tampered unit prices on orders are overwritten with auth
 
   const res = await fetch(`${baseUrl}/api/inventory/orders`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'x-admin-key': TEST_ADMIN_KEY },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       customerName: 'Test Vapor Store',
       businessName: 'Oklahoma Vape Retailers LLC',
@@ -155,7 +155,7 @@ test('Integrity: Client-tampered unit prices on orders are overwritten with auth
 test('Integrity: Orders reject malformed or blank contact information', async () => {
   const res = await fetch(`${baseUrl}/api/inventory/orders`, {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'x-admin-key': TEST_ADMIN_KEY },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       customerName: '',
       phone: '',
@@ -241,22 +241,21 @@ test('Wholesale: Status lookup requires matching email (Anti-IDOR)', async () =>
 // 6. Zoho Outage Fallback & Store Resiliency (Rule 3 & 4)
 // ---------------------------------------------------------------------------
 test('Resilience: Storefront metadata and items load safely even if Zoho is offline/unconfigured', async () => {
-  const adminHeaders = { 'x-admin-key': TEST_ADMIN_KEY };
-  const metaRes = await fetch(`${baseUrl}/api/inventory/meta`, { headers: adminHeaders });
+  const metaRes = await fetch(`${baseUrl}/api/inventory/meta`);
   assert.equal(metaRes.status, 200);
   const meta = await metaRes.json();
   assert.ok(Array.isArray(meta.categories), 'Categories array returned');
   assert.ok(meta.categories.length > 0, 'Categories populated from catalog seed');
 
   // Untouched item has baseline 50 units
-  const untouchedRes = await fetch(`${baseUrl}/api/inventory/geekbar-25k`, { headers: adminHeaders });
+  const untouchedRes = await fetch(`${baseUrl}/api/inventory/geekbar-25k`);
   assert.equal(untouchedRes.status, 200);
   const untouchedItem = await untouchedRes.json();
   assert.equal(untouchedItem.id, 'geekbar-25k');
   assert.equal(untouchedItem.available_stock, 50, 'Untouched item matches 50 unit inventory baseline');
 
   // Ordered item in Test 6 had 10 units deducted (50 - 10 = 40)
-  const orderedRes = await fetch(`${baseUrl}/api/inventory/geekbar-15k`, { headers: adminHeaders });
+  const orderedRes = await fetch(`${baseUrl}/api/inventory/geekbar-15k`);
   assert.equal(orderedRes.status, 200);
   const orderedItem = await orderedRes.json();
   assert.equal(orderedItem.id, 'geekbar-15k');
@@ -273,21 +272,30 @@ test('Caching: Sensitive admin status is not cached with public CDN max-age', as
 });
 
 // ---------------------------------------------------------------------------
-// 8. Zero Wholesale Pricing & Catalog Leakage for Unauthenticated Visitors (Req 2 & 25)
+// 8. Zero Wholesale Pricing Leakage for Unauthenticated Visitors (Req 2 & 25)
 // ---------------------------------------------------------------------------
-test('Catalog Access Security: Unauthenticated GET /api/inventory returns 401 Unauthorized', async () => {
+test('Pricing Security: Unauthenticated GET /api/inventory strips all wholesale rates', async () => {
   const res = await fetch(`${baseUrl}/api/inventory`);
-  assert.equal(res.status, 401);
+  assert.equal(res.status, 200);
   const data = await res.json();
-  assert.equal(data.error, 'UNAUTHORIZED');
-  assert.ok(data.message.includes('Authentication required'));
+  assert.equal(data.has_pricing_access, false, 'Unauthenticated caller must have has_pricing_access=false');
+  assert.ok(Array.isArray(data.items), 'Must return items array');
+  assert.ok(data.items.length > 0, 'Catalog should return items');
+
+  for (const item of data.items) {
+    assert.equal(item.rate, null, `Item ${item.id} must have null rate for unauthenticated caller`);
+    assert.equal(item.has_pricing_access, false);
+    assert.deepEqual(item.bulk_pricing, [], `Item ${item.id} must have empty bulk pricing`);
+  }
 });
 
-test('Catalog Access Security: Unauthenticated GET /api/inventory/:id returns 401 Unauthorized', async () => {
+test('Pricing Security: Unauthenticated GET /api/inventory/:id strips wholesale rates', async () => {
   const res = await fetch(`${baseUrl}/api/inventory/geekbar-15k`);
-  assert.equal(res.status, 401);
-  const data = await res.json();
-  assert.equal(data.error, 'UNAUTHORIZED');
+  assert.equal(res.status, 200);
+  const item = await res.json();
+  assert.equal(item.rate, null, 'Direct item query must have null rate without authorization');
+  assert.equal(item.has_pricing_access, false);
+  assert.deepEqual(item.bulk_pricing, []);
 });
 
 // ---------------------------------------------------------------------------

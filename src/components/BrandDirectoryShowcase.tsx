@@ -1,17 +1,17 @@
 import React, { useState } from 'react';
 import {
+  ShieldCheck,
   Award,
   ArrowRight,
   Lock,
   Package,
-  Sparkles,
-  CheckCircle2,
-  ShieldCheck,
-  UserCheck,
-  Flame,
-  Phone,
   Layers,
+  Sparkles,
+  Phone,
+  UserCheck,
+  CheckCircle2,
   ChevronRight,
+  Flame,
 } from 'lucide-react';
 
 interface BrandItem {
@@ -28,7 +28,6 @@ interface BrandItem {
     topModels: string[];
   };
   inStockCount: number;
-  glowColor?: string;
 }
 
 const BRAND_DIRECTORY: BrandItem[] = [
@@ -46,7 +45,6 @@ const BRAND_DIRECTORY: BrandItem[] = [
       topModels: ['Pulse 15k', 'Pulse X 25k', 'Pulse Ultra 60k', 'Digiflavor Sky'],
     },
     inStockCount: 132,
-    glowColor: 'rgba(255, 107, 0, 0.18)',
   },
   {
     name: 'VOZOL',
@@ -62,7 +60,6 @@ const BRAND_DIRECTORY: BrandItem[] = [
       topModels: ['Mega 50K Kit & Pod', 'Rave 50000', 'Vista 20000', 'Gear Power 20K'],
     },
     inStockCount: 80,
-    glowColor: 'rgba(59, 130, 246, 0.16)',
   },
   {
     name: 'Foger',
@@ -78,7 +75,6 @@ const BRAND_DIRECTORY: BrandItem[] = [
       topModels: ['Switch Pro 30K', 'Switch Pro Pods', 'CT10000', 'Ultra 6000'],
     },
     inStockCount: 75,
-    glowColor: 'rgba(16, 185, 129, 0.16)',
   },
   {
     name: 'RAZ',
@@ -94,7 +90,6 @@ const BRAND_DIRECTORY: BrandItem[] = [
       topModels: ['DC25000', 'TN9000 Dream', 'LTX 25K Heavy Duty', 'Vue 50K Modular'],
     },
     inStockCount: 85,
-    glowColor: 'rgba(217, 119, 6, 0.16)',
   },
   {
     name: 'Lost Mary',
@@ -110,7 +105,6 @@ const BRAND_DIRECTORY: BrandItem[] = [
       topModels: ['MT15000 Turbo', 'OS5000 Luster', 'MO20000 Pro', 'BM6000'],
     },
     inStockCount: 75,
-    glowColor: 'rgba(236, 72, 153, 0.15)',
   },
   {
     name: 'OXBAR',
@@ -122,11 +116,10 @@ const BRAND_DIRECTORY: BrandItem[] = [
     galleryImages: ['/products/oxbar-magic-maze.png'],
     specs: {
       capacity: '10,000 – 30,000 Puffs',
-      highlights: ['Official Pod Juice Flavors', 'Variable Wattage Control', 'Airflow Slider'],
+      highlights: ['Official Pod Juice Juice Flavors', 'Variable Wattage Control', 'Airflow Slider'],
       topModels: ['Magic Maze 2.0 30K', 'Magic Maze Pro 10K'],
     },
     inStockCount: 50,
-    glowColor: 'rgba(168, 85, 247, 0.16)',
   },
   {
     name: 'Vaporesso',
@@ -142,7 +135,6 @@ const BRAND_DIRECTORY: BrandItem[] = [
       topModels: ['XROS 4 Pod Kit', 'XROS Pro', 'Luxe XR Max 80W', 'COREX Pod 4pks'],
     },
     inStockCount: 22,
-    glowColor: 'rgba(14, 165, 233, 0.16)',
   },
   {
     name: 'SMOK',
@@ -158,7 +150,6 @@ const BRAND_DIRECTORY: BrandItem[] = [
       topModels: ['Novo 5 Kit', 'Nord 5 80W', 'RPM Mesh Coils', 'LP1 Coils'],
     },
     inStockCount: 30,
-    glowColor: 'rgba(239, 68, 68, 0.15)',
   },
   {
     name: 'Coastal Clouds & Naked 100',
@@ -174,7 +165,6 @@ const BRAND_DIRECTORY: BrandItem[] = [
       topModels: ['Blood Orange Mango', 'Hawaiian POG', 'Apple Peach Strawberry', 'Lava Flow'],
     },
     inStockCount: 95,
-    glowColor: 'rgba(6, 182, 212, 0.16)',
   },
   {
     name: 'OPMS & Pure Botanicals',
@@ -190,7 +180,6 @@ const BRAND_DIRECTORY: BrandItem[] = [
       topModels: ['OPMS Gold Liquid Shot', 'OPMS Black Shot', 'Gold Capsules', 'MIT45 Shots'],
     },
     inStockCount: 35,
-    glowColor: 'rgba(234, 179, 8, 0.18)',
   },
   {
     name: 'RAW & King Palm',
@@ -206,7 +195,6 @@ const BRAND_DIRECTORY: BrandItem[] = [
       topModels: ['RAW Classic King Size', 'RAW Black Cones 1-1/4', 'King Palm Slims', 'RAW 800ct Tubs'],
     },
     inStockCount: 45,
-    glowColor: 'rgba(180, 83, 9, 0.18)',
   },
   {
     name: 'Diamond Glass & Smoke Hardware',
@@ -222,7 +210,6 @@ const BRAND_DIRECTORY: BrandItem[] = [
       topModels: ['Heavy Beaker 12"', 'Matrix Recycler', 'Scorch Torches', 'Newport Zero 12pk'],
     },
     inStockCount: 35,
-    glowColor: 'rgba(99, 102, 241, 0.16)',
   },
 ];
 
@@ -236,241 +223,172 @@ const FILTER_CATEGORIES = [
 ];
 
 interface BrandDirectoryShowcaseProps {
-  isLoggedIn?: boolean;
-  hasCatalogAccess?: boolean;
+  isLoggedIn: boolean;
   onBrandClick: (brandName: string) => void;
   onOpenLogin: () => void;
   onOpenApplication: () => void;
 }
 
 export const BrandDirectoryShowcase: React.FC<BrandDirectoryShowcaseProps> = ({
-  isLoggedIn = false,
-  hasCatalogAccess,
+  isLoggedIn,
   onBrandClick,
   onOpenLogin,
   onOpenApplication,
 }) => {
-  const hasAccess = Boolean(hasCatalogAccess ?? isLoggedIn);
   const [selectedFilter, setSelectedFilter] = useState('All Brands');
-  const [hoveredBrand, setHoveredBrand] = useState<string | null>(null);
 
   const filteredBrands = selectedFilter === 'All Brands'
     ? BRAND_DIRECTORY
     : BRAND_DIRECTORY.filter((b) => b.category === selectedFilter);
 
   const handleBrandSelect = (brandName: string) => {
-    if (hasAccess) {
+    if (isLoggedIn) {
       onBrandClick(brandName);
     } else {
+      // Prompt retailer login to view the 900+ items and active pricing
       onOpenLogin();
     }
   };
 
   return (
-    <section
-      id="brands"
-      className="py-16 sm:py-24 relative overflow-hidden bg-gradient-to-b from-slate-50 via-white to-slate-100 dark:from-[#080C14] dark:via-[#0B0F19] dark:to-[#070A10] text-slate-900 dark:text-white transition-colors duration-300"
-    >
-      {/* ── Background Subtle Lighting Mesh ── */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div className="absolute -top-32 left-1/4 w-[600px] h-[400px] bg-gradient-to-br from-[#FF6B00]/10 via-[#FF6B00]/5 to-transparent blur-[120px] rounded-full" />
-        <div className="absolute -bottom-32 right-1/4 w-[600px] h-[400px] bg-gradient-to-tl from-orange-400/10 via-amber-500/5 to-transparent blur-[140px] rounded-full" />
-        <div className="absolute inset-0 bg-[radial-gradient(#CBD5E1_1px,transparent_1px)] dark:bg-[radial-gradient(#1E293B_1px,transparent_1px)] [background-size:24px_24px] opacity-35" />
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-12 sm:space-y-16">
+    <section id="brands" className="py-10 bg-[#F8FAFC] text-slate-900 relative overflow-hidden border-t border-slate-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-8">
         
-        {/* ── Section Header with Metallic Shimmer ── */}
-        <div className="text-center max-w-3xl mx-auto space-y-5">
-          {/* Shimmering Eyebrow Pill */}
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider bg-white/90 dark:bg-slate-900/90 text-[#FF6B00] border border-orange-200/80 dark:border-orange-500/30 shadow-sm backdrop-blur-md">
-            <Award className="w-3.5 h-3.5 text-[#FF6B00]" />
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto space-y-4">
+          <div className="inline-flex items-center gap-2 bg-white border border-slate-200 text-[#FF6B00] text-xs font-black uppercase tracking-wider px-4 py-1.5 rounded-full shadow-xs">
+            <Award className="w-4 h-4 text-[#FF6B00]" />
             <span>Oklahoma Wholesale Brand Directory</span>
           </div>
 
-          {/* Prominent Glossy Heading */}
-          <div className="relative inline-block">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight">
-              <span className="text-slate-900 dark:text-white">Official Wholesale </span>
-              <span className="bg-gradient-to-r from-[#FF6B00] via-[#FF8C33] to-[#FF5500] bg-clip-text text-transparent drop-shadow-xs">
-                Brand Directory
-              </span>
-            </h2>
-            {/* Shimmer light sweep line */}
-            <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-32 h-[3px] bg-gradient-to-r from-transparent via-[#FF6B00] to-transparent rounded-full shadow-sm shadow-orange-500/50" />
-          </div>
+          <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight">
+            Official Wholesale <span className="text-[#FF6B00]">Brand Directory</span>
+          </h2>
 
-          <p className="text-slate-600 dark:text-slate-300 text-sm sm:text-base leading-relaxed max-w-2xl mx-auto pt-2">
+          <p className="text-slate-600 text-sm leading-relaxed max-w-2xl mx-auto">
             Direct warehouse distribution for Oklahoma’s highest-velocity smoke and vape brands.
             Explore authentic manufacturer product lines with guaranteed batch verification and direct OKC warehouse dispatch.
           </p>
 
-          {/* ── Polished Floating Filter Tabs ── */}
-          <div className="pt-4 flex flex-wrap items-center justify-center gap-2 sm:gap-2.5">
-            {FILTER_CATEGORIES.map((cat) => {
-              const isActive = selectedFilter === cat;
-              return (
-                <button
-                  key={cat}
-                  type="button"
-                  onClick={() => setSelectedFilter(cat)}
-                  className={`px-4 sm:px-5 py-2 sm:py-2.5 rounded-full text-xs font-bold transition-all duration-200 cursor-pointer select-none flex items-center gap-1.5 ${
-                    isActive
-                      ? 'bg-gradient-to-r from-[#FF6B00] to-[#E85F00] text-white shadow-lg shadow-orange-500/25 scale-[1.03]'
-                      : 'bg-white/80 dark:bg-slate-900/80 hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200/90 dark:border-slate-800/90 backdrop-blur-md shadow-2xs hover:border-orange-300 dark:hover:border-orange-500/40'
-                  }`}
-                >
-                  <span>{cat}</span>
-                </button>
-              );
-            })}
+          {/* Category Filter Pills */}
+          <div className="pt-4 flex flex-wrap items-center justify-center gap-2">
+            {FILTER_CATEGORIES.map((cat) => (
+              <button
+                key={cat}
+                type="button"
+                onClick={() => setSelectedFilter(cat)}
+                className={`px-4 py-2 rounded-full text-xs font-bold transition-all cursor-pointer ${
+                  selectedFilter === cat
+                    ? 'bg-[#FF6B00] text-white shadow-md scale-105'
+                    : 'bg-white hover:bg-slate-50 text-slate-600 hover:text-slate-900 border border-slate-200'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
           </div>
         </div>
 
-        {/* ── Brand Showcase Grid (Cohesive Modern Glass Cards) ── */}
+        {/* Brand Grid Showcase */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {filteredBrands.map((brand) => {
-            const isHovered = hoveredBrand === brand.slug;
-
-            return (
-              <div
-                key={brand.slug}
-                onMouseEnter={() => setHoveredBrand(brand.slug)}
-                onMouseLeave={() => setHoveredBrand(null)}
-                className="group relative rounded-3xl transition-all duration-300 flex flex-col justify-between overflow-hidden cursor-default
-                  bg-white/90 dark:bg-[#0E1524]/90 
-                  border border-slate-200/80 dark:border-white/[0.08] 
-                  hover:border-[#FF6B00]/60 dark:hover:border-[#FF6B00]/70
-                  shadow-md hover:shadow-2xl hover:shadow-orange-500/10 
-                  backdrop-blur-xl hover:-translate-y-1.5"
-              >
-                {/* Ambient Radial Spotlight (per-brand color tone) */}
-                <div
-                  className="absolute -top-24 -right-24 w-64 h-64 rounded-full blur-[80px] pointer-events-none transition-opacity duration-500"
-                  style={{
-                    backgroundColor: brand.glowColor || 'rgba(255,107,0,0.15)',
-                    opacity: isHovered ? 1 : 0.45,
-                  }}
-                />
-
-                {/* Subtle top reflective rim highlight */}
-                <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/50 dark:via-white/20 to-transparent pointer-events-none" />
-
-                {/* ── CARD BODY (Unified, No Brick Slices) ── */}
-                <div className="p-6 sm:p-7 space-y-5 relative z-10 flex-1 flex flex-col justify-between">
-                  
-                  {/* Top Header Row */}
-                  <div className="space-y-2">
-                    <div className="flex items-center justify-between gap-2">
-                      <span className="text-[10px] font-bold tracking-wider uppercase text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800/80 px-2.5 py-1 rounded-full border border-slate-200/70 dark:border-slate-700/60">
-                        {brand.category}
-                      </span>
-                      {brand.badge && (
-                        <span className="text-[10px] font-black text-[#FF6B00] bg-orange-50 dark:bg-orange-950/40 border border-orange-200 dark:border-orange-800/60 px-2.5 py-0.5 rounded-full flex items-center gap-1 shadow-2xs">
-                          {brand.badge}
-                        </span>
-                      )}
-                    </div>
-
-                    <div>
-                      <h3 className="text-2xl font-black text-slate-900 dark:text-white tracking-tight group-hover:text-[#FF6B00] transition-colors duration-200">
-                        {brand.name}
-                      </h3>
-                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 line-clamp-2 leading-relaxed">
-                        {brand.tagline}
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* ── Seamless Product Hero Stage ── */}
-                  <div className="py-4 my-1 relative flex items-center justify-center min-h-[190px]">
-                    {/* Glowing radial backdrop circle */}
-                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                      <div className="w-40 h-40 rounded-full bg-gradient-to-b from-slate-100 to-slate-200/50 dark:from-slate-800/50 dark:to-slate-900/30 blur-sm scale-90 group-hover:scale-110 transition-transform duration-500" />
-                    </div>
-
-                    {/* Product Image Cluster (Protected for Approved Accounts) */}
-                    {hasAccess ? (
-                      <div className="relative z-10 flex items-center justify-center gap-3">
-                        {brand.galleryImages.map((imgSrc, idx) => (
-                          <div
-                            key={idx}
-                            className={`relative rounded-2xl bg-white/80 dark:bg-slate-800/60 border border-slate-200/60 dark:border-white/10 p-3 shadow-sm backdrop-blur-sm transition-all duration-300 ${
-                              idx === 0
-                                ? 'w-36 h-36 sm:w-40 sm:h-40 group-hover:scale-105 group-hover:shadow-lg'
-                                : 'w-20 h-20 hidden sm:flex opacity-75 group-hover:opacity-100'
-                            } flex items-center justify-center`}
-                          >
-                            <img
-                              src={imgSrc}
-                              alt={`${brand.name} product`}
-                              className="max-h-full max-w-full object-contain filter drop-shadow-md transition-transform duration-300 group-hover:scale-105"
-                              loading="lazy"
-                              onError={(e) => {
-                                (e.target as HTMLImageElement).src = '/products/geekbar-15k.png';
-                              }}
-                            />
-                          </div>
-                        ))}
-                      </div>
-                    ) : (
-                      <div className="relative z-10 flex flex-col items-center justify-center p-4 text-center space-y-2">
-                        <div className="w-14 h-14 rounded-2xl bg-slate-100/90 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 flex items-center justify-center text-[#FF6B00] shadow-inner">
-                          <Lock className="w-6 h-6 stroke-[2.2]" />
-                        </div>
-                        <span className="text-xs font-black text-slate-800 dark:text-slate-200 tracking-tight">
-                          Product Line Protected
-                        </span>
-                        <span className="text-[10px] font-semibold text-slate-500 dark:text-slate-400 max-w-[170px]">
-                          Approved Oklahoma retailers only. Log in to view models & live inventory.
-                        </span>
-                      </div>
-                    )}
-                  </div>
-
-                  {/* ── Integrated Metadata & Model Highlights ── */}
-                  <div className="space-y-3 pt-2">
-                    <div className="flex items-center justify-between text-xs">
-                      <span className="text-slate-400 dark:text-slate-500 font-bold uppercase tracking-wider text-[10px]">
-                        Top Models:
-                      </span>
-                      <span className="text-[#FF6B00] font-mono text-[11px] font-black">
-                        {brand.specs.capacity || `${brand.inStockCount}+ SKUs`}
-                      </span>
-                    </div>
-
-                    <div className="flex flex-wrap gap-1.5">
-                      {brand.specs.topModels.map((model, idx) => (
-                        <span
-                          key={idx}
-                          className="bg-slate-100/90 dark:bg-slate-800/60 text-slate-700 dark:text-slate-300 border border-slate-200/60 dark:border-slate-700/50 text-[11px] font-semibold px-2.5 py-1 rounded-lg transition-colors group-hover:border-orange-300/60 dark:group-hover:border-orange-500/30"
-                        >
-                          {model}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Advantage Bullets */}
-                    <div className="pt-2 grid grid-cols-2 gap-2 text-[11px] text-slate-500 dark:text-slate-400">
-                      {brand.specs.highlights.slice(0, 2).map((h, idx) => (
-                        <span key={idx} className="flex items-center gap-1.5 truncate">
-                          <CheckCircle2 className="w-3.5 h-3.5 text-[#FF6B00] shrink-0" />
-                          <span className="truncate">{h}</span>
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-
+          {filteredBrands.map((brand) => (
+            <div
+              key={brand.slug}
+              className="group bg-white rounded-3xl border border-slate-200 hover:border-[#FF6B00]/70 transition-all duration-300 shadow-sm hover:shadow-xl flex flex-col justify-between overflow-hidden"
+            >
+              {/* Card Header with Badges */}
+              <div className="p-6 pb-4 border-b border-slate-100 space-y-3">
+                <div className="flex items-center justify-between gap-2">
+                  <span className="text-[11px] font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
+                    {brand.category}
+                  </span>
+                  {brand.badge && (
+                    <span className="text-[10px] font-black text-[#FF6B00] bg-orange-50 border border-orange-200 px-2.5 py-0.5 rounded-full flex items-center gap-1">
+                      {brand.badge}
+                    </span>
+                  )}
                 </div>
 
-                {/* ── Glossy Action Footer Trigger ── */}
-                <div className="p-5 pt-0 relative z-10">
+                <div>
+                  <h3 className="text-2xl font-black text-slate-900 group-hover:text-[#FF6B00] transition-colors">
+                    {brand.name}
+                  </h3>
+                  <p className="text-xs text-slate-500 mt-1 line-clamp-2">
+                    {brand.tagline}
+                  </p>
+                </div>
+              </div>
+
+              {/* Product Visual Showcase Renders */}
+              <div className="px-6 py-6 bg-slate-50/60 flex items-center justify-center relative min-h-[220px]">
+                {/* Visual Glow */}
+                <div className="absolute inset-0 bg-radial from-[#FF6B00]/5 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                <div className="flex items-center justify-center gap-3 z-10">
+                  {brand.galleryImages.map((imgSrc, idx) => (
+                    <div
+                      key={idx}
+                      className={`relative rounded-2xl bg-white border border-slate-200 p-3 shadow-xs transition-transform duration-300 group-hover:scale-105 ${
+                        idx === 0 ? 'w-36 h-36 sm:w-40 sm:h-40' : 'w-24 h-24 hidden sm:flex'
+                      } flex items-center justify-center`}
+                    >
+                      <img
+                        src={imgSrc}
+                        alt={`${brand.name} product`}
+                        className="max-h-full max-w-full object-contain filter drop-shadow-sm"
+                        loading="lazy"
+                        onError={(e) => {
+                          // Fallback to geekbar-15k if not found
+                          (e.target as HTMLImageElement).src = '/products/geekbar-15k.png';
+                        }}
+                      />
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Model & Spec Highlights */}
+              <div className="p-6 pt-4 space-y-4">
+                <div className="space-y-2">
+                  <div className="flex items-center justify-between text-xs">
+                    <span className="text-slate-500 font-bold uppercase tracking-wider text-[10px]">
+                      Top Wholesale Models:
+                    </span>
+                    <span className="text-[#FF6B00] font-mono text-[11px] font-bold">
+                      {brand.specs.capacity || `${brand.inStockCount}+ SKUs`}
+                    </span>
+                  </div>
+
+                  <div className="flex flex-wrap gap-1.5">
+                    {brand.specs.topModels.map((model, idx) => (
+                      <span
+                        key={idx}
+                        className="bg-slate-100 text-slate-700 border border-slate-200 text-[11px] font-semibold px-2.5 py-1 rounded-lg"
+                      >
+                        {model}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Key Advantages */}
+                <div className="pt-2 border-t border-slate-100 grid grid-cols-2 gap-2 text-[11px] text-slate-500">
+                  {brand.specs.highlights.slice(0, 2).map((h, idx) => (
+                    <span key={idx} className="flex items-center gap-1.5 truncate">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-[#FF6B00] shrink-0" />
+                      <span className="truncate">{h}</span>
+                    </span>
+                  ))}
+                </div>
+
+                {/* Action Trigger */}
+                <div className="pt-3">
                   <button
                     type="button"
                     onClick={() => handleBrandSelect(brand.name)}
-                    className="w-full bg-slate-900 hover:bg-[#FF6B00] dark:bg-white/[0.07] dark:hover:bg-[#FF6B00] text-white text-xs font-extrabold py-3.5 px-4 rounded-2xl transition-all duration-300 flex items-center justify-center gap-2 shadow-sm hover:shadow-lg hover:shadow-orange-500/25 cursor-pointer group/btn active:scale-[0.98]"
+                    className="w-full bg-slate-100 hover:bg-[#FF6B00] text-slate-800 hover:text-white border border-slate-200 hover:border-[#FF6B00] text-xs font-bold py-3 px-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 shadow-xs cursor-pointer group/btn"
                   >
-                    {hasAccess ? (
+                    {isLoggedIn ? (
                       <>
                         <Package className="w-4 h-4 text-[#FF6B00] group-hover/btn:text-white transition-colors" />
                         <span>View {brand.name} Catalog & Pricing</span>
@@ -479,38 +397,36 @@ export const BrandDirectoryShowcase: React.FC<BrandDirectoryShowcaseProps> = ({
                     ) : (
                       <>
                         <Lock className="w-4 h-4 text-[#FF6B00] group-hover/btn:text-white transition-colors" />
-                        <span>Login to Access {brand.name}</span>
+                        <span>Login to View {brand.name} Products</span>
                         <ChevronRight className="w-3.5 h-3.5 group-hover/btn:translate-x-1 transition-transform" />
                       </>
                     )}
                   </button>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
 
-        {/* ── Polished Metallic B2B Retailer Gateway Card ── */}
-        <div className="relative rounded-3xl p-7 sm:p-10 overflow-hidden border border-orange-200 dark:border-orange-500/20 bg-gradient-to-br from-orange-500/10 via-white to-orange-500/5 dark:from-[#131C2E] dark:via-[#0E1524] dark:to-[#17130F] shadow-xl text-slate-900 dark:text-white mt-8">
-          {/* Subtle metallic diagonal sheen */}
-          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 dark:via-white/5 to-transparent pointer-events-none" />
+        {/* B2B Retailer Gateway Call-to-Action Card */}
+        <div className="bg-gradient-to-r from-orange-50/90 via-white to-orange-50/50 rounded-2xl p-6 sm:p-8 border border-orange-200 shadow-sm relative overflow-hidden text-slate-900 mt-4">
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
-            <div className="lg:col-span-8 space-y-4">
-              <div className="inline-flex items-center gap-2 bg-orange-100 dark:bg-orange-950/60 text-[#FF6B00] border border-orange-200 dark:border-orange-800/80 text-xs font-black uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-2xs">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center relative z-10">
+            <div className="lg:col-span-8 space-y-3">
+              <div className="inline-flex items-center gap-2 bg-orange-100 text-[#FF6B00] border border-orange-200 text-xs font-black uppercase tracking-wider px-3.5 py-1 rounded-full">
                 <Lock className="w-3.5 h-3.5" />
                 <span>Verified Retailer Gateway</span>
               </div>
 
-              <h3 className="text-2xl sm:text-3xl font-black tracking-tight">
-                Browse <span className="bg-gradient-to-r from-[#FF6B00] to-[#FF8C33] bg-clip-text text-transparent">900+ Products</span> With Live Tier Pricing
+              <h3 className="text-xl sm:text-2xl font-black text-slate-900">
+                Browse <span className="text-[#FF6B00]">900+ Products</span> With Live Pricing
               </h3>
 
-              <p className="text-slate-600 dark:text-slate-300 text-sm leading-relaxed max-w-2xl">
-                Log in to your authorized wholesale account to view live inventory levels, master case rates, and place orders directly.
+              <p className="text-slate-600 text-sm leading-relaxed max-w-2xl">
+                Log in to your wholesale account to view live inventory levels, master case rates, and place orders directly.
               </p>
 
-              <div className="flex flex-wrap gap-4 pt-1 text-xs font-bold text-slate-600 dark:text-slate-300">
+              <div className="flex flex-wrap gap-4 pt-2 text-xs font-semibold text-slate-600">
                 <span className="flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-[#FF6B00]" />
                   Oklahoma Licensed Wholesaler
@@ -527,29 +443,29 @@ export const BrandDirectoryShowcase: React.FC<BrandDirectoryShowcaseProps> = ({
             </div>
 
             <div className="lg:col-span-4 flex flex-col gap-3 justify-center">
-              {hasAccess ? (
+              {isLoggedIn ? (
                 <a
-                  href="#catalog"
-                  className="w-full bg-gradient-to-r from-[#FF6B00] to-[#E85F00] hover:from-[#E85F00] hover:to-[#D15200] text-white text-sm font-extrabold py-4 px-6 rounded-2xl transition-all shadow-lg shadow-orange-500/25 hover:scale-[1.02] active:scale-[0.98] text-center uppercase tracking-wider flex items-center justify-center gap-2"
+                  href="#inventory"
+                  className="w-full bg-[#FF6B00] hover:bg-[#E85F00] text-white text-sm font-extrabold py-4 px-6 rounded-2xl transition-all shadow-md hover:shadow-lg hover:scale-105 active:scale-95 text-center uppercase tracking-wider flex items-center justify-center gap-2"
                 >
                   <Package className="w-5 h-5" />
-                  <span>Browse 900+ Master SKUs</span>
+                  <span>Browse 900+ Inventory Items</span>
                 </a>
               ) : (
                 <>
                   <button
                     type="button"
                     onClick={onOpenLogin}
-                    className="w-full bg-gradient-to-r from-[#FF6B00] to-[#E85F00] hover:from-[#E85F00] hover:to-[#D15200] text-white text-sm font-extrabold py-4 px-6 rounded-2xl transition-all shadow-lg shadow-orange-500/25 hover:scale-[1.02] active:scale-[0.98] text-center uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer"
+                    className="w-full bg-[#FF6B00] hover:bg-[#E85F00] text-white text-sm font-extrabold py-4 px-6 rounded-2xl transition-all shadow-md hover:shadow-lg hover:scale-105 active:scale-95 text-center uppercase tracking-wider flex items-center justify-center gap-2 cursor-pointer"
                   >
-                    <Lock className="w-4 h-4" />
+                    <Lock className="w-5 h-5" />
                     <span>Customer Login</span>
                   </button>
 
                   <button
                     type="button"
                     onClick={onOpenApplication}
-                    className="w-full bg-white dark:bg-slate-800/90 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-800 dark:text-white border border-slate-300 dark:border-slate-700 text-sm font-bold py-3.5 px-6 rounded-2xl transition-all text-center flex items-center justify-center gap-2 cursor-pointer shadow-sm hover:border-[#FF6B00]"
+                    className="w-full bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 hover:border-[#FF6B00] text-sm font-bold py-3.5 px-6 rounded-2xl transition-all text-center flex items-center justify-center gap-2 cursor-pointer shadow-xs"
                   >
                     <UserCheck className="w-4 h-4 text-[#FF6B00]" />
                     <span>Apply for Wholesale Account</span>
@@ -557,7 +473,7 @@ export const BrandDirectoryShowcase: React.FC<BrandDirectoryShowcaseProps> = ({
 
                   <a
                     href="tel:4057682975"
-                    className="text-center text-xs text-slate-500 dark:text-slate-400 hover:text-[#FF6B00] transition-colors flex items-center justify-center gap-1.5 pt-1"
+                    className="text-center text-xs text-slate-500 hover:text-[#FF6B00] transition-colors flex items-center justify-center gap-1.5 pt-1"
                   >
                     <Phone className="w-3.5 h-3.5 text-[#FF6B00]" />
                     <span>Need immediate onboarding? (405) 768-2975</span>

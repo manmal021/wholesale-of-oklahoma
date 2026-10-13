@@ -20,8 +20,6 @@ import {
   AlertCircle,
   Loader2,
   ArrowRight,
-  Lock,
-  UserCheck,
 } from 'lucide-react';
 import './MangoChat.css';
 import {
@@ -35,7 +33,7 @@ import {
   type MangoToolResult,
   type DraftOrderItem,
 } from '../lib/mangoAI';
-import type { WholesaleProduct } from '../lib/productDatabase';
+import { PRODUCTS, type WholesaleProduct } from '../lib/productDatabase';
 
 // ─── Sub-components ────────────────────────────────────────────────────────
 
@@ -54,7 +52,156 @@ const TypingIndicator: React.FC = () => (
   </div>
 );
 
-// ─── Sub-components ────────────────────────────────────────────────────────
+// ─── Product Card ──────────────────────────────────────────────────────────
+
+interface ProductCardProps {
+  product: WholesaleProduct;
+  onAddToOrder: (product: WholesaleProduct, qty: number) => void;
+  compact?: boolean;
+}
+
+const ProductCard: React.FC<ProductCardProps> = ({ product, onAddToOrder, compact = false }) => {
+  const [qty, setQty] = useState(1);
+  const [added, setAdded] = useState(false);
+
+  return (
+    <div className={`mango-card bg-white rounded-2xl border border-neutral-100 shadow-sm overflow-hidden transition-all hover:border-[#F97316]/40 hover:shadow-md ${compact ? 'p-3' : 'p-4'}`}>
+      {/* Top badges bar */}
+      <div className="flex items-center justify-between gap-1 mb-2">
+        <div className="flex items-center gap-1.5 flex-wrap">
+          <span className="text-[10px] font-extrabold uppercase tracking-wider text-[#F97316]">{product.brand}</span>
+          {product.badge && (
+            <span className="bg-amber-100/90 border border-amber-200 text-amber-900 text-[9px] font-black px-2 py-0.5 rounded-full shadow-2xs">
+              {product.badge}
+            </span>
+          )}
+          {product.subcategory && (
+            <span className="bg-emerald-50 border border-emerald-200 text-emerald-800 text-[9px] font-semibold px-1.5 py-0.5 rounded">
+              {product.subcategory}
+            </span>
+          )}
+        </div>
+        <div className="text-right shrink-0">
+          <div className="text-[11px] font-extrabold text-[#F97316]">Call for Price</div>
+          <div className="text-[8.5px] uppercase tracking-wider text-neutral-400">Wholesale Quote</div>
+        </div>
+      </div>
+
+      {/* Title & specs */}
+      <div className="mb-1.5">
+        <h4 className="text-sm font-bold text-[#0f172A] leading-tight">{product.name}</h4>
+        <div className="flex flex-wrap items-center gap-1 mt-1">
+          {product.puffs && (
+            <span className="bg-[#0f172A] text-white text-[9px] font-bold px-1.5 py-0.5 rounded uppercase">
+              {product.puffs}
+            </span>
+          )}
+          {product.size && (
+            <span className="bg-[#F97316]/20 text-[#0f172A] text-[9px] font-bold px-1.5 py-0.5 rounded">
+              {product.size}
+            </span>
+          )}
+          {product.nicotine && (
+            <span className="bg-neutral-100 text-neutral-600 text-[9px] font-medium px-1.5 py-0.5 rounded">
+              {product.nicotine}
+            </span>
+          )}
+          {product.inStock ? (
+            <span className="inline-flex items-center gap-1 text-[9px] font-semibold text-emerald-600 ml-auto">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse inline-block" />
+              In Stock
+            </span>
+          ) : (
+            <span className="text-[9px] font-semibold text-rose-500 ml-auto">Out of Stock</span>
+          )}
+        </div>
+      </div>
+
+      <div className="text-[10px] text-neutral-400 mb-1.5">SKU: {product.sku}</div>
+
+      {!compact && product.flavours && product.flavours.length > 0 && (
+        <div className="flex flex-wrap gap-1 mb-2">
+          {product.flavours.slice(0, 4).map((f, i) => (
+            <span key={i} className="text-[9px] bg-neutral-50 border border-neutral-200 text-neutral-600 px-1.5 py-0.5 rounded-md">
+              {f}
+            </span>
+          ))}
+          {product.flavours.length > 4 && (
+            <span className="text-[9px] text-neutral-400">+{product.flavours.length - 4} more</span>
+          )}
+        </div>
+      )}
+
+      {/* Feature bullets */}
+      {!compact && product.features && product.features.length > 0 && (
+        <div className="text-[10px] text-neutral-500 mb-2.5 flex items-center gap-1.5 flex-wrap">
+          {product.features.slice(0, 2).map((feat, i) => (
+            <span key={i} className="inline-flex items-center gap-1 bg-neutral-50 px-1.5 py-0.5 rounded text-[9.5px]">
+              <Check className="w-2.5 h-2.5 text-[#F97316]" />
+              {feat}
+            </span>
+          ))}
+        </div>
+      )}
+
+      {product.inStock && (
+        <div className="flex items-center gap-2 mt-2 pt-2 border-t border-neutral-100">
+          {/* Quantity selector 1 to 20 */}
+          <div className="flex items-center gap-1 bg-neutral-50 border border-neutral-200 rounded-full px-1.5 py-0.5">
+            <button
+              type="button"
+              onClick={() => setQty((q) => Math.max(1, q - 1))}
+              disabled={qty <= 1}
+              className="w-5 h-5 rounded-full bg-white border border-neutral-200 text-[#0f172A] font-bold text-xs flex items-center justify-center hover:bg-neutral-100 disabled:opacity-40 transition-colors cursor-pointer"
+            >−</button>
+            <select
+              value={qty}
+              onChange={(e) => setQty(Number(e.target.value))}
+              aria-label="Select quantity"
+              className="bg-transparent text-xs font-semibold text-[#0f172A] border-0 outline-none cursor-pointer px-1 py-0.5"
+            >
+              {Array.from({ length: 20 }, (_, i) => i + 1).map((n) => (
+                <option key={n} value={n}>
+                  {n} {n === 1 ? 'unit' : 'units'}
+                </option>
+              ))}
+            </select>
+            <button
+              type="button"
+              onClick={() => setQty((q) => Math.min(20, q + 1))}
+              disabled={qty >= 20}
+              className="w-5 h-5 rounded-full bg-white border border-neutral-200 text-[#0f172A] font-bold text-xs flex items-center justify-center hover:bg-neutral-100 disabled:opacity-40 transition-colors cursor-pointer"
+            >+</button>
+          </div>
+
+          {/* Add to Cart button */}
+          <button
+            type="button"
+            onClick={() => {
+              onAddToOrder(product, qty);
+              setAdded(true);
+              setTimeout(() => setAdded(false), 2500);
+            }}
+            className={`flex-1 py-1.5 text-white text-[11px] font-bold rounded-full transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-sm ${added ? 'bg-emerald-600' : 'bg-[#0f172A] hover:bg-[#1e293b]'
+              }`}
+          >
+            {added ? (
+              <>
+                <Check className="w-3.5 h-3.5" />
+                Added {qty} to Cart!
+              </>
+            ) : (
+              <>
+                <ShoppingBag className="w-3.5 h-3.5 text-[#F97316]" />
+                Add to Cart
+              </>
+            )}
+          </button>
+        </div>
+      )}
+    </div>
+  );
+};
 
 // ─── Order Summary Bubble Card ─────────────────────────────────────────────
 
@@ -141,84 +288,188 @@ const OrderSummary: React.FC<OrderSummaryProps> = ({ items, onGoToCart, onClear,
   );
 };
 
-// ─── Wholesale Catalog Gateway Component ─────────────────────────────
+// ─── Manual Inventory & Best Sellers Component ─────────────────────────────
 
-interface InventoryGatewayProps {
-  hasCatalogAccess: boolean;
-  onClose: () => void;
-  onOpenLogin?: () => void;
-  onOpenApplication?: () => void;
+interface InventoryViewProps {
+  onAddToOrder: (product: WholesaleProduct, qty: number) => void;
+  onGoToCart: () => void;
+  cartItemCount: number;
 }
 
-const InventoryGatewayView: React.FC<InventoryGatewayProps> = ({
-  hasCatalogAccess,
-  onClose,
-  onOpenLogin,
-  onOpenApplication,
-}) => {
-  if (hasCatalogAccess) {
-    return (
-      <div className="flex flex-col items-center justify-center h-full p-6 text-center space-y-5 bg-[#F8FAFC]">
-        <div className="w-16 h-16 rounded-3xl bg-orange-100 border border-orange-200 text-[#FF6B00] flex items-center justify-center shadow-xs">
-          <Package className="w-8 h-8 stroke-[2.2]" />
-        </div>
-        <div className="space-y-1.5 max-w-xs">
-          <h3 className="text-base font-black text-slate-900">Live Wholesale Catalog</h3>
-          <p className="text-xs text-slate-500 leading-relaxed">
-            900+ Zoho master SKUs with verified retailer tier pricing and active case inventory.
-          </p>
-        </div>
-        <button
-          type="button"
-          onClick={() => {
-            onClose();
-            const el = document.getElementById('catalog');
-            if (el) el.scrollIntoView({ behavior: 'smooth' });
-          }}
-          className="w-full max-w-xs py-3.5 px-6 bg-[#FF6B00] hover:bg-[#E85F00] text-white text-xs font-bold rounded-2xl shadow-md transition-all cursor-pointer flex items-center justify-center gap-2"
-        >
-          <Package className="w-4 h-4" />
-          <span>Browse 900+ Master SKUs</span>
-        </button>
-      </div>
-    );
-  }
+const INVENTORY_CATEGORIES = [
+  { id: 'All', label: '🔥 All Best Sellers' },
+  { id: 'Disposable Vapes', label: '💨 Disposables' },
+  { id: 'Vape Mods & Kits', label: '⚙️ Mods & Kits' },
+  { id: 'Vape Juice', label: '💧 Vape Juice' },
+  { id: 'Pipes & Glass', label: '🧪 Pipes & Glass' },
+  { id: 'THCA, CBD & Delta', label: '🌿 THCA & Delta' },
+  { id: 'Kratom', label: '🍃 Kratom' },
+  { id: 'Novelties', label: '⚖️ Novelties' },
+  { id: 'Accessories', label: '👑 Accessories' },
+];
+
+const MOD_SUBCATEGORIES = ['All Hardware', 'Devices Kit', 'Pod', 'Battery', 'Coils'];
+
+const InventoryView: React.FC<InventoryViewProps> = ({ onAddToOrder, onGoToCart, cartItemCount }) => {
+  const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [selectedSubcategory, setSelectedSubcategory] = useState<string>('All Hardware');
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const filteredProducts = PRODUCTS.filter((p) => {
+    // Category match
+    let matchesCategory = selectedCategory === 'All' ? p.popular : p.category === selectedCategory;
+
+    // Subcategory match if inside Vape Mods & Kits
+    if (selectedCategory === 'Vape Mods & Kits' && selectedSubcategory !== 'All Hardware') {
+      matchesCategory = matchesCategory && p.subcategory === selectedSubcategory;
+    }
+
+    // Search query match
+    const q = searchQuery.toLowerCase().trim();
+    if (!q) return matchesCategory;
+    const haystack = [
+      p.name,
+      p.brand,
+      p.sku,
+      p.category,
+      p.subcategory || '',
+      p.size || '',
+      ...p.flavours,
+      ...p.features,
+    ].join(' ').toLowerCase();
+
+    return matchesCategory && haystack.includes(q);
+  });
 
   return (
-    <div className="flex flex-col items-center justify-center h-full p-6 text-center space-y-5 bg-[#F8FAFC]">
-      <div className="w-16 h-16 rounded-3xl bg-slate-100 border border-slate-200 text-[#FF6B00] flex items-center justify-center shadow-xs">
-        <Lock className="w-8 h-8 stroke-[2.2]" />
+    <div className="flex flex-col h-full overflow-hidden bg-[#F8FAFC]">
+      {/* Category Pills & Search */}
+      <div className="p-3 bg-white border-b border-neutral-100 space-y-2.5 shrink-0 shadow-2xs">
+        {/* Search Input */}
+        <div className="relative">
+          <Search className="w-3.5 h-3.5 text-neutral-400 absolute left-3 top-1/2 -translate-y-1/2" />
+          <input
+            type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            placeholder="Search Geekbar, Raz, XROS, Juice Head, Glass, OPMS..."
+            className="w-full bg-neutral-50 border border-neutral-200 rounded-full pl-8 pr-3 py-1.5 text-xs text-[#0f172A] focus:outline-none focus:border-[#F97316] transition-colors"
+          />
+          {searchQuery && (
+            <button
+              onClick={() => setSearchQuery('')}
+              className="text-xs text-neutral-400 hover:text-neutral-600 absolute right-2.5 top-1/2 -translate-y-1/2"
+            >
+              ✕
+            </button>
+          )}
+        </div>
+
+        {/* Primary Category Horizontal Scroll */}
+        <div className="flex items-center gap-1.5 overflow-x-auto pb-1 mango-messages-scroll no-scrollbar">
+          {INVENTORY_CATEGORIES.map((cat) => {
+            const isSelected = selectedCategory === cat.id;
+            const count =
+              cat.id === 'All'
+                ? PRODUCTS.filter((p) => p.popular).length
+                : PRODUCTS.filter((p) => p.category === cat.id).length;
+
+            return (
+              <button
+                key={cat.id}
+                onClick={() => {
+                  setSelectedCategory(cat.id);
+                  setSelectedSubcategory('All Hardware');
+                }}
+                className={`px-3 py-1.5 rounded-full text-[11px] font-bold shrink-0 transition-all flex items-center gap-1 cursor-pointer select-none shadow-2xs ${isSelected
+                  ? 'bg-[#0f172A] text-white scale-[1.02]'
+                  : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200 hover:text-[#0f172A]'
+                  }`}
+              >
+                <span>{cat.label}</span>
+                <span
+                  className={`text-[9px] px-1.5 py-0.2 rounded-full ${isSelected ? 'bg-[#F97316] text-white' : 'bg-neutral-200 text-neutral-500'
+                    }`}
+                >
+                  {count}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* Secondary Subcategories for Vape Mods & Hardware */}
+        {selectedCategory === 'Vape Mods & Kits' && (
+          <div className="flex items-center gap-1.5 pt-1 overflow-x-auto pb-0.5 border-t border-neutral-100">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-neutral-400 mr-1 shrink-0">
+              Hardware:
+            </span>
+            {MOD_SUBCATEGORIES.map((sub) => {
+              const isSubSelected = selectedSubcategory === sub;
+              return (
+                <button
+                  key={sub}
+                  onClick={() => setSelectedSubcategory(sub)}
+                  className={`px-2.5 py-0.5 rounded-md text-[10px] font-semibold shrink-0 transition-colors cursor-pointer ${isSubSelected
+                    ? 'bg-[#F97316] text-white font-bold'
+                    : 'bg-neutral-100 text-neutral-600 hover:bg-neutral-200'
+                    }`}
+                >
+                  {sub}
+                </button>
+              );
+            })}
+          </div>
+        )}
       </div>
-      <div className="space-y-1.5 max-w-xs">
-        <h3 className="text-base font-black text-slate-900">Approved Account Required</h3>
-        <p className="text-xs text-slate-500 leading-relaxed">
-          Wholesale catalog access, live inventory, and volume pricing are restricted to verified B2B retail accounts in Oklahoma.
-        </p>
+
+      {/* Category Header Label */}
+      <div className="px-3 py-2 bg-neutral-100/70 border-b border-neutral-200/60 flex items-center justify-between text-[11px] text-neutral-500">
+        <span className="font-semibold text-[#0f172A]">
+          {selectedCategory === 'All' ? '🔥 Top Wholesale Best Sellers' : selectedCategory}
+          {selectedCategory === 'Vape Mods & Kits' && selectedSubcategory !== 'All Hardware' && ` › ${selectedSubcategory}`}
+        </span>
+        <span>{filteredProducts.length} items</span>
       </div>
-      <div className="w-full max-w-xs space-y-2.5">
-        <button
-          type="button"
-          onClick={() => {
-            onClose();
-            if (onOpenLogin) onOpenLogin();
-          }}
-          className="w-full py-3 px-6 bg-[#FF6B00] hover:bg-[#E85F00] text-white text-xs font-bold rounded-2xl shadow-md transition-all cursor-pointer flex items-center justify-center gap-2"
-        >
-          <Lock className="w-4 h-4" />
-          <span>Customer Login</span>
-        </button>
-        <button
-          type="button"
-          onClick={() => {
-            onClose();
-            if (onOpenApplication) onOpenApplication();
-          }}
-          className="w-full py-3 px-6 bg-white hover:bg-slate-50 text-slate-800 border border-slate-300 text-xs font-bold rounded-2xl transition-all cursor-pointer flex items-center justify-center gap-2 shadow-xs"
-        >
-          <UserCheck className="w-4 h-4 text-[#FF6B00]" />
-          <span>Apply for Wholesale Account</span>
-        </button>
+
+      {/* Product List */}
+      <div className="flex-1 overflow-y-auto p-3 space-y-3 mango-messages-scroll">
+        {filteredProducts.length === 0 ? (
+          <div className="text-center py-12 text-neutral-400 text-xs space-y-2">
+            <div>No products found matching your search.</div>
+            <button
+              onClick={() => {
+                setSearchQuery('');
+                setSelectedCategory('All');
+              }}
+              className="text-[#F97316] font-bold underline cursor-pointer"
+            >
+              Reset Filters
+            </button>
+          </div>
+        ) : (
+          filteredProducts.map((p) => (
+            <ProductCard key={p.id} product={p} onAddToOrder={onAddToOrder} />
+          ))
+        )}
       </div>
+
+      {/* Sticky Bottom Cart Bar */}
+      {cartItemCount > 0 && (
+        <div className="p-3 bg-white border-t border-neutral-100 flex items-center justify-between gap-2 shrink-0 shadow-lg">
+          <div className="flex items-center gap-1.5 text-xs font-bold text-[#0f172A]">
+            <ShoppingBag className="w-4 h-4 text-[#F97316]" />
+            <span>{cartItemCount} item{cartItemCount !== 1 ? 's' : ''} in Cart</span>
+          </div>
+          <button
+            onClick={onGoToCart}
+            className="py-1.5 px-4 bg-[#F97316] hover:bg-[#ea580c] text-white text-xs font-bold rounded-full transition-colors flex items-center gap-1 shadow cursor-pointer"
+          >
+            <span>Review Order</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
+      )}
     </div>
   );
 };
@@ -305,22 +556,9 @@ const MessageBubble: React.FC<MessageBubbleProps> = ({
   );
 };
 
-interface MangoChatProps {
-  currentUser?: {
-    role?: string;
-    has_pricing_access?: boolean;
-    businessName?: string;
-  } | null;
-  onOpenLogin?: () => void;
-  onOpenApplication?: () => void;
-}
+// ─── Main MangoChat Component ──────────────────────────────────────────────
 
-export default function MangoChat({ currentUser, onOpenLogin, onOpenApplication }: MangoChatProps = {}) {
-  const hasCatalogAccess = Boolean(
-    currentUser &&
-    (currentUser.role === 'approved_customer' || currentUser.role === 'admin') &&
-    currentUser.has_pricing_access
-  );
+export default function MangoChat() {
   const [isOpen, setIsOpen] = useState(false);
   const [isAnimatingOut, setIsAnimatingOut] = useState(false);
   const [activeTab, setActiveTab] = useState<'chat' | 'inventory'>('chat');
@@ -656,7 +894,7 @@ export default function MangoChat({ currentUser, onOpenLogin, onOpenApplication 
               }`}
             >
               <Package className="w-3.5 h-3.5 text-[#F97316]" />
-              <span>{hasCatalogAccess ? 'Catalog' : 'Wholesale'}</span>
+              <span>Inventory</span>
             </button>
 
             <button
@@ -745,11 +983,10 @@ export default function MangoChat({ currentUser, onOpenLogin, onOpenApplication 
 
           {/* ── TAB CONTENT: INVENTORY BROWSE ── */}
           {activeTab === 'inventory' && (
-            <InventoryGatewayView
-              hasCatalogAccess={hasCatalogAccess}
-              onClose={handleClose}
-              onOpenLogin={onOpenLogin}
-              onOpenApplication={onOpenApplication}
+            <InventoryView
+              onAddToOrder={handleAddToOrder}
+              onGoToCart={handleGoToCart}
+              cartItemCount={orderItemCount}
             />
           )}
         </div>

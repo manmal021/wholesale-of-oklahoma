@@ -637,8 +637,8 @@ class AuthStore {
       // Check if user account was suspended in databaseStore
       const cust = databaseStore.getCustomerByEmail(cachedSession.email);
       if (cust && cust.status === 'SUSPENDED') {
-        cachedSession.role = 'visitor';
-        return cachedSession;
+        this.sessions.delete(token);
+        return null;
       }
 
       const user = this.users.get(cachedSession.email);
@@ -670,16 +670,15 @@ class AuthStore {
       }
 
       // Check if user account was suspended in databaseStore
-      let isSuspended = false;
       if (payload.e) {
         const cust = databaseStore.getCustomerByEmail(payload.e);
         if (cust && cust.status === 'SUSPENDED') {
-          isSuspended = true;
+          return null;
         }
       }
 
       const user = payload.e ? this.users.get(payload.e.toLowerCase().trim()) : undefined;
-      const effectiveRole: UserRole = isSuspended ? 'visitor' : (user ? user.role : (payload.r as UserRole));
+      const effectiveRole: UserRole = user ? user.role : (payload.r as UserRole);
 
       const reconstructed: SessionRecord = {
         token,

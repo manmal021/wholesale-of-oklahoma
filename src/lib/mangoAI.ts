@@ -4,7 +4,12 @@
 // Personality: Mango 🐕, a friendly Golden Retriever store assistant.
 // ─────────────────────────────────────────────────────────────────────────────
 
-import type { WholesaleProduct } from './productDatabase';
+import {
+  PRODUCTS,
+  getProduct,
+  getWholesalePrice,
+  type WholesaleProduct,
+} from './productDatabase';
 import type { InventoryItem } from '../types/inventory';
 
 export interface ChatMessage {
@@ -95,40 +100,68 @@ export function addToOrderDirect(
   let pricePerUnit = priceOverride ?? 0;
   let imageUrl = imageOverride;
 
-  if (typeof productOrId === 'object' && productOrId !== null) {
-    const item = productOrId as any;
+  if (typeof productOrId === 'string') {
+    product = getProduct(productOrId);
+    if (!product) {
+      const q = productOrId.toLowerCase().trim();
+      product = PRODUCTS.find(
+        (p) =>
+          p.id.toLowerCase() === q ||
+          p.sku.toLowerCase() === q ||
+          p.name.toLowerCase() === q
+      );
+    }
+  } else if ('rate' in productOrId) {
+    const invItem = productOrId as InventoryItem;
+    const match =
+      getProduct(invItem.id) ||
+      getProduct(invItem.sku) ||
+      PRODUCTS.find((p) => p.name.toLowerCase() === invItem.name.toLowerCase());
+
     pricePerUnit =
       priceOverride !== undefined && priceOverride > 0
         ? priceOverride
-        : typeof item.rate === 'number' && item.rate > 0
-        ? item.rate
-        : typeof item.pricePerUnit === 'number' && item.pricePerUnit > 0
-        ? item.pricePerUnit
+        : typeof invItem.rate === 'number' && invItem.rate > 0
+        ? invItem.rate
         : 0;
 
-    imageUrl = imageOverride || item.image_url || item.imageUrl;
+    imageUrl = imageOverride || invItem.image_url || match?.imageUrl;
 
     product = {
-      id: item.id || item.sku || 'item',
-      sku: item.sku || item.id || 'item',
-      name: item.name || 'Wholesale Item',
-      brand: item.brand || 'Wholesale of Oklahoma',
-      category: (item.category || 'General') as any,
-      subcategory: (item.subcategory || 'General') as any,
-      features: item.features || [],
-      flavours: item.variants ? item.variants.map((v: any) => v.variant_name || v) : item.flavours || [],
-      popular: true,
+      id: invItem.id || invItem.sku,
+      sku: invItem.sku,
+      name: invItem.name,
+      brand: invItem.brand || match?.brand || 'Wholesale of Oklahoma',
+      category: (match?.category || invItem.category || 'General') as any,
+      subcategory: (match?.subcategory || invItem.subcategory || 'General') as any,
+      features: invItem.features || match?.features || [],
+      flavours: invItem.variants
+        ? invItem.variants.map((v) => v.variant_name)
+        : match?.flavours || [],
+      popular: match?.popular ?? true,
       pricePerUnit: pricePerUnit,
-      basePriceRange: pricePerUnit > 0 ? `$${pricePerUnit.toFixed(2)}` : 'Approved Retailers Only',
-      inStock: item.stock_status !== 'out_of_stock' && (item.available_stock === undefined || item.available_stock > 0),
-      minOrderQty: item.min_order_qty || item.minOrderQty || 1,
-      bulkPricing: item.bulk_pricing || item.bulkPricing || [
+      basePriceRange:
+        match?.basePriceRange ||
+        (pricePerUnit > 0 ? `$${pricePerUnit.toFixed(2)}` : 'Call for Price'),
+      inStock:
+        invItem.stock_status !== 'out_of_stock' &&
+        (invItem.available_stock === undefined || invItem.available_stock > 0),
+      minOrderQty: invItem.min_order_qty || match?.minOrderQty || 1,
+      bulkPricing: invItem.bulk_pricing || match?.bulkPricing || [
         { minQty: 1, pricePerUnit: pricePerUnit, label: '1+ units' },
       ],
       imageUrl: imageUrl,
     };
   } else {
-    return { success: false, message: 'Please select an item from our authorized catalog to add to your order.' };
+    product = productOrId as WholesaleProduct;
+    if (priceOverride !== undefined && priceOverride > 0) {
+      pricePerUnit = priceOverride;
+    }
+    if (imageOverride) {
+      imageUrl = imageOverride;
+    } else if (product.imageUrl) {
+      imageUrl = product.imageUrl;
+    }
   }
 
   if (!product) {
