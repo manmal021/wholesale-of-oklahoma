@@ -511,28 +511,6 @@ class DatabaseStore {
       if (!fs.existsSync(STORAGE_DIR)) {
         fs.mkdirSync(STORAGE_DIR, { recursive: true });
       }
-      // Clean up orphaned atomic-write tmp files left by crashed processes.
-      // These accumulate when a previous server instance crashed between writeFileSync
-      // and renameSync. Any file matching database_state.json.tmp.* older than 5 min is safe to remove.
-      try {
-        const fiveMinutesAgo = Date.now() - 5 * 60 * 1000;
-        const files = fs.readdirSync(STORAGE_DIR);
-        for (const f of files) {
-          if (f.startsWith('database_state.json.tmp.')) {
-            const fullPath = path.join(STORAGE_DIR, f);
-            try {
-              const stat = fs.statSync(fullPath);
-              if (stat.mtimeMs < fiveMinutesAgo) {
-                fs.unlinkSync(fullPath);
-              }
-            } catch (_) {
-              // Ignore individual file stat/unlink errors
-            }
-          }
-        }
-      } catch (_) {
-        // Non-critical: tmp cleanup errors should never block operation
-      }
     } catch (err: any) {
       console.warn('[DatabaseStore] Could not create storage directory:', err.message);
     }

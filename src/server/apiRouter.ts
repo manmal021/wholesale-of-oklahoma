@@ -1846,7 +1846,12 @@ apiApp.get(['/wholesale/documents/:id', '/api/wholesale/documents/:id'], require
 /**
  * POST /api/wholesale/apply
  * Handles wholesale customer applications with business verification (FEIN, tobacco license, 21+).
- * Rate limited to 50 requests per 15 minutes to prevent spam/abuse.
+ * Rate limited to 5 requests per 15 minutes to prevent spam/abuse (Rule 22).
+ */
+/**
+ * POST /api/wholesale/apply
+ * Handles wholesale customer applications with business verification (FEIN, tobacco license, 21+).
+ * Rate limited to 10 requests per 15 minutes to prevent spam/abuse (Rule 22).
  */
 apiApp.post(['/wholesale/apply', '/api/wholesale/apply'], rateLimit(50, 15 * 60 * 1000), async (req: Request, res: Response) => {
   const {
