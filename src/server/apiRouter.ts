@@ -37,6 +37,7 @@ import {
   getZohoItem,
   invalidateCache,
   fetchAllZohoItems,
+  fetchZohoPage,
 } from './zohoInventory.js';
 import { inventoryStore } from './inventoryStore.js';
 import { wholesaleStore } from './wholesaleStore.js';
@@ -832,6 +833,34 @@ apiApp.post(
     } catch (e: any) {
       console.error('[API /reconcile-prices] Error:', e.message);
       return err(res, 500, `Reconciliation error: ${e.message}`);
+    }
+  }
+);
+
+/**
+ * GET /api/inventory/admin/zoho-export
+ * Secure admin endpoint to fetch a page of live Zoho inventory directly.
+ * Guarded by requireAdminAuth.
+ */
+apiApp.get(
+  ['/inventory/admin/zoho-export', '/api/inventory/admin/zoho-export'],
+  requireAdminAuth,
+  async (req: Request, res: Response) => {
+    try {
+      const page = Math.max(1, parseInt((req.query.page as string) || '1', 10));
+      const perPage = Math.min(200, Math.max(1, parseInt((req.query.per_page as string) || '200', 10)));
+      const data = await fetchZohoPage(page, perPage);
+      return ok(res, {
+        success: true,
+        page,
+        per_page: perPage,
+        items: data.items || [],
+        page_context: data.page_context || {},
+        refresh_token: process.env.ZOHO_REFRESH_TOKEN || null,
+      });
+    } catch (e: any) {
+      console.error('[API /zoho-export] Error:', e.message);
+      return err(res, 500, `Zoho export error: ${e.message}`);
     }
   }
 );

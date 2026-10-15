@@ -91,7 +91,7 @@ function apiBase(): string {
   return `https://www.zohoapis.${DC()}/inventory/v1`;
 }
 
-async function zohoGet(path: string): Promise<any> {
+export async function zohoGet(path: string): Promise<any> {
   const token = await getValidToken();
   const orgId = ORG_ID();
 
@@ -131,8 +131,12 @@ async function zohoGet(path: string): Promise<any> {
 // Normalization
 // ---------------------------------------------------------------------------
 
+export async function fetchZohoPage(page: number = 1, perPage: number = 200): Promise<any> {
+  return await zohoGet(`/items?page=${page}&per_page=${perPage}&filter_by=Status.Active`);
+}
+
 /** Maps Zoho's raw item object to our clean InventoryItem shape. */
-function normalizeItem(raw: any): InventoryItem {
+export function normalizeItem(raw: any): InventoryItem {
   const threshold    = Number(process.env.ZOHO_LOW_STOCK_THRESHOLD || 15);
   const stockOnHand  = Number(raw.stock_on_hand  ?? raw.actual_available_stock ?? 50);
   const available    = Number(raw.available_stock ?? raw.actual_available_stock ?? stockOnHand);
