@@ -273,6 +273,9 @@ export async function fetchAllZohoItems(): Promise<InventoryItem[]> {
 
     hasMore = data.page_context?.has_more_page ?? false;
     page++;
+    if (hasMore) {
+      await new Promise(r => setTimeout(r, 250));
+    }
   }
 
   console.log(`[ZohoInventory] Fetched ${allItems.length} items from Zoho (${page - 1} pages).`);
