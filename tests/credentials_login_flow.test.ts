@@ -62,6 +62,46 @@ test('Customer Credentials & Login Flow: Denied applicant login is completely bl
   databaseStore.deleteApplication(appDenied.id);
 });
 
+test('Customer Credentials & Login Flow: Admin login is not blocked by a pending wholesale application', async () => {
+  const adminEmail = `admin_pending_${Date.now()}@example.com`;
+  authStore.setPassword(adminEmail, 'AdminPassword123!');
+  authStore.updateUserRole(adminEmail, 'admin');
+  const pendingApplication = databaseStore.createApplication({
+    businessName: 'Admin Wholesale LLC',
+    dba: 'Admin Wholesale',
+    contactFirstName: 'Admin',
+    contactLastName: 'Tester',
+    contactName: 'Admin Tester',
+    email: adminEmail,
+    phone: '4055550199',
+    fein: '12-3456789',
+    licenseNumber: 'OK-PERMIT-ADMIN',
+    businessType: 'smoke_shop',
+    address: {
+      street: '123 Admin St',
+      city: 'Oklahoma City',
+      state: 'OK',
+      zip: '73102',
+    },
+    ageCertified: true,
+    taxExemptCertified: true,
+    documents: [{
+      documentId: 'doc_admin',
+      documentType: 'SALES_TAX_PERMIT',
+      filename: 'permit.pdf',
+    }],
+  });
+
+  try {
+    const loginResult = authStore.login(adminEmail, 'AdminPassword123!');
+    assert.strictEqual(loginResult.user.role, 'admin');
+    assert.ok(loginResult.token);
+  } finally {
+    databaseStore.deleteApplication(pendingApplication.id);
+    authStore.deleteUser(adminEmail);
+  }
+});
+
 test('Customer Credentials & Login Flow: Approved customer receives 10-char password, logs in, and browses wholesale catalog', async () => {
   const testEmailApproved = `approved_retailer_${Date.now()}@oklahomashop.com`;
   const appApproved = databaseStore.createApplication({

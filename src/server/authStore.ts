@@ -432,25 +432,28 @@ class AuthStore {
 
   public login(email: string, password: string): { user: Omit<UserRecord, 'passwordHash' | 'salt'>; token: string } {
     const cleanEmail = email.toLowerCase().trim();
-
-    // 1. Check Customer Status in databaseStore
-    const customer = databaseStore.getCustomerByEmail(cleanEmail);
-    if (customer && customer.status === 'SUSPENDED') {
-      throw new Error('ACCOUNT_SUSPENDED: Your wholesale account has been suspended. Please contact Wholesale of Oklahoma dispatch at (405) 768-2975.');
-    }
-
-    // 2. Check Wholesale Applications in databaseStore
-    const latestApp = databaseStore.getLatestApplicationForEmail(cleanEmail);
-    if (latestApp) {
-      if (latestApp.status === 'PENDING' && (!customer || customer.status !== 'APPROVED')) {
-        throw new Error('ACCOUNT_PENDING: Your Wholesale of Oklahoma account application is currently under review. You will receive an email once our team has reviewed your application.');
-      }
-      if (latestApp.status === 'REJECTED' && (!customer || customer.status !== 'APPROVED')) {
-        throw new Error('ACCOUNT_REJECTED: Your wholesale account application was not approved. Please contact dispatch if you have questions.');
-      }
-    }
-
     const user = this.users.get(cleanEmail);
+    const isAdmin = user?.role === 'admin';
+
+    if (!isAdmin) {
+      // 1. Check Customer Status in databaseStore
+      const customer = databaseStore.getCustomerByEmail(cleanEmail);
+      if (customer && customer.status === 'SUSPENDED') {
+        throw new Error('ACCOUNT_SUSPENDED: Your wholesale account has been suspended. Please contact Wholesale of Oklahoma dispatch at (405) 768-2975.');
+      }
+
+      // 2. Check Wholesale Applications in databaseStore
+      const latestApp = databaseStore.getLatestApplicationForEmail(cleanEmail);
+      if (latestApp) {
+        if (latestApp.status === 'PENDING' && (!customer || customer.status !== 'APPROVED')) {
+          throw new Error('ACCOUNT_PENDING: Your Wholesale of Oklahoma account application is currently under review. You will receive an email once our team has reviewed your application.');
+        }
+        if (latestApp.status === 'REJECTED' && (!customer || customer.status !== 'APPROVED')) {
+          throw new Error('ACCOUNT_REJECTED: Your wholesale account application was not approved. Please contact dispatch if you have questions.');
+        }
+      }
+    }
+
     if (!user) {
       throw new Error('Invalid email or password.');
     }
