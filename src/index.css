@@ -2,6 +2,17 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+.quantity-input {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.quantity-input::-webkit-inner-spin-button,
+.quantity-input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 /* ═══════════════════════════════════════════════════════════════════
    DESIGN SYSTEM TOKENS — Wholesale of Oklahoma
    Inspired: Linear (clarity) · Apple (premium) · Lusion (motion)
@@ -241,11 +252,11 @@ html.dark .btn-secondary:hover { background-color:#27272A; border-color:var(--wo
 .card-lift:hover { transform:translateY(-6px) scale(1.015); box-shadow:var(--shadow-lg); }
 html.dark .card-lift:hover { box-shadow:0 24px 48px rgba(0,0,0,0.7),0 0 28px rgba(249,115,22,0.1); }
 .raycast-card { background:var(--surface-card); border:1px solid var(--border-subtle); border-radius:var(--radius-md); transition:all 220ms; position:relative; overflow:hidden; }
-.raycast-card::before { content:''; position:absolute; inset:0; border-radius:var(--radius-md); background:linear-gradient(135deg,rgba(249,115,22,0.04),transparent 60%); opacity:0; transition:opacity 220ms; }
+.raycast-card::before { content:''; position:absolute; inset:0; border-radius:var(--radius-md); background:linear-gradient(135deg,rgba(249,115,22,0.04),transparent 60%); opacity:0; transition:opacity 220ms; pointer-events:none; }
 .raycast-card:hover { border-color:rgba(249,115,22,0.4); box-shadow:0 0 0 1px rgba(249,115,22,0.08),var(--shadow-lg); transform:translateY(-2px); }
 .raycast-card:hover::before { opacity:1; }
 .raycast-card-glint { position:relative; overflow:hidden; }
-.raycast-card-glint::after { content:''; position:absolute; top:0; left:-100%; width:60%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.07),transparent); transform:skewX(-15deg); transition:none; }
+.raycast-card-glint::after { content:''; position:absolute; top:0; left:-100%; width:60%; height:100%; background:linear-gradient(90deg,transparent,rgba(255,255,255,0.07),transparent); transform:skewX(-15deg); transition:none; pointer-events:none; }
 .raycast-card-glint:hover::after { animation:card-glint 0.6s ease forwards; }
 
 /* Image */
