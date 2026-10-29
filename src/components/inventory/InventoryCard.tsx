@@ -26,18 +26,19 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
   onViewDetails,
   onAddedToCart,
 }) => {
-  const [qty, setQty] = useState(1);
+  const [qty, setQty] = useState('1');
   const [added, setAdded] = useState(false);
   const [imgError, setImgError] = useState(false);
 
+  const selectedQty = Math.min(50, Math.max(1, Number.parseInt(qty, 10) || 1));
   const isOutOfStock = item.stock_status === 'out_of_stock' || item.available_stock <= 0;
   const isLowStock = item.stock_status === 'low_stock';
 
   const handleAddToCart = () => {
     if (isOutOfStock) return;
-    addToOrderDirect(item, qty);
+    addToOrderDirect(item, selectedQty);
     setAdded(true);
-    if (onAddedToCart) onAddedToCart(item.name, qty);
+    if (onAddedToCart) onAddedToCart(item.name, selectedQty);
     setTimeout(() => setAdded(false), 2200);
   };
 
@@ -253,29 +254,33 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
               >
                 <button
                   type="button"
-                  onClick={() => setQty((q) => Math.max(1, q - 1))}
-                  disabled={qty <= 1 || isOutOfStock}
+                  onClick={() => setQty(String(Math.max(1, selectedQty - 1)))}
+                  disabled={selectedQty <= 1 || isOutOfStock}
                   className="w-4 h-4 text-xs font-bold flex items-center justify-center rounded disabled:opacity-30 cursor-pointer transition-colors hover:text-[var(--accent-primary)]"
                   style={{ color: 'var(--text-muted)' }}
                 >
                   −
                 </button>
-                <select
+                <input
+                  type="number"
+                  min={1}
+                  max={50}
+                  step={1}
                   value={qty}
-                  onChange={(e) => setQty(Number(e.target.value))}
+                  onChange={(e) => setQty(e.currentTarget.value)}
+                  onBlur={() => setQty(String(selectedQty))}
                   disabled={isOutOfStock}
-                  aria-label={`Select quantity for ${item.name}`}
-                  className="bg-transparent text-xs font-bold border-0 outline-none cursor-pointer px-0.5"
+                  aria-label={`Quantity in boxes for ${item.name}`}
+                  className="quantity-input w-10 bg-transparent text-xs font-bold border-0 outline-none text-center px-0.5"
                   style={{ color: 'var(--text-primary)' }}
-                >
-                  {Array.from({ length: 15 }, (_, i) => i + 1).map((n) => (
-                    <option key={n} value={n}>{n} {n === 1 ? 'box' : 'boxes'}</option>
-                  ))}
-                </select>
+                />
+                <span className="text-[10px]" style={{ color: 'var(--text-muted)' }}>
+                  {selectedQty === 1 ? 'box' : 'boxes'}
+                </span>
                 <button
                   type="button"
-                  onClick={() => setQty((q) => Math.min(50, q + 1))}
-                  disabled={qty >= 50 || isOutOfStock}
+                  onClick={() => setQty(String(Math.min(50, selectedQty + 1)))}
+                  disabled={selectedQty >= 50 || isOutOfStock}
                   className="w-4 h-4 text-xs font-bold flex items-center justify-center rounded disabled:opacity-30 cursor-pointer transition-colors hover:text-[var(--accent-primary)]"
                   style={{ color: 'var(--text-muted)' }}
                 >
@@ -298,7 +303,7 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
                 <button
                   type="button"
                   onClick={handleAddToCart}
-                  className="flex-1 py-1.5 text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 cursor-pointer transition-all"
+                  className="flex-1 py-1.5 text-xs font-bold rounded-lg flex items-center justify-center gap-0.5 cursor-pointer transition-all"
                   style={{
                     background: added ? '#059669' : 'var(--accent-primary)',
                     color: '#fff',
@@ -306,7 +311,7 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
                   }}
                 >
                   {added ? (
-                    <><Check className="w-3.5 h-3.5" /> Added {qty}!</>
+                    <><Check className="w-3.5 h-3.5" /> Added {selectedQty}!</>
                   ) : (
                     <><ShoppingBag className="w-3.5 h-3.5" /> Add to Cart</>
                   )}
