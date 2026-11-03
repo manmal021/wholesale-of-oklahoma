@@ -15,6 +15,8 @@ import {
   Users,
   Layers,
   Filter,
+  Pencil,
+  Trash2,
 } from 'lucide-react';
 import { setAdminProductOverride, type InventoryOverrideRecord } from '../../lib/fulfillmentApi';
 
@@ -338,20 +340,25 @@ export default function AdminProductsAvailability() {
               <table className="w-full text-left text-xs text-slate-700 divide-y divide-slate-200">
                 <thead className="bg-slate-50 text-slate-500 font-bold uppercase tracking-wider text-[10px]">
                   <tr>
+                    <th className="px-6 py-3.5">S.N.</th>
                     <th className="px-6 py-3.5">Product & SKU</th>
                     <th className="px-6 py-3.5">Category</th>
                     <th className="px-6 py-3.5">Zoho Live Stock</th>
                     <th className="px-6 py-3.5">Storefront Status</th>
                     <th className="px-6 py-3.5 text-right">Manual Override Controls</th>
+                    <th className="px-6 py-3.5 text-right">Actions</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-slate-100">
-                  {filteredProducts.map((prod) => {
+                  {filteredProducts.map((prod, index) => {
                     const activeOv = getActiveOverride(prod.id, prod.sku);
                     const isBusy = actionLoadingId === prod.id;
 
                     return (
                       <tr key={prod.id} className="hover:bg-slate-50/60 transition-colors">
+                        <td className="px-6 py-4">
+                          <div className="font-mono text-[11px] text-slate-400">{index + 1}</div>
+                        </td>
                         <td className="px-6 py-4">
                           <div className="font-bold text-slate-900">{prod.name}</div>
                           <div className="text-[11px] text-slate-400 font-mono">
@@ -445,6 +452,24 @@ export default function AdminProductsAvailability() {
                                 <span className="hidden sm:inline">Reset</span>
                               </button>
                             )}
+                          </div>
+                        </td>
+                        <td className="px-6 py-4">
+                          <div className="inline-flex items-center justify-center gap-2">
+                            <span
+                              className="p-2 rounded-lg text-slate-500"
+                              title="Edit product (not available yet)"
+                              aria-label="Edit product (not available yet)"
+                            >
+                              <Pencil className="w-4 h-4" aria-hidden="true" />
+                            </span>
+                            <span
+                              className="p-2 rounded-lg text-rose-500"
+                              title="Delete product (not available yet)"
+                              aria-label="Delete product (not available yet)"
+                            >
+                              <Trash2 className="w-4 h-4" aria-hidden="true" />
+                            </span>
                           </div>
                         </td>
                       </tr>
