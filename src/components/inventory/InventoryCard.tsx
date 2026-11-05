@@ -6,9 +6,6 @@ import {
   ShoppingBag,
   XCircle,
   Layers,
-  Lock,
-  LogIn,
-  UserCheck,
 } from 'lucide-react';
 import type { InventoryItem, QuantityDisplayMode } from '../../types/inventory';
 import { addToOrderDirect } from '../../lib/mangoAI';
@@ -16,6 +13,7 @@ import { addToOrderDirect } from '../../lib/mangoAI';
 interface InventoryCardProps {
   item: InventoryItem;
   displayMode: QuantityDisplayMode;
+  userRole?: 'visitor' | 'pending_customer' | 'approved_customer' | 'admin';
   onViewDetails: (item: InventoryItem) => void;
   onAddedToCart?: (name: string, qty: number) => void;
 }
@@ -23,6 +21,7 @@ interface InventoryCardProps {
 export const InventoryCard: React.FC<InventoryCardProps> = ({
   item,
   displayMode,
+  userRole,
   onViewDetails,
   onAddedToCart,
 }) => {
@@ -35,7 +34,7 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
   const isLowStock = item.stock_status === 'low_stock';
 
   const handleAddToCart = () => {
-    if (isOutOfStock) return;
+    if (isOutOfStock || !item.can_order) return;
     addToOrderDirect(item, selectedQty);
     setAdded(true);
     if (onAddedToCart) onAddedToCart(item.name, selectedQty);
@@ -202,10 +201,12 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
 
         {/* Pricing section */}
         <div style={{ borderTop: '1px solid var(--border-subtle)', paddingTop: '0.75rem', marginTop: 'auto' }}>
-          {item.has_pricing_access && typeof item.rate === 'number' ? (
+          {typeof item.rate === 'number' ? (
             <div className="flex items-baseline justify-between">
               <div>
-                <span className="label-overline block mb-0.5">Wholesale</span>
+                <span className="label-overline block mb-0.5">
+                  {item.price_type === 'wholesale' ? 'Wholesale Price' : 'Retail Price'}
+                </span>
                 <span
                   className="text-lg font-black"
                   style={{ color: 'var(--text-primary)', fontFamily: "'Plus Jakarta Sans', sans-serif", letterSpacing: '-0.02em' }}
@@ -213,14 +214,6 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
                   ${item.rate.toFixed(2)}
                 </span>
               </div>
-              {item.retail_msrp && (
-                <div className="text-right">
-                  <span className="label-overline block mb-0.5">MSRP</span>
-                  <span className="text-xs line-through" style={{ color: 'var(--text-faint)', fontWeight: 600 }}>
-                    ${item.retail_msrp.toFixed(2)}
-                  </span>
-                </div>
-              )}
             </div>
           ) : (
             <div
@@ -228,18 +221,17 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
               style={{ background: 'var(--bg-tertiary)', border: '1px solid var(--border-subtle)' }}
             >
               <span className="flex items-center justify-center gap-1.5 text-xs font-bold" style={{ color: 'var(--text-primary)' }}>
-                <Lock className="w-3.5 h-3.5" style={{ color: 'var(--accent-primary)' }} />
-                Wholesale Pricing
+                Product pricing unavailable
               </span>
               <span className="text-[10px] block mt-0.5" style={{ color: 'var(--text-faint)' }}>
-                Restricted to verified accounts
+                Please contact us for pricing details.
               </span>
             </div>
           )}
         </div>
 
         {/* Action buttons */}
-        {item.has_pricing_access && typeof item.rate === 'number' ? (
+        {item.can_order && typeof item.rate === 'number' ? (
           <div className="space-y-2">
             <div className="flex items-center gap-2">
               {/* Qty stepper — Raycast compact */}
@@ -333,26 +325,19 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
           </div>
         ) : (
           <div className="space-y-2">
-            <div className="grid grid-cols-2 gap-2">
-              <button
-                type="button"
-                onClick={() => window.dispatchEvent(new CustomEvent('open-login-modal'))}
-                className="py-2 px-2 text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 cursor-pointer transition-all"
-                style={{ background: 'var(--bg-tertiary)', color: 'var(--text-primary)', border: '1px solid var(--border-subtle)' }}
-              >
-                <LogIn className="w-3.5 h-3.5" style={{ color: 'var(--accent-primary)' }} />
-                Login
-              </button>
-              <button
-                type="button"
-                onClick={() => window.dispatchEvent(new CustomEvent('open-wholesale-application'))}
-                className="py-2 px-2 text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 cursor-pointer transition-all"
-                style={{ background: 'var(--accent-primary)', color: '#fff' }}
-              >
-                <UserCheck className="w-3.5 h-3.5" />
-                Apply
-              </button>
-            </div>
+            {typeof item.rate !== 'number' ? (
+              <p className="text-center text-[10px] font-semibold rounded-lg px-2 py-2" style={{ background: 'var(--bg-tertiary)', color: 'var(--text-muted)' }}>
+                Price is unavailable for this product. Please contact us for details.
+              </p>
+            ) : userRole === 'pending_customer' ? (
+              <p className="text-center text-[10px] font-semibold rounded-lg px-2 py-2" style={{ background: 'var(--bg-tertiary)', color: 'var(--text-muted)' }}>
+                Your wholesale application is under review.
+              </p>
+            ) : (
+              <p className="text-center text-[10px] font-semibold rounded-lg px-2 py-2" style={{ background: 'var(--bg-tertiary)', color: 'var(--text-muted)' }}>
+                Online ordering is unavailable for this account.
+              </p>
+            )}
             <button
               type="button"
               onClick={() => onViewDetails(item)}

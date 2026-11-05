@@ -53,7 +53,9 @@ export interface ReconciliationReport {
 }
 
 // ── Private Secure Audit Logging ─────────────────────────────────────────────
-const STORAGE_DIR = path.resolve(process.cwd(), 'storage');
+const STORAGE_DIR = process.env.WOO_STORAGE_DIR
+  ? path.resolve(process.env.WOO_STORAGE_DIR)
+  : path.resolve(process.cwd(), 'storage');
 const AUDIT_LOG_FILE = path.join(STORAGE_DIR, 'price_reconciliation_audit.log');
 
 export function logPriceAuditSecurely(audits: PriceAuditRecord[]): void {

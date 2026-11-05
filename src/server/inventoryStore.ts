@@ -521,6 +521,10 @@ export class InventoryStore {
     };
   }
 
+  public getAllItems(): InventoryItem[] {
+    return Array.from(this.items.values());
+  }
+
   /**
    * Returns a single item by SKU or Zoho Item ID
    */

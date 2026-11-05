@@ -402,7 +402,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
       <div
         role="dialog"
         aria-modal="true"
-        aria-label="Wholesale Shopping Cart"
+        aria-label="Shopping Cart"
         className={`fixed top-0 right-0 bottom-0 z-50 w-full sm:w-[520px] max-w-full bg-white text-slate-900 shadow-2xl border-l border-slate-200 flex flex-col transition-transform duration-300 ease-[cubic-bezier(0.25,1,0.5,1)] ${
           isOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
@@ -415,7 +415,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <h2 className="text-base font-bold tracking-tight text-slate-900">Wholesale Cart & Fulfillment</h2>
+                <h2 className="text-base font-bold tracking-tight text-slate-900">Shopping Cart & Fulfillment</h2>
                 {totalUnits > 0 && (
                   <span className="bg-[#FF6B00] text-white text-[10px] font-black px-2 py-0.5 rounded-full shadow-xs">
                     {totalUnits} units
@@ -446,7 +446,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
             </div>
 
             <div>
-              <h3 className="text-xl font-extrabold text-slate-900">Wholesale Order Confirmed!</h3>
+              <h3 className="text-xl font-extrabold text-slate-900">Order Confirmed!</h3>
               <p className="text-xs text-slate-500 mt-1">
                 Order Reference: <span className="font-mono font-bold text-[#FF6B00]">{submittedOrderId}</span>
               </p>
@@ -482,18 +482,11 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
             )}
 
             <div className="flex flex-col gap-2.5 w-full pt-2">
-              <a
-                href="/account/orders"
-                className="py-3 bg-[#FF6B00] hover:bg-[#E85F00] text-white text-xs font-bold rounded-full flex items-center justify-center gap-2 shadow-lg transition-colors"
-              >
-                <Package className="w-4 h-4 text-white" />
-                <span>View Order Status in Account</span>
-              </a>
               <button
                 onClick={handleResetForm}
-                className="py-2.5 bg-slate-100 border border-slate-300 text-slate-800 text-xs font-bold rounded-full hover:bg-slate-200 transition-colors cursor-pointer"
+                className="py-3 bg-[#FF6B00] hover:bg-[#E85F00] text-white text-xs font-bold rounded-full transition-colors cursor-pointer"
               >
-                Continue Browsing Wholesale Catalog
+                Continue Shopping
               </button>
             </div>
           </div>
@@ -504,9 +497,9 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
               <ShoppingBag className="w-10 h-10 stroke-[1.5]" />
             </div>
             <div>
-              <h3 className="text-base font-bold text-slate-900">Your Wholesale Cart is Empty</h3>
+              <h3 className="text-base font-bold text-slate-900">Your Cart is Empty</h3>
               <p className="text-xs text-slate-500 max-w-xs mt-1 leading-relaxed">
-                Add disposable vapes, pod kits, coils, juice, glass, or kratom from our live wholesale catalog to build your order.
+                Add products from the catalog to build your order.
               </p>
             </div>
 
@@ -540,7 +533,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
               <div className="space-y-2.5">
                 {items.map((item, idx) => {
                   const unitPriceStr =
-                    item.pricePerUnit > 0 ? `$${item.pricePerUnit.toFixed(2)}` : 'Wholesale Rate';
+                    item.pricePerUnit > 0 ? `$${item.pricePerUnit.toFixed(2)}` : 'Price pending';
 
                   return (
                     <div
@@ -892,7 +885,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                 <div className="flex items-center gap-1.5">
                   <ShieldCheck className="w-4 h-4 text-[#FF6B00]" />
                   <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900">
-                    Account Contact Information
+                    Contact Information
                   </h3>
                 </div>
                 <p className="text-[11px] text-slate-500 mt-0.5">
@@ -1022,7 +1015,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                   {status === 'submitting' ? (
                     <>
                       <Loader2 className="w-4 h-4 animate-spin text-white" />
-                      <span>Submitting Wholesale Order...</span>
+                      <span>Submitting Order...</span>
                     </>
                   ) : (
                     <>

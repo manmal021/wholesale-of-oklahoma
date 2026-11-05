@@ -442,7 +442,7 @@ test('Pending Protection: Pending user cannot log in and receives 403 ACCOUNT_PE
   assert.ok(data.message.includes('currently under review'));
 });
 
-test('Pending Protection: Unauthenticated requests to /api/inventory strip all wholesale pricing', async () => {
+test('Pricing Access: Unauthenticated inventory requests show retail prices without exposing wholesale prices', async () => {
   const res = await fetch(`${baseUrl}/api/inventory`);
   assert.equal(res.status, 200);
   const data = await res.json();
@@ -450,8 +450,10 @@ test('Pending Protection: Unauthenticated requests to /api/inventory strip all w
 
   if (Array.isArray(data.items) && data.items.length > 0) {
     const firstItem = data.items[0];
-    assert.equal(firstItem.rate, null, 'Wholesale rate must be stripped');
+    assert.equal(typeof firstItem.rate, 'number', 'Retail price must be visible to unauthenticated visitors');
+    assert.equal(firstItem.price_type, 'retail');
     assert.equal(firstItem.has_pricing_access, false);
+    assert.equal('wholesale_price' in firstItem, false, 'Wholesale price must not be exposed');
   }
 });
 

@@ -33,8 +33,14 @@ export interface InventoryItem {
   image_url: string;
   gallery_images?: string[];
   zoho_rate?: number; // Original authoritative rate from Zoho Inventory (never overridden)
-  rate: number | null; // Wholesale unit price with website markup applied (null if unauthorized)
+  zoho_available_stock?: number; // Original authoritative stock from Zoho Inventory
+  local_stock_quantity?: number; // Storefront quantity maintained by an administrator
+  wholesale_price?: number; // Storefront wholesale price maintained by an administrator
+  retail_price?: number; // Storefront retail price maintained by an administrator
+  rate: number | null; // Price selected for the current customer's role
   has_pricing_access?: boolean;
+  can_order?: boolean;
+  price_type?: 'wholesale' | 'retail';
   retail_msrp?: number;
   purchase_rate?: number;
   available_stock: number;
