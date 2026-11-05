@@ -6,8 +6,6 @@ import {
   ShoppingBag,
   ShieldCheck,
   Phone,
-  LogIn,
-  UserCheck,
   Truck,
   Building,
   AlertCircle,
@@ -18,6 +16,7 @@ import { addToOrderDirect } from '../../lib/mangoAI';
 interface ProductDetailModalProps {
   item: InventoryItem | null;
   displayMode: QuantityDisplayMode;
+  userRole?: 'visitor' | 'pending_customer' | 'approved_customer' | 'admin';
   onClose: () => void;
   onAddedToCart?: (name: string, qty: number) => void;
 }
@@ -25,6 +24,7 @@ interface ProductDetailModalProps {
 export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
   item,
   displayMode,
+  userRole,
   onClose,
   onAddedToCart,
 }) => {
@@ -457,29 +457,12 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                   )}
                 </div>
               ) : (
-                <div className="flex flex-col sm:flex-row items-center gap-2.5">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      onClose();
-                      window.dispatchEvent(new CustomEvent('open-login-modal'));
-                    }}
-                    className="w-full sm:flex-1 py-3.5 bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 text-sm font-bold rounded-full transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
-                  >
-                    <LogIn className="w-4 h-4 text-[#FF6B00]" />
-                    Login to Order
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => {
-                      onClose();
-                      window.dispatchEvent(new CustomEvent('open-wholesale-application'));
-                    }}
-                    className="w-full sm:flex-1 py-3.5 bg-[#FF6B00] hover:bg-[#E85F00] text-white text-sm font-bold rounded-full transition-all flex items-center justify-center gap-2 cursor-pointer shadow-md"
-                  >
-                    <UserCheck className="w-4 h-4" />
-                    Apply for Wholesale Account
-                  </button>
+                <div className="rounded-2xl border border-slate-200 bg-slate-50 p-4 text-center text-xs text-slate-600">
+                  {userRole === 'pending_customer'
+                    ? 'Your wholesale application is under review. You can continue browsing retail prices, but ordering from this account is not available yet.'
+                    : typeof currentRate !== 'number'
+                      ? 'A price is not available for this product. Please contact dispatch for assistance.'
+                      : 'Online ordering is available to approved wholesale accounts and retail shoppers.'}
                 </div>
               )}
 

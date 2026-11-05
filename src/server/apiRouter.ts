@@ -160,7 +160,7 @@ function applyProductAdminOverrides(item: any) {
   };
 }
 
-function sanitizeItemForClient(item: any, hasPricingAccess: boolean, isAdmin = false) {
+function sanitizeItemForClient(item: any, hasPricingAccess: boolean, isAdmin = false, canGuestOrder = false) {
   const product = applyProductAdminOverrides(item);
   const override =
     databaseStore.getProductOnlineOverride(product.id) ||
@@ -194,7 +194,7 @@ function sanitizeItemForClient(item: any, hasPricingAccess: boolean, isAdmin = f
       bulk_pricing: [],
       bulkPricing: [],
       has_pricing_access: true,
-      can_order: true,
+      can_order: positivePrice(product.wholesale_price) !== null,
       price_type: 'wholesale',
       stock_status: effectiveStockStatus,
       available_stock: effectiveAvailableStock,
@@ -215,9 +215,9 @@ function sanitizeItemForClient(item: any, hasPricingAccess: boolean, isAdmin = f
 
   const safe = {
     ...product,
-    rate: product.retail_price,
+    rate: product.retail_price ?? null,
     has_pricing_access: false,
-    can_order: false,
+    can_order: canGuestOrder && positivePrice(product.retail_price) !== null,
     price_type: 'retail',
   };
   delete safe.wholesale_price;
@@ -690,10 +690,12 @@ apiApp.get(['/zoho/status', '/api/zoho/status'], async (_req, res) => {
  */
 apiApp.get(['/inventory', '/api/inventory'], async (req: Request, res: Response) => {
   try {
+    const session = getSessionUser(req);
     const hasPricingAccess = hasApprovedPricingAccess(req);
-    const isAdmin = getSessionUser(req)?.role === 'admin';
-    res.setHeader('Vary', 'Cookie, Authorization, Accept');
-    if (hasPricingAccess) {
+    const isAdmin = session?.role === 'admin';
+    const canGuestOrder = !session;
+    res.setHeader('Vary', 'Cookie, Authorization, X-Session-Token, Accept');
+    if (session) {
       res.setHeader('Cache-Control', 'private, no-cache, no-store, must-revalidate');
     } else {
       res.setHeader('Cache-Control', 'public, max-age=15, stale-while-revalidate=60');
@@ -757,7 +759,7 @@ apiApp.get(['/inventory', '/api/inventory'], async (req: Request, res: Response)
         const total_pages = Math.ceil(total / limit) || 1;
         const pageItems = filtered
           .slice((page - 1) * limit, page * limit)
-          .map((item) => sanitizeItemForClient(item, hasPricingAccess, isAdmin));
+          .map((item) => sanitizeItemForClient(item, hasPricingAccess, isAdmin, canGuestOrder));
 
         return ok(res, {
           items: pageItems,
@@ -835,7 +837,7 @@ apiApp.get(['/inventory', '/api/inventory'], async (req: Request, res: Response)
     const total_pages = Math.ceil(total / limit) || 1;
     const pageItems = filtered.slice((page - 1) * limit, page * limit);
     return ok(res, {
-      items: pageItems.map((item) => sanitizeItemForClient(item, hasPricingAccess, isAdmin)),
+      items: pageItems.map((item) => sanitizeItemForClient(item, hasPricingAccess, isAdmin, canGuestOrder)),
       total,
       page,
       limit,
@@ -1112,10 +1114,11 @@ apiApp.post(['/inventory/webhook', '/api/inventory/webhook'], (req, res) => {
  */
 apiApp.get(['/inventory/:id', '/api/inventory/:id'], async (req: Request, res: Response) => {
   const id = req.params.id;
+  const session = getSessionUser(req);
   const hasPricingAccess = hasApprovedPricingAccess(req);
-  const isAdmin = getSessionUser(req)?.role === 'admin';
-  res.setHeader('Vary', 'Cookie, Authorization, Accept');
-  if (hasPricingAccess) {
+  const isAdmin = session?.role === 'admin';
+  res.setHeader('Vary', 'Cookie, Authorization, X-Session-Token, Accept');
+  if (session) {
     res.setHeader('Cache-Control', 'private, no-cache, no-store, must-revalidate');
   } else {
     res.setHeader('Cache-Control', 'public, max-age=15, stale-while-revalidate=60');
@@ -1124,14 +1127,14 @@ apiApp.get(['/inventory/:id', '/api/inventory/:id'], async (req: Request, res: R
     if (isZohoConfigured()) {
       try {
         const item = await getZohoItem(id);
-        if (item) return ok(res, sanitizeItemForClient(item, hasPricingAccess, isAdmin));
+        if (item) return ok(res, sanitizeItemForClient(item, hasPricingAccess, isAdmin, !session));
       } catch (zohoError: any) {
         console.warn(`[API] Zoho item ${id} fetch failed, falling back to seed store:`, zohoError.message);
       }
     }
     const item = inventoryStore.getItem(id);
     if (!item) return err(res, 404, `Item ${id} not found`);
-    return ok(res, sanitizeItemForClient(item, hasPricingAccess, isAdmin));
+    return ok(res, sanitizeItemForClient(item, hasPricingAccess, isAdmin, !session));
   } catch (e: any) {
     return err(res, 500, e.message);
   }
@@ -1139,7 +1142,7 @@ apiApp.get(['/inventory/:id', '/api/inventory/:id'], async (req: Request, res: R
 
 /**
  * POST /api/inventory/orders
- * Submits a wholesale order request into Zoho Inventory and databaseStore.
+ * Submits a retail or wholesale order request into Zoho Inventory and databaseStore.
  * Supports PICKUP and DELIVERY with server-side rate and fee verification (Rule 16, 17 / OWASP A06).
  */
 apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60 * 1000), async (req: Request, res: Response) => {
@@ -1214,9 +1217,6 @@ apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60
           });
         }
       }
-    }
-    if (process.env.STRICT_AUTH_CHECKOUT === 'true') {
-      return err(res, 401, 'Authentication required to submit wholesale orders');
     }
   }
 
@@ -1409,6 +1409,14 @@ apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60
       lineItems: verifiedLineItems,
       customerNotes: notes ? String(notes).trim().slice(0, 500) : undefined,
     });
+
+    databaseStore.deductProductAdminStock(
+      verifiedLineItems.map((item) => ({
+        productId: item.productId,
+        sku: item.sku,
+        quantity: item.quantityOrdered,
+      }))
+    );
 
     // Deduct stock in local inventory store
     inventoryStore

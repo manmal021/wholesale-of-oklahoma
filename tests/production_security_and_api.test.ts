@@ -1,24 +1,35 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import http from 'node:http';
-import { apiApp } from '../src/server/apiRouter.js';
-import { inventoryStore } from '../src/server/inventoryStore.js';
-import { wholesaleStore } from '../src/server/wholesaleStore.js';
 import { PRODUCTS } from '../src/lib/productDatabase.js';
-
-import { databaseStore } from '../src/server/databaseStore.js';
-import { authStore } from '../src/server/authStore.js';
 
 // Setup test server instance
 let server: http.Server;
 let baseUrl: string;
+let testStorageDir: string;
+const previousStorageDir = process.env.WOO_STORAGE_DIR;
+let apiApp: typeof import('../src/server/apiRouter.js').apiApp;
+let databaseStore: typeof import('../src/server/databaseStore.js').databaseStore;
+let authStore: typeof import('../src/server/authStore.js').authStore;
 const TEST_ADMIN_KEY = 'test_production_hardening_secret_key_2026';
 
 test.before(async () => {
+  testStorageDir = fs.mkdtempSync(path.join(os.tmpdir(), 'woo-api-test-'));
+  process.env.WOO_STORAGE_DIR = testStorageDir;
   process.env.ADMIN_SECRET_KEY = TEST_ADMIN_KEY;
   process.env.NODE_ENV = 'production'; // Enforce strict production auth checks
+
+  const [apiRouter, databaseModule, authModule] = await Promise.all([
+    import('../src/server/apiRouter.js'),
+    import('../src/server/databaseStore.js'),
+    import('../src/server/authStore.js'),
+  ]);
+  apiApp = apiRouter.apiApp;
+  databaseStore = databaseModule.databaseStore;
+  authStore = authModule.authStore;
 
   // Ensure test fixtures are available for this suite
   databaseStore.seedDemoAccounts();
@@ -35,8 +46,17 @@ test.before(async () => {
 });
 
 test.after(async () => {
-  databaseStore.purgeAllCustomerData();
-  await new Promise<void>((resolve) => server.close(() => resolve()));
+  try {
+    if (server) {
+      await new Promise<void>((resolve, reject) =>
+        server.close((error) => (error ? reject(error) : resolve()))
+      );
+    }
+  } finally {
+    if (testStorageDir) fs.rmSync(testStorageDir, { recursive: true, force: true });
+    if (previousStorageDir === undefined) delete process.env.WOO_STORAGE_DIR;
+    else process.env.WOO_STORAGE_DIR = previousStorageDir;
+  }
 });
 
 /** Upload a minimal valid PDF as a Sales Tax Permit and return the doc entry */
@@ -146,29 +166,51 @@ test('Integrity: Client-tampered unit prices on orders are overwritten with auth
   const targetProduct = PRODUCTS.find((p) => p.id === 'geekbar-15k')!;
   assert.ok(targetProduct, 'Test target product must exist in database');
 
-  const res = await fetch(`${baseUrl}/api/inventory/orders`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({
-      customerName: 'Test Vapor Store',
-      businessName: 'Oklahoma Vape Retailers LLC',
-      phone: '(405) 555-9876',
-      email: 'test@vaperetail.com',
-      lineItems: [
-        {
-          id: 'geekbar-15k',
-          name: 'Geekbar Pulse 15k',
-          quantity: 10,
-          pricePerUnit: 0.05, // Fraudulent unit price submitted by client
-        },
-      ],
-    }),
+  const productRes = await fetch(`${baseUrl}/api/inventory/geekbar-15k`);
+  assert.equal(productRes.status, 200);
+  const retailProduct = await productRes.json();
+  assert.equal(retailProduct.price_type, 'retail');
+  assert.equal(retailProduct.can_order, true);
+  databaseStore.setProductAdminOverride({
+    productId: targetProduct.id,
+    sku: targetProduct.sku,
+    localStockQuantity: 50,
+    wholesalePrice: retailProduct.rate,
+    retailPrice: retailProduct.rate,
+    updatedBy: 'production-security-test',
   });
+
+  const previousStrictCheckout = process.env.STRICT_AUTH_CHECKOUT;
+  process.env.STRICT_AUTH_CHECKOUT = 'true';
+  let res: Response;
+  try {
+    res = await fetch(`${baseUrl}/api/inventory/orders`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        customerName: 'Test Retail Shopper',
+        phone: '(405) 555-9876',
+        email: 'test@vaperetail.com',
+        lineItems: [
+          {
+            id: 'geekbar-15k',
+            name: 'Geekbar Pulse 15k',
+            quantity: 10,
+            pricePerUnit: 0.05, // Fraudulent unit price submitted by client
+          },
+        ],
+      }),
+    });
+  } finally {
+    if (previousStrictCheckout === undefined) delete process.env.STRICT_AUTH_CHECKOUT;
+    else process.env.STRICT_AUTH_CHECKOUT = previousStrictCheckout;
+  }
 
   assert.equal(res.status, 200);
   const data = await res.json();
   assert.ok(data.orderId, 'Must return assigned order reference ID');
   assert.equal(data.success, true);
+  assert.equal(data.order.lineItems[0].pricePerUnit, retailProduct.rate, 'Guest checkout must use the authoritative retail price');
 });
 
 test('Integrity: Orders reject malformed or blank contact information', async () => {
@@ -309,6 +351,7 @@ test('Pricing Security: Unauthenticated GET /api/inventory shows retail prices w
     assert.equal(item.price_type, 'retail');
     assert.equal(item.has_pricing_access, false);
     assert.equal('wholesale_price' in item, false, `Item ${item.id} must not expose wholesale price`);
+    assert.equal(item.can_order, typeof item.rate === 'number', `Item ${item.id} must allow guest ordering only when priced`);
     assert.deepEqual(item.bulk_pricing, [], `Item ${item.id} must have empty bulk pricing`);
   }
 });
@@ -322,6 +365,25 @@ test('Pricing Security: Unauthenticated GET /api/inventory/:id shows retail pric
   assert.equal(item.has_pricing_access, false);
   assert.equal('wholesale_price' in item, false);
   assert.deepEqual(item.bulk_pricing, []);
+});
+
+test('Pricing Access: pending wholesale accounts can see retail prices but cannot place storefront orders', async () => {
+  const pendingSession = authStore.createSession({
+    id: 'pending-retail-ui-test',
+    userId: 'pending-retail-ui-test',
+    email: 'pending-retail-ui-test@example.com',
+    role: 'pending_customer',
+    businessName: 'Pending Test Store',
+    contactName: 'Pending Shopper',
+  });
+  const res = await fetch(`${baseUrl}/api/inventory/geekbar-15k`, {
+    headers: { 'x-session-token': pendingSession.token },
+  });
+  assert.equal(res.status, 200);
+  const item = await res.json();
+  assert.equal(item.price_type, 'retail');
+  assert.equal(item.can_order, false);
+  assert.match(res.headers.get('cache-control') || '', /private.*no-store/);
 });
 
 // ---------------------------------------------------------------------------
@@ -372,6 +434,8 @@ test('Auth: Login with approved retailer credentials sets session cookie and unl
   const testItem = authedInvData.items.find((i: any) => i.id === 'geekbar-15k');
   assert.ok(testItem, 'Item must exist');
   assert.ok(typeof testItem.rate === 'number' && testItem.rate > 0, `Expected numeric wholesale rate, got ${testItem.rate}`);
+  assert.equal(testItem.can_order, true);
+  assert.equal(testItem.price_type, 'wholesale');
 });
 
 test('Auth: Invalid credentials return 401 and do not set session', async () => {

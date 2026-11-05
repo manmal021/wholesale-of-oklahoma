@@ -458,9 +458,11 @@ const LOCAL_STORAGE_DIR = path.resolve(process.cwd(), 'storage');
 const LOCAL_DB_FILE = path.join(LOCAL_STORAGE_DIR, 'database_state.json');
 const COMMITTED_SEED_FILE = path.resolve(process.cwd(), 'data', 'seed_database_state.json');
 
-const STORAGE_DIR = isVercel
-  ? path.join(os.tmpdir(), 'storage')
-  : LOCAL_STORAGE_DIR;
+const STORAGE_DIR = process.env.WOO_STORAGE_DIR
+  ? path.resolve(process.env.WOO_STORAGE_DIR)
+  : isVercel
+    ? path.join(os.tmpdir(), 'storage')
+    : LOCAL_STORAGE_DIR;
 const DB_FILE = path.join(STORAGE_DIR, 'database_state.json');
 
 const DEFAULT_PENDING_APPLICATION: WholesaleApplicationRecord = {
@@ -2152,6 +2154,29 @@ class DatabaseStore {
 
   public getProductAdminOverride(idOrSku: string): ProductAdminOverrideRecord | undefined {
     return this.productAdminOverrides.get(idOrSku);
+  }
+
+  public deductProductAdminStock(
+    lineItems: Array<{ productId: string; sku?: string; quantity: number }>
+  ): void {
+    let updated = false;
+
+    for (const item of lineItems) {
+      if (!Number.isSafeInteger(item.quantity) || item.quantity <= 0) {
+        throw new Error('Stock deduction quantity must be a positive whole number.');
+      }
+
+      const override =
+        this.getProductAdminOverride(item.productId) ||
+        (item.sku ? this.getProductAdminOverride(item.sku) : undefined);
+      if (!override) continue;
+
+      override.localStockQuantity = Math.max(0, override.localStockQuantity - item.quantity);
+      override.updatedAt = new Date().toISOString();
+      updated = true;
+    }
+
+    if (updated) this.persistToDisk();
   }
 
   public listProductAdminOverrides(): ProductAdminOverrideRecord[] {

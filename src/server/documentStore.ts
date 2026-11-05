@@ -25,9 +25,12 @@ export interface DocumentRecord {
   uploadedAt: string;
 }
 
-const STORAGE_DIR = process.env.VERCEL
-  ? path.join(os.tmpdir(), 'storage', 'documents')
-  : path.resolve(process.cwd(), 'storage', 'documents');
+const STORAGE_ROOT = process.env.WOO_STORAGE_DIR
+  ? path.resolve(process.env.WOO_STORAGE_DIR)
+  : process.env.VERCEL
+    ? path.join(os.tmpdir(), 'storage')
+    : path.resolve(process.cwd(), 'storage');
+const STORAGE_DIR = path.join(STORAGE_ROOT, 'documents');
 
 // Ensure private storage directory exists without crashing on read-only environments
 try {

@@ -24,7 +24,9 @@ import {
 } from './databaseStore.js';
 import { applicationPdfService } from './applicationPdfService.js';
 
-const STORAGE_DIR = path.resolve(process.cwd(), 'storage');
+const STORAGE_DIR = process.env.WOO_STORAGE_DIR
+  ? path.resolve(process.env.WOO_STORAGE_DIR)
+  : path.resolve(process.cwd(), 'storage');
 const EMAIL_LOG_FILE = path.join(STORAGE_DIR, 'email_outbox.log');
 
 export const ADMIN_EMAIL =

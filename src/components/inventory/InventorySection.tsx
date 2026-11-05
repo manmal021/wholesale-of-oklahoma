@@ -712,6 +712,7 @@ export const InventorySection: React.FC<InventorySectionProps> = ({
         <ProductDetailModal
           item={detailItem}
           displayMode={settings.display_mode}
+          userRole={currentUser?.role}
           onClose={() => setDetailItem(null)}
           onAddedToCart={(name, qty) => {
             setCartToast(`Added ${qty}x ${name} to order.`);

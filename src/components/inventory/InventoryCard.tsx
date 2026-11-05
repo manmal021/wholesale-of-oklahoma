@@ -6,8 +6,6 @@ import {
   ShoppingBag,
   XCircle,
   Layers,
-  LogIn,
-  UserCheck,
 } from 'lucide-react';
 import type { InventoryItem, QuantityDisplayMode } from '../../types/inventory';
 import { addToOrderDirect } from '../../lib/mangoAI';
@@ -335,31 +333,10 @@ export const InventoryCard: React.FC<InventoryCardProps> = ({
               <p className="text-center text-[10px] font-semibold rounded-lg px-2 py-2" style={{ background: 'var(--bg-tertiary)', color: 'var(--text-muted)' }}>
                 Your wholesale application is under review.
               </p>
-            ) : userRole ? (
-              <p className="text-center text-[10px] font-semibold rounded-lg px-2 py-2" style={{ background: 'var(--bg-tertiary)', color: 'var(--text-muted)' }}>
-                Online ordering is available to approved wholesale accounts.
-              </p>
             ) : (
-              <div className="grid grid-cols-2 gap-2">
-                <button
-                  type="button"
-                  onClick={() => window.dispatchEvent(new CustomEvent('open-login-modal'))}
-                  className="py-2 px-2 text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 cursor-pointer transition-all"
-                  style={{ background: 'var(--bg-tertiary)', color: 'var(--text-primary)', border: '1px solid var(--border-subtle)' }}
-                >
-                  <LogIn className="w-3.5 h-3.5" style={{ color: 'var(--accent-primary)' }} />
-                  Login
-                </button>
-                <button
-                  type="button"
-                  onClick={() => window.dispatchEvent(new CustomEvent('open-wholesale-application'))}
-                  className="py-2 px-2 text-xs font-bold rounded-lg flex items-center justify-center gap-1.5 cursor-pointer transition-all"
-                  style={{ background: 'var(--accent-primary)', color: '#fff' }}
-                >
-                  <UserCheck className="w-3.5 h-3.5" />
-                  Apply
-                </button>
-              </div>
+              <p className="text-center text-[10px] font-semibold rounded-lg px-2 py-2" style={{ background: 'var(--bg-tertiary)', color: 'var(--text-muted)' }}>
+                Online ordering is unavailable for this account.
+              </p>
             )}
             <button
               type="button"
