@@ -17,18 +17,34 @@ import {
   Filter,
   Pencil,
   Trash2,
+  X,
 } from 'lucide-react';
 import { setAdminProductOverride, type InventoryOverrideRecord } from '../../lib/fulfillmentApi';
 
 interface ProductItem {
   id: string;
+  zoho_item_id?: string;
   sku: string;
   name: string;
   brand?: string;
   category?: string;
+  subcategory?: string;
+  description?: string;
+  unit?: string;
+  upc?: string;
+  min_order_qty?: number;
+  features?: string[];
+  specs?: Record<string, string | undefined>;
+  variants?: Array<{ variant_id: string; variant_name: string; variant_sku: string }>;
   available_stock: number;
   stock_status: string;
   rate?: number | null;
+  zoho_rate?: number | null;
+  wholesale_price?: number | null;
+  retail_price?: number | null;
+  retail_msrp?: number | null;
+  local_stock_quantity?: number;
+  zoho_available_stock?: number;
   is_temporarily_blocked?: boolean;
 }
 
@@ -42,6 +58,9 @@ export default function AdminProductsAvailability() {
   const [categories, setCategories] = useState<string[]>([]);
   const [actionLoadingId, setActionLoadingId] = useState<string | null>(null);
   const [feedbackMessage, setFeedbackMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null);
+  const [editingProduct, setEditingProduct] = useState<ProductItem | null>(null);
+  const [editForm, setEditForm] = useState({ localStockQuantity: '', wholesalePrice: '', retailPrice: '' });
+  const [isSavingProduct, setIsSavingProduct] = useState(false);
 
   const loadData = async () => {
     setIsLoading(true);
@@ -84,6 +103,64 @@ export default function AdminProductsAvailability() {
   useEffect(() => {
     loadData();
   }, []);
+
+  const openProductEditor = (product: ProductItem) => {
+    setFeedbackMessage(null);
+    setEditingProduct(product);
+    setEditForm({
+      localStockQuantity: String(product.local_stock_quantity ?? product.available_stock ?? 0),
+      wholesalePrice: String(product.wholesale_price ?? product.rate ?? ''),
+      retailPrice: String(product.retail_price ?? product.retail_msrp ?? product.rate ?? ''),
+    });
+  };
+
+  const saveProductEdits = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!editingProduct) return;
+
+    const localStockQuantity = Number(editForm.localStockQuantity);
+    const wholesalePrice = Number(editForm.wholesalePrice);
+    const retailPrice = Number(editForm.retailPrice);
+    if (!Number.isSafeInteger(localStockQuantity) || localStockQuantity < 0) {
+      setFeedbackMessage({ type: 'error', text: 'Local stock must be a whole number greater than or equal to zero.' });
+      return;
+    }
+    if (![wholesalePrice, retailPrice].every((price) => Number.isFinite(price) && price > 0)) {
+      setFeedbackMessage({ type: 'error', text: 'Both prices must be greater than zero.' });
+      return;
+    }
+
+    setIsSavingProduct(true);
+    setFeedbackMessage(null);
+    try {
+      const token = localStorage.getItem('woo_session_token') || '';
+      const response = await fetch(`/api/inventory/admin/products/${encodeURIComponent(editingProduct.id)}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+          ...(token ? { 'x-session-token': token } : {}),
+        },
+        body: JSON.stringify({ localStockQuantity, wholesalePrice, retailPrice }),
+      });
+      const data = await response.json();
+      if (!response.ok) {
+        if (response.status === 401 || response.status === 403) {
+          window.location.href = '/admin/login';
+          return;
+        }
+        throw new Error(data.error || data.message || 'Failed to save product changes.');
+      }
+
+      const productName = editingProduct.name;
+      setEditingProduct(null);
+      await loadData();
+      setFeedbackMessage({ type: 'success', text: `Local stock and customer prices updated for "${productName}". Zoho values were not changed.` });
+    } catch (err: any) {
+      setFeedbackMessage({ type: 'error', text: err.message || 'Failed to save product changes.' });
+    } finally {
+      setIsSavingProduct(false);
+    }
+  };
 
   const handleSetOverride = async (
     product: ProductItem,
@@ -343,7 +420,7 @@ export default function AdminProductsAvailability() {
                     <th className="px-6 py-3.5">S.N.</th>
                     <th className="px-6 py-3.5">Product & SKU</th>
                     <th className="px-6 py-3.5">Category</th>
-                    <th className="px-6 py-3.5">Zoho Live Stock</th>
+                    <th className="px-6 py-3.5">Zoho / Local Stock</th>
                     <th className="px-6 py-3.5">Storefront Status</th>
                     <th className="px-6 py-3.5 text-right">Manual Override Controls</th>
                     <th className="px-6 py-3.5 text-right">Actions</th>
@@ -374,9 +451,11 @@ export default function AdminProductsAvailability() {
 
                         <td className="px-6 py-4">
                           <div className="font-extrabold text-slate-900">
-                            {prod.available_stock} <span className="font-normal text-slate-500 text-[11px]">units</span>
+                            {prod.zoho_available_stock ?? prod.available_stock} <span className="font-normal text-slate-500 text-[11px]">Zoho</span>
                           </div>
-                          <div className="text-[10px] text-slate-400">Zoho Inventory Count</div>
+                          <div className="text-[10px] text-slate-500 mt-1">
+                            Local: <span className="font-bold text-slate-700">{prod.local_stock_quantity ?? prod.available_stock}</span> units
+                          </div>
                         </td>
 
                         <td className="px-6 py-4">
@@ -456,13 +535,15 @@ export default function AdminProductsAvailability() {
                         </td>
                         <td className="px-6 py-4">
                           <div className="inline-flex items-center justify-center gap-2">
-                            <span
-                              className="p-2 rounded-lg text-slate-500"
-                              title="Edit product (not available yet)"
-                              aria-label="Edit product (not available yet)"
+                            <button
+                              type="button"
+                              onClick={() => openProductEditor(prod)}
+                              className="p-2 rounded-lg text-slate-500 hover:text-[#FF6B00] hover:bg-orange-50 transition-colors cursor-pointer"
+                              title={`Edit local stock and prices for ${prod.name}`}
+                              aria-label={`Edit local stock and prices for ${prod.name}`}
                             >
                               <Pencil className="w-4 h-4" aria-hidden="true" />
-                            </span>
+                            </button>
                             <span
                               className="p-2 rounded-lg text-rose-500"
                               title="Delete product (not available yet)"
@@ -481,6 +562,181 @@ export default function AdminProductsAvailability() {
           )}
         </div>
       </div>
+
+      {editingProduct && (
+        <div
+          className="fixed inset-0 z-50 bg-slate-950/50 backdrop-blur-sm flex items-center justify-center p-4"
+          onMouseDown={(e) => {
+            if (e.target === e.currentTarget && !isSavingProduct) setEditingProduct(null);
+          }}
+        >
+          <form
+            onSubmit={saveProductEdits}
+            className="bg-white w-full max-w-2xl max-h-[90vh] overflow-y-auto rounded-3xl shadow-2xl border border-slate-200"
+          >
+            <div className="sticky top-0 bg-white border-b border-slate-200 px-6 py-5 flex items-start justify-between gap-4 rounded-t-3xl">
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-wider text-[#FF6B00]">Storefront product settings</p>
+                <h2 className="text-lg font-black text-slate-900 mt-1">Edit {editingProduct.name}</h2>
+                <p className="text-xs text-slate-500 mt-1">Product details and Zoho values are read-only. Only local stock and customer prices can be changed.</p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setEditingProduct(null)}
+                disabled={isSavingProduct}
+                className="p-2 rounded-xl text-slate-500 hover:bg-slate-100 disabled:opacity-50"
+                aria-label="Close product editor"
+              >
+                <X className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="p-6 space-y-6">
+              {feedbackMessage?.type === 'error' && (
+                <div role="alert" className="rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-xs font-semibold text-rose-700">
+                  {feedbackMessage.text}
+                </div>
+              )}
+              <section>
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">Product details · read only</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {[
+                    ['Product name', editingProduct.name],
+                    ['Product ID', editingProduct.id],
+                    ['Zoho item ID', editingProduct.zoho_item_id || 'N/A'],
+                    ['SKU', editingProduct.sku || 'N/A'],
+                    ['Brand', editingProduct.brand || 'N/A'],
+                    ['Category', editingProduct.category || 'General Wholesale'],
+                    ['Subcategory', editingProduct.subcategory || 'N/A'],
+                    ['Unit', editingProduct.unit || 'N/A'],
+                    ['UPC', editingProduct.upc || 'N/A'],
+                    ['Minimum order quantity', editingProduct.min_order_qty == null ? 'N/A' : String(editingProduct.min_order_qty)],
+                    ['Description', editingProduct.description || 'N/A'],
+                  ].map(([label, value]) => (
+                    <div key={label} className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5">
+                      <span className="block text-[10px] font-bold uppercase tracking-wide text-slate-400">{label}</span>
+                      <span className="block text-xs font-semibold text-slate-700 mt-1 break-words">{value}</span>
+                    </div>
+                  ))}
+                </div>
+                {editingProduct.features && editingProduct.features.length > 0 && (
+                  <div className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 mt-3">
+                    <span className="block text-[10px] font-bold uppercase tracking-wide text-slate-400">Features · read only</span>
+                    <span className="block text-xs font-semibold text-slate-700 mt-1">{editingProduct.features.join(' · ')}</span>
+                  </div>
+                )}
+                {editingProduct.specs && Object.keys(editingProduct.specs).length > 0 && (
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-3">
+                    {Object.entries(editingProduct.specs).filter(([, value]) => value).map(([label, value]) => (
+                      <div key={label} className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5">
+                        <span className="block text-[10px] font-bold uppercase tracking-wide text-slate-400">{label.replace(/_/g, ' ')}</span>
+                        <span className="block text-xs font-semibold text-slate-700 mt-1">{value}</span>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                {editingProduct.variants && editingProduct.variants.length > 0 && (
+                  <div className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5 mt-3">
+                    <span className="block text-[10px] font-bold uppercase tracking-wide text-slate-400">Variants · read only</span>
+                    <span className="block text-xs font-semibold text-slate-700 mt-1">
+                      {editingProduct.variants.map((variant) => `${variant.variant_name} (${variant.variant_sku})`).join(' · ')}
+                    </span>
+                  </div>
+                )}
+              </section>
+
+              <section>
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">Zoho values · read only</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                  {[
+                    ['Zoho stock', `${editingProduct.zoho_available_stock ?? editingProduct.available_stock} units`],
+                    ['Zoho item rate', editingProduct.zoho_rate == null ? 'Not available' : `$${editingProduct.zoho_rate.toFixed(2)}`],
+                    ['Zoho sale rate', editingProduct.retail_msrp == null ? 'Not available' : `$${editingProduct.retail_msrp.toFixed(2)}`],
+                  ].map(([label, value]) => (
+                    <div key={label} className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2.5">
+                      <span className="block text-[10px] font-bold uppercase tracking-wide text-slate-400">{label}</span>
+                      <span className="block text-sm font-bold text-slate-700 mt-1">{value}</span>
+                    </div>
+                  ))}
+                </div>
+              </section>
+
+              <section>
+                <h3 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">Admin-maintained storefront values</h3>
+                <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+                  <label className="space-y-1.5">
+                    <span className="block text-xs font-bold text-slate-700">Local stock quantity</span>
+                    <input
+                      type="number"
+                      min={0}
+                      max={1_000_000_000}
+                      step={1}
+                      required
+                      value={editForm.localStockQuantity}
+                      onChange={(e) => setEditForm((form) => ({ ...form, localStockQuantity: e.target.value }))}
+                      className="w-full px-3 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#FF6B00]"
+                    />
+                    <span className="block text-[10px] text-slate-400">Independent from Zoho stock</span>
+                  </label>
+                  <label className="space-y-1.5">
+                    <span className="block text-xs font-bold text-slate-700">Wholesale price</span>
+                    <div className="relative">
+                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-slate-400">$</span>
+                      <input
+                        type="number"
+                        min={0.01}
+                        max={1_000_000}
+                        step="0.01"
+                        required
+                        value={editForm.wholesalePrice}
+                        onChange={(e) => setEditForm((form) => ({ ...form, wholesalePrice: e.target.value }))}
+                        className="w-full pl-7 pr-3 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#FF6B00]"
+                      />
+                    </div>
+                    <span className="block text-[10px] text-slate-400">Shown to approved wholesale customers</span>
+                  </label>
+                  <label className="space-y-1.5">
+                    <span className="block text-xs font-bold text-slate-700">Retail price</span>
+                    <div className="relative">
+                      <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-slate-400">$</span>
+                      <input
+                        type="number"
+                        min={0.01}
+                        max={1_000_000}
+                        step="0.01"
+                        required
+                        value={editForm.retailPrice}
+                        onChange={(e) => setEditForm((form) => ({ ...form, retailPrice: e.target.value }))}
+                        className="w-full pl-7 pr-3 py-2.5 rounded-xl border border-slate-300 bg-white text-sm text-slate-900 focus:outline-none focus:border-[#FF6B00]"
+                      />
+                    </div>
+                    <span className="block text-[10px] text-slate-400">Shown to visitors and other non-wholesale roles</span>
+                  </label>
+                </div>
+              </section>
+            </div>
+
+            <div className="sticky bottom-0 bg-slate-50 border-t border-slate-200 px-6 py-4 flex justify-end gap-2 rounded-b-3xl">
+              <button
+                type="button"
+                onClick={() => setEditingProduct(null)}
+                disabled={isSavingProduct}
+                className="px-4 py-2 rounded-xl border border-slate-300 bg-white text-slate-700 text-xs font-bold hover:bg-slate-100 disabled:opacity-50"
+              >
+                Cancel
+              </button>
+              <button
+                type="submit"
+                disabled={isSavingProduct}
+                className="px-4 py-2 rounded-xl bg-[#FF6B00] text-white text-xs font-bold hover:bg-[#E85F00] disabled:opacity-60 inline-flex items-center gap-2"
+              >
+                {isSavingProduct && <Loader2 className="w-3.5 h-3.5 animate-spin" />}
+                Save changes
+              </button>
+            </div>
+          </form>
+        </div>
+      )}
     </div>
   );
 }

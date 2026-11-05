@@ -58,7 +58,6 @@ import { productImageRegistry } from './productImageRegistry.js';
 import { PRODUCTS } from '../lib/productDatabase.js';
 import { reconcileWebsitePrices, matchWebsiteProductToZoho } from './priceReconciliation.js';
 import { applicationPdfService } from './applicationPdfService.js';
-import type { InventoryFilterParams } from '../types/inventory.js';
 
 export const apiApp = express();
 apiApp.use(express.json({ limit: '15mb' }));
@@ -110,68 +109,140 @@ function hasApprovedPricingAccess(req: Request): boolean {
   return session?.role === 'approved_customer' || session?.role === 'admin';
 }
 
-function sanitizeItemForClient(item: any, hasPricingAccess: boolean) {
+function positivePrice(value: unknown): number | null {
+  return typeof value === 'number' && Number.isFinite(value) && value > 0 ? value : null;
+}
+
+function matchesPriceRange(price: number | null, range: string | undefined): boolean {
+  if (price === null) return false;
+  switch (range) {
+    case 'under-15': return price < 15;
+    case '15-30': return price >= 15 && price <= 30;
+    case '30-60': return price > 30 && price <= 60;
+    case '60-plus': return price > 60;
+    default: return true;
+  }
+}
+
+function applyProductAdminOverrides(item: any) {
+  const adminOverride =
+    databaseStore.getProductAdminOverride(item.id) ||
+    (item.sku ? databaseStore.getProductAdminOverride(item.sku) : undefined);
+  const zohoStock = Number(item.zoho_available_stock ?? item.available_stock ?? 0);
+  const zohoRate = item.zoho_rate ?? item.rate;
+  const localStock = adminOverride?.localStockQuantity ?? zohoStock;
+  const wholesalePrice =
+    adminOverride?.wholesalePrice ?? positivePrice(item.wholesale_price) ?? positivePrice(item.rate);
+  const retailPrice =
+    adminOverride?.retailPrice ??
+    positivePrice(item.retail_price) ??
+    positivePrice(item.retail_msrp) ??
+    wholesalePrice;
+  const lowStockThreshold = inventoryStore.getSettings().low_stock_threshold;
+
+  return {
+    ...item,
+    zoho_rate: zohoRate,
+    zoho_available_stock: zohoStock,
+    local_stock_quantity: localStock,
+    wholesale_price: wholesalePrice,
+    retail_price: retailPrice,
+    variants: Array.isArray(item.variants)
+      ? item.variants.map((variant: any) => ({
+          ...variant,
+          zoho_rate: variant.zoho_rate ?? variant.rate,
+          rate: adminOverride?.wholesalePrice ?? variant.rate,
+        }))
+      : item.variants,
+    available_stock: localStock,
+    stock_on_hand: localStock,
+    stock_status: localStock <= 0 ? 'out_of_stock' : localStock <= lowStockThreshold ? 'low_stock' : 'in_stock',
+  };
+}
+
+function sanitizeItemForClient(item: any, hasPricingAccess: boolean, isAdmin = false) {
+  const product = applyProductAdminOverrides(item);
   const override =
-    databaseStore.getProductOnlineOverride(item.id) ||
-    (item.sku ? databaseStore.getProductOnlineOverride(item.sku) : undefined);
+    databaseStore.getProductOnlineOverride(product.id) ||
+    (product.sku ? databaseStore.getProductOnlineOverride(product.sku) : undefined);
   const isOverridden = Boolean(override && override.active);
   const status = override?.statusOverride;
   const isBlockedOnline =
     isOverridden && (status === 'OUT_OF_STOCK' || status === 'TEMPORARILY_UNAVAILABLE' || override?.isOutOfStockOnline);
   const isLowStock = isOverridden && status === 'LOW_STOCK';
 
-  let effectiveStockStatus = item.stock_status;
-  let effectiveAvailableStock = item.available_stock;
+  let effectiveStockStatus = product.stock_status;
+  let effectiveAvailableStock = product.available_stock;
   let isTemporarilyBlocked = false;
 
   if (isBlockedOnline) {
     effectiveStockStatus = 'out_of_stock';
     effectiveAvailableStock = 0;
     isTemporarilyBlocked = true;
-  } else if (isLowStock) {
+  } else if (isLowStock && effectiveAvailableStock > 0) {
     effectiveStockStatus = 'low_stock';
-    effectiveAvailableStock = Math.min(effectiveAvailableStock > 0 ? effectiveAvailableStock : 5, 5);
+    effectiveAvailableStock = Math.min(effectiveAvailableStock, 5);
   } else if (isOverridden && status === 'AVAILABLE') {
-    effectiveStockStatus = 'in_stock';
-    effectiveAvailableStock = effectiveAvailableStock > 0 ? effectiveAvailableStock : 50;
+    if (effectiveAvailableStock > 0) effectiveStockStatus = 'in_stock';
     isTemporarilyBlocked = false;
   }
 
   if (hasPricingAccess) {
     const base = {
-      ...item,
+      ...product,
+      rate: product.wholesale_price,
       bulk_pricing: [],
       bulkPricing: [],
       has_pricing_access: true,
+      can_order: true,
+      price_type: 'wholesale',
       stock_status: effectiveStockStatus,
       available_stock: effectiveAvailableStock,
       is_temporarily_blocked: isTemporarilyBlocked,
       availability_override: isOverridden ? status : undefined,
     };
+    if (!isAdmin) {
+      delete base.retail_price;
+      delete base.wholesale_price;
+      delete base.zoho_available_stock;
+      delete base.zoho_rate;
+      delete base.retail_msrp;
+      delete base.purchase_rate;
+      delete base.local_stock_quantity;
+    }
     return base;
   }
 
-  const safe = { ...item };
-  delete safe.rate;
+  const safe = {
+    ...product,
+    rate: product.retail_price,
+    has_pricing_access: false,
+    can_order: false,
+    price_type: 'retail',
+  };
+  delete safe.wholesale_price;
+  delete safe.retail_price;
+  delete safe.zoho_available_stock;
+  delete safe.zoho_rate;
+  delete safe.retail_msrp;
+  delete safe.local_stock_quantity;
   delete safe.pricePerUnit;
   delete safe.bulk_pricing;
   delete safe.bulkPricing;
   delete safe.purchase_rate;
-  delete safe.retail_msrp;
   if (Array.isArray(safe.variants)) {
     safe.variants = safe.variants.map((v: any) => {
       const vSafe = { ...v };
       delete vSafe.rate;
+      delete vSafe.zoho_rate;
       return { ...vSafe, rate: null };
     });
   }
   return {
     ...safe,
-    rate: null,
     bulk_pricing: [],
     bulkPricing: [],
-    has_pricing_access: false,
-    pricing_notice: isTemporarilyBlocked ? 'Temporarily Out of Stock' : 'Login to View Wholesale Pricing',
+    pricing_notice: isTemporarilyBlocked ? 'Temporarily Out of Stock' : 'Retail price',
     stock_status: effectiveStockStatus,
     available_stock: effectiveAvailableStock,
     is_temporarily_blocked: isTemporarilyBlocked,
@@ -620,6 +691,7 @@ apiApp.get(['/zoho/status', '/api/zoho/status'], async (_req, res) => {
 apiApp.get(['/inventory', '/api/inventory'], async (req: Request, res: Response) => {
   try {
     const hasPricingAccess = hasApprovedPricingAccess(req);
+    const isAdmin = getSessionUser(req)?.role === 'admin';
     res.setHeader('Vary', 'Cookie, Authorization, Accept');
     if (hasPricingAccess) {
       res.setHeader('Cache-Control', 'private, no-cache, no-store, must-revalidate');
@@ -634,7 +706,11 @@ apiApp.get(['/inventory', '/api/inventory'], async (req: Request, res: Response)
 
         // Apply query filters in-process (same logic as inventoryStore.queryItems)
         const params = q(req);
-        let filtered = items.filter(item => item.status === 'active');
+        let filtered = items
+          .map(applyProductAdminOverrides)
+          .filter(item => item.status === 'active');
+        const getAudiencePrice = (item: any) =>
+          positivePrice(hasPricingAccess ? item.wholesale_price : item.retail_price);
 
         const search = params.search?.toLowerCase().trim();
         if (search) {
@@ -657,12 +733,7 @@ apiApp.get(['/inventory', '/api/inventory'], async (req: Request, res: Response)
           filtered = filtered.filter(i => i.stock_status === params.availability);
         }
         if (params.price_range && params.price_range !== 'all') {
-          switch (params.price_range) {
-            case 'under-15': filtered = filtered.filter(i => i.rate < 15); break;
-            case '15-30': filtered = filtered.filter(i => i.rate >= 15 && i.rate <= 30); break;
-            case '30-60': filtered = filtered.filter(i => i.rate > 30 && i.rate <= 60); break;
-            case '60-plus': filtered = filtered.filter(i => i.rate > 60); break;
-          }
+          filtered = filtered.filter((item) => matchesPriceRange(getAudiencePrice(item), params.price_range));
         }
 
         // Sort
@@ -670,8 +741,8 @@ apiApp.get(['/inventory', '/api/inventory'], async (req: Request, res: Response)
         filtered.sort((a, b) => {
           if (sort === 'name_asc') return a.name.localeCompare(b.name);
           if (sort === 'name_desc') return b.name.localeCompare(a.name);
-          if (sort === 'price_asc') return a.rate - b.rate;
-          if (sort === 'price_desc') return b.rate - a.rate;
+          if (sort === 'price_asc') return (getAudiencePrice(a) ?? Number.POSITIVE_INFINITY) - (getAudiencePrice(b) ?? Number.POSITIVE_INFINITY);
+          if (sort === 'price_desc') return (getAudiencePrice(b) ?? 0) - (getAudiencePrice(a) ?? 0);
           if (sort === 'availability') {
             const rank = { in_stock: 0, low_stock: 1, out_of_stock: 2 };
             return rank[a.stock_status] - rank[b.stock_status];
@@ -686,7 +757,7 @@ apiApp.get(['/inventory', '/api/inventory'], async (req: Request, res: Response)
         const total_pages = Math.ceil(total / limit) || 1;
         const pageItems = filtered
           .slice((page - 1) * limit, page * limit)
-          .map((item) => sanitizeItemForClient(item, hasPricingAccess));
+          .map((item) => sanitizeItemForClient(item, hasPricingAccess, isAdmin));
 
         return ok(res, {
           items: pageItems,
@@ -708,23 +779,74 @@ apiApp.get(['/inventory', '/api/inventory'], async (req: Request, res: Response)
     }
 
     // ── SEED CATALOG FALLBACK PATH ───────────────────────────────────────
-    const qParams = q(req);
-    const filterParams: InventoryFilterParams = {
-      search: qParams.search,
-      category: qParams.category,
-      brand: qParams.brand,
-      availability: qParams.availability as any,
-      price_range: qParams.price_range,
-      product_type: qParams.product_type,
-      sort_by: qParams.sort_by as any,
-      page: qParams.page ? parseInt(qParams.page, 10) : 1,
-      limit: qParams.limit ? parseInt(qParams.limit, 10) : 12,
-    };
-    const result = inventoryStore.queryItems(filterParams);
+    const params = q(req);
+    const settings = inventoryStore.getSettings();
+    let filtered = inventoryStore
+      .getAllItems()
+      .map(applyProductAdminOverrides)
+      .filter((item) => item.status === 'active');
+    const getAudiencePrice = (item: any) =>
+      positivePrice(hasPricingAccess ? item.wholesale_price : item.retail_price);
+
+    if (settings.hide_out_of_stock) {
+      filtered = filtered.filter((item) => item.stock_status !== 'out_of_stock');
+    }
+    const search = params.search?.toLowerCase().trim();
+    if (search) {
+      filtered = filtered.filter((item) =>
+        [item.name, item.sku, item.brand, item.category, item.subcategory, item.description]
+          .some((value) => String(value || '').toLowerCase().includes(search)) ||
+        item.variants?.some((variant: any) =>
+          [variant.variant_name, variant.variant_sku].some((value) => String(value || '').toLowerCase().includes(search))
+        )
+      );
+    }
+    if (params.category && params.category !== 'All') {
+      filtered = filtered.filter((item) => item.category.toLowerCase() === params.category!.toLowerCase());
+    }
+    if (params.brand && params.brand !== 'All') {
+      filtered = filtered.filter((item) => item.brand.toLowerCase() === params.brand!.toLowerCase());
+    }
+    if (params.availability && params.availability !== 'all') {
+      filtered = filtered.filter((item) => item.stock_status === params.availability);
+    }
+    if (params.price_range && params.price_range !== 'all') {
+      filtered = filtered.filter((item) => matchesPriceRange(getAudiencePrice(item), params.price_range));
+    }
+    if (params.product_type && params.product_type !== 'All') {
+      filtered = filtered.filter((item) => item.subcategory?.toLowerCase() === params.product_type!.toLowerCase());
+    }
+    const sort = params.sort_by || 'newest';
+    filtered.sort((a, b) => {
+      if (sort === 'name_asc') return a.name.localeCompare(b.name);
+      if (sort === 'name_desc') return b.name.localeCompare(a.name);
+      if (sort === 'price_asc') return (getAudiencePrice(a) ?? Number.POSITIVE_INFINITY) - (getAudiencePrice(b) ?? Number.POSITIVE_INFINITY);
+      if (sort === 'price_desc') return (getAudiencePrice(b) ?? 0) - (getAudiencePrice(a) ?? 0);
+      if (sort === 'availability') {
+        const rank = { in_stock: 0, low_stock: 1, out_of_stock: 2 };
+        return rank[a.stock_status as keyof typeof rank] - rank[b.stock_status as keyof typeof rank];
+      }
+      return 0;
+    });
+
+    const page = Math.max(1, parseInt(params.page || '1', 10) || 1);
+    const limit = Math.max(1, parseInt(params.limit || '12', 10) || 12);
+    const total = filtered.length;
+    const total_pages = Math.ceil(total / limit) || 1;
+    const pageItems = filtered.slice((page - 1) * limit, page * limit);
     return ok(res, {
-      ...result,
+      items: pageItems.map((item) => sanitizeItemForClient(item, hasPricingAccess, isAdmin)),
+      total,
+      page,
+      limit,
+      total_pages,
       has_pricing_access: hasPricingAccess,
-      items: result.items.map((item) => sanitizeItemForClient(item, hasPricingAccess)),
+      settings,
+      sync_info: {
+        last_synced: new Date().toISOString(),
+        source: 'sandbox_catalog',
+        is_live_connected: false,
+      },
     });
   } catch (e: any) {
     console.error('[API] /inventory error:', e.message);
@@ -881,6 +1003,78 @@ apiApp.post(['/inventory/settings', '/api/inventory/settings'], requireAdminAuth
 });
 
 /**
+ * PUT /api/inventory/admin/products/:id
+ * Saves storefront-only stock and prices without changing Zoho Inventory data.
+ */
+apiApp.put(
+  ['/inventory/admin/products/:id', '/api/inventory/admin/products/:id'],
+  requireAdminAuth,
+  rateLimit(30, 15 * 60 * 1000),
+  async (req: Request, res: Response) => {
+    const localStockQuantity = req.body?.localStockQuantity;
+    const wholesalePrice = req.body?.wholesalePrice;
+    const retailPrice = req.body?.retailPrice;
+
+    if (!Number.isSafeInteger(localStockQuantity) || localStockQuantity < 0 || localStockQuantity > 1_000_000_000) {
+      return err(res, 400, 'Local stock quantity must be a whole number between 0 and 1,000,000,000.');
+    }
+    if (
+      typeof wholesalePrice !== 'number' ||
+      !Number.isFinite(wholesalePrice) ||
+      wholesalePrice <= 0 ||
+      wholesalePrice > 1_000_000
+    ) {
+      return err(res, 400, 'Wholesale price must be a number greater than 0 and no more than 1,000,000.');
+    }
+    if (
+      typeof retailPrice !== 'number' ||
+      !Number.isFinite(retailPrice) ||
+      retailPrice <= 0 ||
+      retailPrice > 1_000_000
+    ) {
+      return err(res, 400, 'Retail price must be a number greater than 0 and no more than 1,000,000.');
+    }
+
+    try {
+      const items = isZohoConfigured()
+        ? (await getCachedInventory()).items
+        : inventoryStore.getAllItems();
+      const requestedId = req.params.id.trim();
+      const product = items.find(
+        (item) => item.id === requestedId || item.zoho_item_id === requestedId || item.sku === requestedId
+      );
+      if (!product) return err(res, 404, 'Product not found in the current inventory catalog.');
+
+      const admin = getSessionUser(req);
+      const record = databaseStore.setProductAdminOverride({
+        productId: product.id,
+        sku: product.sku,
+        localStockQuantity,
+        wholesalePrice: Number(wholesalePrice.toFixed(2)),
+        retailPrice: Number(retailPrice.toFixed(2)),
+        updatedBy: admin?.userId || admin?.email || 'admin_secret_key',
+      });
+
+      return ok(res, {
+        success: true,
+        product: sanitizeItemForClient(
+          {
+            ...product,
+            available_stock: product.available_stock,
+          },
+          true,
+          true
+        ),
+        updatedAt: record.updatedAt,
+      });
+    } catch (e: any) {
+      console.error('[API /inventory/admin/products] Failed to save product override:', e.message);
+      return err(res, 500, 'Failed to save product inventory and pricing.');
+    }
+  }
+);
+
+/**
  * POST /api/inventory/webhook
  * Receives real-time stock update pushes from Zoho Inventory Automation.
  * Protected by timing-safe signature comparison.
@@ -919,6 +1113,7 @@ apiApp.post(['/inventory/webhook', '/api/inventory/webhook'], (req, res) => {
 apiApp.get(['/inventory/:id', '/api/inventory/:id'], async (req: Request, res: Response) => {
   const id = req.params.id;
   const hasPricingAccess = hasApprovedPricingAccess(req);
+  const isAdmin = getSessionUser(req)?.role === 'admin';
   res.setHeader('Vary', 'Cookie, Authorization, Accept');
   if (hasPricingAccess) {
     res.setHeader('Cache-Control', 'private, no-cache, no-store, must-revalidate');
@@ -929,14 +1124,14 @@ apiApp.get(['/inventory/:id', '/api/inventory/:id'], async (req: Request, res: R
     if (isZohoConfigured()) {
       try {
         const item = await getZohoItem(id);
-        if (item) return ok(res, sanitizeItemForClient(item, hasPricingAccess));
+        if (item) return ok(res, sanitizeItemForClient(item, hasPricingAccess, isAdmin));
       } catch (zohoError: any) {
         console.warn(`[API] Zoho item ${id} fetch failed, falling back to seed store:`, zohoError.message);
       }
     }
     const item = inventoryStore.getItem(id);
     if (!item) return err(res, 404, `Item ${id} not found`);
-    return ok(res, sanitizeItemForClient(item, hasPricingAccess));
+    return ok(res, sanitizeItemForClient(item, hasPricingAccess, isAdmin));
   } catch (e: any) {
     return err(res, 500, e.message);
   }
@@ -1116,41 +1311,43 @@ apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60
         z.sku === idOrSku ||
         z.zoho_item_id === idOrSku ||
         z.name.toLowerCase() === item.name?.toLowerCase()
-    );
+    ) || inventoryStore.getItem(idOrSku) ||
+      inventoryStore.getAllItems().find((product) => product.name.toLowerCase() === item.name?.toLowerCase());
 
     let unitPrice: number | null = null;
     let officialName = item.name || 'Wholesale Product';
     let officialSku = item.sku || '';
+    const usesWholesalePrice = session?.role === 'approved_customer' || session?.role === 'admin';
 
     if (zohoItem) {
       officialName = zohoItem.name;
       officialSku = zohoItem.sku;
+      const productOverride =
+        databaseStore.getProductAdminOverride(zohoItem.id) ||
+        (zohoItem.sku ? databaseStore.getProductAdminOverride(zohoItem.sku) : undefined);
 
-      // If variant requested, resolve specific variant rate
+      let matchedVariant: (typeof zohoItem.variants extends Array<infer T> ? T : never) | undefined;
       if (item.variant_id || item.flavor || item.variant_name) {
         const vName = String(item.flavor || item.variant_name || '').toLowerCase();
         const vId = item.variant_id;
-        const matchedVariant = zohoItem.variants?.find(
+        matchedVariant = zohoItem.variants?.find(
           (v) =>
             (vId && v.variant_id === vId) ||
             (vName && (v.variant_name.toLowerCase() === vName || v.attribute_value?.toLowerCase() === vName))
         );
-        if (matchedVariant && typeof matchedVariant.rate === 'number' && matchedVariant.rate > 0) {
-          unitPrice = matchedVariant.rate;
-        }
       }
 
-      if (unitPrice === null && typeof zohoItem.rate === 'number' && zohoItem.rate > 0) {
-        unitPrice = zohoItem.rate;
+      const catalogRate = positivePrice(matchedVariant?.rate) ?? positivePrice(zohoItem.rate);
+      const selectedPrice = usesWholesalePrice
+        ? productOverride?.wholesalePrice ?? catalogRate
+        : productOverride?.retailPrice ?? positivePrice(zohoItem.retail_msrp) ?? catalogRate;
+      if (typeof selectedPrice === 'number' && Number.isFinite(selectedPrice) && selectedPrice > 0) {
+        unitPrice = selectedPrice;
       }
     } else if (resolvedProduct && typeof resolvedProduct.pricePerUnit === 'number' && resolvedProduct.pricePerUnit > 0) {
       unitPrice = resolvedProduct.pricePerUnit;
       officialName = resolvedProduct.name;
       officialSku = resolvedProduct.sku;
-    } else if (typeof item.pricePerUnit === 'number' && item.pricePerUnit > 0) {
-      unitPrice = item.pricePerUnit;
-      officialName = item.name || 'Wholesale Product';
-      officialSku = item.sku || '';
     }
 
     // Never invent a price or use fallback defaults

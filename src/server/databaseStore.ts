@@ -151,6 +151,7 @@ export type AuditEventType =
   | 'ITEM_REMOVED_FROM_ORDER'
   | 'INVENTORY_MISMATCH_REPORTED'
   | 'INVENTORY_MISMATCH_RESOLVED'
+  | 'PRODUCT_ADMIN_OVERRIDE_UPDATED'
   | 'PRODUCT_TEMPORARILY_DISABLED'
   | 'PRODUCT_REACTIVATED'
   | 'ORDER_MARKED_READY_FOR_PICKUP'
@@ -337,6 +338,16 @@ export interface InventoryOverrideRecord {
   active: boolean;
 }
 
+export interface ProductAdminOverrideRecord {
+  productId: string;
+  sku: string;
+  localStockQuantity: number;
+  wholesalePrice: number;
+  retailPrice: number;
+  updatedBy: string;
+  updatedAt: string;
+}
+
 export interface InventoryMismatchRecord {
   id: string;
   orderId: string;
@@ -429,6 +440,7 @@ interface DatabaseState {
   orders?: OrderRecord[];
   fulfillmentConfig?: FulfillmentConfig;
   inventoryOverrides?: InventoryOverrideRecord[];
+  productAdminOverrides?: ProductAdminOverrideRecord[];
   inventoryMismatches?: InventoryMismatchRecord[];
   customerAddresses?: CustomerSavedAddress[];
   users?: any[];
@@ -495,6 +507,7 @@ class DatabaseStore {
   private ordersByCustomerEmail: Map<string, string[]> = new Map(); // email -> orderId[]
   private fulfillmentConfig: FulfillmentConfig = { ...DEFAULT_FULFILLMENT_CONFIG };
   private inventoryOverrides: Map<string, InventoryOverrideRecord> = new Map(); // productId/sku -> record
+  private productAdminOverrides: Map<string, ProductAdminOverrideRecord> = new Map(); // productId/sku -> record
   private inventoryMismatches: Map<string, InventoryMismatchRecord> = new Map(); // id -> record
   private customerAddresses: Map<string, CustomerSavedAddress[]> = new Map(); // customerId -> addresses[]
   private users: Map<string, any> = new Map(); // keyed by email (lowercase)
@@ -558,6 +571,7 @@ class DatabaseStore {
         this.orders.clear();
         this.ordersByCustomerEmail.clear();
         this.inventoryOverrides.clear();
+        this.productAdminOverrides.clear();
         this.inventoryMismatches.clear();
         this.customerAddresses.clear();
 
@@ -624,6 +638,15 @@ class DatabaseStore {
             if (ov.active) {
               this.inventoryOverrides.set(ov.productId, ov);
               if (ov.sku) this.inventoryOverrides.set(ov.sku, ov);
+            }
+          }
+        }
+
+        if (Array.isArray(state.productAdminOverrides)) {
+          for (const override of state.productAdminOverrides) {
+            if (override && override.productId) {
+              this.productAdminOverrides.set(override.productId, override);
+              if (override.sku) this.productAdminOverrides.set(override.sku, override);
             }
           }
         }
@@ -749,6 +772,7 @@ class DatabaseStore {
         orders: Array.from(new Set(this.orders.values())),
         fulfillmentConfig: this.fulfillmentConfig,
         inventoryOverrides: Array.from(new Set(this.inventoryOverrides.values())),
+        productAdminOverrides: Array.from(new Set(this.productAdminOverrides.values())),
         inventoryMismatches: Array.from(this.inventoryMismatches.values()),
         customerAddresses: Array.from(this.customerAddresses.values()).flat(),
         users: Array.from(this.users.values()),
@@ -2095,6 +2119,46 @@ class DatabaseStore {
   }
 
   // ── Online Inventory Overrides ─────────────────────────────────────────────
+
+  public setProductAdminOverride(params: {
+    productId: string;
+    sku: string;
+    localStockQuantity: number;
+    wholesalePrice: number;
+    retailPrice: number;
+    updatedBy: string;
+  }): ProductAdminOverrideRecord {
+    const record: ProductAdminOverrideRecord = {
+      ...params,
+      updatedAt: new Date().toISOString(),
+    };
+
+    this.productAdminOverrides.set(record.productId, record);
+    if (record.sku) this.productAdminOverrides.set(record.sku, record);
+    this.addAuditLog({
+      event: 'PRODUCT_ADMIN_OVERRIDE_UPDATED',
+      targetId: record.productId,
+      adminId: record.updatedBy,
+      details: {
+        sku: record.sku,
+        localStockQuantity: record.localStockQuantity,
+        wholesalePrice: record.wholesalePrice,
+        retailPrice: record.retailPrice,
+      },
+    });
+    this.persistToDisk();
+    return record;
+  }
+
+  public getProductAdminOverride(idOrSku: string): ProductAdminOverrideRecord | undefined {
+    return this.productAdminOverrides.get(idOrSku);
+  }
+
+  public listProductAdminOverrides(): ProductAdminOverrideRecord[] {
+    return Array.from(new Map(
+      Array.from(this.productAdminOverrides.values()).map((record) => [record.productId, record])
+    ).values());
+  }
 
   public setProductOnlineOverride(params: {
     productId: string;

@@ -287,6 +287,18 @@ export const InventorySection: React.FC<InventorySectionProps> = ({
     loadInventory();
   }, [loadInventory]);
 
+  useEffect(() => {
+    const handleAuthChanged = () => {
+      void loadInventory(false);
+    };
+    window.addEventListener('woo-auth-changed', handleAuthChanged);
+    window.addEventListener('storage', handleAuthChanged);
+    return () => {
+      window.removeEventListener('woo-auth-changed', handleAuthChanged);
+      window.removeEventListener('storage', handleAuthChanged);
+    };
+  }, [loadInventory]);
+
   // Accordion Toggle
   const toggleGroup = (groupId: string) => {
     setExpandedGroups((prev) => ({
@@ -616,6 +628,7 @@ export const InventorySection: React.FC<InventorySectionProps> = ({
                     key={item.id}
                     item={item}
                     displayMode={settings.display_mode}
+                    userRole={currentUser?.role}
                     onViewDetails={(it) => setDetailItem(it)}
                     onAddedToCart={(name, qty) => {
                       setCartToast(`Added ${qty}x ${name} to order.`);

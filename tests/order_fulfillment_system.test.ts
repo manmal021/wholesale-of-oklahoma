@@ -7,6 +7,7 @@ import { apiApp } from '../src/server/apiRouter.js';
 import { databaseStore } from '../src/server/databaseStore.js';
 import { authStore } from '../src/server/authStore.js';
 import { emailService } from '../src/server/emailService.js';
+import { inventoryStore } from '../src/server/inventoryStore.js';
 
 let server: http.Server;
 let baseUrl: string;
@@ -17,6 +18,14 @@ let customerA_id: string;
 let customerB_token: string;
 let customerB_id: string;
 let admin_token: string;
+const pricedTestProducts = inventoryStore.getAllItems()
+  .filter((product) => typeof product.rate === 'number' && product.rate > 0)
+  .slice(0, 4);
+assert.ok(pricedTestProducts.length >= 4, 'Fulfillment tests require four catalog products with verified prices');
+const primaryTestProduct = pricedTestProducts[0]!;
+const secondaryTestProduct = pricedTestProducts[1]!;
+const tertiaryTestProduct = pricedTestProducts[2]!;
+const quaternaryTestProduct = pricedTestProducts[3]!;
 
 test.before(async () => {
   process.env.ADMIN_SECRET_KEY = TEST_ADMIN_SECRET;
@@ -167,9 +176,9 @@ test('Pickup Scenario: Approved customer places PICKUP order -> Admin prepares -
       },
       lineItems: [
         {
-          id: 'prod_vozol_1',
-          sku: 'VOZOL-BLUE-RAZZ',
-          name: 'Vozol Gear 10000 Blue Razz Ice',
+          id: primaryTestProduct.id,
+          sku: primaryTestProduct.sku,
+          name: primaryTestProduct.name,
           quantity: 10,
           pricePerUnit: 12.5,
         },
@@ -293,9 +302,9 @@ test('Delivery Scenario: Server validates OKC metro address -> Server computes $
       },
       lineItems: [
         {
-          id: 'prod_geek_bar_1',
-          sku: 'GEEK-BAR-PULSE-WTM',
-          name: 'Geek Bar Pulse 15000 Watermelon Ice',
+          id: secondaryTestProduct.id,
+          sku: secondaryTestProduct.sku,
+          name: secondaryTestProduct.name,
           quantity: 20,
           pricePerUnit: 12.0, // Subtotal: $240 -> Fee: $25
         },
@@ -308,7 +317,11 @@ test('Delivery Scenario: Server validates OKC metro address -> Server computes $
   const storedOrder = databaseStore.getOrder(orderId)!;
   assert.equal(storedOrder.fulfillmentMethod, 'DELIVERY');
   assert.equal(storedOrder.deliveryFee, 25.0, 'Server must enforce $25 delivery fee');
-  assert.equal(storedOrder.total, 265.0, 'Subtotal $240 + Delivery $25 = $265');
+  assert.equal(
+    storedOrder.total,
+    Math.round((secondaryTestProduct.rate! * 20 + 25) * 100) / 100,
+    'Subtotal plus delivery fee'
+  );
   assert.equal(storedOrder.deliveryInfo?.addressSnapshot.street, '1200 N Pennsylvania Ave');
 
   // Step 3: Staff moves to PROCESSING then OUT_FOR_DELIVERY
@@ -367,7 +380,7 @@ test('Delivery Restrictions: Rejects addresses outside Oklahoma service area and
           phone: '(214) 555-9999',
         },
       },
-      lineItems: [{ id: 'item_1', sku: 'TEST-SKU', name: 'Vape Pod', quantity: 20, pricePerUnit: 15 }],
+      lineItems: [{ id: primaryTestProduct.id, sku: primaryTestProduct.sku, name: primaryTestProduct.name, quantity: 20, pricePerUnit: 15 }],
     },
   });
   assert.equal(texasRes.status, 400);
@@ -389,7 +402,7 @@ test('Delivery Restrictions: Rejects addresses outside Oklahoma service area and
           phone: '(405) 555-0101',
         },
       },
-      lineItems: [{ id: 'item_1', sku: 'TEST-SKU', name: 'Vape Pod', quantity: 4, pricePerUnit: 12.5 }], // Subtotal: $50
+      lineItems: [{ id: primaryTestProduct.id, sku: primaryTestProduct.sku, name: primaryTestProduct.name, quantity: 1, pricePerUnit: 12.5 }],
     },
   });
   assert.equal(minOrderRes.status, 400);
@@ -401,8 +414,8 @@ test('Delivery Restrictions: Rejects addresses outside Oklahoma service area and
 // ---------------------------------------------------------------------------
 test('Physical Out of Stock Test: Physical 0 count triggers mismatch log, blocks online ordering, and flags order issue', async () => {
   // Ensure product starts unblocked for test reproducibility
-  databaseStore.removeProductOnlineOverride('prod_foger_shortage', 'test_setup');
-  databaseStore.removeProductOnlineOverride('FOGER-PRO-SOUR-APPLE', 'test_setup');
+  databaseStore.removeProductOnlineOverride(primaryTestProduct.id, 'test_setup');
+  databaseStore.removeProductOnlineOverride(primaryTestProduct.sku, 'test_setup');
 
   // Step 1: Customer places order for 5 units
   const orderRes = await apiRequest('/api/inventory/orders', {
@@ -412,9 +425,9 @@ test('Physical Out of Stock Test: Physical 0 count triggers mismatch log, blocks
       fulfillmentMethod: 'PICKUP',
       lineItems: [
         {
-          id: 'prod_foger_shortage',
-          sku: 'FOGER-PRO-SOUR-APPLE',
-          name: 'Foger CT10000 Sour Apple Ice',
+          id: primaryTestProduct.id,
+          sku: primaryTestProduct.sku,
+          name: primaryTestProduct.name,
           quantity: 5,
           pricePerUnit: 14.0,
         },
@@ -448,14 +461,14 @@ test('Physical Out of Stock Test: Physical 0 count triggers mismatch log, blocks
 
   // Step 3: Verify Inventory Mismatch record was automatically created
   const mismatches = databaseStore.listInventoryMismatches(false);
-  const matchingLog = mismatches.find((m) => m.orderId === orderId && m.sku === 'FOGER-PRO-SOUR-APPLE');
+  const matchingLog = mismatches.find((m) => m.orderId === orderId && m.sku === primaryTestProduct.sku);
   assert.ok(matchingLog, 'Discrepancy log must be recorded');
   assert.equal(matchingLog.physicalQuantity, 0);
   assert.ok(matchingLog.difference < 0);
 
   // Step 4: Verify Product is blocked from new online orders
-  assert.equal(databaseStore.isProductBlockedOnline('prod_foger_shortage'), true);
-  assert.equal(databaseStore.isProductBlockedOnline('FOGER-PRO-SOUR-APPLE'), true);
+  assert.equal(databaseStore.isProductBlockedOnline(primaryTestProduct.id), true);
+  assert.equal(databaseStore.isProductBlockedOnline(primaryTestProduct.sku), true);
 
   // Attempting new order for this item must be rejected
   const blockedOrderRes = await apiRequest('/api/inventory/orders', {
@@ -465,9 +478,9 @@ test('Physical Out of Stock Test: Physical 0 count triggers mismatch log, blocks
       fulfillmentMethod: 'PICKUP',
       lineItems: [
         {
-          id: 'prod_foger_shortage',
-          sku: 'FOGER-PRO-SOUR-APPLE',
-          name: 'Foger CT10000 Sour Apple Ice',
+          id: primaryTestProduct.id,
+          sku: primaryTestProduct.sku,
+          name: primaryTestProduct.name,
           quantity: 2,
           pricePerUnit: 14.0,
         },
@@ -502,6 +515,8 @@ test('Physical Out of Stock Test: Physical 0 count triggers mismatch log, blocks
   const resolvedOrder = databaseStore.getOrder(orderId)!;
   assert.equal(resolvedOrder.hasInventoryIssue, false);
   assert.equal(resolvedOrder.status, 'PROCESSING');
+  databaseStore.removeProductOnlineOverride(primaryTestProduct.id, 'test_cleanup');
+  databaseStore.removeProductOnlineOverride(primaryTestProduct.sku, 'test_cleanup');
 });
 
 // ---------------------------------------------------------------------------
@@ -515,9 +530,9 @@ test('Partial Inventory Test: Customer orders 10, staff finds 6 -> Unavailable 4
       fulfillmentMethod: 'PICKUP',
       lineItems: [
         {
-          id: 'prod_partial_pod',
-          sku: 'POD-PARTIAL-100',
-          name: 'Vaporesso Pod Refills 4pk',
+          id: primaryTestProduct.id,
+          sku: primaryTestProduct.sku,
+          name: primaryTestProduct.name,
           quantity: 10,
           pricePerUnit: 10.0, // Original subtotal: $100
         },
@@ -528,7 +543,7 @@ test('Partial Inventory Test: Customer orders 10, staff finds 6 -> Unavailable 4
   const orderId = orderRes.data.orderId;
   const initialOrder = databaseStore.getOrder(orderId)!;
   const itemId = initialOrder.lineItems[0].id;
-  assert.equal(initialOrder.originalSubtotal, 100.0);
+  assert.equal(initialOrder.originalSubtotal, Math.round(primaryTestProduct.rate! * 10 * 100) / 100);
 
   // Staff discovers only 6 available
   const staffRes = await apiRequest(`/api/admin/orders/${orderId}/items/${itemId}/status`, {
@@ -559,10 +574,11 @@ test('Partial Inventory Test: Customer orders 10, staff finds 6 -> Unavailable 4
 
   // Check recalculated totals
   const updatedOrder = databaseStore.getOrder(orderId)!;
-  assert.equal(updatedOrder.subtotal, 60.0, 'Subtotal must recalculate to 6 * $10.00 = $60.00');
-  assert.equal(updatedOrder.total, 60.0);
+  const expectedPartialSubtotal = Math.round(primaryTestProduct.rate! * 6 * 100) / 100;
+  assert.equal(updatedOrder.subtotal, expectedPartialSubtotal);
+  assert.equal(updatedOrder.total, expectedPartialSubtotal);
   assert.equal(updatedOrder.paymentStatus, 'ADJUSTED');
-  assert.equal(updatedOrder.originalSubtotal, 100.0, 'Historical original subtotal must remain preserved');
+  assert.equal(updatedOrder.originalSubtotal, Math.round(primaryTestProduct.rate! * 10 * 100) / 100, 'Historical original subtotal must remain preserved');
   assert.equal(updatedOrder.lineItems[0].quantityOrdered, 10, 'Historical quantity ordered must remain preserved');
 });
 
@@ -576,10 +592,10 @@ test('Multiple Items Test: Product A (Available), Product B (Out of Stock), Prod
     body: {
       fulfillmentMethod: 'PICKUP',
       lineItems: [
-        { id: 'pA', sku: 'SKU-A', name: 'Product A', quantity: 5, pricePerUnit: 10 },
-        { id: 'pB', sku: 'SKU-B', name: 'Product B', quantity: 4, pricePerUnit: 15 },
-        { id: 'pC', sku: 'SKU-C', name: 'Product C', quantity: 8, pricePerUnit: 12 },
-        { id: 'pD', sku: 'SKU-D', name: 'Product D', quantity: 2, pricePerUnit: 20 },
+        { id: primaryTestProduct.id, sku: primaryTestProduct.sku, name: primaryTestProduct.name, quantity: 5, pricePerUnit: 10 },
+        { id: secondaryTestProduct.id, sku: secondaryTestProduct.sku, name: secondaryTestProduct.name, quantity: 4, pricePerUnit: 15 },
+        { id: tertiaryTestProduct.id, sku: tertiaryTestProduct.sku, name: tertiaryTestProduct.name, quantity: 8, pricePerUnit: 12 },
+        { id: quaternaryTestProduct.id, sku: quaternaryTestProduct.sku, name: quaternaryTestProduct.name, quantity: 2, pricePerUnit: 20 },
       ],
     },
   });
@@ -708,7 +724,7 @@ test('Internal Staff Notes: Visible strictly to authorized business staff, never
     token: customerA_token,
     body: {
       fulfillmentMethod: 'PICKUP',
-      lineItems: [{ id: 'p1', sku: 'SKU-1', name: 'Item 1', quantity: 2, pricePerUnit: 10 }],
+      lineItems: [{ id: primaryTestProduct.id, sku: primaryTestProduct.sku, name: primaryTestProduct.name, quantity: 2, pricePerUnit: 10 }],
     },
   });
   const orderId = orderRes.data.orderId;
@@ -769,7 +785,7 @@ test('Security & RBAC: Regular customer cannot access admin order endpoints or m
     token: customerA_token,
     body: {
       fulfillmentMethod: 'PICKUP',
-      lineItems: [{ id: 'p1', sku: 'SKU-1', name: 'Item 1', quantity: 2, pricePerUnit: 10 }],
+      lineItems: [{ id: primaryTestProduct.id, sku: primaryTestProduct.sku, name: primaryTestProduct.name, quantity: 2, pricePerUnit: 10 }],
     },
   });
   const orderA_id = orderRes.data.orderId;

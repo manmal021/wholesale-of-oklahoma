@@ -120,6 +120,25 @@ test('Security: /api/inventory/settings accepts requests with valid ADMIN_SECRET
   assert.equal(data.success, true);
 });
 
+test('Security: product override updates require admin auth and validate editable fields', async () => {
+  const unauthenticated = await fetch(`${baseUrl}/api/inventory/admin/products/geekbar-15k`, {
+    method: 'PUT',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ localStockQuantity: 10, wholesalePrice: 12, retailPrice: 15 }),
+  });
+  assert.equal(unauthenticated.status, 401);
+
+  const invalid = await fetch(`${baseUrl}/api/inventory/admin/products/geekbar-15k`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-admin-key': TEST_ADMIN_KEY,
+    },
+    body: JSON.stringify({ localStockQuantity: -1, wholesalePrice: 12, retailPrice: 15 }),
+  });
+  assert.equal(invalid.status, 400);
+});
+
 // ---------------------------------------------------------------------------
 // 4. Server-Side Price Verification & Anti-Tampering (Rule 16, 17 & OWASP A06)
 // ---------------------------------------------------------------------------
@@ -274,7 +293,7 @@ test('Caching: Sensitive admin status is not cached with public CDN max-age', as
 // ---------------------------------------------------------------------------
 // 8. Zero Wholesale Pricing Leakage for Unauthenticated Visitors (Req 2 & 25)
 // ---------------------------------------------------------------------------
-test('Pricing Security: Unauthenticated GET /api/inventory strips all wholesale rates', async () => {
+test('Pricing Security: Unauthenticated GET /api/inventory shows retail prices without wholesale prices', async () => {
   const res = await fetch(`${baseUrl}/api/inventory`);
   assert.equal(res.status, 200);
   const data = await res.json();
@@ -283,18 +302,25 @@ test('Pricing Security: Unauthenticated GET /api/inventory strips all wholesale 
   assert.ok(data.items.length > 0, 'Catalog should return items');
 
   for (const item of data.items) {
-    assert.equal(item.rate, null, `Item ${item.id} must have null rate for unauthenticated caller`);
+    assert.ok(
+      item.rate === null || (typeof item.rate === 'number' && item.rate > 0),
+      `Item ${item.id} must expose only a valid retail price or null when no price is configured`
+    );
+    assert.equal(item.price_type, 'retail');
     assert.equal(item.has_pricing_access, false);
+    assert.equal('wholesale_price' in item, false, `Item ${item.id} must not expose wholesale price`);
     assert.deepEqual(item.bulk_pricing, [], `Item ${item.id} must have empty bulk pricing`);
   }
 });
 
-test('Pricing Security: Unauthenticated GET /api/inventory/:id strips wholesale rates', async () => {
+test('Pricing Security: Unauthenticated GET /api/inventory/:id shows retail price without wholesale price', async () => {
   const res = await fetch(`${baseUrl}/api/inventory/geekbar-15k`);
   assert.equal(res.status, 200);
   const item = await res.json();
-  assert.equal(item.rate, null, 'Direct item query must have null rate without authorization');
+  assert.equal(typeof item.rate, 'number', 'Direct item query must expose the retail price');
+  assert.equal(item.price_type, 'retail');
   assert.equal(item.has_pricing_access, false);
+  assert.equal('wholesale_price' in item, false);
   assert.deepEqual(item.bulk_pricing, []);
 });
 
@@ -432,4 +458,3 @@ test('Upload Security: Rejects files exceeding 10MB limit', async () => {
 
   assert.equal(res.status, 413, 'Oversized file must be rejected with 413');
 });
-

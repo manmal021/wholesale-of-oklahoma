@@ -6,7 +6,6 @@ import {
   ShoppingBag,
   ShieldCheck,
   Phone,
-  Lock,
   LogIn,
   UserCheck,
   Truck,
@@ -62,12 +61,13 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
   const currentStatus = selectedVariant ? selectedVariant.stock_status : item.stock_status;
   const currentSku = selectedVariant ? selectedVariant.variant_sku : item.sku;
   const currentRate = selectedVariant?.rate ?? item.rate;
-  const hasPricingAccess = item.has_pricing_access === true && typeof currentRate === 'number';
+  const canOrder = item.can_order === true && typeof currentRate === 'number';
+  const hasPrice = typeof currentRate === 'number';
   const isOutOfStock = currentStatus === 'out_of_stock' || currentStock <= 0;
   const isLowStock = currentStatus === 'low_stock';
 
   const handleAddToCart = () => {
-    if (isOutOfStock || !hasPricingAccess || typeof currentRate !== 'number') return;
+    if (isOutOfStock || !canOrder || typeof currentRate !== 'number') return;
     const itemName = selectedVariant
       ? `${item.name} (${selectedVariant.variant_name})`
       : item.name;
@@ -286,69 +286,24 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
               </div>
 
               {/* Pricing Display */}
-              {hasPricingAccess && typeof currentRate === 'number' ? (
+              {hasPrice ? (
                 <div className="p-4 bg-slate-50 rounded-2xl border border-slate-200 flex items-center justify-between">
                   <div>
                     <span className="text-[10px] uppercase font-bold tracking-wider text-[#FF6B00] block">
-                      Wholesale Price
+                      {item.price_type === 'wholesale' ? 'Wholesale Price' : 'Retail Price'}
                     </span>
                     <span className="text-3xl font-black text-slate-900">
                       ${currentRate.toFixed(2)}
                     </span>
                   </div>
 
-                  {item.retail_msrp && (
-                    <div className="text-right">
-                      <span className="text-[10px] uppercase font-bold text-slate-500 block">
-                        Estimated Retail MSRP
-                      </span>
-                      <span className="text-sm font-semibold text-slate-400 line-through">
-                        ${item.retail_msrp.toFixed(2)}
-                      </span>
-                      <span className="text-[11px] text-[#FF6B00] font-bold block">
-                        ~{Math.round(((item.retail_msrp - currentRate) / item.retail_msrp) * 100)}% Profit Margin
-                      </span>
-                    </div>
-                  )}
                 </div>
               ) : (
-                <div className="p-5 bg-slate-50 rounded-2xl border border-slate-200 text-slate-900">
-                  <div className="flex items-center gap-2.5 mb-2">
-                    <div className="w-8 h-8 rounded-full bg-[#FF6B00]/10 flex items-center justify-center text-[#FF6B00]">
-                      <Lock className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <h4 className="text-sm font-bold text-slate-900">Login to View Wholesale Pricing</h4>
-                      <span className="text-[11px] text-slate-500">Restricted to verified wholesale retail accounts</span>
-                    </div>
-                  </div>
-                  <p className="text-xs text-slate-600 leading-relaxed mt-2">
-                    Case quantity tiers, profit margin calculators, and online ordering require an approved Wholesale of Oklahoma retail partner account.
+                <div className="p-5 bg-slate-50 rounded-2xl border border-slate-200 text-slate-600">
+                  <h4 className="text-sm font-bold text-slate-900">Price not available</h4>
+                  <p className="text-xs leading-relaxed mt-1">
+                    A storefront price has not been configured for this product. Please contact dispatch for assistance.
                   </p>
-                  <div className="grid grid-cols-2 gap-2 mt-4">
-                    <button
-                      type="button"
-                      onClick={() => {
-                        onClose();
-                        window.dispatchEvent(new CustomEvent('open-login-modal'));
-                      }}
-                      className="py-2.5 px-3 bg-white hover:bg-slate-100 text-slate-800 font-bold text-xs rounded-xl border border-slate-300 transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
-                    >
-                      <LogIn className="w-3.5 h-3.5 text-[#FF6B00]" />
-                      Login to View Pricing
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => {
-                        onClose();
-                        window.dispatchEvent(new CustomEvent('open-wholesale-application'));
-                      }}
-                      className="py-2.5 px-3 bg-[#FF6B00] hover:bg-[#E85F00] text-white font-bold text-xs rounded-xl transition-colors flex items-center justify-center gap-1.5 cursor-pointer shadow-sm"
-                    >
-                      <UserCheck className="w-3.5 h-3.5" />
-                      Apply for Account
-                    </button>
-                  </div>
                 </div>
               )}
 
@@ -438,7 +393,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
 
             {/* Bottom Actions: Quantity Selector, Add to Cart & Dispatch CTA */}
             <div className="pt-4 border-t border-slate-200 space-y-3">
-              {hasPricingAccess && typeof currentRate === 'number' ? (
+              {canOrder ? (
                 <div className="flex items-center gap-3">
                   {/* Stepper */}
                   <div
@@ -495,7 +450,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                       ) : (
                         <>
                           <ShoppingBag className="w-4 h-4 text-white" />
-                          Add {qty} to Wholesale Cart · ${(currentRate * qty).toFixed(2)}
+                          Add {qty} to Cart · ${(currentRate * qty).toFixed(2)}
                         </>
                       )}
                     </button>
@@ -512,7 +467,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
                     className="w-full sm:flex-1 py-3.5 bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 text-sm font-bold rounded-full transition-all flex items-center justify-center gap-2 cursor-pointer shadow-xs"
                   >
                     <LogIn className="w-4 h-4 text-[#FF6B00]" />
-                    Login to View Wholesale Pricing
+                    Login to Order
                   </button>
                   <button
                     type="button"
