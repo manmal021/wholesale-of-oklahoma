@@ -140,6 +140,76 @@ async function apiRequest(endpoint: string, options: { method?: string; body?: a
   return { status: res.status, ok: res.ok, data };
 }
 
+test('Guest pickup order: requires identity but not an address, then appears in admin pickup queue', async () => {
+  const guestOrder = {
+    guestOrder: true,
+    customerName: 'Guest Retailer',
+    email: 'guest_retailer@testsmoke.com',
+    phone: '(405) 555-0303',
+    fulfillmentMethod: 'PICKUP',
+    lineItems: [{
+      id: primaryTestProduct.id,
+      sku: primaryTestProduct.sku,
+      name: primaryTestProduct.name,
+      quantity: 1,
+      pricePerUnit: 12.5,
+    }],
+  };
+
+  const missingIdentity = await apiRequest('/api/inventory/orders', {
+    method: 'POST',
+    body: guestOrder,
+  });
+  assert.equal(missingIdentity.status, 400);
+  assert.match(missingIdentity.data.error, /state ID|driver’s license/i);
+
+  const upload = await apiRequest('/api/wholesale/upload', {
+    method: 'POST',
+    body: {
+      fileBase64: Buffer.from('%PDF-1.4 1 0 obj<</Type /Catalog>>endobj').toString('base64'),
+      filename: 'state-id.pdf',
+      documentType: 'state_id',
+    },
+  });
+  assert.equal(upload.status, 200);
+
+  const orderRes = await apiRequest('/api/inventory/orders', {
+    method: 'POST',
+    body: {
+      ...guestOrder,
+      identityDocument: {
+        documentId: upload.data.documentId,
+        documentType: 'state_id',
+        filename: upload.data.filename,
+      },
+    },
+  });
+  assert.equal(orderRes.status, 200);
+
+  const order = databaseStore.getOrder(orderRes.data.orderId);
+  assert.ok(order);
+  assert.equal(order.customerAddress, undefined);
+  assert.equal(order.identityDocument?.documentId, upload.data.documentId);
+
+  const adminQueue = await apiRequest('/api/admin/orders?fulfillmentMethod=PICKUP', {
+    token: admin_token,
+  });
+  assert.ok(adminQueue.data.orders.some((queuedOrder: any) => queuedOrder.id === order.id));
+
+  const customerQueue = await apiRequest('/api/admin/orders?fulfillmentMethod=PICKUP', {
+    token: customerA_token,
+  });
+  assert.equal(customerQueue.status, 403);
+
+  const adminOrder = await apiRequest(`/api/admin/orders/${order.id}`, {
+    token: admin_token,
+  });
+  assert.equal(adminOrder.data.order.identityDocument.documentId, upload.data.documentId);
+
+  const guestCannotReadDocument = await apiRequest(`/api/wholesale/documents/${upload.data.documentId}`);
+  assert.equal(guestCannotReadDocument.status, 401);
+});
+
 // ---------------------------------------------------------------------------
 // 1. Centralized Fulfillment Configuration Test
 // ---------------------------------------------------------------------------
@@ -286,6 +356,8 @@ test('Delivery Scenario: Server validates OKC metro address -> Server computes $
     method: 'POST',
     token: customerA_token,
     body: {
+      businessName: 'Alpha Smoke & Vape OKC LLC',
+      notes: 'Please confirm the wholesale case-pack arrangement.',
       fulfillmentMethod: 'DELIVERY',
       deliveryInfo: {
         addressSnapshot: {
@@ -323,6 +395,21 @@ test('Delivery Scenario: Server validates OKC metro address -> Server computes $
     'Subtotal plus delivery fee'
   );
   assert.equal(storedOrder.deliveryInfo?.addressSnapshot.street, '1200 N Pennsylvania Ave');
+  assert.equal(storedOrder.deliveryInfo?.addressSnapshot.recipientName, 'Alex Alpha Storefront');
+  assert.equal(storedOrder.deliveryInfo?.addressSnapshot.unit, 'Suite A');
+  assert.equal(storedOrder.deliveryInfo?.addressSnapshot.deliveryInstructions, 'Rear alley commercial bay door');
+  assert.equal(storedOrder.customerNotes, 'Please confirm the wholesale case-pack arrangement.');
+
+  const adminQueue = await apiRequest('/api/admin/orders?fulfillmentMethod=DELIVERY', {
+    token: admin_token,
+  });
+  assert.ok(adminQueue.data.orders.some((queuedOrder: any) => queuedOrder.id === orderId));
+
+  const adminReview = await apiRequest(`/api/admin/orders/${orderId}`, {
+    token: admin_token,
+  });
+  assert.equal(adminReview.data.order.customerNotes, 'Please confirm the wholesale case-pack arrangement.');
+  assert.equal(adminReview.data.order.deliveryInfo.addressSnapshot.unit, 'Suite A');
 
   // Step 3: Staff moves to PROCESSING then OUT_FOR_DELIVERY
   await apiRequest(`/api/admin/orders/${orderId}/status`, {

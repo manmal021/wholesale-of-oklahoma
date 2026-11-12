@@ -53,6 +53,10 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
   const [email, setEmail] = useState('');
   const [businessName, setBusinessName] = useState('');
   const [notes, setNotes] = useState('');
+  const [isGuestOrder, setIsGuestOrder] = useState(true);
+  const [isWholesaleCustomer, setIsWholesaleCustomer] = useState(false);
+  const [identityDocumentType, setIdentityDocumentType] = useState<'state_id' | 'driver_license'>('state_id');
+  const [identityFile, setIdentityFile] = useState<File | null>(null);
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
   const [submittedOrderId, setSubmittedOrderId] = useState<string | null>(null);
@@ -107,13 +111,21 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
             .then((r) => r.json())
             .then((data) => {
               if (data.authenticated && data.user) {
+                setIsGuestOrder(false);
+                setIsWholesaleCustomer(data.user.role === 'approved_customer');
                 if (!name) setName(data.user.contactName || '');
                 if (!email) setEmail(data.user.email || '');
                 if (!businessName) setBusinessName(data.user.businessName || '');
                 if (!deliveryRecipient) setDeliveryRecipient(data.user.contactName || data.user.businessName || '');
+              } else {
+                setIsGuestOrder(true);
+                setIsWholesaleCustomer(false);
               }
             })
-            .catch(() => {});
+            .catch(() => {
+              setIsGuestOrder(true);
+              setIsWholesaleCustomer(false);
+            });
 
           fetchCustomerAddresses()
             .then((addrs) => {
@@ -133,6 +145,9 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
               }
             })
             .catch(() => {});
+        } else {
+          setIsGuestOrder(true);
+          setIsWholesaleCustomer(false);
         }
       }
     }
@@ -194,11 +209,11 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
       const res = await validateDeliveryAddress(
         {
           streetAddress: deliveryStreet.trim(),
-          suiteUnit: deliveryUnit.trim() || undefined,
+          suiteUnit: isWholesaleCustomer ? deliveryUnit.trim() || undefined : undefined,
           city: deliveryCity.trim(),
           state: deliveryState.trim() || 'OK',
           zipCode: deliveryZip.trim(),
-          recipientName: deliveryRecipient.trim() || name.trim(),
+          recipientName: (isWholesaleCustomer ? deliveryRecipient : name).trim(),
           phone: deliveryPhone.trim() || phone.trim(),
         },
         subtotalAmount
@@ -221,14 +236,15 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
   }, [
     fulfillmentMethod,
     deliveryStreet,
+    deliveryUnit,
     deliveryCity,
     deliveryState,
     deliveryZip,
-    deliveryUnit,
     deliveryRecipient,
     name,
     deliveryPhone,
     phone,
+    isWholesaleCustomer,
     subtotalAmount,
   ]);
 
@@ -265,6 +281,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
     setSelectedAddressId(addressId);
     if (addressId === 'new') {
       setSelectedAddressMode('new');
+      setDeliveryRecipient('');
       setDeliveryStreet('');
       setDeliveryUnit('');
       setDeliveryCity('');
@@ -304,8 +321,31 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
         setStatus('error');
         return;
       }
+      if (isGuestOrder && !deliveryState.trim()) {
+        setErrorMessage('State is required for guest orders.');
+        setStatus('error');
+        return;
+      }
       if (deliveryValidationResult && !deliveryValidationResult.eligible) {
         setErrorMessage(deliveryValidationResult.reason || 'Delivery is currently unavailable to this address.');
+        setStatus('error');
+        return;
+      }
+    }
+
+    if (isGuestOrder && fulfillmentMethod === 'DELIVERY') {
+      const state = deliveryState.trim();
+      const zip = deliveryZip.trim();
+      if (!deliveryStreet.trim() || !deliveryCity.trim() || !state || !zip) {
+        setErrorMessage('Street address, city, state, and ZIP code are required for guest orders.');
+        setStatus('error');
+        return;
+      }
+    }
+
+    if (isGuestOrder) {
+      if (!identityFile) {
+        setErrorMessage('Upload a state ID or driver’s license to place a guest order.');
         setStatus('error');
         return;
       }
@@ -325,13 +365,53 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
         zoho_item_id: (ci.product as any).zoho_item_id,
       }));
 
+      let identityDocument:
+        | { documentId: string; documentType: 'state_id' | 'driver_license'; filename: string }
+        | undefined;
+      if (isGuestOrder && identityFile) {
+        const base64 = await new Promise<string>((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(String(reader.result));
+          reader.onerror = () => reject(new Error('Could not read the identity document.'));
+          reader.readAsDataURL(identityFile);
+        });
+        const uploadResponse = await fetch('/api/wholesale/upload', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            fileBase64: base64,
+            filename: identityFile.name,
+            documentType: identityDocumentType,
+          }),
+        });
+        const uploadResult = await uploadResponse.json();
+        if (!uploadResponse.ok) {
+          throw new Error(uploadResult.error || 'Failed to upload identity document.');
+        }
+        identityDocument = {
+          documentId: uploadResult.documentId,
+          documentType: identityDocumentType,
+          filename: uploadResult.filename,
+        };
+      }
+
       const backendRes = await submitWholesaleOrder({
+        guestOrder: isGuestOrder,
         customerName: name,
-        businessName,
+        businessName: isWholesaleCustomer ? businessName : undefined,
         email,
         phone,
-        notes,
+        notes: isWholesaleCustomer ? notes : undefined,
         fulfillmentMethod,
+        customerAddress: isGuestOrder && fulfillmentMethod === 'DELIVERY'
+          ? {
+              street: deliveryStreet.trim(),
+              city: deliveryCity.trim(),
+              state: deliveryState.trim(),
+              zip: deliveryZip.trim(),
+            }
+          : undefined,
+        identityDocument,
         pickupInfo:
           fulfillmentMethod === 'PICKUP'
             ? {
@@ -343,17 +423,17 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
           fulfillmentMethod === 'DELIVERY'
             ? {
                 addressSnapshot: {
-                  recipientName: deliveryRecipient || name,
-                  businessName,
+                  recipientName: isWholesaleCustomer ? deliveryRecipient : name,
+                  businessName: isWholesaleCustomer ? businessName : undefined,
                   street: deliveryStreet,
-                  unit: deliveryUnit || undefined,
+                  unit: isWholesaleCustomer ? deliveryUnit || undefined : undefined,
                   city: deliveryCity,
                   state: deliveryState || 'OK',
                   zip: deliveryZip,
                   phone: deliveryPhone || phone,
-                  deliveryInstructions: deliveryInstructions || undefined,
+                  deliveryInstructions: isWholesaleCustomer ? deliveryInstructions || undefined : undefined,
                 },
-                deliveryInstructions: deliveryInstructions || undefined,
+                deliveryInstructions: isWholesaleCustomer ? deliveryInstructions || undefined : undefined,
               }
             : undefined,
         lineItems,
@@ -362,6 +442,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
       const genId = backendRes?.orderId || `WOO-${Date.now().toString().slice(-6)}`;
       setSubmittedOrderId(genId);
       setStatus('success');
+      setIdentityFile(null);
       clearDraftOrder();
     } catch (err: any) {
       setStatus('error');
@@ -728,7 +809,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                   <div className="flex items-center justify-between">
                     <div className="flex items-center gap-2 text-sky-800 font-bold uppercase tracking-wider">
                       <Truck className="w-4 h-4 text-sky-600" />
-                      <span>Commercial Delivery Address</span>
+                      <span>Delivery Address</span>
                     </div>
                     {isValidatingDelivery ? (
                       <span className="text-[10px] text-slate-500 flex items-center gap-1">
@@ -764,45 +845,50 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
 
                   {/* Address Inputs */}
                   <div className="space-y-2.5">
-                    <div>
-                      <label className="text-[10px] font-bold uppercase tracking-wider text-slate-700 block mb-1">
-                        Recipient / Store Contact Name <span className="text-rose-500">*</span>
-                      </label>
-                      <input
-                        type="text"
-                        required
-                        value={deliveryRecipient}
-                        onChange={(e) => setDeliveryRecipient(e.target.value)}
-                        placeholder="e.g. John Doe / Store Manager"
-                        className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 focus:border-[#FF6B00] outline-none"
-                      />
-                    </div>
-
-                    <div className="grid grid-cols-3 gap-2">
-                      <div className="col-span-2">
+                    {isWholesaleCustomer && (
+                      <div>
                         <label className="text-[10px] font-bold uppercase tracking-wider text-slate-700 block mb-1">
-                          Street Address <span className="text-rose-500">*</span>
+                          Recipient / Store Contact Name <span className="text-rose-500">*</span>
                         </label>
                         <input
                           type="text"
                           required
-                          value={deliveryStreet}
-                          onChange={(e) => setDeliveryStreet(e.target.value)}
-                          placeholder="e.g. 1234 N Western Ave"
+                          value={deliveryRecipient}
+                          onChange={(e) => setDeliveryRecipient(e.target.value)}
+                          placeholder="e.g. John Doe / Store Manager"
                           className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 focus:border-[#FF6B00] outline-none"
                         />
                       </div>
-                      <div>
-                        <label className="text-[10px] font-bold uppercase tracking-wider text-slate-700 block mb-1">
-                          Suite/Unit
-                        </label>
-                        <input
-                          type="text"
-                          value={deliveryUnit}
-                          onChange={(e) => setDeliveryUnit(e.target.value)}
-                          placeholder="B"
-                          className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 focus:border-[#FF6B00] outline-none"
-                        />
+                    )}
+                    <div>
+                      <div className={isWholesaleCustomer ? 'grid grid-cols-3 gap-2' : ''}>
+                        <div className={isWholesaleCustomer ? 'col-span-2' : ''}>
+                          <label className="text-[10px] font-bold uppercase tracking-wider text-slate-700 block mb-1">
+                            Street Address <span className="text-rose-500">*</span>
+                          </label>
+                          <input
+                            type="text"
+                            required
+                            value={deliveryStreet}
+                            onChange={(e) => setDeliveryStreet(e.target.value)}
+                            placeholder="e.g. 1234 N Western Ave"
+                            className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 focus:border-[#FF6B00] outline-none"
+                          />
+                        </div>
+                        {isWholesaleCustomer && (
+                          <div>
+                            <label className="text-[10px] font-bold uppercase tracking-wider text-slate-700 block mb-1">
+                              Suite/Unit
+                            </label>
+                            <input
+                              type="text"
+                              value={deliveryUnit}
+                              onChange={(e) => setDeliveryUnit(e.target.value)}
+                              placeholder="B"
+                              className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 focus:border-[#FF6B00] outline-none"
+                            />
+                          </div>
+                        )}
                       </div>
                     </div>
 
@@ -846,19 +932,20 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                         />
                       </div>
                     </div>
-
-                    <div>
-                      <label className="text-[10px] font-bold uppercase tracking-wider text-slate-700 block mb-1">
-                        Delivery Instructions (Dock buzzer, gate codes, unloading hours)
-                      </label>
-                      <input
-                        type="text"
-                        value={deliveryInstructions}
-                        onChange={(e) => setDeliveryInstructions(e.target.value)}
-                        placeholder="Rear commercial dock, buzzer on west door"
-                        className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 focus:border-[#FF6B00] outline-none"
-                      />
-                    </div>
+                    {isWholesaleCustomer && (
+                      <div>
+                        <label className="text-[10px] font-bold uppercase tracking-wider text-slate-700 block mb-1">
+                          Delivery Instructions (Dock buzzer, gate codes, unloading hours)
+                        </label>
+                        <input
+                          type="text"
+                          value={deliveryInstructions}
+                          onChange={(e) => setDeliveryInstructions(e.target.value)}
+                          placeholder="Rear commercial dock, buzzer on west door"
+                          className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900 focus:border-[#FF6B00] outline-none"
+                        />
+                      </div>
+                    )}
                   </div>
 
                   {/* Delivery Eligibility Warning / Status */}
@@ -904,7 +991,7 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                 <div>
                   <label htmlFor="drawer-name" className="text-[10px] font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1 mb-1">
                     <User className="w-3 h-3 text-[#FF6B00]" />
-                    Full Contact Name <span className="text-rose-500">*</span>
+                    Full Name <span className="text-rose-500">*</span>
                   </label>
                   <input
                     id="drawer-name"
@@ -950,35 +1037,64 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                   </div>
                 </div>
 
-                <div>
-                  <label htmlFor="drawer-business-name" className="text-[10px] font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1 mb-1">
-                    <Building className="w-3 h-3 text-[#FF6B00]" />
-                    Business Entity Name (Optional)
-                  </label>
-                  <input
-                    id="drawer-business-name"
-                    type="text"
-                    value={businessName}
-                    onChange={(e) => setBusinessName(e.target.value)}
-                    placeholder="e.g. Wholesale of Oklahoma Retail Partner LLC"
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white"
-                  />
-                </div>
+                {isWholesaleCustomer && (
+                  <>
+                    <div>
+                      <label htmlFor="drawer-business-name" className="text-[10px] font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1 mb-1">
+                        <Building className="w-3 h-3 text-[#FF6B00]" />
+                        Business Entity Name
+                      </label>
+                      <input
+                        id="drawer-business-name"
+                        type="text"
+                        value={businessName}
+                        onChange={(e) => setBusinessName(e.target.value)}
+                        placeholder="e.g. Wholesale of Oklahoma Retail Partner LLC"
+                        className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="drawer-notes" className="text-[10px] font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1 mb-1">
+                        <FileText className="w-3 h-3 text-[#FF6B00]" />
+                        Order Notes &amp; Special Requests
+                      </label>
+                      <textarea
+                        id="drawer-notes"
+                        rows={2}
+                        value={notes}
+                        onChange={(e) => setNotes(e.target.value)}
+                        placeholder="Special packing notes, invoice references, etc."
+                        className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white resize-none"
+                      />
+                    </div>
+                  </>
+                )}
 
-                <div>
-                  <label htmlFor="drawer-notes" className="text-[10px] font-bold uppercase tracking-wider text-slate-700 flex items-center gap-1 mb-1">
-                    <FileText className="w-3 h-3 text-[#FF6B00]" />
-                    Order Notes & Special Requests
-                  </label>
-                  <textarea
-                    id="drawer-notes"
-                    rows={2}
-                    value={notes}
-                    onChange={(e) => setNotes(e.target.value)}
-                    placeholder="Special packing notes, invoice references, etc."
-                    className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3.5 py-2 text-xs text-slate-900 placeholder-slate-400 focus:outline-none focus:border-[#FF6B00] focus:bg-white resize-none"
-                  />
-                </div>
+                {isGuestOrder && (
+                  <div className="space-y-2">
+                    <label className="text-[10px] font-bold uppercase tracking-wider text-slate-700 block">
+                      Identity Document <span className="text-rose-500">*</span>
+                    </label>
+                    <div className="grid grid-cols-2 gap-2">
+                      <select
+                        value={identityDocumentType}
+                        onChange={(e) => setIdentityDocumentType(e.target.value as 'state_id' | 'driver_license')}
+                        className="w-full bg-slate-50 border border-slate-300 rounded-xl px-3 py-2 text-xs text-slate-900"
+                      >
+                        <option value="state_id">State ID</option>
+                        <option value="driver_license">Driver’s license</option>
+                      </select>
+                      <input
+                        type="file"
+                        required
+                        accept=".pdf,.jpg,.jpeg,.png,.webp,application/pdf,image/jpeg,image/png,image/webp"
+                        onChange={(e) => setIdentityFile(e.target.files?.[0] || null)}
+                        className="w-full min-w-0 text-[10px] text-slate-600 file:mr-2 file:rounded-lg file:border-0 file:bg-slate-100 file:px-2 file:py-1.5 file:text-[10px] file:font-bold"
+                      />
+                    </div>
+                    <p className="text-[10px] text-slate-500">Upload a clear image or PDF, up to 10 MB. Only admins can review it.</p>
+                  </div>
+                )}
 
                 {/* Final Order Price Breakdown */}
                 <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200 space-y-1.5 text-xs">
