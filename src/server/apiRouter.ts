@@ -1148,6 +1148,7 @@ apiApp.get(['/inventory/:id', '/api/inventory/:id'], async (req: Request, res: R
 apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60 * 1000), async (req: Request, res: Response) => {
   const session = getSessionUser(req);
   const effectiveEmail = String(req.body?.email || session?.email || '').toLowerCase().trim();
+  const isGuestCatalogOrder = req.body?.guestOrder === true;
 
   // Enforce customer account approval status (OWASP A01 / Rule 16)
   if (session) {
@@ -1180,7 +1181,7 @@ apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60
     }
   } else {
     // Non-session order submission: verify customer and application status
-    if (effectiveEmail) {
+    if (effectiveEmail && !isGuestCatalogOrder) {
       const cust = databaseStore.getCustomerByEmail(effectiveEmail);
       if (cust) {
         if (cust.status === 'SUSPENDED') {
@@ -1233,6 +1234,8 @@ apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60
     deliveryInfo,
     requestedPickupDate,
     requestedPickupTime,
+    customerAddress,
+    identityDocument,
   } = req.body || {};
 
   const effectiveLineItems = Array.isArray(lineItems) ? lineItems : (Array.isArray(items) ? items : []);
@@ -1241,12 +1244,38 @@ apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60
   const effectiveBizName = (businessName || session?.businessName || '').trim();
   const customerRec = session ? databaseStore.getCustomer(session.userId) : null;
   const effectivePhone = (phone || customerRec?.phone || '').trim();
+  let storedIdentity: ReturnType<typeof documentStore.getDocument>;
 
   if (!effectiveCustName || effectiveCustName.length < 2) {
     return err(res, 400, 'Customer name is required');
   }
   if (!effectivePhone || effectivePhone.length < 7) {
     return err(res, 400, 'Valid phone number is required for dispatch confirmation');
+  }
+  if (isGuestCatalogOrder) {
+    if (!effectiveEmail || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(effectiveEmail)) {
+      return err(res, 400, 'A valid email address is required for guest orders');
+    }
+    if (
+      String(rawMethod || '').toUpperCase() === 'DELIVERY' &&
+      (
+        !customerAddress ||
+        typeof customerAddress !== 'object' ||
+        !String(customerAddress.street || '').trim() ||
+        !String(customerAddress.city || '').trim() ||
+        !String(customerAddress.state || '').trim() ||
+        !String(customerAddress.zip || '').trim()
+      )
+    ) {
+      return err(res, 400, 'Street address, city, state, and ZIP code are required for guest orders');
+    }
+    if (!identityDocument?.documentId || !['state_id', 'driver_license'].includes(identityDocument.documentType)) {
+      return err(res, 400, 'A state ID or driver’s license attachment is required for guest orders');
+    }
+    storedIdentity = documentStore.getDocument(String(identityDocument.documentId));
+    if (!storedIdentity || storedIdentity.documentType !== identityDocument.documentType) {
+      return err(res, 400, 'Identity document upload was not found or does not match the selected document type');
+    }
   }
   if (!Array.isArray(effectiveLineItems) || effectiveLineItems.length === 0 || effectiveLineItems.length > 100) {
     return err(res, 400, 'Order must contain between 1 and 100 items');
@@ -1382,6 +1411,23 @@ apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60
       businessName: effectiveBizName || effectiveCustName,
       email: effectiveEmail,
       phone: effectivePhone,
+      customerAddress:
+        isGuestCatalogOrder && fulfillmentMethod === 'DELIVERY' && customerAddress
+          ? {
+              street: String(customerAddress.street).trim(),
+              city: String(customerAddress.city).trim(),
+              state: String(customerAddress.state).trim(),
+              zip: String(customerAddress.zip).trim(),
+            }
+          : undefined,
+      identityDocument:
+        isGuestCatalogOrder && identityDocument
+          ? {
+              documentId: String(identityDocument.documentId),
+              documentType: identityDocument.documentType,
+              filename: String(identityDocument.filename || storedIdentity?.originalName || 'Identity document'),
+            }
+          : undefined,
       fulfillmentMethod,
       pickupInfo:
         fulfillmentMethod === 'PICKUP'
@@ -2029,7 +2075,7 @@ apiApp.post(['/wholesale/upload', '/api/wholesale/upload'], rateLimit(100, 15 * 
       return err(res, 413, 'File exceeds the maximum allowed size of 10MB.');
     }
 
-    const validDocTypes = ['sales_tax_permit', 'resale_certificate', 'business_license', 'driver_license', 'id', 'other'];
+    const validDocTypes = ['sales_tax_permit', 'resale_certificate', 'business_license', 'driver_license', 'state_id', 'id', 'other'];
     const sanitizedType = validDocTypes.includes(documentType) ? documentType : 'other';
 
     const record = documentStore.saveDocument(buffer, String(filename), sanitizedType as any);

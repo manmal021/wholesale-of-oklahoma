@@ -22,6 +22,9 @@ import {
   DollarSign,
   Plus,
   RefreshCw,
+  Download,
+  Eye,
+  X,
 } from 'lucide-react';
 import {
   fetchAdminOrder,
@@ -44,6 +47,11 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
+  const [identityDocumentPreview, setIdentityDocumentPreview] = useState<{
+    url: string;
+    mimeType: string;
+    filename: string;
+  } | null>(null);
 
   // Item preparation working state (keyed by itemId)
   const [itemForms, setItemForms] = useState<
@@ -102,6 +110,20 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
   useEffect(() => {
     loadOrder();
   }, [orderId]);
+
+  useEffect(() => {
+    if (!identityDocumentPreview) return;
+    return () => URL.revokeObjectURL(identityDocumentPreview.url);
+  }, [identityDocumentPreview]);
+
+  useEffect(() => {
+    if (!identityDocumentPreview) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIdentityDocumentPreview(null);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [identityDocumentPreview]);
 
   const handleSaveItemFulfillment = async (item: OrderItemRecord) => {
     const form = itemForms[item.id];
@@ -169,6 +191,56 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
       setError(err.message || 'Failed to record internal note.');
     } finally {
       setIsSubmittingNote(false);
+    }
+  };
+
+  const handleDownloadIdentityDocument = async () => {
+    if (!order?.identityDocument) return;
+    setError('');
+    try {
+      const token = localStorage.getItem('woo_session_token') || '';
+      const response = await fetch(`/api/wholesale/documents/${encodeURIComponent(order.identityDocument.documentId)}`, {
+        headers: token ? { Authorization: `Bearer ${token}` } : {},
+      });
+      if (!response.ok) {
+        const result = await response.json().catch(() => ({}));
+        throw new Error(result.error || 'Unable to retrieve identity document.');
+      }
+
+      const objectUrl = URL.createObjectURL(await response.blob());
+      const link = document.createElement('a');
+      link.href = objectUrl;
+      link.download = order.identityDocument.filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(objectUrl), 1000);
+    } catch (err: any) {
+      setError(err.message || 'Unable to retrieve identity document.');
+    }
+  };
+
+  const handleViewIdentityDocument = async () => {
+    if (!order?.identityDocument) return;
+    setError('');
+    try {
+      const token = localStorage.getItem('woo_session_token') || '';
+      const response = await fetch(`/api/wholesale/documents/${encodeURIComponent(order.identityDocument.documentId)}`, {
+        headers: token ? { Authorization: `Bearer ${token}` } : {},
+      });
+      if (!response.ok) {
+        const result = await response.json().catch(() => ({}));
+        throw new Error(result.error || 'Unable to retrieve identity document.');
+      }
+
+      const blob = await response.blob();
+      setIdentityDocumentPreview({
+        url: URL.createObjectURL(blob),
+        mimeType: response.headers.get('Content-Type')?.split(';')[0].trim() || blob.type,
+        filename: order.identityDocument.filename,
+      });
+    } catch (err: any) {
+      setError(err.message || 'Unable to retrieve identity document.');
     }
   };
 
@@ -396,6 +468,50 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
               <Phone className="w-3 h-3 text-[#FF6B00]" />
               <span>{order.phone}</span>
             </div>
+            {order.customerAddress && (
+              <div className="pt-2 border-t border-slate-200 text-slate-600">
+                <span className="font-bold text-slate-700 block mb-1">Customer Address</span>
+                <span>
+                  {order.customerAddress.street}, {order.customerAddress.city}, {order.customerAddress.state} {order.customerAddress.zip}
+                </span>
+              </div>
+            )}
+            {order.identityDocument && (
+              <div className="pt-2 border-t border-slate-200 flex items-center justify-between gap-2">
+                <span className="min-w-0">
+                  <span className="font-bold text-slate-700 block">Identity Document</span>
+                  <span className="block truncate text-[11px]">
+                    {order.identityDocument.documentType.replace(/_/g, ' ')} · {order.identityDocument.filename}
+                  </span>
+                </span>
+                <div className="flex shrink-0 items-center gap-1">
+                  <button
+                    type="button"
+                    onClick={handleViewIdentityDocument}
+                    className="rounded-lg bg-slate-100 hover:bg-slate-200 p-2 text-[#FF6B00]"
+                    title="View identity document"
+                    aria-label="View identity document"
+                  >
+                    <Eye className="w-4 h-4" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleDownloadIdentityDocument}
+                    className="rounded-lg bg-slate-100 hover:bg-slate-200 p-2 text-[#FF6B00]"
+                    title="Download identity document"
+                    aria-label="Download identity document"
+                  >
+                    <Download className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+            )}
+            {order.customerNotes && (
+              <div className="pt-2 border-t border-slate-200 text-slate-600">
+                <span className="font-bold text-slate-700 block mb-1">Order Notes &amp; Special Requests</span>
+                <span className="whitespace-pre-wrap">{order.customerNotes}</span>
+              </div>
+            )}
           </div>
 
           {/* Fulfillment Details Card */}
@@ -768,6 +884,56 @@ export default function AdminOrderDetail({ orderId }: AdminOrderDetailProps) {
                 </button>
               </div>
             </form>
+          </div>
+        )}
+
+        {identityDocumentPreview && (
+          <div
+            className="fixed inset-0 z-[60] bg-slate-900/70 backdrop-blur-xs flex items-center justify-center p-4"
+            onClick={() => setIdentityDocumentPreview(null)}
+            role="presentation"
+          >
+            <section
+              role="dialog"
+              aria-modal="true"
+              aria-label={`Identity document preview: ${identityDocumentPreview.filename}`}
+              className="bg-white rounded-2xl shadow-2xl w-full max-w-4xl max-h-[90vh] flex flex-col overflow-hidden"
+              onClick={(event) => event.stopPropagation()}
+            >
+              <header className="flex items-center justify-between gap-3 p-4 border-b border-slate-200">
+                <h2 className="text-sm font-bold text-slate-900 truncate">{identityDocumentPreview.filename}</h2>
+                <button
+                  type="button"
+                  onClick={() => setIdentityDocumentPreview(null)}
+                  className="shrink-0 rounded-lg p-2 text-slate-500 hover:bg-slate-100 hover:text-slate-900"
+                  title="Close document preview"
+                  aria-label="Close document preview"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </header>
+              <div className="min-h-0 flex-1 bg-slate-100 p-3">
+                {identityDocumentPreview.mimeType === 'application/pdf' ? (
+                  <iframe
+                    src={identityDocumentPreview.url}
+                    title={`Identity document: ${identityDocumentPreview.filename}`}
+                    className="h-[75vh] w-full rounded-lg bg-white"
+                  />
+                ) : identityDocumentPreview.mimeType.startsWith('image/') ? (
+                  <div className="h-[75vh] w-full flex items-center justify-center">
+                    <img
+                      src={identityDocumentPreview.url}
+                      alt={`Identity document: ${identityDocumentPreview.filename}`}
+                      className="max-h-full max-w-full object-contain"
+                    />
+                  </div>
+                ) : (
+                  <p className="p-6 text-center text-sm text-slate-600">
+                    This file type can’t be previewed here. Use the download button to view it.
+                  </p>
+                )}
+              </div>
+            </section>
           </div>
         )}
 

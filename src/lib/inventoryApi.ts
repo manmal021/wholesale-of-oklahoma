@@ -115,12 +115,24 @@ export async function updateAdminSettings(settings: Partial<AdminInventorySettin
 }
 
 export async function submitWholesaleOrder(orderData: {
+  guestOrder?: boolean;
   customerName: string;
   businessName?: string;
   email?: string;
   phone: string;
   notes?: string;
   fulfillmentMethod?: 'PICKUP' | 'DELIVERY';
+  customerAddress?: {
+    street: string;
+    city: string;
+    state: string;
+    zip: string;
+  };
+  identityDocument?: {
+    documentId: string;
+    documentType: 'state_id' | 'driver_license';
+    filename: string;
+  };
   pickupInfo?: {
     requestedPickupDate?: string;
     requestedPickupTime?: string;
@@ -163,4 +175,3 @@ export async function submitWholesaleOrder(orderData: {
   }
   return response.json();
 }
-

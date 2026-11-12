@@ -31,11 +31,12 @@ const STORAGE_ROOT = process.env.WOO_STORAGE_DIR
     ? path.join(os.tmpdir(), 'storage')
     : path.resolve(process.cwd(), 'storage');
 const STORAGE_DIR = path.join(STORAGE_ROOT, 'documents');
+const INDEX_PATH = path.join(STORAGE_DIR, 'document-index.json');
 
 // Ensure private storage directory exists without crashing on read-only environments
 try {
   if (!fs.existsSync(STORAGE_DIR)) {
-    fs.mkdirSync(STORAGE_DIR, { recursive: true });
+    fs.mkdirSync(STORAGE_DIR, { recursive: true, mode: 0o700 });
   }
 } catch (e) {
   console.warn('[DocumentStore] Storage directory init skipped (read-only filesystem):', e);
@@ -44,6 +45,46 @@ try {
 class DocumentStore {
   private documents: Map<string, DocumentRecord> = new Map();
   private fileBuffers: Map<string, Buffer> = new Map();
+
+  constructor() {
+    try {
+      if (!fs.existsSync(INDEX_PATH)) return;
+      const records = JSON.parse(fs.readFileSync(INDEX_PATH, 'utf8')) as DocumentRecord[];
+      for (const record of records) {
+        const extension = record.mimeType === 'application/pdf'
+          ? 'pdf'
+          : record.mimeType === 'image/jpeg'
+            ? 'jpg'
+            : record.mimeType === 'image/png'
+              ? 'png'
+              : record.mimeType === 'image/webp'
+                ? 'webp'
+                : '';
+        if (!/^doc_[a-f0-9]{32}$/.test(record.id) || !extension) continue;
+        this.documents.set(record.id, {
+          ...record,
+          storedPath: path.join(STORAGE_DIR, `${record.id}.${extension}`),
+        });
+      }
+    } catch (error) {
+      console.warn('[DocumentStore] Could not load document metadata index:', error);
+    }
+  }
+
+  private persistIndex(): void {
+    const temporaryPath = `${INDEX_PATH}.${crypto.randomBytes(8).toString('hex')}.tmp`;
+    try {
+      fs.writeFileSync(temporaryPath, JSON.stringify(Array.from(this.documents.values())), { mode: 0o600 });
+      fs.renameSync(temporaryPath, INDEX_PATH);
+    } catch (error) {
+      try {
+        if (fs.existsSync(temporaryPath)) fs.unlinkSync(temporaryPath);
+      } catch {
+        // Preserve the original persistence error.
+      }
+      throw error;
+    }
+  }
 
   /**
    * Validates file buffer magic bytes to ensure file content matches allowed types.
@@ -103,17 +144,7 @@ class DocumentStore {
     const safeFilename = `${docId}.${validation.ext}`;
     const targetPath = path.join(STORAGE_DIR, safeFilename);
 
-    // 4. Save to private directory if writable, and always hold in memory cache
-    this.fileBuffers.set(docId, buffer);
-    try {
-      if (!fs.existsSync(STORAGE_DIR)) {
-        fs.mkdirSync(STORAGE_DIR, { recursive: true });
-      }
-      fs.writeFileSync(targetPath, buffer);
-    } catch (e) {
-      console.warn('[DocumentStore] Could not persist to disk, holding in memory buffer:', e);
-    }
-
+    // 4. Save to the private directory before making the document available.
     const docRecord: DocumentRecord = {
       id: docId,
       originalName: originalName.replace(/[^a-zA-Z0-9._-]/g, '_').slice(0, 100),
@@ -124,7 +155,22 @@ class DocumentStore {
       uploadedAt: new Date().toISOString(),
     };
 
+    fs.mkdirSync(STORAGE_DIR, { recursive: true, mode: 0o700 });
+    fs.writeFileSync(targetPath, buffer, { mode: 0o600 });
     this.documents.set(docId, docRecord);
+    this.fileBuffers.set(docId, buffer);
+    try {
+      this.persistIndex();
+    } catch (error) {
+      this.documents.delete(docId);
+      this.fileBuffers.delete(docId);
+      try {
+        fs.unlinkSync(targetPath);
+      } catch {
+        // Preserve the original persistence error.
+      }
+      throw new Error('Could not securely save the uploaded document. Please try again.');
+    }
     return docRecord;
   }
 

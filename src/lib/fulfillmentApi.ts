@@ -102,6 +102,17 @@ export interface OrderRecord {
   businessName: string;
   email: string;
   phone: string;
+  customerAddress?: {
+    street: string;
+    city: string;
+    state: string;
+    zip: string;
+  };
+  identityDocument?: {
+    documentId: string;
+    documentType: 'state_id' | 'driver_license';
+    filename: string;
+  };
   fulfillmentMethod: FulfillmentMethod;
   status: GeneralOrderStatus;
   paymentStatus: 'PENDING' | 'PAID' | 'INVOICED' | 'ADJUSTED' | 'REFUNDED';

@@ -234,6 +234,13 @@ export interface DeliveryAddressSnapshot {
   deliveryInstructions?: string;
 }
 
+export interface CustomerAddressSnapshot {
+  street: string;
+  city: string;
+  state: string;
+  zip: string;
+}
+
 export interface PickupLocationInfo {
   locationId: string;
   locationName: string;
@@ -256,6 +263,12 @@ export interface OrderRecord {
   businessName: string;
   email: string;
   phone: string;
+  customerAddress?: CustomerAddressSnapshot;
+  identityDocument?: {
+    documentId: string;
+    documentType: 'state_id' | 'driver_license';
+    filename: string;
+  };
   fulfillmentMethod: FulfillmentMethod;
   status: GeneralOrderStatus;
   paymentStatus: 'PENDING' | 'PAID' | 'INVOICED' | 'ADJUSTED' | 'REFUNDED';
@@ -1562,6 +1575,12 @@ class DatabaseStore {
     businessName: string;
     email: string;
     phone: string;
+    customerAddress?: CustomerAddressSnapshot;
+    identityDocument?: {
+      documentId: string;
+      documentType: 'state_id' | 'driver_license';
+      filename: string;
+    };
     fulfillmentMethod: FulfillmentMethod;
     pickupInfo?: {
       requestedPickupDate?: string;
@@ -1640,6 +1659,8 @@ class DatabaseStore {
       businessName: params.businessName,
       email: cleanEmail,
       phone: params.phone,
+      customerAddress: params.customerAddress ? { ...params.customerAddress } : undefined,
+      identityDocument: params.identityDocument ? { ...params.identityDocument } : undefined,
       fulfillmentMethod: params.fulfillmentMethod,
       status: 'ORDER_RECEIVED',
       paymentStatus: 'INVOICED',
