@@ -363,6 +363,27 @@ test('Customer Application & Approval Workflow: Submit -> Pending -> Approve -> 
   assert.equal(approveData.success, true);
   assert.equal(approveData.status, 'APPROVED');
 
+  const approvedCustomerListRes = await fetch(`${baseUrl}/api/admin/customers`, {
+    headers: { 'x-session-token': adminSession.token },
+  });
+  assert.equal(approvedCustomerListRes.status, 200);
+  const approvedCustomerList = await approvedCustomerListRes.json();
+  const listedCustomer = approvedCustomerList.customers.find((customer: any) => customer.email === applicantEmail);
+  const listedApplication = approvedCustomerList.applications.find((application: any) => application.id === applicationId);
+  assert.ok(listedCustomer);
+  assert.ok(listedApplication);
+  assert.equal(Object.hasOwn(listedCustomer, 'temporaryPassword'), false);
+  assert.equal(Object.hasOwn(listedCustomer, 'temporaryPasswordAssignedAt'), false);
+  assert.equal(Object.hasOwn(listedApplication, 'assignedPassword'), false);
+
+  const customerCredentialsRes = await fetch(`${baseUrl}/api/admin/customers/${listedCustomer.id}`, {
+    headers: { 'x-session-token': adminSession.token },
+  });
+  assert.equal(customerCredentialsRes.status, 200);
+  const customerCredentialsData = await customerCredentialsRes.json();
+  assert.equal(customerCredentialsData.credentials.username, applicantEmail);
+  assert.equal(typeof customerCredentialsData.credentials.password, 'string');
+
   // Verify application record updated in database
   const approvedApp = databaseStore.getApplication(applicationId);
   assert.equal(approvedApp?.status, 'APPROVED');

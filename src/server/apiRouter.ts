@@ -2431,7 +2431,9 @@ apiApp.get(['/admin/customers', '/api/admin/customers'], requireAdminAuth, (req:
 
   const customers = databaseStore.listCustomers(statusFilter, search);
   const applications = databaseStore.listApplications(statusFilter, search);
-  return ok(res, { success: true, total: customers.length, customers, applications });
+  const safeCustomers = customers.map(({ temporaryPassword: _temporaryPassword, temporaryPasswordAssignedAt: _assignedAt, ...customer }) => customer);
+  const safeApplications = applications.map(({ assignedPassword: _assignedPassword, ...application }) => application);
+  return ok(res, { success: true, total: safeCustomers.length, customers: safeCustomers, applications: safeApplications });
 });
 
 /**
