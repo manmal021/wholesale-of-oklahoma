@@ -4,16 +4,16 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import http from 'node:http';
-import { PRODUCTS } from '../src/lib/productDatabase.js';
+import { PRODUCTS } from '../../src/lib/productDatabase.js';
 
 // Setup test server instance
 let server: http.Server;
 let baseUrl: string;
 let testStorageDir: string;
 const previousStorageDir = process.env.WOO_STORAGE_DIR;
-let apiApp: typeof import('../src/server/apiRouter.js').apiApp;
-let databaseStore: typeof import('../src/server/databaseStore.js').databaseStore;
-let authStore: typeof import('../src/server/authStore.js').authStore;
+let apiApp: typeof import('../../src/server/apiRouter.js').apiApp;
+let databaseStore: typeof import('../../src/server/databaseStore.js').databaseStore;
+let authStore: typeof import('../../src/server/authStore.js').authStore;
 const TEST_ADMIN_KEY = 'test_production_hardening_secret_key_2026';
 
 test.before(async () => {
@@ -23,9 +23,9 @@ test.before(async () => {
   process.env.NODE_ENV = 'production'; // Enforce strict production auth checks
 
   const [apiRouter, databaseModule, authModule] = await Promise.all([
-    import('../src/server/apiRouter.js'),
-    import('../src/server/databaseStore.js'),
-    import('../src/server/authStore.js'),
+    import('../../src/server/apiRouter.js'),
+    import('../../src/server/databaseStore.js'),
+    import('../../src/server/authStore.js'),
   ]);
   apiApp = apiRouter.apiApp;
   databaseStore = databaseModule.databaseStore;

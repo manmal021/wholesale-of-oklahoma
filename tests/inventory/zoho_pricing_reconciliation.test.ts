@@ -21,10 +21,10 @@ import {
   reconcileWebsitePrices,
   validateImageUpdatePayload,
   type RawZohoItemLike,
-} from '../src/server/priceReconciliation.js';
-import { InventoryStore } from '../src/server/inventoryStore.js';
-import { productImageRegistry } from '../src/server/productImageRegistry.js';
-import type { InventoryItem } from '../src/types/inventory.js';
+} from '../../src/server/priceReconciliation.js';
+import { InventoryStore } from '../../src/server/inventoryStore.js';
+import { productImageRegistry } from '../../src/server/productImageRegistry.js';
+import type { InventoryItem } from '../../src/types/inventory.js';
 
 function createTestItem(data: Partial<InventoryItem> & { sku: string; name: string }): InventoryItem {
   return {
@@ -634,4 +634,3 @@ test('TEST K: If Zoho price is less than $10, website price increases by $2', ()
   assert.equal(updatedItems[0].zoho_rate, 8.0, 'Zoho price in zoho_rate must remain $8.00');
   assert.equal(report.updated_count, 1);
 });
-
