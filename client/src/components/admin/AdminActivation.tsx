@@ -30,7 +30,7 @@ export default function AdminActivation() {
       .then((data) => {
         if (data.valid) {
           setIsValidToken(true);
-          setAdminEmail(data.email || 'order2wholesaleofoklahoma@gmail.com');
+          setAdminEmail(data.email || 'noreplyfromwholesaleofoklahoma@gmail.com');
         } else {
           setIsValidToken(false);
           setTokenError(data.message || 'This activation link has expired or has already been used.');

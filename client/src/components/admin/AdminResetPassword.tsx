@@ -31,7 +31,7 @@ export default function AdminResetPassword() {
       .then((data) => {
         if (data.valid) {
           setIsValidToken(true);
-          setAdminEmail(data.email || 'order2wholesaleofoklahoma@gmail.com');
+          setAdminEmail(data.email || 'noreplyfromwholesaleofoklahoma@gmail.com');
         } else {
           setIsValidToken(false);
           setTokenError(data.message || 'This password reset link has expired or has already been used.');

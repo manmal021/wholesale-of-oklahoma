@@ -13,7 +13,7 @@ import { emailService } from '../../server/src/services/emailService.js';
 let server: http.Server;
 let baseUrl: string;
 
-const TEST_ADMIN_EMAIL = 'order2wholesaleofoklahoma@gmail.com';
+const TEST_ADMIN_EMAIL = 'noreplyfromwholesaleofoklahoma@gmail.com';
 const STORAGE_DIR = path.resolve(process.cwd(), 'storage');
 const EMAIL_LOG_FILE = path.join(STORAGE_DIR, 'email_outbox.log');
 const ATTACHMENTS_DIR = path.join(STORAGE_DIR, 'outbox_attachments');
@@ -203,12 +203,12 @@ test('Customer Application Submission Flow: Complete End-to-End Audit & Verifica
   const parsedPdf = await PDFDocument.load(storedPdf.buffer);
   assert.ok(parsedPdf.getPageCount() >= 2, 'Generated PDF must contain multiple pages for info and attachments');
 
-  // 5. Email Dispatch to order2wholesaleofoklahoma@gmail.com Verification
+  // 5. Email Dispatch to noreplyfromwholesaleofoklahoma@gmail.com Verification
   const outbox = getOutboxEntries();
   const adminNotification = outbox
     .filter((e) => e.to === TEST_ADMIN_EMAIL && e.subject.includes('Sooner Wholesale Distributors LLC'))
     .pop();
-  assert.ok(adminNotification, 'Email must be dispatched to order2wholesaleofoklahoma@gmail.com');
+  assert.ok(adminNotification, 'Email must be dispatched to noreplyfromwholesaleofoklahoma@gmail.com');
   assert.equal(
     adminNotification.subject,
     `New Customer Application - Sooner Wholesale Distributors LLC - ${applicationId}`,

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ShieldAlert, Lock, Mail, Loader2, ArrowLeft, CheckCircle2, Eye, EyeOff, KeyRound, Sparkles, Send } from 'lucide-react';
 
 export default function AdminLogin() {
-  const [email, setEmail] = useState('order2wholesaleofoklahoma@gmail.com');
+  const [email, setEmail] = useState('noreplyfromwholesaleofoklahoma@gmail.com');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -216,7 +216,7 @@ export default function AdminLogin() {
                       required
                       value={recoveryEmail}
                       onChange={(e) => setRecoveryEmail(e.target.value)}
-                      placeholder="order2wholesaleofoklahoma@gmail.com"
+                      placeholder="noreplyfromwholesaleofoklahoma@gmail.com"
                       className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#FF6B00]"
                     />
                   </div>
@@ -300,7 +300,7 @@ export default function AdminLogin() {
                       required
                       value={recoveryEmail}
                       onChange={(e) => setRecoveryEmail(e.target.value)}
-                      placeholder="order2wholesaleofoklahoma@gmail.com"
+                      placeholder="noreplyfromwholesaleofoklahoma@gmail.com"
                       className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#FF6B00]"
                     />
                   </div>
@@ -366,7 +366,7 @@ export default function AdminLogin() {
                   required
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="order2wholesaleofoklahoma@gmail.com"
+                  placeholder="noreplyfromwholesaleofoklahoma@gmail.com"
                   className="w-full bg-slate-50 border border-slate-300 rounded-xl px-4 py-2.5 text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#FF6B00] transition-colors"
                 />
               </div>

@@ -32,7 +32,7 @@ const EMAIL_LOG_FILE = path.join(STORAGE_DIR, 'email_outbox.log');
 export const ADMIN_EMAIL =
   process.env.APPLICATION_NOTIFICATION_EMAIL ||
   process.env.ADMIN_NOTIFICATION_EMAIL ||
-  'order2wholesaleofoklahoma@gmail.com';
+  'noreplyfromwholesaleofoklahoma@gmail.com';
 
 function getSiteUrl(): string {
   if (process.env.SITE_URL) return process.env.SITE_URL.replace(/\/$/, '');

@@ -11,7 +11,7 @@ import { authStore, type UserRecord } from '../../server/src/services/authStore.
 let server: http.Server;
 let baseUrl: string;
 
-const TEST_ADMIN_EMAIL = 'order2wholesaleofoklahoma@gmail.com';
+const TEST_ADMIN_EMAIL = 'noreplyfromwholesaleofoklahoma@gmail.com';
 const STORAGE_DIR = path.resolve(process.cwd(), 'storage');
 const EMAIL_LOG_FILE = path.join(STORAGE_DIR, 'email_outbox.log');
 
@@ -190,7 +190,7 @@ test('Route Guard: Authenticated admin is permitted access to /admin/dashboard',
   assert.equal(data.user, TEST_ADMIN_EMAIL);
 });
 
-test('Admin Auth: Admin logs in directly with order2wholesaleofoklahoma@gmail.com and Wholesale@4500!', async () => {
+test('Admin Auth: Admin logs in directly with noreplyfromwholesaleofoklahoma@gmail.com and Wholesale@4500!', async () => {
   const loginRes = await fetch(`${baseUrl}/api/auth/login`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },

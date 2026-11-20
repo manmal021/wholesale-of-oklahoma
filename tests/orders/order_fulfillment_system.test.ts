@@ -108,7 +108,7 @@ test.before(async () => {
   const adminSess = authStore.createSession({
     id: 'admin_fulfillment_master',
     userId: 'admin_fulfillment_master',
-    email: 'order2wholesaleofoklahoma@gmail.com',
+    email: 'noreplyfromwholesaleofoklahoma@gmail.com',
     role: 'admin',
     businessName: 'Wholesale of Oklahoma Dispatch',
     contactName: 'Dispatch Manager',

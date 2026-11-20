@@ -350,7 +350,7 @@ export default function AdminApplicationsList() {
                             ? 'bg-rose-50 border-rose-200 text-rose-700'
                             : 'bg-amber-50 border-amber-200 text-amber-700'
                         }`}
-                        title={`Notification to order2wholesaleofoklahoma@gmail.com: ${app.emailStatus}`}
+                        title={`Notification to noreplyfromwholesaleofoklahoma@gmail.com: ${app.emailStatus}`}
                       >
                         Email: {app.emailStatus}
                       </span>

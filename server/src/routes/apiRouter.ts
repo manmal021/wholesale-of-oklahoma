@@ -2319,7 +2319,7 @@ apiApp.post(['/wholesale/apply', '/api/wholesale/apply'], rateLimit(50, 15 * 60 
     console.error(`[API /wholesale/apply] ❌ Application PDF generation error: ${pdfErr.message}`);
   }
 
-  // Attempt Email Delivery to Business Notification Address (order2wholesaleofoklahoma@gmail.com)
+  // Attempt Email Delivery to Business Notification Address (noreplyfromwholesaleofoklahoma@gmail.com)
   try {
     const dispatchResult = await emailService.sendAdminNewApplicationNotification(newApp, generatedPdf);
     if (dispatchResult.success) {
@@ -2573,7 +2573,7 @@ apiApp.post(
       const generated = await applicationPdfService.generateApplicationPdf(app);
       const emailResult = await emailService.sendAdminNewApplicationNotification(app, generated);
 
-      if (emailResult.success) {
+      if (emailResult.success && !emailResult.queuedOutbox) {
         databaseStore.updateApplicationEmailStatus(app.id, 'sent', undefined, {
           messageId: emailResult.messageId,
           provider: emailResult.provider,
@@ -2587,12 +2587,14 @@ apiApp.post(
           message: `Application notification email successfully sent to ${ADMIN_EMAIL}.`,
         });
       } else {
-        const errReason = emailResult.error || 'Provider rejected notification dispatch';
+        const errReason = emailResult.queuedOutbox
+          ? 'Email was saved to the local outbox but was not delivered. Configure an email provider to send it.'
+          : emailResult.error || 'Provider rejected notification dispatch';
         databaseStore.updateApplicationEmailStatus(app.id, 'failed', errReason, {
           provider: emailResult.provider,
           incrementRetry: true,
         });
-        return ok(res, {
+        return res.status(502).json({
           success: false,
           emailStatus: 'failed',
           message: `Failed to deliver email: ${errReason}`,
@@ -2687,10 +2689,24 @@ const handleCustomerApproval = async (req: Request, res: Response) => {
   });
 
   // Dispatch Approval Email (including credentials)
+  let approvalEmail: Awaited<ReturnType<typeof emailService.sendCustomerAccountApproved>> | null = null;
   if (app) {
-    emailService.sendCustomerAccountApproved(app, generatedPassword, tokenRecord.token).catch((emailErr) => {
+    try {
+      approvalEmail = await emailService.sendCustomerAccountApproved(app, generatedPassword, tokenRecord.token);
+      if (approvalEmail.success) {
+        databaseStore.updateApplicationEmailStatus(app.id, 'sent', undefined, {
+          messageId: approvalEmail.messageId,
+          provider: approvalEmail.provider,
+        });
+      } else {
+        databaseStore.updateApplicationEmailStatus(app.id, 'failed', approvalEmail.error || 'Approval email dispatch failed', {
+          provider: approvalEmail.provider,
+          incrementRetry: true,
+        });
+      }
+    } catch (emailErr: any) {
       console.warn('[API /admin/approve] Email send warning:', emailErr.message);
-    });
+    }
   }
 
   console.log(`[API /admin/approve] 🟢 Approved customer ${customer.businessName} (${customer.email}) by ${adminEmail} with 10-char password assigned.`);
@@ -2713,6 +2729,15 @@ const handleCustomerApproval = async (req: Request, res: Response) => {
     },
     activationToken: tokenRecord.token,
     activationUrl: `/activate?token=${tokenRecord.token}`,
+    approvalEmail: approvalEmail
+      ? {
+          sent: approvalEmail.success,
+          provider: approvalEmail.provider,
+          recipient: approvalEmail.recipient,
+          messageId: approvalEmail.messageId,
+          error: approvalEmail.error,
+        }
+      : null,
   });
 };
 
@@ -3196,19 +3221,39 @@ apiApp.post(
     const businessName = customer?.businessName || app?.businessName || 'Wholesale Partner';
 
     try {
-      await emailService.sendCustomerCredentialsEmail(email, businessName, password);
+      const emailResult = await emailService.sendCustomerCredentialsEmail(email, businessName, password);
+      if (!emailResult.success) {
+        console.warn(`[API /admin/send-credentials] Email dispatch failed for ${email}: ${emailResult.error || 'provider rejected delivery'}`);
+        return res.status(502).json({
+          success: false,
+          error: 'EMAIL_DISPATCH_FAILED',
+          message: `Could not send credentials email via ${emailResult.provider || 'email provider'}: ${emailResult.error || 'delivery failed'}`,
+          provider: emailResult.provider,
+        });
+      }
+      if (emailResult.queuedOutbox) {
+        return res.status(503).json({
+          success: false,
+          error: 'EMAIL_NOT_DELIVERED',
+          message: 'Credentials email was saved to the local outbox but was not delivered. Configure an email provider to send it.',
+          provider: emailResult.provider,
+        });
+      }
+
+      return ok(res, {
+        success: true,
+        message: `Credentials email successfully sent to ${email}.`,
+        provider: emailResult.provider,
+        recipient: email,
+      });
     } catch (emailErr: any) {
       console.warn('[API /admin/send-credentials] Warning: email dispatch issue:', emailErr.message);
+      return res.status(502).json({
+        success: false,
+        error: 'EMAIL_DISPATCH_FAILED',
+        message: `Could not send credentials email: ${emailErr.message}`,
+      });
     }
-
-    return ok(res, {
-      success: true,
-      message: `Credentials successfully dispatched to ${email}.`,
-      credentials: {
-        username: email,
-        password,
-      },
-    });
   }
 );
 

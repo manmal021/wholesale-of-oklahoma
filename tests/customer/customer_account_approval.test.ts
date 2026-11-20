@@ -10,7 +10,7 @@ import { authStore } from '../../server/src/services/authStore.js';
 let server: http.Server;
 let baseUrl: string;
 
-const TEST_ADMIN_EMAIL = 'order2wholesaleofoklahoma@gmail.com';
+const TEST_ADMIN_EMAIL = 'noreplyfromwholesaleofoklahoma@gmail.com';
 const STORAGE_DIR = path.resolve(process.cwd(), 'storage');
 const EMAIL_LOG_FILE = path.join(STORAGE_DIR, 'email_outbox.log');
 
@@ -55,7 +55,7 @@ function getOutboxEntries(): any[] {
 // ---------------------------------------------------------------------------
 // 1. Initial Admin Account Provisioning & Setup Token
 // ---------------------------------------------------------------------------
-test('Admin Setup: order2wholesaleofoklahoma@gmail.com provisioned without hardcoded password and receives activation token', async () => {
+test('Admin Setup: noreplyfromwholesaleofoklahoma@gmail.com provisioned without hardcoded password and receives activation token', async () => {
   const adminUser = authStore.getUser(TEST_ADMIN_EMAIL);
   assert.ok(adminUser, 'Admin user must exist in authStore');
   assert.equal(adminUser.role, 'admin', 'Admin role must be admin');
@@ -177,7 +177,7 @@ test('Customer Application: Valid submission creates PENDING record, sends admin
   // Verify Admin Notification Email
   const outbox = getOutboxEntries();
   const adminNotification = outbox.filter((e) => e.to === TEST_ADMIN_EMAIL && e.subject.includes('Thunder OK Vapes LLC')).pop();
-  assert.ok(adminNotification, 'Admin notification email must be sent to order2wholesaleofoklahoma@gmail.com');
+  assert.ok(adminNotification, 'Admin notification email must be sent to noreplyfromwholesaleofoklahoma@gmail.com');
   assert.ok(adminNotification.actionUrl.includes(`/admin/customer-applications/${testAppId}`));
 
   // Verify Applicant Confirmation Email

@@ -259,8 +259,10 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
         credentials: 'same-origin',
       });
       const data = await res.json();
-      if (!res.ok) throw new Error(data.message || 'Failed to dispatch credentials email.');
-      setActionSuccess(`Login credentials successfully emailed to ${app?.email}.`);
+      if (!res.ok || !data.success) {
+        throw new Error(data.message || data.error || 'Failed to dispatch credentials email.');
+      }
+      setActionSuccess(data.message || `Login credentials successfully emailed to ${app?.email}.`);
     } catch (err: any) {
       setActionError(err.message || 'Email dispatch failed.');
     } finally {
@@ -427,6 +429,7 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
   const handleResendEmail = async () => {
     setIsResendingEmail(true);
     setActionError(null);
+    setActionSuccess(null);
     try {
       const token = typeof window !== 'undefined' ? (localStorage.getItem('woo_session_token') || '') : '';
       const headers: Record<string, string> = {
@@ -440,13 +443,14 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
         credentials: 'same-origin',
       });
       const data = await res.json();
-      if (!res.ok) {
+      if (!res.ok || !data.success) {
         throw new Error(data.message || data.error || 'Failed to dispatch notification email.');
       }
-      setActionSuccess(data.message || 'Notification email with application PDF dispatched to order2wholesaleofoklahoma@gmail.com!');
+      setActionSuccess(data.message || 'Notification email with application PDF dispatched to noreplyfromwholesaleofoklahoma@gmail.com!');
       fetchDetail();
     } catch (err: any) {
       setActionError(err.message || 'Email dispatch failed.');
+      fetchDetail();
     } finally {
       setIsResendingEmail(false);
     }
@@ -590,7 +594,7 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
                   <p className="text-xs text-slate-600 mt-1">
                     Notification recipient:{' '}
                     <span className="font-mono font-semibold text-slate-900">
-                      order2wholesaleofoklahoma@gmail.com
+                      noreplyfromwholesaleofoklahoma@gmail.com
                     </span>
                     {app.emailSentAt && (
                       <span className="text-slate-400 ml-2">
@@ -1408,6 +1412,11 @@ export default function AdminApplicationDetail({ applicationId }: ApplicationDet
             </div>
 
             <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
+              {actionError && (
+                <div className="w-full rounded-xl bg-rose-950/60 border border-rose-500/30 p-3 text-xs text-rose-200">
+                  {actionError}
+                </div>
+              )}
               <button
                 type="button"
                 onClick={handleSendCredentials}

@@ -15,7 +15,7 @@ let server: http.Server;
 let baseUrl: string;
 
 const TEST_ADMIN_KEY = 'test_security_admin_secret_key_2026';
-const TEST_ADMIN_EMAIL = 'order2wholesaleofoklahoma@gmail.com';
+const TEST_ADMIN_EMAIL = 'noreplyfromwholesaleofoklahoma@gmail.com';
 
 let testAppId: string;
 let testDocId: string;
@@ -270,6 +270,60 @@ test('TASK 5: Email status tracking records pending, sent/failed, retry counts, 
   const auditLogs = databaseStore.listAuditLogs(20);
   const emailLog = auditLogs.find((l) => l.targetId === testAppId && l.event.includes('EMAIL'));
   assert.ok(emailLog, 'Email attempt must be logged in administrative audit trail');
+});
+
+test('Business notification resend reports provider and local-outbox failures', async () => {
+  const originalSender = emailService.sendAdminNewApplicationNotification;
+  emailService.sendAdminNewApplicationNotification = async (app) => ({
+    success: false,
+    recipient: 'noreplyfromwholesaleofoklahoma@gmail.com',
+    subject: `Test application ${app.id}`,
+    provider: 'smtp',
+    error: 'SMTP provider timeout',
+  });
+
+  try {
+    const res = await fetch(`${baseUrl}/api/admin/applications/${testAppId}/resend-email`, {
+      method: 'POST',
+      headers: { 'x-session-token': adminSessionToken },
+    });
+    const body = await res.json();
+
+    assert.equal(res.status, 502);
+    assert.equal(body.success, false);
+    assert.equal(body.emailStatus, 'failed');
+    assert.match(body.message, /SMTP provider timeout/);
+    assert.equal(databaseStore.getApplication(testAppId)?.emailStatus, 'failed');
+  } finally {
+    emailService.sendAdminNewApplicationNotification = originalSender;
+  }
+});
+
+test('Credential email endpoint reports provider delivery failures instead of false success', async () => {
+  const originalSendCredentialsEmail = emailService.sendCustomerCredentialsEmail;
+  emailService.sendCustomerCredentialsEmail = async (email) => ({
+    success: false,
+    recipient: email,
+    subject: 'Test credentials',
+    provider: 'smtp',
+    error: 'SMTP authentication rejected',
+  });
+
+  try {
+    const res = await fetch(`${baseUrl}/api/admin/applications/${testAppId}/send-credentials`, {
+      method: 'POST',
+      headers: { 'x-session-token': adminSessionToken },
+    });
+    const body = await res.json();
+
+    assert.equal(res.status, 502);
+    assert.equal(body.success, false);
+    assert.equal(body.error, 'EMAIL_DISPATCH_FAILED');
+    assert.match(body.message, /SMTP authentication rejected/);
+    assert.equal(body.credentials, undefined);
+  } finally {
+    emailService.sendCustomerCredentialsEmail = originalSendCredentialsEmail;
+  }
 });
 
 test('TASK 7: All admin management endpoints enforce requireAdminAuth', async () => {

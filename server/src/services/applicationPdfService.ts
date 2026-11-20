@@ -354,7 +354,7 @@ export class ApplicationPdfService {
       { label: 'Email Address', value: app.email },
       { label: 'Primary Contact Phone', value: app.phone },
       { label: 'Business Phone', value: app.businessPhone || app.phone },
-      { label: 'Dispatch Notification', value: 'Enabled (order2wholesaleofoklahoma@gmail.com)' },
+      { label: 'Dispatch Notification', value: 'Enabled (noreplyfromwholesaleofoklahoma@gmail.com)' },
     ]);
 
     // ── 4. BUSINESS ADDRESS (PHYSICAL) ───────────────────────────────────────
