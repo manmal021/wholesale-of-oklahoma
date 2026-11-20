@@ -12,13 +12,13 @@
 
 ### 2. Solution Implemented
 1. **Fallback for Serverless & Cold Starts**:
-   - Defined `DEFAULT_PENDING_APPLICATION` constant ("Vape City Express", Alice City, `alice@vapecityexpress.com`, Sales Tax Permit, `status: 'PENDING'`) in `src/server/databaseStore.ts`.
+   - Defined `DEFAULT_PENDING_APPLICATION` constant ("Vape City Express", Alice City, `alice@vapecityexpress.com`, Sales Tax Permit, `status: 'PENDING'`) in `server/src/repositories/databaseStore.ts`.
    - Guaranteed that whenever `this.applications.size === 0` (outside test environments), this application is automatically populated and ready for review.
 2. **Dynamic Disk Synchronization**:
    - Added `lastLoadedMtime` tracking and `syncFromDisk()` to check disk modification time before listing applications or compiling dashboard stats.
    - Removed `COMMITTED_SEED_FILE` from `persistToDisk()` so runtime purges or tests never wipe the committed seed database.
 3. **Filter Normalization**:
-   - Normalized status filters using `toUpperCase().trim()` in both `src/server/databaseStore.ts` and `src/server/apiRouter.ts`.
+   - Normalized status filters using `toUpperCase().trim()` in both `server/src/repositories/databaseStore.ts` and `server/src/routes/apiRouter.ts`.
 4. **Vercel Routing**:
    - Reverted incompatible `functions` block in `vercel.json` to keep routing clean and dependable.
 

@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const rootDir = path.resolve(__dirname, '..');
 
-const file = fs.readFileSync(path.join(rootDir, 'src/lib/productDatabase.ts'), 'utf8');
+const file = fs.readFileSync(path.join(rootDir, 'shared/src/productDatabase.ts'), 'utf8');
 const ids = [...new Set([...file.matchAll(/id:\s*'([^']+)'/g)].map(m => m[1]))];
 const brands = [...new Set([...file.matchAll(/brand:\s*'([^']+)'/g)].map(m => m[1].toLowerCase().replace(/[^a-z0-9]+/g, '-')))];
 
@@ -80,6 +80,6 @@ ids.forEach(id => {
 
 xml += '</urlset>\n';
 
-const outPath = path.join(rootDir, 'public/sitemap.xml');
+const outPath = path.join(rootDir, 'client/public/sitemap.xml');
 fs.writeFileSync(outPath, xml, 'utf8');
 console.log(`Successfully generated ${outPath} with ${1 + sections.length + categories.length + brands.length + ids.length} URLs.`);
