@@ -6,7 +6,7 @@
  */
 
 import crypto from 'crypto';
-import { databaseStore, type CustomerRecord } from './databaseStore.js';
+import { databaseStore, type CustomerRecord } from '../repositories/databaseStore.js';
 import { emailService, ADMIN_EMAIL } from './emailService.js';
 
 export type UserRole = 'visitor' | 'pending_customer' | 'approved_customer' | 'admin';

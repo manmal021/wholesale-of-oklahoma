@@ -8,7 +8,7 @@ async function optimizeImages() {
   let totalAfter = 0;
 
   // 1. Mango avatar
-  const avatarPath = path.resolve('public/mango-avatar.jpg');
+  const avatarPath = path.resolve('client/public/mango-avatar.jpg');
   if (fs.existsSync(avatarPath)) {
     const inputBuf = fs.readFileSync(avatarPath);
     const beforeSize = inputBuf.length;
@@ -24,7 +24,7 @@ async function optimizeImages() {
   }
 
   // 2. Products
-  const productsDir = path.resolve('public/products');
+  const productsDir = path.resolve('client/public/products');
   if (fs.existsSync(productsDir)) {
     const files = fs.readdirSync(productsDir);
     for (const file of files) {
@@ -57,8 +57,8 @@ async function optimizeImages() {
   }
 
   // 3. Gallery
-  const galleryDir = path.resolve('public/gallery');
-  const thumbsDir = path.resolve('public/gallery/thumbs');
+  const galleryDir = path.resolve('client/public/gallery');
+  const thumbsDir = path.resolve('client/public/gallery/thumbs');
   if (!fs.existsSync(thumbsDir)) {
     fs.mkdirSync(thumbsDir, { recursive: true });
   }

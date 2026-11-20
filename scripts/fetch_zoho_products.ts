@@ -2,9 +2,9 @@ import 'dotenv/config';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { fetchAllZohoItems } from '../src/server/zohoInventory.js';
-import { reconcileWebsitePrices } from '../src/server/priceReconciliation.js';
-import type { InventoryItem } from '../src/types/inventory.js';
+import { fetchAllZohoItems } from '../server/src/services/zohoInventory.js';
+import { reconcileWebsitePrices } from '../server/src/services/priceReconciliation.js';
+import type { InventoryItem } from '../shared/src/types/inventory.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -109,15 +109,15 @@ async function main() {
   const { updatedItems: reconciledCatalog, report } = reconcileWebsitePrices(finalCatalog, liveZohoItems as any);
   console.log(`Reconciled: ${report.matched_count} matched, ${report.updated_count} updated.`);
 
-  // Write back to data/zoho_catalog_snapshot.json and src/server/zohoSnapshotData.ts
+  // Write back to data/zoho_catalog_snapshot.json and server/src/services/zohoSnapshotData.ts
   fs.writeFileSync(catalogPath, JSON.stringify(reconciledCatalog, null, 2), 'utf-8');
 
-  const tsPath = path.resolve(__dirname, '../src/server/zohoSnapshotData.ts');
+  const tsPath = path.resolve(__dirname, '../server/src/services/zohoSnapshotData.ts');
   const tsContent = `// Automatically generated from data/zoho_catalog_snapshot.json\n// Direct TypeScript export to avoid Vercel serverless filesystem read errors.\nexport const ZOHO_CATALOG_SNAPSHOT = ${JSON.stringify(reconciledCatalog, null, 2)} as const;\n`;
   fs.writeFileSync(tsPath, tsContent, 'utf-8');
 
   console.log(`\n✅ Saved ${reconciledCatalog.length} products to data/zoho_catalog_snapshot.json`);
-  console.log(`✅ Saved ${reconciledCatalog.length} products to src/server/zohoSnapshotData.ts`);
+  console.log(`✅ Saved ${reconciledCatalog.length} products to server/src/services/zohoSnapshotData.ts`);
   console.log('\nSync finished successfully!');
 }
 

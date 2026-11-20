@@ -4,16 +4,16 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import http from 'node:http';
-import { PRODUCTS } from '../../src/lib/productDatabase.js';
+import { PRODUCTS } from '../../shared/src/productDatabase.js';
 
 // Setup test server instance
 let server: http.Server;
 let baseUrl: string;
 let testStorageDir: string;
 const previousStorageDir = process.env.WOO_STORAGE_DIR;
-let apiApp: typeof import('../../src/server/apiRouter.js').apiApp;
-let databaseStore: typeof import('../../src/server/databaseStore.js').databaseStore;
-let authStore: typeof import('../../src/server/authStore.js').authStore;
+let apiApp: typeof import('../../server/src/routes/apiRouter.js').apiApp;
+let databaseStore: typeof import('../../server/src/repositories/databaseStore.js').databaseStore;
+let authStore: typeof import('../../server/src/services/authStore.js').authStore;
 const TEST_ADMIN_KEY = 'test_production_hardening_secret_key_2026';
 
 test.before(async () => {
@@ -23,9 +23,9 @@ test.before(async () => {
   process.env.NODE_ENV = 'production'; // Enforce strict production auth checks
 
   const [apiRouter, databaseModule, authModule] = await Promise.all([
-    import('../../src/server/apiRouter.js'),
-    import('../../src/server/databaseStore.js'),
-    import('../../src/server/authStore.js'),
+    import('../../server/src/routes/apiRouter.js'),
+    import('../../server/src/repositories/databaseStore.js'),
+    import('../../server/src/services/authStore.js'),
   ]);
   apiApp = apiRouter.apiApp;
   databaseStore = databaseModule.databaseStore;
@@ -75,8 +75,8 @@ async function uploadSecurityTestPermit(): Promise<{ id: string; type: string; f
 // 1. Technical SEO & Public Discovery Verification (Rules 5, 7, 8, 9)
 // ---------------------------------------------------------------------------
 test('SEO: robots.txt exists and blocks sensitive endpoints while pointing to sitemap', () => {
-  const robotsPath = path.resolve(process.cwd(), 'public', 'robots.txt');
-  assert.ok(fs.existsSync(robotsPath), 'public/robots.txt must exist');
+  const robotsPath = path.resolve(process.cwd(), 'client', 'public', 'robots.txt');
+  assert.ok(fs.existsSync(robotsPath), 'client/public/robots.txt must exist');
 
   const content = fs.readFileSync(robotsPath, 'utf8');
   assert.ok(content.includes('User-agent: *'), 'Must declare User-agent');
@@ -87,8 +87,8 @@ test('SEO: robots.txt exists and blocks sensitive endpoints while pointing to si
 });
 
 test('SEO: sitemap.xml exists and maps canonical product and category URLs', () => {
-  const sitemapPath = path.resolve(process.cwd(), 'public', 'sitemap.xml');
-  assert.ok(fs.existsSync(sitemapPath), 'public/sitemap.xml must exist');
+  const sitemapPath = path.resolve(process.cwd(), 'client', 'public', 'sitemap.xml');
+  assert.ok(fs.existsSync(sitemapPath), 'client/public/sitemap.xml must exist');
 
   const content = fs.readFileSync(sitemapPath, 'utf8');
   assert.ok(content.includes('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'), 'Valid sitemap XML namespace');
@@ -102,7 +102,7 @@ test('SEO: sitemap.xml exists and maps canonical product and category URLs', () 
 // 2. Secret Exposure Prevention (Rule 2 & OWASP A02)
 // ---------------------------------------------------------------------------
 test('Secrets: dist bundle does not leak Zoho or Gemini secrets', () => {
-  const distAssetsDir = path.resolve(process.cwd(), 'dist', 'assets');
+  const distAssetsDir = path.resolve(process.cwd(), 'client', 'dist', 'assets');
   if (fs.existsSync(distAssetsDir)) {
     const files = fs.readdirSync(distAssetsDir).filter((f) => f.endsWith('.js'));
     for (const file of files) {

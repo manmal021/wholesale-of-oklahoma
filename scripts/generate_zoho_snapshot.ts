@@ -1,9 +1,9 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { productImageRegistry } from '../src/server/productImageRegistry.js';
-import { calculateWebsitePrice } from '../src/server/priceReconciliation.js';
-import type { InventoryItem } from '../src/types/inventory.js';
+import { productImageRegistry } from '../server/src/services/productImageRegistry.js';
+import { calculateWebsitePrice } from '../server/src/services/priceReconciliation.js';
+import type { InventoryItem } from '../shared/src/types/inventory.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -1229,7 +1229,7 @@ const allItems = generateZohoCatalog();
 const outJsonPath = path.resolve(__dirname, '../data/zoho_catalog_snapshot.json');
 fs.writeFileSync(outJsonPath, JSON.stringify(allItems, null, 2), 'utf-8');
 
-const outTsPath = path.resolve(__dirname, '../src/server/zohoSnapshotData.ts');
+const outTsPath = path.resolve(__dirname, '../server/src/services/zohoSnapshotData.ts');
 const tsContent = `// Automatically generated from data/zoho_catalog_snapshot.json
 // Direct TypeScript export to avoid Vercel serverless filesystem read errors.
 export const ZOHO_CATALOG_SNAPSHOT = ${JSON.stringify(allItems, null, 2)} as const;

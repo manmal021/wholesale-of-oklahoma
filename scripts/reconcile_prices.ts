@@ -16,9 +16,9 @@ import 'dotenv/config';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { reconcileWebsitePrices, type RawZohoItemLike } from '../src/server/priceReconciliation.js';
-import { fetchAllZohoItems } from '../src/server/zohoInventory.js';
-import type { InventoryItem } from '../src/types/inventory.js';
+import { reconcileWebsitePrices, type RawZohoItemLike } from '../server/src/services/priceReconciliation.js';
+import { fetchAllZohoItems } from '../server/src/services/zohoInventory.js';
+import type { InventoryItem } from '../shared/src/types/inventory.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -116,13 +116,13 @@ async function runReconciliation() {
   // Save reconciled items back to snapshot
   fs.writeFileSync(catalogPath, JSON.stringify(updatedItems, null, 2), 'utf-8');
 
-  const tsPath = path.resolve(__dirname, '../src/server/zohoSnapshotData.ts');
+  const tsPath = path.resolve(__dirname, '../server/src/services/zohoSnapshotData.ts');
   const tsContent = `// Automatically generated from data/zoho_catalog_snapshot.json
 // Direct TypeScript export to avoid Vercel serverless filesystem read errors.
 export const ZOHO_CATALOG_SNAPSHOT = ${JSON.stringify(updatedItems, null, 2)} as const;
 `;
   fs.writeFileSync(tsPath, tsContent, 'utf-8');
-  console.log(`✅ Snapshot files updated: data/zoho_catalog_snapshot.json & src/server/zohoSnapshotData.ts`);
+  console.log(`✅ Snapshot files updated: data/zoho_catalog_snapshot.json & server/src/services/zohoSnapshotData.ts`);
 }
 
 runReconciliation().catch((err) => {

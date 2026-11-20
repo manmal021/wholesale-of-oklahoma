@@ -1,7 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert';
-import { productImageRegistry } from '../../src/server/productImageRegistry';
-import { inventoryStore } from '../../src/server/inventoryStore';
+import { productImageRegistry } from '../../server/src/services/productImageRegistry';
+import { inventoryStore } from '../../server/src/services/inventoryStore';
 
 test('Image Registry: All 35 catalog items return exact verified URLs and never generic gallery fallbacks', () => {
   const audits = productImageRegistry.getAllAudits();

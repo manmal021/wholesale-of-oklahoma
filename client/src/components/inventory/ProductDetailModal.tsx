@@ -10,7 +10,7 @@ import {
   Building,
   AlertCircle,
 } from 'lucide-react';
-import type { InventoryItem, InventoryVariant, QuantityDisplayMode } from '../../types/inventory';
+import type { InventoryItem, InventoryVariant, QuantityDisplayMode } from '../../../../shared/src/types/inventory';
 import { addToOrderDirect } from '../../lib/mangoAI';
 
 interface ProductDetailModalProps {

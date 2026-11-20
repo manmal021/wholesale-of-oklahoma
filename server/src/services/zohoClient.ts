@@ -10,7 +10,7 @@
  * - Resilient stale-while-revalidate fallback
  */
 
-import type { InventoryItem, InventoryVariant, StockStatus } from '../types/inventory.js';
+import type { InventoryItem, InventoryVariant, StockStatus } from '../../../shared/src/types/inventory.js';
 import { calculateWebsitePrice } from './priceReconciliation.js';
 
 export interface ZohoApiConfig {

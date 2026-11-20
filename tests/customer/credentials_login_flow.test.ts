@@ -3,8 +3,8 @@ import assert from 'node:assert';
 import {
   generateCustomerPassword,
   authStore
-} from '../../src/server/authStore.js';
-import { databaseStore } from '../../src/server/databaseStore.js';
+} from '../../server/src/services/authStore.js';
+import { databaseStore } from '../../server/src/repositories/databaseStore.js';
 
 test('Customer Credentials & Login Flow: Password generation rules strictly met', () => {
   for (let i = 0; i < 50; i++) {

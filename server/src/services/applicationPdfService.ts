@@ -14,7 +14,7 @@
 
 import { PDFDocument, rgb, StandardFonts, PDFPage, PDFFont } from 'pdf-lib';
 import sharp from 'sharp';
-import type { WholesaleApplicationRecord } from './databaseStore.js';
+import type { WholesaleApplicationRecord } from '../repositories/databaseStore.js';
 import { documentStore } from './documentStore.js';
 
 const PAGE_WIDTH = 612; // 8.5 inches in points

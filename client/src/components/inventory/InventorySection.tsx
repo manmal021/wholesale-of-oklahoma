@@ -24,7 +24,7 @@ import type {
   InventoryItem,
   AdminInventorySettings,
   ZohoSyncStatus,
-} from '../../types/inventory';
+} from '../../../../shared/src/types/inventory';
 import {
   fetchInventory,
   fetchInventoryItem,

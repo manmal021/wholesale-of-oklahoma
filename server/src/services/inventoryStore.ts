@@ -13,8 +13,8 @@ import type {
   AdminInventorySettings,
   ZohoSyncStatus,
   StockStatus,
-} from '../types/inventory.js';
-import { PRODUCTS, type WholesaleProduct } from '../lib/productDatabase.js';
+} from '../../../shared/src/types/inventory.js';
+import { PRODUCTS, type WholesaleProduct } from '../../../shared/src/productDatabase.js';
 import { productImageRegistry } from './productImageRegistry.js';
 import { validateImageUpdatePayload, reconcileWebsitePrices, calculateWebsitePrice } from './priceReconciliation.js';
 

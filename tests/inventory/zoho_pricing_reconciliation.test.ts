@@ -21,10 +21,10 @@ import {
   reconcileWebsitePrices,
   validateImageUpdatePayload,
   type RawZohoItemLike,
-} from '../../src/server/priceReconciliation.js';
-import { InventoryStore } from '../../src/server/inventoryStore.js';
-import { productImageRegistry } from '../../src/server/productImageRegistry.js';
-import type { InventoryItem } from '../../src/types/inventory.js';
+} from '../../server/src/services/priceReconciliation.js';
+import { InventoryStore } from '../../server/src/services/inventoryStore.js';
+import { productImageRegistry } from '../../server/src/services/productImageRegistry.js';
+import type { InventoryItem } from '../../shared/src/types/inventory.js';
 
 function createTestItem(data: Partial<InventoryItem> & { sku: string; name: string }): InventoryItem {
   return {

@@ -12,7 +12,7 @@ import {
   ArrowRight,
   Plus,
 } from 'lucide-react';
-import { PRODUCTS, type WholesaleProduct, type ProductCategory } from '../lib/productDatabase';
+import { PRODUCTS, type WholesaleProduct, type ProductCategory } from '../../../shared/src/productDatabase';
 import { addToOrderDirect, getDraftOrder } from '../lib/mangoAI';
 
 const CATEGORIES: { id: string; label: string; icon: string }[] = [

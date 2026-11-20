@@ -9,8 +9,8 @@ import {
   getProduct,
   getWholesalePrice,
   type WholesaleProduct,
-} from './productDatabase';
-import type { InventoryItem } from '../types/inventory';
+} from '../../../shared/src/productDatabase';
+import type { InventoryItem } from '../../../shared/src/types/inventory';
 
 export interface ChatMessage {
   id?: string;

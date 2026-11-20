@@ -33,7 +33,7 @@ import {
   type MangoToolResult,
   type DraftOrderItem,
 } from '../lib/mangoAI';
-import { PRODUCTS, type WholesaleProduct } from '../lib/productDatabase';
+import { PRODUCTS, type WholesaleProduct } from '../../../shared/src/productDatabase';
 
 // ─── Sub-components ────────────────────────────────────────────────────────
 

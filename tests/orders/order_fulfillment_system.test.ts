@@ -3,11 +3,11 @@ import assert from 'node:assert/strict';
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
-import { apiApp } from '../../src/server/apiRouter.js';
-import { databaseStore } from '../../src/server/databaseStore.js';
-import { authStore } from '../../src/server/authStore.js';
-import { emailService } from '../../src/server/emailService.js';
-import { inventoryStore } from '../../src/server/inventoryStore.js';
+import { apiApp } from '../../server/src/routes/apiRouter.js';
+import { databaseStore } from '../../server/src/repositories/databaseStore.js';
+import { authStore } from '../../server/src/services/authStore.js';
+import { emailService } from '../../server/src/services/emailService.js';
+import { inventoryStore } from '../../server/src/services/inventoryStore.js';
 
 let server: http.Server;
 let baseUrl: string;

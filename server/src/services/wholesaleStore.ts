@@ -7,7 +7,7 @@
  * Backed persistently by databaseStore.ts.
  */
 
-import { databaseStore, type WholesaleApplicationRecord, type ApplicationStatus } from './databaseStore.js';
+import { databaseStore, type WholesaleApplicationRecord, type ApplicationStatus } from '../repositories/databaseStore.js';
 
 export interface WholesaleApplication {
   id: string;

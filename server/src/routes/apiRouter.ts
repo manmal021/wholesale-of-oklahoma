@@ -31,16 +31,16 @@ import {
   scheduleTokenRefresh,
   refreshAccessToken,
   getValidToken,
-} from './zohoAuth.js';
+} from '../services/zohoAuth.js';
 import {
   getCachedInventory,
   getZohoItem,
   invalidateCache,
   fetchAllZohoItems,
   fetchZohoPage,
-} from './zohoInventory.js';
-import { inventoryStore } from './inventoryStore.js';
-import { wholesaleStore } from './wholesaleStore.js';
+} from '../services/zohoInventory.js';
+import { inventoryStore } from '../services/inventoryStore.js';
+import { wholesaleStore } from '../services/wholesaleStore.js';
 import {
   databaseStore,
   type WholesaleApplicationRecord,
@@ -50,14 +50,14 @@ import {
   type GeneralOrderStatus,
   type ItemFulfillmentStatus,
   type OrderRecord,
-} from './databaseStore.js';
-import { emailService, ADMIN_EMAIL } from './emailService.js';
-import { authStore, generateCustomerPassword, type UserRole, type SessionRecord } from './authStore.js';
-import { documentStore } from './documentStore.js';
-import { productImageRegistry } from './productImageRegistry.js';
-import { PRODUCTS } from '../lib/productDatabase.js';
-import { reconcileWebsitePrices, matchWebsiteProductToZoho } from './priceReconciliation.js';
-import { applicationPdfService } from './applicationPdfService.js';
+} from '../repositories/databaseStore.js';
+import { emailService, ADMIN_EMAIL } from '../services/emailService.js';
+import { authStore, generateCustomerPassword, type UserRole, type SessionRecord } from '../services/authStore.js';
+import { documentStore } from '../services/documentStore.js';
+import { productImageRegistry } from '../services/productImageRegistry.js';
+import { PRODUCTS } from '../../../shared/src/productDatabase.js';
+import { reconcileWebsitePrices, matchWebsiteProductToZoho } from '../services/priceReconciliation.js';
+import { applicationPdfService } from '../services/applicationPdfService.js';
 
 export const apiApp = express();
 apiApp.use(express.json({ limit: '15mb' }));

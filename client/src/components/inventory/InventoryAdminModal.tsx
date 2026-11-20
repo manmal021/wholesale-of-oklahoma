@@ -14,7 +14,7 @@ import {
   ShieldCheck,
   Check,
 } from 'lucide-react';
-import type { AdminInventorySettings, ZohoSyncStatus, QuantityDisplayMode } from '../../types/inventory';
+import type { AdminInventorySettings, ZohoSyncStatus, QuantityDisplayMode } from '../../../../shared/src/types/inventory';
 import { triggerZohoSync, updateAdminSettings } from '../../lib/inventoryApi';
 
 interface InventoryAdminModalProps {

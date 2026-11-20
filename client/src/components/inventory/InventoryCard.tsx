@@ -7,7 +7,7 @@ import {
   XCircle,
   Layers,
 } from 'lucide-react';
-import type { InventoryItem, QuantityDisplayMode } from '../../types/inventory';
+import type { InventoryItem, QuantityDisplayMode } from '../../../../shared/src/types/inventory';
 import { addToOrderDirect } from '../../lib/mangoAI';
 
 interface InventoryCardProps {

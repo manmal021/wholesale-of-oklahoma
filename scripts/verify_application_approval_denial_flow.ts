@@ -1,5 +1,5 @@
-import { databaseStore } from '../src/server/databaseStore';
-import { authStore } from '../src/server/authStore';
+import { databaseStore } from '../server/src/repositories/databaseStore';
+import { authStore } from '../server/src/services/authStore';
 
 const BASE_URL = 'http://localhost:3000';
 

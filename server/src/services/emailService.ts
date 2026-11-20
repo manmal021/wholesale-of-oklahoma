@@ -21,7 +21,7 @@ import {
   type WholesaleApplicationRecord,
   type OrderRecord,
   type OrderItemRecord,
-} from './databaseStore.js';
+} from '../repositories/databaseStore.js';
 import { applicationPdfService } from './applicationPdfService.js';
 
 const STORAGE_DIR = process.env.WOO_STORAGE_DIR

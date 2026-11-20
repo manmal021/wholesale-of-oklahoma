@@ -17,9 +17,9 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
-import { authStore } from '../src/server/authStore.js';
-import { databaseStore } from '../src/server/databaseStore.js';
-import { ADMIN_EMAIL } from '../src/server/emailService.js';
+import { authStore } from '../server/src/services/authStore.js';
+import { databaseStore } from '../server/src/repositories/databaseStore.js';
+import { ADMIN_EMAIL } from '../server/src/services/emailService.js';
 
 async function bootstrap() {
   const targetEmail = (process.argv[2] || process.env.ADMIN_NOTIFICATION_EMAIL || ADMIN_EMAIL).trim().toLowerCase();

@@ -2,7 +2,7 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig, type Plugin } from 'vite';
-import { apiRouter } from './src/server/apiRouter';
+import { apiRouter } from '../server/src/routes/apiRouter';
 
 function apiServerPlugin(): Plugin {
   return {
@@ -23,7 +23,7 @@ export default defineConfig(() => {
     plugins: [react(), tailwindcss(), apiServerPlugin()],
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, '.'),
+        '@': path.resolve(__dirname, 'src'),
       },
     },
     server: {

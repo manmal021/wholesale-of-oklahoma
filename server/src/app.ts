@@ -2,7 +2,7 @@
  * server.ts  — Production Express server for Wholesale of Oklahoma
  *
  * Responsibilities:
- *  1. Serve the built Vite React frontend from /dist
+ *  1. Serve the built Vite React frontend from client/dist
  *  2. Expose the /api/* routes (inventory, OAuth callback, webhooks, orders)
  *  3. Start the Zoho token auto-refresh background loop on startup
  *
@@ -19,13 +19,13 @@ import dotenv from 'dotenv';
 // Load .env before importing anything that reads process.env
 dotenv.config();
 
-import { apiRouter } from './src/server/apiRouter.js';
-import { scheduleTokenRefresh, refreshAccessToken } from './src/server/zohoAuth.js';
-import { authStore } from './src/server/authStore.js';
-import { emailService as _emailServiceForBoot } from './src/server/emailService.js';
+import { apiRouter } from './routes/apiRouter.js';
+import { scheduleTokenRefresh, refreshAccessToken } from './services/zohoAuth.js';
+import { authStore } from './services/authStore.js';
+import { emailService as _emailServiceForBoot } from './services/emailService.js';
 
 import fs from 'fs';
-import { PRODUCTS } from './src/lib/productDatabase.js';
+import { PRODUCTS } from '../../shared/src/productDatabase.js';
 
 import compression from 'compression';
 
@@ -115,7 +115,7 @@ app.use(apiRouter);
 
 // ── Static Frontend ─────────────────────────────────────────────────────────
 app.use(
-  express.static(path.join(__dirname, 'dist'), {
+  express.static(path.join(__dirname, '../../client/dist'), {
     maxAge: 0,
     setHeaders: (res, filePath) => {
       // Fingerprinted assets in /assets/ get 1-year immutable cache
@@ -136,7 +136,7 @@ app.get('*', (req, res) => {
     return res.status(404).json({ error: 'API route not found' });
   }
 
-  const indexPath = path.join(__dirname, 'dist', 'index.html');
+  const indexPath = path.join(__dirname, '../../client/dist', 'index.html');
   if (!fs.existsSync(indexPath)) {
     return res.status(404).send('Application build not found. Run npm run build.');
   }

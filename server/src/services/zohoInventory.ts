@@ -15,7 +15,7 @@
 import fs from 'fs';
 import path from 'path';
 import { getValidToken } from './zohoAuth.js';
-import type { InventoryItem, StockStatus, InventoryVariant } from '../types/inventory.js';
+import type { InventoryItem, StockStatus, InventoryVariant } from '../../../shared/src/types/inventory.js';
 import { productImageRegistry } from './productImageRegistry.js';
 import { calculateWebsitePrice } from './priceReconciliation.js';
 

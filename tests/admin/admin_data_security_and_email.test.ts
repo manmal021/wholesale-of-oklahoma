@@ -4,12 +4,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
 import { PDFDocument } from 'pdf-lib';
-import { apiApp } from '../../src/server/apiRouter.js';
-import { databaseStore } from '../../src/server/databaseStore.js';
-import { documentStore } from '../../src/server/documentStore.js';
-import { authStore } from '../../src/server/authStore.js';
-import { applicationPdfService } from '../../src/server/applicationPdfService.js';
-import { emailService } from '../../src/server/emailService.js';
+import { apiApp } from '../../server/src/routes/apiRouter.js';
+import { databaseStore } from '../../server/src/repositories/databaseStore.js';
+import { documentStore } from '../../server/src/services/documentStore.js';
+import { authStore } from '../../server/src/services/authStore.js';
+import { applicationPdfService } from '../../server/src/services/applicationPdfService.js';
+import { emailService } from '../../server/src/services/emailService.js';
 
 let server: http.Server;
 let baseUrl: string;

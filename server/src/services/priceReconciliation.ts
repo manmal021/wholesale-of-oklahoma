@@ -19,7 +19,7 @@
 
 import fs from 'fs';
 import path from 'path';
-import type { InventoryItem, InventoryVariant } from '../types/inventory.js';
+import type { InventoryItem, InventoryVariant } from '../../../shared/src/types/inventory.js';
 
 export interface PriceAuditRecord {
   product: string;

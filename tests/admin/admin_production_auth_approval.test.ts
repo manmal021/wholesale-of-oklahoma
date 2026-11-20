@@ -4,9 +4,9 @@ import fs from 'node:fs';
 import path from 'node:path';
 import http from 'node:http';
 import express from 'express';
-import { apiApp } from '../../src/server/apiRouter.js';
-import { databaseStore } from '../../src/server/databaseStore.js';
-import { authStore, type UserRecord } from '../../src/server/authStore.js';
+import { apiApp } from '../../server/src/routes/apiRouter.js';
+import { databaseStore } from '../../server/src/repositories/databaseStore.js';
+import { authStore, type UserRecord } from '../../server/src/services/authStore.js';
 
 let server: http.Server;
 let baseUrl: string;
