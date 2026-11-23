@@ -159,7 +159,8 @@ export type AuditEventType =
   | 'ORDER_OUT_FOR_DELIVERY'
   | 'ORDER_DELIVERED'
   | 'ORDER_CANCELLED'
-  | 'ORDER_ADJUSTED';
+  | 'ORDER_ADJUSTED'
+  | 'TAX_SETTINGS_UPDATED';
 
 export interface AuditLogRecord {
   id: string;
@@ -333,6 +334,18 @@ export interface FulfillmentConfig {
   };
 }
 
+export interface TaxSettingsConfig {
+  stateTaxRate: number;
+  localTaxRate: number;
+  enabled: boolean;
+}
+
+export const DEFAULT_TAX_SETTINGS: TaxSettingsConfig = {
+  stateTaxRate: 4.5,
+  localTaxRate: 4.125,
+  enabled: true,
+};
+
 export type ProductAvailabilityOverride =
   | 'AVAILABLE'
   | 'LOW_STOCK'
@@ -452,6 +465,7 @@ interface DatabaseState {
   auditLogs: AuditLogRecord[];
   orders?: OrderRecord[];
   fulfillmentConfig?: FulfillmentConfig;
+  taxSettings?: TaxSettingsConfig;
   inventoryOverrides?: InventoryOverrideRecord[];
   productAdminOverrides?: ProductAdminOverrideRecord[];
   inventoryMismatches?: InventoryMismatchRecord[];
@@ -521,6 +535,7 @@ class DatabaseStore {
   private orders: Map<string, OrderRecord> = new Map(); // keyed by id and orderNumber
   private ordersByCustomerEmail: Map<string, string[]> = new Map(); // email -> orderId[]
   private fulfillmentConfig: FulfillmentConfig = { ...DEFAULT_FULFILLMENT_CONFIG };
+  private taxSettings: TaxSettingsConfig = { ...DEFAULT_TAX_SETTINGS };
   private inventoryOverrides: Map<string, InventoryOverrideRecord> = new Map(); // productId/sku -> record
   private productAdminOverrides: Map<string, ProductAdminOverrideRecord> = new Map(); // productId/sku -> record
   private inventoryMismatches: Map<string, InventoryMismatchRecord> = new Map(); // id -> record
@@ -645,6 +660,13 @@ class DatabaseStore {
               ...DEFAULT_FULFILLMENT_CONFIG.delivery,
               ...(state.fulfillmentConfig.delivery || {}),
             },
+          };
+        }
+
+        if (state.taxSettings) {
+          this.taxSettings = {
+            ...DEFAULT_TAX_SETTINGS,
+            ...state.taxSettings,
           };
         }
 
@@ -786,6 +808,7 @@ class DatabaseStore {
         auditLogs: this.auditLogs.slice(-2000), // Keep last 2000 audit logs
         orders: Array.from(new Set(this.orders.values())),
         fulfillmentConfig: this.fulfillmentConfig,
+        taxSettings: this.taxSettings,
         inventoryOverrides: Array.from(new Set(this.inventoryOverrides.values())),
         productAdminOverrides: Array.from(new Set(this.productAdminOverrides.values())),
         inventoryMismatches: Array.from(this.inventoryMismatches.values()),
@@ -1567,6 +1590,35 @@ class DatabaseStore {
 
     this.persistToDisk();
     return this.getFulfillmentConfig();
+  }
+
+  public getTaxSettings(): TaxSettingsConfig {
+    return JSON.parse(JSON.stringify(this.taxSettings));
+  }
+
+  public updateTaxSettings(updates: Partial<TaxSettingsConfig>, adminId: string): TaxSettingsConfig {
+    const stateTaxRate = updates.stateTaxRate ?? this.taxSettings.stateTaxRate;
+    const localTaxRate = updates.localTaxRate ?? this.taxSettings.localTaxRate;
+
+    if (!Number.isFinite(stateTaxRate) || stateTaxRate < 0 || stateTaxRate > 100) {
+      throw new Error('State tax rate must be between 0 and 100.');
+    }
+    if (!Number.isFinite(localTaxRate) || localTaxRate < 0 || localTaxRate > 100) {
+      throw new Error('Local tax rate must be between 0 and 100.');
+    }
+
+    this.taxSettings = {
+      stateTaxRate,
+      localTaxRate,
+      enabled: updates.enabled ?? this.taxSettings.enabled,
+    };
+    this.addAuditLog({
+      event: 'TAX_SETTINGS_UPDATED',
+      adminId,
+      details: { taxSettings: this.taxSettings },
+    });
+    this.persistToDisk();
+    return this.getTaxSettings();
   }
 
   public createOrder(params: {

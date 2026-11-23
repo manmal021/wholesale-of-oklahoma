@@ -46,6 +46,7 @@ import AdminOrderDetail from './components/admin/AdminOrderDetail';
 import AdminInventoryMismatches from './components/admin/AdminInventoryMismatches';
 import AdminProductsAvailability from './components/admin/AdminProductsAvailability';
 import AdminReviewPortal from './components/admin/AdminReviewPortal';
+import AdminTaxSettings from './components/admin/AdminTaxSettings';
 import AccountActivation from './components/customer/AccountActivation';
 import CustomerAccountPage from './components/customer/CustomerAccountPage';
 import CustomerPortal from './components/customer/CustomerPortal';
@@ -216,6 +217,13 @@ export default function App() {
       return (
         <AdminRouteGuard>
           <AdminReviewPortal />
+        </AdminRouteGuard>
+      );
+    }
+    if (pathname === '/admin/tax-settings') {
+      return (
+        <AdminRouteGuard>
+          <AdminTaxSettings />
         </AdminRouteGuard>
       );
     }

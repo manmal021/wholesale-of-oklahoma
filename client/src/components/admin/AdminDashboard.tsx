@@ -17,6 +17,8 @@ import {
   Truck,
   Layers,
   AlertTriangle,
+  Settings,
+  ChevronDown,
 } from 'lucide-react';
 
 interface Stats {
@@ -82,6 +84,7 @@ export default function AdminDashboard() {
   const [recentApplications, setRecentApplications] = useState<RecentApplication[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [settingsOpen, setSettingsOpen] = useState(false);
 
   const fetchDashboardData = async () => {
     setIsLoading(true);
@@ -234,6 +237,23 @@ export default function AdminDashboard() {
             <Search className="w-4 h-4 shrink-0" />
             <span className="flex-1">Review Portal</span>
           </a>
+          <div className="pt-2">
+            <button
+              type="button"
+              aria-expanded={settingsOpen}
+              onClick={() => setSettingsOpen((open) => !open)}
+              className="saas-sidebar-item w-full"
+            >
+              <Settings className="w-4 h-4 shrink-0" />
+              <span className="flex-1 text-left">Settings</span>
+              <ChevronDown className={`w-4 h-4 transition-transform ${settingsOpen ? 'rotate-180' : ''}`} />
+            </button>
+            {settingsOpen && (
+              <a href="/admin/tax-settings" className="saas-sidebar-item pl-8">
+                <span>Tax Settings</span>
+              </a>
+            )}
+          </div>
         </aside>
 
         {/* Main content */}
