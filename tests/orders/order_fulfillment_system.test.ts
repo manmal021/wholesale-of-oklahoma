@@ -27,6 +27,13 @@ const secondaryTestProduct = pricedTestProducts[1]!;
 const tertiaryTestProduct = pricedTestProducts[2]!;
 const quaternaryTestProduct = pricedTestProducts[3]!;
 
+function expectedTax(subtotal: number): number {
+  const settings = databaseStore.getTaxSettings();
+  return settings.enabled
+    ? Math.round((subtotal * (settings.stateTaxRate + settings.localTaxRate)) / 100 * 100) / 100
+    : 0;
+}
+
 test.before(async () => {
   process.env.ADMIN_SECRET_KEY = TEST_ADMIN_SECRET;
   process.env.NODE_ENV = 'production';
@@ -230,6 +237,27 @@ test('Fulfillment Config: Exposes centralized OKC pickup warehouse and metro del
   assert.equal(data.config.delivery.freeDeliveryThreshold, 500);
 });
 
+test('Checkout tax settings are public and order totals apply or omit configured sales tax', async () => {
+  const settingsResponse = await apiRequest('/api/checkout/tax-settings');
+  assert.equal(settingsResponse.status, 200);
+  assert.deepEqual(settingsResponse.data.taxSettings, databaseStore.getTaxSettings());
+
+  const originalSettings = databaseStore.getTaxSettings();
+  try {
+    databaseStore.updateTaxSettings({ stateTaxRate: 5, localTaxRate: 2.5, enabled: true }, 'test-admin');
+    const taxedTotals = databaseStore.calculateOrderTotals({ subtotal: 100, fulfillmentMethod: 'PICKUP' });
+    assert.equal(taxedTotals.tax, 7.5);
+    assert.equal(taxedTotals.total, 107.5);
+
+    databaseStore.updateTaxSettings({ enabled: false }, 'test-admin');
+    const untaxedTotals = databaseStore.calculateOrderTotals({ subtotal: 100, fulfillmentMethod: 'PICKUP' });
+    assert.equal(untaxedTotals.tax, 0);
+    assert.equal(untaxedTotals.total, 100);
+  } finally {
+    databaseStore.updateTaxSettings(originalSettings, 'test-admin');
+  }
+});
+
 // ---------------------------------------------------------------------------
 // 2. Pickup Order Lifecycle Scenario
 // ---------------------------------------------------------------------------
@@ -266,6 +294,8 @@ test('Pickup Scenario: Approved customer places PICKUP order -> Admin prepares -
   assert.ok(storedOrder, 'Order must be permanently stored in database');
   assert.equal(storedOrder.fulfillmentMethod, 'PICKUP');
   assert.equal(storedOrder.deliveryFee, 0.0, 'Pickup delivery fee must be $0.00');
+  assert.equal(storedOrder.tax, expectedTax(storedOrder.subtotal));
+  assert.equal(storedOrder.total, storedOrder.subtotal + storedOrder.tax);
   assert.equal(storedOrder.status, 'ORDER_RECEIVED');
   assert.equal(storedOrder.pickupInfo?.locationSnapshot.address.street, '4500 S Bryant Ave');
   assert.equal(storedOrder.pickupInfo?.pickupStatus, 'PENDING');
@@ -391,9 +421,10 @@ test('Delivery Scenario: Server validates OKC metro address -> Server computes $
   assert.equal(storedOrder.deliveryFee, 25.0, 'Server must enforce $25 delivery fee');
   assert.equal(
     storedOrder.total,
-    Math.round((secondaryTestProduct.rate! * 20 + 25) * 100) / 100,
-    'Subtotal plus delivery fee'
+    Math.round((storedOrder.subtotal + storedOrder.tax + 25) * 100) / 100,
+    'Subtotal plus sales tax and delivery fee'
   );
+  assert.equal(storedOrder.tax, expectedTax(storedOrder.subtotal));
   assert.equal(storedOrder.deliveryInfo?.addressSnapshot.street, '1200 N Pennsylvania Ave');
   assert.equal(storedOrder.deliveryInfo?.addressSnapshot.recipientName, 'Alex Alpha Storefront');
   assert.equal(storedOrder.deliveryInfo?.addressSnapshot.unit, 'Suite A');
@@ -663,7 +694,8 @@ test('Partial Inventory Test: Customer orders 10, staff finds 6 -> Unavailable 4
   const updatedOrder = databaseStore.getOrder(orderId)!;
   const expectedPartialSubtotal = Math.round(primaryTestProduct.rate! * 6 * 100) / 100;
   assert.equal(updatedOrder.subtotal, expectedPartialSubtotal);
-  assert.equal(updatedOrder.total, expectedPartialSubtotal);
+  assert.equal(updatedOrder.tax, expectedTax(expectedPartialSubtotal));
+  assert.equal(updatedOrder.total, expectedPartialSubtotal + updatedOrder.tax);
   assert.equal(updatedOrder.paymentStatus, 'ADJUSTED');
   assert.equal(updatedOrder.originalSubtotal, Math.round(primaryTestProduct.rate! * 10 * 100) / 100, 'Historical original subtotal must remain preserved');
   assert.equal(updatedOrder.lineItems[0].quantityOrdered, 10, 'Historical quantity ordered must remain preserved');

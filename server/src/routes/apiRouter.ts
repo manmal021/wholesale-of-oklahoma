@@ -3347,6 +3347,10 @@ apiApp.get(['/fulfillment/config', '/api/fulfillment/config'], (_req: Request, r
   return ok(res, { success: true, config });
 });
 
+apiApp.get(['/checkout/tax-settings', '/api/checkout/tax-settings'], (_req: Request, res: Response) => {
+  return ok(res, { success: true, taxSettings: databaseStore.getTaxSettings() });
+});
+
 apiApp.get(['/admin/tax-settings', '/api/admin/tax-settings'], requireAdminAuth, (_req: Request, res: Response) => {
   return ok(res, { success: true, taxSettings: databaseStore.getTaxSettings() });
 });
@@ -3400,6 +3404,7 @@ apiApp.post(['/fulfillment/validate-delivery', '/api/fulfillment/validate-delive
     reason: totals.deliveryError,
     deliveryFee: totals.deliveryFee,
     subtotal: totals.subtotal,
+    tax: totals.tax,
     total: totals.total,
   });
 });

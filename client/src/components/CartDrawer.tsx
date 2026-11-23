@@ -38,7 +38,9 @@ import {
   validateDeliveryAddress,
   fetchCustomerAddresses,
   type FulfillmentConfig,
+  type CheckoutTaxSettings,
   type CustomerSavedAddress,
+  fetchCheckoutTaxSettings,
 } from '../lib/fulfillmentApi';
 
 interface CartDrawerProps {
@@ -64,6 +66,8 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
   // ── Fulfillment State ──────────────────────────────────────────────────────
   const [fulfillmentMethod, setFulfillmentMethod] = useState<'PICKUP' | 'DELIVERY' | null>(null);
   const [fulfillmentConfig, setFulfillmentConfig] = useState<FulfillmentConfig | null>(null);
+  const [taxSettings, setTaxSettings] = useState<CheckoutTaxSettings | null>(null);
+  const [isTaxSettingsLoading, setIsTaxSettingsLoading] = useState(false);
 
   // Pickup specific fields
   const [pickupDate, setPickupDate] = useState('');
@@ -102,6 +106,16 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
       fetchFulfillmentConfig()
         .then((cfg) => setFulfillmentConfig(cfg))
         .catch((e) => console.warn('[Cart] Config load error:', e.message));
+
+      setTaxSettings(null);
+      setIsTaxSettingsLoading(true);
+      fetchCheckoutTaxSettings()
+        .then((settings) => setTaxSettings(settings))
+        .catch((error) => {
+          setStatus('error');
+          setErrorMessage(error.message || 'Failed to load sales tax settings.');
+        })
+        .finally(() => setIsTaxSettingsLoading(false));
 
       // Check if logged in customer has saved addresses & profile
       if (typeof window !== 'undefined') {
@@ -309,6 +323,12 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
     e.preventDefault();
     if (items.length === 0) return;
 
+    if (!taxSettings) {
+      setErrorMessage('Sales tax settings are not available. Please try again before placing your order.');
+      setStatus('error');
+      return;
+    }
+
     if (!fulfillmentMethod) {
       setErrorMessage('Please select how you would like to receive your order: Pickup or Delivery.');
       setStatus('error');
@@ -466,7 +486,15 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
       'Pull into the commercial loading area at 4500 S Bryant Ave. Present your Order Reference Number at the wholesale dispatch counter.',
   };
 
-  const finalTotalAmount = Math.round((subtotalAmount + (fulfillmentMethod === 'DELIVERY' ? calculatedDeliveryFee : 0)) * 100) / 100;
+  const combinedTaxRate = taxSettings ? taxSettings.stateTaxRate + taxSettings.localTaxRate : 0;
+  const taxAmount = taxSettings?.enabled
+    ? Math.round((subtotalAmount * combinedTaxRate) / 100 * 100) / 100
+    : 0;
+  const finalTotalAmount = Math.round((
+    subtotalAmount +
+    taxAmount +
+    (fulfillmentMethod === 'DELIVERY' ? calculatedDeliveryFee : 0)
+  ) * 100) / 100;
 
   return (
     <>
@@ -1112,6 +1140,12 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                         : '$0.00'}
                     </span>
                   </div>
+                  <div className="flex justify-between text-slate-600">
+                    <span>Sales Tax{taxSettings?.enabled ? ` (${combinedTaxRate.toFixed(3)}%)` : ''}</span>
+                    <span className="font-mono font-semibold text-slate-900">
+                      {isTaxSettingsLoading ? 'Loading...' : taxSettings ? `$${taxAmount.toFixed(2)}` : 'Unavailable'}
+                    </span>
+                  </div>
                   <div className="flex justify-between pt-1.5 border-t border-slate-200 text-sm font-black text-[#FF6B00]">
                     <span>Estimated Total</span>
                     <span className="font-mono">${finalTotalAmount.toFixed(2)}</span>
@@ -1123,6 +1157,8 @@ export default function CartDrawer({ isOpen, onClose }: CartDrawerProps) {
                   type="submit"
                   disabled={
                     status === 'submitting' ||
+                    isTaxSettingsLoading ||
+                    !taxSettings ||
                     !fulfillmentMethod ||
                     (fulfillmentMethod === 'DELIVERY' && deliveryValidationResult !== null && !deliveryValidationResult.eligible)
                   }

@@ -56,6 +56,12 @@ export interface FulfillmentConfig {
   delivery: DeliveryEligibilityConfig;
 }
 
+export interface CheckoutTaxSettings {
+  stateTaxRate: number;
+  localTaxRate: number;
+  enabled: boolean;
+}
+
 export interface CustomerSavedAddress {
   id: string;
   customerId: string;
@@ -226,6 +232,13 @@ export async function fetchFulfillmentConfig(): Promise<FulfillmentConfig> {
   if (!res.ok) throw new Error('Failed to load fulfillment configuration.');
   const data = await res.json();
   return data.config;
+}
+
+export async function fetchCheckoutTaxSettings(): Promise<CheckoutTaxSettings> {
+  const res = await fetch('/api/checkout/tax-settings');
+  const data = await res.json();
+  if (!res.ok) throw new Error(data.error || data.message || 'Failed to load sales tax settings.');
+  return data.taxSettings;
 }
 
 export async function validateDeliveryAddress(

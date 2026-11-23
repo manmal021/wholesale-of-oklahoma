@@ -1475,7 +1475,10 @@ class DatabaseStore {
     const cfg = this.fulfillmentConfig;
     const subtotal = Math.round(params.subtotal * 100) / 100;
     const discount = 0; // B2B net wholesale catalog rates
-    const tax = 0; // B2B tax-exempt certified
+    const taxRate = this.taxSettings.stateTaxRate + this.taxSettings.localTaxRate;
+    const tax = this.taxSettings.enabled
+      ? Math.round((subtotal * taxRate) / 100 * 100) / 100
+      : 0;
 
     if (params.fulfillmentMethod === 'PICKUP') {
       return {
@@ -1483,7 +1486,7 @@ class DatabaseStore {
         discount,
         deliveryFee: 0,
         tax,
-        total: subtotal,
+        total: Math.round((subtotal + tax) * 100) / 100,
         isDeliveryEligible: true,
       };
     }
@@ -1496,7 +1499,7 @@ class DatabaseStore {
         discount,
         deliveryFee: cfg.delivery.deliveryFee,
         tax,
-        total: Math.round((subtotal + cfg.delivery.deliveryFee) * 100) / 100,
+        total: Math.round((subtotal + cfg.delivery.deliveryFee + tax) * 100) / 100,
         isDeliveryEligible: false,
         deliveryError: validation.reason,
       };
@@ -1508,7 +1511,7 @@ class DatabaseStore {
         discount,
         deliveryFee: cfg.delivery.deliveryFee,
         tax,
-        total: Math.round((subtotal + cfg.delivery.deliveryFee) * 100) / 100,
+        total: Math.round((subtotal + cfg.delivery.deliveryFee + tax) * 100) / 100,
         isDeliveryEligible: false,
         deliveryError: `Minimum delivery order is $${cfg.delivery.minimumDeliveryOrder.toFixed(2)}. Current subtotal is $${subtotal.toFixed(2)}. Please add items or select Pickup.`,
       };
@@ -1516,7 +1519,7 @@ class DatabaseStore {
 
     // Free delivery threshold
     const deliveryFee = subtotal >= cfg.delivery.freeDeliveryThreshold ? 0 : cfg.delivery.deliveryFee;
-    const total = Math.round((subtotal + deliveryFee) * 100) / 100;
+    const total = Math.round((subtotal + deliveryFee + tax) * 100) / 100;
 
     return {
       subtotal,
@@ -2138,6 +2141,7 @@ class DatabaseStore {
 
     order.subtotal = newSubtotal;
     order.deliveryFee = totals.deliveryFee;
+    order.tax = totals.tax;
     order.total = totals.total;
     if (order.total !== order.originalTotal) {
       order.paymentStatus = 'ADJUSTED';
