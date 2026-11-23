@@ -3347,6 +3347,24 @@ apiApp.get(['/fulfillment/config', '/api/fulfillment/config'], (_req: Request, r
   return ok(res, { success: true, config });
 });
 
+apiApp.get(['/checkout/tax-settings', '/api/checkout/tax-settings'], (_req: Request, res: Response) => {
+  return ok(res, { success: true, taxSettings: databaseStore.getTaxSettings() });
+});
+
+apiApp.get(['/admin/tax-settings', '/api/admin/tax-settings'], requireAdminAuth, (_req: Request, res: Response) => {
+  return ok(res, { success: true, taxSettings: databaseStore.getTaxSettings() });
+});
+
+apiApp.put(['/admin/tax-settings', '/api/admin/tax-settings'], requireAdminAuth, (req: Request, res: Response) => {
+  try {
+    const session = getSessionUser(req);
+    const taxSettings = databaseStore.updateTaxSettings(req.body || {}, session?.email || 'administrator');
+    return ok(res, { success: true, taxSettings });
+  } catch (e: any) {
+    return err(res, 400, e.message || 'Failed to update tax settings.');
+  }
+});
+
 /**
  * POST /api/fulfillment/validate-delivery
  * Validates delivery address against business eligibility rules and returns fee.
@@ -3386,6 +3404,7 @@ apiApp.post(['/fulfillment/validate-delivery', '/api/fulfillment/validate-delive
     reason: totals.deliveryError,
     deliveryFee: totals.deliveryFee,
     subtotal: totals.subtotal,
+    tax: totals.tax,
     total: totals.total,
   });
 });
