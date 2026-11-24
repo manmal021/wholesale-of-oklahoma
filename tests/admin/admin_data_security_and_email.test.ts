@@ -29,16 +29,16 @@ test.before(async () => {
   process.env.ADMIN_SECRET_KEY = TEST_ADMIN_KEY;
   process.env.APPLICATION_NOTIFICATION_EMAIL = TEST_ADMIN_EMAIL;
 
-  databaseStore.purgeAllCustomerData();
+  await databaseStore.purgeAllCustomerData();
 
   // Create admin user & session
-  const adminSetup = authStore.ensureInitialAdmin('admin@wholesaleofoklahoma.com');
-  authStore.setPassword('admin@wholesaleofoklahoma.com', 'AdminPass2026!#');
-  const adminLogin = authStore.login('admin@wholesaleofoklahoma.com', 'AdminPass2026!#');
+  const adminSetup = await authStore.ensureInitialAdmin('admin@wholesaleofoklahoma.com');
+  await authStore.setPassword('admin@wholesaleofoklahoma.com', 'AdminPass2026!#');
+  const adminLogin = await authStore.login('admin@wholesaleofoklahoma.com', 'AdminPass2026!#');
   adminSessionToken = adminLogin.token;
 
   // Create approved customer user & session
-  const customerUser = authStore.register({
+  const customerUser = await authStore.register({
     email: 'retailer_partner@okcvapor.com',
     password: 'CustomerPass2026!#',
     businessName: 'OKC Vapor Lounge LLC',
@@ -49,7 +49,7 @@ test.before(async () => {
   customerSessionToken = customerUser.token;
 
   // Create employee / unprivileged user & session
-  const employeeUser = authStore.register({
+  const employeeUser = await authStore.register({
     email: 'employee@okcvapor.com',
     password: 'EmployeePass2026!#',
     businessName: 'OKC Vapor Lounge LLC',
@@ -60,7 +60,7 @@ test.before(async () => {
   employeeSessionToken = employeeUser.token;
 
   // Create expired session token
-  const expiredSession = authStore.createSession(
+  const expiredSession = await authStore.createSession(
     'usr_expired_test',
     'admin_expired@wholesaleofoklahoma.com',
     'admin',
@@ -82,7 +82,7 @@ test.before(async () => {
 });
 
 test.after(async () => {
-  databaseStore.purgeAllCustomerData();
+  await databaseStore.purgeAllCustomerData();
   await new Promise<void>((resolve) => server.close(() => resolve()));
 });
 
@@ -227,7 +227,7 @@ test('TASK 8: SCENARIO G — Direct document URL cannot expose private files to 
 });
 
 test('TASK 4: Generated application PDF contains Page 1 details and Page 2 verification documents', async () => {
-  const app = databaseStore.getApplication(testAppId);
+  const app = await databaseStore.getApplication(testAppId);
   assert.ok(app, 'Application must exist');
 
   // Generate PDF
@@ -247,7 +247,7 @@ test('TASK 4: Generated application PDF contains Page 1 details and Page 2 verif
 });
 
 test('TASK 5: Email status tracking records pending, sent/failed, retry counts, and audit logs', async () => {
-  const app = databaseStore.getApplication(testAppId)!;
+  const app = await databaseStore.getApplication(testAppId)!;
   assert.ok(app.emailStatus, 'Email status must be tracked');
 
   // Test Admin Resend Email endpoint
@@ -261,13 +261,13 @@ test('TASK 5: Email status tracking records pending, sent/failed, retry counts, 
   assert.equal(resendData.emailStatus, 'sent');
 
   // Verify database record was updated with retry tracking
-  const updatedApp = databaseStore.getApplication(testAppId)!;
+  const updatedApp = await databaseStore.getApplication(testAppId)!;
   assert.equal(updatedApp.emailStatus, 'sent');
   assert.ok(updatedApp.emailAttemptAt, 'emailAttemptAt must be recorded');
   assert.ok(updatedApp.emailRetryCount && updatedApp.emailRetryCount >= 1, 'Retry count must be incremented');
 
   // Verify audit log has recorded the event
-  const auditLogs = databaseStore.listAuditLogs(20);
+  const auditLogs = await databaseStore.listAuditLogs(20);
   const emailLog = auditLogs.find((l) => l.targetId === testAppId && l.event.includes('EMAIL'));
   assert.ok(emailLog, 'Email attempt must be logged in administrative audit trail');
 });
@@ -293,7 +293,7 @@ test('Business notification resend reports provider and local-outbox failures', 
     assert.equal(body.success, false);
     assert.equal(body.emailStatus, 'failed');
     assert.match(body.message, /SMTP provider timeout/);
-    assert.equal(databaseStore.getApplication(testAppId)?.emailStatus, 'failed');
+    assert.equal((await databaseStore.getApplication(testAppId))?.emailStatus, 'failed');
   } finally {
     emailService.sendAdminNewApplicationNotification = originalSender;
   }

@@ -69,8 +69,8 @@ test.before(async () => {
   process.env.ADMIN_NOTIFICATION_EMAIL = TEST_ADMIN_EMAIL;
 
   // Reset test admin state
-  authStore.deleteUser(TEST_ADMIN_EMAIL);
-  authStore.ensureInitialAdmin(TEST_ADMIN_EMAIL);
+  await authStore.deleteUser(TEST_ADMIN_EMAIL);
+  await authStore.ensureInitialAdmin(TEST_ADMIN_EMAIL);
 
   // Create combined express app replicating server.ts server-side route guards + apiRouter
   const app = express();
@@ -79,7 +79,7 @@ test.before(async () => {
   const PUBLIC_ADMIN_PATHS = ['/admin/login', '/admin/activate', '/admin/reset-password'];
 
   // Server-Side Route Guard (identical to server.ts)
-  app.use('/admin', (req, res, next) => {
+  app.use('/admin', async (req, res, next) => {
     const rawPath = req.path.toLowerCase().replace(/\/$/, '') || '/';
     const fullAdminPath = ('/admin' + (rawPath === '/' ? '' : rawPath)).toLowerCase();
 
@@ -104,7 +104,7 @@ test.before(async () => {
       token = req.headers.authorization.slice(7).trim();
     }
 
-    const session = token ? authStore.validateSession(token) : null;
+    const session = token ? await authStore.validateSession(token) : null;
 
     if (!session) {
       return res.redirect(302, '/admin/login');
@@ -177,8 +177,8 @@ test('Route Guard: Authenticated customer (non-admin) is redirected to /account'
 });
 
 test('Route Guard: Authenticated admin is permitted access to /admin/dashboard', async () => {
-  const adminUser = authStore.getUser(TEST_ADMIN_EMAIL)!;
-  const adminSession = authStore.createSession(adminUser);
+  const adminUser = await authStore.getUser(TEST_ADMIN_EMAIL)!;
+  const adminSession = await authStore.createSession(adminUser);
 
   const res = await fetch(`${baseUrl}/admin/dashboard`, {
     headers: { Authorization: `Bearer ${adminSession.token}` },
@@ -275,8 +275,8 @@ test('Admin Auth: Forgot Password dispatches reset email, token verification wor
 // 3. Customer Application, Status Enforcement & Backend Approval APIs
 // ---------------------------------------------------------------------------
 test('Customer Application & Approval Workflow: Submit -> Pending -> Approve -> Order', async () => {
-  const adminUser = authStore.getUser(TEST_ADMIN_EMAIL)!;
-  const adminSession = authStore.createSession(adminUser);
+  const adminUser = await authStore.getUser(TEST_ADMIN_EMAIL)!;
+  const adminSession = await authStore.createSession(adminUser);
 
   const timestamp = Date.now();
   const applicantEmail = `david_${timestamp}@prairiesmoke.com`;
@@ -385,7 +385,7 @@ test('Customer Application & Approval Workflow: Submit -> Pending -> Approve -> 
   assert.equal(typeof customerCredentialsData.credentials.password, 'string');
 
   // Verify application record updated in database
-  const approvedApp = databaseStore.getApplication(applicationId);
+  const approvedApp = await databaseStore.getApplication(applicationId);
   assert.equal(approvedApp?.status, 'APPROVED');
 
   // Step E: Now approved customer can successfully place order!
@@ -425,8 +425,8 @@ test('Customer Application & Approval Workflow: Submit -> Pending -> Approve -> 
 // 4. Rejection and Suspension Security Enforcement
 // ---------------------------------------------------------------------------
 test('Customer Rejection & Suspension: Block unauthorized ordering and state transitions', async () => {
-  const adminUser = authStore.getUser(TEST_ADMIN_EMAIL)!;
-  const adminSession = authStore.createSession(adminUser);
+  const adminUser = await authStore.getUser(TEST_ADMIN_EMAIL)!;
+  const adminSession = await authStore.createSession(adminUser);
 
   const timestamp = Date.now();
   const rejectEmail = `reject_${timestamp}@smokeoutlet.com`;
@@ -476,7 +476,7 @@ test('Customer Rejection & Suspension: Block unauthorized ordering and state tra
   assert.equal(rejectJson.status, 'REJECTED');
 
   // Verify status in database
-  const rejectedRecord = databaseStore.getApplication(appId);
+  const rejectedRecord = await databaseStore.getApplication(appId);
   assert.equal(rejectedRecord?.status, 'REJECTED');
 
   // Status transition via PATCH /api/admin/customers/:id/status
@@ -525,8 +525,8 @@ test('Security: Normal customer cannot approve accounts or access admin APIs', a
 // 6. Audit Trail Logging Verification
 // ---------------------------------------------------------------------------
 test('Audit Trail: Admin actions are cryptographically recorded without exposing credentials', async () => {
-  const adminUser = authStore.getUser(TEST_ADMIN_EMAIL)!;
-  const adminSession = authStore.createSession(adminUser);
+  const adminUser = await authStore.getUser(TEST_ADMIN_EMAIL)!;
+  const adminSession = await authStore.createSession(adminUser);
 
   const logsRes = await fetch(`${baseUrl}/api/admin/audit-logs`, {
     headers: { Authorization: `Bearer ${adminSession.token}` },

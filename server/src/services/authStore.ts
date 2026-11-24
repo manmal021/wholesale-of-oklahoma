@@ -75,28 +75,42 @@ class AuthStore {
   private sessions: Map<string, SessionRecord> = new Map(); // keyed by session token
   private revokedTokens: Set<string> = new Set(); // blacklisted revoked/logged out tokens
 
-  constructor() {
+  private constructor() {}
+
+  public static async create(): Promise<AuthStore> {
+    const store = new AuthStore();
     // 1. Restore persistent users from databaseStore
-    const savedUsers = databaseStore.getUsers();
+    const savedUsers = await databaseStore.getUsers();
     for (const u of savedUsers) {
       if (u && u.email) {
-        this.users.set(u.email.toLowerCase().trim(), u);
+        store.users.set(u.email.toLowerCase().trim(), u);
       }
     }
 
     // 2. Seed pre-verified test account ONLY if explicitly enabled via SEED_DEMO_DATA=true
     if (process.env.SEED_DEMO_DATA === 'true') {
-      this.seedRetailerTestAccount();
+      await store.seedRetailerTestAccount();
     }
 
-
     // 3. Ensure primary administrator account
-    this.ensureInitialAdmin();
+    await store.ensureInitialAdmin();
+    return store;
   }
 
-  public seedRetailerTestAccount(): void {
+  private async refreshUser(email: string): Promise<UserRecord | undefined> {
+    const cleanEmail = email.toLowerCase().trim();
+    const user = await databaseStore.getUserByEmail(cleanEmail);
+    if (user) {
+      this.users.set(cleanEmail, user);
+      return user;
+    }
+    this.users.delete(cleanEmail);
+    return undefined;
+  }
+
+  public async seedRetailerTestAccount(): Promise<void> {
     if (!this.users.has('retailer@okcvapor.com')) {
-      this.seedUser({
+      await this.seedUser({
         email: 'retailer@okcvapor.com',
         password: 'WholesaleOK2026!',
         role: 'approved_customer',
@@ -109,9 +123,9 @@ class AuthStore {
     }
   }
 
-  public ensureInitialAdmin(targetEmail?: string): { user: UserRecord; token?: string } {
+  public async ensureInitialAdmin(targetEmail?: string): Promise<{ user: UserRecord; token?: string }> {
     const adminEmail = (targetEmail || ADMIN_EMAIL).toLowerCase().trim();
-    let user = this.users.get(adminEmail);
+    let user = await this.refreshUser(adminEmail);
     let isNew = false;
     if (!user) {
       const id = `usr_admin_${crypto.randomBytes(6).toString('hex')}`;
@@ -126,13 +140,13 @@ class AuthStore {
         phone: '(405) 768-2975',
         createdAt: new Date().toISOString(),
       };
+      await databaseStore.saveUser(user);
       this.users.set(adminEmail, user);
-      databaseStore.saveUser(user);
       isNew = true;
       console.log(`[AuthStore] 🛡 Initial administrator account record prepared for ${adminEmail}`);
     } else if (user.role !== 'admin') {
       user.role = 'admin';
-      databaseStore.saveUser(user);
+      await databaseStore.saveUser(user);
     }
 
     // Check if initial admin password is provided in environment variables
@@ -141,16 +155,16 @@ class AuthStore {
       const salt = crypto.randomBytes(16).toString('hex');
       user.salt = salt;
       user.passwordHash = this.hashPassword(initialEnvPass.trim(), salt);
-      databaseStore.saveUser(user);
+      await databaseStore.saveUser(user);
       console.log(`[AuthStore] 🛡 Administrator password securely initialized from environment variable for ${adminEmail}`);
     }
 
     let token: string | undefined;
     // If password is UNSET, check if there is an active activation token; if none, generate fresh one
     if (user.passwordHash === 'UNSET') {
-      const activeTokens = databaseStore.getActiveTokensForEmail(adminEmail, 'ADMIN_ACTIVATION');
+      const activeTokens = await databaseStore.getActiveTokensForEmail(adminEmail, 'ADMIN_ACTIVATION');
       if (activeTokens.length === 0 || isNew) {
-        const tokenRecord = databaseStore.createSecurityToken({
+        const tokenRecord = await databaseStore.createSecurityToken({
           type: 'ADMIN_ACTIVATION',
           email: adminEmail,
           targetId: user.id,
@@ -170,16 +184,16 @@ class AuthStore {
 
   public async createAdminActivationToken(email: string): Promise<{ token: string; activationUrl: string; dispatch?: any }> {
     const adminEmail = email.toLowerCase().trim();
-    let user = this.users.get(adminEmail);
+    let user = await this.refreshUser(adminEmail);
     if (!user) {
-      const setup = this.ensureInitialAdmin(adminEmail);
+      const setup = await this.ensureInitialAdmin(adminEmail);
       user = setup.user;
     }
 
     // Revoke any previous unused activation tokens to prevent replay
-    databaseStore.revokeTokensForEmail(adminEmail, 'ADMIN_ACTIVATION');
+    await databaseStore.revokeTokensForEmail(adminEmail, 'ADMIN_ACTIVATION');
 
-    const tokenRecord = databaseStore.createSecurityToken({
+    const tokenRecord = await databaseStore.createSecurityToken({
       type: 'ADMIN_ACTIVATION',
       email: adminEmail,
       targetId: user.id,
@@ -203,16 +217,16 @@ class AuthStore {
 
   public async createAdminPasswordResetToken(email: string): Promise<{ token: string; resetUrl: string; dispatch?: any }> {
     const adminEmail = email.toLowerCase().trim();
-    let user = this.users.get(adminEmail);
+    let user = await this.refreshUser(adminEmail);
     if (!user) {
-      const setup = this.ensureInitialAdmin(adminEmail);
+      const setup = await this.ensureInitialAdmin(adminEmail);
       user = setup.user;
     }
 
     // Revoke any previous unused reset tokens
-    databaseStore.revokeTokensForEmail(adminEmail, 'PASSWORD_RESET');
+    await databaseStore.revokeTokensForEmail(adminEmail, 'PASSWORD_RESET');
 
-    const tokenRecord = databaseStore.createSecurityToken({
+    const tokenRecord = await databaseStore.createSecurityToken({
       type: 'PASSWORD_RESET',
       email: adminEmail,
       targetId: user.id,
@@ -239,10 +253,11 @@ class AuthStore {
     return Boolean(user && user.role === 'admin');
   }
 
-  public deleteUser(email: string): boolean {
+  public async deleteUser(email: string): Promise<boolean> {
     const clean = email.toLowerCase().trim();
-    const existed = this.users.delete(clean);
-    databaseStore.deleteUser(clean);
+    const existed = Boolean(await this.refreshUser(clean));
+    await databaseStore.deleteUser(clean);
+    this.users.delete(clean);
     return existed;
   }
 
@@ -250,7 +265,7 @@ class AuthStore {
     return crypto.scryptSync(password, salt, 64).toString('hex');
   }
 
-  private seedUser(data: {
+  private async seedUser(data: {
     email: string;
     password: string;
     role: UserRole;
@@ -259,7 +274,7 @@ class AuthStore {
     phone: string;
     fein?: string;
     licenseNumber?: string;
-  }) {
+  }): Promise<void> {
     const salt = crypto.randomBytes(16).toString('hex');
     const passwordHash = this.hashPassword(data.password, salt);
     const id = `usr_${crypto.randomBytes(8).toString('hex')}`;
@@ -279,12 +294,12 @@ class AuthStore {
     };
 
     this.users.set(data.email.toLowerCase(), user);
-    databaseStore.saveUser(user);
+    await databaseStore.saveUser(user);
   }
 
-  public setPassword(email: string, password: string, assignedPassword?: string): UserRecord {
+  public async setPassword(email: string, password: string, assignedPassword?: string): Promise<UserRecord> {
     const cleanEmail = email.toLowerCase().trim();
-    let user = this.users.get(cleanEmail);
+    let user = await this.refreshUser(cleanEmail);
     const salt = crypto.randomBytes(16).toString('hex');
     const passwordHash = this.hashPassword(password, salt);
     const effectiveAssigned = assignedPassword || password;
@@ -307,7 +322,7 @@ class AuthStore {
         createdAt: new Date().toISOString(),
       };
       this.users.set(cleanEmail, user);
-      databaseStore.saveUser(user);
+      await databaseStore.saveUser(user);
       return user;
     }
 
@@ -317,23 +332,23 @@ class AuthStore {
       user.role = 'approved_customer';
     }
     user.assignedPassword = effectiveAssigned;
-    databaseStore.saveUser(user);
+    await databaseStore.saveUser(user);
     return user;
   }
 
-  public getAssignedPassword(email: string): string | undefined {
-    const user = this.users.get(email.toLowerCase().trim());
+  public async getAssignedPassword(email: string): Promise<string | undefined> {
+    const user = await this.refreshUser(email);
     return user?.assignedPassword;
   }
 
-  public clearPassword(email: string): void {
+  public async clearPassword(email: string): Promise<void> {
     const cleanEmail = email.toLowerCase().trim();
-    const user = this.users.get(cleanEmail);
+    const user = await this.refreshUser(cleanEmail);
     if (user) {
       user.passwordHash = 'REVOKED';
       user.assignedPassword = undefined;
       user.role = 'visitor';
-      databaseStore.saveUser(user);
+      await databaseStore.saveUser(user);
     }
     this.revokeSessionsForEmail(cleanEmail);
   }
@@ -348,14 +363,14 @@ class AuthStore {
     }
   }
 
-  public hasPasswordSet(email: string): boolean {
-    const user = this.users.get(email.toLowerCase().trim());
+  public async hasPasswordSet(email: string): Promise<boolean> {
+    const user = await this.refreshUser(email);
     return Boolean(user && user.passwordHash && user.passwordHash !== 'UNSET' && user.passwordHash !== 'REVOKED');
   }
 
-  public provisionCustomer(customer: CustomerRecord, initialPassword?: string): UserRecord {
+  public async provisionCustomer(customer: CustomerRecord, initialPassword?: string): Promise<UserRecord> {
     const cleanEmail = customer.email.toLowerCase().trim();
-    let user = this.users.get(cleanEmail);
+    let user = await this.refreshUser(cleanEmail);
     const password = initialPassword || generateCustomerPassword(10);
     const salt = crypto.randomBytes(16).toString('hex');
     const passwordHash = this.hashPassword(password, salt);
@@ -385,11 +400,11 @@ class AuthStore {
       user.passwordHash = passwordHash;
       user.assignedPassword = password;
     }
-    databaseStore.saveUser(user);
+    await databaseStore.saveUser(user);
     return user;
   }
 
-  public register(data: {
+  public async register(data: {
     email: string;
     password: string;
     businessName: string;
@@ -398,9 +413,9 @@ class AuthStore {
     fein?: string;
     licenseNumber?: string;
     role?: UserRole;
-  }): { user: Omit<UserRecord, 'passwordHash' | 'salt'>; token: string } {
+  }): Promise<{ user: Omit<UserRecord, 'passwordHash' | 'salt'>; token: string }> {
     const cleanEmail = data.email.toLowerCase().trim();
-    if (this.users.has(cleanEmail)) {
+    if (await this.refreshUser(cleanEmail)) {
       throw new Error('An account with this email address already exists.');
     }
 
@@ -422,28 +437,28 @@ class AuthStore {
       createdAt: new Date().toISOString(),
     };
 
+    await databaseStore.createUser(user);
     this.users.set(cleanEmail, user);
-    databaseStore.saveUser(user);
     const session = this.createSession(user);
 
     const { passwordHash: _, salt: __, ...safeUser } = user;
     return { user: safeUser, token: session.token };
   }
 
-  public login(email: string, password: string): { user: Omit<UserRecord, 'passwordHash' | 'salt'>; token: string } {
+  public async login(email: string, password: string): Promise<{ user: Omit<UserRecord, 'passwordHash' | 'salt'>; token: string }> {
     const cleanEmail = email.toLowerCase().trim();
-    const user = this.users.get(cleanEmail);
+    const user = await this.refreshUser(cleanEmail);
     const isAdmin = user?.role === 'admin';
 
     if (!isAdmin) {
       // 1. Check Customer Status in databaseStore
-      const customer = databaseStore.getCustomerByEmail(cleanEmail);
+      const customer = await databaseStore.getCustomerByEmail(cleanEmail);
       if (customer && customer.status === 'SUSPENDED') {
         throw new Error('ACCOUNT_SUSPENDED: Your wholesale account has been suspended. Please contact Wholesale of Oklahoma dispatch at (405) 768-2975.');
       }
 
       // 2. Check Wholesale Applications in databaseStore
-      const latestApp = databaseStore.getLatestApplicationForEmail(cleanEmail);
+      const latestApp = await databaseStore.getLatestApplicationForEmail(cleanEmail);
       if (latestApp) {
         if (latestApp.status === 'PENDING' && (!customer || customer.status !== 'APPROVED')) {
           throw new Error('ACCOUNT_PENDING: Your Wholesale of Oklahoma account application is currently under review. You will receive an email once our team has reviewed your application.');
@@ -472,7 +487,7 @@ class AuthStore {
         const salt = crypto.randomBytes(16).toString('hex');
         user.salt = salt;
         user.passwordHash = this.hashPassword(trimmedPass, salt);
-        databaseStore.saveUser(user);
+        await databaseStore.saveUser(user);
       } else {
         throw new Error(
           'ACCOUNT_NOT_ACTIVATED: Your account has not yet been activated. Please check your email for your activation link to set your password.'
@@ -489,7 +504,7 @@ class AuthStore {
       const salt = crypto.randomBytes(16).toString('hex');
       user.salt = salt;
       user.passwordHash = this.hashPassword(trimmedPass, salt);
-      databaseStore.saveUser(user);
+      await databaseStore.saveUser(user);
       isValid = true;
     }
 
@@ -498,15 +513,16 @@ class AuthStore {
     }
 
     user.lastLoginAt = new Date().toISOString();
+    await databaseStore.saveUser(user);
     const session = this.createSession(user);
 
     const { passwordHash: _, salt: __, ...safeUser } = user;
     return { user: safeUser, token: session.token };
   }
 
-  public validateCredentials(email: string, password: string): Omit<UserRecord, 'passwordHash' | 'salt'> | null {
+  public async validateCredentials(email: string, password: string): Promise<Omit<UserRecord, 'passwordHash' | 'salt'> | null> {
     const cleanEmail = email.toLowerCase().trim();
-    const user = this.users.get(cleanEmail);
+    const user = await this.refreshUser(cleanEmail);
     if (!user) return null;
 
     const trimmedPass = String(password || '').trim();
@@ -523,7 +539,7 @@ class AuthStore {
         const salt = crypto.randomBytes(16).toString('hex');
         user.salt = salt;
         user.passwordHash = this.hashPassword(trimmedPass, salt);
-        databaseStore.saveUser(user);
+        await databaseStore.saveUser(user);
       } else {
         return null;
       }
@@ -538,7 +554,7 @@ class AuthStore {
       const salt = crypto.randomBytes(16).toString('hex');
       user.salt = salt;
       user.passwordHash = this.hashPassword(trimmedPass, salt);
-      databaseStore.saveUser(user);
+      await databaseStore.saveUser(user);
       isValid = true;
     }
 
@@ -617,7 +633,7 @@ class AuthStore {
     return session;
   }
 
-  public getUserByEmail(email: string): Omit<UserRecord, 'passwordHash' | 'salt'> | null {
+  public async getUserByEmail(email: string): Promise<Omit<UserRecord, 'passwordHash' | 'salt'> | null> {
     return this.getUser(email);
   }
 
@@ -625,7 +641,7 @@ class AuthStore {
     this.revokeSession(token);
   }
 
-  public validateSession(token: string): SessionRecord | null {
+  public async validateSession(token: string): Promise<SessionRecord | null> {
     if (!token || typeof token !== 'string') return null;
     if (this.revokedTokens.has(token)) return null;
 
@@ -638,13 +654,13 @@ class AuthStore {
       }
 
       // Check if user account was suspended in databaseStore
-      const cust = databaseStore.getCustomerByEmail(cachedSession.email);
+      const cust = await databaseStore.getCustomerByEmail(cachedSession.email);
       if (cust && cust.status === 'SUSPENDED') {
         this.sessions.delete(token);
         return null;
       }
 
-      const user = this.users.get(cachedSession.email);
+      const user = await this.refreshUser(cachedSession.email);
       if (user) {
         cachedSession.role = user.role;
       }
@@ -674,13 +690,13 @@ class AuthStore {
 
       // Check if user account was suspended in databaseStore
       if (payload.e) {
-        const cust = databaseStore.getCustomerByEmail(payload.e);
+        const cust = await databaseStore.getCustomerByEmail(payload.e);
         if (cust && cust.status === 'SUSPENDED') {
           return null;
         }
       }
 
-      const user = payload.e ? this.users.get(payload.e.toLowerCase().trim()) : undefined;
+      const user = payload.e ? await this.refreshUser(payload.e) : undefined;
       const effectiveRole: UserRole = user ? user.role : (payload.r as UserRole);
 
       const reconstructed: SessionRecord = {
@@ -707,8 +723,8 @@ class AuthStore {
     this.revokedTokens.add(token);
   }
 
-  public updateUserRole(email: string, newRole: UserRole): boolean {
-    const user = this.users.get(email.toLowerCase().trim());
+  public async updateUserRole(email: string, newRole: UserRole): Promise<boolean> {
+    const user = await this.refreshUser(email);
     if (!user) return false;
     user.role = newRole;
 
@@ -718,16 +734,28 @@ class AuthStore {
         session.role = newRole;
       }
     }
-    databaseStore.saveUser(user);
+    await databaseStore.saveUser(user);
     return true;
   }
 
-  public getUser(email: string): Omit<UserRecord, 'passwordHash' | 'salt'> | null {
-    const user = this.users.get(email.toLowerCase().trim());
+  public async updateUserDetails(
+    email: string,
+    details: Partial<Pick<UserRecord, 'contactName' | 'phone'>>
+  ): Promise<boolean> {
+    const user = await this.refreshUser(email);
+    if (!user) return false;
+    if (details.contactName !== undefined) user.contactName = details.contactName;
+    if (details.phone !== undefined) user.phone = details.phone;
+    await databaseStore.saveUser(user);
+    return true;
+  }
+
+  public async getUser(email: string): Promise<Omit<UserRecord, 'passwordHash' | 'salt'> | null> {
+    const user = await this.refreshUser(email);
     if (!user) return null;
     const { passwordHash: _, salt: __, ...safeUser } = user;
     return safeUser;
   }
 }
 
-export const authStore = new AuthStore();
+export const authStore = await AuthStore.create();

@@ -11,6 +11,7 @@
  *  Prod:  npm run build && npm start
  */
 
+import 'express-async-errors';
 import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -61,7 +62,7 @@ app.use(express.urlencoded({ extended: true, limit: '15mb' }));
 // ── Server-Side Administrative Route Guard ─────────────────────────────────
 const PUBLIC_ADMIN_PATHS = ['/admin/login', '/admin/activate', '/admin/reset-password'];
 
-app.use('/admin', (req, res, next) => {
+app.use('/admin', async (req, res, next) => {
   const rawPath = req.path.toLowerCase().replace(/\/$/, '') || '/';
   const fullAdminPath = ('/admin' + (rawPath === '/' ? '' : rawPath)).toLowerCase();
 
@@ -88,7 +89,7 @@ app.use('/admin', (req, res, next) => {
     token = req.headers.authorization.slice(7).trim();
   }
 
-  const session = token ? authStore.validateSession(token) : null;
+  const session = token ? await authStore.validateSession(token) : null;
 
   if (!session) {
     // Unauthenticated user -> redirect immediately to /admin/login
@@ -203,6 +204,12 @@ app.get('*', (req, res) => {
 
   res.setHeader('Content-Type', 'text/html; charset=utf-8');
   res.send(html);
+});
+
+app.use((error: unknown, req: express.Request, res: express.Response, next: express.NextFunction) => {
+  if (res.headersSent) return next(error);
+  console.error(`[Server] Unhandled request error at ${req.method} ${req.path}:`, error);
+  return res.status(500).json({ error: 'Internal server error' });
 });
 
 // ── Email Provider Boot Check ────────────────────────────────────────────────

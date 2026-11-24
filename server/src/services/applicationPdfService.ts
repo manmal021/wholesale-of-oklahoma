@@ -594,7 +594,7 @@ export class ApplicationPdfService {
     });
 
     // Render Left Document (Driver License)
-    const dlDocRecord = dlDoc?.documentId ? documentStore.getDocumentBuffer(dlDoc.documentId) : null;
+    const dlDocRecord = dlDoc?.documentId ? await documentStore.getDocumentBuffer(dlDoc.documentId) : null;
     if (dlDocRecord && dlDocRecord.buffer) {
       if (isDocPdf(dlDocRecord)) {
         page2.drawText('ATTACHED AS PDF DOCUMENT', {
@@ -708,7 +708,7 @@ export class ApplicationPdfService {
     });
 
     // Render Right Document (Sales Tax Permit)
-    const stpDocRecord = stpDoc?.documentId ? documentStore.getDocumentBuffer(stpDoc.documentId) : null;
+    const stpDocRecord = stpDoc?.documentId ? await documentStore.getDocumentBuffer(stpDoc.documentId) : null;
     if (stpDocRecord && stpDocRecord.buffer) {
       if (isDocPdf(stpDocRecord)) {
         page2.drawText('ATTACHED AS PDF DOCUMENT', {
@@ -770,7 +770,7 @@ export class ApplicationPdfService {
       const docId = doc.documentId;
       if (!docId) continue;
 
-      const docRecord = documentStore.getDocumentBuffer(docId);
+      const docRecord = await documentStore.getDocumentBuffer(docId);
       if (!docRecord || !docRecord.buffer) continue;
 
       const docTypeUpper = (doc.documentType || (doc as any).type || 'DOCUMENT')

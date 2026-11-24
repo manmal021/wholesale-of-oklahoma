@@ -29,7 +29,7 @@ test.before(async () => {
     try { fs.unlinkSync(EMAIL_LOG_FILE); } catch {}
   }
 
-  databaseStore.seedDemoAccounts();
+  await databaseStore.seedDemoAccounts();
 
   await new Promise<void>((resolve) => {
     server = http.createServer(apiApp);
@@ -42,7 +42,7 @@ test.before(async () => {
 });
 
 test.after(async () => {
-  databaseStore.purgeAllCustomerData();
+  await databaseStore.purgeAllCustomerData();
   await new Promise<void>((resolve) => server.close(() => resolve()));
 });
 
@@ -168,7 +168,7 @@ test('Customer Application Submission Flow: Complete End-to-End Audit & Verifica
   const applicationId = applyData.applicationId;
 
   // 3. Database Record Verification
-  const dbRecord = databaseStore.getApplication(applicationId);
+  const dbRecord = await databaseStore.getApplication(applicationId);
   assert.ok(dbRecord, 'Application must be saved in database');
   assert.equal(dbRecord.status, 'PENDING');
   assert.equal(dbRecord.businessName, 'Sooner Wholesale Distributors LLC');
@@ -195,7 +195,7 @@ test('Customer Application Submission Flow: Complete End-to-End Audit & Verifica
     'PDF filename must follow Wholesale-Application-[BusinessName]-[ApplicantName]-[ID].pdf convention'
   );
 
-  const storedPdf = documentStore.getDocumentBuffer(dbRecord.generatedPdfDocumentId!);
+  const storedPdf = await documentStore.getDocumentBuffer(dbRecord.generatedPdfDocumentId!);
   assert.ok(storedPdf?.buffer, 'PDF buffer must exist in document store');
   assert.ok(storedPdf.buffer.length > 500, 'PDF buffer must not be empty');
 
@@ -287,7 +287,7 @@ test('Customer Application Submission Flow: Complete End-to-End Audit & Verifica
   assert.equal(needsInfoRes.status, 200);
   const needsInfoData = await needsInfoRes.json();
   assert.equal(needsInfoData.status, 'NEEDS_INFORMATION');
-  assert.equal(databaseStore.getApplication(applicationId)?.status, 'NEEDS_INFORMATION');
+  assert.equal((await databaseStore.getApplication(applicationId))?.status, 'NEEDS_INFORMATION');
 
   // Re-send Email Notification via Admin Portal
   const resendRes = await fetch(`${baseUrl}/api/admin/applications/${applicationId}/resend-email`, {
@@ -309,7 +309,7 @@ test('Customer Application Submission Flow: Complete End-to-End Audit & Verifica
     body: JSON.stringify({ status: 'pending' }),
   });
   assert.equal(pendingRes.status, 200);
-  assert.equal(databaseStore.getApplication(applicationId)?.status, 'PENDING');
+  assert.equal((await databaseStore.getApplication(applicationId))?.status, 'PENDING');
 
   // Transition to APPROVED
   const approveRes = await fetch(`${baseUrl}/api/admin/applications/${applicationId}/approve`, {
@@ -317,7 +317,7 @@ test('Customer Application Submission Flow: Complete End-to-End Audit & Verifica
     headers: { 'x-admin-key': TEST_ADMIN_KEY },
   });
   assert.equal(approveRes.status, 200);
-  assert.equal(databaseStore.getApplication(applicationId)?.status, 'APPROVED');
+  assert.equal((await databaseStore.getApplication(applicationId))?.status, 'APPROVED');
 });
 
 test('Email Failure Handling: Database submission succeeds and is preserved if email dispatch fails', async () => {
@@ -375,7 +375,7 @@ test('Email Failure Handling: Database submission succeeds and is preserved if e
     );
 
     // Database record must exist with status PENDING and emailStatus 'failed'
-    const app = databaseStore.getApplication(data.applicationId);
+    const app = await databaseStore.getApplication(data.applicationId);
     assert.ok(app, 'Application must be preserved in database');
     assert.equal(app.status, 'PENDING');
     assert.equal(app.emailStatus, 'failed', 'emailStatus must reflect failure');
@@ -392,7 +392,7 @@ test('Email Failure Handling: Database submission succeeds and is preserved if e
     const resendData = await resendRes.json();
     assert.equal(resendData.success, true);
     assert.equal(resendData.emailStatus, 'sent');
-    assert.equal(databaseStore.getApplication(app.id)?.emailStatus, 'sent');
+    assert.equal((await databaseStore.getApplication(app.id))?.emailStatus, 'sent');
   } finally {
     emailService.sendAdminNewApplicationNotification = originalSender;
   }

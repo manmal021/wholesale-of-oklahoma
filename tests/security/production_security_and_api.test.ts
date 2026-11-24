@@ -32,8 +32,8 @@ test.before(async () => {
   authStore = authModule.authStore;
 
   // Ensure test fixtures are available for this suite
-  databaseStore.seedDemoAccounts();
-  authStore.seedRetailerTestAccount();
+  await databaseStore.seedDemoAccounts();
+  await authStore.seedRetailerTestAccount();
 
   await new Promise<void>((resolve) => {
     server = http.createServer(apiApp);
@@ -171,7 +171,7 @@ test('Integrity: Client-tampered unit prices on orders are overwritten with auth
   const retailProduct = await productRes.json();
   assert.equal(retailProduct.price_type, 'retail');
   assert.equal(retailProduct.can_order, true);
-  databaseStore.setProductAdminOverride({
+  await databaseStore.setProductAdminOverride({
     productId: targetProduct.id,
     sku: targetProduct.sku,
     localStockQuantity: 50,
@@ -368,7 +368,7 @@ test('Pricing Security: Unauthenticated GET /api/inventory/:id shows retail pric
 });
 
 test('Pricing Access: pending wholesale accounts can see retail prices but cannot place storefront orders', async () => {
-  const pendingSession = authStore.createSession({
+  const pendingSession = await authStore.createSession({
     id: 'pending-retail-ui-test',
     userId: 'pending-retail-ui-test',
     email: 'pending-retail-ui-test@example.com',

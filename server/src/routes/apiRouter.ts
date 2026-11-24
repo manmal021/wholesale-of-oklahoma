@@ -22,6 +22,7 @@
  *  - All admin writes are localhost-only or protected by ADMIN_SECRET header.
  */
 
+import 'express-async-errors';
 import express, { type Request, type Response } from 'express';
 import crypto from 'crypto';
 import {
@@ -75,7 +76,7 @@ function err(res: Response, status: number, message: string) {
 // ---------------------------------------------------------------------------
 // Session & Wholesale Pricing Authorization (OWASP A01 / Rules 2, 3, 12)
 // ---------------------------------------------------------------------------
-function getSessionUser(req: Request): SessionRecord | null {
+async function getSessionUser(req: Request): Promise<SessionRecord | null> {
   const candidates: string[] = [];
 
   // 1. Direct header (resilient across edge proxies and CORS)
@@ -97,15 +98,15 @@ function getSessionUser(req: Request): SessionRecord | null {
   }
 
   for (const token of candidates) {
-    const session = authStore.validateSession(token);
+    const session = await authStore.validateSession(token);
     if (session) return session;
   }
 
   return null;
 }
 
-function hasApprovedPricingAccess(req: Request): boolean {
-  const session = getSessionUser(req);
+async function hasApprovedPricingAccess(req: Request): Promise<boolean> {
+  const session = await getSessionUser(req);
   return session?.role === 'approved_customer' || session?.role === 'admin';
 }
 
@@ -124,10 +125,10 @@ function matchesPriceRange(price: number | null, range: string | undefined): boo
   }
 }
 
-function applyProductAdminOverrides(item: any) {
+async function applyProductAdminOverrides(item: any) {
   const adminOverride =
-    databaseStore.getProductAdminOverride(item.id) ||
-    (item.sku ? databaseStore.getProductAdminOverride(item.sku) : undefined);
+    await databaseStore.getProductAdminOverride(item.id) ||
+    (item.sku ? await databaseStore.getProductAdminOverride(item.sku) : undefined);
   const zohoStock = Number(item.zoho_available_stock ?? item.available_stock ?? 0);
   const zohoRate = item.zoho_rate ?? item.rate;
   const localStock = adminOverride?.localStockQuantity ?? zohoStock;
@@ -160,11 +161,11 @@ function applyProductAdminOverrides(item: any) {
   };
 }
 
-function sanitizeItemForClient(item: any, hasPricingAccess: boolean, isAdmin = false, canGuestOrder = false) {
-  const product = applyProductAdminOverrides(item);
+async function sanitizeItemForClient(item: any, hasPricingAccess: boolean, isAdmin = false, canGuestOrder = false) {
+  const product = await applyProductAdminOverrides(item);
   const override =
-    databaseStore.getProductOnlineOverride(product.id) ||
-    (product.sku ? databaseStore.getProductOnlineOverride(product.sku) : undefined);
+    await databaseStore.getProductOnlineOverride(product.id) ||
+    (product.sku ? await databaseStore.getProductOnlineOverride(product.sku) : undefined);
   const isOverridden = Boolean(override && override.active);
   const status = override?.statusOverride;
   const isBlockedOnline =
@@ -317,7 +318,7 @@ function validateAdminKey(req: Request): boolean {
   return crypto.timingSafeEqual(a, b);
 }
 
-function requireAdminAuth(req: Request, res: Response, next: () => void) {
+async function requireAdminAuth(req: Request, res: Response, next: () => void) {
   // Prevent browser & CDN caching of sensitive admin data (Task 10)
   res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
   res.setHeader('Pragma', 'no-cache');
@@ -328,7 +329,7 @@ function requireAdminAuth(req: Request, res: Response, next: () => void) {
     return next();
   }
 
-  const session = getSessionUser(req);
+  const session = await getSessionUser(req);
   if (session && session.role === 'admin') {
     (req as any).user = session;
     return next();
@@ -341,18 +342,18 @@ function requireAdminAuth(req: Request, res: Response, next: () => void) {
   return err(res, 401, 'Unauthorized: Administrator authentication required');
 }
 
-function requireCustomerAuth(req: Request, res: Response, next: () => void) {
+async function requireCustomerAuth(req: Request, res: Response, next: () => void) {
   res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate, proxy-revalidate');
   res.setHeader('Pragma', 'no-cache');
   res.setHeader('Expires', '0');
 
-  const session = getSessionUser(req);
+  const session = await getSessionUser(req);
   if (!session) {
     return err(res, 401, 'Unauthorized: Customer authentication required');
   }
 
   if (session.role === 'approved_customer') {
-    const cust = databaseStore.getCustomerByEmail(session.email);
+    const cust = await databaseStore.getCustomerByEmail(session.email);
     if (cust && cust.status === 'SUSPENDED') {
       return res.status(403).json({
         error: 'ACCOUNT_SUSPENDED',
@@ -690,8 +691,8 @@ apiApp.get(['/zoho/status', '/api/zoho/status'], async (_req, res) => {
  */
 apiApp.get(['/inventory', '/api/inventory'], async (req: Request, res: Response) => {
   try {
-    const session = getSessionUser(req);
-    const hasPricingAccess = hasApprovedPricingAccess(req);
+    const session = await getSessionUser(req);
+    const hasPricingAccess = await hasApprovedPricingAccess(req);
     const isAdmin = session?.role === 'admin';
     const canGuestOrder = !session;
     res.setHeader('Vary', 'Cookie, Authorization, X-Session-Token, Accept');
@@ -708,8 +709,7 @@ apiApp.get(['/inventory', '/api/inventory'], async (req: Request, res: Response)
 
         // Apply query filters in-process (same logic as inventoryStore.queryItems)
         const params = q(req);
-        let filtered = items
-          .map(applyProductAdminOverrides)
+        let filtered = (await Promise.all(items.map(applyProductAdminOverrides)))
           .filter(item => item.status === 'active');
         const getAudiencePrice = (item: any) =>
           positivePrice(hasPricingAccess ? item.wholesale_price : item.retail_price);
@@ -757,9 +757,11 @@ apiApp.get(['/inventory', '/api/inventory'], async (req: Request, res: Response)
         const limit = Math.max(1, parseInt(params.limit || '12', 10));
         const total = filtered.length;
         const total_pages = Math.ceil(total / limit) || 1;
-        const pageItems = filtered
-          .slice((page - 1) * limit, page * limit)
-          .map((item) => sanitizeItemForClient(item, hasPricingAccess, isAdmin, canGuestOrder));
+        const pageItems = await Promise.all(
+          filtered
+            .slice((page - 1) * limit, page * limit)
+            .map((item) => sanitizeItemForClient(item, hasPricingAccess, isAdmin, canGuestOrder))
+        );
 
         return ok(res, {
           items: pageItems,
@@ -783,9 +785,9 @@ apiApp.get(['/inventory', '/api/inventory'], async (req: Request, res: Response)
     // ── SEED CATALOG FALLBACK PATH ───────────────────────────────────────
     const params = q(req);
     const settings = inventoryStore.getSettings();
-    let filtered = inventoryStore
+    let filtered = (await Promise.all(inventoryStore
       .getAllItems()
-      .map(applyProductAdminOverrides)
+      .map(applyProductAdminOverrides)))
       .filter((item) => item.status === 'active');
     const getAudiencePrice = (item: any) =>
       positivePrice(hasPricingAccess ? item.wholesale_price : item.retail_price);
@@ -837,7 +839,9 @@ apiApp.get(['/inventory', '/api/inventory'], async (req: Request, res: Response)
     const total_pages = Math.ceil(total / limit) || 1;
     const pageItems = filtered.slice((page - 1) * limit, page * limit);
     return ok(res, {
-      items: pageItems.map((item) => sanitizeItemForClient(item, hasPricingAccess, isAdmin, canGuestOrder)),
+      items: await Promise.all(
+        pageItems.map((item) => sanitizeItemForClient(item, hasPricingAccess, isAdmin, canGuestOrder))
+      ),
       total,
       page,
       limit,
@@ -1047,8 +1051,8 @@ apiApp.put(
       );
       if (!product) return err(res, 404, 'Product not found in the current inventory catalog.');
 
-      const admin = getSessionUser(req);
-      const record = databaseStore.setProductAdminOverride({
+      const admin = await getSessionUser(req);
+      const record = await databaseStore.setProductAdminOverride({
         productId: product.id,
         sku: product.sku,
         localStockQuantity,
@@ -1059,7 +1063,7 @@ apiApp.put(
 
       return ok(res, {
         success: true,
-        product: sanitizeItemForClient(
+        product: await sanitizeItemForClient(
           {
             ...product,
             available_stock: product.available_stock,
@@ -1114,8 +1118,8 @@ apiApp.post(['/inventory/webhook', '/api/inventory/webhook'], (req, res) => {
  */
 apiApp.get(['/inventory/:id', '/api/inventory/:id'], async (req: Request, res: Response) => {
   const id = req.params.id;
-  const session = getSessionUser(req);
-  const hasPricingAccess = hasApprovedPricingAccess(req);
+  const session = await getSessionUser(req);
+  const hasPricingAccess = await hasApprovedPricingAccess(req);
   const isAdmin = session?.role === 'admin';
   res.setHeader('Vary', 'Cookie, Authorization, X-Session-Token, Accept');
   if (session) {
@@ -1127,14 +1131,14 @@ apiApp.get(['/inventory/:id', '/api/inventory/:id'], async (req: Request, res: R
     if (isZohoConfigured()) {
       try {
         const item = await getZohoItem(id);
-        if (item) return ok(res, sanitizeItemForClient(item, hasPricingAccess, isAdmin, !session));
+        if (item) return ok(res, await sanitizeItemForClient(item, hasPricingAccess, isAdmin, !session));
       } catch (zohoError: any) {
         console.warn(`[API] Zoho item ${id} fetch failed, falling back to seed store:`, zohoError.message);
       }
     }
     const item = inventoryStore.getItem(id);
     if (!item) return err(res, 404, `Item ${id} not found`);
-    return ok(res, sanitizeItemForClient(item, hasPricingAccess, isAdmin, !session));
+    return ok(res, await sanitizeItemForClient(item, hasPricingAccess, isAdmin, !session));
   } catch (e: any) {
     return err(res, 500, e.message);
   }
@@ -1146,7 +1150,7 @@ apiApp.get(['/inventory/:id', '/api/inventory/:id'], async (req: Request, res: R
  * Supports PICKUP and DELIVERY with server-side rate and fee verification (Rule 16, 17 / OWASP A06).
  */
 apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60 * 1000), async (req: Request, res: Response) => {
-  const session = getSessionUser(req);
+  const session = await getSessionUser(req);
   const effectiveEmail = String(req.body?.email || session?.email || '').toLowerCase().trim();
   const isGuestCatalogOrder = req.body?.guestOrder === true;
 
@@ -1159,7 +1163,7 @@ apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60
       });
     }
     if (session.role === 'approved_customer') {
-      const cust = databaseStore.getCustomerByEmail(session.email);
+      const cust = await databaseStore.getCustomerByEmail(session.email);
       if (cust && cust.status === 'SUSPENDED') {
         return res.status(403).json({
           error: 'ACCOUNT_SUSPENDED',
@@ -1182,7 +1186,7 @@ apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60
   } else {
     // Non-session order submission: verify customer and application status
     if (effectiveEmail && !isGuestCatalogOrder) {
-      const cust = databaseStore.getCustomerByEmail(effectiveEmail);
+      const cust = await databaseStore.getCustomerByEmail(effectiveEmail);
       if (cust) {
         if (cust.status === 'SUSPENDED') {
           return res.status(403).json({
@@ -1203,7 +1207,7 @@ apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60
           });
         }
       }
-      const app = databaseStore.getLatestApplicationForEmail(effectiveEmail);
+      const app = await databaseStore.getLatestApplicationForEmail(effectiveEmail);
       if (app && (!cust || cust.status !== 'APPROVED')) {
         if (app.status === 'PENDING') {
           return res.status(403).json({
@@ -1242,9 +1246,9 @@ apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60
 
   const effectiveCustName = (customerName || session?.contactName || '').trim();
   const effectiveBizName = (businessName || session?.businessName || '').trim();
-  const customerRec = session ? databaseStore.getCustomer(session.userId) : null;
+  const customerRec = session ? await databaseStore.getCustomer(session.userId) : null;
   const effectivePhone = (phone || customerRec?.phone || '').trim();
-  let storedIdentity: ReturnType<typeof documentStore.getDocument>;
+  let storedIdentity: Awaited<ReturnType<typeof documentStore.getDocument>>;
 
   if (!effectiveCustName || effectiveCustName.length < 2) {
     return err(res, 400, 'Customer name is required');
@@ -1272,7 +1276,7 @@ apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60
     if (!identityDocument?.documentId || !['state_id', 'driver_license'].includes(identityDocument.documentType)) {
       return err(res, 400, 'A state ID or driver’s license attachment is required for guest orders');
     }
-    storedIdentity = documentStore.getDocument(String(identityDocument.documentId));
+    storedIdentity = await documentStore.getDocument(String(identityDocument.documentId));
     if (!storedIdentity || storedIdentity.documentType !== identityDocument.documentType) {
       return err(res, 400, 'Identity document upload was not found or does not match the selected document type');
     }
@@ -1297,7 +1301,7 @@ apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60
       return err(res, 400, 'Street address, city, and ZIP code are required for delivery orders');
     }
 
-    const val = databaseStore.validateDeliveryAddress(deliveryAddr);
+    const val = await databaseStore.validateDeliveryAddress(deliveryAddr);
     if (!val.eligible) {
       return res.status(400).json({
         error:
@@ -1319,9 +1323,9 @@ apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60
     const idOrSku = String(item.id || item.sku || item.zoho_item_id || item.name || '').trim();
 
     if (
-      databaseStore.isProductBlockedOnline(idOrSku) ||
-      (item.sku && databaseStore.isProductBlockedOnline(item.sku)) ||
-      (item.id && databaseStore.isProductBlockedOnline(item.id))
+      await databaseStore.isProductBlockedOnline(idOrSku) ||
+      (item.sku && await databaseStore.isProductBlockedOnline(item.sku)) ||
+      (item.id && await databaseStore.isProductBlockedOnline(item.id))
     ) {
       return res.status(400).json({
         error: `Product "${item.name || idOrSku}" is temporarily unavailable online. Please update your cart before proceeding.`,
@@ -1352,8 +1356,8 @@ apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60
       officialName = zohoItem.name;
       officialSku = zohoItem.sku;
       const productOverride =
-        databaseStore.getProductAdminOverride(zohoItem.id) ||
-        (zohoItem.sku ? databaseStore.getProductAdminOverride(zohoItem.sku) : undefined);
+        await databaseStore.getProductAdminOverride(zohoItem.id) ||
+        (zohoItem.sku ? await databaseStore.getProductAdminOverride(zohoItem.sku) : undefined);
 
       let matchedVariant: (typeof zohoItem.variants extends Array<infer T> ? T : never) | undefined;
       if (item.variant_id || item.flavor || item.variant_name) {
@@ -1405,7 +1409,7 @@ apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60
   }
 
   try {
-    const createdOrder = databaseStore.createOrder({
+    const createdOrder = await databaseStore.createOrder({
       customerId: session?.userId,
       customerName: effectiveCustName,
       businessName: effectiveBizName || effectiveCustName,
@@ -1456,7 +1460,7 @@ apiApp.post(['/inventory/orders', '/api/inventory/orders'], rateLimit(25, 5 * 60
       customerNotes: notes ? String(notes).trim().slice(0, 500) : undefined,
     });
 
-    databaseStore.deductProductAdminStock(
+    await databaseStore.deductProductAdminStock(
       verifiedLineItems.map((item) => ({
         productId: item.productId,
         sku: item.sku,
@@ -1606,7 +1610,7 @@ apiApp.post(['/chat', '/api/chat'], async (req: Request, res: Response) => {
  * Authenticates user credentials and establishes a secure HttpOnly session cookie.
  * Rate limited to 5 attempts per 5 minutes per IP.
  */
-apiApp.post(['/auth/login', '/api/auth/login'], rateLimit(30, 5 * 60 * 1000), (req: Request, res: Response) => {
+apiApp.post(['/auth/login', '/api/auth/login'], rateLimit(30, 5 * 60 * 1000), async (req: Request, res: Response) => {
   const { email, password } = req.body || {};
 
   if (!email || !password) {
@@ -1614,7 +1618,7 @@ apiApp.post(['/auth/login', '/api/auth/login'], rateLimit(30, 5 * 60 * 1000), (r
   }
 
   try {
-    const { user, token } = authStore.login(String(email), String(password));
+    const { user, token } = await authStore.login(String(email), String(password));
 
     // Set secure HttpOnly session cookie
     const isProd = process.env.NODE_ENV === 'production' || Boolean(process.env.VERCEL);
@@ -1624,7 +1628,7 @@ apiApp.post(['/auth/login', '/api/auth/login'], rateLimit(30, 5 * 60 * 1000), (r
     );
 
     if (user.role === 'admin') {
-      databaseStore.addAuditLog({
+      await databaseStore.addAuditLog({
         event: 'ADMIN_LOGIN_SUCCESS',
         targetEmail: user.email,
         adminId: user.id,
@@ -1676,10 +1680,10 @@ apiApp.post(['/auth/login', '/api/auth/login'], rateLimit(30, 5 * 60 * 1000), (r
  * POST /api/auth/logout
  * Terminates user session and clears session cookie.
  */
-apiApp.post(['/auth/logout', '/api/auth/logout'], (req: Request, res: Response) => {
-  const session = getSessionUser(req);
+apiApp.post(['/auth/logout', '/api/auth/logout'], async (req: Request, res: Response) => {
+  const session = await getSessionUser(req);
   if (session) {
-    authStore.revokeSession(session.token);
+    await authStore.revokeSession(session.token);
   }
 
   res.setHeader('Set-Cookie', 'woo_session=; Path=/; HttpOnly; SameSite=Lax; Max-Age=0');
@@ -1690,8 +1694,8 @@ apiApp.post(['/auth/logout', '/api/auth/logout'], (req: Request, res: Response) 
  * GET /api/auth/me
  * Returns current authenticated user and role.
  */
-apiApp.get(['/auth/me', '/api/auth/me'], (req: Request, res: Response) => {
-  const session = getSessionUser(req);
+apiApp.get(['/auth/me', '/api/auth/me'], async (req: Request, res: Response) => {
+  const session = await getSessionUser(req);
   if (!session) {
     return ok(res, {
       authenticated: false,
@@ -1722,7 +1726,7 @@ apiApp.get(['/auth/me', '/api/auth/me'], (req: Request, res: Response) => {
  * GET /api/auth/verify-token
  * Validates token without consuming it.
  */
-apiApp.get(['/auth/verify-token', '/api/auth/verify-token'], (req: Request, res: Response) => {
+apiApp.get(['/auth/verify-token', '/api/auth/verify-token'], async (req: Request, res: Response) => {
   const params = q(req);
   const token = params.token;
   const expectedType = params.type as any;
@@ -1731,7 +1735,7 @@ apiApp.get(['/auth/verify-token', '/api/auth/verify-token'], (req: Request, res:
     return err(res, 400, 'Token is required.');
   }
 
-  const result = databaseStore.verifySecurityToken(token, expectedType);
+  const result = await databaseStore.verifySecurityToken(token, expectedType);
   if (!result.valid) {
     let msg = 'Invalid or expired link.';
     if (result.reason === 'EXPIRED') msg = 'This link has expired.';
@@ -1751,7 +1755,7 @@ apiApp.get(['/auth/verify-token', '/api/auth/verify-token'], (req: Request, res:
  * Consumes single-use activation token to set user password (admin or approved customer).
  * Rate limited to 10 attempts per 15 minutes.
  */
-apiApp.post(['/auth/activate', '/api/auth/activate'], rateLimit(10, 15 * 60 * 1000), (req: Request, res: Response) => {
+apiApp.post(['/auth/activate', '/api/auth/activate'], rateLimit(10, 15 * 60 * 1000), async (req: Request, res: Response) => {
   const { token, password } = req.body || {};
 
   if (!token || typeof token !== 'string') {
@@ -1761,7 +1765,7 @@ apiApp.post(['/auth/activate', '/api/auth/activate'], rateLimit(10, 15 * 60 * 10
     return err(res, 400, 'Password must be at least 8 characters long.');
   }
 
-  const verification = databaseStore.verifySecurityToken(token);
+  const verification = await databaseStore.verifySecurityToken(token);
   if (!verification.valid || !verification.tokenRecord) {
     const reason = verification.reason;
     if (reason === 'EXPIRED') return err(res, 400, 'This activation link has expired. Please contact dispatch or request a new invite.');
@@ -1773,20 +1777,20 @@ apiApp.post(['/auth/activate', '/api/auth/activate'], rateLimit(10, 15 * 60 * 10
   const email = tokenRecord.email;
 
   // Consume token permanently
-  databaseStore.consumeSecurityToken(token, tokenRecord.type);
+  await databaseStore.consumeSecurityToken(token, tokenRecord.type);
 
   // Set password securely
-  const user = authStore.setPassword(email, password);
+  const user = await authStore.setPassword(email, password);
 
   if (tokenRecord.type === 'ADMIN_ACTIVATION') {
-    authStore.updateUserRole(email, 'admin');
-    databaseStore.addAuditLog({
+    await authStore.updateUserRole(email, 'admin');
+    await databaseStore.addAuditLog({
       event: 'ADMIN_LOGIN_SUCCESS',
       targetEmail: email,
       details: { activation: true },
     });
 
-    const session = authStore.createSession(user, email, 'admin', user.businessName, user.contactName);
+    const session = await authStore.createSession(user, email, 'admin', user.businessName, user.contactName);
     const isProd = process.env.NODE_ENV === 'production' || Boolean(process.env.VERCEL);
     res.setHeader(
       'Set-Cookie',
@@ -1803,21 +1807,19 @@ apiApp.post(['/auth/activate', '/api/auth/activate'], rateLimit(10, 15 * 60 * 10
   }
 
   // CUSTOMER_ACTIVATION
-  authStore.updateUserRole(email, 'approved_customer');
-  const cust = databaseStore.getCustomerByEmail(email);
-  if (cust) {
-    cust.activatedAt = new Date().toISOString();
-    cust.userId = user.id;
-    databaseStore.persistToDisk();
-  }
+  await authStore.updateUserRole(email, 'approved_customer');
+  const cust = await databaseStore.getCustomerByEmail(email);
+  const activatedCustomer = cust
+    ? await databaseStore.markCustomerActivated(cust.id, user.id)
+    : null;
 
-  databaseStore.addAuditLog({
+  await databaseStore.addAuditLog({
     event: 'ACCOUNT_ACTIVATED',
-    targetId: cust?.id || user.id,
+    targetId: activatedCustomer?.id || user.id,
     targetEmail: email,
   });
 
-  const session = authStore.createSession(user, email, 'approved_customer', user.businessName, user.contactName);
+  const session = await authStore.createSession(user, email, 'approved_customer', user.businessName, user.contactName);
   const isProd = process.env.NODE_ENV === 'production' || Boolean(process.env.VERCEL);
   res.setHeader(
     'Set-Cookie',
@@ -1847,11 +1849,11 @@ apiApp.post(['/auth/forgot-password', '/api/auth/forgot-password'], rateLimit(5,
   }
 
   const isConfiguredAdmin = cleanEmail === ADMIN_EMAIL.toLowerCase().trim();
-  let user = authStore.getUser(cleanEmail);
-  const cust = databaseStore.getCustomerByEmail(cleanEmail);
+  let user = await authStore.getUser(cleanEmail);
+  const cust = await databaseStore.getCustomerByEmail(cleanEmail);
 
   if (isConfiguredAdmin && !user) {
-    const setup = authStore.ensureInitialAdmin(cleanEmail);
+    const setup = await authStore.ensureInitialAdmin(cleanEmail);
     user = setup.user;
   }
 
@@ -1859,7 +1861,7 @@ apiApp.post(['/auth/forgot-password', '/api/auth/forgot-password'], rateLimit(5,
 
   if (isAdminUser) {
     const { token, resetUrl, dispatch } = await authStore.createAdminPasswordResetToken(cleanEmail);
-    databaseStore.addAuditLog({
+    await databaseStore.addAuditLog({
       event: 'PASSWORD_RESET_REQUESTED',
       targetEmail: cleanEmail,
       details: { role: 'admin' },
@@ -1882,14 +1884,14 @@ apiApp.post(['/auth/forgot-password', '/api/auth/forgot-password'], rateLimit(5,
   }
 
   if (user || cust) {
-    const tokenRecord = databaseStore.createSecurityToken({
+    const tokenRecord = await databaseStore.createSecurityToken({
       type: 'PASSWORD_RESET',
       email: cleanEmail,
       targetId: user?.id || cust?.id || cleanEmail,
       durationHours: 2, // 2 hour expiration
     });
 
-    databaseStore.addAuditLog({
+    await databaseStore.addAuditLog({
       event: 'PASSWORD_RESET_REQUESTED',
       targetEmail: cleanEmail,
     });
@@ -1925,7 +1927,7 @@ apiApp.post(['/auth/admin/request-activation', '/api/auth/admin/request-activati
   }
 
   const isConfiguredAdmin = cleanEmail === ADMIN_EMAIL.toLowerCase().trim();
-  const existingUser = authStore.getUser(cleanEmail);
+  const existingUser = await authStore.getUser(cleanEmail);
 
   if (!isConfiguredAdmin && (!existingUser || existingUser.role !== 'admin')) {
     return ok(res, {
@@ -1934,7 +1936,7 @@ apiApp.post(['/auth/admin/request-activation', '/api/auth/admin/request-activati
     });
   }
 
-  if (existingUser && authStore.hasPasswordSet(cleanEmail)) {
+  if (existingUser && await authStore.hasPasswordSet(cleanEmail)) {
     return ok(res, {
       success: true,
       alreadyActive: true,
@@ -1944,7 +1946,7 @@ apiApp.post(['/auth/admin/request-activation', '/api/auth/admin/request-activati
 
   const { token, activationUrl, dispatch } = await authStore.createAdminActivationToken(cleanEmail);
 
-  databaseStore.addAuditLog({
+  await databaseStore.addAuditLog({
     event: 'ADMIN_ACTIVATION_REQUESTED' as any,
     targetEmail: cleanEmail,
   });
@@ -1976,17 +1978,16 @@ apiApp.post(['/admin/invite', '/api/admin/invite'], requireAdminAuth, async (req
     return err(res, 400, 'A valid email address is required.');
   }
 
-  const session = getSessionUser(req);
+  const session = await getSessionUser(req);
   const adminId = session?.userId || 'admin_master';
 
   const { token, activationUrl, dispatch } = await authStore.createAdminActivationToken(cleanEmail);
-  const user = authStore.getUser(cleanEmail);
-  if (user) {
-    if (contactName) user.contactName = String(contactName).trim();
-    if (phone) user.phone = String(phone).trim();
-  }
+  await authStore.updateUserDetails(cleanEmail, {
+    ...(contactName ? { contactName: String(contactName).trim() } : {}),
+    ...(phone ? { phone: String(phone).trim() } : {}),
+  });
 
-  databaseStore.addAuditLog({
+  await databaseStore.addAuditLog({
     event: 'ADMIN_INVITED' as any,
     targetEmail: cleanEmail,
     adminId,
@@ -2013,7 +2014,7 @@ apiApp.post(['/admin/invite', '/api/admin/invite'], requireAdminAuth, async (req
  * Consumes single-use reset token and updates password.
  * Rate limited to 10 per 15 minutes.
  */
-apiApp.post(['/auth/reset-password', '/api/auth/reset-password'], rateLimit(10, 15 * 60 * 1000), (req: Request, res: Response) => {
+apiApp.post(['/auth/reset-password', '/api/auth/reset-password'], rateLimit(10, 15 * 60 * 1000), async (req: Request, res: Response) => {
   const { token } = req.body || {};
   const password = req.body?.password || req.body?.newPassword;
 
@@ -2024,7 +2025,7 @@ apiApp.post(['/auth/reset-password', '/api/auth/reset-password'], rateLimit(10, 
     return err(res, 400, 'New password must be at least 8 characters long.');
   }
 
-  const verification = databaseStore.verifySecurityToken(token, 'PASSWORD_RESET');
+  const verification = await databaseStore.verifySecurityToken(token, 'PASSWORD_RESET');
   if (!verification.valid || !verification.tokenRecord) {
     const reason = verification.reason;
     if (reason === 'EXPIRED') return err(res, 400, 'This password reset link has expired. Please request a new one.');
@@ -2033,10 +2034,10 @@ apiApp.post(['/auth/reset-password', '/api/auth/reset-password'], rateLimit(10, 
   }
 
   const tokenRecord = verification.tokenRecord;
-  databaseStore.consumeSecurityToken(token, 'PASSWORD_RESET');
-  authStore.setPassword(tokenRecord.email, password);
+  await databaseStore.consumeSecurityToken(token, 'PASSWORD_RESET');
+  await authStore.setPassword(tokenRecord.email, password);
 
-  databaseStore.addAuditLog({
+  await databaseStore.addAuditLog({
     event: 'PASSWORD_RESET_COMPLETED',
     targetEmail: tokenRecord.email,
   });
@@ -2056,7 +2057,7 @@ apiApp.post(['/auth/reset-password', '/api/auth/reset-password'], rateLimit(10, 
  * Handles base64 encoded document uploads with magic byte checking.
  * Rate limited to 25 uploads per 15 minutes per IP.
  */
-apiApp.post(['/wholesale/upload', '/api/wholesale/upload'], rateLimit(100, 15 * 60 * 1000), (req: Request, res: Response) => {
+apiApp.post(['/wholesale/upload', '/api/wholesale/upload'], rateLimit(100, 15 * 60 * 1000), async (req: Request, res: Response) => {
   const { fileBase64, filename, documentType } = req.body || {};
 
   if (!fileBase64 || !filename) {
@@ -2078,7 +2079,7 @@ apiApp.post(['/wholesale/upload', '/api/wholesale/upload'], rateLimit(100, 15 * 
     const validDocTypes = ['sales_tax_permit', 'resale_certificate', 'business_license', 'driver_license', 'state_id', 'id', 'other'];
     const sanitizedType = validDocTypes.includes(documentType) ? documentType : 'other';
 
-    const record = documentStore.saveDocument(buffer, String(filename), sanitizedType as any);
+    const record = await documentStore.saveDocument(buffer, String(filename), sanitizedType as any);
 
     return ok(res, {
       success: true,
@@ -2102,13 +2103,13 @@ apiApp.post(['/wholesale/upload', '/api/wholesale/upload'], rateLimit(100, 15 * 
  * GET /api/wholesale/documents/:id
  * Private retrieval for authorized administrators only.
  */
-apiApp.get(['/wholesale/documents/:id', '/api/wholesale/documents/:id'], requireAdminAuth, (req: Request, res: Response) => {
+apiApp.get(['/wholesale/documents/:id', '/api/wholesale/documents/:id'], requireAdminAuth, async (req: Request, res: Response) => {
   const docId = req.params.id;
   if (!docId || typeof docId !== 'string' || docId.includes('..') || docId.includes('/') || docId.includes('\\')) {
     return err(res, 400, 'Invalid document ID');
   }
 
-  const doc = documentStore.getDocumentBuffer(docId);
+  const doc = await documentStore.getDocumentBuffer(docId);
   if (!doc) {
     return err(res, 404, 'Document not found.');
   }
@@ -2226,7 +2227,7 @@ apiApp.post(['/wholesale/apply', '/api/wholesale/apply'], rateLimit(50, 15 * 60 
   const cleanEmail = email.toLowerCase().trim();
 
   // Duplicate Protection Checks
-  const existingCustomer = databaseStore.getCustomerByEmail(cleanEmail);
+  const existingCustomer = await databaseStore.getCustomerByEmail(cleanEmail);
   if (existingCustomer) {
     if (existingCustomer.status === 'APPROVED') {
       return res.status(409).json({
@@ -2242,7 +2243,7 @@ apiApp.post(['/wholesale/apply', '/api/wholesale/apply'], rateLimit(50, 15 * 60 
     }
   }
 
-  const latestApp = databaseStore.getLatestApplicationForEmail(cleanEmail);
+  const latestApp = await databaseStore.getLatestApplicationForEmail(cleanEmail);
   if (latestApp) {
     if (latestApp.status === 'PENDING') {
       return res.status(409).json({
@@ -2261,7 +2262,7 @@ apiApp.post(['/wholesale/apply', '/api/wholesale/apply'], rateLimit(50, 15 * 60 
   const validBusinessTypes = ['vape_shop', 'smoke_shop', 'dispensary', 'c_store', 'distributor', 'other'];
   const sanitizedBusinessType = (validBusinessTypes.includes(businessType) ? businessType : 'other') as any;
 
-  const newApp = databaseStore.createApplication({
+  const newApp = await databaseStore.createApplication({
     businessName: businessName.trim().slice(0, 150),
     dba: dba ? String(dba).trim().slice(0, 150) : undefined,
     businessEntity: req.body?.businessEntity ? String(req.body.businessEntity).trim().slice(0, 60) : undefined,
@@ -2308,12 +2309,12 @@ apiApp.post(['/wholesale/apply', '/api/wholesale/apply'], rateLimit(50, 15 * 60 
   let generatedPdf: { buffer: Buffer; filename: string } | null = null;
   try {
     generatedPdf = await applicationPdfService.generateApplicationPdf(newApp);
-    const pdfDocRecord = documentStore.saveDocument(
+    const pdfDocRecord = await documentStore.saveDocument(
       generatedPdf.buffer,
       generatedPdf.filename,
       'generated_application_pdf'
     );
-    databaseStore.setApplicationPdf(newApp.id, generatedPdf.filename, pdfDocRecord.id);
+    await databaseStore.setApplicationPdf(newApp.id, generatedPdf.filename, pdfDocRecord.id);
     console.log(`[API /wholesale/apply] 📄 Application PDF generated & saved: ${generatedPdf.filename}`);
   } catch (pdfErr: any) {
     console.error(`[API /wholesale/apply] ❌ Application PDF generation error: ${pdfErr.message}`);
@@ -2323,21 +2324,21 @@ apiApp.post(['/wholesale/apply', '/api/wholesale/apply'], rateLimit(50, 15 * 60 
   try {
     const dispatchResult = await emailService.sendAdminNewApplicationNotification(newApp, generatedPdf);
     if (dispatchResult.success) {
-      databaseStore.updateApplicationEmailStatus(newApp.id, 'sent', undefined, {
+      await databaseStore.updateApplicationEmailStatus(newApp.id, 'sent', undefined, {
         messageId: dispatchResult.messageId,
         provider: dispatchResult.provider,
       });
       console.log(`[API /wholesale/apply] 📧 Business application notification sent to ${ADMIN_EMAIL} for ${newApp.id}`);
     } else {
       const errReason = dispatchResult.error || 'Provider rejected notification dispatch';
-      databaseStore.updateApplicationEmailStatus(newApp.id, 'failed', errReason, {
+      await databaseStore.updateApplicationEmailStatus(newApp.id, 'failed', errReason, {
         provider: dispatchResult.provider,
       });
       console.warn(`[API /wholesale/apply] ⚠ Business notification email failed for ${newApp.id}: ${errReason}`);
     }
   } catch (emailErr: any) {
     console.error(`[API /wholesale/apply] ⚠ Exception sending admin email: ${emailErr.message}`);
-    databaseStore.updateApplicationEmailStatus(newApp.id, 'failed', emailErr.message);
+    await databaseStore.updateApplicationEmailStatus(newApp.id, 'failed', emailErr.message);
   }
 
   // Dispatch Customer Confirmation Email asynchronously
@@ -2359,7 +2360,7 @@ apiApp.post(['/wholesale/apply', '/api/wholesale/apply'], rateLimit(50, 15 * 60 
  * GET /api/wholesale/status?id=WOA-APP-XXXXX&email=...
  * Prevents IDOR by strictly requiring both matching application ID and email.
  */
-apiApp.get(['/wholesale/status', '/api/wholesale/status'], rateLimit(20, 5 * 60 * 1000), (req: Request, res: Response) => {
+apiApp.get(['/wholesale/status', '/api/wholesale/status'], rateLimit(20, 5 * 60 * 1000), async (req: Request, res: Response) => {
   const params = q(req);
   const id = params.id || params.applicationId;
   const email = params.email;
@@ -2368,7 +2369,7 @@ apiApp.get(['/wholesale/status', '/api/wholesale/status'], rateLimit(20, 5 * 60 
     return err(res, 400, 'Both application ID and contact email are required to check status');
   }
 
-  const app = databaseStore.getApplication(String(id).trim());
+  const app = await databaseStore.getApplication(String(id).trim());
   if (!app || app.email.toLowerCase() !== String(email).trim().toLowerCase()) {
     return err(res, 404, 'Application not found or email does not match our records');
   }
@@ -2391,8 +2392,8 @@ apiApp.get(['/wholesale/status', '/api/wholesale/status'], rateLimit(20, 5 * 60 
  * GET /api/admin/stats
  * Dashboard counters for pending, approved, rejected, and suspended accounts.
  */
-apiApp.get(['/admin/stats', '/api/admin/stats'], requireAdminAuth, (_req: Request, res: Response) => {
-  const stats = databaseStore.getDashboardStats();
+apiApp.get(['/admin/stats', '/api/admin/stats'], requireAdminAuth, async (_req: Request, res: Response) => {
+  const stats = await databaseStore.getDashboardStats();
   return ok(res, { success: true, stats });
 });
 
@@ -2401,9 +2402,9 @@ apiApp.get(['/admin/stats', '/api/admin/stats'], requireAdminAuth, (_req: Reques
  * Completely resets and clears all customer applications, approved accounts, orders,
  * inventory mismatches, and audit logs, keeping administrative accounts safe.
  */
-apiApp.post(['/admin/purge-data', '/api/admin/purge-data'], requireAdminAuth, (_req: Request, res: Response) => {
-  databaseStore.purgeAllCustomerData();
-  const stats = databaseStore.getDashboardStats();
+apiApp.post(['/admin/purge-data', '/api/admin/purge-data'], requireAdminAuth, async (_req: Request, res: Response) => {
+  await databaseStore.purgeAllCustomerData();
+  const stats = await databaseStore.getDashboardStats();
   return ok(res, { success: true, message: 'All customer and portal data has been purged.', stats });
 });
 
@@ -2411,12 +2412,12 @@ apiApp.post(['/admin/purge-data', '/api/admin/purge-data'], requireAdminAuth, (_
  * GET /api/admin/applications
  * Returns filtered list of wholesale customer applications.
  */
-apiApp.get(['/admin/applications', '/api/admin/applications', '/wholesale/admin/applications', '/api/wholesale/admin/applications'], requireAdminAuth, (req: Request, res: Response) => {
+apiApp.get(['/admin/applications', '/api/admin/applications', '/wholesale/admin/applications', '/api/wholesale/admin/applications'], requireAdminAuth, async (req: Request, res: Response) => {
   const params = q(req);
   const statusFilter = params.status ? String(params.status).toUpperCase().trim() : undefined;
   const search = params.search;
 
-  const list = databaseStore.listApplications(statusFilter, search);
+  const list = await databaseStore.listApplications(statusFilter, search);
   return ok(res, { success: true, total: list.length, applications: list });
 });
 
@@ -2424,13 +2425,13 @@ apiApp.get(['/admin/applications', '/api/admin/applications', '/wholesale/admin/
  * GET /api/admin/customers
  * Returns list of customer accounts and applications.
  */
-apiApp.get(['/admin/customers', '/api/admin/customers'], requireAdminAuth, (req: Request, res: Response) => {
+apiApp.get(['/admin/customers', '/api/admin/customers'], requireAdminAuth, async (req: Request, res: Response) => {
   const params = q(req);
   const statusFilter = params.status ? String(params.status).toUpperCase().trim() : undefined;
   const search = params.search;
 
-  const customers = databaseStore.listCustomers(statusFilter, search);
-  const applications = databaseStore.listApplications(statusFilter, search);
+  const customers = await databaseStore.listCustomers(statusFilter, search);
+  const applications = await databaseStore.listApplications(statusFilter, search);
   const safeCustomers = customers.map(({ temporaryPassword: _temporaryPassword, temporaryPasswordAssignedAt: _assignedAt, ...customer }) => customer);
   const safeApplications = applications.map(({ assignedPassword: _assignedPassword, ...application }) => application);
   return ok(res, { success: true, total: safeCustomers.length, customers: safeCustomers, applications: safeApplications });
@@ -2450,26 +2451,26 @@ apiApp.get(
     '/api/admin/customers/:id',
   ],
   requireAdminAuth,
-  (req: Request, res: Response) => {
+  async (req: Request, res: Response) => {
     const id = req.params.id;
-    let app = databaseStore.getApplication(id);
-    let customer = databaseStore.getCustomer(id);
+    let app = await databaseStore.getApplication(id);
+    let customer = await databaseStore.getCustomer(id);
 
     if (!app && customer) {
       if (customer.applicationId) {
-        app = databaseStore.getApplication(customer.applicationId);
+        app = await databaseStore.getApplication(customer.applicationId);
       }
       if (!app) {
-        app = databaseStore.getLatestApplicationForEmail(customer.email);
+        app = await databaseStore.getLatestApplicationForEmail(customer.email);
       }
     }
 
     if (!customer && app) {
       if (app.customerId) {
-        customer = databaseStore.getCustomer(app.customerId);
+        customer = await databaseStore.getCustomer(app.customerId);
       }
       if (!customer) {
-        customer = databaseStore.getCustomerByEmail(app.email);
+        customer = await databaseStore.getCustomerByEmail(app.email);
       }
     }
 
@@ -2481,7 +2482,7 @@ apiApp.get(
     const assignedPassword =
       customer?.temporaryPassword ||
       app?.assignedPassword ||
-      (effectiveEmail ? authStore.getAssignedPassword(effectiveEmail) : undefined);
+      (effectiveEmail ? await authStore.getAssignedPassword(effectiveEmail) : undefined);
 
     const credentials =
       assignedPassword && effectiveEmail
@@ -2514,7 +2515,7 @@ apiApp.get(
   requireAdminAuth,
   async (req: Request, res: Response) => {
     const id = req.params.id;
-    const app = databaseStore.getApplication(id);
+    const app = await databaseStore.getApplication(id);
     if (!app) {
       return err(res, 404, `Application ${id} not found.`);
     }
@@ -2524,7 +2525,7 @@ apiApp.get(
       let filename = app.generatedPdfFilename;
 
       if (app.generatedPdfDocumentId) {
-        const storedDoc = documentStore.getDocumentBuffer(app.generatedPdfDocumentId);
+        const storedDoc = await documentStore.getDocumentBuffer(app.generatedPdfDocumentId);
         if (storedDoc && storedDoc.buffer) {
           buffer = storedDoc.buffer;
           filename = filename || storedDoc.record.originalName;
@@ -2535,8 +2536,8 @@ apiApp.get(
         const generated = await applicationPdfService.generateApplicationPdf(app);
         buffer = generated.buffer;
         filename = generated.filename;
-        const pdfDocRecord = documentStore.saveDocument(buffer, filename, 'generated_application_pdf');
-        databaseStore.setApplicationPdf(app.id, filename, pdfDocRecord.id);
+        const pdfDocRecord = await documentStore.saveDocument(buffer, filename, 'generated_application_pdf');
+        await databaseStore.setApplicationPdf(app.id, filename, pdfDocRecord.id);
       }
 
       res.setHeader('Content-Type', 'application/pdf');
@@ -2564,7 +2565,7 @@ apiApp.post(
   requireAdminAuth,
   async (req: Request, res: Response) => {
     const id = req.params.id;
-    const app = databaseStore.getApplication(id);
+    const app = await databaseStore.getApplication(id);
     if (!app) {
       return err(res, 404, `Application ${id} not found.`);
     }
@@ -2574,7 +2575,7 @@ apiApp.post(
       const emailResult = await emailService.sendAdminNewApplicationNotification(app, generated);
 
       if (emailResult.success && !emailResult.queuedOutbox) {
-        databaseStore.updateApplicationEmailStatus(app.id, 'sent', undefined, {
+        await databaseStore.updateApplicationEmailStatus(app.id, 'sent', undefined, {
           messageId: emailResult.messageId,
           provider: emailResult.provider,
           incrementRetry: true,
@@ -2590,7 +2591,7 @@ apiApp.post(
         const errReason = emailResult.queuedOutbox
           ? 'Email was saved to the local outbox but was not delivered. Configure an email provider to send it.'
           : emailResult.error || 'Provider rejected notification dispatch';
-        databaseStore.updateApplicationEmailStatus(app.id, 'failed', errReason, {
+        await databaseStore.updateApplicationEmailStatus(app.id, 'failed', errReason, {
           provider: emailResult.provider,
           incrementRetry: true,
         });
@@ -2601,7 +2602,7 @@ apiApp.post(
         });
       }
     } catch (e: any) {
-      databaseStore.updateApplicationEmailStatus(app.id, 'failed', e.message, { incrementRetry: true });
+      await databaseStore.updateApplicationEmailStatus(app.id, 'failed', e.message, { incrementRetry: true });
       return err(res, 500, `Email resend error: ${e.message}`);
     }
   }
@@ -2612,24 +2613,24 @@ apiApp.post(
  */
 const handleCustomerApproval = async (req: Request, res: Response) => {
   const id = req.params.id;
-  let app = databaseStore.getApplication(id);
-  let customer = databaseStore.getCustomer(id);
+  let app = await databaseStore.getApplication(id);
+  let customer = await databaseStore.getCustomer(id);
 
   if (!app && customer) {
     if (customer.applicationId) {
-      app = databaseStore.getApplication(customer.applicationId);
+      app = await databaseStore.getApplication(customer.applicationId);
     }
     if (!app) {
-      app = databaseStore.getLatestApplicationForEmail(customer.email);
+      app = await databaseStore.getLatestApplicationForEmail(customer.email);
     }
   }
 
   if (!customer && app) {
     if (app.customerId) {
-      customer = databaseStore.getCustomer(app.customerId);
+      customer = await databaseStore.getCustomer(app.customerId);
     }
     if (!customer) {
-      customer = databaseStore.getCustomerByEmail(app.email);
+      customer = await databaseStore.getCustomerByEmail(app.email);
     }
   }
 
@@ -2641,7 +2642,7 @@ const handleCustomerApproval = async (req: Request, res: Response) => {
     return err(res, 400, `Account ${id} is already approved.`);
   }
 
-  const session = getSessionUser(req);
+  const session = await getSessionUser(req);
   const adminId = session?.userId || 'admin_master';
   const adminEmail = session?.email || ADMIN_EMAIL;
 
@@ -2655,10 +2656,10 @@ const handleCustomerApproval = async (req: Request, res: Response) => {
   const generatedPassword = generateCustomerPassword(10);
 
   if (app) {
-    customer = databaseStore.createOrUpdateCustomerFromApplication(app, adminId, generatedPassword);
+    customer = await databaseStore.createOrUpdateCustomerFromApplication(app, adminId, generatedPassword);
   } else if (customer) {
-    customer = databaseStore.reactivateCustomer(customer.id, adminId);
-    customer = databaseStore.setCustomerTemporaryPassword(customer.id, generatedPassword);
+    customer = await databaseStore.reactivateCustomer(customer.id, adminId);
+    customer = await databaseStore.setCustomerTemporaryPassword(customer.id, generatedPassword);
   }
 
   if (!customer) {
@@ -2666,12 +2667,13 @@ const handleCustomerApproval = async (req: Request, res: Response) => {
   }
 
   // Provision customer in authStore with approved_customer role and assigned password
-  authStore.provisionCustomer(customer, generatedPassword);
-  authStore.setPassword(customer.email, generatedPassword);
-  authStore.updateUserRole(customer.email, 'approved_customer');
+  await authStore.provisionCustomer(customer, generatedPassword);
+  await authStore.setPassword(customer.email, generatedPassword);
+  await authStore.updateUserRole(customer.email, 'approved_customer');
+  if (app) app = await databaseStore.getApplication(app.id);
 
   // Generate single-use 48h activation token
-  const tokenRecord = databaseStore.createSecurityToken({
+  const tokenRecord = await databaseStore.createSecurityToken({
     type: 'CUSTOMER_ACTIVATION',
     email: customer.email,
     targetId: customer.id,
@@ -2679,7 +2681,7 @@ const handleCustomerApproval = async (req: Request, res: Response) => {
   });
 
   // Audit Log
-  databaseStore.addAuditLog({
+  await databaseStore.addAuditLog({
     event: 'APPLICATION_APPROVED',
     targetId: app?.id || customer.id,
     targetEmail: customer.email,
@@ -2694,12 +2696,12 @@ const handleCustomerApproval = async (req: Request, res: Response) => {
     try {
       approvalEmail = await emailService.sendCustomerAccountApproved(app, generatedPassword, tokenRecord.token);
       if (approvalEmail.success) {
-        databaseStore.updateApplicationEmailStatus(app.id, 'sent', undefined, {
+        await databaseStore.updateApplicationEmailStatus(app.id, 'sent', undefined, {
           messageId: approvalEmail.messageId,
           provider: approvalEmail.provider,
         });
       } else {
-        databaseStore.updateApplicationEmailStatus(app.id, 'failed', approvalEmail.error || 'Approval email dispatch failed', {
+        await databaseStore.updateApplicationEmailStatus(app.id, 'failed', approvalEmail.error || 'Approval email dispatch failed', {
           provider: approvalEmail.provider,
           incrementRetry: true,
         });
@@ -2748,24 +2750,24 @@ const handleCustomerRejection = async (req: Request, res: Response) => {
   const id = req.params.id;
   const { reason } = req.body || {};
 
-  let app = databaseStore.getApplication(id);
-  let customer = databaseStore.getCustomer(id);
+  let app = await databaseStore.getApplication(id);
+  let customer = await databaseStore.getCustomer(id);
 
   if (!app && customer) {
     if (customer.applicationId) {
-      app = databaseStore.getApplication(customer.applicationId);
+      app = await databaseStore.getApplication(customer.applicationId);
     }
     if (!app) {
-      app = databaseStore.getLatestApplicationForEmail(customer.email);
+      app = await databaseStore.getLatestApplicationForEmail(customer.email);
     }
   }
 
   if (!customer && app) {
     if (app.customerId) {
-      customer = databaseStore.getCustomer(app.customerId);
+      customer = await databaseStore.getCustomer(app.customerId);
     }
     if (!customer) {
-      customer = databaseStore.getCustomerByEmail(app.email);
+      customer = await databaseStore.getCustomerByEmail(app.email);
     }
   }
 
@@ -2777,26 +2779,26 @@ const handleCustomerRejection = async (req: Request, res: Response) => {
     return err(res, 400, `Application ${id} is already rejected.`);
   }
 
-  const session = getSessionUser(req);
+  const session = await getSessionUser(req);
   const adminId = session?.userId || 'admin_master';
   const adminEmail = session?.email || ADMIN_EMAIL;
 
   let updatedApp = app;
   if (app) {
-    updatedApp = databaseStore.updateApplicationStatus(app.id, 'REJECTED', adminId, reason);
+    updatedApp = await databaseStore.updateApplicationStatus(app.id, 'REJECTED', adminId, reason);
   }
   if (customer) {
-    databaseStore.suspendCustomer(customer.id, adminId, reason || 'Wholesale application rejected');
+    await databaseStore.suspendCustomer(customer.id, adminId, reason || 'Wholesale application rejected');
   }
 
   const targetEmail = app?.email || customer?.email || '';
   if (targetEmail) {
-    authStore.updateUserRole(targetEmail, 'visitor');
-    authStore.clearPassword(targetEmail);
-    authStore.revokeSessionsForEmail(targetEmail);
+    await authStore.updateUserRole(targetEmail, 'visitor');
+    await authStore.clearPassword(targetEmail);
+    await authStore.revokeSessionsForEmail(targetEmail);
   }
 
-  databaseStore.addAuditLog({
+  await databaseStore.addAuditLog({
     event: 'APPLICATION_REJECTED',
     targetId: id,
     targetEmail,
@@ -2889,12 +2891,12 @@ apiApp.patch(
       return handleCustomerRejection(req, res);
     }
     if (targetStatus === 'needs_information' || targetStatus === 'needs information') {
-      const app = databaseStore.getApplication(id);
+      const app = await databaseStore.getApplication(id);
       if (!app) return err(res, 404, `Application ${id} not found.`);
-      const session = getSessionUser(req);
+      const session = await getSessionUser(req);
       const adminId = session?.userId || 'admin_master';
-      const updatedApp = databaseStore.updateApplicationStatus(app.id, 'NEEDS_INFORMATION', adminId, reason);
-      databaseStore.addAuditLog({
+      const updatedApp = await databaseStore.updateApplicationStatus(app.id, 'NEEDS_INFORMATION', adminId, reason);
+      await databaseStore.addAuditLog({
         event: 'APPLICATION_STATUS_UPDATED',
         targetId: id,
         targetEmail: app.email,
@@ -2909,29 +2911,29 @@ apiApp.patch(
       });
     }
     if (targetStatus === 'suspended') {
-      let customer = databaseStore.getCustomer(id);
-      let app = databaseStore.getApplication(id);
+      let customer = await databaseStore.getCustomer(id);
+      let app = await databaseStore.getApplication(id);
       if (!customer && app) {
-        if (app.customerId) customer = databaseStore.getCustomer(app.customerId);
-        if (!customer) customer = databaseStore.getCustomerByEmail(app.email);
+        if (app.customerId) customer = await databaseStore.getCustomer(app.customerId);
+        if (!customer) customer = await databaseStore.getCustomerByEmail(app.email);
       }
       if (!customer && !app) return err(res, 404, `Customer or Application ${id} not found.`);
 
-      const session = getSessionUser(req);
+      const session = await getSessionUser(req);
       const adminId = session?.userId || 'admin_master';
       let updatedCustomer = null;
       let updatedApp = null;
 
       if (customer) {
-        updatedCustomer = databaseStore.suspendCustomer(customer.id, adminId, reason);
-        authStore.updateUserRole(customer.email, 'visitor');
+        updatedCustomer = await databaseStore.suspendCustomer(customer.id, adminId, reason);
+        await authStore.updateUserRole(customer.email, 'visitor');
       }
       if (app) {
-        updatedApp = databaseStore.updateApplicationStatus(app.id, 'SUSPENDED', adminId, reason);
-        if (!customer) authStore.updateUserRole(app.email, 'visitor');
+        updatedApp = await databaseStore.updateApplicationStatus(app.id, 'SUSPENDED', adminId, reason);
+        if (!customer) await authStore.updateUserRole(app.email, 'visitor');
       }
 
-      databaseStore.addAuditLog({
+      await databaseStore.addAuditLog({
         event: 'ACCOUNT_SUSPENDED',
         targetId: customer?.id || app?.id || id,
         targetEmail: customer?.email || app?.email || '',
@@ -2948,28 +2950,28 @@ apiApp.patch(
     }
 
     if (targetStatus === 'reactivated') {
-      let customer = databaseStore.getCustomer(id);
-      let app = databaseStore.getApplication(id);
+      let customer = await databaseStore.getCustomer(id);
+      let app = await databaseStore.getApplication(id);
       if (!customer && app) {
-        if (app.customerId) customer = databaseStore.getCustomer(app.customerId);
-        if (!customer) customer = databaseStore.getCustomerByEmail(app.email);
+        if (app.customerId) customer = await databaseStore.getCustomer(app.customerId);
+        if (!customer) customer = await databaseStore.getCustomerByEmail(app.email);
       }
       if (!customer && !app) return err(res, 404, `Customer or Application ${id} not found.`);
 
-      const session = getSessionUser(req);
+      const session = await getSessionUser(req);
       const adminId = session?.userId || 'admin_master';
       let updatedCustomer = null;
       let updatedApp = null;
 
       if (customer) {
-        updatedCustomer = databaseStore.reactivateCustomer(customer.id, adminId);
-        authStore.updateUserRole(customer.email, 'approved_customer');
+        updatedCustomer = await databaseStore.reactivateCustomer(customer.id, adminId);
+        await authStore.updateUserRole(customer.email, 'approved_customer');
       }
       if (app) {
-        updatedApp = databaseStore.updateApplicationStatus(app.id, 'APPROVED', adminId, reason);
+        updatedApp = await databaseStore.updateApplicationStatus(app.id, 'APPROVED', adminId, reason);
       }
 
-      databaseStore.addAuditLog({
+      await databaseStore.addAuditLog({
         event: 'ACCOUNT_REACTIVATED',
         targetId: customer?.id || app?.id || id,
         targetEmail: customer?.email || app?.email || '',
@@ -2985,11 +2987,11 @@ apiApp.patch(
     }
 
     if (targetStatus === 'pending') {
-      const app = databaseStore.getApplication(id);
+      const app = await databaseStore.getApplication(id);
       if (!app) return err(res, 404, `Application ${id} not found.`);
-      const session = getSessionUser(req);
+      const session = await getSessionUser(req);
       const adminId = session?.userId || 'admin_master';
-      const updatedApp = databaseStore.updateApplicationStatus(app.id, 'PENDING', adminId, reason);
+      const updatedApp = await databaseStore.updateApplicationStatus(app.id, 'PENDING', adminId, reason);
       return ok(res, {
         success: true,
         status: 'PENDING',
@@ -3004,20 +3006,20 @@ apiApp.patch(
  * POST /api/admin/customers/:id/suspend
  * Suspends an approved wholesale account, immediately blocking shopping access.
  */
-apiApp.post(['/admin/customers/:id/suspend', '/api/admin/customers/:id/suspend'], requireAdminAuth, (req: Request, res: Response) => {
+apiApp.post(['/admin/customers/:id/suspend', '/api/admin/customers/:id/suspend'], requireAdminAuth, async (req: Request, res: Response) => {
   const id = req.params.id;
   const { reason } = req.body || {};
 
-  const session = getSessionUser(req);
+  const session = await getSessionUser(req);
   const adminId = session?.userId || 'admin_master';
 
-  const customer = databaseStore.suspendCustomer(id, adminId, reason);
+  const customer = await databaseStore.suspendCustomer(id, adminId, reason);
   if (!customer) {
     return err(res, 404, `Customer ${id} not found.`);
   }
 
-  authStore.updateUserRole(customer.email, 'visitor');
-  databaseStore.addAuditLog({
+  await authStore.updateUserRole(customer.email, 'visitor');
+  await databaseStore.addAuditLog({
     event: 'ACCOUNT_SUSPENDED',
     targetId: customer.id,
     targetEmail: customer.email,
@@ -3033,19 +3035,19 @@ apiApp.post(['/admin/customers/:id/suspend', '/api/admin/customers/:id/suspend']
  * POST /api/admin/customers/:id/reactivate
  * Restores an approved wholesale account from suspended state.
  */
-apiApp.post(['/admin/customers/:id/reactivate', '/api/admin/customers/:id/reactivate'], requireAdminAuth, (req: Request, res: Response) => {
+apiApp.post(['/admin/customers/:id/reactivate', '/api/admin/customers/:id/reactivate'], requireAdminAuth, async (req: Request, res: Response) => {
   const id = req.params.id;
 
-  const session = getSessionUser(req);
+  const session = await getSessionUser(req);
   const adminId = session?.userId || 'admin_master';
 
-  const customer = databaseStore.reactivateCustomer(id, adminId);
+  const customer = await databaseStore.reactivateCustomer(id, adminId);
   if (!customer) {
     return err(res, 404, `Customer ${id} not found.`);
   }
 
-  authStore.updateUserRole(customer.email, 'approved_customer');
-  databaseStore.addAuditLog({
+  await authStore.updateUserRole(customer.email, 'approved_customer');
+  await databaseStore.addAuditLog({
     event: 'ACCOUNT_REACTIVATED',
     targetId: customer.id,
     targetEmail: customer.email,
@@ -3068,24 +3070,24 @@ apiApp.delete(
     '/api/admin/customer-applications/:id',
   ],
   requireAdminAuth,
-  (req: Request, res: Response) => {
+  async (req: Request, res: Response) => {
     const id = req.params.id;
-    const app = databaseStore.getApplication(id);
+    const app = await databaseStore.getApplication(id);
     if (!app) {
       return err(res, 404, `Application ${id} not found.`);
     }
 
     const email = app.email;
-    databaseStore.deleteApplication(app.id);
+    await databaseStore.deleteApplication(app.id);
 
     if (app.customerId) {
-      databaseStore.deleteCustomer(app.customerId);
+      await databaseStore.deleteCustomer(app.customerId);
     }
-    const cust = databaseStore.getCustomerByEmail(email);
+    const cust = await databaseStore.getCustomerByEmail(email);
     if (cust) {
-      databaseStore.deleteCustomer(cust.id);
+      await databaseStore.deleteCustomer(cust.id);
     }
-    authStore.deleteUser(email);
+    await authStore.deleteUser(email);
 
     return ok(res, {
       success: true,
@@ -3104,19 +3106,19 @@ apiApp.delete(
     '/api/admin/customers/:id',
   ],
   requireAdminAuth,
-  (req: Request, res: Response) => {
+  async (req: Request, res: Response) => {
     const id = req.params.id;
-    const customer = databaseStore.getCustomer(id);
+    const customer = await databaseStore.getCustomer(id);
     if (!customer) {
       return err(res, 404, `Customer ${id} not found.`);
     }
 
     const email = customer.email;
-    databaseStore.deleteCustomer(customer.id);
+    await databaseStore.deleteCustomer(customer.id);
     if (customer.applicationId) {
-      databaseStore.deleteApplication(customer.applicationId);
+      await databaseStore.deleteApplication(customer.applicationId);
     }
-    authStore.deleteUser(email);
+    await authStore.deleteUser(email);
 
     return ok(res, {
       success: true,
@@ -3139,13 +3141,13 @@ apiApp.post(
     '/api/admin/customers/:id/reset-password',
   ],
   requireAdminAuth,
-  (req: Request, res: Response) => {
+  async (req: Request, res: Response) => {
     const id = req.params.id;
-    let app = databaseStore.getApplication(id);
-    let customer = databaseStore.getCustomer(id);
-    if (!app && customer?.applicationId) app = databaseStore.getApplication(customer.applicationId);
-    if (!customer && app?.customerId) customer = databaseStore.getCustomer(app.customerId);
-    if (!customer && app?.email) customer = databaseStore.getCustomerByEmail(app.email);
+    let app = await databaseStore.getApplication(id);
+    let customer = await databaseStore.getCustomer(id);
+    if (!app && customer?.applicationId) app = await databaseStore.getApplication(customer.applicationId);
+    if (!customer && app?.customerId) customer = await databaseStore.getCustomer(app.customerId);
+    if (!customer && app?.email) customer = await databaseStore.getCustomerByEmail(app.email);
 
     const email = customer?.email || app?.email;
     if (!email) {
@@ -3153,15 +3155,14 @@ apiApp.post(
     }
 
     const newPassword = generateCustomerPassword(10);
-    authStore.setPassword(email, newPassword);
-    authStore.updateUserRole(email, 'approved_customer');
+    await authStore.setPassword(email, newPassword);
+    await authStore.updateUserRole(email, 'approved_customer');
 
     if (customer) {
-      databaseStore.setCustomerTemporaryPassword(customer.id, newPassword);
+      await databaseStore.setCustomerTemporaryPassword(customer.id, newPassword);
     }
     if (app) {
-      app.assignedPassword = newPassword;
-      databaseStore.persistToDisk();
+      app = await databaseStore.setApplicationAssignedPassword(app.id, newPassword);
     }
 
     const businessName = customer?.businessName || app?.businessName || 'Wholesale Partner';
@@ -3195,26 +3196,25 @@ apiApp.post(
   requireAdminAuth,
   async (req: Request, res: Response) => {
     const id = req.params.id;
-    let app = databaseStore.getApplication(id);
-    let customer = databaseStore.getCustomer(id);
-    if (!app && customer?.applicationId) app = databaseStore.getApplication(customer.applicationId);
-    if (!customer && app?.customerId) customer = databaseStore.getCustomer(app.customerId);
-    if (!customer && app?.email) customer = databaseStore.getCustomerByEmail(app.email);
+    let app = await databaseStore.getApplication(id);
+    let customer = await databaseStore.getCustomer(id);
+    if (!app && customer?.applicationId) app = await databaseStore.getApplication(customer.applicationId);
+    if (!customer && app?.customerId) customer = await databaseStore.getCustomer(app.customerId);
+    if (!customer && app?.email) customer = await databaseStore.getCustomerByEmail(app.email);
 
     const email = customer?.email || app?.email;
     if (!email) {
       return err(res, 404, `Customer or application ${id} not found.`);
     }
 
-    let password = customer?.temporaryPassword || app?.assignedPassword || authStore.getAssignedPassword(email);
+    let password = customer?.temporaryPassword || app?.assignedPassword || await authStore.getAssignedPassword(email);
     if (!password) {
       password = generateCustomerPassword(10);
-      authStore.setPassword(email, password);
-      authStore.updateUserRole(email, 'approved_customer');
-      if (customer) databaseStore.setCustomerTemporaryPassword(customer.id, password);
+      await authStore.setPassword(email, password);
+      await authStore.updateUserRole(email, 'approved_customer');
+      if (customer) await databaseStore.setCustomerTemporaryPassword(customer.id, password);
       if (app) {
-        app.assignedPassword = password;
-        databaseStore.persistToDisk();
+        app = await databaseStore.setApplicationAssignedPassword(app.id, password);
       }
     }
 
@@ -3261,14 +3261,14 @@ apiApp.post(
  * POST /api/admin/customers/:id/generate-activation
  * Generates an account activation link for an approved customer.
  */
-apiApp.post(['/admin/customers/:id/generate-activation', '/api/admin/customers/:id/generate-activation'], requireAdminAuth, (req: Request, res: Response) => {
+apiApp.post(['/admin/customers/:id/generate-activation', '/api/admin/customers/:id/generate-activation'], requireAdminAuth, async (req: Request, res: Response) => {
   const id = req.params.id;
-  const customer = databaseStore.getCustomer(id);
+  const customer = await databaseStore.getCustomer(id);
   if (!customer) {
     return err(res, 404, `Customer ${id} not found.`);
   }
 
-  const tokenRecord = databaseStore.createSecurityToken({
+  const tokenRecord = await databaseStore.createSecurityToken({
     type: 'CUSTOMER_ACTIVATION',
     email: customer.email,
     targetId: customer.id,
@@ -3287,8 +3287,8 @@ apiApp.post(['/admin/customers/:id/generate-activation', '/api/admin/customers/:
  * GET /api/admin/audit-logs
  * Returns audit trail entries.
  */
-apiApp.get(['/admin/audit-logs', '/api/admin/audit-logs'], requireAdminAuth, (_req: Request, res: Response) => {
-  const logs = databaseStore.listAuditLogs(100);
+apiApp.get(['/admin/audit-logs', '/api/admin/audit-logs'], requireAdminAuth, async (_req: Request, res: Response) => {
+  const logs = await databaseStore.listAuditLogs(100);
   return ok(res, { success: true, logs });
 });
 
@@ -3342,23 +3342,23 @@ function customerSafeOrder(order: OrderRecord) {
  * Returns centralized pickup warehouse location, business hours, contact info,
  * and delivery eligibility criteria (eligible cities, eligible zip codes, min order, fee, free threshold).
  */
-apiApp.get(['/fulfillment/config', '/api/fulfillment/config'], (_req: Request, res: Response) => {
-  const config = databaseStore.getFulfillmentConfig();
+apiApp.get(['/fulfillment/config', '/api/fulfillment/config'], async (_req: Request, res: Response) => {
+  const config = await databaseStore.getFulfillmentConfig();
   return ok(res, { success: true, config });
 });
 
-apiApp.get(['/checkout/tax-settings', '/api/checkout/tax-settings'], (_req: Request, res: Response) => {
-  return ok(res, { success: true, taxSettings: databaseStore.getTaxSettings() });
+apiApp.get(['/checkout/tax-settings', '/api/checkout/tax-settings'], async (_req: Request, res: Response) => {
+  return ok(res, { success: true, taxSettings: await databaseStore.getTaxSettings() });
 });
 
-apiApp.get(['/admin/tax-settings', '/api/admin/tax-settings'], requireAdminAuth, (_req: Request, res: Response) => {
-  return ok(res, { success: true, taxSettings: databaseStore.getTaxSettings() });
+apiApp.get(['/admin/tax-settings', '/api/admin/tax-settings'], requireAdminAuth, async (_req: Request, res: Response) => {
+  return ok(res, { success: true, taxSettings: await databaseStore.getTaxSettings() });
 });
 
-apiApp.put(['/admin/tax-settings', '/api/admin/tax-settings'], requireAdminAuth, (req: Request, res: Response) => {
+apiApp.put(['/admin/tax-settings', '/api/admin/tax-settings'], requireAdminAuth, async (req: Request, res: Response) => {
   try {
-    const session = getSessionUser(req);
-    const taxSettings = databaseStore.updateTaxSettings(req.body || {}, session?.email || 'administrator');
+    const session = await getSessionUser(req);
+    const taxSettings = await databaseStore.updateTaxSettings(req.body || {}, session?.email || 'administrator');
     return ok(res, { success: true, taxSettings });
   } catch (e: any) {
     return err(res, 400, e.message || 'Failed to update tax settings.');
@@ -3369,12 +3369,12 @@ apiApp.put(['/admin/tax-settings', '/api/admin/tax-settings'], requireAdminAuth,
  * POST /api/fulfillment/validate-delivery
  * Validates delivery address against business eligibility rules and returns fee.
  */
-apiApp.post(['/fulfillment/validate-delivery', '/api/fulfillment/validate-delivery'], (req: Request, res: Response) => {
+apiApp.post(['/fulfillment/validate-delivery', '/api/fulfillment/validate-delivery'], async (req: Request, res: Response) => {
   const { address, subtotal } = req.body || {};
   if (!address || !address.streetAddress || !address.city || !address.state || !address.zipCode) {
     return err(res, 400, 'Street address, city, state, and ZIP code are required.');
   }
-  const valResult = databaseStore.validateDeliveryAddress({
+  const valResult = await databaseStore.validateDeliveryAddress({
     street: address.streetAddress || address.street,
     city: address.city,
     state: address.state,
@@ -3388,7 +3388,7 @@ apiApp.post(['/fulfillment/validate-delivery', '/api/fulfillment/validate-delive
       deliveryFee: 0,
     });
   }
-  const totals = databaseStore.calculateOrderTotals({
+  const totals = await databaseStore.calculateOrderTotals({
     subtotal: typeof subtotal === 'number' ? subtotal : 0,
     fulfillmentMethod: 'DELIVERY',
     deliveryAddress: {
@@ -3427,12 +3427,12 @@ const registerDelete = (paths: string[], ...handlers: any[]) => {
  * GET /api/customer/profile
  * Returns the authenticated approved customer's full business profile.
  */
-registerGet(['/customer/profile', '/api/customer/profile'], requireCustomerAuth, (req: Request, res: Response) => {
-  const session = getSessionUser(req)!;
+registerGet(['/customer/profile', '/api/customer/profile'], requireCustomerAuth, async (req: Request, res: Response) => {
+  const session = await getSessionUser(req)!;
   // Look up by userId first, then by email
-  let customer = session.userId ? databaseStore.getCustomer(session.userId) : null;
+  let customer = session.userId ? await databaseStore.getCustomer(session.userId) : null;
   if (!customer && session.email) {
-    customer = databaseStore.getCustomerByEmail(session.email);
+    customer = await databaseStore.getCustomerByEmail(session.email);
   }
   if (!customer) {
     return err(res, 404, 'Customer profile not found.');
@@ -3446,9 +3446,9 @@ registerGet(['/customer/profile', '/api/customer/profile'], requireCustomerAuth,
  * GET /api/customer/addresses
  * List saved addresses for the authenticated customer.
  */
-registerGet(['/customer/addresses', '/api/customer/addresses'], requireCustomerAuth, (req: Request, res: Response) => {
-  const session = getSessionUser(req)!;
-  const addresses = databaseStore.listCustomerAddresses(session.userId);
+registerGet(['/customer/addresses', '/api/customer/addresses'], requireCustomerAuth, async (req: Request, res: Response) => {
+  const session = await getSessionUser(req)!;
+  const addresses = await databaseStore.listCustomerAddresses(session.userId);
   return ok(res, { success: true, addresses });
 });
 
@@ -3456,8 +3456,8 @@ registerGet(['/customer/addresses', '/api/customer/addresses'], requireCustomerA
  * POST /api/customer/addresses
  * Add a new saved address.
  */
-registerPost(['/customer/addresses', '/api/customer/addresses'], requireCustomerAuth, (req: Request, res: Response) => {
-  const session = getSessionUser(req)!;
+registerPost(['/customer/addresses', '/api/customer/addresses'], requireCustomerAuth, async (req: Request, res: Response) => {
+  const session = await getSessionUser(req)!;
   const { label, recipientName, streetAddress, suiteUnit, street, unit, city, state, zipCode, zip, phone, deliveryInstructions, isDefaultDelivery, isDefault, type } = req.body || {};
 
   const effectiveRecipient = (recipientName || session.contactName || '').trim();
@@ -3471,7 +3471,7 @@ registerPost(['/customer/addresses', '/api/customer/addresses'], requireCustomer
     return err(res, 400, 'Recipient name, street address, city, state, zip code, and phone are required.');
   }
 
-  const address = databaseStore.addCustomerAddress({
+  const address = await databaseStore.addCustomerAddress({
     customerId: session.userId,
     type: type === 'billing' ? 'billing' : 'delivery',
     isDefault: Boolean(isDefault || isDefaultDelivery),
@@ -3493,10 +3493,10 @@ registerPost(['/customer/addresses', '/api/customer/addresses'], requireCustomer
  * PUT /api/customer/addresses/:id
  * Update an existing saved address (IDOR protected).
  */
-registerPut(['/customer/addresses/:id', '/api/customer/addresses/:id'], requireCustomerAuth, (req: Request, res: Response) => {
-  const session = getSessionUser(req)!;
+registerPut(['/customer/addresses/:id', '/api/customer/addresses/:id'], requireCustomerAuth, async (req: Request, res: Response) => {
+  const session = await getSessionUser(req)!;
   const addressId = req.params.id || (req.params as any)[0];
-  const updated = databaseStore.updateCustomerAddress(session.userId, addressId, req.body || {});
+  const updated = await databaseStore.updateCustomerAddress(session.userId, addressId, req.body || {});
   if (!updated) {
     return err(res, 404, 'Address not found or unauthorized.');
   }
@@ -3507,10 +3507,10 @@ registerPut(['/customer/addresses/:id', '/api/customer/addresses/:id'], requireC
  * DELETE /api/customer/addresses/:id
  * Delete a saved address (IDOR protected).
  */
-registerDelete(['/customer/addresses/:id', '/api/customer/addresses/:id'], requireCustomerAuth, (req: Request, res: Response) => {
-  const session = getSessionUser(req)!;
+registerDelete(['/customer/addresses/:id', '/api/customer/addresses/:id'], requireCustomerAuth, async (req: Request, res: Response) => {
+  const session = await getSessionUser(req)!;
   const addressId = req.params.id || (req.params as any)[0];
-  const success = databaseStore.deleteCustomerAddress(session.userId, addressId);
+  const success = await databaseStore.deleteCustomerAddress(session.userId, addressId);
   if (!success) {
     return err(res, 404, 'Address not found or unauthorized.');
   }
@@ -3521,10 +3521,10 @@ registerDelete(['/customer/addresses/:id', '/api/customer/addresses/:id'], requi
  * POST /api/customer/addresses/:id/set-default
  * Set default delivery address (IDOR protected).
  */
-registerPost(['/customer/addresses/:id/set-default', '/api/customer/addresses/:id/set-default'], requireCustomerAuth, (req: Request, res: Response) => {
-  const session = getSessionUser(req)!;
+registerPost(['/customer/addresses/:id/set-default', '/api/customer/addresses/:id/set-default'], requireCustomerAuth, async (req: Request, res: Response) => {
+  const session = await getSessionUser(req)!;
   const addressId = req.params.id || (req.params as any)[0];
-  const success = databaseStore.setDefaultDeliveryAddress(session.userId, addressId);
+  const success = await databaseStore.setDefaultDeliveryAddress(session.userId, addressId);
   if (!success) {
     return err(res, 404, 'Address not found or unauthorized.');
   }
@@ -3535,9 +3535,9 @@ registerPost(['/customer/addresses/:id/set-default', '/api/customer/addresses/:i
  * GET /api/customer/orders
  * List orders for the authenticated customer (omits internal staff notes).
  */
-registerGet(['/customer/orders', '/api/customer/orders'], requireCustomerAuth, (req: Request, res: Response) => {
-  const session = getSessionUser(req)!;
-  const orders = databaseStore.listOrders({ customerId: session.userId });
+registerGet(['/customer/orders', '/api/customer/orders'], requireCustomerAuth, async (req: Request, res: Response) => {
+  const session = await getSessionUser(req)!;
+  const orders = await databaseStore.listOrders({ customerId: session.userId });
   return ok(res, {
     success: true,
     orders: orders.map(customerSafeOrder),
@@ -3548,10 +3548,10 @@ registerGet(['/customer/orders', '/api/customer/orders'], requireCustomerAuth, (
  * GET /api/customer/orders/:id
  * View order details for the authenticated customer (IDOR protected, omits internal staff notes).
  */
-registerGet(['/customer/orders/:id', '/api/customer/orders/:id'], requireCustomerAuth, (req: Request, res: Response) => {
-  const session = getSessionUser(req)!;
+registerGet(['/customer/orders/:id', '/api/customer/orders/:id'], requireCustomerAuth, async (req: Request, res: Response) => {
+  const session = await getSessionUser(req)!;
   const orderId = req.params.id || (req.params as any)[0];
-  const order = databaseStore.getOrder(orderId);
+  const order = await databaseStore.getOrder(orderId);
   if (!order || order.customerId !== session.userId) {
     return err(res, 404, 'Order not found.');
   }
@@ -3564,11 +3564,11 @@ registerGet(['/customer/orders/:id', '/api/customer/orders/:id'], requireCustome
  * e.g. ACCEPT_PARTIAL, REMOVE_ITEM, WAIT_FOR_PRODUCT, REQUEST_SUBSTITUTE
  */
 registerPost(['/customer/orders/:id/action', '/api/customer/orders/:id/action'], requireCustomerAuth, async (req: Request, res: Response) => {
-  const session = getSessionUser(req)!;
+  const session = await getSessionUser(req)!;
   const orderId = req.params.id || (req.params as any)[0];
   const { itemId, resolution, notes } = req.body || {};
 
-  const order = databaseStore.getOrder(orderId);
+  const order = await databaseStore.getOrder(orderId);
   if (!order || order.customerId !== session.userId) {
     return err(res, 404, 'Order not found.');
   }
@@ -3587,7 +3587,7 @@ registerPost(['/customer/orders/:id/action', '/api/customer/orders/:id/action'],
   else if (resolution === 'REMOVE_ITEM') resType = 'REMOVE_ITEM';
   else if (resolution === 'REQUEST_SUBSTITUTE') resType = 'SUBSTITUTION';
 
-  const updated = databaseStore.resolveOrderInventoryIssue({
+  const updated = await databaseStore.resolveOrderInventoryIssue({
     orderId,
     itemId,
     resolutionType: resType,
@@ -3600,7 +3600,7 @@ registerPost(['/customer/orders/:id/action', '/api/customer/orders/:id/action'],
     return err(res, 400, 'Unable to process action on item.');
   }
 
-  databaseStore.addAuditLog({
+  await databaseStore.addAuditLog({
     event: 'CUSTOMER_ACCEPTED_PARTIAL',
     targetId: orderId,
     adminId: session.userId,
@@ -3614,7 +3614,7 @@ registerPost(['/customer/orders/:id/action', '/api/customer/orders/:id/action'],
  * GET /api/admin/orders
  * Returns all orders with filtering by fulfillment method, status, search term.
  */
-registerGet(['/admin/orders', '/api/admin/orders'], requireAdminAuth, (req: Request, res: Response) => {
+registerGet(['/admin/orders', '/api/admin/orders'], requireAdminAuth, async (req: Request, res: Response) => {
   const query = q(req);
   const status = query.status as GeneralOrderStatus | 'ALL' | undefined;
   const fulfillmentMethod = query.fulfillmentMethod as FulfillmentMethod | 'ALL' | undefined;
@@ -3622,7 +3622,7 @@ registerGet(['/admin/orders', '/api/admin/orders'], requireAdminAuth, (req: Requ
   const limit = query.limit ? parseInt(query.limit, 10) : 100;
   const offset = query.offset ? parseInt(query.offset, 10) : 0;
 
-  const allOrders = databaseStore.listOrders({ status, fulfillmentMethod, search });
+  const allOrders = await databaseStore.listOrders({ status, fulfillmentMethod, search });
   const orders = allOrders.slice(offset, offset + limit);
   return ok(res, { success: true, total: allOrders.length, orders });
 });
@@ -3631,9 +3631,9 @@ registerGet(['/admin/orders', '/api/admin/orders'], requireAdminAuth, (req: Requ
  * GET /api/admin/orders/:id
  * Full admin order detail including internal notes and item fulfillment history.
  */
-registerGet(['/admin/orders/:id', '/api/admin/orders/:id'], requireAdminAuth, (req: Request, res: Response) => {
+registerGet(['/admin/orders/:id', '/api/admin/orders/:id'], requireAdminAuth, async (req: Request, res: Response) => {
   const orderId = req.params.id || (req.params as any)[0];
-  const order = databaseStore.getOrder(orderId);
+  const order = await databaseStore.getOrder(orderId);
   if (!order) {
     return err(res, 404, `Order ${orderId} not found.`);
   }
@@ -3653,7 +3653,7 @@ registerPost(['/admin/orders/:id/status', '/api/admin/orders/:id/status'], requi
     return err(res, 400, 'Order status is required.');
   }
 
-  const existing = databaseStore.getOrder(orderId);
+  const existing = await databaseStore.getOrder(orderId);
   if (!existing) {
     return err(res, 404, `Order ${orderId} not found.`);
   }
@@ -3672,10 +3672,10 @@ registerPost(['/admin/orders/:id/status', '/api/admin/orders/:id/status'], requi
     }
   }
 
-  const session = getSessionUser(req);
+  const session = await getSessionUser(req);
   const adminId = session?.userId || 'admin_staff';
 
-  const updated = databaseStore.updateOrderStatus({
+  const updated = await databaseStore.updateOrderStatus({
     orderId,
     status,
     adminId,
@@ -3722,10 +3722,10 @@ registerPost(['/admin/orders/:id/items/:itemId/status', '/api/admin/orders/:id/i
     return err(res, 400, 'Item fulfillment status is required.');
   }
 
-  const session = getSessionUser(req);
+  const session = await getSessionUser(req);
   const adminId = session?.userId || 'admin_staff';
 
-  const updateResult = databaseStore.updateOrderItemStatus({
+  const updateResult = await databaseStore.updateOrderItemStatus({
     orderId,
     itemId,
     status,
@@ -3770,10 +3770,10 @@ registerPost(['/admin/orders/:id/resolve', '/api/admin/orders/:id/resolve'], req
     return err(res, 400, 'resolution is required.');
   }
 
-  const session = getSessionUser(req);
+  const session = await getSessionUser(req);
   const adminId = session?.userId || 'admin_staff';
 
-  const updated = databaseStore.resolveOrderInventoryIssue({
+  const updated = await databaseStore.resolveOrderInventoryIssue({
     orderId,
     resolutionType: resolution,
     itemId,
@@ -3808,7 +3808,7 @@ registerPost(['/admin/orders/:id/resolve', '/api/admin/orders/:id/resolve'], req
  * POST /api/admin/orders/:id/internal-notes
  * Adds an internal staff note (visible exclusively to authorized staff).
  */
-registerPost(['/admin/orders/:id/internal-notes', '/api/admin/orders/:id/internal-notes'], requireAdminAuth, (req: Request, res: Response) => {
+registerPost(['/admin/orders/:id/internal-notes', '/api/admin/orders/:id/internal-notes'], requireAdminAuth, async (req: Request, res: Response) => {
   const orderId = req.params.id || (req.params as any)[0];
   const { note } = req.body || {};
 
@@ -3816,10 +3816,10 @@ registerPost(['/admin/orders/:id/internal-notes', '/api/admin/orders/:id/interna
     return err(res, 400, 'Note content cannot be blank.');
   }
 
-  const session = getSessionUser(req);
+  const session = await getSessionUser(req);
   const adminId = session?.userId || 'admin_staff';
 
-  const updated = databaseStore.addInternalOrderNote({
+  const updated = await databaseStore.addInternalOrderNote({
     orderId,
     note: note.trim(),
     authorId: adminId,
@@ -3833,21 +3833,21 @@ registerPost(['/admin/orders/:id/internal-notes', '/api/admin/orders/:id/interna
  * POST /api/admin/products/:id/temporary-override
  * Marks a product temporarily out of stock online, blocking new purchases without altering Zoho.
  */
-registerPost(['/admin/products/:id/temporary-override', '/api/admin/products/:id/temporary-override'], requireAdminAuth, (req: Request, res: Response) => {
+registerPost(['/admin/products/:id/temporary-override', '/api/admin/products/:id/temporary-override'], requireAdminAuth, async (req: Request, res: Response) => {
   const productId = req.params.id || (req.params as any)[0];
   const { isOutOfStockOnline, statusOverride, reason, sku, productName } = req.body || {};
 
-  const session = getSessionUser(req);
+  const session = await getSessionUser(req);
   const adminId = session?.userId || 'admin_staff';
 
   if (isOutOfStockOnline === false || statusOverride === 'AVAILABLE') {
-    const success = databaseStore.removeProductOnlineOverride(productId, adminId);
+    const success = await databaseStore.removeProductOnlineOverride(productId, adminId);
     return ok(res, { success, message: `Product ${productId} online override removed. Restored to live Zoho sync.` });
   }
 
   const status = statusOverride || (isOutOfStockOnline ? 'TEMPORARILY_UNAVAILABLE' : 'AVAILABLE');
 
-  const override = databaseStore.setProductOnlineOverride({
+  const override = await databaseStore.setProductOnlineOverride({
     productId,
     sku: sku || productId,
     name: productName || productId,
@@ -3864,8 +3864,8 @@ registerPost(['/admin/products/:id/temporary-override', '/api/admin/products/:id
  * GET /api/admin/products/temporary-overrides
  * Lists all active online product overrides.
  */
-registerGet(['/admin/products/temporary-overrides', '/api/admin/products/temporary-overrides'], requireAdminAuth, (_req: Request, res: Response) => {
-  const overrides = databaseStore.listProductOverrides();
+registerGet(['/admin/products/temporary-overrides', '/api/admin/products/temporary-overrides'], requireAdminAuth, async (_req: Request, res: Response) => {
+  const overrides = await databaseStore.listProductOverrides();
   return ok(res, { success: true, overrides });
 });
 
@@ -3873,10 +3873,10 @@ registerGet(['/admin/products/temporary-overrides', '/api/admin/products/tempora
  * GET /api/admin/inventory-mismatches
  * Lists physical inventory discrepancy records for warehouse reconciliation.
  */
-registerGet(['/admin/inventory-mismatches', '/api/admin/inventory-mismatches'], requireAdminAuth, (req: Request, res: Response) => {
+registerGet(['/admin/inventory-mismatches', '/api/admin/inventory-mismatches'], requireAdminAuth, async (req: Request, res: Response) => {
   const query = q(req);
   const resolved = query.resolved === 'true' ? true : query.resolved === 'false' ? false : undefined;
-  const mismatches = databaseStore.listInventoryMismatches(resolved);
+  const mismatches = await databaseStore.listInventoryMismatches(resolved);
   return ok(res, { success: true, mismatches, total: mismatches.length });
 });
 
@@ -3884,14 +3884,14 @@ registerGet(['/admin/inventory-mismatches', '/api/admin/inventory-mismatches'], 
  * POST /api/admin/inventory-mismatches/:id/resolve
  * Marks an inventory mismatch record resolved with notes.
  */
-registerPost(['/admin/inventory-mismatches/:id/resolve', '/api/admin/inventory-mismatches/:id/resolve'], requireAdminAuth, (req: Request, res: Response) => {
+registerPost(['/admin/inventory-mismatches/:id/resolve', '/api/admin/inventory-mismatches/:id/resolve'], requireAdminAuth, async (req: Request, res: Response) => {
   const mismatchId = req.params.id || (req.params as any)[0];
   const { notes } = req.body || {};
 
-  const session = getSessionUser(req);
+  const session = await getSessionUser(req);
   const adminId = session?.userId || 'admin_staff';
 
-  const updated = databaseStore.resolveInventoryMismatch(mismatchId, adminId, notes || 'Resolved by inventory manager.');
+  const updated = await databaseStore.resolveInventoryMismatch(mismatchId, adminId, notes || 'Resolved by inventory manager.');
   if (!updated) {
     return err(res, 404, `Mismatch record ${mismatchId} not found.`);
   }
@@ -3900,4 +3900,11 @@ registerPost(['/admin/inventory-mismatches/:id/resolve', '/api/admin/inventory-m
 });
 
 export const apiRouter = apiApp;
+
+apiApp.use((error: unknown, req: Request, res: Response, next: express.NextFunction) => {
+  if (res.headersSent) return next(error);
+  console.error(`[API] Unhandled request error at ${req.method} ${req.path}:`, error);
+  return res.status(500).json({ error: 'Internal server error' });
+});
+
 export default apiApp;

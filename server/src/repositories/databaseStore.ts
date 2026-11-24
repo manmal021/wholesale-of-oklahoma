@@ -15,6 +15,9 @@ import fs from 'fs';
 import path from 'path';
 import crypto from 'crypto';
 import os from 'os';
+import { postgresPool } from './postgres.js';
+import type { PoolClient } from 'pg';
+import { loadRelationalState, persistRelationalDiff } from './relationalPersistence.js';
 
 export type ApplicationStatus = 'PENDING' | 'APPROVED' | 'REJECTED' | 'SUSPENDED' | 'NEEDS_INFORMATION';
 
@@ -458,7 +461,7 @@ export const DEFAULT_FULFILLMENT_CONFIG: FulfillmentConfig = {
   },
 };
 
-interface DatabaseState {
+export interface DatabaseState {
   applications: WholesaleApplicationRecord[];
   customers: CustomerRecord[];
   tokens: SecurityTokenRecord[];
@@ -484,10 +487,13 @@ const isVercel = Boolean(
 const LOCAL_STORAGE_DIR = path.resolve(process.cwd(), 'storage');
 const LOCAL_DB_FILE = path.join(LOCAL_STORAGE_DIR, 'database_state.json');
 const COMMITTED_SEED_FILE = path.resolve(process.cwd(), 'data', 'seed_database_state.json');
+const USE_ISOLATED_TEST_STORAGE = process.env.WOO_TEST_MODE === 'true' && !process.env.WOO_STORAGE_DIR;
 
 const STORAGE_DIR = process.env.WOO_STORAGE_DIR
   ? path.resolve(process.env.WOO_STORAGE_DIR)
-  : isVercel
+  : USE_ISOLATED_TEST_STORAGE
+    ? path.join(os.tmpdir(), 'wholesale-of-oklahoma-test-storage')
+    : isVercel
     ? path.join(os.tmpdir(), 'storage')
     : LOCAL_STORAGE_DIR;
 const DB_FILE = path.join(STORAGE_DIR, 'database_state.json');
@@ -542,21 +548,37 @@ class DatabaseStore {
   private customerAddresses: Map<string, CustomerSavedAddress[]> = new Map(); // customerId -> addresses[]
   private users: Map<string, any> = new Map(); // keyed by email (lowercase)
   private lastLoadedMtime = 0;
+  private hasPostgresChanges = false;
 
   constructor() {
-    this.ensureStorageDir();
-    this.loadFromDisk();
-    this.seedDefaultsIfEmpty();
+    if (!postgresPool) {
+      this.ensureStorageDir();
+      this.initializeIsolatedTestStorage();
+      this.loadFromDisk();
+      this.seedDefaultsIfEmpty();
+    }
   }
 
   private ensureStorageDir(): void {
     try {
       if (!fs.existsSync(STORAGE_DIR)) {
-        fs.mkdirSync(STORAGE_DIR, { recursive: true });
+        fs.mkdirSync(STORAGE_DIR, { recursive: true, mode: USE_ISOLATED_TEST_STORAGE ? 0o700 : 0o755 });
       }
+      if (USE_ISOLATED_TEST_STORAGE) fs.chmodSync(STORAGE_DIR, 0o700);
     } catch (err: any) {
       console.warn('[DatabaseStore] Could not create storage directory:', err.message);
     }
+  }
+
+  private initializeIsolatedTestStorage(): void {
+    if (!USE_ISOLATED_TEST_STORAGE || fs.existsSync(DB_FILE) || !fs.existsSync(LOCAL_DB_FILE)) return;
+    try {
+      fs.copyFileSync(LOCAL_DB_FILE, DB_FILE, fs.constants.COPYFILE_EXCL);
+    } catch (error) {
+      if (error && typeof error === 'object' && 'code' in error && error.code === 'EEXIST') return;
+      throw error;
+    }
+    fs.chmodSync(DB_FILE, 0o600);
   }
 
   private loadFromDisk(): void {
@@ -720,6 +742,7 @@ class DatabaseStore {
   }
 
   private syncFromDisk(): void {
+    if (postgresPool) return;
     try {
       let targetFile = DB_FILE;
       if (!fs.existsSync(targetFile)) {
@@ -755,6 +778,14 @@ class DatabaseStore {
   public saveUser(user: any): void {
     if (!user || !user.email) return;
     this.users.set(user.email.toLowerCase().trim(), user);
+    this.persistToDisk();
+  }
+
+  public createUser(user: any): void {
+    if (!user || !user.email) throw new Error('A valid user email is required.');
+    const email = user.email.toLowerCase().trim();
+    if (this.users.has(email)) throw new Error('An account with this email address already exists.');
+    this.users.set(email, user);
     this.persistToDisk();
   }
 
@@ -799,6 +830,11 @@ class DatabaseStore {
   }
 
   public persistToDisk(): void {
+    if (postgresPool) {
+      this.hasPostgresChanges = true;
+      return;
+    }
+
     try {
       this.ensureStorageDir();
       const state: DatabaseState = {
@@ -825,6 +861,114 @@ class DatabaseStore {
     } catch (err: any) {
       console.warn('[DatabaseStore] Could not persist database to disk (expected in serverless/read-only):', err.message);
     }
+  }
+
+  public __hydrateFromPostgres(state: DatabaseState): void {
+    this.applications.clear();
+    this.applicationsByEmail.clear();
+    this.customers.clear();
+    this.customersByEmail.clear();
+    this.tokens.clear();
+    this.auditLogs = [];
+    this.orders.clear();
+    this.ordersByCustomerEmail.clear();
+    this.inventoryOverrides.clear();
+    this.productAdminOverrides.clear();
+    this.inventoryMismatches.clear();
+    this.customerAddresses.clear();
+    this.users.clear();
+    this.fulfillmentConfig = { ...DEFAULT_FULFILLMENT_CONFIG };
+    this.taxSettings = { ...DEFAULT_TAX_SETTINGS };
+
+    for (const app of state.applications) {
+      this.applications.set(app.id, app);
+      const emailKey = app.email.toLowerCase().trim();
+      const ids = this.applicationsByEmail.get(emailKey) || [];
+      ids.push(app.id);
+      this.applicationsByEmail.set(emailKey, ids);
+    }
+    for (const customer of state.customers) {
+      this.customers.set(customer.id, customer);
+      this.customersByEmail.set(customer.email.toLowerCase().trim(), customer);
+    }
+    for (const token of state.tokens) this.tokens.set(token.token, token);
+    this.auditLogs = state.auditLogs;
+
+    for (const order of state.orders || []) {
+      this.orders.set(order.id, order);
+      this.orders.set(order.orderNumber, order);
+      const emailKey = order.email.toLowerCase().trim();
+      const ids = this.ordersByCustomerEmail.get(emailKey) || [];
+      if (!ids.includes(order.id)) ids.push(order.id);
+      this.ordersByCustomerEmail.set(emailKey, ids);
+    }
+
+    if (state.fulfillmentConfig) {
+      this.fulfillmentConfig = {
+        ...DEFAULT_FULFILLMENT_CONFIG,
+        ...state.fulfillmentConfig,
+        pickupLocation: {
+          ...DEFAULT_FULFILLMENT_CONFIG.pickupLocation,
+          ...(state.fulfillmentConfig.pickupLocation || {}),
+        },
+        delivery: {
+          ...DEFAULT_FULFILLMENT_CONFIG.delivery,
+          ...(state.fulfillmentConfig.delivery || {}),
+        },
+      };
+    }
+    if (state.taxSettings) {
+      this.taxSettings = { ...DEFAULT_TAX_SETTINGS, ...state.taxSettings };
+    }
+
+    for (const override of state.inventoryOverrides || []) {
+      if (!override.active) continue;
+      this.inventoryOverrides.set(override.productId, override);
+      if (override.sku) this.inventoryOverrides.set(override.sku, override);
+    }
+    for (const override of state.productAdminOverrides || []) {
+      if (!override?.productId) continue;
+      this.productAdminOverrides.set(override.productId, override);
+      if (override.sku) this.productAdminOverrides.set(override.sku, override);
+    }
+    for (const mismatch of state.inventoryMismatches || []) {
+      this.inventoryMismatches.set(mismatch.id, mismatch);
+    }
+    for (const address of state.customerAddresses || []) {
+      const addresses = this.customerAddresses.get(address.customerId) || [];
+      addresses.push(address);
+      this.customerAddresses.set(address.customerId, addresses);
+    }
+    for (const user of state.users || []) {
+      if (user?.email) this.users.set(user.email.toLowerCase().trim(), user);
+    }
+
+    this.hasPostgresChanges = false;
+  }
+
+  public __serializeState(): DatabaseState {
+    return {
+      applications: Array.from(this.applications.values()),
+      customers: Array.from(this.customers.values()),
+      tokens: Array.from(this.tokens.values()),
+      auditLogs: this.auditLogs.slice(-2000),
+      orders: Array.from(new Set(this.orders.values())),
+      fulfillmentConfig: this.fulfillmentConfig,
+      taxSettings: this.taxSettings,
+      inventoryOverrides: Array.from(new Set(this.inventoryOverrides.values())),
+      productAdminOverrides: Array.from(new Set(this.productAdminOverrides.values())),
+      inventoryMismatches: Array.from(this.inventoryMismatches.values()),
+      customerAddresses: Array.from(this.customerAddresses.values()).flat(),
+      users: Array.from(this.users.values()),
+    };
+  }
+
+  public __hasPostgresChanges(): boolean {
+    return this.hasPostgresChanges;
+  }
+
+  public __seedPostgresDefaults(): void {
+    this.seedDefaultsIfEmpty();
   }
 
   public purgeAllCustomerData(): void {
@@ -946,6 +1090,11 @@ class DatabaseStore {
 
   private seedDefaultsIfEmpty(): void {
     if (this.applications.size === 0 && process.env.NODE_ENV !== 'test') {
+      if (postgresPool) {
+        this.applications.set(DEFAULT_PENDING_APPLICATION.id, { ...DEFAULT_PENDING_APPLICATION });
+        this.applicationsByEmail.set(DEFAULT_PENDING_APPLICATION.email, [DEFAULT_PENDING_APPLICATION.id]);
+        this.persistToDisk();
+      } else {
       let seededFromDisk = false;
       if (fs.existsSync(COMMITTED_SEED_FILE)) {
         try {
@@ -969,6 +1118,7 @@ class DatabaseStore {
         this.applicationsByEmail.set(DEFAULT_PENDING_APPLICATION.email, [DEFAULT_PENDING_APPLICATION.id]);
       }
       this.persistToDisk();
+      }
     }
 
     // Only seed sample approved account if explicitly requested via SEED_DEMO_DATA=true
@@ -982,8 +1132,10 @@ class DatabaseStore {
   // ── Applications ──────────────────────────────────────────────────────────
 
   public createApplication(data: Omit<WholesaleApplicationRecord, 'id' | 'status' | 'submittedAt'>): WholesaleApplicationRecord {
-    const randomSuffix = Math.floor(10000 + Math.random() * 90000);
-    const id = `WOA-APP-${randomSuffix}`;
+    let id: string;
+    do {
+      id = `WOA-APP-${crypto.randomInt(10000, 100000)}`;
+    } while (this.applications.has(id));
 
     const cleanEmail = data.email.toLowerCase().trim();
     const contactName =
@@ -1183,6 +1335,7 @@ class DatabaseStore {
     approvedByAdminId: string,
     temporaryPassword?: string
   ): CustomerRecord {
+    app = this.applications.get(app.id) || app;
     const cleanEmail = app.email.toLowerCase().trim();
     let customer = this.customersByEmail.get(cleanEmail);
 
@@ -1276,6 +1429,23 @@ class DatabaseStore {
   public getCustomerByEmail(email: string): CustomerRecord | undefined {
     this.syncFromDisk();
     return this.customersByEmail.get(email.toLowerCase().trim());
+  }
+
+  public markCustomerActivated(id: string, userId: string): CustomerRecord | null {
+    const customer = this.getCustomer(id);
+    if (!customer) return null;
+    customer.activatedAt = new Date().toISOString();
+    customer.userId = userId;
+    this.persistToDisk();
+    return customer;
+  }
+
+  public setApplicationAssignedPassword(id: string, password: string): WholesaleApplicationRecord | null {
+    const app = this.getApplication(id);
+    if (!app) return null;
+    app.assignedPassword = password;
+    this.persistToDisk();
+    return app;
   }
 
   public listCustomers(statusFilter?: ApplicationStatus | 'ALL' | string, search?: string): CustomerRecord[] {
@@ -1657,7 +1827,10 @@ class DatabaseStore {
     customerNotes?: string;
   }): OrderRecord {
     const cleanEmail = params.email.toLowerCase().trim();
-    const orderNum = Math.floor(10000 + Math.random() * 90000);
+    let orderNum: number;
+    do {
+      orderNum = crypto.randomInt(10000, 100000);
+    } while (this.orders.has(String(orderNum)));
     const id = `WOO-ORD-${orderNum}`;
     const now = new Date().toISOString();
 
@@ -2565,4 +2738,87 @@ class DatabaseStore {
   }
 }
 
-export const databaseStore = new DatabaseStore();
+type AsyncMethod<T> = T extends (...args: infer A) => infer R
+  ? (...args: A) => Promise<R>
+  : T;
+
+type DatabaseStoreApi = {
+  [K in keyof DatabaseStore as K extends `__${string}` ? never : K]: AsyncMethod<DatabaseStore[K]>;
+};
+
+async function runPostgresOperation(
+  store: DatabaseStore,
+  method: Function,
+  args: unknown[]
+): Promise<unknown> {
+  if (!postgresPool) {
+    return Reflect.apply(method, store, args);
+  }
+
+  const client = await postgresPool.connect();
+  try {
+    await client.query('BEGIN');
+    await client.query('SELECT pg_advisory_xact_lock($1)', [745190381]);
+    store.__hydrateFromPostgres(await loadRelationalState(client));
+    const before = JSON.parse(JSON.stringify(store.__serializeState())) as DatabaseState;
+    const result = Reflect.apply(method, store, args);
+    if (store.__hasPostgresChanges()) {
+      await persistRelationalDiff(client, before, store.__serializeState());
+    }
+    await client.query('COMMIT');
+    return result;
+  } catch (error) {
+    try {
+      await client.query('ROLLBACK');
+    } catch (rollbackError) {
+      console.error('[DatabaseStore] PostgreSQL rollback failed:', rollbackError);
+    }
+    throw error;
+  } finally {
+    client.release();
+  }
+}
+
+async function initializePostgresStore(store: DatabaseStore): Promise<void> {
+  if (!postgresPool) return;
+  const client = await postgresPool.connect();
+  try {
+    await client.query('BEGIN');
+    await client.query('SELECT pg_advisory_xact_lock($1)', [745190381]);
+    store.__hydrateFromPostgres(await loadRelationalState(client));
+    const before = JSON.parse(JSON.stringify(store.__serializeState())) as DatabaseState;
+    store.__seedPostgresDefaults();
+    if (store.__hasPostgresChanges()) {
+      await persistRelationalDiff(client, before, store.__serializeState());
+    }
+    await client.query('COMMIT');
+  } catch (error) {
+    try {
+      await client.query('ROLLBACK');
+    } catch (rollbackError) {
+      console.error('[DatabaseStore] PostgreSQL startup rollback failed:', rollbackError);
+    }
+    throw error;
+  } finally {
+    client.release();
+  }
+}
+
+function createDatabaseStoreProxy(store: DatabaseStore): DatabaseStoreApi {
+  return new Proxy(store, {
+    get(target, property, receiver) {
+      const value = Reflect.get(target, property, receiver);
+      if (typeof value !== 'function') return value;
+      if (typeof property === 'string' && property.startsWith('__')) return value.bind(target);
+      return (...args: unknown[]) => runPostgresOperation(target, value, args);
+    },
+  }) as unknown as DatabaseStoreApi;
+}
+
+if (!postgresPool && process.env.NODE_ENV !== 'test' && process.env.WOO_TEST_MODE !== 'true') {
+  throw new Error('DATABASE_URL is required. Set it and run `npm run db:migrate` before starting the server.');
+}
+
+const databaseStoreInstance = new DatabaseStore();
+if (postgresPool) await initializePostgresStore(databaseStoreInstance);
+export const databaseStore = createDatabaseStoreProxy(databaseStoreInstance);

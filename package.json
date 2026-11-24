@@ -16,11 +16,17 @@
     "start:prod": "npm run build && npm run start",
     "clean": "rimraf dist client/dist",
     "lint": "tsc --noEmit",
-    "test": "tsx --test --test-concurrency=1 tests/**/*.test.ts",
+    "test": "cross-env NODE_ENV=test WOO_TEST_MODE=true tsx --test --test-concurrency=1 tests/**/*.test.ts",
     "admin:bootstrap": "tsx scripts/bootstrap_admin.ts",
-    "sync:zoho": "tsx scripts/fetch_zoho_products.ts"
+    "sync:zoho": "tsx scripts/fetch_zoho_products.ts",
+    "db:backup-json": "tsx scripts/backup_json_state.ts",
+    "db:check": "tsx scripts/check_postgres.ts",
+    "db:migrate": "tsx scripts/migrate_postgres.ts",
+    "db:import-json": "npm run db:backup-json && tsx scripts/import_json_to_postgres.ts",
+    "db:import-legacy-documents": "tsx scripts/import_legacy_documents.ts"
   },
   "devDependencies": {
+    "cross-env": "^10.1.0",
     "tsx": "^4.21.0",
     "typescript": "~5.8.2"
   }

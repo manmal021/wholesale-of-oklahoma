@@ -27,8 +27,8 @@ const secondaryTestProduct = pricedTestProducts[1]!;
 const tertiaryTestProduct = pricedTestProducts[2]!;
 const quaternaryTestProduct = pricedTestProducts[3]!;
 
-function expectedTax(subtotal: number): number {
-  const settings = databaseStore.getTaxSettings();
+async function expectedTax(subtotal: number): Promise<number> {
+  const settings = await databaseStore.getTaxSettings();
   return settings.enabled
     ? Math.round((subtotal * (settings.stateTaxRate + settings.localTaxRate)) / 100 * 100) / 100
     : 0;
@@ -48,7 +48,7 @@ test.before(async () => {
   });
 
   // Create test customer A (Approved wholesale retailer)
-  const appA = databaseStore.createApplication({
+  const appA = await databaseStore.createApplication({
     businessName: 'Alpha Smoke & Vape OKC LLC',
     contactFirstName: 'Alex',
     contactLastName: 'Alpha',
@@ -67,9 +67,9 @@ test.before(async () => {
     ageCertified: true,
     taxExemptCertified: true,
   });
-  const custA = databaseStore.createOrUpdateCustomerFromApplication(appA, 'admin_master');
+  const custA = await databaseStore.createOrUpdateCustomerFromApplication(appA, 'admin_master');
   customerA_id = custA.id;
-  const sessA = authStore.createSession({
+  const sessA = await authStore.createSession({
     id: custA.id,
     userId: custA.id,
     email: custA.email,
@@ -80,7 +80,7 @@ test.before(async () => {
   customerA_token = sessA.token;
 
   // Create test customer B (Another retailer for IDOR verification)
-  const appB = databaseStore.createApplication({
+  const appB = await databaseStore.createApplication({
     businessName: 'Beta Vapor Lounge Edmond',
     contactFirstName: 'Brian',
     contactLastName: 'Beta',
@@ -99,9 +99,9 @@ test.before(async () => {
     ageCertified: true,
     taxExemptCertified: true,
   });
-  const custB = databaseStore.createOrUpdateCustomerFromApplication(appB, 'admin_master');
+  const custB = await databaseStore.createOrUpdateCustomerFromApplication(appB, 'admin_master');
   customerB_id = custB.id;
-  const sessB = authStore.createSession({
+  const sessB = await authStore.createSession({
     id: custB.id,
     userId: custB.id,
     email: custB.email,
@@ -112,7 +112,7 @@ test.before(async () => {
   customerB_token = sessB.token;
 
   // Create admin session
-  const adminSess = authStore.createSession({
+  const adminSess = await authStore.createSession({
     id: 'admin_fulfillment_master',
     userId: 'admin_fulfillment_master',
     email: 'noreplyfromwholesaleofoklahoma@gmail.com',
@@ -193,7 +193,7 @@ test('Guest pickup order: requires identity but not an address, then appears in 
   });
   assert.equal(orderRes.status, 200);
 
-  const order = databaseStore.getOrder(orderRes.data.orderId);
+  const order = await databaseStore.getOrder(orderRes.data.orderId);
   assert.ok(order);
   assert.equal(order.customerAddress, undefined);
   assert.equal(order.identityDocument?.documentId, upload.data.documentId);
@@ -240,21 +240,21 @@ test('Fulfillment Config: Exposes centralized OKC pickup warehouse and metro del
 test('Checkout tax settings are public and order totals apply or omit configured sales tax', async () => {
   const settingsResponse = await apiRequest('/api/checkout/tax-settings');
   assert.equal(settingsResponse.status, 200);
-  assert.deepEqual(settingsResponse.data.taxSettings, databaseStore.getTaxSettings());
+  assert.deepEqual(settingsResponse.data.taxSettings, await databaseStore.getTaxSettings());
 
-  const originalSettings = databaseStore.getTaxSettings();
+  const originalSettings = await databaseStore.getTaxSettings();
   try {
-    databaseStore.updateTaxSettings({ stateTaxRate: 5, localTaxRate: 2.5, enabled: true }, 'test-admin');
-    const taxedTotals = databaseStore.calculateOrderTotals({ subtotal: 100, fulfillmentMethod: 'PICKUP' });
+    await databaseStore.updateTaxSettings({ stateTaxRate: 5, localTaxRate: 2.5, enabled: true }, 'test-admin');
+    const taxedTotals = await databaseStore.calculateOrderTotals({ subtotal: 100, fulfillmentMethod: 'PICKUP' });
     assert.equal(taxedTotals.tax, 7.5);
     assert.equal(taxedTotals.total, 107.5);
 
-    databaseStore.updateTaxSettings({ enabled: false }, 'test-admin');
-    const untaxedTotals = databaseStore.calculateOrderTotals({ subtotal: 100, fulfillmentMethod: 'PICKUP' });
+    await databaseStore.updateTaxSettings({ enabled: false }, 'test-admin');
+    const untaxedTotals = await databaseStore.calculateOrderTotals({ subtotal: 100, fulfillmentMethod: 'PICKUP' });
     assert.equal(untaxedTotals.tax, 0);
     assert.equal(untaxedTotals.total, 100);
   } finally {
-    databaseStore.updateTaxSettings(originalSettings, 'test-admin');
+    await databaseStore.updateTaxSettings(originalSettings, 'test-admin');
   }
 });
 
@@ -290,11 +290,11 @@ test('Pickup Scenario: Approved customer places PICKUP order -> Admin prepares -
   const orderId = orderRes.data.orderId;
 
   // Step 2: Verify order permanently stored in databaseStore
-  const storedOrder = databaseStore.getOrder(orderId);
+  const storedOrder = await databaseStore.getOrder(orderId);
   assert.ok(storedOrder, 'Order must be permanently stored in database');
   assert.equal(storedOrder.fulfillmentMethod, 'PICKUP');
   assert.equal(storedOrder.deliveryFee, 0.0, 'Pickup delivery fee must be $0.00');
-  assert.equal(storedOrder.tax, expectedTax(storedOrder.subtotal));
+  assert.equal(storedOrder.tax, await expectedTax(storedOrder.subtotal));
   assert.equal(storedOrder.total, storedOrder.subtotal + storedOrder.tax);
   assert.equal(storedOrder.status, 'ORDER_RECEIVED');
   assert.equal(storedOrder.pickupInfo?.locationSnapshot.address.street, '4500 S Bryant Ave');
@@ -416,7 +416,7 @@ test('Delivery Scenario: Server validates OKC metro address -> Server computes $
 
   assert.equal(orderRes.status, 200);
   const orderId = orderRes.data.orderId;
-  const storedOrder = databaseStore.getOrder(orderId)!;
+  const storedOrder = await databaseStore.getOrder(orderId)!;
   assert.equal(storedOrder.fulfillmentMethod, 'DELIVERY');
   assert.equal(storedOrder.deliveryFee, 25.0, 'Server must enforce $25 delivery fee');
   assert.equal(
@@ -424,7 +424,7 @@ test('Delivery Scenario: Server validates OKC metro address -> Server computes $
     Math.round((storedOrder.subtotal + storedOrder.tax + 25) * 100) / 100,
     'Subtotal plus sales tax and delivery fee'
   );
-  assert.equal(storedOrder.tax, expectedTax(storedOrder.subtotal));
+  assert.equal(storedOrder.tax, await expectedTax(storedOrder.subtotal));
   assert.equal(storedOrder.deliveryInfo?.addressSnapshot.street, '1200 N Pennsylvania Ave');
   assert.equal(storedOrder.deliveryInfo?.addressSnapshot.recipientName, 'Alex Alpha Storefront');
   assert.equal(storedOrder.deliveryInfo?.addressSnapshot.unit, 'Suite A');
@@ -532,8 +532,8 @@ test('Delivery Restrictions: Rejects addresses outside Oklahoma service area and
 // ---------------------------------------------------------------------------
 test('Physical Out of Stock Test: Physical 0 count triggers mismatch log, blocks online ordering, and flags order issue', async () => {
   // Ensure product starts unblocked for test reproducibility
-  databaseStore.removeProductOnlineOverride(primaryTestProduct.id, 'test_setup');
-  databaseStore.removeProductOnlineOverride(primaryTestProduct.sku, 'test_setup');
+  await databaseStore.removeProductOnlineOverride(primaryTestProduct.id, 'test_setup');
+  await databaseStore.removeProductOnlineOverride(primaryTestProduct.sku, 'test_setup');
 
   // Step 1: Customer places order for 5 units
   const orderRes = await apiRequest('/api/inventory/orders', {
@@ -554,7 +554,7 @@ test('Physical Out of Stock Test: Physical 0 count triggers mismatch log, blocks
   });
   assert.equal(orderRes.status, 200);
   const orderId = orderRes.data.orderId;
-  const storedOrder = databaseStore.getOrder(orderId)!;
+  const storedOrder = await databaseStore.getOrder(orderId)!;
   const itemId = storedOrder.lineItems[0].id;
 
   // Step 2: Staff physically checks warehouse shelf and discovers 0 units available.
@@ -578,15 +578,15 @@ test('Physical Out of Stock Test: Physical 0 count triggers mismatch log, blocks
   assert.equal(staffUpdateRes.data.productBlocked, true);
 
   // Step 3: Verify Inventory Mismatch record was automatically created
-  const mismatches = databaseStore.listInventoryMismatches(false);
+  const mismatches = await databaseStore.listInventoryMismatches(false);
   const matchingLog = mismatches.find((m) => m.orderId === orderId && m.sku === primaryTestProduct.sku);
   assert.ok(matchingLog, 'Discrepancy log must be recorded');
   assert.equal(matchingLog.physicalQuantity, 0);
   assert.ok(matchingLog.difference < 0);
 
   // Step 4: Verify Product is blocked from new online orders
-  assert.equal(databaseStore.isProductBlockedOnline(primaryTestProduct.id), true);
-  assert.equal(databaseStore.isProductBlockedOnline(primaryTestProduct.sku), true);
+  assert.equal(await databaseStore.isProductBlockedOnline(primaryTestProduct.id), true);
+  assert.equal(await databaseStore.isProductBlockedOnline(primaryTestProduct.sku), true);
 
   // Attempting new order for this item must be rejected
   const blockedOrderRes = await apiRequest('/api/inventory/orders', {
@@ -630,11 +630,11 @@ test('Physical Out of Stock Test: Physical 0 count triggers mismatch log, blocks
   assert.equal(custActionRes.status, 200);
 
   // After resolution, order has no remaining issues
-  const resolvedOrder = databaseStore.getOrder(orderId)!;
+  const resolvedOrder = await databaseStore.getOrder(orderId)!;
   assert.equal(resolvedOrder.hasInventoryIssue, false);
   assert.equal(resolvedOrder.status, 'PROCESSING');
-  databaseStore.removeProductOnlineOverride(primaryTestProduct.id, 'test_cleanup');
-  databaseStore.removeProductOnlineOverride(primaryTestProduct.sku, 'test_cleanup');
+  await databaseStore.removeProductOnlineOverride(primaryTestProduct.id, 'test_cleanup');
+  await databaseStore.removeProductOnlineOverride(primaryTestProduct.sku, 'test_cleanup');
 });
 
 // ---------------------------------------------------------------------------
@@ -659,7 +659,7 @@ test('Partial Inventory Test: Customer orders 10, staff finds 6 -> Unavailable 4
   });
   assert.equal(orderRes.status, 200);
   const orderId = orderRes.data.orderId;
-  const initialOrder = databaseStore.getOrder(orderId)!;
+  const initialOrder = await databaseStore.getOrder(orderId)!;
   const itemId = initialOrder.lineItems[0].id;
   assert.equal(initialOrder.originalSubtotal, Math.round(primaryTestProduct.rate! * 10 * 100) / 100);
 
@@ -691,10 +691,10 @@ test('Partial Inventory Test: Customer orders 10, staff finds 6 -> Unavailable 4
   assert.equal(resolveRes.status, 200);
 
   // Check recalculated totals
-  const updatedOrder = databaseStore.getOrder(orderId)!;
+  const updatedOrder = await databaseStore.getOrder(orderId)!;
   const expectedPartialSubtotal = Math.round(primaryTestProduct.rate! * 6 * 100) / 100;
   assert.equal(updatedOrder.subtotal, expectedPartialSubtotal);
-  assert.equal(updatedOrder.tax, expectedTax(expectedPartialSubtotal));
+  assert.equal(updatedOrder.tax, await expectedTax(expectedPartialSubtotal));
   assert.equal(updatedOrder.total, expectedPartialSubtotal + updatedOrder.tax);
   assert.equal(updatedOrder.paymentStatus, 'ADJUSTED');
   assert.equal(updatedOrder.originalSubtotal, Math.round(primaryTestProduct.rate! * 10 * 100) / 100, 'Historical original subtotal must remain preserved');
@@ -720,7 +720,7 @@ test('Multiple Items Test: Product A (Available), Product B (Out of Stock), Prod
   });
   assert.equal(orderRes.status, 200);
   const orderId = orderRes.data.orderId;
-  const ord = databaseStore.getOrder(orderId)!;
+  const ord = await databaseStore.getOrder(orderId)!;
 
   // Staff updates each item independently
   await apiRequest(`/api/admin/orders/${orderId}/items/${ord.lineItems[0].id}/status`, {
@@ -747,7 +747,7 @@ test('Multiple Items Test: Product A (Available), Product B (Out of Stock), Prod
     body: { status: 'AVAILABLE', physicalQuantityAvailable: 2 },
   });
 
-  const checkOrd = databaseStore.getOrder(orderId)!;
+  const checkOrd = await databaseStore.getOrder(orderId)!;
   assert.equal(checkOrd.status, 'INVENTORY_ISSUE');
   assert.equal(checkOrd.hasInventoryIssue, true);
 
@@ -773,7 +773,7 @@ test('Multiple Items Test: Product A (Available), Product B (Out of Stock), Prod
   });
 
   // Now all items resolved -> Order returned to PROCESSING
-  const finalOrd = databaseStore.getOrder(orderId)!;
+  const finalOrd = await databaseStore.getOrder(orderId)!;
   assert.equal(finalOrd.hasInventoryIssue, false);
   assert.equal(finalOrd.status, 'PROCESSING');
 
@@ -925,6 +925,6 @@ test('Security & RBAC: Regular customer cannot access admin order endpoints or m
 });
 
 test.after(async () => {
-  databaseStore.purgeAllCustomerData();
+  await databaseStore.purgeAllCustomerData();
   await new Promise<void>((resolve) => server.close(() => resolve()));
 });

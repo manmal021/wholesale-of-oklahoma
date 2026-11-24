@@ -64,12 +64,12 @@ function toLegacyApp(record: WholesaleApplicationRecord): WholesaleApplication {
 }
 
 class WholesaleStore {
-  public createApplication(data: Omit<WholesaleApplication, 'id' | 'status' | 'submittedAt'>): WholesaleApplication {
+  public async createApplication(data: Omit<WholesaleApplication, 'id' | 'status' | 'submittedAt'>): Promise<WholesaleApplication> {
     const contactParts = (data.contactName || '').trim().split(/\s+/);
     const firstName = contactParts[0] || 'Authorized';
     const lastName = contactParts.slice(1).join(' ') || 'Representative';
 
-    const record = databaseStore.createApplication({
+    const record = await databaseStore.createApplication({
       businessName: data.businessName,
       contactFirstName: firstName,
       contactLastName: lastName,
@@ -88,17 +88,17 @@ class WholesaleStore {
     return toLegacyApp(record);
   }
 
-  public getApplication(id: string): WholesaleApplication | undefined {
-    const record = databaseStore.getApplication(id);
+  public async getApplication(id: string): Promise<WholesaleApplication | undefined> {
+    const record = await databaseStore.getApplication(id);
     return record ? toLegacyApp(record) : undefined;
   }
 
-  public findByEmail(email: string): WholesaleApplication[] {
-    const records = databaseStore.findApplicationsByEmail(email);
+  public async findByEmail(email: string): Promise<WholesaleApplication[]> {
+    const records = await databaseStore.findApplicationsByEmail(email);
     return records.map(toLegacyApp);
   }
 
-  public listApplications(statusFilter?: string): WholesaleApplication[] {
+  public async listApplications(statusFilter?: string): Promise<WholesaleApplication[]> {
     let filter: ApplicationStatus | 'ALL' | undefined;
     if (statusFilter === 'PENDING_REVIEW' || statusFilter === 'PENDING') {
       filter = 'PENDING';
@@ -106,16 +106,16 @@ class WholesaleStore {
       filter = statusFilter;
     }
 
-    const records = databaseStore.listApplications(filter);
+    const records = await databaseStore.listApplications(filter);
     return records.map(toLegacyApp);
   }
 
-  public reviewApplication(
+  public async reviewApplication(
     id: string,
     status: 'APPROVED' | 'REJECTED',
     reviewNotes?: string
-  ): WholesaleApplication | null {
-    const updated = databaseStore.updateApplicationStatus(id, status, 'system_admin', reviewNotes);
+  ): Promise<WholesaleApplication | null> {
+    const updated = await databaseStore.updateApplicationStatus(id, status, 'system_admin', reviewNotes);
     return updated ? toLegacyApp(updated) : null;
   }
 }

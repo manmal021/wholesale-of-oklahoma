@@ -4,12 +4,15 @@
   "version": "1.0.0",
   "type": "module",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.1176.0",
     "@google/genai": "^2.4.0",
     "compression": "^1.8.2",
     "dotenv": "^17.2.3",
     "express": "^4.21.2",
+    "express-async-errors": "^3.1.1",
     "nodemailer": "^10.0.10",
     "pdf-lib": "^1.17.1",
+    "pg": "^8.23.1",
     "resend": "^6.32.1",
     "sharp": "^0.35.5"
   },
@@ -17,6 +20,7 @@
     "@types/compression": "^1.8.1",
     "@types/express": "^4.17.21",
     "@types/node": "^22.14.0",
-    "@types/nodemailer": "^8.0.2"
+    "@types/nodemailer": "^8.0.2",
+    "@types/pg": "^8.23.1"
   }
 }

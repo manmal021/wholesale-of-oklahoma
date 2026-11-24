@@ -46,11 +46,11 @@ async function run() {
         }
       }
     } catch (_) {}
-    const oldApp = databaseStore.getLatestApplicationForEmail(email);
-    if (oldApp) databaseStore.deleteApplication(oldApp.id);
-    const oldCust = databaseStore.getCustomerByEmail(email);
-    if (oldCust) databaseStore.deleteCustomer(oldCust.id);
-    authStore.deleteUser(email);
+    const oldApp = await databaseStore.getLatestApplicationForEmail(email);
+    if (oldApp) await databaseStore.deleteApplication(oldApp.id);
+    const oldCust = await databaseStore.getCustomerByEmail(email);
+    if (oldCust) await databaseStore.deleteCustomer(oldCust.id);
+    await authStore.deleteUser(email);
   }
 
   // Step 2: Customer Submits Application 1 (For Approval Test)
@@ -270,18 +270,18 @@ async function run() {
   console.log('✓ Verified via API: Both applications return 404 Not Found (completely removed).');
 
   // Also verify via databaseStore
-  databaseStore.deleteApplication(appId1);
-  if (approvedCust) databaseStore.deleteCustomer(approvedCust.id);
-  authStore.deleteUser(appEmail1);
-  databaseStore.deleteApplication(appId2);
-  const cust2 = databaseStore.getCustomerByEmail(appEmail2);
-  if (cust2) databaseStore.deleteCustomer(cust2.id);
-  authStore.deleteUser(appEmail2);
+  await databaseStore.deleteApplication(appId1);
+  if (approvedCust) await databaseStore.deleteCustomer(approvedCust.id);
+  await authStore.deleteUser(appEmail1);
+  await databaseStore.deleteApplication(appId2);
+  const cust2 = await databaseStore.getCustomerByEmail(appEmail2);
+  if (cust2) await databaseStore.deleteCustomer(cust2.id);
+  await authStore.deleteUser(appEmail2);
 
-  const checkApp1 = databaseStore.getApplication(appId1);
-  const checkCust1 = databaseStore.getCustomerByEmail(appEmail1);
-  const checkApp2 = databaseStore.getApplication(appId2);
-  const checkCust2 = databaseStore.getCustomerByEmail(appEmail2);
+  const checkApp1 = await databaseStore.getApplication(appId1);
+  const checkCust1 = await databaseStore.getCustomerByEmail(appEmail1);
+  const checkApp2 = await databaseStore.getApplication(appId2);
+  const checkCust2 = await databaseStore.getCustomerByEmail(appEmail2);
 
   if (checkApp1 || checkCust1 || checkApp2 || checkCust2) {
     throw new Error('Test account / application cleanup failed — records still exist in database!');

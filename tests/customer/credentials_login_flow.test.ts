@@ -19,7 +19,7 @@ test('Customer Credentials & Login Flow: Password generation rules strictly met'
 
 test('Customer Credentials & Login Flow: Denied applicant login is completely blocked', async () => {
   const testEmailDenied = `test_deny_${Date.now()}@example.com`;
-  const appDenied = databaseStore.createApplication({
+  const appDenied = await databaseStore.createApplication({
     businessName: 'Denied Smoke Shop LLC',
     dba: 'Denied Smoke',
     contactFirstName: 'Jane',
@@ -45,7 +45,7 @@ test('Customer Credentials & Login Flow: Denied applicant login is completely bl
     }]
   });
 
-  databaseStore.updateApplicationStatus(appDenied.id, 'REJECTED', 'admin_tester', 'Compliance verification rejected.');
+  await databaseStore.updateApplicationStatus(appDenied.id, 'REJECTED', 'admin_tester', 'Compliance verification rejected.');
 
   let loginDeniedFailed = false;
   try {
@@ -59,14 +59,14 @@ test('Customer Credentials & Login Flow: Denied applicant login is completely bl
   }
   assert.strictEqual(loginDeniedFailed, true, 'Denied applicant must not be able to log in.');
 
-  databaseStore.deleteApplication(appDenied.id);
+  await databaseStore.deleteApplication(appDenied.id);
 });
 
 test('Customer Credentials & Login Flow: Admin login is not blocked by a pending wholesale application', async () => {
   const adminEmail = `admin_pending_${Date.now()}@example.com`;
-  authStore.setPassword(adminEmail, 'AdminPassword123!');
-  authStore.updateUserRole(adminEmail, 'admin');
-  const pendingApplication = databaseStore.createApplication({
+  await authStore.setPassword(adminEmail, 'AdminPassword123!');
+  await authStore.updateUserRole(adminEmail, 'admin');
+  const pendingApplication = await databaseStore.createApplication({
     businessName: 'Admin Wholesale LLC',
     dba: 'Admin Wholesale',
     contactFirstName: 'Admin',
@@ -93,18 +93,18 @@ test('Customer Credentials & Login Flow: Admin login is not blocked by a pending
   });
 
   try {
-    const loginResult = authStore.login(adminEmail, 'AdminPassword123!');
+    const loginResult = await authStore.login(adminEmail, 'AdminPassword123!');
     assert.strictEqual(loginResult.user.role, 'admin');
     assert.ok(loginResult.token);
   } finally {
-    databaseStore.deleteApplication(pendingApplication.id);
-    authStore.deleteUser(adminEmail);
+    await databaseStore.deleteApplication(pendingApplication.id);
+    await authStore.deleteUser(adminEmail);
   }
 });
 
 test('Customer Credentials & Login Flow: Approved customer receives 10-char password, logs in, and browses wholesale catalog', async () => {
   const testEmailApproved = `approved_retailer_${Date.now()}@oklahomashop.com`;
-  const appApproved = databaseStore.createApplication({
+  const appApproved = await databaseStore.createApplication({
     businessName: 'Thunder Wholesale Dispensary',
     dba: 'Thunder Wholesale',
     contactFirstName: 'Bob',
@@ -134,14 +134,14 @@ test('Customer Credentials & Login Flow: Approved customer receives 10-char pass
   assert.strictEqual(assignedPassword.length, 10);
   assert(/[A-Z]/.test(assignedPassword) && /[a-z]/.test(assignedPassword) && /[0-9]/.test(assignedPassword) && /[!@#$%&*?]/.test(assignedPassword));
 
-  databaseStore.updateApplicationStatus(appApproved.id, 'APPROVED', 'admin_tester');
+  await databaseStore.updateApplicationStatus(appApproved.id, 'APPROVED', 'admin_tester');
   appApproved.assignedPassword = assignedPassword;
 
-  const customerRecord = databaseStore.createOrUpdateCustomerFromApplication(appApproved, 'admin_tester', assignedPassword);
+  const customerRecord = await databaseStore.createOrUpdateCustomerFromApplication(appApproved, 'admin_tester', assignedPassword);
   assert(customerRecord, 'Customer record must be created');
   assert.strictEqual(customerRecord.temporaryPassword, assignedPassword);
 
-  authStore.provisionCustomer(customerRecord, assignedPassword);
+  await authStore.provisionCustomer(customerRecord, assignedPassword);
 
   // Authenticate using assigned password
   const loginResult = await authStore.login(customerRecord.email, assignedPassword);
@@ -150,7 +150,7 @@ test('Customer Credentials & Login Flow: Approved customer receives 10-char pass
   assert.strictEqual(loginResult.user.email, customerRecord.email);
 
   // Validate session token unlocks catalog
-  const verifiedUser = authStore.validateSession(loginResult.token);
+  const verifiedUser = await authStore.validateSession(loginResult.token);
   assert(verifiedUser, 'Session token must be valid');
   assert.strictEqual(verifiedUser.role, 'approved_customer');
 
@@ -164,7 +164,7 @@ test('Customer Credentials & Login Flow: Approved customer receives 10-char pass
   assert.strictEqual(wrongPasswordFailed, true);
 
   // Clean up
-  databaseStore.deleteApplication(appApproved.id);
-  databaseStore.deleteCustomer(customerRecord.id);
-  databaseStore.deleteUser(testEmailApproved);
+  await databaseStore.deleteApplication(appApproved.id);
+  await databaseStore.deleteCustomer(customerRecord.id);
+  await databaseStore.deleteUser(testEmailApproved);
 });

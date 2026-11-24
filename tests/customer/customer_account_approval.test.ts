@@ -19,10 +19,10 @@ test.before(async () => {
   process.env.ADMIN_NOTIFICATION_EMAIL = TEST_ADMIN_EMAIL;
 
   // Clean test admin state to ensure deterministic initial bootstrap
-  authStore.deleteUser(TEST_ADMIN_EMAIL);
-  authStore.ensureInitialAdmin(TEST_ADMIN_EMAIL);
-  databaseStore.seedDemoAccounts();
-  authStore.seedRetailerTestAccount();
+  await authStore.deleteUser(TEST_ADMIN_EMAIL);
+  await authStore.ensureInitialAdmin(TEST_ADMIN_EMAIL);
+  await databaseStore.seedDemoAccounts();
+  await authStore.seedRetailerTestAccount();
 
   await new Promise<void>((resolve) => {
     server = http.createServer(apiApp);
@@ -35,7 +35,7 @@ test.before(async () => {
 });
 
 test.after(async () => {
-  databaseStore.purgeAllCustomerData();
+  await databaseStore.purgeAllCustomerData();
   await new Promise<void>((resolve) => server.close(() => resolve()));
 });
 
@@ -56,10 +56,10 @@ function getOutboxEntries(): any[] {
 // 1. Initial Admin Account Provisioning & Setup Token
 // ---------------------------------------------------------------------------
 test('Admin Setup: noreplyfromwholesaleofoklahoma@gmail.com provisioned without hardcoded password and receives activation token', async () => {
-  const adminUser = authStore.getUser(TEST_ADMIN_EMAIL);
+  const adminUser = await authStore.getUser(TEST_ADMIN_EMAIL);
   assert.ok(adminUser, 'Admin user must exist in authStore');
   assert.equal(adminUser.role, 'admin', 'Admin role must be admin');
-  assert.equal(authStore.hasPasswordSet(TEST_ADMIN_EMAIL), false, 'Must not have default or hardcoded password set');
+  assert.equal(await authStore.hasPasswordSet(TEST_ADMIN_EMAIL), false, 'Must not have default or hardcoded password set');
 
   // Verify setup invite email in outbox (latest)
   const outbox = getOutboxEntries();
@@ -168,7 +168,7 @@ test('Customer Application: Valid submission creates PENDING record, sends admin
   testAppId = data.applicationId;
 
   // Check database persistence
-  const savedApp = databaseStore.getApplication(testAppId);
+  const savedApp = await databaseStore.getApplication(testAppId);
   assert.ok(savedApp, 'Application must be stored in database');
   assert.equal(savedApp.status, 'PENDING');
   assert.equal(savedApp.businessName, 'Thunder OK Vapes LLC');
@@ -527,9 +527,9 @@ test('Admin Approval: Admin logs in, reviews application, and approves account',
   assert.ok(approveData.customer, 'Customer record created');
 
   // Verify status updated in database
-  const updatedApp = databaseStore.getApplication(testAppId);
+  const updatedApp = await databaseStore.getApplication(testAppId);
   assert.equal(updatedApp?.status, 'APPROVED');
-  const cust = databaseStore.getCustomerByEmail(testApplicantEmail);
+  const cust = await databaseStore.getCustomerByEmail(testApplicantEmail);
   assert.ok(cust, 'Customer record must exist in database');
   assert.equal(cust.status, 'APPROVED');
 
@@ -571,7 +571,7 @@ test('Customer Activation: Customer verifies token, creates password, and token 
   assert.equal(reuseRes.status, 400);
 
   // Verify customer record marked activated in database
-  const cust = databaseStore.getCustomerByEmail(testApplicantEmail);
+  const cust = await databaseStore.getCustomerByEmail(testApplicantEmail);
   assert.ok(cust?.activatedAt, 'Customer must have activatedAt timestamp');
 });
 
@@ -611,7 +611,7 @@ test('Authorized Shopping: Newly activated customer logs in and views live whole
 // 8. Account Suspension & Reactivation
 // ---------------------------------------------------------------------------
 test('Account Suspension: Admin suspends account -> customer login blocked & session invalidated', async () => {
-  const cust = databaseStore.getCustomerByEmail(testApplicantEmail);
+  const cust = await databaseStore.getCustomerByEmail(testApplicantEmail);
   assert.ok(cust);
 
   // Admin suspends customer

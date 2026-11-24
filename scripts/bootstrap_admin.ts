@@ -30,7 +30,7 @@ async function bootstrap() {
   console.log(`  Target Admin Email : ${targetEmail}`);
 
   // 1. Ensure user record exists with admin role
-  const { user } = authStore.ensureInitialAdmin(targetEmail);
+  const { user } = await authStore.ensureInitialAdmin(targetEmail);
   console.log(`  User ID            : ${user.id}`);
   console.log(`  Authorization Role : ${user.role.toUpperCase()}`);
 
@@ -38,7 +38,7 @@ async function bootstrap() {
   const { token, activationUrl } = await authStore.createAdminActivationToken(targetEmail);
 
   // 3. Log audit event
-  databaseStore.addAuditLog({
+  await databaseStore.addAuditLog({
     event: 'ADMIN_ACTIVATION_REQUESTED' as any,
     targetEmail,
     adminId: 'cli_bootstrap',

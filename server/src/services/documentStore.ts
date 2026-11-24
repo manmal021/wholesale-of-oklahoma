@@ -1,19 +1,11 @@
 /**
- * documentStore.ts
- * Secure document storage service for business licenses & tax resale certificates.
- * Follows OWASP File Upload Guidance:
- *  - Validates magic bytes & MIME signatures
- *  - Enforces 10MB maximum upload limit
- *  - Generates cryptographic random filenames (prevents path traversal)
- *  - Stores files outside public web root in private directory
- *  - Prohibits public static access; requires admin authorization to download
+ * Private document storage with relational metadata and interchangeable S3/local blobs.
  */
-
-import fs from 'fs';
-import path from 'path';
-import crypto from 'crypto';
-
-import os from 'os';
+import fs from 'node:fs/promises';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import { DeleteObjectCommand, GetObjectCommand, PutObjectCommand, S3Client } from '@aws-sdk/client-s3';
+import { postgresPool } from '../repositories/postgres.js';
 
 export interface DocumentRecord {
   id: string;
@@ -21,181 +13,135 @@ export interface DocumentRecord {
   mimeType: string;
   size: number;
   documentType: 'sales_tax_permit' | 'resale_certificate' | 'business_license' | 'driver_license' | 'id' | 'generated_application_pdf' | 'other' | string;
-  storedPath: string;
+  objectKey: string;
+  storageProvider: 'local' | 's3';
   uploadedAt: string;
 }
 
-const STORAGE_ROOT = process.env.WOO_STORAGE_DIR
-  ? path.resolve(process.env.WOO_STORAGE_DIR)
-  : process.env.VERCEL
-    ? path.join(os.tmpdir(), 'storage')
-    : path.resolve(process.cwd(), 'storage');
-const STORAGE_DIR = path.join(STORAGE_ROOT, 'documents');
-const INDEX_PATH = path.join(STORAGE_DIR, 'document-index.json');
+const storageRoot = path.resolve(process.env.WOO_STORAGE_DIR || path.join(process.cwd(), 'storage'));
+const localDocumentDirectory = path.join(storageRoot, 'documents');
+const s3Bucket = process.env.WOO_TEST_MODE === 'true' ? undefined : process.env.S3_BUCKET;
+const isProduction = process.env.WOO_TEST_MODE !== 'true' &&
+  (process.env.NODE_ENV === 'production' || Boolean(process.env.VERCEL_ENV === 'production'));
+const s3 = s3Bucket ? new S3Client({ region: process.env.AWS_REGION || process.env.AWS_DEFAULT_REGION }) : null;
+const testMetadata = new Map<string, DocumentRecord>();
 
-// Ensure private storage directory exists without crashing on read-only environments
-try {
-  if (!fs.existsSync(STORAGE_DIR)) {
-    fs.mkdirSync(STORAGE_DIR, { recursive: true, mode: 0o700 });
-  }
-} catch (e) {
-  console.warn('[DocumentStore] Storage directory init skipped (read-only filesystem):', e);
+function extensionForMime(mime: string): string | undefined {
+  return ({ 'application/pdf': 'pdf', 'image/jpeg': 'jpg', 'image/png': 'png', 'image/webp': 'webp' } as Record<string, string>)[mime];
+}
+
+function recordFromRow(row: Record<string, any>): DocumentRecord {
+  return {
+    id: row.id,
+    originalName: row.original_name,
+    mimeType: row.mime_type,
+    size: Number(row.size_bytes),
+    documentType: row.document_type,
+    objectKey: row.object_key,
+    storageProvider: row.storage_provider,
+    uploadedAt: new Date(row.uploaded_at).toISOString(),
+  };
 }
 
 class DocumentStore {
-  private documents: Map<string, DocumentRecord> = new Map();
-  private fileBuffers: Map<string, Buffer> = new Map();
-
-  constructor() {
-    try {
-      if (!fs.existsSync(INDEX_PATH)) return;
-      const records = JSON.parse(fs.readFileSync(INDEX_PATH, 'utf8')) as DocumentRecord[];
-      for (const record of records) {
-        const extension = record.mimeType === 'application/pdf'
-          ? 'pdf'
-          : record.mimeType === 'image/jpeg'
-            ? 'jpg'
-            : record.mimeType === 'image/png'
-              ? 'png'
-              : record.mimeType === 'image/webp'
-                ? 'webp'
-                : '';
-        if (!/^doc_[a-f0-9]{32}$/.test(record.id) || !extension) continue;
-        this.documents.set(record.id, {
-          ...record,
-          storedPath: path.join(STORAGE_DIR, `${record.id}.${extension}`),
-        });
-      }
-    } catch (error) {
-      console.warn('[DocumentStore] Could not load document metadata index:', error);
-    }
-  }
-
-  private persistIndex(): void {
-    const temporaryPath = `${INDEX_PATH}.${crypto.randomBytes(8).toString('hex')}.tmp`;
-    try {
-      fs.writeFileSync(temporaryPath, JSON.stringify(Array.from(this.documents.values())), { mode: 0o600 });
-      fs.renameSync(temporaryPath, INDEX_PATH);
-    } catch (error) {
-      try {
-        if (fs.existsSync(temporaryPath)) fs.unlinkSync(temporaryPath);
-      } catch {
-        // Preserve the original persistence error.
-      }
-      throw error;
-    }
-  }
-
-  /**
-   * Validates file buffer magic bytes to ensure file content matches allowed types.
-   */
   public validateMagicBytes(buffer: Buffer): { isValid: boolean; detectedMime?: string; ext?: string } {
     if (buffer.length < 8) return { isValid: false };
-
-    // PDF magic bytes: %PDF (0x25 0x50 0x44 0x46)
-    if (buffer[0] === 0x25 && buffer[1] === 0x50 && buffer[2] === 0x44 && buffer[3] === 0x46) {
-      return { isValid: true, detectedMime: 'application/pdf', ext: 'pdf' };
-    }
-
-    // JPEG magic bytes: 0xFF 0xD8 0xFF
-    if (buffer[0] === 0xff && buffer[1] === 0xd8 && buffer[2] === 0xff) {
-      return { isValid: true, detectedMime: 'image/jpeg', ext: 'jpg' };
-    }
-
-    // PNG magic bytes: 0x89 0x50 0x4E 0x47 (0x89 'P' 'N' 'G')
-    if (buffer[0] === 0x89 && buffer[1] === 0x50 && buffer[2] === 0x4e && buffer[3] === 0x47) {
-      return { isValid: true, detectedMime: 'image/png', ext: 'png' };
-    }
-
-    // WebP magic bytes: RIFF....WEBP (0x52 0x49 0x46 0x46 .... 0x57 0x45 0x42 0x50)
-    if (
-      buffer.length >= 12 &&
-      buffer[0] === 0x52 && buffer[1] === 0x49 && buffer[2] === 0x46 && buffer[3] === 0x46 &&
-      buffer[8] === 0x57 && buffer[9] === 0x45 && buffer[10] === 0x42 && buffer[11] === 0x50
-    ) {
+    if (buffer.subarray(0, 4).equals(Buffer.from('%PDF'))) return { isValid: true, detectedMime: 'application/pdf', ext: 'pdf' };
+    if (buffer[0] === 0xff && buffer[1] === 0xd8 && buffer[2] === 0xff) return { isValid: true, detectedMime: 'image/jpeg', ext: 'jpg' };
+    if (buffer.subarray(0, 4).equals(Buffer.from([0x89, 0x50, 0x4e, 0x47]))) return { isValid: true, detectedMime: 'image/png', ext: 'png' };
+    if (buffer.subarray(0, 4).toString() === 'RIFF' && buffer.subarray(8, 12).toString() === 'WEBP') {
       return { isValid: true, detectedMime: 'image/webp', ext: 'webp' };
     }
-
     return { isValid: false };
   }
 
-  /**
-   * Securely saves an uploaded document buffer after strict validation.
-   */
-  public saveDocument(
+  public async saveDocument(
     buffer: Buffer,
     originalName: string,
-    documentType: 'sales_tax_permit' | 'resale_certificate' | 'business_license' | 'driver_license' | 'id' | 'generated_application_pdf' | 'other' | string
-  ): DocumentRecord {
-    // 1. Enforce size limit (10MB)
-    const MAX_SIZE = 10 * 1024 * 1024;
-    if (buffer.length > MAX_SIZE) {
-      throw new Error('File exceeds the maximum allowed size of 10MB.');
-    }
-
-    // 2. Validate magic bytes
+    documentType: DocumentRecord['documentType']
+  ): Promise<DocumentRecord> {
+    if (buffer.length > 10 * 1024 * 1024) throw new Error('File exceeds the maximum allowed size of 10MB.');
     const validation = this.validateMagicBytes(buffer);
     if (!validation.isValid || !validation.detectedMime || !validation.ext) {
       throw new Error('Invalid file type. Only genuine PDF, JPG, PNG, and WebP documents are accepted.');
     }
+    if (isProduction && !s3Bucket) throw new Error('S3_BUCKET is required for production document storage.');
 
-    // 3. Cryptographically random filename (prevents directory traversal & filename spoofing)
-    const docId = `doc_${crypto.randomBytes(16).toString('hex')}`;
-    const safeFilename = `${docId}.${validation.ext}`;
-    const targetPath = path.join(STORAGE_DIR, safeFilename);
-
-    // 4. Save to the private directory before making the document available.
-    const docRecord: DocumentRecord = {
-      id: docId,
+    const id = `doc_${crypto.randomBytes(16).toString('hex')}`;
+    const objectKey = `documents/${id}.${validation.ext}`;
+    const storageProvider = s3Bucket ? 's3' : 'local';
+    const record: DocumentRecord = {
+      id,
       originalName: originalName.replace(/[^a-zA-Z0-9._-]/g, '_').slice(0, 100),
       mimeType: validation.detectedMime,
       size: buffer.length,
       documentType,
-      storedPath: targetPath,
+      objectKey,
+      storageProvider,
       uploadedAt: new Date().toISOString(),
     };
 
-    fs.mkdirSync(STORAGE_DIR, { recursive: true, mode: 0o700 });
-    fs.writeFileSync(targetPath, buffer, { mode: 0o600 });
-    this.documents.set(docId, docRecord);
-    this.fileBuffers.set(docId, buffer);
+    if (storageProvider === 's3') {
+      await s3!.send(new PutObjectCommand({
+        Bucket: s3Bucket,
+        Key: objectKey,
+        Body: buffer,
+        ContentType: record.mimeType,
+        ServerSideEncryption: 'AES256',
+      }));
+    } else {
+      await fs.mkdir(localDocumentDirectory, { recursive: true, mode: 0o700 });
+      await fs.writeFile(path.join(localDocumentDirectory, path.basename(objectKey)), buffer, { mode: 0o600, flag: 'wx' });
+    }
+
     try {
-      this.persistIndex();
+      if (postgresPool) {
+        await postgresPool.query(
+          `INSERT INTO woo_documents
+             (id, original_name, mime_type, size_bytes, document_type, object_key, storage_provider, uploaded_at)
+           VALUES ($1, $2, $3, $4, $5, $6, $7, $8)`,
+          [record.id, record.originalName, record.mimeType, record.size, record.documentType,
+            record.objectKey, record.storageProvider, record.uploadedAt]
+        );
+      } else {
+        testMetadata.set(id, record);
+      }
     } catch (error) {
-      this.documents.delete(docId);
-      this.fileBuffers.delete(docId);
-      try {
-        fs.unlinkSync(targetPath);
-      } catch {
-        // Preserve the original persistence error.
+      if (storageProvider === 's3') {
+        await s3!.send(new DeleteObjectCommand({ Bucket: s3Bucket, Key: objectKey })).catch(() => undefined);
+      } else {
+        await fs.unlink(path.join(localDocumentDirectory, path.basename(objectKey))).catch(() => undefined);
       }
-      throw new Error('Could not securely save the uploaded document. Please try again.');
+      throw new Error('Could not securely save the uploaded document. Please try again.', { cause: error });
     }
-    return docRecord;
+    return record;
   }
 
-  public getDocument(id: string): DocumentRecord | undefined {
-    return this.documents.get(id);
+  public async getDocument(id: string): Promise<DocumentRecord | undefined> {
+    if (!/^doc_[a-f0-9]{32}$/.test(id)) return undefined;
+    if (postgresPool) {
+      const { rows } = await postgresPool.query('SELECT * FROM woo_documents WHERE id = $1', [id]);
+      return rows[0] ? recordFromRow(rows[0]) : undefined;
+    }
+    return testMetadata.get(id);
   }
 
-  public getDocumentBuffer(id: string): { record: DocumentRecord; buffer: Buffer } | null {
-    const record = this.documents.get(id);
+  public async getDocumentBuffer(id: string): Promise<{ record: DocumentRecord; buffer: Buffer } | null> {
+    const record = await this.getDocument(id);
     if (!record) return null;
-
-    if (this.fileBuffers.has(id)) {
-      return { record, buffer: this.fileBuffers.get(id)! };
-    }
-
     try {
-      if (fs.existsSync(record.storedPath)) {
-        const buffer = fs.readFileSync(record.storedPath);
-        return { record, buffer };
+      if (record.storageProvider === 's3') {
+        if (!s3 || !s3Bucket) return null;
+        const response = await s3.send(new GetObjectCommand({ Bucket: s3Bucket, Key: record.objectKey }));
+        const bytes = await response.Body?.transformToByteArray();
+        return bytes ? { record, buffer: Buffer.from(bytes) } : null;
       }
-    } catch (e) {
-      console.warn('[DocumentStore] Failed to read stored document:', e);
+      const buffer = await fs.readFile(path.join(localDocumentDirectory, path.basename(record.objectKey)));
+      return { record, buffer };
+    } catch (error) {
+      console.warn('[DocumentStore] Failed to read stored document:', error);
+      return null;
     }
-
-    return null;
   }
 }
 
